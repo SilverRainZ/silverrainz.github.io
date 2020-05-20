@@ -27,9 +27,12 @@ author = 'Shengyu Zhang'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-        'sphinx.ext.graphviz'
-]
+extensions = []
+
+extensions.append('sphinx.ext.graphviz')
+
+extensions.append('sphinx.ext.todo')
+todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,8 +58,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'alabaster'
 
 html_theme_options = {
-        # Disable showing the sidebar. Defaults to 'false'
-        'nosidebar': True,
+        'sidebar_collapse': True,
+        'show_related': True,
         }
 
 # Add any paths that contain custom static files (such as style sheets) here,

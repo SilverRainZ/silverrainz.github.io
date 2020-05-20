@@ -6,16 +6,12 @@
 银色子弹
 ========
 
+:ref:`genindex` | :ref:`modindex` | :ref:`search` | :doc:`todo`
+
 .. toctree::
    :caption: 目录：
    :titlesonly:
+   :glob:
 
    about/index
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   note/*

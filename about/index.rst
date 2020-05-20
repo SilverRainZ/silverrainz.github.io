@@ -11,7 +11,7 @@ Intro
 - `Free Software`_ supporter
 - Arch Linux user, active member of `Arch Linux CN Community`_
 - Author of `Srain IRC Client`_
-- :doc:`./enemy` of SilverRainZ
+- :doc:`enemy` of SilverRainZ
 
 .. _Free Software: https://www.gnu.org/philosophy/free-sw.html
 .. _Srain IRC Client: https://srain.im/
