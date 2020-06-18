@@ -29,10 +29,19 @@ author = 'Shengyu Zhang'
 # ones.
 extensions = []
 
+extensions.append('sphinx_rtd_theme')
+# The theme to use for HTML and HTML Help pages.
+html_theme = 'sphinx_rtd_theme'
+html_theme_options = {}
+
 extensions.append('sphinx.ext.graphviz')
 
 extensions.append('sphinx.ext.todo')
 todo_include_todos = True
+
+extensions.append('sphinx.ext.githubpages')
+
+extensions.append('sphinxcontrib.peopledomain')
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -52,17 +61,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'alabaster'
-
-html_theme_options = {
-        'sidebar_collapse': True,
-        'show_related': True,
-        }
-
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_baseurl = 'https://silverrainz.me'
+
+html_title = project
+
+# If true, the reST sources are included in the HTML build as _sources/name.
+# I don't want to public my sources, so set it to false.
+html_copy_source = False
