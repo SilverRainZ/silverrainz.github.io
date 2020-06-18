@@ -54,10 +54,8 @@
     learn_badminton -> injure_knee;
 
     {rank=same 2019.04 sketch_beidaihe[label="Go to 北戴河 alone for sketching"]}
-    learn_watercolor_jgr -> sketch_beidaihe;
 
     {rank=same 2019.08 learn_watercolor_taylor[label="Learn landscape watercolor from David Taylor"]}
-    sketch_beidaihe -> learn_watercolor_taylor;
 
     {rank=same 2019.10 learn_guitar[label="Start learning guitar"]}
 
