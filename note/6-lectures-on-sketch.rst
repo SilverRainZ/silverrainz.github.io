@@ -74,6 +74,8 @@
 
 .. [#] https://www.zhihu.com/question/34104818
 
+.. _birth-of-shape:
+
 造型的诞生
 ==========
 
