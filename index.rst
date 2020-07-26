@@ -19,4 +19,7 @@
    :titlesonly:
    :glob:
 
-   note/*
+   blog/index
+   note/index
+   cheatsheet/index
+   fragment/index
