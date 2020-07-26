@@ -1,0 +1,33 @@
+=======
+2020-07
+=======
+
+树莓派 HDMI 输出到电视花屏
+==========================
+
+电视是 Pioneer 的，分辨率为 1360x768@60Hz，从开机开始就一直花屏，
+看起来是被严重压扁的 TTY 文本输出。猜测是分辨率没有正常探测到，
+根据知乎上的文章 [#]_ 和 树莓派官方文档 [#]_ 的提示，在 ``/boot/config.txt``
+下新增了如下配置::
+
+    ##############################
+    # HDIM output for Pioneer TV #
+    ##############################
+    # Force the monitor to HDMI mode so that sound will be sent over HDMI cable
+    hdmi_drive=2
+    # Set monitor mode to DMT
+    hdmi_group=2
+    # Set monitor resolution to 1360x768@60Hz
+    hdmi_mode=39
+
+重启后正常工作。
+
+.. [#] https://zhuanlan.zhihu.com/p/55366332
+.. [#] https://www.raspberrypi.org/documentation/configuration/config-txt/video.md
+
+Arch 安装 nextcloud
+===================
+
+按着 Wiki 来就好了。
+
+.. [#] https://wiki.archlinux.org/index.php/Nextcloud
