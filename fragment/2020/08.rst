@@ -1,0 +1,46 @@
+=======
+2020-08
+=======
+
+GTK 3.99 - GTK Development Blog
+===============================
+
+@mclasen 在这篇博客 [#]_ 里大概讲了一下 3.98 之后引入的新 feature：
+
+Event controllers for keyboard shortcuts:
+    说的应该是 ``GtkShortcutControllers`` [#]_
+
+    - Event Controller 看起来 [#]_ 是将 GTK3 中各种输入事件的处理从 ``GtkWidget``
+      中拆出来的工具类
+    - 在 GTK3 中，全局的键盘快捷键是通过 ``GtkAccelGroup`` 或者绑定
+      ``::button-press-event`` 实现的，前者的 API 我一眼没看懂……
+      ``GtkShortcutControllers`` 看起来直观多了
+
+Movable popovers
+    Gnome3 之后他们一直很喜欢这种风格的交互
+
+Row-recycling list and grid views
+    可以看这篇博客 [#]_ ，我还没细看，只浏览了下关键字：
+    比如说对于列表控件 ，数据（data）存储在 ``GListModel`` 中，
+    而表示一个行的控件（view）仅会创建视野中能看到的那部分，
+    滚动浏览的时候，新出现的 row 会复用消失掉的 row 的控件，
+    对于有大量 row 的 list 和 grid 的场景会有显著的性能提升（Srain 有救了
+
+Revamped accessibility infrastructure
+    对 a11y 没有太多了解
+
+Animation API
+    同样没有了解，Media in GTK 4 [#]_ 有涉及到这个
+
+最后，GTK4 真的要来了：
+
+    We are committed to releasing GTK 4 before the end of year.
+    Between now and then, we are doing more work on accessibility backends,
+    improving the macOS backend, writing documentation, and examples.
+    
+.. [#] https://blog.gtk.org/2020/07/31/gtk-3-99/
+.. [#] https://developer.gnome.org/gtk4/stable/GtkShortcutController.html
+.. [#] https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/
+.. [#] https://blog.gtk.org/2020/06/07/scalable-lists-in-gtk-4/
+.. [#] https://blog.gtk.org/2020/05/20/media-in-gtk-4/
+
