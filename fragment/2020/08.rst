@@ -44,3 +44,34 @@ Animation API
 .. [#] https://blog.gtk.org/2020/06/07/scalable-lists-in-gtk-4/
 .. [#] https://blog.gtk.org/2020/05/20/media-in-gtk-4/
 
+PPTP & L2TP
+===========
+
+PPTP
+    - Pros: 速度快
+    - Cons: 
+
+测试磁盘读写速度
+================
+
+::
+    dd if=/dev/zero of=test.img bs=1G count=1 oflag=dsync
+
+.. [#] https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-dd-command/
+
+自由簧 (Free reed)
+==================
+
+openSSH 8.4 后出现  load pubkey "/key/file/path": invalid format
+================================================================
+
+之前版本的 openSSH 默认使用的密钥类型 "ssh-rsa" 使用 sha1 签 [#]_ 名，
+而 sha1 已经被证明是不安全的了。
+
+    It is now possible to perform chosen-prefix attacks against the
+    SHA-1 algorithm for less than USD$50K. For this reason, we will be
+    disabling the "ssh-rsa" public key signature algorithm by default in a
+    near-future release. [#]_
+
+.. [#] :manpage:`SSH-KEYGEN(1)`
+.. [#] https://lwn.net/Articles/821544/
