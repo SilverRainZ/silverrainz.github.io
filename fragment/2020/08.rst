@@ -37,7 +37,7 @@ Animation API
     We are committed to releasing GTK 4 before the end of year.
     Between now and then, we are doing more work on accessibility backends,
     improving the macOS backend, writing documentation, and examples.
-    
+
 .. [#] https://blog.gtk.org/2020/07/31/gtk-3-99/
 .. [#] https://developer.gnome.org/gtk4/stable/GtkShortcutController.html
 .. [#] https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/
@@ -49,12 +49,13 @@ PPTP & L2TP
 
 PPTP
     - Pros: 速度快
-    - Cons: 
+    - Cons:
 
 测试磁盘读写速度
 ================
 
-::
+测试连续写 [#]_ ::
+
     dd if=/dev/zero of=test.img bs=1G count=1 oflag=dsync
 
 .. [#] https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-dd-command/
@@ -75,3 +76,17 @@ openSSH 8.4 后出现  load pubkey "/key/file/path": invalid format
 
 .. [#] :manpage:`SSH-KEYGEN(1)`
 .. [#] https://lwn.net/Articles/821544/
+
+作曲中的动机（motif）和主题（theme）
+=====================================
+
+动机是一组短小的音乐材料（可能是旋律或节奏），是曲子的起源。
+
+动机发展出短句，短句拼凑成乐句和乐段，并加以巩固贯穿全曲，然后这叫主题。 [#]_
+
+.. [#] https://www.zhihu.com/question/35722383/answer/64156534
+
+手机投屏到电脑和树莓派
+======================
+
+kodi & scrcpy
