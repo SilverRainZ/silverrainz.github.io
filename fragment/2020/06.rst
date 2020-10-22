@@ -8,3 +8,31 @@
 math.h 提供了 ``INFINITY`` 和 ``NAN``。
 
 .. [#]:: https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
+
+GSetting 手册
+=============
+
+https://developer.gnome.org/gio/stable/GSettings.html
+
+  Many settings backends (including dconf) have lazy initialisation
+  which means in the common case of the user using their computer
+  without modifying any settings a lot of work can be avoided.
+  For dconf, the D-Bus service doesn't even need to be started in this case.
+  For this reason, you should only ever modify GSettings keys in response to
+  explicit user action.
+
+大部分的 settings backend 都是惰性初始化的，因此若 application
+只在用户显式地修改配置时修改 settings 中的 key，可以避免很多开销。(?)
+
+  The built-in g_settings_bind() functionality is careful not to write settings
+  in response to notify signals as a result of modifications that it makes to widgets.
+
+小心因为 widget 和 setting 绑定导致的死循环。
+
+  Normally, a schema has a fixed path that determines where the settings are
+  stored in the conceptual global tree of settings.
+  However, schemas can also be 'relocatable',
+
+提供了一个 relocatable 的机制允许为变化的路径指定 schema。
+
+Document Type Definition： https://gitlab.gnome.org/GNOME/glib/-/blob/master/gio/gschema.dtd
