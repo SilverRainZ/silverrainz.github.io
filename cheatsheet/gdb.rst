@@ -17,15 +17,19 @@ Commands
 Breakpoint
 ----------
 
-``b`` 下断
-
 ::
 
     b main          # 对函数下断点
     b *0xbeef       # 对地址下断点
     b *main + 0x10  # 对函数偏移下断点
 
-Ouput
+    watch *0xbeef   # 硬件断点
+
+    info breakpoints    # 查看断点
+
+    delete <num>    # 据编号删除断点
+
+Print
 -----
 
 ``x /FMT ADDRESS`` 打印内存内容，FMT: A repeat count followed by a
