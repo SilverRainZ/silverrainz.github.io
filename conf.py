@@ -45,6 +45,25 @@ extensions.append('sphinxcontrib.peopledomain')
 
 extensions.append('sphinxcontrib.email')
 
+extensions.append('sphinxcontrib.lilypond')
+
+extensions.append('sphinxcontrib.images')
+images_config = {
+    'override_image_directive': True,
+    'default_image_width': '48%', # 2 images a row
+    'default_group': 'default',
+    'default_show_title': True,
+}
+
+extensions.append('sphinx.ext.extlinks')
+extlinks = {
+    'zhwiki': ('https://zh.wikipedia.org/wiki/%s', ''),
+    'enwiki': ('https://en.wikipedia.org/wiki/%s', ''),
+    'search': ('https://duckduckgo.com/?q=%s', ''),
+    'twitter': ('https://twitter.com/%s', '@'),
+    'github': ('https://github.com/%s', '@'),
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -53,7 +72,7 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'zh'
+language = 'zh_CN'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
