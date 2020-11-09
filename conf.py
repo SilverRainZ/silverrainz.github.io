@@ -45,7 +45,7 @@ extensions.append('sphinxcontrib.peopledomain')
 
 extensions.append('sphinxcontrib.email')
 
-extensions.append('sphinxcontrib.lilypond')
+# extensions.append('sphinxcontrib.lilypond')
 
 extensions.append('sphinxcontrib.images')
 images_config = {
