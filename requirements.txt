@@ -1,0 +1,5 @@
+sphinx-rtd-theme
+sphinxcontrib-email2
+sphinxcontrib-images
+sphinxcontrib-lilypond
+sphinxcontrib-peopledomain
