@@ -1,0 +1,145 @@
+=======
+2020-11
+=======
+
+杀猪盘
+======
+
+    杀猪盘是一种流行于东南亚地区的诈骗方式，所以也叫“东南亚杀猪盘”。
+
+    “猪”，把交友工具（APP及婚恋网站）叫“猪槽”，把聊天剧本叫“猪饲料”，
+    把恋爱叫“养猪”， 把诈骗钱财叫“杀猪”，是一种新型网络电信诈骗方式。
+
+    杀猪盘诈骗比其他电信诈骗的过程事件长，温水煮青蛙，所以更难识别。
+    还有它套着爱情的外衣，高富帅（白富美）形象，编造故事、虚构现实让你尝到甜头，
+    甜言蜜语的铮铮誓言等方式，将你引诱到深渊深处，然后一步步地将你吞噬掉。 [#]_
+
+.. [#] https://zhuanlan.zhihu.com/p/84672580
+
+KDE Connect
+===========
+
+用 KDE connect 来实现 Linux 和 Android 上的文件互传。
+
+Docutils Hacker's Guide 
+=======================
+
+Doctuils 是 Python 编写的通用文档处理软件，使用 reStructedText 作为 markup language。
+提供了 ``rst2{html,man,xml,xetext}`` 等命令行工具（ ``pacman -Ql python-docutils | grep /usr/bin/`` ）。 
+
+Docutils Hacker's Guide [#]_ 简要解释了 Docutils 的工作原理：
+将一个 rst 文件转换为目标格式的文档（比如 HTML）需要经过：
+Read ( :file:`docutils/readers` ) -> Parse ( :file:`docutils/parsers` ) 
+-> Transform ( :file:`docutils/transforms` )-> Write ( :file:`docutils/writers` ) 
+四个阶段。
+
+Parse 阶段将 Read 读取的文件解析为一棵节点树，目前仅实现了 reStructuredText
+parser ( :file:`docutils/parsers/rst` )。对于如下 rst 文档::
+
+   My *favorite* language is Python_.
+
+   .. _Python: http://www.python.org/
+
+使用 :file:`docutils/tools/quicktest.py` 可以查看 rst 文档的节点树
+（层级用缩进表示）::
+
+    <document source="test.txt">
+    <paragraph>
+        My
+        <emphasis>
+            favorite
+         language is
+        <reference name="Python" refname="python">
+            Python
+        .
+    <target ids="python" names="python" refuri="http://www.python.org/">
+
+
+标签内的节点（ ``document`` 、 ``paragraph`` ...）在 :file:`docutils/nodes.py` 
+中都能找到对应的实现。
+可以用 `epydoc <https://epydoc.sourceforge.net/>`_ 查看节点的继承关系。
+
+.. note:: 树上的文本譬如 "My"、"language is"、"." 同样是节点，
+   对应的实现为 ``docutils.nodes.Text``
+
+Transform 阶段利用 :zhwiki:`访问者模式` 对语法树进行各种变换，
+本例中 ``ExternalTargets`` transform ( :file:`docutils/transforms/references.py` ) 
+会解析 ``reference`` 节点，寻找 ID 为 "python" 的 target 节点，
+并设置 ``reference`` 节点的 ``refuri`` 属性。 使用 ``rst2pseudoxml`` 可以看到
+Transform 阶段后的节点树::
+
+    <document source="test.txt">
+    <paragraph>
+        My
+        <emphasis>
+            favorite
+         language is
+        <reference name="Python" refuri="http://www.python.org/">
+            Python
+        .
+    <target ids="python" names="python" refuri="http://www.python.org/">
+
+.. [#] https://docutils.sourceforge.io/docs/dev/hacking.html
+
+股市基本概念
+============
+
+参考知乎的这篇文章 [#]_ 和维基百科：
+
+股票
+    是股份制公司发行的所有权凭证，
+    非上市公司的股票不能在证券交易所进行流通交易
+
+证券交易所
+    专门进行证券交易的场所，本质就是一家公司。我国目前拥有四家证券交易所，
+    分别是：上海证券交易所（上交所、沪市）、深圳证券交易所（深交所、深市）、
+    香港证券交易所和台湾证券交易所。
+
+IPO
+    首次公开募股（Initial Public Offerings）是指一家企业第一次将它的股份向公众出售，
+    而上市后再出售股份就是指增发新股了， IPO 只表示第一次出售股票。
+    通常说的 IPO 成功，就是指成功在证券交易所上市。
+    
+上市公司（Listed Company）
+    是指可以在证券交易所公开交易其公司股票、公司债等的股份有限公司
+    按上市规则，上市公司必须向投资者及公众，
+    于每年六月在股东会公布其公司的财务报表等资料，并接受监察。
+
+价值投资
+    投资策略的其中一种，对应的是 :zhwiki:`趋势投资` 。
+    其重点是透过 **基本面分析** 中的概念，去寻找并投资于一些股价被低估了的股票。 
+
+证券公司
+    专门经营证券业务的机构，实际上就是证券交易所的代理商，买卖股票需要在证券公司开设一个证券账户，开户成功后可以买卖股票和基金。我国规定每个投资者最多可以开设三个证券账户。
+    
+三方存管
+    客户交易结算资金第三方存管，是银行的一项业务。
+    在证券公司开户的时候必须指定一张银行卡作为三方存管，这张银行卡是连接证券账户和银行账户的唯一通道，保障投资者的资金不被证券公司非法挪用。
+
+股价指数
+    包含多种股票，是反映市场上组成股票价值的一个数据。
+    通常被用于展现组成股票的共通特性，例如在同一个证券交易所交易，
+    属于同一个产业，或有相同的市值。
+    许多指数是由报章或财经期刊编制作为投资组合（例如共同基金）绩效评估的基准点。 
+    e.g. 沪深300、道琼斯工业指数 等。
+
+A 股
+    此处指那些在中国大陆注册、在中国股票市场股票上市的普通股，以人民币认购和交易。 
+    并非指股票分类中的 :zhwiki:`A股` 。
+
+    沪深 300 指由中国市值最大的300只上市公司股票构成，覆盖了沪深市场六成左右的市值，
+    具有良好的市场代表性。
+    中证 500 是由全部 A 股中剔除沪深 300 指数成份股及总市值排名前300名的股票后，
+    总市值排名靠前的 500 只股票组成，综合反映中国 A 股市场中一批中小市值公司的股票价格表现。
+    这两指数成份股已经可以代表中国的股票市场。 [#]_
+
+国内股票交易费用
+    - 佣金: 券商收取，买与卖兼收，每笔最低 5 元，超过后则按佣金比例收取，
+      目前大部分为万分之 3 或万分之 2.5
+    - 印花税: 国税局收取，卖出股票时收取，比例为成交金额的 0.1%
+    - 过户费: 上交所收取，交易沪市股票时收取，比例为成交金额的 0.002%
+    - 规费: 有的证券公司已包含在佣金里面，有的另外收取，具体看券商
+
+
+.. [#] https://zhuanlan.zhihu.com/p/110135677
+.. [#] https://www.zhihu.com/question/19886672/answer/654496044
