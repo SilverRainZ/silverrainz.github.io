@@ -191,3 +191,36 @@ MA 线
 
 .. _港交所的页面: https://sc.hkex.com.hk/TuniS/www.HKEX.com.hk/Products/Securities/Naming-Conventions-of-Stock-Short-Name-by-Product-Types?sc_lang=zh-cn
 
+Android 上的照片管理软件
+========================
+
+Camera Roll
+    Pros:
+        忘了……
+    Cons:
+        - 速度慢
+        - UI 不讨喜
+Scene
+    Pros:
+        - 界面好看
+        - 有专门的整理界面且交互非常好
+        - 有同步功能
+    Cons:
+        - 订阅制付费，不能买断
+        - 免费版无法添加视频到相册
+        - 登陆帐号时同步无法关闭
+SlideBox
+    Pros:
+        - 专门的照片整理应用，对于简单的照片整理非常方便
+    Cons:
+        - 为旧版安卓设计，大概很久不更新
+        - 设计太过精简，从大量照片中抽取若干张不方便
+
+- Google 图库精简版
+    什么都没有
+
+- Google 相册
+    Pros:
+        - 好看，和系统集成度高
+    Cons:
+        - 影集功能不好用，创建都要联网
