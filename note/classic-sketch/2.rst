@@ -37,3 +37,66 @@
 时刻保持思路清晰（分固有色、亮暗面）
 
 自我检查
+
+作业
+====
+
+参考
+----
+
+画室的墙上贴着以前同学的优秀习作，
+
+.. image:: /_images/IMG_20200805_181148.jpg
+.. image:: /_images/IMG_20200805_181202.jpg
+
+阶段一 - 熟悉材料
+-----------------
+
+.. image:: /_images/IMG_20200716_172754.jpg
+.. image:: /_images/IMG_20200716_211933.jpg
+.. image:: /_images/IMG_20200719_171454.jpg
+.. image:: /_images/IMG_20200720_212411.jpg
+.. image:: /_images/IMG_20200722_210747.jpg
+.. image:: /_images/IMG_20200723_213018.jpg
+
+阶段二 - 理清秩序
+-----------------
+
+.. image:: /_images/IMG_20200724_171940.jpg
+.. image:: /_images/IMG_20200727_205025.jpg
+.. image:: /_images/IMG_20200728_210141.jpg
+.. image:: /_images/IMG_20200803_084242.jpg
+.. image:: /_images/IMG_20200803_084254.jpg
+.. image:: /_images/IMG_20200804_085154.jpg
+.. image:: /_images/IMG_20200810_195532.jpg
+.. image:: /_images/IMG_20200812_194028.jpg
+.. image:: /_images/IMG_20200818_202457.jpg
+.. image:: /_images/IMG_20200820_212112.jpg
+.. image:: /_images/IMG_20200822_100234.jpg
+.. image:: /_images/IMG_20200825_202029.jpg
+.. image:: /_images/IMG_20200826_211402.jpg
+.. image:: /_images/IMG_20200908_205243.jpg
+
+阶段三 - 理清亮暗面
+-------------------
+
+.. image:: /_images/IMG_20200915_205923.jpg
+.. image:: /_images/IMG_20200927_161941.jpg
+.. image:: /_images/IMG_20201006_161510.jpg
+.. image:: /_images/IMG_20201008_154317.jpg
+.. image:: /_images/IMG_20201008_150452.jpg
+.. image:: /_images/IMG_20201008_154220.jpg
+.. image:: /_images/IMG_20201006_161523.jpg
+.. image:: /_images/IMG_20201008_154359.jpg
+.. image:: /_images/IMG_20201012_104131.jpg
+.. image:: /_images/IMG_20201012_104317.jpg
+.. image:: /_images/IMG_20201014_163322.jpg
+.. image:: /_images/IMG_20201014_163803.jpg
+.. image:: /_images/IMG_20201027_152834.jpg
+.. image:: /_images/IMG_20201027_194452.jpg
+.. image:: /_images/IMG_20201027_212217.jpg
+
+阶段四 - 调整色序
+-----------------
+
+.. todo:: 还得接着画。
