@@ -19,6 +19,6 @@ CAGED 系统和吉他的纯四度调弦息息相关。
 
 .. thumbnail:: /_images/caged-system.png
 
-.. [#] https://www.zhihu.com/question/37301778/answer/71690603
-.. [#] https://www.youtube.com/watch?v=Ly0S6tDu9Xs
-.. [#] https://www.pure-music.org/chord-caged/
+- https://www.zhihu.com/question/37301778/answer/71690603
+- https://www.youtube.com/watch?v=Ly0S6tDu9Xs
+- https://www.pure-music.org/chord-caged/

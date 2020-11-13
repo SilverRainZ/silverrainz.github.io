@@ -1,8 +1,8 @@
+:orphan:
+
 ========
 友情链接
 ========
-
-.. header:: This space for rent.
 
 .. ppl:friend:: fleuria
    :homepage: https://fleurer.github.io/
