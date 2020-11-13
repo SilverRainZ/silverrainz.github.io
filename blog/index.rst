@@ -8,5 +8,3 @@
 
 .. toctree::
    :glob:
-
-   *

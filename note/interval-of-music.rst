@@ -32,4 +32,4 @@
 
 .. todo:: 音程和五线谱的关联
 
-.. [#] https://www.jianshu.com/p/812155d959e4
+- https://www.jianshu.com/p/812155d959e4

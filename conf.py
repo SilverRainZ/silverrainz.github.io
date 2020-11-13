@@ -53,6 +53,7 @@ images_config = {
     'default_image_width': '48%', # 2 images a row
     'default_group': 'default',
     'default_show_title': True,
+    'download': False,
 }
 
 extensions.append('sphinx.ext.extlinks')
