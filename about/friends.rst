@@ -73,6 +73,13 @@
    - ~~Arch Linux CN 群医~~
    - 不知道啥时候有机会一起喝酒
 
+.. ppl:friend:: iovxw
+   :homepage: https://iovxw.net/
+
+   - 神秘的有猫人士
+   - 总是能够回应我的 ``Q_Q`` 的热心群友
+   - 专治 troll
+
 已失效
 ======
 
