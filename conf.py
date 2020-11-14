@@ -59,10 +59,11 @@ images_config = {
 extensions.append('sphinx.ext.extlinks')
 extlinks = {
     'zhwiki': ('https://zh.wikipedia.org/wiki/%s', ''),
-    'enwiki': ('https://en.wikipedia.org/wiki/%s', ''),
+    'enwiki': ('https://wikipedia.org/wiki/%s', ''),
     'search': ('https://duckduckgo.com/?q=%s', ''),
     'twitter': ('https://twitter.com/%s', '@'),
     'github': ('https://github.com/%s', '@'),
+    'weibo': ('https://weibo.com/%s', '@'),
 }
 
 # Add any paths that contain templates here, relative to this directory.
