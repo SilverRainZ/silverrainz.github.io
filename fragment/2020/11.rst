@@ -2,6 +2,8 @@
 2020-11
 =======
 
+.. contents::
+
 杀猪盘
 ======
 
@@ -25,12 +27,12 @@ Docutils Hacker's Guide
 =======================
 
 Doctuils 是 Python 编写的通用文档处理软件，使用 reStructedText 作为 markup language。
-提供了 ``rst2{html,man,xml,xetext}`` 等命令行工具（ ``pacman -Ql python-docutils | grep /usr/bin/`` ）。 
+提供了 ``rst2{html,man,xml,xetext}`` 等命令行工具（ ``pacman -Ql python-docutils | grep /usr/bin/`` ）。
 
 Docutils Hacker's Guide [#]_ 简要解释了 Docutils 的工作原理：
 将一个 rst 文件转换为目标格式的文档（比如 HTML）需要经过：
-Read ( :file:`docutils/readers` ) -> Parse ( :file:`docutils/parsers` ) 
--> Transform ( :file:`docutils/transforms` )-> Write ( :file:`docutils/writers` ) 
+Read ( :file:`docutils/readers` ) -> Parse ( :file:`docutils/parsers` )
+-> Transform ( :file:`docutils/transforms` )-> Write ( :file:`docutils/writers` )
 四个阶段。
 
 Parse 阶段将 Read 读取的文件解析为一棵节点树，目前仅实现了 reStructuredText
@@ -55,7 +57,7 @@ parser ( :file:`docutils/parsers/rst` )。对于如下 rst 文档::
     <target ids="python" names="python" refuri="http://www.python.org/">
 
 
-标签内的节点（ ``document`` 、 ``paragraph`` ...）在 :file:`docutils/nodes.py` 
+标签内的节点（ ``document`` 、 ``paragraph`` ...）在 :file:`docutils/nodes.py`
 中都能找到对应的实现。
 可以用 `epydoc <https://epydoc.sourceforge.net/>`_ 查看节点的继承关系。
 
@@ -63,7 +65,7 @@ parser ( :file:`docutils/parsers/rst` )。对于如下 rst 文档::
    对应的实现为 ``docutils.nodes.Text``
 
 Transform 阶段利用 :zhwiki:`访问者模式` 对语法树进行各种变换，
-本例中 ``ExternalTargets`` transform ( :file:`docutils/transforms/references.py` ) 
+本例中 ``ExternalTargets`` transform ( :file:`docutils/transforms/references.py` )
 会解析 ``reference`` 节点，寻找 ID 为 "python" 的 target 节点，
 并设置 ``reference`` 节点的 ``refuri`` 属性。 使用 ``rst2pseudoxml`` 可以看到
 Transform 阶段后的节点树::
@@ -99,7 +101,7 @@ IPO
     首次公开募股（Initial Public Offerings）是指一家企业第一次将它的股份向公众出售，
     而上市后再出售股份就是指增发新股了， IPO 只表示第一次出售股票。
     通常说的 IPO 成功，就是指成功在证券交易所上市。
-    
+
 上市公司（Listed Company）
     是指可以在证券交易所公开交易其公司股票、公司债等的股份有限公司
     按上市规则，上市公司必须向投资者及公众，
@@ -107,13 +109,13 @@ IPO
 
 价值投资
     投资策略的其中一种，对应的是 :zhwiki:`趋势投资` 。
-    其重点是透过 **基本面分析** 中的概念，去寻找并投资于一些股价被低估了的股票。 
+    其重点是透过 **基本面分析** 中的概念，去寻找并投资于一些股价被低估了的股票。
 
 证券公司
     专门经营证券业务的机构，实际上就是证券交易所的代理商，
     买卖股票需要在证券公司开设一个证券账户，开户成功后可以买卖股票和基金。
     我国规定每个投资者最多可以开设三个证券账户。
-    
+
 三方存管
     客户交易结算资金第三方存管，是银行的一项业务。
     在证券公司开户的时候必须指定一张银行卡作为三方存管，这张银行卡是连接证券账户和银行账户的唯一通道，保障投资者的资金不被证券公司非法挪用。
@@ -122,11 +124,11 @@ IPO
     包含多种股票，是反映市场上组成股票价值的一个数据。
     通常被用于展现组成股票的共通特性，例如在同一个证券交易所交易，
     属于同一个产业，或有相同的市值。
-    许多指数是由报章或财经期刊编制作为投资组合（例如共同基金）绩效评估的基准点。 
+    许多指数是由报章或财经期刊编制作为投资组合（例如共同基金）绩效评估的基准点。
     e.g. 沪深300、道琼斯工业指数 等。
 
 A 股
-    此处指那些在中国大陆注册、在中国股票市场股票上市的普通股，以人民币认购和交易。 
+    此处指那些在中国大陆注册、在中国股票市场股票上市的普通股，以人民币认购和交易。
     并非指股票分类中的 :zhwiki:`A股` 。
 
     沪深 300 指由中国市值最大的300只上市公司股票构成，覆盖了沪深市场六成左右的市值，
@@ -161,14 +163,14 @@ A 股
 
     指流通股（A 股）与非流通股（B 股）的股东权利事实上的不平等，
     既表现在两类股东在公司的决策权与分配权上的不平等（B 股有更高的投票权），
-    又表现在两类股票在证券市场上的流通性不同（B 股无法上市交易）。 [#]_ 
+    又表现在两类股票在证券市场上的流通性不同（B 股无法上市交易）。 [#]_
 
 K 线
     又称阴阳烛、蜡烛线，是反映价格走势的一种图线，其特色在于一个线段内记录了多项讯息，
-    相当易读易懂且实用有效，广泛用于股票、期货、贵金属、数字货币等行情的技术分析。 
+    相当易读易懂且实用有效，广泛用于股票、期货、贵金属、数字货币等行情的技术分析。
 
     K 线可分“阳线”、“阴线”和“中立线”三种，阳线代表收盘价大于开盘价，
-    阴线代表开盘价大于收盘价，中立线则代表开盘价等于收盘价。 
+    阴线代表开盘价大于收盘价，中立线则代表开盘价等于收盘价。
     为了配合传统习惯，阳线以红色表示，阴线以绿色表示，即是红升绿跌。
     在香港和欧美，阴线以红色表示，阳线以绿色表示，绿升红跌。 [#]_
 
@@ -263,7 +265,7 @@ Content Model
 
     The Docutils document model uses strict element content models.
     Every element has a unique structure and semantics,
-    but elements may be classified into general categories (below). 
+    but elements may be classified into general categories (below).
 
 doctree 采用了严格的元素内容模型，相比 HTML 则松散得多。
 
@@ -332,7 +334,9 @@ Inline Elements
 佛历二五三三年
 ==============
 
-.. image:: /_images/20201115112031_p.jpg
+.. figure:: /_images/20201115112031_p.jpg
+   :align: left
+   :scale: 20%
 
 今日去灵山寺，荒废的万佛塔后边有块奠基碑，落款年份「佛历二五三三年」，于是搜了一下佛历：
 
@@ -357,3 +361,25 @@ BTW 上文提到阴阳历，查了下也是个有意思的概念：
 .. [#] :zhwiki:`佛历`
 .. [#] :zhwiki:`阴阳合历`
 .. [#] 旦：甲骨文字形，象太阳从地面刚刚升起的样子
+
+LilyPond 文件结构 [#]_
+======================
+
+可能出现在 top-level 的表达式如下：
+
+- Output definition, such as ``\paper``, ``\midi``, and ``\layout``
+  重复的定义会被合并，若冲突后者优先
+- Direct scheme expression, such as ``#(set-default-paper-size "a7" 'landscape)``
+  这里的 scheme 是指 :enwiki:`Scheme_(programming_language)`
+- ``\header`` 表达式，定义谱面的头部，包含标题、作曲家等信息
+- ``\score`` 表达式，包含单个 Music Expression [#]_ ，所有顶层的 ``\score``
+  会被隐式地包含在 ``\book`` 里
+- ``\book`` 表达式，用来实现同一份 ``*.ly`` 文件输出多份谱子
+- ``\bookpart`` 表达式，似乎是用来占位以保证谱子不跨页的
+- 任意 Music Expression，会被隐式地加上 ``\score``
+- Markup text
+- Variable
+
+.. [#] https://lilypond.org/doc/v2.20/Documentation/notation/file-structure
+.. [#] http://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained
+
