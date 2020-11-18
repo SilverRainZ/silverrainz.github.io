@@ -1,5 +1,5 @@
 sphinx-rtd-theme
-sphinxcontrib-email2
+sphinxcontrib-email
 sphinxcontrib-images
 sphinxcontrib-lilypond
 sphinxcontrib-peopledomain
