@@ -26,62 +26,9 @@ KDE Connect
 Docutils Hacker's Guide
 =======================
 
-Doctuils 是 Python 编写的通用文档处理软件，使用 reStructedText 作为 markup language。
-提供了 ``rst2{html,man,xml,xetext}`` 等命令行工具（ ``pacman -Ql python-docutils | grep /usr/bin/`` ）。
+.. deprecated:: 2020-11-21
 
-Docutils Hacker's Guide [#]_ 简要解释了 Docutils 的工作原理：
-将一个 rst 文件转换为目标格式的文档（比如 HTML）需要经过：
-Read ( :file:`docutils/readers` ) -> Parse ( :file:`docutils/parsers` )
--> Transform ( :file:`docutils/transforms` )-> Write ( :file:`docutils/writers` )
-四个阶段。
-
-Parse 阶段将 Read 读取的文件解析为一棵节点树，目前仅实现了 reStructuredText
-parser ( :file:`docutils/parsers/rst` )。对于如下 rst 文档::
-
-   My *favorite* language is Python_.
-
-   .. _Python: http://www.python.org/
-
-使用 :file:`docutils/tools/quicktest.py` 可以查看 rst 文档的节点树
-（层级用缩进表示）::
-
-    <document source="test.txt">
-    <paragraph>
-        My
-        <emphasis>
-            favorite
-         language is
-        <reference name="Python" refname="python">
-            Python
-        .
-    <target ids="python" names="python" refuri="http://www.python.org/">
-
-
-标签内的节点（ ``document`` 、 ``paragraph`` ...）在 :file:`docutils/nodes.py`
-中都能找到对应的实现。
-可以用 `epydoc <https://epydoc.sourceforge.net/>`_ 查看节点的继承关系。
-
-.. note:: 树上的文本譬如 "My"、"language is"、"." 同样是节点，
-   对应的实现为 ``docutils.nodes.Text``
-
-Transform 阶段利用 :zhwiki:`访问者模式` 对语法树进行各种变换，
-本例中 ``ExternalTargets`` transform ( :file:`docutils/transforms/references.py` )
-会解析 ``reference`` 节点，寻找 ID 为 "python" 的 target 节点，
-并设置 ``reference`` 节点的 ``refuri`` 属性。 使用 ``rst2pseudoxml`` 可以看到
-Transform 阶段后的节点树::
-
-    <document source="test.txt">
-    <paragraph>
-        My
-        <emphasis>
-            favorite
-         language is
-        <reference name="Python" refuri="http://www.python.org/">
-            Python
-        .
-    <target ids="python" names="python" refuri="http://www.python.org/">
-
-.. [#] https://docutils.sourceforge.io/docs/dev/hacking.html
+   Moved to :doc:`/note/use-sphinx-as-pim/docutils-hacker-guide`
 
 股市基本概念
 ============
@@ -232,104 +179,12 @@ CCTalk 课件转 PDF
 
 .. todo:: 帮妹子做的，待记录
 
-The Docutils Document Tree [#]_
-===============================
+The Docutils Document Tree
+==========================
 
-这篇文档介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图::
+.. deprecated:: 2020-11-21
 
-    +--------------------------------------------------------------------+
-    | document  [may begin with a title, subtitle, decoration, docinfo]  |
-    |                             +--------------------------------------+
-    |                             | sections  [each begins with a title] |
-    +-----------------------------+-------------------------+------------+
-    | [body elements:]                                      | (sections) |
-    |         | - literal | - lists  |       | - hyperlink  +------------+
-    |         |   blocks  | - tables |       |   targets    |
-    | para-   | - doctest | - block  | foot- | - sub. defs  |
-    | graphs  |   blocks  |   quotes | notes | - comments   |
-    +---------+-----------+----------+-------+--------------+
-    | [text]+ | [text]    | (body elements)  | [text]       |
-    | (inline +-----------+------------------+--------------+
-    | markup) |
-    +---------+
-
-表的含义可以看原文，几个比较重要的信息：
-
-- document 总是 root 节点
-- section 可以递归地包含自身
-- 部分的 body elements 可以包含 body elements
-- inline markup 没有提到 (?)
-
-Content Model
--------------
-
-    The Docutils document model uses strict element content models.
-    Every element has a unique structure and semantics,
-    but elements may be classified into general categories (below).
-
-doctree 采用了严格的元素内容模型，相比 HTML 则松散得多。
-
-.. note::
-
-   这里的元素内容模型（element content model）应该类似 HTML 的
-   `Content categories <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories>`_ 。
-   模型描述了某个元素可以包含何种内容。
-
-..
-
-    Only elements which are meant to directly contain text data have a mixed content model,
-    where text data and inline elements may be intermixed.
-    This is unlike the much looser HTML document model,
-    where paragraphs and text data may occur at the same level.
-
-只有能够直接包含文本（text data）的元素才拥有一个混合的内容模型（mixed content model），
-即能够混排文本（text data）和内联元素（inline elements ）（下述）。
-HTML 则宽松得多，段落和文本是能在同一嵌套级别出现的（比如 ``<p>prargraph</p>text`` ）。
-
-Element Categories
-------------------
-
-doctree 上的元素可分为如下几类：
-
-Structural Elements
-    不能包含文本，只能包含子元素，且 Structural Elements 的父元素必须是 Structural Elements
-    （e.g ``document`` ）
-
-    Structural Subelements
-        必须被特定的 Structural Elements 包含，简单的 Structural Subelements
-        可以直接包含文本（e.g ``title``, ``subtitle``, ``docinfo`` ）
-
-        Bibliographic Elements
-             ``docinfo`` 是 ``document`` 可选的子元素，用于描述文档的 metadata，
-             Bibliographic Elements 的父元素只能是 ``docinfo``（e.g. ``author``, ``copyright`` ）
-
-        Decorative Elements
-             是 ``document`` 可选的子元素，用于生成文档的页头与页脚
-             （e.g. ``header``, ``footer`` ）
-
-Body Elements
-    只能被 Structural Elements 或者复合的（compound）Body Elements 包含。
-
-    Simple Body Elements
-        只能包含文本或者不包含任何内容，能包含文本的 Simple Body Elements
-        同样能包含 Inline Elements，即前述的 "mixed content model"。
-        不包含任何内容的 Simple Body Elements 是 doctree 的叶子节点
-        （e.g.  ``paragraph``, ``comment`` ）
-
-    Compound Body Elements
-        不直接包含文本，能够包含 Body Subelements 和其他的 Body Elements。
-
-        Body Subelements
-            必须被特定的 Compound Body Elements 包含
-            （ e.g. ``bullet_list`` 包含 ``list_item`` ）
-            Body Subelements 本身可以包含其他的 Compound Body Elements
-
-Inline Elements
-    直接包含文本，也可能包含其他的 Inline Elements。Inline Elements 只能被
-    Simple Body Elements 包含。大部分的 Inline Elements 都支持 "mixed content model"。
-    （e.g. ``strong``, ``subscript`` ）
-
-.. [#] https://docutils.sourceforge.io/docs/ref/doctree.html
+   Moved to :doc:`/note/use-sphinx-as-pim/doctree`
 
 佛历二五三三年
 ==============
