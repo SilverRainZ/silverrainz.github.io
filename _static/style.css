@@ -1,0 +1,8 @@
+.center-title:not(.section), .center-title>h1 {
+    text-align: center;
+}
+
+/* Hack for column view of index */
+.hlist > tbody:nth-child(1) > tr:nth-child(1) > td > ul:nth-child(1) > li:nth-child(1) {
+    list-style: none;
+}

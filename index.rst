@@ -3,23 +3,34 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. rst-class:: center-title
+
+========
 银色子弹
 ========
 
-:doc:`关于我 <about/me>` |
-:doc:`about/friends` |
-:ref:`genindex` |
-:ref:`search` |
-:doc:`todo`
+.. centered:: :doc:`关于我 <about/me>` | :doc:`about/friends` | :ref:`genindex` | :doc:`todo`
 
----------------------------------------------------------------
+--------------------------------------------------------------------------------
 
-.. toctree::
-   :caption: 目录：
-   :titlesonly:
-   :glob:
+.. hlist::
+   :columns: 3
 
-   blog/index
-   note/index
-   cheatsheet/index
-   fragment/index
+
+   - .. toctree::
+        :titlesonly:
+        :glob:
+
+        note/index
+
+   - .. toctree::
+        :titlesonly:
+        :glob:
+
+        cheatsheet/index
+
+   - .. toctree::
+        :titlesonly:
+        :glob:
+
+        fragment/index
