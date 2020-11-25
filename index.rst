@@ -16,21 +16,26 @@
 .. hlist::
    :columns: 3
 
-
    - .. toctree::
+        :caption: 笔记
         :titlesonly:
         :glob:
 
-        note/index
+        note/*
+        note/*/index
 
    - .. toctree::
+        :caption: 速查表
         :titlesonly:
         :glob:
 
-        cheatsheet/index
+        cheatsheet/*
+        cheatsheet/*/index
 
    - .. toctree::
+        :caption: 知识碎片
         :titlesonly:
         :glob:
 
-        fragment/index
+        fragment/*
+        fragment/*/index
