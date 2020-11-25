@@ -10,10 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
@@ -32,7 +31,10 @@ extensions = []
 extensions.append('sphinx_rtd_theme')
 # The theme to use for HTML and HTML Help pages.
 html_theme = 'sphinx_rtd_theme'
-html_theme_options = {}
+html_theme_options = {
+        'navigation_depth': -1,
+        'titles_only': True,
+}
 
 extensions.append('sphinx.ext.graphviz')
 
@@ -45,7 +47,7 @@ extensions.append('sphinxcontrib.peopledomain')
 
 extensions.append('sphinxcontrib.email')
 
-# extensions.append('sphinxcontrib.lilypond')
+extensions.append('sphinxnotes.lilypond')
 
 extensions.append('sphinxcontrib.images')
 images_config = {
@@ -81,6 +83,18 @@ language = 'zh_CN'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# I dont want a default py domain.
+primary_domain = None
+
+# Use :code: as default role, so we can write `content` instead of ``content``.
+default_role = 'code'
+
+# Auto numbered figures, tables and code-blocks if they have a caption.
+numfig = True
+
+# Show codeauthor and sectionauthor directives produce any output in the built
+# files.
+show_authors = True
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -98,3 +112,5 @@ html_title = project
 # If true, the reST sources are included in the HTML build as _sources/name.
 # I don't want to public my sources, so set it to false.
 html_copy_source = False
+
+html_search_language = 'zh'
