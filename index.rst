@@ -21,21 +21,21 @@
         :titlesonly:
         :glob:
 
-        note/*
-        note/*/index
+        notes/*
+        notes/*/index
 
    - .. toctree::
-        :caption: 速查表
+        :caption: 手册
         :titlesonly:
         :glob:
 
-        cheatsheet/*
-        cheatsheet/*/index
+        man/*
+        man/*/index
 
    - .. toctree::
-        :caption: 知识碎片
+        :caption: 杂物
         :titlesonly:
         :glob:
 
-        fragment/*
-        fragment/*/index
+        misc/*
+        misc/*/index
