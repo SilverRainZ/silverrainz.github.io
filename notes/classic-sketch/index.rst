@@ -11,7 +11,7 @@
 
 .. seealso::
 
-    在开始课程之前，建议看看 :doc:`/note/6-lectures-on-sketch`
+    在开始课程之前，建议看看 :doc:`/notes/6-lectures-on-sketch`
 
 .. toctree::
    :glob:
