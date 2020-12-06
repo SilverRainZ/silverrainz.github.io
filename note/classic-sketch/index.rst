@@ -10,7 +10,7 @@
 线下学习请联系 :weibo:`@李晓飞 <lixiaofeiart>` 老师。
 
 .. seealso::
-    
+
     在开始课程之前，建议看看 :doc:`/note/6-lectures-on-sketch`
 
 .. toctree::
