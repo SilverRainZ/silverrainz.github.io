@@ -68,6 +68,8 @@ extlinks = {
     'weibo': ('https://weibo.com/%s', '@'),
 }
 
+extensions.append('sphinx.ext.githubpages')
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
