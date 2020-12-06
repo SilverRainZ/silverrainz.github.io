@@ -189,9 +189,11 @@ The Docutils Document Tree
 佛历二五三三年
 ==============
 
-.. figure:: /_images/20201115112031_p.jpg
-   :align: left
-   :scale: 20%
+.. sidebar:: 万佛塔后的奠基碑
+
+   .. figure:: /_images/20201115112031_p.jpg
+      :align: left
+      :scale: 20%
 
 今日去灵山寺，荒废的万佛塔后边有块奠基碑，落款年份「佛历二五三三年」，于是搜了一下佛历：
 
@@ -238,3 +240,30 @@ LilyPond 文件结构 [#]_
 .. [#] https://lilypond.org/doc/v2.20/Documentation/notation/file-structure
 .. [#] http://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained
 
+
+形而上学的一些基本概念
+======================
+
+为铅灰的《存在主义精神治疗法》准备。
+
+存在主义
+    存在主义认为存在的意义是无法经由理性思考而得到答案的，“存在先于本质” “人就是他行为的总和”
+不可知论
+    不可知论者不否认神的存在，只是认为人无法知道或无法确认其是否存在
+虚无主义
+    虚无主义作为哲学意义，是怀疑主义的极致形式。
+    认为世界、生命（特别是人类）的存在是没有客观意义、目的以及可以理解的真相
+达达主义
+    粗暴地说，反艺术的艺术虚无主义
+
+以上全部摘录于中文维基百科。
+
+Yield in Python
+===============
+
+简单来说，使用了 `yield` 关键字的函数被 `__call__` 时，函数体不会被执行，
+而是返回一个 Generator 对象，这个对象是 iterable 的。当该对象被 `__iter__` 的时候，
+对应的函数体开始执行，遇到 ``yield`` 时返回，当该对象被 ``__next__`` 的时候，
+从上次 yield 的地方 resume。
+
+.. seealso:: 这篇 SO 的回答很通俗了： https://stackoverflow.com/a/231855
