@@ -1,11 +1,25 @@
-name: sphinx-pages
+name: Pages
 on: [push]
 jobs:
   build:
-    name: Publish Sphinx Pages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    - uses: sphinx-notes/sphinx-pages@master
+    - name: Setup locale
+      run: |
+        sudo locale-gen en_US.UTF-8
+        sudo update-locale
+    - name: Install dependencies
+      run: |
+        sudo apt-get update;
+        sudo apt-get install lilypond timidity imagemagick fonts-noto-cjk
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Build and Commit
+      uses: sphinx-notes/pages@master
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        create_readme: true
+        branch: gh-pages
