@@ -43,7 +43,7 @@ todo_include_todos = True
 
 extensions.append('sphinx.ext.githubpages')
 
-extensions.append('sphinxcontrib.peopledomain')
+extensions.append('sphinxnotes.peopledomain')
 
 extensions.append('sphinxcontrib.email')
 
