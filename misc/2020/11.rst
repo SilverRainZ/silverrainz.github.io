@@ -28,7 +28,7 @@ Docutils Hacker's Guide
 
 .. deprecated:: 2020-11-21
 
-   Moved to :doc:`/note/use-sphinx-as-pim/docutils-hacker-guide`
+   Moved to :doc:`/notes/use-sphinx-as-pim/docutils-hacker-guide`
 
 股市基本概念
 ============
@@ -184,7 +184,7 @@ The Docutils Document Tree
 
 .. deprecated:: 2020-11-21
 
-   Moved to :doc:`/note/use-sphinx-as-pim/doctree`
+   Moved to :doc:`/notes/use-sphinx-as-pim/doctree`
 
 佛历二五三三年
 ==============

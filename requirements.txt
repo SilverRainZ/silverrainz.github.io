@@ -3,3 +3,4 @@ sphinxcontrib-email
 sphinxcontrib-images
 sphinxnotes-lilypond
 sphinxnotes-peopledomain
+sphinx-panels
