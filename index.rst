@@ -13,29 +13,32 @@
 
 --------------------------------------------------------------------------------
 
-.. hlist::
-   :columns: 3
+.. panels::
 
-   - .. toctree::
-        :caption: 笔记
-        :titlesonly:
-        :glob:
+   .. toctree::
+      :caption: 笔记
+      :titlesonly:
+      :glob:
 
-        notes/*
-        notes/*/index
+      notes/*
+      notes/*/index
 
-   - .. toctree::
-        :caption: 手册
-        :titlesonly:
-        :glob:
+   -----------------------------------------------------------------------------
 
-        man/*
-        man/*/index
+   .. toctree::
+      :caption: 手册
+      :titlesonly:
+      :glob:
 
-   - .. toctree::
-        :caption: 杂物
-        :titlesonly:
-        :glob:
+      man/*
+      man/*/index
 
-        misc/*
-        misc/*/index
+   -----------------------------------------------------------------------------
+
+   .. toctree::
+      :caption: 杂物
+      :titlesonly:
+      :glob:
+
+      misc/*
+      misc/*/index
