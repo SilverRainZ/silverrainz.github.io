@@ -35,4 +35,4 @@ https://sphinxcontrib-needs.readthedocs.io/
 
    *
 
-.. [#] 和 :ppl:friend:`VOID001` 的 `对话节选 <https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530>`_
+.. [#] 和 :friend:`VOID001` 的 `对话节选 <https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530>`_

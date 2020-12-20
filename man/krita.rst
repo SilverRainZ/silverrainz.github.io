@@ -29,9 +29,9 @@ Krita
 ``ctrl`` + ``shift`` + ``a``:
     取消选区
 
-来自 :ppl:friend:`frantic1048` 的一图流。
+来自 :friend:`frantic1048` 的一图流。
 
-.. image:: ./krita-shortcut.png
+.. image:: /_images/krita-shortcut.png
 
 Tips
 ====

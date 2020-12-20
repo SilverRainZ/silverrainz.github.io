@@ -32,8 +32,8 @@ extensions.append('sphinx_rtd_theme')
 # The theme to use for HTML and HTML Help pages.
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-        'navigation_depth': -1,
-        'titles_only': True,
+    'navigation_depth': -1,
+    'titles_only': True,
 }
 
 extensions.append('sphinx.ext.graphviz')
@@ -42,8 +42,6 @@ extensions.append('sphinx.ext.todo')
 todo_include_todos = True
 
 extensions.append('sphinx.ext.githubpages')
-
-extensions.append('sphinxnotes.peopledomain')
 
 extensions.append('sphinxcontrib.email')
 
@@ -75,6 +73,42 @@ extensions.append('sphinx_panels')
 extensions.append('sphinx.ext.autosectionlabel')
 autosectionlabel_prefix_document = True
 
+extensions.append('sphinxnotes.any')
+any_predefined_schemas = []
+any_custom_schemas = [{
+        'type': 'friend',
+        'fields': {
+            'others': ['avatar', 'blog'],
+        },
+        'templates': {
+            'role': '@{{ title }}',
+            'directive': """
+{% if avatar %}
+.. image:: {{ avatar }}
+   :width: 120px
+   :alt: {{ names[0] }}
+   :align: right
+{% endif %}
+
+{{ blog }}
+
+{{ content | join('\n') }}"""
+        }
+},{
+    'type': 'book',
+     'fields': {
+         'id': 'isbn',
+         'others': ['cover'],
+     },
+     'templates': {
+         'role': '《{{ title }}》',
+         'directive': """
+:ISBN: {{ isbn }}
+
+{{ content | join('\n') }}"""
+     }
+}]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -90,8 +124,8 @@ language = 'zh_CN'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-# I dont want a default py domain.
-primary_domain = None
+# Provided by sphinxnotes.any
+primary_domain = 'any'
 
 # Use :code: as default role, so we can write `content` instead of ``content``.
 default_role = 'code'
