@@ -26,9 +26,15 @@ author = 'Shengyu Zhang'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = [
+    'sphinx.ext.graphviz',
+    'sphinxcontrib.email',
+    'sphinxnotes.lilypond',
+    'sphinx.ext.githubpages',
+    'sphinx_panels',
+]
 
-extensions.append('sphinx_rtd_theme')
+extensions += ['sphinx_rtd_theme']
 # The theme to use for HTML and HTML Help pages.
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
@@ -36,18 +42,10 @@ html_theme_options = {
     'titles_only': True,
 }
 
-extensions.append('sphinx.ext.graphviz')
-
-extensions.append('sphinx.ext.todo')
+extensions += ['sphinx.ext.todo']
 todo_include_todos = True
 
-extensions.append('sphinx.ext.githubpages')
-
-extensions.append('sphinxcontrib.email')
-
-extensions.append('sphinxnotes.lilypond')
-
-extensions.append('sphinxcontrib.images')
+extensions += ['sphinxcontrib.images']
 images_config = {
     'override_image_directive': True,
     'default_image_width': '48%', # 2 images a row
@@ -56,7 +54,7 @@ images_config = {
     'download': False,
 }
 
-extensions.append('sphinx.ext.extlinks')
+extensions += ['sphinx.ext.extlinks']
 extlinks = {
     'zhwiki': ('https://zh.wikipedia.org/wiki/%s', ''),
     'enwiki': ('https://wikipedia.org/wiki/%s', ''),
@@ -66,14 +64,10 @@ extlinks = {
     'weibo': ('https://weibo.com/%s', '@'),
 }
 
-extensions.append('sphinx.ext.githubpages')
-
-extensions.append('sphinx_panels')
-
-extensions.append('sphinx.ext.autosectionlabel')
+extensions += ['sphinx.ext.autosectionlabel']
 autosectionlabel_prefix_document = True
 
-extensions.append('sphinxnotes.any')
+extensions += ['sphinxnotes.any']
 any_predefined_schemas = []
 any_custom_schemas = [{
         'type': 'friend',
