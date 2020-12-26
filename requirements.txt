@@ -1,4 +1,3 @@
-sphinx-rtd-theme
 sphinxcontrib-email
 sphinxcontrib-images
 sphinxnotes-lilypond
