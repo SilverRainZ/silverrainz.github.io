@@ -9,7 +9,7 @@
 银色子弹
 ========
 
-.. centered:: :doc:`关于我 <about/me>` | :doc:`about/friends` | :ref:`genindex` | :doc:`todo`
+.. centered:: :ref:`genindex` | :doc:`todo`
 
 --------------------------------------------------------------------------------
 
@@ -18,10 +18,23 @@
    .. toctree::
       :caption: 笔记
       :titlesonly:
+      :maxdepth: 1
       :glob:
 
       notes/*
       notes/*/index
+
+   -----------------------------------------------------------------------------
+
+   .. toctree::
+      :caption: 博客
+      :titlesonly:
+
+      所有日志 <blog/index>
+
+   .. postlist:: 10
+      :format: {title}
+      :list-style: disc
 
    -----------------------------------------------------------------------------
 
@@ -31,14 +44,22 @@
       :glob:
 
       man/*
-      man/*/index
 
    -----------------------------------------------------------------------------
 
    .. toctree::
-      :caption: 杂物
+      :caption: 随记
       :titlesonly:
       :glob:
 
-      misc/*
       misc/*/index
+
+   -----------------------------------------------------------------------------
+
+   .. toctree::
+      :caption: 关于
+      :titlesonly:
+
+      我 <about/me>
+      about/site
+      about/friends
