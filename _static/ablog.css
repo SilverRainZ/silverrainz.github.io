@@ -4,14 +4,14 @@
 }
 
 /* Big and bold post title for blog index */
-.postlist-style-none .reference {
+.postlist-style-none p:nth-child(1) > .reference {
   font-size: large;
   font-weight: bold;
   font-style: initial;
 }
 
 /* Style for site index */
-.postlist-style-disc .reference {
+.postlist-style-disc p:nth-child(1) > .reference {
   font-size: initial;
   font-style: initial;
 }

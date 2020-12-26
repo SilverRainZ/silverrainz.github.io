@@ -23,6 +23,7 @@ author = 'Shengyu Zhang'
 # -- Non-standard project information ----------------------------------------
 
 baseurl = 'https://silverrainz.me'
+datefmt = '%Y-%m-%d'
 
 # -- Configuration item Initialization ---------------------------------------
 
@@ -115,15 +116,8 @@ blog_languages = {
     'en': ('English', None),
 }
 blog_default_language = 'zh'
-post_date_format = '%Y-%m-%d'
+post_date_format = datefmt
 blog_feed_fulltext = True
-html_sidebars['blog/*'] = [
-    'postcard.html',
-    'recentposts.html',
-    'tagcloud.html',
-    'categories.html',
-    'archives.html',
-]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -167,13 +161,21 @@ html_theme_options = {
 # Every sidebars should lead with alabaster's 'about' template
 for k, v in html_sidebars.items():
     html_sidebars[k] = ['about.html'] + v
-html_sidebars['**'] = [
-    'about.html',
-    'navigation.html',
-    'relations.html',
-    'searchbox.html',
-    'donate.html',
-]
+
+
+
+html_sidebars = {
+    # Match all blog pages
+    'blog/*': [
+        'about.html', 'postcard.html', 'recentposts.html',
+        'tagcloud.html', 'categories.html', 'archives.html',
+    ],
+    # Match all pages but excluding blog
+    '*[!blog]*': [
+        'about.html', 'navigation.html', 'relations.html',
+        'searchbox.html', 'donate.html',
+    ]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
