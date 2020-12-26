@@ -16,31 +16,32 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Bullet'
+project = 'Silver Bullet'
 copyright = '2020, Shengyu Zhang'
 author = 'Shengyu Zhang'
 
+# -- Non-standard project information ----------------------------------------
+
+baseurl = 'https://silverrainz.me'
+
+# -- Configuration item Initialization ---------------------------------------
+
+extensions = []
+html_sidebars = {}
 
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
+extensions += [
     'sphinx.ext.graphviz',
     'sphinxcontrib.email',
     'sphinxnotes.lilypond',
     'sphinx.ext.githubpages',
     'sphinx_panels',
+    'sphinx.ext.intersphinx',
 ]
-
-extensions += ['sphinx_rtd_theme']
-# The theme to use for HTML and HTML Help pages.
-html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    'navigation_depth': -1,
-    'titles_only': True,
-}
 
 extensions += ['sphinx.ext.todo']
 todo_include_todos = True
@@ -133,6 +134,26 @@ show_authors = True
 
 # -- Options for HTML output -------------------------------------------------
 
+html_theme = 'alabaster'
+html_theme_options = {
+    'logo': 'logo.png',
+    'logo_name': project,
+    'description': 'No silver bullet here.',
+    'touch_icon': 'logo.png',
+    'page_width': '80%',
+}
+
+# Every sidebars should lead with alabaster's 'about' template
+for k, v in html_sidebars:
+    html_sidebars[k] = ['about.html'] + v
+html_sidebars['**'] = [
+    'about.html',
+    'navigation.html',
+    'relations.html',
+    'searchbox.html',
+    'donate.html',
+]
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -140,7 +161,7 @@ html_static_path = ['_static']
 
 html_css_files = ['style.css']
 
-html_baseurl = 'https://silverrainz.me'
+html_baseurl = baseurl
 
 html_title = project
 
@@ -149,3 +170,5 @@ html_title = project
 html_copy_source = False
 
 html_search_language = 'zh'
+
+html_favicon = '_static/favicon.png'
