@@ -158,12 +158,6 @@ html_theme_options = {
     'page_width': '80%',
 }
 
-# Every sidebars should lead with alabaster's 'about' template
-for k, v in html_sidebars.items():
-    html_sidebars[k] = ['about.html'] + v
-
-
-
 html_sidebars = {
     # Match all blog pages
     'blog/*': [
