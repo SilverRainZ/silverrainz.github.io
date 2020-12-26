@@ -5,9 +5,7 @@ Use Sphinx As My PIM System
 :date: 2020-06-19
 :status: Work In Progress
 
-..
-
-     *SilverRainZ（指我自己）在使用一个还未存在的自建笔记系统，
+     :any:friend:`SilverRainZ` （指我自己）在使用一个还未存在的自建笔记系统，
      每次想写点东西都因为「无法解决依赖」而失败。* [#]_
 
 不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。
@@ -22,8 +20,6 @@ Use Sphinx As My PIM System
 可是从那时到现在，已经过去了三年，我记录下了些什么呢？
 
     「什么都没有」。
-
-.. todo::
 
 .. _使用 Sphinx: https://tech.silverrainz.me/2017/03/29/use-sphinx-and-rst-to-manage-your-notes.html
 

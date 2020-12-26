@@ -1,8 +1,6 @@
-:orphan:
-
-========
-About Me
-========
+==
+Me
+==
 
 Intro
 -----
@@ -33,4 +31,4 @@ Timeline
 
 Events worth recording:
 
-.. include:: ./events.rst
+.. include:: ./events.txt

@@ -1,0 +1,17 @@
+/* Beautify date of postlist item */
+.postlist > li > p:nth-child(1) {
+  font-size: smaller;
+}
+
+/* Big and bold post title for blog index */
+.postlist-style-none .reference {
+  font-size: large;
+  font-weight: bold;
+  font-style: initial;
+}
+
+/* Style for site index */
+.postlist-style-disc .reference {
+  font-size: initial;
+  font-style: initial;
+}

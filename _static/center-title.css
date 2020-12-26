@@ -1,0 +1,3 @@
+.center-title:not(.section), .center-title>h1 {
+    text-align: center;
+}

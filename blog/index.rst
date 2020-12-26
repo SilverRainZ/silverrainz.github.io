@@ -1,12 +1,20 @@
-:orphan:
+====
+日志
+====
 
-========
-运行日志
-========
+个体 :any:friend:`SilverRainZ` 的日志使用 Sphinx+ABlog 管理。
 
 .. code-block:: console
 
    $ journalctl -a -f -u SilverRainZ@sphinx.service
 
-.. toctree::
-   :glob:
+--------------------------------------------------------------------------------
+
+.. centered:: :ref:`标签 <blog-tags>` | :ref:`归档 <blog-archives>` | :ref:`草稿 <blog-drafts>`
+
+目录
+====
+
+.. postlist::
+   :format: {title} | {date}
+   :excerpts:

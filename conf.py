@@ -104,6 +104,27 @@ any_custom_schemas = [{
      }
 }]
 
+extensions += ['ablog']
+blog_baseurl = baseurl
+blog_authors = {
+    'LA': ('Shengyu Zhang', blog_baseurl),
+}
+blog_default_author = 'LA'
+blog_languages = {
+    'zh': ('Chinese', None),
+    'en': ('English', None),
+}
+blog_default_language = 'zh'
+post_date_format = '%Y-%m-%d'
+blog_feed_fulltext = True
+html_sidebars['blog/*'] = [
+    'postcard.html',
+    'recentposts.html',
+    'tagcloud.html',
+    'categories.html',
+    'archives.html',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -144,7 +165,7 @@ html_theme_options = {
 }
 
 # Every sidebars should lead with alabaster's 'about' template
-for k, v in html_sidebars:
+for k, v in html_sidebars.items():
     html_sidebars[k] = ['about.html'] + v
 html_sidebars['**'] = [
     'about.html',
@@ -159,7 +180,7 @@ html_sidebars['**'] = [
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['style.css']
+html_css_files = ['center-title.css', 'ablog.css']
 
 html_baseurl = baseurl
 
