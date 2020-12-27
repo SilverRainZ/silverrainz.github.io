@@ -70,3 +70,7 @@ Git
 创建一个空的分支::
 
     git checkout --orphan YourBranchName
+
+Delete remote tag::
+
+    git push --delete origin tagname
