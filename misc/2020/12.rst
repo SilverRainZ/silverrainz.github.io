@@ -1,0 +1,125 @@
+=======
+2020-11
+=======
+
+.. contents::
+
+
+Jekyll Post To Sphinx Document
+==============================
+
+.. code-block:: bash
+
+   #!/usr/bin/sh
+
+   cd _posts
+
+   for m in *.md; do
+       # Delete jekyll meta data delimiter
+       sed -i '1d;5d' $m
+       sed -i 's/assets\/img/_images/g' $m
+       # Markdown to restructedText
+       m2r --overwrite --parse-relative-links $m
+       r=${m%.md}.rst
+       # Convert jekll meta data to ablog meta data and format fixes
+       awk -i inplace -f ../conv-meta.awk $r
+       # Remove date in filename
+       mv $r ${r:11}
+   done
+
+.. code-block:: awk
+
+   # Skip empty line
+   NR==1 {
+       next
+   }
+
+    # Convert document title
+   /title:/ {
+       titlemark="========================================"
+       print titlemark;
+       $1="";
+       print $0;
+       print titlemark;
+       next
+   }
+
+   # Remove unused page layout
+   /layout: post/ {
+       next
+   }
+
+   # Convert tags and add ablog .. post:: directive
+   /tags:/ {
+       tags=$2
+       for (i=3; i<NF; i++) { tags=tags ", " $i }
+       printf "\n.. post:: %s\n\
+      :tags: %s\n\
+      :author: LA\n\
+      :language: zh\n\n",
+       substr(FILENAME, 0, 10), tags
+       next
+   }
+
+   # Convert GFM table of content
+   /\{:toc\}/ {
+       print ".. contents::"
+       next
+   }
+
+   # Incompatible
+   /:target:/ {
+       next
+   }
+   /\{: width=/ {
+       next
+   }
+   /:format: html/ {
+       next
+   }
+
+   {
+       print $0
+   }
+
+Python 中的 {Class,Instance} Variable
+=====================================
+
+在修 sphinxnotes-lilypond 的 bug 的时候意外发现新创建的对象的某个值和之前的老对象
+一样，一度以为自己发现了 Python 3.9 的 UAF bug。
+
+当然对 Python Newbie 来说哪有容易发现 bug，下面是犯错的 case：
+
+.. code-block:: python
+
+    class Foo(object):
+        bar = []
+        def __init__(self):
+            self.bar.append('喜')
+
+        x = Foo()
+        print(x.bar)
+        y = Foo()
+        print(y.bar)
+
+输出::
+
+    ['喜']
+    ['喜', '喜']
+
+官方文档如是说： 
+
+    Generally speaking, instance variables are for data unique to each instance
+    and class variables are for attributes and methods shared by all instances
+    of the class [#]_
+
+两种变了分别是 class 级别和 instance 级别，两者不同然而命名空间却一样，当把
+classs variable 当 instance variable 用的时候（因为方便写 type annoation），
+对 classs variable 的修改就会影响所有其他的 instance（如果它没有覆盖该 variable）
+的话。
+
+相关文章很多，看来是个常见坑点，怪我见识少 :(，如果还是想用 class variable，
+请小心谨慎，另把 `bar.append('喜')` 替换成 `bar = bar + ['喜']` 即可 [#]_ 。
+
+.. [#] https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables
+.. [#] https://github.com/satwikkansal/wtfpython#-class-attributes-and-instance-attributes
