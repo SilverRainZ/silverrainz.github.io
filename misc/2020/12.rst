@@ -1,9 +1,8 @@
 =======
-2020-11
+2020-12
 =======
 
 .. contents::
-
 
 Jekyll Post To Sphinx Document
 ==============================
@@ -107,7 +106,7 @@ Python 中的 {Class,Instance} Variable
     ['喜']
     ['喜', '喜']
 
-官方文档如是说： 
+官方文档如是说：
 
     Generally speaking, instance variables are for data unique to each instance
     and class variables are for attributes and methods shared by all instances
@@ -123,3 +122,14 @@ classs variable 当 instance variable 用的时候（因为方便写 type annoat
 
 .. [#] https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables
 .. [#] https://github.com/satwikkansal/wtfpython#-class-attributes-and-instance-attributes
+
+英语通常不使用书名号 ``《》``
+=============================
+
+英语没有用书名号的传统，通常用斜体来表示。
+当然书名号也非中国的发明，书名号的首次出现是在一本 1572 年由 Josse Bade
+印刷的书中。[#]_
+
+尽管如此，在以中文为主的文档里……我还是决定继续用书名号给洋文书括上。
+
+.. [#] https://en.wikipedia.org/wiki/Guillemet#Terminology
