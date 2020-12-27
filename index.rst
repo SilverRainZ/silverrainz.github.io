@@ -9,6 +9,8 @@
 银色子弹
 ========
 
+.. centered:: *Yes silver bullet here.*
+
 .. centered:: :ref:`genindex` | :doc:`todo`
 
 --------------------------------------------------------------------------------
@@ -18,7 +20,6 @@
    .. toctree::
       :caption: 笔记
       :titlesonly:
-      :maxdepth: 1
       :glob:
 
       notes/*

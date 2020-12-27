@@ -16,12 +16,13 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Silver Bullet'
+project = '银色子弹'
 copyright = '2020, Shengyu Zhang'
 author = 'Shengyu Zhang'
 
 # -- Non-standard project information ----------------------------------------
 
+description = 'Yes silver bullet here.'
 baseurl = 'https://silverrainz.me'
 datefmt = '%Y-%m-%d'
 
@@ -153,7 +154,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     'logo': 'logo.png',
     'logo_name': project,
-    'description': 'No silver bullet here.',
+    'description': description,
     'touch_icon': 'logo.png',
     'page_width': '80%',
 }
