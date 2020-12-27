@@ -1,6 +1,6 @@
-===========================
-Use Sphinx As My PIM System
-===========================
+====================
+Sphinx As PIM System
+====================
 
 :date: 2020-06-19
 :status: Work In Progress
@@ -16,8 +16,9 @@ Use Sphinx As My PIM System
 我并非没有在找合适的记录工具，大学时用 Onenote，那时候云同步功能还不够好，
 在一次误操作中丢失了笔记，从此不再用 Onenote。后来成为 Linux 用户，
 用 Gitbook 管理笔记，nodejs 太慢而 markdown 表达力太孱弱，
-再后来 `使用 Sphinx`_ ，restructedText 很接近我心中理想的 markup language 的样子。
-可是从那时到现在，已经过去了三年，我记录下了些什么呢？
+再后来 :doc:`使用 Sphinx </blog/use-sphinx-and-rst-to-manage-your-notes>` ，
+restructedText 很接近我心中理想的 markup language 的样子。可是从那时到现在，
+已经过去了三年，我记录下了些什么呢？
 
     「什么都没有」。
 
