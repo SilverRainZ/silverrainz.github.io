@@ -1,13 +1,17 @@
-======================================
-Shell Script (sh, bash, zsh and so on)
-======================================
+============
+Shell Script
+============
+
+-----------------------
+sh, bash, zsh and so on
+-----------------------
 
 :date: 2020-12-26
 :version: 1
 
-heredoc syntax:
+Heredoc syntax:
 
-.. code-block: bash
+.. code-block:: bash
 
    cat <<EOF
    ... Heredoc content
@@ -17,7 +21,7 @@ heredoc syntax:
 
 Avoid shell expanding variables in heredoc:
 
-.. code-block: bash
+.. code-block:: bash
 
    cat <<'EOF'
    ... Heredoc ${content}
