@@ -95,12 +95,28 @@ any_custom_schemas = [{
     'type': 'book',
      'fields': {
          'id': 'isbn',
-         'others': ['cover'],
+         'others': ['cover', 'status', 'startat'],
      },
      'templates': {
          'role': '《{{ title }}》',
          'directive': """
 :ISBN: {{ isbn }}
+
+{{ content | join('\n') }}"""
+     }
+},{
+    'type': 'artworks',
+     'fields': {
+         'id': 'id',
+         'others': ['date', 'medium', 'size', 'image'],
+     },
+     'templates': {
+         'role': '《{{ title }}》',
+         'directive': """
+:id: {{ id }}
+:date: {{ date }}
+:size: {{ size }}
+:medium: {{ medium }}
 
 {{ content | join('\n') }}"""
      }
