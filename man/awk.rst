@@ -35,7 +35,7 @@ Print remaining columns: [#]_
 
 Print a character arbitrary times:
 
-   `printf` is not possible to do this, use `for` loop.
+   ``printf`` is not possible to do this, use ``for`` loop.
 
    .. code-block:: awk
 
