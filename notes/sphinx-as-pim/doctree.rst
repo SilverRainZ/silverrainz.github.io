@@ -3,9 +3,11 @@ The Docutils Document Tree
 ==========================
 
 :date: 2020-11-12
-:reference: https://docutils.sourceforge.io/docs/ref/doctree.html
 
-这篇文档介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图::
+文档节点树
+==========
+
+这篇文档 [#]_ 介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图::
 
     +--------------------------------------------------------------------+
     | document  [may begin with a title, subtitle, decoration, docinfo]  |
@@ -28,7 +30,7 @@ The Docutils Document Tree
 - document 总是 root 节点
 - section 可以递归地包含自身
 - 部分的 body elements 可以包含 body elements
-- inline markup 没有提到 (?)
+- inline markup 只能和 text 混排
 
 Content Model
 -------------
@@ -42,8 +44,9 @@ doctree 采用了严格的元素内容模型，相比 HTML 则松散得多。
 .. note::
 
    这里的元素内容模型（element content model）应该类似 HTML 的
-   `Content categories <https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories>`_ 。
-   模型描述了某个元素可以包含何种内容。
+   `Content categories`_ ：描述某个元素可以包含何种内容。
+
+.. _Content categories: https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories
 
 ..
 
@@ -98,3 +101,28 @@ Inline Elements
     直接包含文本，也可能包含其他的 Inline Elements。Inline Elements 只能被
     Simple Body Elements 包含。大部分的 Inline Elements 都支持 "mixed content model"。
     （e.g. ``strong``, ``subscript`` ）
+
+生活在树上 [#]_
+===============
+
+:Date: 2020-11-12
+
+``docutils.nodes`` 提供了上述节点的实现。
+
+调用 ``node.walkabout(visitor)`` 可以以 :zhwiki:`访问者模式` 遍历 doctree，
+``visitor`` 继承自 ``docutils.nodes.NodeVisitor`` ，且需要实现各个类型节点的
+visit 和 depart 方法。
+
+.. code-block:: python
+
+   class Translator(nodes.NodeVisitor):
+
+       def visit_Text(self, node):
+           pass
+
+       def depart_Text(self, node):
+           pass
+
+
+.. [#] https://docutils.sourceforge.io/docs/ref/doctree.html
+.. [#] :zhwiki: 生活在树上
