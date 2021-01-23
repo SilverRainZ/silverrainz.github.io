@@ -8,11 +8,15 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 LANG          = en_US.UTF-8
+SPHINXSERV    ?= sphinx-autobuild
 
 default: html
 
 view:
 	xdg-open "$(BUILDDIR)/html/index.html"
+
+serve:
+	$(SPHINXSERV) $(SOURCEDIR) $(BUILDDIR)/html
 
 # Put it first so that "make" without argument is like "make help".
 help:
