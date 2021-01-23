@@ -114,3 +114,55 @@ Shell key binding
     .. note:: 根据配置可能会有所改变
 
 .. [#] https://github.com/junegunn/fzf
+
+
+Awesome List of Python, CN version [#]_
+=======================================
+
+不喜欢 awesome list programer，但列表本身是有价值的。随便看看：
+
+pyinstaller [#]_
+    将 Python 程序转换成独立的执行文件（跨平台）
+
+pangu.py [#]_
+    在中日韩语字符和数字字母之间添加空格。
+
+pypinyin [#]_
+    汉字拼音转换工具
+
+pycco [#]_
+    文学编程（literate-programming）风格的文档生成器。
+
+rich [#]_
+    一个在终端中支持富文本和格式美化的 Python 库，
+    同时提供了 RichHandler 日志处理程序。
+
+.. [#] https://github.com/jobbole/awesome-python-cn
+.. [#] https://github.com/pyinstaller/pyinstaller
+.. [#] https://github.com/vinta/pangu.py
+.. [#] https://github.com/mozillazg/python-pinyin
+.. [#] https://github.com/pycco-docs/pycco
+.. [#] https://github.com/willmcgugan/rich
+
+Plumbum: Shell Combinators and More [#]_
+========================================
+
+:date: 2021-01-16
+
+肉眼可见的香：
+
+>>> from plumbum.cmd import ls, grep, wc
+>>> chain = ls["-a"] | grep["-v", r"\.py"] | wc["-l"]
+>>> print(chain)
+/bin/ls -a | /bin/grep -v '\.py' | /usr/bin/wc -l
+>>> chain()
+'27\n'
+
+.. [#] https://github.com/tomerfiliba/plumbum
+
+乐利和爱克林的乳制品包装垄断
+============================
+
+:date: 2021-01-23
+
+TODO
