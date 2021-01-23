@@ -4,3 +4,4 @@ sphinxnotes-lilypond
 sphinxnotes-any
 sphinx-panels
 ablog
+sphinx-autobuild
