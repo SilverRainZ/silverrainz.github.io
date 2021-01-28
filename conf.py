@@ -78,8 +78,8 @@ any_custom_schemas = [{
             'others': ['avatar', 'blog'],
         },
         'templates': {
-            'role': '@{{ title }}',
-            'directive': """
+            'reference': '@{{ title }}',
+            'content': """
 {% if avatar %}
 .. image:: {{ avatar }}
    :width: 120px
@@ -98,8 +98,8 @@ any_custom_schemas = [{
          'others': ['cover', 'status', 'startat'],
      },
      'templates': {
-         'role': '《{{ title }}》',
-         'directive': """
+         'reference': '《{{ title }}》',
+         'content': """
 :ISBN: {{ isbn }}
 
 {{ content | join('\n') }}"""
@@ -111,8 +111,8 @@ any_custom_schemas = [{
          'others': ['date', 'medium', 'size', 'image'],
      },
      'templates': {
-         'role': '《{{ title }}》',
-         'directive': """
+         'reference': '《{{ title }}》',
+         'content': """
 :id: {{ id }}
 :date: {{ date }}
 :size: {{ size }}

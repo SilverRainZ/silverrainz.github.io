@@ -2,7 +2,7 @@
 哈默手稿
 ========
 
-.. book:: 哈默手稿
+.. book::
    :isbn: 9787564070724
    :status: Reading
    :startat: 2021-01-23
