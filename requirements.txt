@@ -5,3 +5,4 @@ sphinxnotes-any
 sphinx-panels
 ablog
 sphinx-autobuild
+sphinxcontrib.gtagjs
