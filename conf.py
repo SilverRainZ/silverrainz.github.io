@@ -123,6 +123,8 @@ any_custom_schemas = [{
 }]
 
 extensions += ['ablog']
+blog_path = 'blog'
+blog_title = project
 blog_baseurl = baseurl
 blog_authors = {
     'LA': ('Shengyu Zhang', blog_baseurl),
@@ -134,7 +136,9 @@ blog_languages = {
 }
 blog_default_language = 'zh'
 post_date_format = datefmt
+post_auto_image = 1
 blog_feed_fulltext = True
+blog_feed_subtitle = description
 
 extensions += ['sphinxcontrib.gtagjs']
 gtagjs_ids = [ 'G-FYHS50G6DL' ]
