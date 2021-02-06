@@ -136,6 +136,9 @@ blog_default_language = 'zh'
 post_date_format = datefmt
 blog_feed_fulltext = True
 
+extensions += ['sphinxcontrib.gtagjs']
+gtagjs_ids = [ 'G-FYHS50G6DL' ]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
