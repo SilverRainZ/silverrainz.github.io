@@ -17,24 +17,82 @@ All things list here is not "artworks", just my works that dedicated to art
 .. artworks:: 单色静物
    :id: xfczk-001
    :date: 2020-01-03
+   :size: 32k
    :medium: 水彩
+
+   想用水彩画色层的一些小尝试，没有很成功。
 
 .. artworks:: 奥沙西泮的恩赐
    :id: xfczk-002
    :date: 2020-01-12
+   :size: 32k
    :medium: 水彩
+
+
+   我的记忆是污染过的，像浸满了脏水的破布。墙上长出眼球和残肢，
+   沿着视线缝进我的视网膜。脚下没有胶水把我凝住，除了脚下的地方都不可落足。
+   站着已经是一种恩赐，躺下总觉得有花要献上来。
+
+   ——奥沙西泮三倍剂量下的精神报告
 
 .. artworks:: 厕所门口
    :id: xfczk-003
    :date: 2020-01-13
+   :size: 32k
    :medium: 色粉笔
+
+    她在卧室里睡觉。家里是安静的。
 
 .. artworks:: 色粉笔的若干失败尝试
    :id: xfczk-004
    :date: 2020-01-13
+   :size: 32k
    :medium: 色粉笔
 
 .. artworks:: 银色飞行船
    :id: xfczk-005
    :date: 2020-01-21
+   :size: 32k
    :medium: 色粉笔
+
+.. artworks:: I Should
+   :id: xfczk-006
+   :date: 2020-01-30
+   :size: 32k
+   :medium: 马克笔 水彩
+
+.. artworks:: 蛇与象
+   :id: xfczk-007
+   :date: 2020-01-31
+   :size: 32k
+   :medium: 炭精粉
+
+.. artworks:: 愤怒的释放
+   :id: xfczk-008
+   :date: 2020-02-01
+   :size: 32k
+   :medium: 马克笔
+
+   本意上这张画是作为马克笔的试作。
+   但到了画的时候我充满了愤怒。
+
+.. artworks:: 下雪的 768
+   :id: xfczk-009
+   :date: 2020-02-04
+   :size: 32k
+   :medium: 炭精粉 色粉笔
+
+.. artworks:: 一种玫瑰标本及其制备工艺
+   :id: xfczk-009
+   :date: 2020-02-10
+   :size: 32k
+   :medium: 水彩
+
+   失恋了，因为我的错。
+
+   失去的瞬间像是你沿着光滑的藤蔓摸索，一路走过去，和往常一样伸手却摸了个空。
+
+   一段感情是什么样子的呢？我们说「一朵玫瑰是好看的」的时候，其实是说「玫瑰
+   现在的样子是好看的」。完整的玫瑰是什么样子的？我摸过的那段藤蔓是我走过的
+   足迹的形状，完整的玫瑰是玫瑰从破土而出到零落成泥的形状。枝桠们在空间里扭动着向上，
+   在时间里慢慢成熟，衰老，凋亡。而在这枝桠上，那朵玫瑰划过的痕迹，就是爱情的模样吧。
