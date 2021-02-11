@@ -6,3 +6,4 @@ sphinx-panels
 ablog
 sphinx-autobuild
 sphinxcontrib.gtagjs
+sphinxnotes-khufu
