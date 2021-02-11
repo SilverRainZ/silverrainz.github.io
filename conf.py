@@ -143,6 +143,9 @@ blog_feed_subtitle = description
 extensions += ['sphinxcontrib.gtagjs']
 gtagjs_ids = [ 'G-FYHS50G6DL' ]
 
+extensions += ['sphinxnotes.khufu.ext.snippet']
+khufu_snippet_patterns = ['man/.*']
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
