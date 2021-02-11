@@ -24,3 +24,10 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
+    - name: Push changes to GitOSC
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITOSC_TOKEN }}
+        repository: git@gitee.com:silverrainz/bullet.git
+        branch: gh-pages
+        force: true
