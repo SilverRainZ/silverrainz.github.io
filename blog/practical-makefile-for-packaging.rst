@@ -199,7 +199,7 @@ DESTDIR
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 ``make install`` 
 得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
 安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
-（这里感谢青蛙老师 {% include person name="hexchain" url = "https://hexchain.org/" %} 的指导）
+（这里感谢青蛙老师 :people:`hexchain <https://hexchain.org>` 的指导）
 
 变量 ``DESTDIR``\ [#fn-destdir]_ 就是用来实现 Staged Install 的，把之前的 ``make install`` 改成这样：
 
@@ -235,7 +235,7 @@ Configure
 运行 ``./configure --prefix=xxx`` 来获得一个拥有指定 prefix 的 Makefile，
 这样就可以不用每次敲 make 都输入 ``PREFIX=xxx`` 了。
 
-:raw-html-m2r:`<del>于是大家都去用 autotools 了</del>`
+:s:`于是大家都去用 autotools 了`
 
 .. code-block:: sh
 

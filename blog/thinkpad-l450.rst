@@ -61,7 +61,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
   （听小药壶说可以用 scheme 来写 .xbindskeyrc）
 * 使用 terminator 代替 konsole
 * 
-  使用 dzen2 + :raw-html-m2r:`<del>condy</del>` conky 代替 xmobar
+  使用 dzen2 + :s:`condy` conky 代替 xmobar
 
   需要启动两个 dzen2，一个接受 xmoand 的输出，一个接受 conky 的输出，
   需要注意的是 dzen2 **不支持** 按屏幕的百分比显示，
@@ -197,5 +197,5 @@ xmonad.hs 那边要这样写：
 最后再贴一张图：
 
 
-.. image:: /_images/thinkpad-l450-arch-screenshot.png
-   :alt: 
+.. image:: /_images/thinkpad-l450-screenshot.png
+   :alt:

@@ -14,9 +14,7 @@
    不知道这里何时能够不荒废。
 
 
-Srain 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。
-
-{% include github-card repo='SrainApp/srain' %}
+:github:`SrainApp/srain` 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。
 
 2015 年末的时候，我刚写完了自己的玩具内核 OS67，处于一段不知道做点什么东西的过渡期。
 

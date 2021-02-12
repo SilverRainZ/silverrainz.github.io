@@ -14,9 +14,16 @@
 不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
 有个想法就是将整段代码按是否高亮划分为一些元素:
 
-..
-
-   关键字，字符，宏，字符串，块注释，行注释，数字，函数，空白，其他
+- 关键字
+- 字符
+- 宏
+- 字符串
+- 块注释
+- 行注释
+- 数字
+- 函数
+- 空白
+- 其他
 
 
 然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过这个想法暂时没实现。
@@ -30,8 +37,6 @@
 另外遇到的问题是正则表达式，首先是双引号内字符串的匹配问题，对正则不熟悉，
 试了很多次都没法匹配，因为考虑了反斜杠 对引号的转义问题，从语言描述上可以说：
 
-..
-
    匹配两个引号之间的尽量短的所有内容，并且内容中不能包含回车和没有被转义的引号
    （即只能包含左侧有奇数个反斜杠的引号）
 
@@ -39,14 +44,14 @@
 写正则实在是太烧脑子了，匹配奇数个可以用 ``[^\\]((\\\\)*\\")`` ，
 然后最后面的引号只能左侧包含偶数个引号 ``[^\\]((\\\\)*")``
 （本来可以将两个分组用后向引用省略了，试了一下发现错误，也不知道怎么解决）
-最后写出来是恶心的表达式：\ ``"(.|[^\\](\\\\)*")*?[^\\](\\\\)*"``\ ，但是还是有问题：
+最后写出来是恶心的表达式：\ ``"(.|[^\\](\\\\)*")*?[^\\](\\\\)*"``\ ，但是还是有问题:
 
-..
-
-   "regexp"                    匹配 "regexp"\ :raw-html-m2r:`<br>`
-   "regexp\"regexp"            匹配 "regexp\"regexp"\ :raw-html-m2r:`<br>`
-   "reg \" exp"reg"exp"       匹配 "reg \" 和 "reg"\ :raw-html-m2r:`<br>`
+   ========================== ==================================
+   "regexp"                   匹配 "regexp"
+   "regexp\"regexp"           匹配 "regexp\"regexp"
+   "reg \" exp"reg"exp"       匹配 "reg \" 和 "reg"
    "reg \"""regexp"           匹配 ``"reg \\"`` 和 ``""regexp"``
+   ========================== ==================================
 
 
 就最后一个错了，因为"也是满足\ ``[^\\](\\\\)*"``\ 的，懒得再想了。
@@ -69,9 +74,8 @@
 你没法从文件的一行里面读取一个回车吧，并且\n后面还有内容，所以这种方案失败，
 我只把关键字放在了文件里。代码变成了：
 
-.. code-block::
+.. code-block:: haskell
 
-   ```haskell
    pattern' = [ "/\\*(.|\n|\r)*\\*/"
               , "//.*"
               , "#.*"
@@ -82,17 +86,15 @@
            keywords <- readFile "keywords.txt"
            let pattern = pattern' ++ [keywords]
                patCol = zip pattern color
-   ```
 
 
 这里又引发一个问题是：之前本来不用转义的 ``"`` 变成了 ``\"``\ ，需要转义一次的 ``\\``\ ，变成了\ ``\\\\``\ ，
 表达式更难看了。 而且需要注意到的是最难看的那个表达式里面的懒惰匹配 “?” 没有出现，
 我一加他就出错。所以出现了更多的问题，效果比在测试器里面的还差。
 
-..
+.. topic:: 2015.3.2 update:
 
-   **2015.3.2: 事实上Haskell的Posix库的底层是C的Regex.h,
-   并且Posix规范的正则并不支持懒惰匹配。**
+   事实上Haskell的Posix库的底层是C的Regex.h,并且Posix规范的正则并不支持懒惰匹配。
 
 
 Haskell
@@ -166,28 +168,6 @@ Haskell的IO()像是一种具有传染性的代码（诶我说的不是GPL），
 
 最后的结果如下：
 
-{::nomarkdown}
-
-:raw-html-m2r:`<div style="background: #ffffff; color: black; padding:8px">`
-
-:raw-html-m2r:`<pre>`\ :raw-html-m2r:`<font color=Blue>import</font>` javax.swing.\ *;
-:raw-html-m2r:`<font color=Purple>`\ /* Test */
-:raw-html-m2r:`<font color=Red>#Test</font>`
-/*
-
-
-* Block Comment
-  */</font>
-  :raw-html-m2r:`<font color=Blue>public</font>` :raw-html-m2r:`<font color=Blue>static</font>` :raw-html-m2r:`<font color=Blue>void</font>` main(String args){
-   :raw-html-m2r:`<font color=Gray>// Line Comment</font>`
-   :raw-html-m2r:`<font color=Blue>int</font>` a;
-   :raw-html-m2r:`<font color=Blue>char</font>` b = 'a';
-   String str1 = :raw-html-m2r:`<font color=Blue>new</font>` String(\ :raw-html-m2r:`<font color=Green>"Who cares?"</font>`\ );
-   String str2 = :raw-html-m2r:`<font color=Blue>new</font>` String(\ :raw-html-m2r:`<font color=Green>"Who\" cares?"</font>`\ );
-   String str1 = :raw-html-m2r:`<font color=Blue>new</font>` String(\ :raw-html-m2r:`<font color=Green>"Who \\"cares?"</font>`\ );
-   a = a + b;
-   :raw-html-m2r:`<font color=Blue>return</font>` 0;
-  }</pre> </div>
-  {:/nomarkdown}
+.. image:: /_images/2021-02-12_14:56:46.png
 
 可以看到最后一个字符串是着色错误的。

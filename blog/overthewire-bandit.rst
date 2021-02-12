@@ -13,7 +13,7 @@
 
 考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思...
-:raw-html-m2r:`<del>有意思的意思是我不会做</del>`.
+:s:`有意思的意思是我不会做`.
 
 WeChall 计分板
 --------------
@@ -51,8 +51,6 @@ WarToken 可以在 WeChall 网站的
 bandit17
 ^^^^^^^^
 
-..
-
    The password for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
 
 
@@ -85,7 +83,7 @@ bandit17
    ssh -i bandit17.key bandit17@bandit.labs.overthewire.org
    cat /etc/bandit_pass/bandit17
 
-..
+::
 
    key: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
@@ -93,12 +91,12 @@ bandit17
 bandit21
 ^^^^^^^^
 
-..
 
    There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
 
-   **NOTE:** To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.\ :raw-html-m2r:`<br>`
-   **NOTE 2:** Try connecting to your own network daemon to see if it works as you think
+   .. note:: To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.
+
+   .. note:: Try connecting to your own network daemon to see if it works as you think
 
 
 ``bandit20`` 的家目录下提供了一个程序 ``suconnect``\ , 会从你指定的端口读取 ``bandit20`` 的密码,
@@ -108,9 +106,7 @@ bandit21
 
    echo GbKksEFF4yrVs6il55v6gwY5aVje5f0j | nc -l -p 1234 & ./suconnect 1234
 
-这里主要是 ``&`` 的用法, 使两个命令同时执行.
-
-..
+这里主要是 ``&`` 的用法, 使两个命令同时执行::
 
    key: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
@@ -118,12 +114,11 @@ bandit21
 bandit24
 ^^^^^^^^
 
-..
 
    A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
 
-   **NOTE:** This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!\ :raw-html-m2r:`<br>`
-   **NOTE 2:** Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+   .. note:: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+   .. note:: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
 
 
 这题我觉得有点意思.
@@ -175,9 +170,7 @@ cron 是一个定时执行工具, 任务可以通过命令 ``crontab`` 设定,
 脚本写完后, ``chmod +x``\ , 再把它复制到 ``/var/spool/bandit24`` 目录下, 记得备份,
 每隔一分钟该目录就会被清空.
 
-脚本执行后, 到 ``/tmp/tmp.xxx`` 里就可以看到存有 key 的文件了.
-
-..
+脚本执行后, 到 ``/tmp/tmp.xxx`` 里就可以看到存有 key 的文件了::
 
    key: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
@@ -185,17 +178,13 @@ cron 是一个定时执行工具, 任务可以通过命令 ``crontab`` 设定,
 bandit25
 ========
 
-..
-
    A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.
 
 
 有一个守护进程在 ``30002`` 端口监听, 把 ``bandit24`` 的密码和一个四位数字组成的 pincode 传给它,
 如果密码和 pincode 都正确的话会返回 ``bandit25`` 的密码.
 
-所以自然是爆破了, 直接用 nc 链接该端口会提示:
-
-..
+所以自然是爆破了, 直接用 nc 链接该端口会提示::
 
    I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
 
@@ -208,26 +197,20 @@ bandit25
    cat /tmp/pin | nc localhost 30002 > /tmp/log
    cat /tmp/log | grep "Corr" -n1
 
-其实答案就是最后一个端口...
+其实答案就是最后一个端口::
 
-..
-
-   5670-Wrong! Please enter the correct pincode. Try again.\ :raw-html-m2r:`<br>`
-   5671:Correct!\ :raw-html-m2r:`<br>`
+   5670-Wrong! Please enter the correct pincode. Try again.
+   5671:Correct!
    5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 
 
-所以:
-
-..
+所以::
 
    key: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 
 
 bandit26
 ========
-
-..
 
    Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.
 
@@ -250,9 +233,7 @@ bandit26
     | |_) | (_| | | | | (_| | | |_ / /| (_) |
     |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
 
-执行 ``cat /etc/passwd | grep bandit26`` 得到:
-
-..
+执行 ``cat /etc/passwd | grep bandit26`` 得到::
 
    **bandit26**\ :x:11026:11026:bandit level 26:/home/\ **bandit26**\ :/usr/bin/showtext
 
@@ -271,8 +252,7 @@ bandit26
 即 ssh 连上去后执行默认 shell, 用 ``more`` 打印出了 ~/text.txt 之后就退出了, 如图:
 
 
-.. image:: {{ page.path }}/1.png
-   :alt: 1
+.. image:: /_images/overthewire-bandit26-1.png
 
 
 一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 ``-t`` + 命令 是不行的,
@@ -284,8 +264,7 @@ bandit26
 所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, ``more`` 就停下来了. (好脑洞)
 
 
-.. image:: {{ page.path }}/2.png
-   :alt: 2
+.. image:: /_images/overthewire-bandit26-2.png
 
 
 在 ``more`` 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 ``vi``\ ,
@@ -294,8 +273,7 @@ bandit26
 在命令模式执行 ``:r /etc/bandit_pass/bandit26``\ , 密码的内容就会被读入.
 
 
-.. image:: {{ page.path }}/3.png
-   :alt: 3
+.. image:: /_images/overthewire-bandit26-3.png
 
 
 要打开 ``sh`` 的话, 可以:
@@ -305,9 +283,7 @@ bandit26
    :set shell sh=/bin/sh
    :sh
 
-这样就可以执行 ``wechall`` 拿分了.
-
-..
+这样就可以执行 ``wechall`` 拿分了::
 
    key: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
 

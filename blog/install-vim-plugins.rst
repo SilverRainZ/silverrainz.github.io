@@ -129,24 +129,24 @@ openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手
 
 .. code-block:: bash
 
-   ➜  ~  zypper rm gvim
-   ➜  ~  zypper rm vim
+   $ ~  zypper rm gvim
+   $ ~  zypper rm vim
 
 先安装各种依赖包:
 
 .. code-block:: bash
 
-   ➜  ~  zypper in python-devel
-   ➜  ~  zypper in ruby-devel
-   ➜  ~  zypper in lua-devel
-   ➜  ~  zypper in ncurses-devel
-   ➜  ~  zypper in libx11-devel
+   $ ~  zypper in python-devel
+   $ ~  zypper in ruby-devel
+   $ ~  zypper in lua-devel
+   $ ~  zypper in ncurses-devel
+   $ ~  zypper in libx11-devel
 
 编译:
 
 .. code-block:: bash
 
-   ➜  ~ ./configure --with-features=huge \
+   $ ~ ./configure --with-features=huge \
                --enable-rubyinterp  \
                --enable-pythoninterp \
                --with-python-config-dir=/usr/lib64/python2.7/config \
@@ -159,17 +159,19 @@ openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手
                --enable-multibyte \
                --prefix=/usr \
                --enable-fail-if-missing
-   ➜  ~ make
-   ➜  ~ sudo make install
+   $ ~ make
+   $ ~ sudo make install
 
 安装后就可以编译 YCM 了:
 
 .. code-block:: bash
 
-   ➜  ~ zypper in llvm-clang cmake
-   ➜  ~ cd .vim/bundle/YouCompleteMe
-   ➜  ~ ./install.sh
+   $ ~ zypper in llvm-clang cmake
+   $ ~ cd .vim/bundle/YouCompleteMe
+   $ ~ ./install.sh
 
 安装完成.
 
 截图一张:
+
+.. image:: /_images/vim-plugin-screenshot.png

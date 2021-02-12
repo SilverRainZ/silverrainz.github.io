@@ -28,7 +28,7 @@
 存在着一些问题：
 
 
-* :raw-html-m2r:`<del>被墙，这当然不是 Disqus 本身的问题，这甚至不算是个问题</del>`
+* :s:`被墙，这当然不是 Disqus 本身的问题，这甚至不算是个问题`
 * 评论无法彻底被删除，我曾经在 #archlinux-cn 讨论过这个问题，有人说既然你把数据
   公开地 post 到网上来了，就别想着它能够被删除，因为任何人都可以将他备份起来。
   我不敢苟同，数据是公开的没错，但作为这个评论系统的管理员，我应当有权利让这些
@@ -37,7 +37,7 @@
 * 非 Disqus 用户无法方便地评论，甚至会诱导你注册帐号
 
 经过这次多说的关闭，我还是倾向于寻找一个开源的，能自己架设的评论系统。
-{% include person name="biergaizi" url="https://tomli.blog/" %} 在微博推荐了
+:people:`biergaizi <https://tomli.blog>` 在微博推荐了
 Disqus 的开源替代：\ `Isso <https://posativ.org/isso/>`_\ ，Isso 在 Github 上有 2k+
 的 stars，开发虽然看起来不活跃但也不至于死掉，官网的 Demo 看起来不错，
 AUR 里面还有有现成的包能用，于是就决定是你了，Isso！
@@ -62,7 +62,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 **以下的操�
 以避免来自收到来自一些混乱邪恶的打包者的恶意（比如前阵子就有人在 Pypi 和 Gem
 投了恶意包 Orz）。
 
-:raw-html-m2r:`<del>考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……</del>`
+:s:`考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……`
 
 安装完成后，打开 ``/etc/isso.conf`` 文件，文件对各个配置项都有详细的解释，
 需要重点关注的配置如下：
@@ -145,8 +145,6 @@ Jekyll's Way
 对于 Jekyll 博客，比较好的做法是 ``_includes`` 目录下在建立 ``comments`` 文件用来
 存放评论框代码：
 
-{% raw %}
-
 .. code-block:: html
 
    <link rel="stylesheet" href="{{ site.baseurl }}/assets/comments.css">
@@ -158,18 +156,16 @@ Jekyll's Way
             data-title="{{ page.title }}"
             data-isso-id="{{ page.id }}"></section>
 
-{% endraw %}
-
 其中 ``data-isso-id`` 和 ``data-title``  用来指定文章的唯一标识符和标题。
-为每个文章指定标识符便于以后的各种迁移。{% raw %} ``{{ page.id }}`` {% endraw %}
-和  {% raw %} ``{{ page.title }}`` {% endraw %}
+为每个文章指定标识符便于以后的各种迁移。``{{ page.id }}``
+和  ``{{ page.title }}``
 是 Jekyll 提供的模板，用于获取本页面的 ID 和标题。
 title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 ``_posts`` 中的文章自动生成 ID，
 对于 ``_post/2017-06-10-switch-from-duoshuo-to-isso.md``\ ，
 其 ID 是 ``/2017/06/10/switch-from-duoshuo-to-isso``\ 。
 
 然后在页面模板 ``_layouts/page.html`` 里面引用 ``comments`` 文件：
-{% raw %} ``{% include comments %}`` {% endraw %}，
+``{% include comments %}``
 就可以在每个使用了 page 模板的网页上显示评论框了。
 
 详情请参见：\ `Commit: Replace duoshuo with isso <https://github.com/SilverRainZ/tech/commit/91fba1ed944ddc48d10df6dd21fceae5a0860b74>`_
@@ -371,7 +367,7 @@ Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍�
        </item>
    ...
 
-在多说中我使用 Jekyll 提供的 {% raw %} ``{{ page.id }}`` {% endraw %} 来标识文章，
+在多说中我使用 Jekyll 提供的 ``{{ page.id }}`` 来标识文章，
 我在 about 页面设置的 id 是 ``/about``\ ，因此在 about 页面的评论框代码会请求获取
 ``/about`` 页面中的评论，而数据库中的 URI 却是 ``/about.html``\ 。
 
