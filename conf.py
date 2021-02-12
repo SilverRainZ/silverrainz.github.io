@@ -48,15 +48,6 @@ extensions += [
 extensions += ['sphinx.ext.todo']
 todo_include_todos = True
 
-extensions += ['sphinxcontrib.images']
-images_config = {
-    'override_image_directive': True,
-    'default_image_width': '48%', # 2 images a row
-    'default_group': 'default',
-    'default_show_title': True,
-    'download': False,
-}
-
 extensions += ['sphinx.ext.extlinks']
 extlinks = {
     'zhwiki': ('https://zh.wikipedia.org/wiki/%s', ''),
