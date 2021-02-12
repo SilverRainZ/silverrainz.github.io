@@ -2,9 +2,9 @@
 Makefile
 ========
 
-Automate variables:
+.. highlight:: Makefile
 
-.. code-block:: Makefile
+Automate variables::
 
      foo.out: bar1.c bar2.c bar1.c
    # ^^^^^^^  ^^^^^^
@@ -17,9 +17,7 @@ Automate variables:
    #          $^ (newer that $@)
 
 
-Template for python project:
-
-.. code-block:: Makefile
+Template for python project::
 
    LANG = en_US.UTF-8
 

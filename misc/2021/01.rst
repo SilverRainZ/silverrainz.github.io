@@ -166,3 +166,45 @@ Plumbum: Shell Combinators and More [#]_
 :date: 2021-01-23
 
 TODO
+
+Python Typing Hint 引入大量 import 导致脚本启动慢
+=================================================
+
+:date: 2021-01-29
+
+写 khufu 的 cli 时候发现脚本启动很慢。
+使用 ``python -X importtime ...`` 统计脚本启动时 import 所占时间::
+
+    ... many line emitted ...
+    import time:       323 |     405157 | sphinxnote.khufu
+
+主要是因为 import 了 sphinx jinja 这类重量级的包导致的，而 import 的原因只是为了他
+写 typing annoaiton。
+
+尝试搜索了一下，看起来社区为了解决这个问题做了不少探索，不同版本有不同的解决方案：
+
+Python 3.5.2+ 可以使用 :py:const:`typing.TYPE_CHECKING`:
+
+.. code-block:: python
+
+   if TYPE_CHECKING:
+       import expensive_mod
+
+   def fun(arg: 'expensive_mod.SomeType') -> None:
+       local_var: expensive_mod.AnotherType = other_fun()
+
+.. note:: The first type annotation must be enclosed in quotes, making it a “forward reference”
+
+Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 ``from __future__ import annotations``
+即可 [#]_ 。
+
+Python 3.10 后 ``from __future__ import annotations`` 会成为默认行为。
+
+``__import__('pkg_resources').declare_namespace(__name__)`` [#]_ 耗了很长时间。
+
+最后::
+
+    import time:       405 |      32024 | sphinxnote.khufu
+
+.. [#] :pep:`0563`
+.. [#] https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do

@@ -2,6 +2,11 @@
 Me
 ==
 
+.. friend:: _
+            Shengyu Zhang
+            SilverRainZ
+            LA
+
 Intro
 -----
 
