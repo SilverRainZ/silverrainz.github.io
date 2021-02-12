@@ -16,8 +16,6 @@
 .. image:: /_images/archlinux-screenshot.png
    :alt: 
 
-
-* Index
 .. contents::
 
 以 XMonad 为 WM 的桌面
@@ -34,13 +32,13 @@
 * xmonad, xmonad-contrib
 * xmobar
 * dmenu
-* :raw-html-m2r:`<del>trayer</del>` trayer-srg\ :raw-html-m2r:`<sup>AUR</sup>`
+* :s:`trayer` trayer-srg\ :sup:`AUR`
 * feh
 * scrot
 * compton
 
 xmobar, 配置文件在\ ``.xmobarrc``\ , 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
-也可以自己获取系统信息, :raw-html-m2r:`<del>我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.</del>`
+也可以自己获取系统信息, :s:`我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.`
 
 ..
 
@@ -54,7 +52,7 @@ trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:
 
 ..
 
-   2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg\ :raw-html-m2r:`<sup>AUR</sup>`
+   2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg\ :sup:`AUR`
 
 
 .. code-block:: bash
@@ -140,11 +138,10 @@ GTK
 对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑...
 
-..
+.. topic:: Update
 
-   2015-7-24: 经过 IRC 里 {% include friend name="farseerfc" %} 前辈和
-   {% include friend name="quininer" %} 的\ :raw-html-m2r:`<del>调教</del>`\ , 发现原来 dolphin 还是 kde4
-   而 konsole 已经是 kde5 了.
+   2015-7-24: 经过 IRC 里 :friend:`farseerfc` 前辈和 :friend:`quininer` 的 :s:`调教` ,
+   发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.
 
    2015-8-30: 安装社区源\ ``gnome-breeze-git``\ 主题, 以及 plasma5 的\ ``breeze``\ 主题,
    可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量\ ``QT_STYLE_OVERRIDE=breeze``

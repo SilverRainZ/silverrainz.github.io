@@ -33,15 +33,13 @@
 openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他很方便地安装
 「符合中国国情」的各种软件, 比如QQ, 斗地主, 美图什么的.
 当然我只是想用QQ(或许再加上个网易云音乐?). winetricks 本来是一个脚本,
-用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了.
+用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了::
 
-..
-
-   git clone git@github.com:hillwoodroc/winetricks-zh.git\ :raw-html-m2r:`<br>`
-   cd winetricks-zh\ :raw-html-m2r:`<br>`
-   cp winetricks /usr/bin/winetricks\ :raw-html-m2r:`<br>`
-   cd verb\ :raw-html-m2r:`<br>`
-   winetricks :raw-html-m2r:`<要安装的应用对应的verb文件>`
+   git clone git@github.com:hillwoodroc/winetricks-zh.git
+   cd winetricks-zh
+   cp winetricks /usr/bin/winetricks
+   cd verb
+   winetricks
 
 
 最开始安装的是QQ轻聊版, 在winetricks qqlight.verb时遇到问题, 首先脚本要从Sourceforge上拉东西,

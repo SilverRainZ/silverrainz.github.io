@@ -16,8 +16,8 @@
 
 前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。
 
-用到的软件有 graphviz，egypt\ :raw-html-m2r:`<sup>AUR</sup>`\ ，cinclude2dot\ :raw-html-m2r:`<sup>AUR</sup>`\ ，
-{% include friend name="farseerfc" %} 推荐了 `makepp <http://makepp.sourceforge.net/>`_\ ，
+用到的软件有 graphviz，egypt\ :sup:`AUR`\ ，cinclude2dot\ :sup:`AUR`\ ，
+:friend:`farseerfc` 推荐了 `makepp <http://makepp.sourceforge.net/>`_\ ，
 然而 AUR 里面没有就作罢了。
 
 生成函数调用图
@@ -55,7 +55,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
 执行 ``dot main.dot -Tpng -o main.png``\ ，于是从整个 OS67 生成了这么一张可怕的图片：
 
 
-.. image:: /_images/os67-fucn-call-graph.png
+.. image:: /_images/os67-func-call-graph.png
    :alt: 
 
 这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
@@ -112,7 +112,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
    而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。
 
 
-:raw-html-m2r:`<del>另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。</del>`
+:s:`另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。`
 
 ..
 
@@ -129,7 +129,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
 ..
 
    AUR 里面没有所以顺手给打了一个包：
-   `cinclude2dot\ :raw-html-m2r:`<sup>AUR</sup>` <https://aur.archlinux.org/packages/cinclude2dot/>`_\ ，
+   `cinclude2dot\ :sup:`AUR` <https://aur.archlinux.org/packages/cinclude2dot/>`_\ ，
    所以现在也可以直接用 yaourt 装 cinclude2dot 了。
 
 
@@ -207,7 +207,7 @@ cinclude2dot 还提供了一个 ``--merge directory`` 选项，把相同目录�
 最后我们得到了一张还算不错的， OS67 的模块调用关系图：
 
 
-.. image:: /_images/os67-mod-include-graph-goood.png
+.. image:: /_images/os67-mod-include-graph-good.png
    :alt: 
 
 好困睡觉。

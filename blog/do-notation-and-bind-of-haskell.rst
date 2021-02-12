@@ -10,7 +10,7 @@
    :language: zh
 
 
-明明在开学的时候，《趣学指南》就只剩下三十来页了，但是还书日在即，
+明明在开学的时候，:book:`Haskell 趣学指南` 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。
 
@@ -63,11 +63,9 @@ act1是一个带状态计算，接受状态s后（不能直接接受，必须用
        push 5
        pop
 
-结果应该是：
+结果应该是::
 
-..
-
-   ghci> runState test []\ :raw-html-m2r:`<br>`
+   ghci> runState test []
    (5,[4,3])
 
 
@@ -99,7 +97,7 @@ do实际上是嵌套的>>=的一个语法糖，\ ``x <- foo`` 就是一个绑定
 .. code-block:: haskell
 
    test' :: State Stack Int
-   test' = push 3 >>= (\_ -> push 4) >>= (\_ -> push 5） >>= (\_ -> pop)
+   test' = push 3 >>= (\_ -> push 4) >>= (\_ -> push 5) >>= (\_ -> pop)
 
 .. code-block:: text
 

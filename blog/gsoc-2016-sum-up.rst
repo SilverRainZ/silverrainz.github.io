@@ -26,9 +26,9 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。
 从写 Proposal 到放弃
 --------------------
 
-三月初的时候在 #archlinux-cn 听 {% include friend name="quininer" %} 说今年 Tox
-社区要参加 GSoC 并开始招人的事情，\ :raw-html-m2r:`<del>当然也提及了 Tox 去年闹出的一桩事： 
-`Current situation of Tox #1379 <https://github.com/irungentoo/toxcore/issues/1379>`_\ 。</del>`
+三月初的时候在 #archlinux-cn 听 :friend:`quininer` 说今年 Tox
+社区要参加 GSoC 并开始招人的事情， :s:`当然也提及了 Tox 去年闹出的一桩事：`
+`Current situation of Tox #1379 <https://github.com/irungentoo/toxcore/issues/1379>`_
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
 便萌生了要试试的想法。
 
@@ -91,8 +91,8 @@ Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作
 ------------------------
 
 Hurd 当前的开发者基本在欧洲，我的两位 mentor：
-{% include person name="Richard Braun" url="https://www.sceen.net/~rbraun/resume.pdf" %} 和
-{% include person name="Justus Winter" url="https://github.com/teythoon" %} 也是，
+:people:`Richard Braun <https://www.sceen.net/~rbraun/resume.pdf>` 和
+:people:`Justus Winter <https://github.com/teythoon> 也是，
 由于时区相差太大，一般在下午五点以后跟他们用 IRC 联系。
 
 在同 mentor 们联系之后，我开始看 Hurd 的\ `文档 <https://www.gnu.org/software/hurd/index.html>`_\ ，
