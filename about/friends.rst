@@ -4,6 +4,7 @@
 
 .. friend:: fleuria
             flaneur
+            fleurer
    :blog: http://flaneur2020.github.io/
    :avatar: https://github.com/flaneur2020.png
 

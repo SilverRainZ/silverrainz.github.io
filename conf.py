@@ -43,6 +43,7 @@ extensions += [
     'sphinx.ext.githubpages',
     'sphinx_panels',
     'sphinx.ext.intersphinx',
+    'sphinxnotes.strike',
 ]
 
 extensions += ['sphinx.ext.todo']

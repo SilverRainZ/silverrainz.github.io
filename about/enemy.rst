@@ -4,12 +4,6 @@
 Enemy
 =====
 
-.. friend:: SilverRainZ
-            LA
-            Shengyu Zhang
-
-   请到 :doc:`me` 查看关于 {{ name }} 的信息。
-
 | 我的敌人在哪里
 | 这是你的敌人
 | 那是你的敌人

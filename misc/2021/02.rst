@@ -1,0 +1,53 @@
+=======
+2020-01
+=======
+
+升级一台 Vultr 的 Arch 机器
+===========================
+
+:date: 2021-02-04
+
+.. highlight:: console
+
+看了一下最近的一次更新已经是三年前::
+
+    $ cat /var/log/pacman.log | grep 'full system upgrade'
+    ...
+    [2018-01-05 10:55] [PACMAN] starting full system upgrade
+    [2018-02-18 18:07] [PACMAN] starting full system upgrade
+    [2018-02-18 18:09] [PACMAN] starting full system upgrade
+
+根据那个时间点翻看一下可能导致问题的变更：
+
+1. https://archlinux.org/news/libbloom16-2-update-requires-manual-intervention/
+2. https://archlinux.org/news/base-group-replaced-by-mandatory-base-package-manual-intervention-required/
+3. https://archlinux.org/news/now-using-zstandard-instead-of-xz-for-package-compression/
+4. https://archlinux.org/news/sshd-needs-restarting-after-upgrading-to-openssh-82p1/
+
+尝试安装软件包报错::
+
+    # pacman -S ncdu
+    error: could not open file /var/cache/pacman/pkg/ncdu-1.15.1-2-x86_64.pkg.tar.zst: Unrecognized archive format
+    error: failed to commit transaction (cannot open package file)
+    Errors occurred, no packages were upgraded.
+
+这是去年 Arch 改用 zstd 代替 xz [#]_ 压缩包导致的，Eli Schwartz 提供了静态新版
+pacman 用来帮助来不及平滑更新的用户，下载之::
+
+    $ wget https://pkgbuild.com/~eschwartz/repo/x86_64-extracted/pacman-static
+    $ chmod +x pacman-static
+
+先更新 keyring 防止不认新包的签名::
+
+    $ sudo ./pacman-static -S archlinux-keyring
+
+根据 1 的要求加个 overwrite::
+
+    $ sudo ./pacman-static -Syu --overwrite usr/lib/libbloom.so.1
+
+.. [#] https://archlinux.org/news/now-using-zstandard-instead-of-xz-for-package-compression/
+
+Python Asynchronous I/O
+=======================
+
+:date: 2021-02-04
