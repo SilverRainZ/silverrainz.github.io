@@ -7,3 +7,4 @@ ablog
 sphinx-autobuild
 sphinxcontrib.gtagjs
 sphinxnotes-khufu
+sphinxnotes-strike
