@@ -36,10 +36,10 @@ symbols =  {
       \clef "G_8"
       \symbols
     }
-    \new TabStaff {
-      \tabFullNotation
-      \symbols
-    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
   >>
 
   \midi { }
