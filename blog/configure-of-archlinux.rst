@@ -32,13 +32,13 @@
 * xmonad, xmonad-contrib
 * xmobar
 * dmenu
-* :s:`trayer` trayer-srg\ :sup:`AUR`
+* :del:`trayer` trayer-srg\ :sup:`AUR`
 * feh
 * scrot
 * compton
 
 xmobar, 配置文件在\ ``.xmobarrc``\ , 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
-也可以自己获取系统信息, :s:`我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.`
+也可以自己获取系统信息, :del:`我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.`
 
 ..
 
@@ -140,7 +140,7 @@ konsole 的界面却依然很丑...
 
 .. topic:: Update
 
-   2015-7-24: 经过 IRC 里 :friend:`farseerfc` 前辈和 :friend:`quininer` 的 :s:`调教` ,
+   2015-7-24: 经过 IRC 里 :friend:`farseerfc` 前辈和 :friend:`quininer` 的 :del:`调教` ,
    发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.
 
    2015-8-30: 安装社区源\ ``gnome-breeze-git``\ 主题, 以及 plasma5 的\ ``breeze``\ 主题,

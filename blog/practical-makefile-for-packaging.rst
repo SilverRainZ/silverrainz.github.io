@@ -235,7 +235,7 @@ Configure
 运行 ``./configure --prefix=xxx`` 来获得一个拥有指定 prefix 的 Makefile，
 这样就可以不用每次敲 make 都输入 ``PREFIX=xxx`` 了。
 
-:s:`于是大家都去用 autotools 了`
+:del:`于是大家都去用 autotools 了`
 
 .. code-block:: sh
 

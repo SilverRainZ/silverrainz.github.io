@@ -52,7 +52,7 @@
    :blog: https://farseerfc.me/
    :avatar: https://farseerfc.me/images/avatar.jpg
 
-    - 在霓虹读 PHD 的博学的 f(ire)c(hild) 前辈，人生赢家
+    - 在霓虹读 PHD 的博学的 F\ :del:`ire`\ C\ :del:`hild` 前辈，人生赢家
     - 学识渊博，性格儒雅
 
 .. friend:: KenOokamiHoro
@@ -71,7 +71,7 @@
    :avatar: https://github.com/frantic1048.png
 
    - 萌萌的现代前端魔法师
-   - 各种领域（包括纸片人）的 Power User
+   - 各种领域 :del:`（包括纸片人）` 的 Power User
 
 .. friend:: VOID001
             夏娜
@@ -87,7 +87,7 @@
    :avatar: https://beval.xyz/images/avatar.gif
 
    - Powered by Linux 的准协和医生
-   - Arch Linux CN 群医
+   - :del:`Arch Linux CN 群医`
    - 不知道啥时候有机会一起喝酒
 
 .. friend:: iovxw
@@ -96,7 +96,7 @@
    :avatar: https://github.com/iovxw.png
 
    - 神秘的有猫人士
-   - 总是能够回应我的 `Q_Q` 的热心群友
+   - 总是能够回应我的 ``Q_Q`` 的热心群友
    - 专治 troll
 
 已失效
