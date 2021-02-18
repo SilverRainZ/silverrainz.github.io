@@ -80,7 +80,16 @@ html_theme_options = {
     'page_width': '80%',
 }
 
-html_sidebars = {}
+html_sidebars = {
+    # Match all blog pages
+    'blog/*': ['about.html', 'postcard.html', 'recentposts.html',
+               'tagcloud.html', 'categories.html', 'archives.html'],
+    # Match all pages but excluding blog
+    '*[!blog]*': ['about.html', 'navigation.html', 'relations.html',
+                  'searchbox.html', 'donate.html'],
+    # Clean all sidebar for resume page
+    'about/resume': ['empty.html'],
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -168,16 +177,6 @@ blog_feed_fulltext = True
 blog_feed_subtitle = description
 fontawesome_included = True
 html_css_files += ['ablog.css']
-# Match all blog pages
-html_sidebars['blog/*'] = [
-    'about.html', 'postcard.html', 'recentposts.html',
-    'tagcloud.html', 'categories.html', 'archives.html',
-]
-# Match all pages but excluding blog
-html_sidebars['*[!blog]*'] = [
-    'about.html', 'navigation.html', 'relations.html',
-    'searchbox.html', 'donate.html',
-]
 
 extensions += ['sphinxcontrib.gtagjs']
 gtagjs_ids = [ 'G-FYHS50G6DL' ]
@@ -187,4 +186,4 @@ khufu_snippet_patterns = ['man/.*']
 
 extensions += ['sphinx_panels']
 # For ``fa`` role
-html_css_files += ['https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.min.css']
+html_css_files += ['https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css']
