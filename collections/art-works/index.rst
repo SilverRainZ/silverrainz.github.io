@@ -14,7 +14,7 @@ All things list here is not "artworks", just my works that dedicated to art
 
     比如，晓飞老师创作课的第一张作业，可以将其命名为 ``xfczk-001`` 。
 
-.. artworks:: 树脂石膏像
+.. artwork:: 树脂石膏像
    :id: xfczk-000
    :date: 2020-12-28
    :size: 32k
@@ -30,11 +30,11 @@ All things list here is not "artworks", just my works that dedicated to art
        只是视觉感受上没有那么强。
 
    另外一个原因是笔和水，在 32K 上用 2 号的达芬奇 814 还是嫌大，就自己的感受，
-   这种法式水彩笔也不适合用来画精确的形。另，我对水份的控制依然没有什么经验
+   这种法式水彩笔也不适合用来画精确的形。另，我对水份的控制依然没有什么经验，
    回头想的画，这种画的用水应该也比较单纯：平涂为主，边缘线（指不同色层之间的分界）
-   可以偏硬。从亮到暗水量慢慢减少，既能增强覆盖力也能防止吧下层的颜色晕开。
+   可以偏硬。从亮到暗水量慢慢减少，既能增强覆盖力也能防止把下层的颜色晕开。
 
-.. artworks:: 单色静物
+.. artwork:: 单色静物
    :id: xfczk-001
    :date: 2021-01-03
    :size: 32k
@@ -61,7 +61,7 @@ All things list here is not "artworks", just my works that dedicated to art
       改天实践一下。
 
 
-.. artworks:: 奥沙西泮的恩赐
+.. artwork:: 奥沙西泮的恩赐
    :id: xfczk-002
    :date: 2021-01-12
    :size: 32k
@@ -74,7 +74,7 @@ All things list here is not "artworks", just my works that dedicated to art
    -- 奥沙西泮三倍剂量下的精神状态报告
 
 
-.. artworks:: 厕所门口
+.. artwork:: 厕所门口
    :id: xfczk-003
    :date: 2021-01-13
    :size: 32k
@@ -83,7 +83,7 @@ All things list here is not "artworks", just my works that dedicated to art
     她在卧室里睡觉。家里灯是安静的。
     我也想去睡觉，可是还没有画完。
 
-.. artworks:: 树脂石膏像二
+.. artwork:: 树脂石膏像二
    :id: xfczk-004
    :date: 2021-01-13
    :size: 32k
@@ -92,7 +92,7 @@ All things list here is not "artworks", just my works that dedicated to art
    还是画小石膏，不过这次用了色粉笔，效果依然不好。
    本意是「直接画形体」
 
-.. artworks:: 银色飞行船
+.. artwork:: 银色飞行船
    :id: xfczk-005
    :date: 2021-01-21
    :size: 32k
@@ -100,21 +100,23 @@ All things list here is not "artworks", just my works that dedicated to art
 
    我对云，尤其是积雨云的喜爱，可能超过了所有其他的自然景观。
 
+   太阳快要下山的时候，积云的底座被淡淡地染上一抹火烧色
+
    .. _银色飞行船: https://zh.moegirl.org.cn/%E9%93%B6%E8%89%B2%E9%A3%9E%E8%A1%8C%E8%88%B9
 
-.. artworks:: I Should
+.. artwork:: I Should
    :id: xfczk-006
    :date: 2021-01-30
    :size: 32k
    :medium: 马克笔 水彩
 
-.. artworks:: 蛇与象
+.. artwork:: 蛇与象
    :id: xfczk-007
    :date: 2021-01-31
    :size: 32k
    :medium: 炭精粉
 
-.. artworks:: 愤怒的释放
+.. artwork:: 愤怒的释放
    :id: xfczk-008
    :date: 2021-02-01
    :size: 32k
@@ -123,7 +125,7 @@ All things list here is not "artworks", just my works that dedicated to art
    本意上这张画是作为马克笔的试作。
    但到了画的时候我充满了愤怒。
 
-.. artworks:: 下雪的 768
+.. artwork:: 下雪的 768
    :id: xfczk-009
    :date: 2021-02-04
    :size: 32k
@@ -134,7 +136,7 @@ All things list here is not "artworks", just my works that dedicated to art
    2019 年 11 月 29 日，我还在 768 上班，那天应该是周五下班，和同事准备出门吃饭。
    天上扬着小雪，只有灯照到的地方才能看到它们簌簌地落下。
 
-.. artworks:: 一种玫瑰标本及其制备工艺
+.. artwork:: 一种玫瑰标本及其制备工艺
    :id: xfczk-010
    :date: 2021-02-10
    :size: 32k
@@ -145,11 +147,11 @@ All things list here is not "artworks", just my works that dedicated to art
    失去的瞬间像是你沿着光滑的藤蔓摸索，一路走过去，和往常一样伸手却摸了个空。
 
    一段感情是什么样子的呢？我们说「一朵玫瑰是好看的」的时候，其实是说「玫瑰
-   现在的样子是好看的」。完整的玫瑰是什么样子的？我摸过的那段藤蔓是我走过的
+   现在的样子是好看的」。完整的玫瑰是什么样子的？摸过的那段藤蔓是我走过的
    足迹的形状，完整的玫瑰是玫瑰从破土而出到零落成泥的形状。枝桠们在空间里扭动着向上，
-   在时间里慢慢成熟，衰老，凋亡。而在这枝桠上，那朵玫瑰划过的痕迹，就是问题的答案吧。
+   在时间里慢慢成熟，衰老，凋亡。在这时间与空间里玫瑰划过的痕迹，就是问题的答案吧。
 
-.. artworks:: 白日
+.. artwork:: 白日
    :id: xfczk-011
    :date: 2021-02-14
    :size: 32k
@@ -167,3 +169,9 @@ All things list here is not "artworks", just my works that dedicated to art
    还有的，一只又一只地扭断其他的手，自诩理性的骑士。
 
    我还是什么都不知道，只知道粗糙的卡纸很适合画色粉。
+
+.. artwork:: 善的异见
+   :id: xfczk-012
+   :date: 2021-02-17
+   :size: 32k
+   :medium: 水彩

@@ -31,7 +31,7 @@ Template for python project::
 
    .PHONY: dist
    dist: setup.py
-       $(RM) dist/
+       $(RM) dist/ build/ *.egg-info/
        $(PY) setup.py sdist bdist_wheel
 
    .PHONY: upload

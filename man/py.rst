@@ -4,22 +4,6 @@ Python
 
 .. highlight:: python
 
-Deep Copy Object
-================
-
-Use :py:meth:`copy.deepcopy`.
-
-Auto Enumerations
-=================
-
-Like ``iota`` in golang::
-
-   from enum import Enum, auto
-   class Color(Enum):
-       RED = auto()
-       GREEN = auto()
-       BLUE = auto()
-
 Sort Tuple List
 ===============
 
@@ -61,6 +45,12 @@ Create object and copy attributes::
     dst = src.__class__.__new__(src.__class__)
     dst.__dict__.update(src.__dict__)
 
+
+Deep Copy::
+
+    copy.deepcopy()
+
+
 Basic Type Casting/Conversion
 =============================
 
@@ -79,9 +69,6 @@ Dict to tuple list::
 List to set::
 
     set([1, 1, 1])
-
-Unit Testing
-============
 
 Class
 =====
@@ -114,6 +101,14 @@ Use class as plain old data structure (POD) via dataclasses [#]_::
 
 .. note:: New in python 3.7.
 
+Auto Enumerations like ``iota`` in golang::
+
+   from enum import Enum, auto
+   class Color(Enum):
+       RED = auto()
+       GREEN = auto()
+       BLUE = auto()
+
 File Operations
 ===============
 
@@ -138,3 +133,12 @@ Create soft/symbolic link::
     os.symlink(src, dst)
 
 .. [#] https://docs.python.org/3/library/dataclasses.html
+
+Packing
+=======
+
+Check pypi upload error:
+
+.. code-block:: bash
+
+   $ twine check dist/*
