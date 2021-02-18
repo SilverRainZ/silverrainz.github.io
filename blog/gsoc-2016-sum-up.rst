@@ -27,7 +27,7 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。
 --------------------
 
 三月初的时候在 #archlinux-cn 听 :friend:`quininer` 说今年 Tox
-社区要参加 GSoC 并开始招人的事情， :s:`当然也提及了 Tox 去年闹出的一桩事：`
+社区要参加 GSoC 并开始招人的事情， :del:`当然也提及了 Tox 去年闹出的一桩事：`
 `Current situation of Tox #1379 <https://github.com/irungentoo/toxcore/issues/1379>`_
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
 便萌生了要试试的想法。

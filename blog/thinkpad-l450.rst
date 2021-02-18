@@ -61,7 +61,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
   （听小药壶说可以用 scheme 来写 .xbindskeyrc）
 * 使用 terminator 代替 konsole
 * 
-  使用 dzen2 + :s:`condy` conky 代替 xmobar
+  使用 dzen2 + :del:`condy` conky 代替 xmobar
 
   需要启动两个 dzen2，一个接受 xmoand 的输出，一个接受 conky 的输出，
   需要注意的是 dzen2 **不支持** 按屏幕的百分比显示，
