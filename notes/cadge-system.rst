@@ -17,7 +17,7 @@ CAGED 系统和吉他的纯四度调弦息息相关。
 
 私以为 CAGED 系统的意义在于通过确定的几个 pattern 能够快速得到标准调弦上指板音阶的分布。
 
-.. thumbnail:: /_images/caged-system.png
+.. image:: /_images/caged-system.png
 
 - https://www.zhihu.com/question/37301778/answer/71690603
 - https://www.youtube.com/watch?v=Ly0S6tDu9Xs

@@ -12,4 +12,4 @@ By the way I use NeoVim :-)
 
 Execute script in comment(mode line)::
 
-    /* vim: set filetype=goyacc: */
+    /* vim: set filetype=rst: */
