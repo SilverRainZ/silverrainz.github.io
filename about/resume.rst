@@ -14,11 +14,23 @@
 :fa:`graduation-cap` 教育背景
 =============================
 
-- **华南农业大学**\ ，软件工程，2013 年 9 月 - 2017 年 5 月
-- **造型实验室**\ ，古典素描，2020 年 6 月 - 2021 年 6 月
+**华南农业大学**
+    软件工程，2013 年 9 月 - 2017 年 5 月
+
+**造型实验室**
+    古典素描，2020 年 6 月 - 2021 年 6 月
 
 :fa:`briefcase` 从业经历
 ========================
+
+**自由软件基金会 & 谷歌**
+    GSoC Student，GNU Hurd 开发者，2016 年
+
+**北京长亭科技有限公司**
+    实习研发工程师，2016 年
+
+**北京长亭科技有限公司**
+    研发工程师，2017 年 -- 2020 年
 
 :fa:`code` 项目经历
 ===================
@@ -28,6 +40,7 @@ The OS67 Kernel [#]_
 
 :时间: 2014 年 10 月 -- 2015 年 10 月
 :类型: 个人开源项目
+:角色: 作者、维护者
 :技术栈: C、汇编、操作系统
 
 类 Unix 的玩具操作系统内核，基本上是 MIT 6.628\ [#]_ 的劣化版，功能如下：
@@ -45,6 +58,7 @@ Srain IRC Client [#]_
 
 :时间: 2016 年 1 月 -- 至今
 :类型: 个人开源项目
+:角色: 作者、维护者
 :技术栈: C、GTK、Linux Desktop
 
 现代化的 IRC 客户端, IRC 是一种古老的，基于文本的聊天协议，在开源社区中广泛使用。
@@ -55,7 +69,7 @@ Srain 致力于让 IRC 用户拥有更好的聊天体验：
 - 支持从 URL 预览图片（IRC 协议不支持发送图片，只能发送图片的 URL）
 - 改善转发机器人（Relaybot）消息的显示效果
 
-  TODO
+TODO
 
 XATTR Support for GNU/Hurd [#]_
 -------------------------------
@@ -63,29 +77,57 @@ XATTR Support for GNU/Hurd [#]_
 :时间: 2016 年 5 月 -- 2016 年 9 月
 :类型: 社区开源项目
 :技术栈: C、Hurd、文件系统
+:角色: 实习开发者
 
 这是 2016 年的谷歌编程之夏（Google Summber of Code）的其中一个 proposal，
 为 GNU/Hurd 的 ext2 文件系统增加扩展文件属性（Extended File Attribute）的特性。
 我作为 GSoC Student 顺利地完成了该项目，相关的代码 [#]_ 已并入上游。
 
-IRC Bot Framework [#]_
+高性能流量转发服务器 SN*****r
+-----------------------------
+
+:时间: 2016 年
+:类型: 商业项目
+:技术栈: C、Linux、Netwoking
+:角色: 实习开发者
+
+高性能结构化日志统计平台 M***o
+------------------------------
+
+:时间: 2017 年 -- 2020 年
+:类型: 商业项目
+:技术栈: Golang、Concurrency
+:角色: 开发者、维护者
+
+Lua 插件平台 *****
+------------------
+
+:时间: 2017 年 -- 2020 年
+:类型: 商业项目
+:技术栈: Golang、Lua
+:角色: 开发者、维护者
+
+实时流处理框架 P****er
 ----------------------
 
-:时间: 2016 年 5 月 -- 至今
+:时间: 2018 年 -- 2020 年
+:类型: 商业项目
+:技术栈: Golang, SQL、Concurrency、Streaming Processing
+:角色: 作者、维护者
+
+Sphinx Notes [#]_
+-----------------
+
+:时间: 2020 年 5 月 -- 至今
 :类型: 个人开源项目
-:技术栈: Python
+:技术栈: Python、restructuredText、Linux、LilyPond、Jinja2
+:角色: 作者、维护者
 
-基于 ``Tornado.IOLoop`` 实现的简洁，热更新的 IRC 机器人框架。后部分迁移到 asyncio。
+其他项目
+--------
 
-TODO:
-
-- snserver
-- mario
-- plumber
-- sphinx
-- golang
-
-更多：https://github.com/SilverRainZ?tab=repositories
+LABots
+    基于 ``Tornado.IOLoop`` 实现的简洁，热更新的 IRC 机器人框架
 
 :fa:`cogs` 技能
 ===============
@@ -105,23 +147,24 @@ TODO:
 Arch Linux 社区
 ---------------
 
-Arch Linux 中国社区 [#]_
+**Arch Linux 中国社区** [#]_
     2016 年至今，作为活跃成员，一直为中国社区软件仓库维护软件包 100 余个，
     提交数量排名 #14（截至 2021-02-18） [#]_
 
-Arch Linux User Repository
+**Arch Linux User Repository**
     AUR 是 Arch Linux 用户驱动的软件仓库，是官方仓库的重要补充。 作为活跃用户，
     在 AUR 维护软件包 20 余个 [#]_ 。历史上亦维护过常用但尚未被官方收录的软件，
     例如： jekyll, vim-fcitx, ccls, gtk4 等。
 
 Internet Relay Chat
 --------------------
-Srain IRC Client
+
+**Srain IRC Client**
     维护
     - 为著名 IRC 客户端 Hexchat 修复 Bug}
   {https://github.com/hexchat/hexchat/pull/1969}{
 
-Sphinx Documentation and Extension
+**Sphinx Documentation and Extension**
     Sphinx Notes
 
 
@@ -130,18 +173,22 @@ The Go Language
 
 在工作之余为 Go 的编译器周边工具
 
-fasthttp
+**fasthttp**
     为知名 HTTP 库 fasthttp 修复 BUG
 
-Linux Desktop
-  https://git.reviewboard.kde.org/r/127323/ 为 KDE 社区的 breeze-gtk 项目修复 Bug
-
-文档和翻译
+**文档和翻译**
     - 为 PNMixer 贡献中文翻译 [#]_
     - 为开源书籍 :book:`Haskell 趣学指南` 全书校正代码格式 [#]_
 
 :fa:`info` 其他
 ===============
+
+专利
+----
+
+- Web 应用防火墙系统及计算机存储介质 [#]_
+- 一种 Web 应用防火墙自定义扩展功能的方法、装置、系统及电子设备 [#]_
+- 一种实时数据处理方法及装置 [#]_
 
 :fa:`external-link-alt` 脚注
 ============================
@@ -158,5 +205,6 @@ Linux Desktop
 .. [#] https://www.archlinuxcn.org
 .. [#] https://github.com/archlinuxcn/repo/graphs/contributors
 .. [#] https://aur.archlinux.org/packages/?K=SilverRainZ&SeB=m
-
-
+.. [#] CN109889530B
+.. [#] CN111158683A
+.. [#] CN110334117A
