@@ -8,6 +8,25 @@ Objects
 
 .. contents::
 
+
+Entity 
+------
+
+SrnEntity
+~~~~~~~~~
+
+::
+
+    gchar* identity;
+    gchar* name;
+    gchar* summary;
+    gchar* description;
+    GdkPixbuf *avatar;
+    GVariantDict *fields;
+
+SrnAction
+~~~~~~~~~
+
 Top Level
 ---------
 
@@ -16,6 +35,7 @@ SrnApplication
 
 Method::
 
+    const GList* add_messenger(SrnMessenger);
     const GList* list_windows();
 
 SrnWindow
@@ -23,14 +43,25 @@ SrnWindow
 
 Method::
 
-    const GList* list_buffers();
-    const GList* list_service_desks();
+    const GList* list_workspace();
+    new_workspace();
+
+SrnWorkSpace
+~~~~~~~~~~~~
+
+::
+
+    const GList* list_pages();
 
 Buffer
 ------
 
-SrnServiceDesk
-~~~~~~~~~~~~~~
+Memeber::
+
+    GtkListView* message_list;
+
+SrnServiceBuffer
+~~~~~~~~~~~~~~~~
 
 Member::
 
@@ -112,7 +143,7 @@ SrnUser
 Member::
 
     gchar *identity;
-    gchar *display_name;
+    gchar *name;
     gchar *summary;
     gchar *description;
     GList *members;
@@ -120,27 +151,35 @@ Member::
 SrnMember
 ~~~~~~~~~
 
-MemberPanel & User Panel
+Member & User Panel
 
 Member::
 
-    gchar *display_name;
+    gchar *name;
     gchar *summary;
     gchar *description;
-    GList *members;
+    SrnBuffer *buffer;
+    SrnUser *user;
 
-SrnUserList
-~~~~~~~~~~~
+SrnMemberList
+~~~~~~~~~~~~~
 
 Messenger
 ---------
+
+io_loop
+
+SrnMessengerFeature
+~~~~~~~~~~~~~~~~~~~
 
 SrnMessenger
 ~~~~~~~~~~~~
 
 Method::
 
-    const char *version;
-    const GtkWidget* connection_panel();
-    const GtkWidget* concat_penel();
-    const GtkWidget* user_panel(const char *user_id);
+    GtkWidget* connection_panel();
+    GtkWidget* service_penel();
+    GtkWidget* setting_panel();
+    GtkWidget* about_panel();
+    GtkWidget* user_panel(SrnUser *user);
+    GtkWidget* memeber_panel(SrnMember *member);
