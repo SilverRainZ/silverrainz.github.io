@@ -8,15 +8,18 @@ Login
 =====
 
 1. [A] App run
-1. [A] Select Messenger
-1. [A] Query connection panel
-1. [M] Connect and create buffers with contact panel
+2. [A] Select Messenger (list ``*.so`` )
+3. [A] Load so and create Messenger
+4. [A] setup first step
+5. [M] emit pre-setp signal, do step, emit post-step signal
+6. [A] Setup service desk
 
 Join
 ====
 
-1. [M] Operate on contact panel
+1. [M] Operate on service desk, emit pre-step signal, join, emit post-step signal
 2. [A] Create channel buffer and connect signal
+2. [M] Provide GListModel and factory
 
 Message
 =======
@@ -59,5 +62,5 @@ Recv media
 User
 ====
 
-Init user list
----------------
+Init member list
+----------------
