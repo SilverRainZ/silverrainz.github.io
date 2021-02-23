@@ -3,10 +3,13 @@
 ============
 
 :date: 2021-01-01
-:status: Upcoming
+:status: Work In Progress
 
 .. toctree::
    :titlesonly:
+
+   prepare
+   find-yourself
 
 找自己
 ======
