@@ -1,3 +1,5 @@
+:Last Update: 2021-02-25
+
 .. rst-class:: center-title
 
 ======
@@ -24,7 +26,7 @@
 ========================
 
 **自由软件基金会 & 谷歌**
-    GSoC Student，GNU Hurd 开发者，2016 年
+    GSoC Student、GNU Hurd 开发者，2016 年
 
 **北京长亭科技有限公司**
     实习研发工程师，2016 年
@@ -61,15 +63,10 @@ Srain IRC Client [#]_
 :角色: 作者、维护者
 :技术栈: C、GTK、Linux Desktop
 
-现代化的 IRC 客户端, IRC 是一种古老的，基于文本的聊天协议，在开源社区中广泛使用。
-Srain 致力于让 IRC 用户拥有更好的聊天体验：
+现代化的跨平台 IRC 客户端, 基于 GTK 和 GLib 开发。
 
-- 实现了 RFC 1459，实现了 IRC 客户端的基本功能
-- 美观的界面，可自定义皮肤
-- 支持从 URL 预览图片（IRC 协议不支持发送图片，只能发送图片的 URL）
-- 改善转发机器人（Relaybot）消息的显示效果
-
-TODO
+IRC 是一种古老的，基于文本的聊天协议，在开源社区中广泛使用。
+Srain 于致力于让 IRC 用户拥有更好的聊天体验。
 
 XATTR Support for GNU/Hurd [#]_
 -------------------------------
@@ -91,16 +88,16 @@ XATTR Support for GNU/Hurd [#]_
 :技术栈: C、Linux、Netwoking
 :角色: 实习开发者
 
-高性能结构化日志统计平台 M***o
-------------------------------
+结构化日志统计平台 Ma**o
+------------------------
 
 :时间: 2017 年 -- 2020 年
 :类型: 商业项目
 :技术栈: Golang、Concurrency
 :角色: 开发者、维护者
 
-Lua 插件平台 *****
-------------------
+Lua 插件平台 L*g
+-----------------
 
 :时间: 2017 年 -- 2020 年
 :类型: 商业项目
@@ -126,26 +123,39 @@ Sphinx Notes [#]_
 其他项目
 --------
 
-LABots
-    基于 ``Tornado.IOLoop`` 实现的简洁，热更新的 IRC 机器人框架
+**LABots** [#]_ 
+    基于 Tornado 实现的简洁，热更新的 IRC 机器人框架
+
+TODO
 
 :fa:`cogs` 技能
 ===============
 
-- 熟练使用 C
-- 熟悉 GLib/GTK 函数库
-- 熟悉操作系统原理
-- 熟悉 Linux 下的 C 语言编程，了解 Linux 下的通用软件打包规范及原理
-- 能够使用 汇编、Bash、Python、Java、Rust 等编程语言
-- 对 Scheme、Haskell 稍有了解
-- 对 C/C++ 程序的逆向分析有所了解，能使用 OllyDBG、IDA 等工具
-- 英语 CET-4，能适应阅读英文技术文献
+**语言**
+    | 熟练使用 C、Golang、Python
+    | 有 x86 汇编、Java、C++、Lua、Rust、Pascal、Ruby 的小型项目编写经验
+    | 对 Scheme、Haskell 有一定了解
+
+**框架**
+    | 熟悉 Linux 下的 C 编程，熟悉 GLib/GTK 函数库
+    | 有 Flask、Tornado 库的使用经验
+    | 对 C/C++ 程序的逆向分析有一定了解，能使用 OllyDBG、IDA 等工具
+
+**工具**
+    | 熟悉 Makefile、Meson 构建系统，有 AutoTools、CMake、Bazel 的使用经验
+    | 熟悉以 Git 作为 CVS 的协作开发流程
+    | 熟练使用 Sphinx 文档生成工具，熟悉 Sphinx 扩展开发
+
+**其他**
+    | 熟悉开源社区工作流程
+    | 拥有中小型项目长期维护经验
+    | 能适应阅读、编写英文技术文档
 
 :fa:`users` 开源活动
 ====================
 
-Arch Linux 社区
----------------
+Linux 相关
+----------
 
 **Arch Linux 中国社区** [#]_
     2016 年至今，作为活跃成员，一直为中国社区软件仓库维护软件包 100 余个，
@@ -154,31 +164,49 @@ Arch Linux 社区
 **Arch Linux User Repository**
     AUR 是 Arch Linux 用户驱动的软件仓库，是官方仓库的重要补充。 作为活跃用户，
     在 AUR 维护软件包 20 余个 [#]_ 。历史上亦维护过常用但尚未被官方收录的软件，
-    例如： jekyll, vim-fcitx, ccls, gtk4 等。
+    例如：jekyll, vim-fcitx, ccls, gtk4 等。
 
-Internet Relay Chat
---------------------
+IRC 相关
+--------
 
 **Srain IRC Client**
-    维护
-    - 为著名 IRC 客户端 Hexchat 修复 Bug}
-  {https://github.com/hexchat/hexchat/pull/1969}{
+    作为作者和维护者，从 2016 年至 2021 年，一直持续开发和维护项目， 
+    截至 2021-02-25，五年间：
 
-**Sphinx Documentation and Extension**
-    Sphinx Notes
+    - 新增代码 153,355 行，删除代码 117,419 行，当前仓库代码约 20,000 loc
+    - 发布了 23 个版本
+    - 建立了 163 个 Issue
+    - 合并了来自 19 个社区开发者的 144 个 Pull Request
+    - 被 AUR、AOSC、DragonFly BSD、Fedora、FreeBSD、Flatpak、Guix、
+      Gentoo overlay GURU、OpenBSD、OpenMandriva、openSUSE、NetBSD、Void Linux 
+      共计被 13 个 \*nix 发行版的软件仓库收录
 
+**Bug fixes**
+    - 为著名 IRC 客户端 Hexchat 修复 Bug [#]_
+    - 为著名 IRC 客户端 irssi 修复 Bug [#]_
 
-The Go Language
----------------
+Golang 相关
+-----------
 
-在工作之余为 Go 的编译器周边工具
+**The Go Language**
+    - 修复标准库 ``text/scanner`` 中一处 BUG [#]_
+    - 修复 ``go vet`` 中一处错误的逃逸分析 [#]_
+    - 补充 ``go build`` 时一个缺失的 linker flag [#]_
 
 **fasthttp**
-    为知名 HTTP 库 fasthttp 修复 BUG
+    为 HTTP 库 fasthttp 修复 BUG [#]_
 
-**文档和翻译**
-    - 为 PNMixer 贡献中文翻译 [#]_
-    - 为开源书籍 :book:`Haskell 趣学指南` 全书校正代码格式 [#]_
+**Read The Docs**
+    Read The Docs 社区有计划使用 Sphinx 来生成静态的 Golang 接口文档
+    （而非动态的 GoDoc），用于生成文档的配套工具还处在非常早期的阶段，
+    我根据自己的需要做了一些改进 [#]_ 。
+
+其他
+----
+
+- 维护 PNMixer [#]_ 的中文翻译
+- 为书籍 :book:`Haskell 趣学指南` 全书校正代码格式 [#]_
+- 为开源游戏 DDNet 修复 BUG [#]_
 
 :fa:`info` 其他
 ===============
@@ -198,13 +226,24 @@ The Go Language
 .. [#] https://srain.im
 .. [#] https://summerofcode.withgoogle.com/archive/2016/projects/5786848613892096
 .. [#] https://git.sceen.net/hurd/hurd.git/commit/?id=6ebebc80de3dfc7ada3a69d609f00088c2143be3
-.. [#] - https://github.com/SilverRainZ/labots
-       - https://github.com/SilverRainZ/bots
-.. [#] https://github.com/nicklan/pnmixer/commits?author=SilverRainZ
-.. [#] https://github.com/MnO2/learnyouahaskell-zh
+.. [#] https://github.com/sphinx-notes
+.. [#] | LABots https://github.com/SilverRainZ/labots
+       | 基于 LABots 实现的机器人 https://github.com/SilverRainZ/bots
 .. [#] https://www.archlinuxcn.org
 .. [#] https://github.com/archlinuxcn/repo/graphs/contributors
 .. [#] https://aur.archlinux.org/packages/?K=SilverRainZ&SeB=m
+.. [#] https://github.com/hexchat/hexchat/pull/1969
+.. [#] https://github.com/irssi/irssi/pull/742
+.. [#] https://go-review.googlesource.com/#/c/go/+/112037
+.. [#] https://go-review.googlesource.com/c/tools/+/175617
+.. [#] https://go-review.googlesource.com/c/go/+/210657
+.. [#] https://github.com/valyala/fasthttp/pull/713
+.. [#] | https://github.com/readthedocs/sphinx-autoapi/pull/176
+       | https://github.com/readthedocs/godocjson/pull/13
+       | https://github.com/readthedocs/godocjson/pull/12
+.. [#] https://github.com/nicklan/pnmixer
+.. [#] https://github.com/MnO2/learnyouahaskell-zh/pull/60
+.. [#] https://github.com/ddnet/ddnet/pull/1390
 .. [#] CN109889530B
 .. [#] CN111158683A
 .. [#] CN110334117A
