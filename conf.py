@@ -13,7 +13,6 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-import shutil
 
 # -- Project information -----------------------------------------------------
 
@@ -126,8 +125,7 @@ extlinks = {
 }
 
 extensions += ['sphinxnotes.any']
-and_predefined_schemas = []
-any_custom_schemas = [{
+any_schemas = [{
     'type': 'friend',
     'fields': {
         'others': ['avatar', 'blog'],
@@ -136,7 +134,7 @@ any_custom_schemas = [{
         'reference': '@{{ title }}',
         'content': open('_conf/friend-template.rst', 'r').read(),
     }
-},{
+}, {
     'type': 'book',
     'fields': {
         'id': 'isbn',
@@ -146,7 +144,7 @@ any_custom_schemas = [{
         'reference': '《{{ title }}》',
         'content': open('_conf/book-template.rst', 'r').read(),
     }
-},{
+}, {
     'type': 'artwork',
     'fields': {
         'id': 'id',
@@ -179,10 +177,13 @@ fontawesome_included = True
 html_css_files += ['ablog.css']
 
 extensions += ['sphinxcontrib.gtagjs']
-gtagjs_ids = [ 'G-FYHS50G6DL' ]
+gtagjs_ids = ['G-FYHS50G6DL']
 
-extensions += ['sphinxnotes.khufu.ext.snippet']
-khufu_snippet_patterns = ['man/.*']
+extensions += ['sphinxnotes.snippet.ext']
+snippet_patterns = {
+    'd': '.*',
+    'c': 'man/.*',
+}
 
 extensions += ['sphinx_panels']
 # For ``fa`` role
