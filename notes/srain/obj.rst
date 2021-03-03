@@ -9,14 +9,34 @@ Objects
 .. contents::
 
 
+SrnFlow
+-------
+
+Props::
+
+    name
+
+Methods::
+
+    GtkWidget *launch();
+
+Signals::
+
+    "busy" [GtkWidget* | Text]
+    "next" GtkWidget*
+    "abort" GtkWidget*
+
 Entity 
 ------
 
 SrnEntity
 ~~~~~~~~~
 
+An object that you can talk to.
+
 ::
 
+    GInterface parent;
     gchar* identity;
     gchar* name;
     gchar* summary;
@@ -24,8 +44,34 @@ SrnEntity
     GdkPixbuf *avatar;
     GVariantDict *fields;
 
-SrnAction
+    GMenu *operations; // Add contact, Block and etc
+    GtkWidget *custom_widgets[];
+
+SrnUser
+^^^^^^^
+
+::
+
+    SrnEntity parent;
+
+SrnGroup
+^^^^^^^^
+
+::
+
+    SrnEntity parent;
+    GListModel *member_list;
+
+SrnMember
 ~~~~~~~~~
+
+::
+
+    SrnBuffer *context;
+    SrnEntity* entity;
+
+    GMenu *operations; // Mute, Kick, and etc
+    GtkWidget *custom_widgets[];
 
 Top Level
 ---------
@@ -33,69 +79,82 @@ Top Level
 SrnApplication
 ~~~~~~~~~~~~~~
 
-Method::
-
-    const GList* add_messenger(SrnMessenger);
-    const GList* list_windows();
-
 SrnWindow
 ~~~~~~~~~
-
-Method::
-
-    const GList* list_workspace();
-    new_workspace();
 
 SrnWorkSpace
 ~~~~~~~~~~~~
 
-::
-
-    const GList* list_pages();
-
 Buffer
 ------
-
-Memeber::
-
-    GtkListView* message_list;
-
-SrnServiceBuffer
-~~~~~~~~~~~~~~~~
-
-Member::
-
-    SrnUser *self;
-
-Method::
-
-    set_child(GtkWidget* widget);
 
 SrnBuffer
 ~~~~~~~~~
 
 Memeber::
 
+    SrnEntity* target;
+    GtkListView* message_list;
     GtkListView* message_list;
 
 SrnChannelBuffer
 ~~~~~~~~~~~~~~~~
 
+::
+
+    GtkListView* member_list
+
     
 SrnDialogBuffer
 ~~~~~~~~~~~~~~~
 
+::
+
+    SrnMember* member[2];
+
 Message
 -------
+
+SrnMessageView
+~~~~~~~~~~~~~~
+
+SrnTextMessageView
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    set_model(SrnTextMessage*);
+    SrnTextMessage* get_model();
+
+SrnRichMessageView
+^^^^^^^^^^^^^^^^^^
+
+SrnImageMessageView
+...................
+
+SrnAudioMessageView
+...................
+
+SrnVideoMessageView
+...................
+
+SrnWebviewMessageView
+.....................
+
+Sure??
+
+SrnCustomMessageView
+^^^^^^^^^^^^^^^^^^^^
 
 SrnMessage
 ~~~~~~~~~~
 
 Member::
 
-    SrnMember *origin
+    SrnMember *original
     SrnBuffer *target
-    GDateTime *time;
+    GDateTime *recv_time;
+    GDateTime *send_time;
     GList *tags
 
 Method::
@@ -118,7 +177,7 @@ Member::
     GFile* content;
 
 SrnCustomMessage
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Memeber::
 
@@ -142,10 +201,7 @@ SrnUser
 
 Member::
 
-    gchar *identity;
-    gchar *name;
-    gchar *summary;
-    gchar *description;
+    SrnEntity
     GList *members;
 
 SrnMember
@@ -155,11 +211,8 @@ Member & User Panel
 
 Member::
 
-    gchar *name;
-    gchar *summary;
-    gchar *description;
-    SrnBuffer *buffer;
     SrnUser *user;
+    SrnBuffer *buffer;
 
 SrnMemberList
 ~~~~~~~~~~~~~
@@ -167,19 +220,18 @@ SrnMemberList
 Messenger
 ---------
 
-io_loop
-
-SrnMessengerFeature
-~~~~~~~~~~~~~~~~~~~
-
 SrnMessenger
 ~~~~~~~~~~~~
 
 Method::
 
+    SrnFlow *login;
+    SrnFlow *contact;
+    SrnFlow* setting;
+    GtkWidget* setting;
+
+    SrnMessenger *srn_messenger_new(SrnApplication *app);
     GtkWidget* connection_panel();
-    GtkWidget* service_penel();
-    GtkWidget* setting_panel();
     GtkWidget* about_panel();
     GtkWidget* user_panel(SrnUser *user);
     GtkWidget* memeber_panel(SrnMember *member);

@@ -16,6 +16,7 @@ Abstract:
 - GMenu
 - GListStore
 - Signal: Pre-Step(widget) and Post-Step(widget)
+- GModule?
 
 .. toctree::
    :glob:
