@@ -4,22 +4,28 @@ Flow
 
 :date: 2021-02-21
 
+Known flows:
+
+- Login -> Flow
+- Contact -> Entity
+- Inspect -> Entity
+
 Login
 =====
 
 1. [A] App run
 2. [A] Select Messenger (list ``*.so`` )
 3. [A] Load so and create Messenger
-4. [A] setup first step
-5. [M] emit pre-setp signal, do step, emit post-step signal
-6. [A] Setup service desk
+4. [A] Start ``SrnFlow *login``
+5. [M] Login flow logical
+6. [A] Start ``SrnFlow *contact``
 
-Join
-====
+Contact
+=======
 
-1. [M] Operate on service desk, emit pre-step signal, join, emit post-step signal
-2. [A] Create channel buffer and connect signal
-2. [M] Provide GListModel and factory
+1. [A] Start ``SrnFlow *contact``
+2. [M] Contact flow logical
+3. [M] Create SrnXXXBuffer(SrnEen)
 
 Message
 =======
