@@ -1,0 +1,10 @@
+/* Stylesheet for about/resume.rst */
+
+div.bodywrapper {
+    margin: 0 0 0 0;
+}
+
+div.body {
+    max-width: none;
+    padding: 0 0 0 0;
+}
