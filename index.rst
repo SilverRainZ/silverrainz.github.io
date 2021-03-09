@@ -3,15 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. rst-class:: center-title
-
 ========
 银色子弹
 ========
 
 .. centered:: *Yes silver bullet here.*
 
-.. centered:: :ref:`genindex` | :doc:`todo`
+.. centered:: :doc:`关于我 <about/me>`
+   | :doc:`关于本站 <about/site>`
+   | :doc:`友人帐 <about/friends>`
+   | :doc:`todo`
 
 --------------------------------------------------------------------------------
 

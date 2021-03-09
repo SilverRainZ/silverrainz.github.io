@@ -1,5 +1,5 @@
 =======
-2020-01
+2020-02
 =======
 
 升级一台 Vultr 的 Arch 机器
@@ -46,8 +46,3 @@ pacman 用来帮助来不及平滑更新的用户，下载之::
     $ sudo ./pacman-static -Syu --overwrite usr/lib/libbloom.so.1
 
 .. [#] https://archlinux.org/news/now-using-zstandard-instead-of-xz-for-package-compression/
-
-Python Asynchronous I/O
-=======================
-
-:date: 2021-02-04
