@@ -1,0 +1,47 @@
+=======
+2020-03
+=======
+
+切换到 Wayland
+==============
+
+.. highlight:: bash
+
+GTK 很早就实现了能用的 Wayland 后端，在之后 Firefox 实验性地支持 Wayland ，
+就没有任何非运行在 X 下不可的软件了。:github:`fcitx/fcitx5` 在 Wayland 下更是达到了
+开箱即用的水平，是时候抛弃 X 了。
+
+XMonad →  Sway
+    Arch 源里为数不多的 Wayland compositor，再也不想写看不懂的 Haskell 配置文件了，
+    Sway 能 hot reloading 很香，比 ``xmonad --recompile`` 不知道高到哪里里去了
+
+dzen2 →  Waybar
+    Sway 自带的 Swaybar 不够好用，很多系统信息还有手动获取，
+    而 Waybar 有很多方便的模块，改改配置就非常好看
+
+xscreensaver →  Swaylock
+    Swaylock 应该和 i3lock 一样，曾经看 :github:`cbmixx` 用过，总之比 xscreensaver
+    好太多
+
+xfce-notifyd →  Mako
+    Mako 比 xfce-notifyd 好定制，默认又比 dunst 好看
+
+Wob
+    之前没用过类似的东西，挺有意思
+
+使用启动管理器的用户自然不必忧心如何 Sway，WM 用户可以在 ``.profile`` 中加入以下代码，
+方便从 TTY1 登陆的时候自动进入 Sway::
+
+    # If running from tty1 start sway
+    if [ "$(tty)" = "/dev/tty1" ]; then
+        source ~/.config/sway/pre-startup
+        exec sway
+    fi
+
+.. note::
+
+   ``.xprofile`` 文件不会再被 source，其中的环境变量应当寻找合适的地方存放，
+   我将其放在了 ``~/.config/sway/pre-startup`` 中
+
+Firefox
+    设置 ``MOZ_ENABLE_WAYLAND=1`` 以启用 Wayland 支持
