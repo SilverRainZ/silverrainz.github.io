@@ -21,6 +21,7 @@
    .. toctree::
       :caption: 笔记
       :titlesonly:
+      :maxdepth: 1
       :glob:
 
       notes/*
