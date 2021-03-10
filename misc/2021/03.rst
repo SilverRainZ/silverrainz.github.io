@@ -45,3 +45,36 @@ Wob
 
 Firefox
     设置 ``MOZ_ENABLE_WAYLAND=1`` 以启用 Wayland 支持
+
+Midi.js 的一个有趣应用
+======================
+
+https://lexcast.github.io/orchestra/
+
+修改 systemd service 的正确姿势
+===============================
+
+:date: 2021-03-10
+
+.. highlight:: ini
+
+Arch 上的 syncthing 包提供的 service 启用了 ``-no-browser`` 选项，
+因此没有网页管理界面可用，运行在我的 pi3 上的 syncthing 也因此不好管理。
+
+直接修改 service 文件是不可取的，会在下一次系统更新时被覆盖。systemd 提供了
+``systemctl edit`` 命令来修改 service，但实际上并没有修改 service 本身，
+而是创建了 ``/etc/systemd/system/xxx.service.d/override.conf`` 来覆盖原 service
+的行为::
+
+    # /etc/systemd/system/syncthing@la.service.d/override.conf
+    [Service]
+    ExecStart=
+    ExecStart=/usr/bin/syncthing -gui-address="http://la-pi3:8384" -no-restart -logflags=0
+
+.. note:: 注意 ``ExecStart=`` 用来清空之前的值， [#]_
+          不然 systemd 会认为你指定了多个 ``ExecStart``
+
+.. note:: 使用 ``systemctl revert`` 来取消你的 override [#]_
+
+.. [#] https://unix.stackexchange.com/a/468067
+.. [#] https://unix.stackexchange.com/a/449053
