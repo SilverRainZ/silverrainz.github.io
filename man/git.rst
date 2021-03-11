@@ -29,3 +29,7 @@ Create empty branch::
 Delete remote tag::
 
     $ git push --delete origin tagname
+
+将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计::
+
+    *.rst linguist-detectable=true
