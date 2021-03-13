@@ -71,10 +71,24 @@ Arch 上的 syncthing 包提供的 service 启用了 ``-no-browser`` 选项，
     ExecStart=
     ExecStart=/usr/bin/syncthing -gui-address="http://la-pi3:8384" -no-restart -logflags=0
 
-.. note:: 注意 ``ExecStart=`` 用来清空之前的值， [#]_
-          不然 systemd 会认为你指定了多个 ``ExecStart``
+.. note:: 注意 ``ExecStart=`` 用来清空之前的值，
+          不然 systemd 会认为你指定了多个 ``ExecStart`` [#]_
 
 .. note:: 使用 ``systemctl revert`` 来取消你的 override [#]_
 
 .. [#] https://unix.stackexchange.com/a/468067
 .. [#] https://unix.stackexchange.com/a/449053
+
+为 silverrainz.me 申请 Let's Encrypt Wildcard 证书
+==================================================
+
+用 acme.sh 来自动化申请流程，Wildcard 证书目前只能通过 dns-01 验证的方式申请。 [#]_
+意味着需要 acme.sh 支持你的 DNS 提供商的 API。
+
+CloudFlare 当然是支持的，但是 CF 的 free domain 不支持用 API key 修改记录。 [#]_
+不得已将 DNS 解析从 CF 搬回 GoDaddy，好在迁移方便，导出 zone file 再导入即可。
+
+其他看文档即可。
+
+.. [#] https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates
+.. [#] https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option
