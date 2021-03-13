@@ -1,0 +1,11 @@
+=======
+2017-04
+=======
+
+为自定义域名的 Github Page 启用 HTTPS
+=====================================
+
+`Setting Up SSL on Github Pages`_ 利用 CloudFlare 为 gitpage 做了反代，而
+CloudFlare 在提供反代的同时还提供了 HTTPS 证书。
+
+ .. _Setting Up SSL on Github Pages: https://blog.keanulee.com/2014/10/11/setting-up-ssl-on-github-pages.html

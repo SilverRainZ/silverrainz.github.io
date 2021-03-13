@@ -1,0 +1,148 @@
+=======
+2017-06
+=======
+
+Universal TUN/TAP device driver
+===============================
+
+内核文档 `Universal TUN/TAP device driver`_ 介绍了 Linux Kernel 提供的的 TUN/TAP
+设备，允许用户编写程序来接受和传输来自用户程序的网络数据包。TUN 设备需要读写 IP
+数据包，对 TAP 设备来说则是以太网帧。
+
+通过打开设备文件 ``/dev/net/tun`` ，以及调用 ``ioctl()`` 来获得一个 TAP/TUN 设备。
+设备的种类由 ``ifreq.ifr_flags`` 决定。
+
+http://vtun.sourceforge.net/tun 提供了使用 TUN/TAP 设备的一些示例。
+
+.. note::
+    示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 ``ioctl()`` 的
+    flags，而示例中则通过直接打开 ``/dev/net/tun`` 和 ``/dev/net/tap`` 来使用不
+    同的设备。
+
+    但是在 https://www.kernel.org/doc/Documentation/admin-guide/devices.txt 中
+    并没有找到 ``/dev/net/tap`` 的设备号（``/dev/net/tun`` 的是 MAJOR 10 MINOR
+    200），因此还是以内核文档为准。
+
+.. _Universal TUN/TAP device driver: https://www.kernel.org/doc/Documentation/networking/tuntap.txt
+
+Teeworlds 的延迟计算逻辑
+========================
+
+.. note::
+
+    基于 `DDnet@e77464`_ 的代码进行讨论。
+
+在 Teeworlds 中，客户端显示的延迟全部在服务端计算后再发回客户端显示，服务端计算
+延迟的逻辑如下::
+
+    ... // src/engine/server/server.cpp#L1110
+    else if(Msg == NETMSG_INPUT)
+    {
+        CClient::CInput *pInput;
+        int64 TagTime;
+
+        m_aClients[ClientID].m_LastAckedSnapshot = Unpacker.GetInt(); // 从客户端数据包中取得上次的快照 ID
+        int IntendedTick = Unpacker.GetInt();
+        int Size = Unpacker.GetInt();
+
+        // check for errors
+        if(Unpacker.Error() || Size/4 > MAX_INPUT_SIZE)
+            return;
+
+        if(m_aClients[ClientID].m_LastAckedSnapshot > 0)
+            m_aClients[ClientID].m_SnapRate = CClient::SNAPRATE_FULL;
+
+        // 根据快照 ID 获取 TagTime，实际上是上次进行快照的时间
+        if(m_aClients[ClientID].m_Snapshots.Get(m_aClients[ClientID].m_LastAckedSnapshot, &TagTime, 0, 0) >= 0)
+            // 根据当前时间以及上次快照时间计算延迟
+            m_aClients[ClientID].m_Latency = (int)(((time_get()-TagTime)*1000)/time_freq());
+
+.. note::
+
+    函数 ``time_freq()`` 返回不同平台下 time_get 获得的时间单位同毫秒的比率。
+
+
+函数 ``DoSnapshot`` 保存当前游戏的状态，需要关注的代码如下::
+
+    // src/engine/server/server.cpp#611
+    void CServer::DoSnapshot()
+    {
+        ...
+        // src/engine/server/server.cpp#L686
+        m_aClients[i].m_Snapshots.Add(m_CurrentGameTick, time_get(), SnapshotSize, pData, 0);
+        ...
+    }
+
+
+``DoSnapshot`` 函数在 ``CServer::Run`` 中被调用，不少部分靠猜，
+不一定对， ``CServer::Run`` 包含了整个服务端的主要流程，其中有个游戏循环
+``while(m_RunServer) { ... }`` ，游戏循环采用了一个叫 tick 的概念来计时::
+
+    // src/engine/server/server.cpp#1690
+    int CServer::Run()
+    {
+        ...
+        // src/engine/server/server.cpp#1756
+        // start game
+        {
+
+            ...
+            // src/engine/server/server.cpp#1761
+            m_GameStartTime = time_get(); // 记录游戏开始时间
+            ...
+            while(m_RunServer)
+            {
+                ...
+
+                set_new_tick();
+
+                int64 t = time_get(); // 记录循环开始时间
+                int NewTicks = 0; // 还不到一个 tick
+
+                ... // 这里是加载地图以及其他看不懂的操作，大概是游戏交互的主要部分
+
+                // 循环开始后是否超过一个 SERVER_TICK_SPEED(50ms)
+                while(t > TickStartTime(m_CurrentGameTick+1))
+                {
+                    // 是，则把游戏的 tick + 1
+                    m_CurrentGameTick++;
+                    // 并认为这轮循环是一个新的 tick
+                    NewTicks++;
+                    ...
+                }
+
+                // snap game
+                // 如果这是个新 tick
+                if(NewTicks)
+                {
+                    if(g_Config.m_SvHighBandwidth || (m_CurrentGameTick%2) == 0)
+                        // 如果不使用高带宽模式的配置，以及当前 tick 不是偶数的话，快照之
+                        DoSnapshot();
+                    ...
+                }
+
+             }
+
+如上，循环一开始先把 ``NewTicks`` 置 0，并在 ``t`` 保存当前时间，之后进行某些我
+没看懂的的操作，接着进行判断 ``while(t > TickStartTime(m_CurrentGameTick+1))`` ，
+
+``TickStartTime`` 函数如下::
+
+    // src/engine/server/server.cpp#452
+    int64 CServer::TickStartTime(int Tick)
+    {
+        // 游戏开始时间 + (传入的Tick 数换算成相同时间单位) / 50
+        return m_GameStartTime + (time_freq()*Tick)/SERVER_TICK_SPEED;
+    }
+
+传入的是 ``m_CurrentGameTick+1`` ，所以猜测函数得出的是，下一个 Tick 的时间戳，
+同时猜测一个时间戳的单位为 ``SERVER_TICK_SPEED``  ，即 50 （单位大概是微秒？）。
+如果这个循环开始的时间以及超过下个 Tick 的开始时间，说明现在处于新的 Tick 中了，
+于是::
+
+    m_CurrentGameTick++;
+    NewTicks++;
+
+并视情况更新快照。
+
+.. _DDnet@e77464: https://github.com/ddnet/ddnet/tree/e7746435948e58ed36ab062dfad91019b86dfaac
