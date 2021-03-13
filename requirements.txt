@@ -9,3 +9,4 @@ sphinxcontrib.gtagjs
 sphinxnotes-snippet
 sphinxnotes-strike
 sphinxnotes-isso
+sphinx-sitemap
