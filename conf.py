@@ -23,7 +23,7 @@ author = 'Shengyu Zhang'
 # -- Non-standard project information ----------------------------------------
 
 description = 'Yes silver bullet here.'
-baseurl = 'https://silverrainz.me'
+baseurl = 'https://silverrainz.me/'
 datefmt = '%Y-%m-%d'
 
 # -- General configuration ---------------------------------------------------
@@ -191,3 +191,6 @@ html_css_files += ['https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/al
 
 extensions += ['sphinxnotes.isso']
 isso_url = 'https://comments.silverrainz.me:30500'
+
+extensions += ['sphinx_sitemap']
+sitemap_filename = "sitemap.xml"
