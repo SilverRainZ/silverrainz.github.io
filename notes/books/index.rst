@@ -2,9 +2,12 @@
 读书笔记
 ========
 
+.. todo:: Use ``.. book-list::``
+
 .. toctree::
-   :caption: 读过
+   :caption:
    :titlesonly:
    :glob:
 
    *
+   */index
