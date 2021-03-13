@@ -188,3 +188,6 @@ snippet_patterns = {
 extensions += ['sphinx_panels']
 # For ``fa`` role
 html_css_files += ['https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css']
+
+extensions += ['sphinxnotes.isso']
+isso_url = 'https://comments.silverrainz.me:30500'

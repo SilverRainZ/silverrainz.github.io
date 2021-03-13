@@ -411,3 +411,7 @@ i 节点操作:
 * `Minix File System - Dr.John C.S.Lui <https://koala.cs.pub.ro/redmine/attachments/download/105/minix.pdf>`_
 * `MIT 6.828 xv6 <http://pdos.csail.mit.edu/6.828/2011/xv6.html>`_
 * `xv6 中文文档 <https://github.com/ranxian/xv6-chinese>`_
+
+--------------------------------------------------------------------------------
+
+.. isso::
