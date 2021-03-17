@@ -1,4 +1,4 @@
-:Last Update: 2021-03-09
+:Last Update: 2021-03-16
 :Version: 1.0
 
 ======
@@ -49,18 +49,15 @@
     | 有 x86 汇编、Java、C++、Lua、Rust、Pascal、Ruby 的小型项目编写经验
     | 对 Scheme、Haskell 有一定了解
 
-**框架**
-    | 熟悉 GLib/GTK 函数库
-    | 有 Flask、Tornado 库的使用经验
-    | 对 C/C++ 程序的逆向分析有一定了解，能使用 OllyDBG、IDA 等工具
-
 **工具**
     | 熟悉现代 Linux 发行版（尤其是 Arch Linux）的操作，了解其工作原理
     | 熟悉 Makefile、Meson 构建系统，有 AutoTools、CMake、Bazel 的使用经验
     | 熟悉以 Git 作为 CVS 的协作开发流程
     | 熟练使用 Sphinx 文档生成工具，熟悉 Sphinx 扩展开发
+    | 对 C/C++ 程序的逆向分析有一定了解，能使用 OllyDBG、IDA 等工具
 
 **其他**
+    | 熟悉 GLib/GTK 函数库
     | 熟悉开源社区工作流程
     | 拥有中小型项目长期维护经验
     | 能适应阅读、编写英文技术文档
@@ -76,7 +73,7 @@ The OS67 Kernel [#]_
 :角色: 作者、维护者
 :技术栈: C、汇编、操作系统
 
-类 Unix 的玩具操作系统内核，基本上是 MIT 6.628\ [#]_ 的劣化版，功能如下：
+类 Unix 的玩具操作系统内核，基本上是 MIT 6.628 的劣化版，功能如下：
 
 - 基础设备（VGA、PS/2 键盘、IDE 磁盘）的驱动
 - 栈式物理内存管理和虚拟内存映射
@@ -98,7 +95,7 @@ IRC 是一种古老的，基于文本的聊天协议，在开源社区中广泛�
 Srain 尝试为古老的 IRC 协议套上了「现代」的外壳
 
 - 基于 C 语言和 GLib/GTK 函数库开发，支持 Linux/BSD/macOS/Windows 多平台
-- 支持 :rfc:`1459` 和 :rfc:`2812` ，支持部分 IRCv3 [#]_ 特性
+- 支持 :rfc:`1459` 和 :rfc:`2812` ，支持部分 IRCv3 特性
 - 提供了完整的命令系统，支持用键盘完成绝大部分操作
 - 支持预览公开图床的图片
 - 支持优化显示来自其他 IM 的消息 [#]_
@@ -173,7 +170,7 @@ Lua 插件平台 L*g
 :角色: 作者、维护者
 
 一个轻量（< 30,000 loc）的，非侵入式的分布式实时流处理框架，
-不少设计思路源自 Flink [#]_ 和 TiDB [#]_ ，但因使用场景不同又有所区别。
+不少设计思路源自 Flink 和 TiDB，但因使用场景不同又有所区别。
 
 - 文档覆盖率 100%
 - 完全非侵入式的设计，纯 Golang 实现，不依赖外部服务
@@ -199,11 +196,11 @@ Sphinx 被我来建立我的个人信息管理系统（Personal Information Mana
     构建 Sphinx 文档并 push 到 gitpages 的 GitHub Action
 
 **sphinxnotes-lilypond** [#]_
-    开源音乐打谱软件 LilyPond [#]_ 的 Sphinx 扩展，允许用户在文档中使用 LilyPond 编写
+    开源音乐打谱软件 LilyPond 的 Sphinx 扩展，允许用户在文档中使用 LilyPond 编写
     乐谱
 
 **sphinxnotes-any** [#]_
-    一个用以描述 **任何** 对象的 Sphinx Domain [#]_ ，可以认为该插件允许用户通过
+    一个用以描述 **任何** 对象的 Sphinx Domain，可以认为该插件允许用户通过
     写文档的方式构建简单的数据库
 
 **sphinxnotes-strike** [#]_
@@ -228,8 +225,8 @@ Linux 相关
 
 **Arch Linux User Repository**
     AUR 是 Arch Linux 用户驱动的软件仓库，是官方仓库的重要补充。 作为活跃用户，
-    在 AUR 维护软件包 20 余个 [#]_ 。历史上亦维护过常用但尚未被官方收录的软件，
-    例如：jekyll, vim-fcitx, ccls, gtk4 等。
+    在 AUR 维护软件包 20 余个 [#]_ 。其中包括尚未被官方收录的流行软件，例如：
+    jekyll, vim-fcitx, ccls, gtk4 等。
 
 IRC 相关
 --------
@@ -262,9 +259,8 @@ Golang 相关
     为 HTTP 库 fasthttp 修复 BUG [#]_
 
 **Read The Docs**
-    Read The Docs 社区有计划使用 Sphinx 来生成静态的 Golang 接口文档
-    （而非动态的 GoDoc），用于生成文档的配套工具还处在非常早期的阶段，
-    我根据自己的需要做了一些改进 [#]_ 。
+    Read The Docs 社区有计划使用 Sphinx Autodoc 来生成静态的 Golang 库文档
+    （而非动态的 GoDoc），我为其实现了一部分功能 [#]_ 。
 
 其他
 ----
@@ -296,21 +292,15 @@ Golang 相关
 ============================
 
 .. [#] https://github.com/SilverRainZ/OS67
-.. [#] https://pdos.csail.mit.edu/6.828/2020/xv6.html
 .. [#] https://srain.im
-.. [#] https://ircv3.net/
 .. [#] https://doc.srain.im/en/latest/faq.html#what-is-relay-message-transform
 .. [#] https://summerofcode.withgoogle.com/archive/2016/projects/5786848613892096
 .. [#] https://git.sceen.net/hurd/hurd.git/commit/?id=6ebebc80de3dfc7ada3a69d609f00088c2143be3
 .. [#] https://silverrainz.gitee.io//blog/gsoc-2016-sum-up.html#id12
-.. [#] https://flink.apache.org/
-.. [#] https://docs.pingcap.com/zh/tidb/stable
 .. [#] https://github.com/sphinx-notes
 .. [#] https://github.com/sphinx-notes/pages
 .. [#] https://github.com/sphinx-notes/lilypond
-.. [#] https://lilypond.org
 .. [#] https://github.com/sphinx-notes/any
-.. [#] https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html
 .. [#] https://github.com/sphinx-notes/strike
 .. [#] https://github.com/sphinx-notes/snippet
 .. [#] https://github.com/sphinx-notes/isso
