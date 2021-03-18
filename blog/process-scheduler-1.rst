@@ -328,13 +328,13 @@ OS67 的内存分配实现在 ``OS67/mm/pmm.c``\ , 使用一个简单的栈来�
 ``proc_alloc``\ 为新进程申请了内核栈, 并对他进行了一定的构造:
 
 
-#. 为中断上下文\ ``fm``\ 留出空间, 并把\ ``proc->fm``\ 指向该空间.
-#. 在\ ``fm``\ 之后放置了指向中断返回函数\ ``_isr_stub_ret``\ 的指针
-#. 为进程上下文\ ``context``\ 留出空间, 并把\ ``proc->content``\ 改空间,
-   把\ ``proc->context-eip``\ 指向了函数\ ``fork_ret``.
+- 为中断上下文\ ``fm``\ 留出空间, 并把\ ``proc->fm``\ 指向该空间.
+- 在\ ``fm``\ 之后放置了指向中断返回函数\ ``_isr_stub_ret``\ 的指针
+- 为进程上下文\ ``context``\ 留出空间, 并把\ ``proc->content``\ 改空间,
+- 把\ ``proc->context-eip``\ 指向了函数\ ``fork_ret``.
 
 在 xv6 中\ ``fork_ret``\ 被用来处理锁, 这 OS67 中, 这个函数碰巧被用来解决一个
-**\ `奇怪的 bug <https://github.com/SilverRainZ/OS67/commit/fc0e84caa1c3ae95998342f2b03125e2226d0dd6>`_\ ** .
+奇怪的 bug <https://github.com/SilverRainZ/OS67/commit/fc0e84caa1c3ae95998342f2b03125e2226d0dd6>`_ .
 因此, 正常 alloc 出来的新进程都会返回到\ ``fork_ret``. 从\ ``fork_ret``\ 返回后,
 又会跳转到\ ``_isr_stub_ret``\ 准备从中断返回. 接下来就会逐步把\ ``fm``\ 弹出,
 尽管此时的\ ``fm``\ 还没有初始化.

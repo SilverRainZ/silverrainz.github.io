@@ -455,7 +455,7 @@ output func
 
 list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部的引用。
 
-.. figure:: ./queue.png
+.. figure:: /_images/queue.png
    :alt: structure of queue
 
    structure of queue
@@ -501,11 +501,12 @@ list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部
     (dequeue! q)        => a
     q                   => ((b c) c)
 
-    **NOTE:** 此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
-    不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
-    中储存了 pair 时，用的是引用， 注意 ``set!``
-    更改的是这个变量名的指向， ``set-cdr!`` 更改的是指向的对象内部的值
-    :(
+
+.. note:: 此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
+          不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
+          中储存了 pair 时，用的是引用， 注意 ``set!``
+          更改的是这个变量名的指向， ``set-cdr!`` 更改的是指向的对象内部的值
+          :(
 
 .. code:: scheme
 

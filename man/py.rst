@@ -62,6 +62,10 @@ Bytes to string::
 
     b'bytes'.decode('utf8')
 
+Hex string to bytes::
+
+    bytes.fromhex('dead')
+
 Dict to tuple list::
 
     dict.items()
@@ -111,6 +115,11 @@ Auto Enumerations like ``iota`` in golang::
 
 File Operations
 ===============
+
+Temp file with real path::
+
+    f = tempfile.NamedTemporaryFile()
+    f.name
 
 Temp directory::
 

@@ -91,8 +91,8 @@ Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作
 ------------------------
 
 Hurd 当前的开发者基本在欧洲，我的两位 mentor：
-:people:`Richard Braun <https://www.sceen.net/~rbraun/resume.pdf>` 和
-:people:`Justus Winter <https://github.com/teythoon> 也是，
+`Richard Braun <https://www.sceen.net/~rbraun/resume.pdf>`_ 和
+:github:`Justus Winter <https://github.com/teythoon>` 也是，
 由于时区相差太大，一般在下午五点以后跟他们用 IRC 联系。
 
 在同 mentor 们联系之后，我开始看 Hurd 的\ `文档 <https://www.gnu.org/software/hurd/index.html>`_\ ，

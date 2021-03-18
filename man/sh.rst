@@ -27,7 +27,7 @@ Replace::
     ${v%.md}.rst
 
 Heredoc
-------
+-------
 
 Syntax::
 
