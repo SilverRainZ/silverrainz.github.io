@@ -180,9 +180,10 @@ extensions += ['sphinxcontrib.gtagjs']
 gtagjs_ids = ['G-FYHS50G6DL']
 
 extensions += ['sphinxnotes.snippet.ext']
+snippet_config = {}
 snippet_patterns = {
-    'd': '.*',
-    'c': 'man/.*',
+    'd': ['.*'],
+    'c': ['man/.*'],
 }
 
 extensions += ['sphinx_panels']
