@@ -37,7 +37,7 @@
 * 非 Disqus 用户无法方便地评论，甚至会诱导你注册帐号
 
 经过这次多说的关闭，我还是倾向于寻找一个开源的，能自己架设的评论系统。
-:people:`biergaizi <https://tomli.blog>` 在微博推荐了
+`biergaizi <https://tomli.blog>`_ 在微博推荐了
 Disqus 的开源替代：\ `Isso <https://posativ.org/isso/>`_\ ，Isso 在 Github 上有 2k+
 的 stars，开发虽然看起来不活跃但也不至于死掉，官网的 Demo 看起来不错，
 AUR 里面还有有现成的包能用，于是就决定是你了，Isso！

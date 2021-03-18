@@ -27,7 +27,7 @@ home 目录下有一程序名为 check，执行之，要求输入密码， 首�
 
 用 gdb 调试，对 main 下断点后反汇编，关键部分如下：
 
-.. code:: asm
+.. code:: objdump
 
     0x0804857a <+77>:    call   0x80483c0 <printf@plt>
     0x0804857f <+82>:    call   0x80483d0 <getchar@plt>
@@ -93,7 +93,7 @@ flag: Ahdiemoo1j
 
 以下是 ``diaasm main`` 的结果，假设执行了 ``r filename``\ ：
 
-.. code:: asm
+.. code:: objdump
 
       0x0804852d <+0>:     push   %ebp
       0x0804852e <+1>:     mov    %esp,%ebp
@@ -386,7 +386,7 @@ flag: ahy7MaeBo9
 
 假设执行了 ./leviathan6 1234
 
-.. code:: asm
+.. code:: objdump
 
     (gdb) disassemble main
     Dump of assembler code for function main:

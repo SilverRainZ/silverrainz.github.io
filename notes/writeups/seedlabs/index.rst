@@ -7,5 +7,4 @@ Seed Lab
    :glob:
    :titlesonly:
 
-   *
    */index
