@@ -92,3 +92,59 @@ CloudFlare 当然是支持的，但是 CF 的 free domain 不支持用 API key �
 
 .. [#] https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates
 .. [#] https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option
+
+让 Sphinx 支持 Isso 评论
+========================
+
+一言以蔽之，用最近写的 `sphinxnotes-isso`_ 即可，在文档的任意位置插入 ``.. isso::``
+既可有最下面的效果。
+
+.. _sphinxnotes-isso: https://sphinx-notes.github.io/isso/
+
+Isso 部署
+---------
+
+Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 openSUSE + 腾讯云，
+考虑到国内的加载速度还是使用了腾讯云。
+
+使用 Isso 官方提供的 Dockerfile build 出镜像，
+
+考虑多个实例，每个实例在单独目录下，必须有 :file:`comments.db` 和 :file:`isso.cfg`
+两个文件。用如下脚本实现多个实例的启动:
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   name=$1
+   port=$2
+
+   docker run \
+       --detach \
+       --name isso-$name \
+       --publish 127.0.0.1:$port:8080 \
+       --volume $PWD/$name:/config \
+       --volume $PWD/$name:/db \
+       isso
+
+SMTP 服务
+---------
+
+SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 ``noreply@silverrainz.me``
+分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：
+
+.. code-block:: ini
+
+   [smtp]
+   username = noreply@silverrainz.me
+   password = **********
+   host = smtp.yandex.ru
+   port = 465
+   security = ssl
+   to = "Shengyu Zhang" <comments@silverrainz.me>
+   from = "Silver Bullet" <noreply@silverrainz.me>
+   timeout = 10
+
+--------------------------------------------------------------------------------
+
+.. isso::
