@@ -17,8 +17,8 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = '银色子弹'
-copyright = '2020, Shengyu Zhang'
 author = 'Shengyu Zhang'
+copyright = '2020-2021, ' + author
 
 # -- Non-standard project information ----------------------------------------
 
@@ -95,7 +95,7 @@ html_sidebars = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['center-title.css']
+html_css_files = ['center-title.css', 'figure.css']
 
 html_baseurl = baseurl
 
@@ -121,6 +121,7 @@ extlinks = {
     'search': ('https://duckduckgo.com/?q=%s', ''),
     'twitter': ('https://twitter.com/%s', '@'),
     'github': ('https://github.com/%s', '@'),
+    'ghrepo': ('https://github.com/%s', ''),
     'weibo': ('https://weibo.com/%s', '@'),
 }
 

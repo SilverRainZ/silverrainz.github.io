@@ -1,0 +1,6 @@
+figcaption, div.figure p.caption, div.figure div.legend {
+    color: #666;
+    font-style: italic;
+    font-size: smaller;
+}
+
