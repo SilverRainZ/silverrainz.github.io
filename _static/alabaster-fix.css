@@ -1,0 +1,16 @@
+/* Fix text style of figure caption */
+figcaption, div.figure p.caption, div.figure div.legend {
+    color: #666;
+    font-style: italic;
+    font-size: smaller;
+}
+
+/* Fix blockquote */
+.body blockquote {
+    color: #888;
+}
+
+/* Fix definition list */
+.body dt {
+    font-weight: bold;
+}

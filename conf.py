@@ -95,7 +95,7 @@ html_sidebars = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['center-title.css', 'figure.css']
+html_css_files = ['center-title.css', 'alabaster-fix.css']
 
 html_baseurl = baseurl
 
@@ -123,6 +123,8 @@ extlinks = {
     'github': ('https://github.com/%s', '@'),
     'ghrepo': ('https://github.com/%s', ''),
     'weibo': ('https://weibo.com/%s', '@'),
+    'aur': ('https://aur.archlinux.org/packages/%s', ''),
+    'archpkg': ('https://archlinux.org/packages/%s', ''),
 }
 
 extensions += ['sphinxnotes.any']
