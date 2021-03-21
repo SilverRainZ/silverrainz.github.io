@@ -30,3 +30,34 @@ Execute script in comment(mode line)::
 - ``|``\ 是命令连接符
 - ``update`` 表示文件发生改动后存盘, 不用 ``update`` 的话处理完一个文件会提示文件未保存
   (意思大概是处理完一个文件随即退出, 要手动存盘)
+
+Variable Prefix
+===============
+
+g: global::
+
+    let g:foo = 'bar'
+
+s: local (to script)::
+
+    let s:foo = 'bar'
+
+l: local (to function)::
+
+    let l:foo = 'bar'
+
+w: window::
+
+    let w:foo = 'bar'
+
+b: buffer::
+
+    let b:foo = 'bar'
+
+t: tab::
+
+    let t:foo = 'bar'
+
+.. seealso::
+
+   - `Vim scripting cheatsheet <https://devhints.io/vimscript>`_
