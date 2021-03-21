@@ -27,37 +27,37 @@
 :fa:`search` 关注领域
 =====================
 
-**分布式系统**
+分布式系统
     TODO
 
-**流处理系统**
+流处理系统
     TODO
 
-**自由软件**
+自由软件
     尤其是自由的 Linux 桌面软件 (Gnome/KDE, FreeDesktop, Wayland)
 
-**操作系统内核**
+操作系统内核
     Linux, xv6, Plan9, osv...
 
-**开发效率工具**
+开发效率工具
     TODO
 
 :fa:`cogs` 专业技能
 ===================
 
-**语言**
+语言
     | 熟练使用 C、Golang、Python
     | 有 x86 汇编、Java、C++、Lua、Rust、Pascal、Ruby 的小型项目编写经验
     | 对 Scheme、Haskell 有一定了解
 
-**工具**
+工具
     | 熟悉现代 Linux 发行版（尤其是 Arch Linux）的操作，了解其工作原理
     | 熟悉 Makefile、Meson 构建系统，有 AutoTools、CMake、Bazel 的使用经验
     | 熟悉以 Git 作为 CVS 的协作开发流程
     | 熟练使用 Sphinx 文档生成工具，熟悉 Sphinx 扩展开发
     | 对 C/C++ 程序的逆向分析有一定了解，能使用 OllyDBG、IDA 等工具
 
-**其他**
+其他
     | 熟悉 GLib/GTK 函数库
     | 熟悉开源社区工作流程
     | 拥有中小型项目长期维护经验
@@ -193,25 +193,25 @@ Sphinx Notes [#]_
 Sphinx 被我来建立我的个人信息管理系统（Personal Information Management System），
 因此为了满足我的需求，我建立了 Sphinx Notes 组织并编写了如下项目：
 
-**sphinxnotes-pages** [#]_
-    构建 Sphinx 文档并 push 到 gitpages 的 GitHub Action
+sphinxnotes-pages [#]_
+  构建 Sphinx 文档并 push 到 gitpages 的 GitHub Action
 
-**sphinxnotes-lilypond** [#]_
-    开源音乐打谱软件 LilyPond 的 Sphinx 扩展，允许用户在文档中使用 LilyPond 编写
-    乐谱
+sphinxnotes-lilypond [#]_
+  开源音乐打谱软件 LilyPond 的 Sphinx 扩展，允许用户在文档中使用 LilyPond 编写
+  乐谱
 
-**sphinxnotes-any** [#]_
-    一个用以描述 **任何** 对象的 Sphinx Domain，可以认为该插件允许用户通过
-    写文档的方式构建简单的数据库
+sphinxnotes-any [#]_
+  一个用以描述 **任何** 对象的 Sphinx Domain，可以认为该插件允许用户通过
+  写文档的方式构建简单的数据库
 
-**sphinxnotes-strike** [#]_
-    restructuredText 标准中不包含删除线（Strikethrough）的语法，插件提供了该支持
+sphinxnotes-strike [#]_
+  restructuredText 标准中不包含删除线（Strikethrough）的语法，插件提供了该支持
 
-**sphinxnotes-snippet** [#]_
-    非侵入式的文档片段管理工具，通过一些简单的策略对判断建立索引，允许用户通过
-    fzf/fzy/skim 等filter 快速筛选出想要的信息
+sphinxnotes-snippet [#]_
+  非侵入式的文档片段管理工具，通过一些简单的策略对判断建立索引，允许用户通过
+  fzf/fzy/skim 等filter 快速筛选出想要的信息
 
-**sphinxnotes-isso** [#]_
+sphinxnotes-isso [#]_
     开源评论系统 Isso 的 Sphinx 扩展
 
 :fa:`users` 开源活动
@@ -220,46 +220,46 @@ Sphinx 被我来建立我的个人信息管理系统（Personal Information Mana
 Linux 相关
 ----------
 
-**Arch Linux 中国社区** [#]_
-    2016 年至今，作为活跃成员，一直为中国社区软件仓库维护软件包 100 余个，
-    提交数量排名 #14（截至 2021-02-18） [#]_
+Arch Linux 中国社区 [#]_
+  2016 年至今，作为活跃成员，一直为中国社区软件仓库维护软件包 100 余个，
+  提交数量排名 #14（截至 2021-02-18） [#]_
 
-**Arch Linux User Repository**
-    AUR 是 Arch Linux 用户驱动的软件仓库，是官方仓库的重要补充。 作为活跃用户，
-    在 AUR 维护软件包 20 余个 [#]_ 。其中包括尚未被官方收录的流行软件，例如：
-    jekyll, vim-fcitx, ccls, gtk4 等。
+Arch Linux User Repository
+  AUR 是 Arch Linux 用户驱动的软件仓库，是官方仓库的重要补充。 作为活跃用户，
+  在 AUR 维护软件包 20 余个 [#]_ 。其中包括尚未被官方收录的流行软件，例如：
+  jekyll, vim-fcitx, ccls, gtk4 等。
 
 IRC 相关
 --------
 
-**Srain IRC Client**
-    作为作者和维护者，从 2016 年至 2021 年，一直持续开发和维护项目，
-    截至 2021-02-25，五年间：
+Srain IRC Client
+  作为作者和维护者，从 2016 年至 2021 年，一直持续开发和维护项目，
+  截至 2021-02-25，五年间：
 
-    - 新增代码 153,355 行，删除代码 117,419 行，当前仓库代码约 20,000 loc
-    - 发布了 23 个版本
-    - 建立了 163 个 Issue
-    - 合并了来自 19 个社区开发者的 144 个 Pull Request
-    - 被 AUR、AOSC、DragonFly BSD、Fedora、FreeBSD、Flatpak、Guix、
-      Gentoo overlay GURU、OpenBSD、OpenMandriva、openSUSE、NetBSD、Void Linux
-      共计被 13 个 \*nix 发行版的软件仓库收录
+  - 新增代码 153,355 行，删除代码 117,419 行，当前仓库代码约 20,000 loc
+  - 发布了 23 个版本
+  - 建立了 163 个 Issue
+  - 合并了来自 19 个社区开发者的 144 个 Pull Request
+  - 被 AUR、AOSC、DragonFly BSD、Fedora、FreeBSD、Flatpak、Guix、
+    Gentoo overlay GURU、OpenBSD、OpenMandriva、openSUSE、NetBSD、Void Linux
+    共计被 13 个 \*nix 发行版的软件仓库收录
 
-**Bug fixes**
-    - 为著名 IRC 客户端 Hexchat 修复 Bug [#]_
-    - 为著名 IRC 客户端 irssi 修复 Bug [#]_
+Bug fixes
+  - 为著名 IRC 客户端 Hexchat 修复 Bug [#]_
+  - 为著名 IRC 客户端 irssi 修复 Bug [#]_
 
 Golang 相关
 -----------
 
-**The Go Language**
-    - 修复标准库 ``text/scanner`` 中一处 BUG [#]_
-    - 修复 ``go vet`` 中一处错误的逃逸分析 [#]_
-    - 补充 ``go build`` 时一个缺失的 linker flag [#]_
+The Go Language
+  - 修复标准库 ``text/scanner`` 中一处 BUG [#]_
+  - 修复 ``go vet`` 中一处错误的逃逸分析 [#]_
+  - 补充 ``go build`` 时一个缺失的 linker flag [#]_
 
-**fasthttp**
-    为 HTTP 库 fasthttp 修复 BUG [#]_
+fasthttp
+  为 HTTP 库 fasthttp 修复 BUG [#]_
 
-**Read The Docs**
+Read The Docs
     Read The Docs 社区有计划使用 Sphinx Autodoc 来生成静态的 Golang 库文档
     （而非动态的 GoDoc），我为其实现了一部分功能 [#]_ 。
 
