@@ -10,7 +10,7 @@
 
 --------------------------------------------------------------------------------
 
-.. centered:: :ref:`标签 <blog-tags>` | :ref:`归档 <blog-archives>` | :ref:`草稿 <blog-drafts>` | `订阅 <./atom.xml>`_
+.. centered:: :ref:`标签 <blog-tags>` | :ref:`归档 <blog-archives>` | :ref:`草稿 <blog-drafts>` | :ref:`订阅 <blog-feed>`
 
 目录
 ====
