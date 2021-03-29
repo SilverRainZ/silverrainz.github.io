@@ -657,3 +657,7 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-29
    :size: 32k
    :medium: 水彩 纸胶带
+
+.. seealso::
+
+   :artwork:`xfczk-031` , :artwork:`xfczk-040`
