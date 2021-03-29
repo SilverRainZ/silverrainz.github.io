@@ -9,6 +9,9 @@ The Rust Programming Language
 
 .. highlight:: rust
 
+.. contents::
+   :local:
+
 ch1
 ===
 
@@ -66,4 +69,70 @@ Reference
     同一份数据的 mutable reference 只能有一个。
     reference 的作用域是「从声明开始到最后一次使用」。
 
-:Bookmark: 86
+ch5
+===
+
+Struct init::
+
+    let email: String = String::new("i@example.com")
+    let user = User {
+        email,
+    }
+
+Struct update::
+
+    let user2 = User {
+        ..user1
+    }
+
+Tuple struct::
+
+    struct Color(i32, i32, i32)
+
+使用 ``#[derive(Debug)]`` 自动实现 ``Debug`` trait，便于被 ``println!("{:?}")``
+答应出来。
+
+Struct method::
+
+    struct foo;
+    impl foo {
+        fn bar(&self) -> u32 {
+            1
+        }
+    }
+
+.. note:: 注意 self 的借用方式
+
+Automatic referencing and dereferencing
+    消除了 C/C++ 中 ``foo.bar`` 和 ``foo->bar`` 的区别
+
+Associated function
+    类似 class function，使用 ``::`` 操作符
+
+ch6
+===
+
+Variant 翻译为「成员」似乎不妥？
+
+为枚举成员（ :del:`等等，我不是说不妥吗？` ）附加类型，表达能力很强::
+
+    enum IpAddr {
+        V4(u8, u8, u8, u8),
+        V6(String),
+    }
+
+``Option<T>``
+    避免了空值的泛滥
+
+    .. note:: 然而空值是广泛存在于现实的，因为「太好实现了」
+
+``if let`` 语法怪怪的::
+
+    if let Some(3) = some_u8_value {
+        println!("three")
+    }
+
+ch7
+===
+
+:page: 113
