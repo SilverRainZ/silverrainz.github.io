@@ -643,7 +643,7 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
 ----------
 
 .. artwork:: _
-   :id: xfczk-040
+   :id: xfczk-041
    :date: 2021-03-29
    :size: 32k
    :medium: 水彩 纸胶带
@@ -653,11 +653,20 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
 ----------
 
 .. artwork:: _
-   :id: xfczk-041
+   :id: xfczk-042
    :date: 2021-03-29
    :size: 32k
    :medium: 水彩 纸胶带
 
 .. seealso::
 
-   :artwork:`xfczk-031` , :artwork:`xfczk-040`
+   :artwork:`xfczk-031` , :artwork:`xfczk-041`
+
+:zhwiki:`路易十六`\ 在准备灭火
+------------------------------
+
+.. artwork:: _
+   :id: xfczk-043
+   :date: 2021-03-30
+   :size: 32k
+   :medium: 水彩 铅笔
