@@ -136,3 +136,21 @@ ch7
 ===
 
 :page: 113
+
+Rust module system:
+    - Packages
+    - Crates
+    - Modules：``mod`` 和 ``use`` 关键字
+    - Path?
+
+- 各种符号默认私有
+- 结构体成员默认私有，所以构造函数必须与结构体关联（associate）
+- 枚举成员默认公有
+
+- ``use`` 和 ``use ... as`` 之于 ``import`` 、 ``import ... as``
+- ``pub use`` 允许外部调用 use 的 module
+- 支持 ``use mod::{foo,bar}``
+- 支持 ``use mod::*``
+
+:page: 131
+
