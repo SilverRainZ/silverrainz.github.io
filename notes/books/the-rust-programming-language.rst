@@ -132,10 +132,8 @@ Variant 翻译为「成员」似乎不妥？
         println!("three")
     }
 
-ch7
-===
-
-:page: 113
+ch7 模块系统
+============
 
 Rust module system:
     - Packages
@@ -152,5 +150,29 @@ Rust module system:
 - 支持 ``use mod::{foo,bar}``
 - 支持 ``use mod::*``
 
-:page: 131
+``mod`` 关键字
+    有点奇妙，引发了我对模块系统的疑惑…
 
+    Q:
+
+    1. ``mod foo;`` 加载 foo 模块的内容
+    2. ``mod foo {};`` 实现 foo 模块的内容
+
+    There’s no implicit mapping between file system tree to module tree, so:
+
+        We need to explicitly build the module tree in Rust, there’s no
+        implicit mapping to file system. [#]_
+
+    A:
+
+    1. A module without a body is loaded from an external file. [#f1]_
+    2. When the module does not have a path attribute, the path to
+       the file mirrors the logical module path. [#f1]_
+
+.. [#] http://www.sheshbabu.com/posts/rust-module-system/
+.. [#f1] https://doc.rust-lang.org/reference/items/modules.html
+
+ch8 数据结构
+============
+
+:page: 133
