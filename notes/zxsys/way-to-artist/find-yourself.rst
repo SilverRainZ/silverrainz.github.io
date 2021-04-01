@@ -658,9 +658,7 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :size: 32k
    :medium: 水彩 纸胶带
 
-.. seealso::
-
-   :artwork:`xfczk-031` , :artwork:`xfczk-041`
+.. seealso:: :artwork:`xfczk-031` , :artwork:`xfczk-041`
 
 :zhwiki:`路易十六`\ 在准备灭火
 ------------------------------
@@ -680,11 +678,11 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :size: 32k
    :medium: 水彩 铅笔
 
-逃
---
+拒绝拥抱
+--------
 
 .. artwork:: _
-   :id: xfczk-045
+   :id: xfczk-046
    :date: 2021-04-01
    :size: 32k
    :medium: 水彩
@@ -692,3 +690,16 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
 她打了电话来，我作为优秀的的倾听者接线。
 
 画得很俗气，但没有办法。
+
+.. seealso:: :artwork:`xfczk-039`
+
+黑猫
+----
+
+.. artwork:: _
+   :id: xfczk-047
+   :date: 2021-04-02
+   :size: 32k
+   :medium: 水彩
+
+只是想简单把自己切开。
