@@ -10,6 +10,7 @@
 
    prepare
    find-yourself
+   find-topic
 
 找自己
 ======
