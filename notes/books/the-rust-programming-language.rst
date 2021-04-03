@@ -5,7 +5,7 @@ The Rust Programming Language
 .. book:: _
    Rust 程序设计语言
    :isbn: 9781718500440
-   :startat: 2021-03-11
+   :startat: 2020-03-11
 
 .. highlight:: rust
 
@@ -175,4 +175,16 @@ Rust module system:
 ch8 数据结构
 ============
 
-:page: 133
+泛型 Yes!
+
+``Vector``
+   - 持有元素引用时不可变 -- 考虑 realloc
+   - ``for i in &vec {}`` 遍历
+   - 可以存储枚举 wrap 的不同类型的数据
+
+``&str`` 和 ``String``
+   - 字面量是 ``&str`` ，使用 ``"foo".to_string()`` 或者 ``String::from("foo")``
+     从字面量创建 ``String()``
+   - ``+`` 会移动所有权
+
+:page: 141
