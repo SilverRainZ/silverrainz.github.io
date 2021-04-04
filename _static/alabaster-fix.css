@@ -14,3 +14,8 @@ figcaption, div.figure p.caption, div.figure div.legend {
 .body dt {
     font-weight: bold;
 }
+
+/* Hide headerlink of doctitle */
+h1 > a.headerlink {
+    display: none;
+}
