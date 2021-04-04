@@ -177,7 +177,7 @@ ch8 数据结构
 
 泛型 Yes!
 
-``Vector``
+``Vector<T>``
    - 持有元素引用时不可变 -- 考虑 realloc
    - ``for i in &vec {}`` 遍历
    - 可以存储枚举 wrap 的不同类型的数据
@@ -187,4 +187,30 @@ ch8 数据结构
      从字面量创建 ``String()``
    - ``+`` 会移动所有权
 
-:page: 141
+
+``let s3 = s1 + &s2``
+   s1 会被转移以避免复制，s2 会被复制
+
+运行时索引字符串 slice 会导致 panic
+
+``entry().or_insert()`` 返回一个 ``&mut`` 很香，可以优雅地写 counter
+
+   
+ch9 错误处理
+============
+
+*No Exception!*
+
+``panic!`` and ``Result<T,E>``
+
+一种 match 语句的消除方法： ``Result.unwrap_or_else()``
+
+``?`` for error propagating，好大一颗糖，支持链式调用，
+确实比 ``if err != nil`` 香
+
+迷之 ``Box<dyn Error>``
+
+ch10 泛型、trait 和生命周期
+===========================
+
+:page: 169
