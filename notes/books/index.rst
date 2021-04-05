@@ -34,37 +34,31 @@ Haskell 趣学指南
 ------
 
 .. book:: _
-   :isbn: xiaowangzi
 
 撒哈拉的故事
 ------------
 
 .. book:: _
-   :isbn: sahaladegushi
 
 雨季不再来
 ----------
 
 .. book:: _
-   :isbn: yujibuzailai
 
 三体
 ----
 
 .. book:: _
-   :isbn: santi
 
 纳尔齐斯与歌尔德蒙
 ------------------
 
 .. book:: _
-   :isbn: naerqisiyugeerdemeng
 
 德米安
 ------
 
 .. book:: _
-   :isbn: demian
    :endat: 2020-07-28
 
 我时常意识到⾃⼰心⾥有⼀个巨⼤的空洞，以及它⽆法被填补的铁⼀般的事实。
@@ -78,5 +72,9 @@ Haskell 趣学指南
 ------------------
 
 .. book:: _
-   :isbn: nidangxiangnaio
+          Educated
    :endat: 2020-07-28
+
+我突然意识到自己和《Educated》中的偏执狂并没有太大区别：「父亲」带着家人们
+挖地窖躲避世界末日，我为了记将来「一辈子」的笔记而苦苦准备工具。世界末日不会来。
+正如我永远也不会真的开始记笔记。

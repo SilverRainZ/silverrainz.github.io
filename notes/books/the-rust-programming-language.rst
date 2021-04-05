@@ -195,7 +195,7 @@ ch8 数据结构
 
 ``entry().or_insert()`` 返回一个 ``&mut`` 很香，可以优雅地写 counter
 
-   
+
 ch9 错误处理
 ============
 
@@ -213,4 +213,19 @@ ch9 错误处理
 ch10 泛型、trait 和生命周期
 ===========================
 
-:page: 169
+
+T
+   - ``<>`` 语法可用于函数、结构体、枚举、impl block
+   - 可以为泛型的某一个特化提供实现
+   - 用 单态化（monomorphization）避免泛型的运行时开销
+
+trait
+   - 要使用 trait 方法必须引入 use trait
+   - 无法为外部类型实现外部 trait
+   - trait 可以自带默认实现，但重载实现中无法调用默认实现
+   - 当作为类型参数时用 ``impl TraitName``
+     or ``fn foo<T: TraitName>`` 然后用 ``T``， 后者更为完备
+   - blanket implementation?
+
+:page: 191
+
