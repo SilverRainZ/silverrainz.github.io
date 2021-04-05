@@ -95,7 +95,7 @@ html_sidebars = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['center-title.css', 'alabaster-fix.css']
+html_css_files = ['alabaster-fix.css']
 
 html_baseurl = baseurl
 
@@ -140,8 +140,7 @@ any_schemas = [{
 }, {
     'type': 'book',
     'fields': {
-        'id': 'isbn',
-        'others': ['cover', 'status', 'startat', 'endat'],
+        'others': ['isbn', 'status', 'startat', 'endat'],
     },
     'templates': {
         'reference': '《{{ title }}》',

@@ -1,3 +1,12 @@
+/* Center title */
+h1 {
+    text-align: center;
+}
+/* Hide headerlink of doctitle */
+h1 > a.headerlink {
+    display: none;
+}
+
 /* Fix text style of figure caption */
 figcaption, div.figure p.caption, div.figure div.legend {
     color: #666;
@@ -13,9 +22,4 @@ figcaption, div.figure p.caption, div.figure div.legend {
 /* Fix definition list */
 .body dt {
     font-weight: bold;
-}
-
-/* Hide headerlink of doctitle */
-h1 > a.headerlink {
-    display: none;
 }
