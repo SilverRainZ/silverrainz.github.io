@@ -17,6 +17,9 @@ figcaption, div.figure p.caption, div.figure div.legend {
 /* Fix blockquote */
 .body blockquote {
     color: #888;
+    border-left: 4px solid #AAA;
+    margin: 0px;
+    padding-left: 1em;
 }
 
 /* Fix definition list */
