@@ -96,8 +96,8 @@ reStructuredText 很接近我心中理想的 markup language 的样子，结果�
 
 9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。
 在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，
-尝试使用社区提供的 :github:`各种扩展 <sphinx-contrib>`来增强文档的功能，
-可惜其中不少扩展已经年久失修。再后来自己也建立了一个一人组织 :github:`sphinx-notes` ，
+尝试使用社区提供的 :ghuser:`各种扩展 <sphinx-contrib>`来增强文档的功能，
+可惜其中不少扩展已经年久失修。再后来自己也建立了一个一人组织 :ghuser:`sphinx-notes` ，
 用来存放自己写的扩展，顺便回馈社区。
 
 随着对 Sphinx+reStructuredText 实践的增多和一些扩展的完成，我的笔记终于慢慢成形了。

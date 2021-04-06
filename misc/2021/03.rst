@@ -8,7 +8,7 @@
 .. highlight:: bash
 
 GTK 很早就实现了能用的 Wayland 后端，在之后 Firefox 实验性地支持 Wayland ，
-就没有任何非运行在 X 下不可的软件了。:github:`fcitx/fcitx5` 在 Wayland 下更是达到了
+就没有任何非运行在 X 下不可的软件了。:ghrepo:`fcitx/fcitx5` 在 Wayland 下更是达到了
 开箱即用的水平，是时候抛弃 X 了。
 
 XMonad →  Sway
@@ -20,7 +20,7 @@ dzen2 →  Waybar
     而 Waybar 有很多方便的模块，改改配置就非常好看
 
 xscreensaver →  Swaylock
-    Swaylock 应该和 i3lock 一样，曾经看 :github:`cbmixx` 用过，总之比 xscreensaver
+    Swaylock 应该和 i3lock 一样，曾经看 :ghuser:`cbmixx` 用过，总之比 xscreensaver
     好太多
 
 xfce-notifyd →  Mako
