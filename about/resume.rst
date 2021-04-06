@@ -151,7 +151,7 @@ Lua 插件平台 L*g
 :技术栈: Golang、Lua
 :角色: 早期开发者、维护者
 
-社区没有一个好用的 LuaJIT go binding，唯一能用的 :github:`aarzilli/golua`
+社区没有一个好用的 LuaJIT go binding，唯一能用的 :ghrepo:`aarzilli/golua`
 的作者对 Lua 缺乏足够的了解，为了避免受限于开源库，也为了更好的和公司产品集成，
 我们发起了这个项目。
 

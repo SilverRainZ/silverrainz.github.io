@@ -6,7 +6,7 @@ Leetcode 刷题记录
 
 .. highlight:: rust
 
-借鉴了 :github:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
+借鉴了 :ghrepo:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
 
 .. contents::
    :local:

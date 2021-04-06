@@ -120,7 +120,7 @@ extlinks = {
     'enwiki': ('https://wikipedia.org/wiki/%s', ''),
     'search': ('https://duckduckgo.com/?q=%s', ''),
     'twitter': ('https://twitter.com/%s', '@'),
-    'github': ('https://github.com/%s', '@'),
+    'ghuser': ('https://github.com/%s', '@'),
     'ghrepo': ('https://github.com/%s', ''),
     'weibo': ('https://weibo.com/%s', '@'),
     'aur': ('https://aur.archlinux.org/packages/%s', ''),
