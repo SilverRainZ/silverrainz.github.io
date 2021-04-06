@@ -16,7 +16,7 @@ view:
 	xdg-open "$(BUILDDIR)/html/index.html"
 
 serve:
-	$(SPHINXSERV) $(SOURCEDIR) $(BUILDDIR)/html
+	$(SPHINXSERV) --no-initial $(SOURCEDIR) $(BUILDDIR)/html
 
 commit:
 	git commit -m "$(shell date +'%Y-%m-%d %H:%M')"
