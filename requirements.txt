@@ -10,3 +10,4 @@ sphinxnotes-snippet
 sphinxnotes-strike
 sphinxnotes-isso==1.0a2
 sphinx-sitemap
+sphinxcontrib-plantuml

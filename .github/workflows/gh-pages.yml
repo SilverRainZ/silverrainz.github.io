@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update;
-        sudo apt-get install lilypond timidity imagemagick fonts-noto-cjk graphviz
+        sudo apt-get install lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml
     - name: Checkout
       uses: actions/checkout@master
       with:
