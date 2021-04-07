@@ -6,6 +6,11 @@ Flow
 
 Known flows:
 
+.. uml::
+
+   Alice -> Bob: Hi!
+   Alice <- Bob: How are you?
+
 - Login -> Flow
 - Contact -> Entity
 - Inspect -> Entity
