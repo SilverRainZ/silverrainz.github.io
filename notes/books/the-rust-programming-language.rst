@@ -208,7 +208,7 @@ ch9 错误处理
 ``?`` for error propagating，好大一颗糖，支持链式调用，
 确实比 ``if err != nil`` 香
 
-迷之 ``Box<dyn Error>``
+迷之 ``Box<dyn Error>`` : 见 :ref:`ch12`
 
 ch10 泛型、trait 和生命周期
 ===========================
@@ -239,4 +239,30 @@ lifetimes
    - 如果有多个输入生命周期参数并且其中一个是 ``&self`` 或者 ``&mut self``
      则输出生命周期参数即为 ``self`` 的生命周期
 
-:page: 201
+ch11 编写自动化测试
+===================
+
+- ``user super::*`` 比较方便
+- ``#[should_panic]`` 标记一个会 panic 的 case
+- ``#[test]`` 修饰的函数亦可用 ``Result<T,E>`` 作为返回值
+- 用 ``--`` 区分给 cargo test 的参数和给 test binary 的参数
+- 集成测试放置于特殊的 "tests" 目录，模块不需要 ``#[cfg(test)]`` 修饰
+
+.. _ch12:
+
+ch12 构建一个命令行程序
+=======================
+
+- ``std::env::args()``
+- ``std::proecss::exit(exit_code)``
+- ``Box<dyn Error>`` 代表任意实现了 ``Error`` 的类型，编译时不会单态化，
+  有一定的动态性
+- ``eprintln!``
+
+ch13 迭代器与闭包
+=================
+
+Closures
+   可以捕获 scope 的 lambda 函数
+
+:page: 261
