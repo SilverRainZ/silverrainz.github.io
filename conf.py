@@ -198,3 +198,4 @@ isso_url = 'https://comments.silverrainz.me:30500'
 
 extensions += ['sphinx_sitemap']
 sitemap_filename = "sitemap.xml"
+sitemap_url_scheme = "{link}"
