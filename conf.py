@@ -176,8 +176,8 @@ blog_authors = {
 }
 blog_default_author = author_nick
 blog_languages = {
-    language: ('Simplified Chinese', None),
-    'en': ('English', None),
+    language: ('简体中文', None),
+    'en':     ('English',  None),
 }
 blog_default_language = language
 post_date_format = datefmt
