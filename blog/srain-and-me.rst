@@ -5,7 +5,7 @@
 .. post:: 2020-02-29
    :tags: Srain, IRC, GTK
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 .. topic:: 前注

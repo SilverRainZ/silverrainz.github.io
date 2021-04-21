@@ -5,7 +5,7 @@ From Anyting to Sphinx
 .. post::
    :tags: Draft
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 ..
 

@@ -5,7 +5,7 @@
 .. post:: 2015-09-14
    :tags: OS
    :author: LA
-   :language: zh
+   :language: zh_CN
 
    update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
    并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,

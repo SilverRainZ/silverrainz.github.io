@@ -5,7 +5,7 @@
 .. post:: 2016-01-01
    :tags: CTF
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 地址: `OverTheWire: Leviathan <http://overthewire.org/wargames/leviathan/>`_.
 

@@ -2,7 +2,7 @@
 .. post:: 2015-07-02
    :tags: Vim
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 ========================================
  Vim 插件折腾记录

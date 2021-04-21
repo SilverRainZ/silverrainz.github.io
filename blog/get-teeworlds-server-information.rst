@@ -5,7 +5,7 @@
 .. post:: 2016-02-12
    :tags: Teeworlds
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
 （什么是 `teeworlds <https://zh.wikipedia.org/wiki/Teeworlds>`_\ ？），

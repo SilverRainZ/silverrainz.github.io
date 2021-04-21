@@ -5,7 +5,7 @@
 .. post:: 2015-08-07
    :tags: OS
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 .. contents::
 

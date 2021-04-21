@@ -4,8 +4,7 @@
 
 .. post:: 2015-11-02
    :tags: CTF
-   :author: LA
-   :language: zh
+   :language: zh_CN
 
 程序在此： `toetrix-crackme.exe <http://jianguoyun.com/p/Dbz27p8QtNrvBRiq2w4>`_\ ， VC++ 6.0 编写，无壳， CLI 程序。
 

@@ -5,7 +5,7 @@
 .. post:: 2015-01-30
    :tags: Haskell
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 :book:`Haskell 趣学指南` ，这下子更没有不学的理由了。

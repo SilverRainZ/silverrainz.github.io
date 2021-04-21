@@ -7,7 +7,7 @@
 .. post:: 2016-03-11
    :tags: 设备
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 
