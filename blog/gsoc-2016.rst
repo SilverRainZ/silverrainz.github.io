@@ -5,7 +5,7 @@
 .. post:: 2016-04-23
    :tags: GSoC
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 ;-) 难以置信。

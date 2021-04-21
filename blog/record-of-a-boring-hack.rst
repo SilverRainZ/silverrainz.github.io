@@ -5,7 +5,7 @@
 .. post:: 2015-05-12
    :tags: Reverse
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
 大概八点二十分到机房, 老师并没有说什么.

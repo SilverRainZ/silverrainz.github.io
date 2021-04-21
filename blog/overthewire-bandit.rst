@@ -7,7 +7,7 @@
 .. post:: 2015-07-26
    :tags: CTF
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 题目地址: `OverTheWire: Bandit <http://overthewire.org/wargames/bandit/>`_.
 

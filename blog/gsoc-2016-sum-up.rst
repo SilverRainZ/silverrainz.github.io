@@ -5,7 +5,7 @@
 .. post:: 2016-09-29
    :tags: GSoC
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 这是一篇拖了一个月的流水帐……

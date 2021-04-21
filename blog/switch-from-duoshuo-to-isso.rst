@@ -7,7 +7,7 @@
 .. post:: 2017-06-10
    :tags: Isso, 多说
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 前阵子多说 `对外宣布 <http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241>`_

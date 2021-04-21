@@ -5,7 +5,7 @@
 .. post:: 2017-03-29
    :tags: Sphinx, reStructuredText
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 
 前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 `Read The Docs <http://readthedocs.io/>`_

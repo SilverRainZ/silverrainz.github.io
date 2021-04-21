@@ -5,7 +5,7 @@
 .. post:: 2015-01-02
    :tags: Reverse
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 地址在这里：\ `IDF逆向题 <http://ctf.idf.cn/index.php?g=game&m=list&a=index&id=21>`_
 这些题都比较水，好在我和它一样水。

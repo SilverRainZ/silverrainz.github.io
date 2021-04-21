@@ -7,7 +7,7 @@
 .. post:: 2015-03-27
    :tags: 瞎扯
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.
 

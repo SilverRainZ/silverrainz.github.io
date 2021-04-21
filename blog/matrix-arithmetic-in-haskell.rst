@@ -7,7 +7,7 @@
 .. post:: 2015-03-17
    :tags: Haskell
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
 想把上课教的几个矩阵运算写出来...虽然调试了半天, 回头一看,

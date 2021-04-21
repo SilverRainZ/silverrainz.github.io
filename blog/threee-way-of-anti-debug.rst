@@ -5,7 +5,7 @@
 .. post:: 2015-05-19
    :tags: Reverse
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 这里面没有什么自己的东西,
 都是从看雪的\ `OD从零系列教程 <http://bbs.pediy.com/showthread.php?t=184679>`_\ 里看来的.

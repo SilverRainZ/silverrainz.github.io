@@ -5,7 +5,7 @@
 .. post:: 2021-03-21
    :tags: 生活
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 6 月我从长亭科技离职，去燕郊 :weibo:`@李晓飞 <lixiaofeiart>` 老师处学画，
 课题是基础素描。

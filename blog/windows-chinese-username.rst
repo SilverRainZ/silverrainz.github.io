@@ -2,7 +2,7 @@
 .. post:: 2015-03-08
    :tags: Windows
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 ========================================
  把 Windows 中文用户名改为英文

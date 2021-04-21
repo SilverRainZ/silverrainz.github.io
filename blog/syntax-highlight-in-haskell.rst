@@ -7,7 +7,7 @@
 .. post:: 2015-02-16
    :tags: Haskell
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。
 

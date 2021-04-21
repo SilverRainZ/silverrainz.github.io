@@ -5,7 +5,7 @@
 .. post:: 2016-06-25
    :tags: Linux, C, Makefile
    :author: LA
-   :language: zh
+   :language: zh_CN
 
 ..
 
