@@ -18,6 +18,8 @@ sys.path.insert(0, os.path.abspath('.'))
 
 project = '银色子弹'
 author = 'Shengyu Zhang'
+author_id = 'SilverRainZ'
+author_nick = 'LA'
 copyright = '2020-2021, ' + author
 
 # -- Non-standard project information ----------------------------------------
@@ -25,6 +27,10 @@ copyright = '2020-2021, ' + author
 description = 'Yes silver bullet here.'
 baseurl = 'https://silverrainz.me/'
 datefmt = '%Y-%m-%d'
+
+# -- Enviroment information -----------------------------------------------------
+
+CI = os.environ.get('CI') is not None
 
 # -- General configuration ---------------------------------------------------
 
@@ -71,17 +77,8 @@ show_authors = True
 
 # -- Options for HTML output -------------------------------------------------
 
-html_theme = 'alabaster'
-html_theme_options = {
-    'logo': 'logo.png',
-    'logo_name': project,
-    'description': description,
-    'touch_icon': 'logo.png',
-    'page_width': '80%',
-}
-
 html_sidebars = {
-    # Match all blog pages
+    # Match all blog pages, see exetension ablog
     'blog/*': ['about.html', 'postcard.html', 'recentposts.html',
                'tagcloud.html', 'categories.html', 'archives.html'],
     # Match all pages but excluding blog
@@ -96,7 +93,7 @@ html_sidebars = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['alabaster-fix.css']
+html_css_files = []
 
 html_baseurl = baseurl
 
@@ -106,9 +103,20 @@ html_title = project
 # I don't want to public my sources, so set it to false.
 html_copy_source = False
 
-html_search_language = 'zh'
+html_search_language = language
 
 html_favicon = '_static/favicon.png'
+
+# HTML theme configuration
+html_theme = 'alabaster'
+html_theme_options = {
+    'logo': 'logo.png',
+    'logo_name': project,
+    'description': description,
+    'touch_icon': 'logo.png',
+    'page_width': '80%',
+}
+html_css_files += ['alabaster-fix.css']
 
 # -- Pre extension configuration ---------------------------------------------------
 
@@ -164,14 +172,14 @@ blog_path = 'blog'
 blog_title = project
 blog_baseurl = baseurl
 blog_authors = {
-    'LA': (author, blog_baseurl),
+    author_nick: (author, blog_baseurl),
 }
-blog_default_author = 'LA'
+blog_default_author = author_nick
 blog_languages = {
-    'zh': ('Chinese', None),
+    language: ('Simplified Chinese', None),
     'en': ('English', None),
 }
-blog_default_language = 'zh'
+blog_default_language = language
 post_date_format = datefmt
 post_auto_image = 1
 blog_feed_fulltext = True
@@ -179,15 +187,17 @@ blog_feed_subtitle = description
 fontawesome_included = True
 html_css_files += ['ablog.css']
 
-extensions += ['sphinxcontrib.gtagjs']
-gtagjs_ids = ['G-FYHS50G6DL']
+if CI:
+    extensions += ['sphinxcontrib.gtagjs']
+    gtagjs_ids = ['G-FYHS50G6DL']
 
-extensions += ['sphinxnotes.snippet.ext']
-snippet_config = {}
-snippet_patterns = {
-    'd': ['.*'],
-    'c': ['man/.*'],
-}
+if not CI:
+    extensions += ['sphinxnotes.snippet.ext']
+    snippet_config = {}
+    snippet_patterns = {
+        'd': ['.*'],
+        'c': ['man/.*'],
+    }
 
 extensions += ['sphinx_panels']
 # For ``fa`` role
@@ -196,6 +206,7 @@ html_css_files += ['https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/al
 extensions += ['sphinxnotes.isso']
 isso_url = 'https://comments.silverrainz.me:30500'
 
-extensions += ['sphinx_sitemap']
-sitemap_filename = "sitemap.xml"
-sitemap_url_scheme = "{link}"
+if CI:
+    extensions += ['sphinx_sitemap']
+    sitemap_filename = "sitemap.xml"
+    sitemap_url_scheme = "{link}"
