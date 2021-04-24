@@ -51,3 +51,12 @@ CSS 中 ``visibility:hidden`` 和 ``display:none``
 就是引起注意的意思，可以说比较含糊地包括了 TODO, FIXME, NOTE, HACK [#]_
 
 .. [#] https://stackoverflow.com/a/1452945/4799273
+
+Linux 根据 PID 获取进程名
+=========================
+
+.. highlight:: bash
+
+很简单但没想到::
+
+   cat /proc/PID/cmdline
