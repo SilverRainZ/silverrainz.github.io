@@ -18,11 +18,7 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
 安装必要的工具::
 
-   # pacman -S \
-            base-devel \
-            neovim \
-            git \
-            wget \
+   # pacman -S base-devel neovim git wget
    # pacman -S proxychains-ng
    # pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions
 
@@ -80,20 +76,12 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
 #. 创建常用的 $HOME 布局::
 
-      $ mkdir -p \
-        bin \
-        desktop \
-        downloads \
-        git \
-        music \
-        pictures  \
-        public \
-        workspace \
-        documents  \
-        games  \
-        pkg \
-        templates \
-        videos
+      *nix style
+      $ mkdir bin
+      XDG directories
+      $ mkdir desktop downloads music pictures public documents games templates videos
+      My workflow
+      $ mkdir git workspace pkg
 
 #. 导入 dotfiles::
 
@@ -109,6 +97,14 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 服务配置
 ========
 
+对外服务：
+
+=========== =========
+服务        端口
+----------- ---------
+webdav      30500/tcp
+=========== =========
+
 文件服务
 --------
 
@@ -121,35 +117,143 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 挂载大容量存储
 ~~~~~~~~~~~~~~
 
-参考 `这篇文章 <https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/>`_
-和 :man:`SYSTEMD.MOUNT(5)`
+.. todo:: 想用 ``systemctl --user`` 管理这个 mount，试了挺久没有成功，先放着
 
-la-wdbuzg0010bb 是大学时期买的一个 1TB 的西数移动硬盘。
+参考 `这篇文章 <https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/>`_
+和 :manpage:`SYSTEMD.MOUNT(5)`::
 
    # blkid /dev/sda1
-   $ cd ~/.config/systemd/user
-   $ touch $(systemd-escape --path '/mnt/la-wdbuzg0010bb').mount
+   # touch /usr/lib/systemd/system/$(systemd-escape --path '/mnt/la-wdbuzg0010bb').mount
+
+.. note:: la-wdbuzg0010bb 是大学时期买的一个 1TB 的西数移动硬盘。
+          一直闲置所以用来当树莓派的存储
 
 .. note:: systemd 对 mount unit 的文件名有要求，使用 ``systemd-escape --path`` 转义之
 
+编写 mount 文件如下：
+
 .. code-block:: ini
+   :caption: /usr/lib/systemd/system/mnt-la\x2dwdbuzg0010bb.mount
+
+   [Unit]
+   Description=Mount la-wdbuzg0010bb
+
+   [Mount]
+   User=%u
+   What=/dev/disk/by-uuid/d7bfcb86-eb6e-47d8-8706-9c3210d0f9fb
+   Where=/mnt/la-wdbuzg0010bb
+   Type=ext4
+   Options=defaults
+
+   [Install]
+   WantedBy=multi-user.target
+
+Enable and start::
+
+   $ systemctl enable --now mnt-la\\x2dwdbuzg0010bb.mount
 
 
+设置共享目录（先移除已创建的 :file:`~/public` ）::
+
+   $ ln -s /mnt/la-wdbuzg0010bb/la-pi3-public/ ~/public
 
 WebDAV
 ~~~~~~
 
-使用 :archpkg:`nginx-mainline` + :archpkg:`nginx-mainline-mod-dav-ext`
+使用 :archpkg:`nginx-mainline` + :aur:`nginx-mainline-mod-dav-ext`
+后者需要自己 build。根据 :archwiki:`WebDAV#Nginx` 做如下配置：
+
+以下配置加入 :file:`/etc/nginx/nginx.conf`:
+
+.. code-block:: nginx
+
+   load_module /usr/lib/nginx/modules/ngx_http_dav_ext_module.so;
+
+   # ...
+
+   http {
+       server {
+           listen 30500;
+
+           location / {
+               root /mnt/la-wdbuzg0010bb/la-pi3-public;
+
+               dav_methods PUT DELETE MKCOL COPY MOVE;
+               dav_ext_methods PROPFIND OPTIONS;
+
+               # Adjust as desired:
+               dav_access user:rw group:rw all:r;
+               client_max_body_size 0;
+               create_full_put_path on;
+               client_body_temp_path /srv/client-temp;
+               autoindex on;
+
+               allow 10.0.0.0/24;
+               deny all;
+           }
+       }
+   }
+
+.. note::
+
+   本来想用 ``root /home/la/public`` ，试了下发现不支持 follow symlink，只好用
+   mnt 的地址 ``root /mnt/la-wdbuzg0010bb/la-pi3-public``
+
+NFS
+~~~
+
+根据 :archwiki:`NFS` 来。
+
+服务端
+^^^^^^
+
+::
+
+   # pacman -S nfs-utils
+   # timedatectl set-ntp 1
+   # systemctl enable --now nfs-server.service
+
+共享 la-wdbuzg0010bb：
+
+.. code-block::
+   :caption: /etc/exports
+
+   /mnt/la-wdbuzg0010bb/ 10.0.0.0/24(rw,sync,nohide)
+
+
+客户端
+^^^^^^
+
+   # pacman -S nfs-utils
+   # touch /etc/systemd/system/$(systemd-escape --path '/mnt/la-wdbuzg0010bb').mount
+
+编写 mount 文件如下：
+
+.. code-block:: ini
+   :caption: /etc/systemd/system/mnt-la\x2dwdbuzg0010bb.mount
+
+   [Unit]
+   Description=Mount la-wdbuzg0010bb
+
+   [Mount]
+   What=la-pi3:/mnt/la-wdbuzg0010bb
+   Where=/mnt/la-wdbuzg0010bb
+   Type=nfs
+   TimeoutSec=30
+   ForceUnmount=true
+
+   [Install]
+   WantedBy=multi-user.target
+
+启动 client::
+
+   # systemctl enable --now 'mnt-la\x2dwdbuzg0010bb.mount'
+
 
 Syncthing
 ~~~~~~~~~
 
-TODO
-
-参考
-====
-
-.. [#] https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/
+.. todo:: Syncthing
 
 --------------------------------------------------------------------------------
 
