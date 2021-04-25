@@ -7,9 +7,11 @@
 
 .. highlight:: bash
 
-.. sidebar:: 第一批作业合影
+.. figure:: /_images/IMG_0117.jpg
+   :figwidth: 30%
+   :align: right
 
-   .. figure:: /_images/IMG_0117.jpg
+   第一批作业合影
 
 一加的相机颜色太过鲜艳，于是用 iPad 拍。
 房东送来一闲置的玻璃茶几，把 iPad 平放在茶几，画放在下边的置物架，
@@ -60,3 +62,21 @@ Linux 根据 PID 获取进程名
 很简单但没想到::
 
    cat /proc/PID/cmdline
+
+于是高乃依正准备上天
+====================
+
+:Date: 2020-04-25
+
+.. highlight:: bash
+
+石膏跑了所以没办法继续画画，明天只好不去画室 :)
+
+.. figure:: /_images/于是高乃依正准备上天.gif
+   :width: 30%
+
+   竹蜻蜓是点外卖送的……
+
+备忘::
+
+   convert -rotate 90 -resize 20% -delay 15 -loop 0  $(ls *.jpg| grep 0425) 于是高乃依正准备上天.gif
