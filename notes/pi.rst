@@ -166,6 +166,8 @@ Enable and start::
 WebDAV
 ~~~~~~
 
+.. warning:: 权限问题很多，很难受
+
 使用 :archpkg:`nginx-mainline` + :aur:`nginx-mainline-mod-dav-ext`
 后者需要自己 build。根据 :archwiki:`WebDAV#Nginx` 做如下配置：
 
@@ -178,11 +180,18 @@ WebDAV
    # ...
 
    http {
+       types_hash_max_size 4096;
+
        server {
            listen 30500;
 
+           charset utf-8;
+
            location / {
                root /mnt/la-wdbuzg0010bb/la-pi3-public;
+               # client_body_temp_path 用于临时文件中转，必须和 root 在一个文件系统下
+               client_body_temp_path /mnt/la-wdbuzg0010bb/webdav-client-temp;
+
 
                dav_methods PUT DELETE MKCOL COPY MOVE;
                dav_ext_methods PROPFIND OPTIONS;
@@ -191,7 +200,6 @@ WebDAV
                dav_access user:rw group:rw all:r;
                client_max_body_size 0;
                create_full_put_path on;
-               client_body_temp_path /srv/client-temp;
                autoindex on;
 
                allow 10.0.0.0/24;
@@ -204,6 +212,11 @@ WebDAV
 
    本来想用 ``root /home/la/public`` ，试了下发现不支持 follow symlink，只好用
    mnt 的地址 ``root /mnt/la-wdbuzg0010bb/la-pi3-public``
+
+修改 public 目录权限让 nginx.service 对应的 http 用户能够正常读写::
+
+   # chown :http -R /mnt/la-wdbuzg0010bb/la-pi3-public
+   # chmod g+w -R /mnt/la-wdbuzg0010bb/la-pi3-public
 
 NFS
 ~~~
