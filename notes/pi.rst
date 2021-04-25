@@ -6,6 +6,9 @@
 
 .. highlight:: console
 
+.. contents::
+   :local:
+
 安装
 ====
 
@@ -99,11 +102,14 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
 对外服务：
 
-=========== =========
-服务        端口
------------ ---------
-webdav      30500/tcp
-=========== =========
+=================== ==========
+服务                端口
+------------------- ----------
+webdav              30500/http
+nfs                 default
+syncthing           default
+syncthing-webui     30501/http
+=================== ==========
 
 文件服务
 --------
@@ -207,7 +213,7 @@ NFS
 服务端
 ^^^^^^
 
-::
+安装并启动服务::
 
    # pacman -S nfs-utils
    # timedatectl set-ntp 1
@@ -224,7 +230,12 @@ NFS
 客户端
 ^^^^^^
 
+安装服务::
+
    # pacman -S nfs-utils
+
+创建 systemd mount point::
+
    # touch /etc/systemd/system/$(systemd-escape --path '/mnt/la-wdbuzg0010bb').mount
 
 编写 mount 文件如下：
@@ -249,11 +260,30 @@ NFS
 
    # systemctl enable --now 'mnt-la\x2dwdbuzg0010bb.mount'
 
-
 Syncthing
 ~~~~~~~~~
 
-.. todo:: Syncthing
+安装及配置::
+
+   # pacman -S syncthing
+   # systemctl enable --now syncthing@la.service
+
+:archpkg:`syncthing` 提供的 systemd service 没有开启网页管理界面，通过
+``systemctl edit`` 启用它::
+
+   # systemctl edit --now syncthing@la.service
+
+.. code-block:: ini
+   :caption: /etc/systemd/system/syncthing@la.service.d/override.conf
+
+   [Service]
+   ExecStart=
+   ExecStart=/usr/bin/syncthing -gui-address="http://0.0.0.0:30501" -no-restart -logflags=0
+
+而后::
+
+   # systemctl daemon-reload
+   # systemctl restart syncthing@la.service
 
 --------------------------------------------------------------------------------
 
