@@ -1,4 +1,4 @@
-/* Stylesheet for about/resume.rst */
+/* Stylesheet for _templates/nosidebar.html */
 
 div.bodywrapper {
     margin: 0 0 0 0;
@@ -7,4 +7,8 @@ div.bodywrapper {
 div.body {
     max-width: none;
     padding: 0 0 0 0;
+}
+
+div.sphinxsidebar {
+    display: none;
 }

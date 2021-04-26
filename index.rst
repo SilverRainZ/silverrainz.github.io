@@ -20,7 +20,6 @@
 
    .. toctree::
       :caption: 笔记
-      :titlesonly:
       :maxdepth: 1
       :glob:
 
@@ -31,19 +30,21 @@
 
    .. toctree::
       :caption: 博客
-      :titlesonly:
+      :maxdepth: 1
 
-      所有日志 <blog/index>
+      博客首页 <blog/index>
 
    .. postlist:: 10
       :format: {title}
       :list-style: disc
 
+   :ref:`所有日志…  <blog-posts>`
+
    -----------------------------------------------------------------------------
 
    .. toctree::
       :caption: 手册
-      :titlesonly:
+      :maxdepth: 1
       :glob:
 
       man/*
@@ -52,16 +53,17 @@
 
    .. toctree::
       :caption: 随记
-      :titlesonly:
-      :glob:
+      :maxdepth: 2
 
-      misc/*/index
+      misc/2021/index
+      misc/2020/index
+      misc/2017/index
 
    -----------------------------------------------------------------------------
 
    .. toctree::
       :caption: 收集室
-      :titlesonly:
+      :maxdepth: 1
       :glob:
 
       collections/*/index
@@ -70,8 +72,9 @@
 
    .. toctree::
       :caption: 关于
-      :titlesonly:
+      :maxdepth: 1
 
       我 <about/me>
       about/site
       about/friends
+      简历 <about/resume>

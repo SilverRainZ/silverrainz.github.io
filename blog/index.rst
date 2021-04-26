@@ -12,8 +12,8 @@
 
 .. centered:: :ref:`标签 <blog-tags>` | :ref:`归档 <blog-archives>` | :ref:`草稿 <blog-drafts>` | :ref:`订阅 <blog-feed>`
 
-目录
-====
+最近更新
+========
 
 .. postlist::
    :format: {title} | {date}
