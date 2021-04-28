@@ -6,6 +6,7 @@ The Rust Programming Language
    Rust 程序设计语言
    :isbn: 9781718500440
    :startat: 2020-03-11
+   :bookmark: 314
 
 .. highlight:: rust
 
@@ -262,7 +263,40 @@ ch12 构建一个命令行程序
 ch13 迭代器与闭包
 =================
 
-Closures
-   可以捕获 scope 的 lambda 函数
+闭包
+   可以捕获 scope 的 匿名函数，捕获方式有三种：
 
-:page: 261
+   - ``FnOnce`` 移动所有权
+   - ``FnMut`` 可变借用
+   - ``Fn`` 不可变借用
+
+Iterator Adaptor
+   对 Iterator 做变换，返回另一个迭代器，可形成链式调用
+
+
+
+ch14 Release Profiles
+=====================
+
+``cargo doc --open`` 很方便
+
+翻译有点儿怪……
+
+可以用 ``pub use`` 重导出，在统一的地方管理公开 API
+
+Cargo workspace
+   很有意思，一堆项目共享同一个 ``Cargo.lock`` ：确保所有 create 使用相同版本的依赖
+
+Cargo subcommand
+   ``cargo xxx`` 会执行 ``$PATH`` 中的 ``cargo-xxx`` ，略粗暴
+
+ch15 智能指针
+=============
+
+:del:`说实话 C++ 里的智能指针让我感到「非用不可」而不是「用得舒服」`
+
+常见的智能指针
+
+- ``Box<T>``
+- ``Rc<T>``
+- ``Ref<T>`` ``RefMut<T>`` ``RefCell<T>``

@@ -84,3 +84,17 @@ Linux 根据 PID 获取进程名
 GIF -> MP4（ ``-r`` 指定 fps， ``-stream_loop`` 指定循环次数）::
 
    ffmpeg -r 5 -stream_loop 3 -i 于是高乃依正准备上天.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" 于是高乃依正准备上天.mp4
+
+Plan 9
+======
+
+.. 根据 :ghuser:`fixme <fbq>` 多年前的 :ref:`fixme-s-suggestion <建议>` ，了解一下
+   Plan9 的相关知识。
+
+两个核心概念：
+
+   [t]he foundations of the system are built on two ideas:
+   a per-process name space and a simple message-oriented file system protocol.
+   — Pike et al. [#]_
+
+.. [#] http://9p.io/sys/doc/names.html

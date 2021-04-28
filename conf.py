@@ -149,6 +149,9 @@ extlinks = {
     'aur': ('https://aur.archlinux.org/packages/%s', ''),
     'archpkg': ('https://archlinux.org/packages/%s', ''),
     'archwiki': ('https://wiki.archlinux.org/index.php/%s', ''),
+    'zhihuq': ('https://www.zhihu.com/question/%s', 'Q: '),
+    'zhihua': ('https://www.zhihu.com/answer/%s', 'A: '),
+    'zhihup': ('https://www.zhihu.com/people/%s', '@'),
 }
 
 extensions.append('sphinxnotes.any')
@@ -164,7 +167,7 @@ any_schemas = [{
 }, {
     'type': 'book',
     'fields': {
-        'others': ['isbn', 'status', 'startat', 'endat'],
+        'others': ['isbn', 'status', 'startat', 'endat', 'bookmark'],
     },
     'templates': {
         'reference': '《{{ title }}》',
