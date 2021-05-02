@@ -152,6 +152,7 @@ extlinks = {
     'zhihuq': ('https://www.zhihu.com/question/%s', 'Q: '),
     'zhihua': ('https://www.zhihu.com/answer/%s', 'A: '),
     'zhihup': ('https://www.zhihu.com/people/%s', '@'),
+    'pypi': ('https://pypi.org/project/%s', ''),
 }
 
 extensions.append('sphinxnotes.any')
