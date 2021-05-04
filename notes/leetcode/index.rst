@@ -33,4 +33,4 @@ Leetcode 刷题记录
 
 熟悉语法……
 
-.. literalinclude:: ./n20-two-sum/src/lib.rs
+.. literalinclude:: ./n20-valid-parentheses/src/lib.rs
