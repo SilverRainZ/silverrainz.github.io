@@ -8,12 +8,16 @@ Leetcode 刷题记录
 
 借鉴了 :ghrepo:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
 
+先从 🔥 `Top 100 Liked Questions`_ 开始看看？
+
+.. _Top 100 Liked Questions: https://leetcode.com/problemset/top-100-liked-questions/
+
 .. contents::
    :local:
 
 
-1 - Two Sum
-===========
+1. Two Sum
+==========
 
 我居然以为是 a+b 真是太蠢了。
 
@@ -21,3 +25,12 @@ Leetcode 刷题记录
 （指 rust）现在觉得非常直观了。
 
 .. literalinclude:: ./n1-two-sum/src/lib.rs
+
+20. Valid Parentheses
+=====================
+
+:URL: https://leetcode.com/problems/valid-parentheses/
+
+熟悉语法……
+
+.. literalinclude:: ./n20-two-sum/src/lib.rs
