@@ -161,6 +161,11 @@ Self
 
 :doc:`/notes/artstory/artistory`
 
+第七讲 艺术家案例 - 霍伯
+------------------------
+
+:doc:`/notes/artstory/artistory`
+
 作业
 ====
 
