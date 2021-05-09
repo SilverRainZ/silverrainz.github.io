@@ -16,9 +16,11 @@
    light-and-shadow
    indoor-sketching
    modeling-and-space
+   fast-modeling
    way-to-artist/index
    learn-from-master
-   misc
+   tips
+   glossary
 
 .. seealso::
 
