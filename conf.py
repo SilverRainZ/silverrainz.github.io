@@ -45,7 +45,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinxnotes.strike',
-    'sphinxcontrib.plantuml',
+    # 'sphinxcontrib.plantuml',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
