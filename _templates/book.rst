@@ -10,5 +10,8 @@
 {% if bookmark %}
 :书签: 第 {{ bookmark }} 页
 {% endif %}
+{% if status %}
+:状态: {{ status }}
+{% endif %}
 
 {{ content | join('\n') }}
