@@ -62,7 +62,7 @@ language_full = '简体中文'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_conf']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # Provided by sphinxnotes.any
 primary_domain = 'any'
@@ -163,7 +163,7 @@ any_schemas = [{
     },
     'templates': {
         'reference': '@{{ title }}',
-        'content': open('_conf/friend-template.rst', 'r').read(),
+        'content': open('_templates/friend.rst', 'r').read(),
     }
 }, {
     'type': 'book',
@@ -172,7 +172,7 @@ any_schemas = [{
     },
     'templates': {
         'reference': '《{{ title }}》',
-        'content': open('_conf/book-template.rst', 'r').read(),
+        'content': open('_templates/book.rst', 'r').read(),
     }
 }, {
     'type': 'artwork',
@@ -182,7 +182,7 @@ any_schemas = [{
     },
     'templates': {
         'reference': '《{{ title }}》',
-        'content': open('_conf/artwork-template.rst', 'r').read(),
+        'content': open('_templates/artwork.rst', 'r').read(),
     },
 }]
 
