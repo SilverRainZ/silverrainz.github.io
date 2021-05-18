@@ -233,7 +233,7 @@ flag: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
 即使是这么个小脚本也卡我半天...
 
-**注意:**
+*注意:*
 
 -  别把 bandit24 写错...
 -  把 tmp 目录的读写权限全部开放(似乎不用)

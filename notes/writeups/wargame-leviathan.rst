@@ -74,8 +74,7 @@ flag: Ahdiemoo1j
 属主是 `leviathan3`\ ，用户组是 `leviathan2`\ ，带 `suid`
 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。
 
-    **Note:** 关于 linux 下的权限，更多请参见
-    `linux/privileges.md//TODO <TODO>`__\ 。
+.. note:: 关于 linux 下的权限，更多请参见 `linux/privileges.md//TODO <TODO>`__\ 。
 
 ::
 
@@ -159,9 +158,9 @@ flag: Ahdiemoo1j
 
     The access() function shall check the file named by the pathname
     pointed to by the path argument for accessibility according to the
-    bit pattern contained in amode, **using the real user ID in place of
-    the effective user** **ID and the real group ID in place of the
-    effective group ID.**
+    bit pattern contained in amode, *using the real user ID in place of
+    the effective user* *ID and the real group ID in place of the
+    effective group ID.*
 
 而 `suid` 权限改变的只是进程的 `euid`\ ，因此当你执行
 `./printfile /etc/leviathan_pass/leviathan3` 的时候，access
@@ -179,7 +178,7 @@ Wargame Solution
 2 <https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/>`__
 ，看完发现脑洞确实不够大。
 
-**Solution:**:
+*Solution:*:
 
 access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的， 执行
 `./printfile "flag here"`\ ， 对于 access 函数来说是执行了
@@ -407,8 +406,8 @@ flag: ahy7MaeBo9
     ; 跳转至此：
        0x08048545 <+56>:    mov    0xc(%ebp),%eax       ; char** argv
        0x08048548 <+59>:    add    $0x4,%eax            ; char** argv + 4
-       0x0804854b <+62>:    mov    (%eax),%eax          ; char* argv[1] 指向 '1234'
-       0x0804854d <+64>:    mov    %eax,(%esp)          
+       0x0804854b <+62>:    mov    (%eax),%eax          ; char** argv[1] 指向 '1234'
+       0x0804854d <+64>:    mov    %eax,(%esp)
        0x08048550 <+67>:    call   0x8048400 <atoi@plt> ; atoi('1234')
     -> 0x08048555 <+72>:    cmp    0x1c(%esp),%eax      ; eax = 1234;  [esp + 0x1c] = 0x1bd3
        0x08048559 <+76>:    jne    0x8048575 <main+104>

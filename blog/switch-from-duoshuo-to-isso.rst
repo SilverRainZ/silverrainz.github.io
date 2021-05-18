@@ -44,8 +44,8 @@ AUR 里面还有有现成的包能用，于是就决定是你了，Isso！
 
 我的博客托管在 Github 上，源码存放于：
 `https://github.com/SilverRainZ/tech <https://github.com/SilverRainZ/tech>`_\ ，
-Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 **以下的操作均针对该代码仓库
-以及 vps 上的 Arch 环境。**
+Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 *以下的操作均针对该代码仓库
+以及 vps 上的 Arch 环境。*
 
 架设服务
 --------
