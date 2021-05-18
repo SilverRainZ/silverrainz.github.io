@@ -15,27 +15,27 @@ Do not use widget style properties
 Stop using GtkBox padding, fill and expand child properties
     GtkBox child properties 被 GtkWidget 的 properties 替代
 
-Stop using ``gdk_pixbuf_get_from_window()`` and
-    ``gdk_cairo_set_source_surface()``
+Stop using `gdk_pixbuf_get_from_window()` and
+    `gdk_cairo_set_source_surface()`
 
 Stop using GtkWidget event signals
     相关的 signal 被 event controllers key 和 gestures 替代
 
     ======================== =========================
-    ``key-release-event``    ``GtkEventControllerKey``
-    ``button-press-event``   ``GtkGesture``
-    ``button-release-event`` ``GtkGesture``
+    `key-release-event`      `GtkEventControllerKey`
+    `button-press-event`     `GtkGesture`
+    `button-release-event`   `GtkGesture`
     ======================== =========================
 
     *Custom widgets in GTK 4 – Input* [#]_ 给出了 event controller 的简单用法。
 
-Reduce the use of ``gtk_widget_destroy()``
-    使用更安全的 ``gtk_container_remove()`` 或 ``g_object_unref()``
+Reduce the use of `gtk_widget_destroy()`
+    使用更安全的 `gtk_container_remove()` 或 `g_object_unref()`
 
-    .. note:: ``gtk_container_remove()`` 不是已经废弃了吗？？？
+    .. note:: `gtk_container_remove()` 不是已经废弃了吗？？？
 
 Reduce the use of generic container APIs
-    ``gtk_container_add()`` 和 ``gtk_container_remove()`` 已被移除，
+    `gtk_container_add()` 和 `gtk_container_remove()` 已被移除，
     使用容器自带的 add 和 remove 函数
 
 Changes that need to be done at the time of the switch
@@ -49,14 +49,14 @@ Subclassing
 Life-cycle handling
      The “destroy” signal can no longer be used to break reference cycles.
 
-Stop using ``gtk_get_current_...`` APIs
+Stop using `gtk_get_current_...` APIs
      The function gtk_get_current_event() and its variants have been
      replaced by equivalent event controller APIs:
-     ``gtk_event_controller_get_current_event()``, etc. 
+     `gtk_event_controller_get_current_event()`, etc. 
 
 Convert your ui files
     The :file:`gtk4-builder-tool` simplify command can perform many of the
-    necessary changes automatically, when called with the ``–3to4`` option.
+    necessary changes automatically, when called with the `–3to4` option.
 
 Adapt to GtkBuilder API changes
 -------------------------------
@@ -173,7 +173,7 @@ Python Typing Hint 引入大量 import 导致脚本启动慢
 :date: 2021-01-29
 
 写 khufu 的 cli 时候发现脚本启动很慢。
-使用 ``python -X importtime ...`` 统计脚本启动时 import 所占时间::
+使用 `python -X importtime ...` 统计脚本启动时 import 所占时间::
 
     ... many line emitted ...
     import time:       323 |     405157 | sphinxnote.khufu
@@ -195,12 +195,12 @@ Python 3.5.2+ 可以使用 :py:const:`typing.TYPE_CHECKING`:
 
 .. note:: The first type annotation must be enclosed in quotes, making it a “forward reference”
 
-Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 ``from __future__ import annotations``
+Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 `from __future__ import annotations`
 即可 [#]_ 。
 
-Python 3.10 后 ``from __future__ import annotations`` 会成为默认行为。
+Python 3.10 后 `from __future__ import annotations` 会成为默认行为。
 
-``__import__('pkg_resources').declare_namespace(__name__)`` [#]_ 耗了很长时间。
+`__import__('pkg_resources').declare_namespace(__name__)` [#]_ 耗了很长时间。
 
 最后::
 

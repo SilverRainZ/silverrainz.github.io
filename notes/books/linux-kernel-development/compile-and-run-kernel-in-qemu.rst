@@ -24,7 +24,7 @@ Get source code:
     $ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git
 
 Though this repo named 'linux-2.6', but its content is same as
-``torvalds/linux.git``, :-(
+`torvalds/linux.git`, :-(
 
 Compile it:
 ~~~~~~~~~~~
@@ -35,9 +35,9 @@ Compile it:
     $ make defconfig
     $ make -j8
 
-The compiled executable kernel located at ``linux-2.6/vmlinux``, the
+The compiled executable kernel located at `linux-2.6/vmlinux`, the
 compressed kernel image we needed is
-``linx-2.6/arch/x86_64/boot/bzImage`` (bzip2 compressed)
+`linx-2.6/arch/x86_64/boot/bzImage` (bzip2 compressed)
 
 Initramfs
 ---------
@@ -50,7 +50,7 @@ Initramfs
     $ touch init
     $ chmod +x init
 
-Input below script in file ``init``:
+Input below script in file `init`:
 
 ::
 

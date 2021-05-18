@@ -14,7 +14,7 @@
 完整的笔记在 `这里 <https://github.com/SilverRainZ/no-silver-bullet/blob/master/ctf/wargame-leviathan/wargame-leviathan.md>`_\ ，
 其中有点意思的是 leviathan3，所以特地摘抄出来：
 
-登入机器后发现家目录有个带 ``suid`` 权限的可执行文件 ``printfile``\ ，属主是 ``leviathan3``\ ，用户组是 ``leviathan2``\ ，带 ``suid`` 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。
+登入机器后发现家目录有个带 `suid` 权限的可执行文件 `printfile`\ ，属主是 `leviathan3`\ ，用户组是 `leviathan2`\ ，带 `suid` 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。
 
 .. code-block:: text
 
@@ -26,9 +26,9 @@
    leviathan2@melinda:~$ ./printfile /etc/leviathan_pass/leviathan3
    You cant have that file...
 
-从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印 ``/etc/leviathan_pass/leviathan3`` 却提示 ``You cant have that file...``\ ，上 gdb 分析看看。
+从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印 `/etc/leviathan_pass/leviathan3` 却提示 `You cant have that file...`\ ，上 gdb 分析看看。
 
-以下是 ``diaasm main`` 的结果，假设执行了 ``r filename``\ ：
+以下是 `diaasm main` 的结果，假设执行了 `r filename`\ ：
 
 .. code-block:: objdump
 
@@ -90,22 +90,22 @@
 
 可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell 命令 "/bin/cat filename"。
 
-问题出在 ``access`` 函数， man 是这样说的：
+问题出在 `access` 函数， man 是这样说的：
 
 ..
 
    The access() function shall check the file named by the pathname pointed to by the path argument for accessibility according to the bit pattern contained in amode, **using the real user ID in place of the effective user ID and the real group ID in place of the effective group ID.**
 
 
-而 ``suid`` 权限改变的只是进程的 ``euid``\ ，因此当你执行 ``./printfile /etc/leviathan_pass/leviathan3`` 的时候，access 函数总是失败的。
+而 `suid` 权限改变的只是进程的 `euid`\ ，因此当你执行 `./printfile /etc/leviathan_pass/leviathan3` 的时候，access 函数总是失败的。
 
-但是用 gdb 改变程序的流程也是\ `\ **不可行** <http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs>`_\ 的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 ``Permission denied``\ 。
+但是用 gdb 改变程序的流程也是\ `\ **不可行** <http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs>`_\ 的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 `Permission denied`\ 。
 
 到这里我就没辙了，只能看别人的 writeup 了：\ `OverTheWire Leviathan Wargame Solution 2 <https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/>`_\ ，看完发现脑洞确实不够大。
 
 **Solution:**  
 
-access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 ``./printfile "flag here"``\ ，对于 access 函数来说是执行了 ``access("flag here", 4)``\ , 检查对 ``flag here`` 这个文件的访问权限，而对 cat 来说是这样的 ``system("cat flag here")``\ ，因此可以利用这个区别来绕过 access 函数。
+access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 `./printfile "flag here"`\ ，对于 access 函数来说是执行了 `access("flag here", 4)`\ , 检查对 `flag here` 这个文件的访问权限，而对 cat 来说是这样的 `system("cat flag here")`\ ，因此可以利用这个区别来绕过 access 函数。
 
 .. code-block:: shell
 

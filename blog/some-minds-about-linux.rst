@@ -24,9 +24,9 @@
 
 比如说呢, 这个暑假回家带了一台旧笔记本回来, 想要在上面只装一个openSUSE 13.2,
 安装过程一切顺利, 安装完毕后把系统更新到最新后就没法开机了, grub似乎正常,
-卡在了\ ``initrd /boot/initrd-3.16.7-7-desktop``\ 这里, 可选的另一个是\ ``initrd-3.16.6-2-desktop``\ ,
+卡在了\ `initrd /boot/initrd-3.16.7-7-desktop`\ 这里, 可选的另一个是\ `initrd-3.16.6-2-desktop`\ ,
 这似乎是内核版本? 在网上搜索了很久, 凡是贴近这种情况的资料几乎都是英文的,
-基本看不懂. 而且我连Rescue CD都不会用, 谈何修复?  最后我只能忍着不\ ``zypper up``\ ,
+基本看不懂. 而且我连Rescue CD都不会用, 谈何修复?  最后我只能忍着不\ `zypper up`\ ,
 用着不更新的openSUSE.
 
 又比如今天折腾wine, (我甚至觉得这根本不是折腾...),
@@ -51,7 +51,7 @@ openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他�
 winetricks就会提示 wineserver not found, 不能启动, 安装了完整的wine包,
 默认的wine却是64bit的, 但是再切换32bit之后依然错误.
 
-在这之后我就把所有的配置\ ``~/.wine``\ , ``~/.local/share/applictions``\ 和\ ``~/.local/share/wineprefixs``
+在这之后我就把所有的配置\ `~/.wine`\ , `~/.local/share/applictions`\ 和\ `~/.local/share/wineprefixs`
 全都删除了, 再把和wine有关的包统统删掉, 又重新安装了一次, 桌面终于出现了启动器,
 但是依然卡死.  最后我放弃了用轻聊版, 用了QQ正式版, 出乎意料地顺利(checksum错误竟然没问题?)
 勉强安装是安装成功了, 速度还好.

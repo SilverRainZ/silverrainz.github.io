@@ -51,13 +51,13 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 在 `Arch Wiki 的光芒照耀下 <https://wiki.archlinux.org/index.php/Beginners'_guide>`_\ ，
 安装过程一切正常。
 
-装好后尝试了一下 KDE，果然已经不适应了，\ ``pacman -Rsc`` 之，然后回到 XMoand。
+装好后尝试了一下 KDE，果然已经不适应了，\ `pacman -Rsc` 之，然后回到 XMoand。
 
 趁着重新配置的时候更新了一下配置：
 
 
-* 使用 aur/ttf-iosevka 代替 ``Tsentsiu Mono HG`` 作为编辑器和终端的字体
-* 使用 xbindskey 管理快捷键，而不是用 xmoand 的 ``additionalKeys``
+* 使用 aur/ttf-iosevka 代替 `Tsentsiu Mono HG` 作为编辑器和终端的字体
+* 使用 xbindskey 管理快捷键，而不是用 xmoand 的 `additionalKeys`
   （听小药壶说可以用 scheme 来写 .xbindskeyrc）
 * 使用 terminator 代替 konsole
 * 
@@ -165,7 +165,7 @@ xmonad.hs 那边要这样写：
        }
 
 
-* 受上面那个 dzen2 wrapper 启发，在 ``.xinitrc`` 里面增加了判断外接屏幕是否存在的脚本：
+* 受上面那个 dzen2 wrapper 启发，在 `.xinitrc` 里面增加了判断外接屏幕是否存在的脚本：
 
 .. code-block:: bash
 

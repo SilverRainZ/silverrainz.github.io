@@ -32,16 +32,16 @@ shellcodetest
 ~~~~~~~~~~~~~~
 
 1. 写出 xxx.asm
-2. ``nasm -f elf32 xxx.asm -o xxx.o``
-3. ``ld -m elf_i386 -o xxx xxx.o``
-4. ``objdump -d xxx`` 从输出中获得 shellcode 当然也可以写个工具提取
-5. 考虑一下让\ ``.text``\ 段可写?
-   ``objcopy --writable-text -O elf32-i386 xxx xxx1`` 似乎没有作用...
+2. `nasm -f elf32 xxx.asm -o xxx.o`
+3. `ld -m elf_i386 -o xxx xxx.o`
+4. `objdump -d xxx` 从输出中获得 shellcode 当然也可以写个工具提取
+5. 考虑一下让\ `.text`\ 段可写?
+   `objcopy --writable-text -O elf32-i386 xxx xxx1` 似乎没有作用...
 
 更改的系统值存档
 ~~~~~~~~~~~~~~~~
 
--  ``/proc/sys/kernel/randomize_va_space`` = 2
+-  `/proc/sys/kernel/randomize_va_space` = 2
 
 narnia0
 '''''''
@@ -55,8 +55,8 @@ flag: efeidiedae
 
 `narnia0.c <./narnia0.c>`__
 
-需要覆盖\ ``val``\ 变量, 注意管道关闭后程序也会随着关闭因此需要用
-``cat`` 继续向程序传递内容
+需要覆盖\ `val`\ 变量, 注意管道关闭后程序也会随着关闭因此需要用
+`cat` 继续向程序传递内容
 
 ::
 
@@ -71,11 +71,11 @@ flag: nairiepecu
 
 `narnia1.c <./narnia1.c>`__
 
-程序直接把环境变量 ``$EGG`` 的内容当成函数执行了，所以要在 ``$EGG``
+程序直接把环境变量 `$EGG` 的内容当成函数执行了，所以要在 `$EGG`
 中插入程序。
 
-这次需要真正的 shellcode 了, shellcode 见 ``shell.asm``, 将生成的
-shellcode 导入 EGG 变量, 直接执行 ``./narnia2`` 即可.
+这次需要真正的 shellcode 了, shellcode 见 `shell.asm`, 将生成的
+shellcode 导入 EGG 变量, 直接执行 `./narnia2` 即可.
 
 shellcode: `shell.asm <./shell.asm>`__
 
@@ -89,8 +89,8 @@ narnia3
 
 `narnia2.c <./narnia2.c>`__
 
-查看环境变量地址: ``(gdb) x/s *((char **)environ + 1)``\ ， 结果
-``0xffffd8a1:     "XDG_SESSION_ID=76296"``
+查看环境变量地址: `(gdb) x/s *((char **)environ + 1)`\ ， 结果
+`0xffffd8a1:     "XDG_SESSION_ID=76296"`
 
 ::
 

@@ -5,7 +5,7 @@
 如何在 C 语言里使用 INF 和 NAN？
 ================================
 
-math.h 提供了 ``INFINITY`` 和 ``NAN``。
+math.h 提供了 `INFINITY` 和 `NAN`。
 
 .. [#]:: https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
 

@@ -9,18 +9,18 @@ Universal TUN/TAP device driver
 设备，允许用户编写程序来接受和传输来自用户程序的网络数据包。TUN 设备需要读写 IP
 数据包，对 TAP 设备来说则是以太网帧。
 
-通过打开设备文件 ``/dev/net/tun`` ，以及调用 ``ioctl()`` 来获得一个 TAP/TUN 设备。
-设备的种类由 ``ifreq.ifr_flags`` 决定。
+通过打开设备文件 `/dev/net/tun` ，以及调用 `ioctl()` 来获得一个 TAP/TUN 设备。
+设备的种类由 `ifreq.ifr_flags` 决定。
 
 http://vtun.sourceforge.net/tun 提供了使用 TUN/TAP 设备的一些示例。
 
 .. note::
-    示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 ``ioctl()`` 的
-    flags，而示例中则通过直接打开 ``/dev/net/tun`` 和 ``/dev/net/tap`` 来使用不
+    示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 `ioctl()` 的
+    flags，而示例中则通过直接打开 `/dev/net/tun` 和 `/dev/net/tap` 来使用不
     同的设备。
 
     但是在 https://www.kernel.org/doc/Documentation/admin-guide/devices.txt 中
-    并没有找到 ``/dev/net/tap`` 的设备号（``/dev/net/tun`` 的是 MAJOR 10 MINOR
+    并没有找到 `/dev/net/tap` 的设备号（`/dev/net/tun` 的是 MAJOR 10 MINOR
     200），因此还是以内核文档为准。
 
 .. _Universal TUN/TAP device driver: https://www.kernel.org/doc/Documentation/networking/tuntap.txt
@@ -59,10 +59,10 @@ Teeworlds 的延迟计算逻辑
 
 .. note::
 
-    函数 ``time_freq()`` 返回不同平台下 time_get 获得的时间单位同毫秒的比率。
+    函数 `time_freq()` 返回不同平台下 time_get 获得的时间单位同毫秒的比率。
 
 
-函数 ``DoSnapshot`` 保存当前游戏的状态，需要关注的代码如下::
+函数 `DoSnapshot` 保存当前游戏的状态，需要关注的代码如下::
 
     // src/engine/server/server.cpp#611
     void CServer::DoSnapshot()
@@ -74,9 +74,9 @@ Teeworlds 的延迟计算逻辑
     }
 
 
-``DoSnapshot`` 函数在 ``CServer::Run`` 中被调用，不少部分靠猜，
-不一定对， ``CServer::Run`` 包含了整个服务端的主要流程，其中有个游戏循环
-``while(m_RunServer) { ... }`` ，游戏循环采用了一个叫 tick 的概念来计时::
+`DoSnapshot` 函数在 `CServer::Run` 中被调用，不少部分靠猜，
+不一定对， `CServer::Run` 包含了整个服务端的主要流程，其中有个游戏循环
+`while(m_RunServer) { ... }` ，游戏循环采用了一个叫 tick 的概念来计时::
 
     // src/engine/server/server.cpp#1690
     int CServer::Run()
@@ -123,10 +123,10 @@ Teeworlds 的延迟计算逻辑
 
              }
 
-如上，循环一开始先把 ``NewTicks`` 置 0，并在 ``t`` 保存当前时间，之后进行某些我
-没看懂的的操作，接着进行判断 ``while(t > TickStartTime(m_CurrentGameTick+1))`` ，
+如上，循环一开始先把 `NewTicks` 置 0，并在 `t` 保存当前时间，之后进行某些我
+没看懂的的操作，接着进行判断 `while(t > TickStartTime(m_CurrentGameTick+1))` ，
 
-``TickStartTime`` 函数如下::
+`TickStartTime` 函数如下::
 
     // src/engine/server/server.cpp#452
     int64 CServer::TickStartTime(int Tick)
@@ -135,8 +135,8 @@ Teeworlds 的延迟计算逻辑
         return m_GameStartTime + (time_freq()*Tick)/SERVER_TICK_SPEED;
     }
 
-传入的是 ``m_CurrentGameTick+1`` ，所以猜测函数得出的是，下一个 Tick 的时间戳，
-同时猜测一个时间戳的单位为 ``SERVER_TICK_SPEED``  ，即 50 （单位大概是微秒？）。
+传入的是 `m_CurrentGameTick+1` ，所以猜测函数得出的是，下一个 Tick 的时间戳，
+同时猜测一个时间戳的单位为 `SERVER_TICK_SPEED`  ，即 50 （单位大概是微秒？）。
 如果这个循环开始的时间以及超过下个 Tick 的开始时间，说明现在处于新的 Tick 中了，
 于是::
 

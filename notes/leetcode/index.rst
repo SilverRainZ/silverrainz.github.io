@@ -4,7 +4,12 @@ Leetcode 刷题记录
 
 :date: 2021-03-10
 
+.. toctree::
+
+   dp
+
 借鉴了 :ghrepo:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
+
 
 先从 🔥 `Top 100 Liked Questions`_ 开始看看？
 
@@ -39,8 +44,8 @@ Leetcode 刷题记录
 127. LRU Cache
 ==============
 
-想用 rust 写个 LRU cache 吧发现 ``std::collection:LinkedList`` 没有暴露出类似
-链表节点的结构体……有的话所有权也是问题，``Cursor`` 看起来像然而 nightly only，
+想用 rust 写个 LRU cache 吧发现 `std::collection:LinkedList` 没有暴露出类似
+链表节点的结构体……有的话所有权也是问题，`Cursor` 看起来像然而 nightly only，
 好像还是太菜了 —— 是说我自己。
 
 但如果换成 go 的话…… :del:`这么简单的题也算 medium 吗` ，可能因为太实用了所以写起来不难？
@@ -54,7 +59,7 @@ Leetcode 刷题记录
 在 touch 一个元素的的时候从链表尾部往上找，是一个 O(n) (?) 的操作，然而
 Leetcode 给过了…… 要是在 http://acm.scau.edu.cn:8000 是肯定要 TLE。
 
-.. note:: 看一眼输入输出限制，想想边界值，比如 ``cap == 0`` 的情况就忽略了
+.. note:: 看一眼输入输出限制，想想边界值，比如 `cap == 0` 的情况就忽略了
 
 .. literalinclude:: ./n460-lfu-cache/main.go
    :language: go

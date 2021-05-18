@@ -14,7 +14,7 @@ From Anyting to Sphinx
 
 不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，
 所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。
-想写一篇博客，文章里有一些交叉引用，不想用粗暴的 ``<a href=xxx>`` ，所以不写。
+想写一篇博客，文章里有一些交叉引用，不想用粗暴的 `<a href=xxx>` ，所以不写。
 因噎废食大概就是这样吧。
 
 .. contents::
@@ -75,8 +75,8 @@ From Anyting to Sphinx
     这里的可扩展不止是工具本身提供了扩展机制，而是 **工具在设计上留下了别人来填补的位置** 。
     可能说得有点绕，比如在这个项目里，我们选用 HTML 来表示富文本，但自己却不开发编辑器如何？
     让用户去用别人写的编辑器。这在商业上当然不是一个好的策略（所以我们不用商业
-    软件 ``:)`` ），就算不是商业软件，这么做其实也降低了用户的粘性（但不考虑这
-    个的开源软件可不少啊 ``:)`` ）
+    软件 `:)` ），就算不是商业软件，这么做其实也降低了用户的粘性（但不考虑这
+    个的开源软件可不少啊 `:)` ）
 
     但对我来说呢？我看到项目组因此节省了资源，我获得了自由更换编辑器的权利，
     对于我的整个笔记系统而言，我将 **复杂度分摊到了不同的项目身上** ，在未来
@@ -96,8 +96,8 @@ reStructuredText 很接近我心中理想的 markup language 的样子，结果�
 
 9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。
 在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，
-尝试使用社区提供的 :ghuser:`各种扩展 <sphinx-contrib>`来增强文档的功能，
-可惜其中不少扩展已经年久失修。再后来自己也建立了一个一人组织 :ghuser:`sphinx-notes` ，
+尝试使用社区提供的 :ghuser:`各种扩展 <sphinx-contrib>` 来增强文档的功能，
+可惜其中不少扩展已经年久失修。再后来自己也建立了一个一人组织 :ghuser:`sphinx-notes`，
 用来存放自己写的扩展，顺便回馈社区。
 
 随着对 Sphinx+reStructuredText 实践的增多和一些扩展的完成，我的笔记终于慢慢成形了。
@@ -106,8 +106,8 @@ reStructuredText 很接近我心中理想的 markup language 的样子，结果�
   避免了不知道记在哪里的困境 。
 
 - 用 :ghrepo:`sphinx-notes/lilypond` 来保存 :doc:`谱子 </collections/scores/index>`
-- 用 :ghrepo:`sphinx-notes/any` 来结构化地记录 :doc:`友链 </about/friends> 、
-  :doc:`习作 <../collections/art-works/index>` 和 `doc:`读书笔记 </notes/books/index>`
+- 用 :ghrepo:`sphinx-notes/any` 来结构化地记录 :doc:`友链 </about/friends>`、
+  :doc:`习作 </collections/art-works/index>` 和 :doc:`读书笔记 </notes/books/index>`
   等
 - 用 :ghrepo:`executablebooks/sphinx-panels` 为首页分栏，顺便还享用了它内置的
   :fa:`font-awesome` 支持

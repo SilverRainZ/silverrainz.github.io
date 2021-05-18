@@ -127,7 +127,7 @@ Translator 分为 passive translator 和 active translator，passive translator
 passive translator 一直是简单地储存在一个临时申请的块中（这就是 Hurd 需要 xattr
 的原因：用更通用的方式来储存 passive translator）。
 
-ext2 文件系统的 translator 叫做 ext2fs，位于 ``/hurd`` 目录下，我的全部工作，就是
+ext2 文件系统的 translator 叫做 ext2fs，位于 `/hurd` 目录下，我的全部工作，就是
 为 ext2fs 的代码添加 xattr 支持，因此，虽说是内核项目，但是全过程都在用户态下进行。
 
 这些东西也都是后来才慢慢知道的，一开始我只是埋头看文档，Hurd is not Linux，
@@ -250,7 +250,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 一方面自己依然没办法打败自己 —— 自制力太低，效率太低。导致我最终仅仅是名义上地完成了项目，
 没有继续贡献社区，也没有交到什么朋友，甚至连自己的代码能不能 merge 到主线都说不准。
 
-在这其间我收到了 Google 的三笔付款 ``3234.86 + 14635.59 + 17959.75`` 总计 35830.2 元，
+在这其间我收到了 Google 的三笔付款 `3234.86 + 14635.59 + 17959.75` 总计 35830.2 元，
 一只圆珠笔，一本本子，一封 PDF 形式的电子证书，还有一件还在路上的 T-shirt，
 物质收入颇丰。
 

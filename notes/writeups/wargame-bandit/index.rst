@@ -139,8 +139,8 @@ bandit17
 
 flag: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
-注意登入远程主机时的说明，这次我们对 ``/var/tmp/`` 没有写权限， 用
-``mktemp -d`` 建立临时目录，对该目录我们就有写权限。
+注意登入远程主机时的说明，这次我们对 `/var/tmp/` 没有写权限， 用
+`mktemp -d` 建立临时目录，对该目录我们就有写权限。
 
 ::
 

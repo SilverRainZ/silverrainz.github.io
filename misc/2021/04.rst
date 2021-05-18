@@ -37,12 +37,12 @@
 
    for j in *.JPG; do mogrify -strip -interlace Plane -gaussian-blur 0.05 -quality 85% $j; done
 
-把图片加入文档时学了一个新 vim 快捷键：normal 下按 ``C-a`` 光标下文字的数字 + 1
+把图片加入文档时学了一个新 vim 快捷键：normal 下按 `C-a` 光标下文字的数字 + 1
 
 .. [#] :zhwiki:`纸张尺寸`
 .. [#] https://stackoverflow.com/a/7262050/4799273
 
-CSS 中 ``visibility:hidden`` 和 ``display:none``
+CSS 中 `visibility:hidden` 和 `display:none`
 ================================================
 
 都是隐藏元素，前者保留空间，后者不保留。
@@ -81,7 +81,7 @@ Linux 根据 PID 获取进程名
 
    convert -rotate 90 -resize 20% -delay 15 -loop 0  $(ls *.jpg| grep 0425) 于是高乃依正准备上天.gif
 
-GIF -> MP4（ ``-r`` 指定 fps， ``-stream_loop`` 指定循环次数）::
+GIF -> MP4（ `-r` 指定 fps， `-stream_loop` 指定循环次数）::
 
    ffmpeg -r 5 -stream_loop 3 -i 于是高乃依正准备上天.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" 于是高乃依正准备上天.mp4
 

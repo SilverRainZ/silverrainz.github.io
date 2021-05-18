@@ -19,16 +19,16 @@ Login
 =====
 
 1. [A] App run
-2. [A] Select Messenger (list ``*.so`` )
+2. [A] Select Messenger (list `*.so` )
 3. [A] Load so and create Messenger
-4. [A] Start ``SrnFlow *login``
+4. [A] Start `SrnFlow *login`
 5. [M] Login flow logical
-6. [A] Start ``SrnFlow *contact``
+6. [A] Start `SrnFlow *contact`
 
 Contact
 =======
 
-1. [A] Start ``SrnFlow *contact``
+1. [A] Start `SrnFlow *contact`
 2. [M] Contact flow logical
 3. [M] Create SrnXXXBuffer(SrnEen)
 

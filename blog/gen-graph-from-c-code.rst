@@ -21,17 +21,17 @@
 生成函数调用图
 --------------
 
-安装 egypt 直接 ``yaourt -S egypt`` 即可，
-之后在 makefile 里面的 CFLAG 里面增加一句 ``-fdump-rtl-expand``\ ，
-再 make 一次，gcc 会在 bulid 目录下生成 ``*.expand`` 文件，
+安装 egypt 直接 `yaourt -S egypt` 即可，
+之后在 makefile 里面的 CFLAG 里面增加一句 `-fdump-rtl-expand`\ ，
+再 make 一次，gcc 会在 bulid 目录下生成 `*.expand` 文件，
 这是 egypt 生成 call graph 所需要的信息。
 
 ..
 
-   我这里生成的文件的后缀都是 ``*.192r.expand``\ ，并不知道是什么意思……
+   我这里生成的文件的后缀都是 `*.192r.expand`\ ，并不知道是什么意思……
 
 
-之后执行 ``egypt *.expand > main.dot``
+之后执行 `egypt *.expand > main.dot`
 就能生成代表整个项目里所有的 C 函数的调用关系的 dot 文件了。
 
 dot 文件大概长这样，每一行代表连接两个顶点的边
@@ -50,7 +50,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
    "sys_unlink" -> "iupdate" [style=solid];
        ...
 
-执行 ``dot main.dot -Tpng -o main.png``\ ，于是从整个 OS67 生成了这么一张可怕的图片：
+执行 `dot main.dot -Tpng -o main.png`\ ，于是从整个 OS67 生成了这么一张可怕的图片：
 
 
 .. image:: /_images/os67-func-call-graph.png
@@ -82,7 +82,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
    ├── script  # 各种配置文件和链接脚本
    └── usr     # 用户例程
 
-需要生成调用图的模块有 ``dev drv fs kern libs mm proc``\ ，来写个小脚本自动生成好了：
+需要生成调用图的模块有 `dev drv fs kern libs mm proc`\ ，来写个小脚本自动生成好了：
 
 .. code-block:: sh
 
@@ -131,21 +131,21 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
    所以现在也可以直接用 yaourt 装 cinclude2dot 了。
 
 
-执行 ``cinclude2dot --include inc > main.dot`` 会在当前目录递归地找 ``*.c`` 文件，
-然后在 ``inc`` 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
-如果启用 ``--merge module`` 的话，会把 ``xxx.c`` 和 ``xxx.h`` 合并为一个模块 ``xxx``\ ，
+执行 `cinclude2dot --include inc > main.dot` 会在当前目录递归地找 `*.c` 文件，
+然后在 `inc` 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
+如果启用 `--merge module` 的话，会把 `xxx.c` 和 `xxx.h` 合并为一个模块 `xxx`\ ，
 然而这样生成的图片还是太大了点。
 
 
 .. image:: /_images/os67-mod-include-graph.png
    :alt: 
 
-cinclude2dot 还提供了一个 ``--merge directory`` 选项，把相同目录的文件合并为一个模块，
+cinclude2dot 还提供了一个 `--merge directory` 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
-所有的目录都指向了存放头文件的目录 ``inc``\ 。试了一下 directory 和 module 选项也不能一起用，
+所有的目录都指向了存放头文件的目录 `inc`\ 。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。
 
-执行 ``cinclude2dot --include inc --merge module > $dotfile``\ ，得到各个「文件」间的调用关系。
+执行 `cinclude2dot --include inc --merge module > $dotfile`\ ，得到各个「文件」间的调用关系。
 
 .. code-block:: text
 
@@ -163,24 +163,24 @@ cinclude2dot 还提供了一个 ``--merge directory`` 选项，把相同目录�
        ...
 
 如果 dev/tty.c 包含了 inc/printk.h，说明它调用了 libs/printk.c 里的函数，
-那就有关系 ``"tty" -> "printk"``\ ，
-那可以考虑把文件名替换为该文件所在的目录名，那关系就变成了 ``"dev" -> "libs"``\ 。
+那就有关系 `"tty" -> "printk"`\ ，
+那可以考虑把文件名替换为该文件所在的目录名，那关系就变成了 `"dev" -> "libs"`\ 。
 
 这样替换要注意的是：
 
 
-* 不能将头文件目录当成一个模块，如 ``"tty" -> "printk"`` 的关系的右边本来就是一个头文件，
+* 不能将头文件目录当成一个模块，如 `"tty" -> "printk"` 的关系的右边本来就是一个头文件，
   在这里它应当属于 libs 模块而不属于 inc，
-  如果强行加入 inc 的话结果就和上面用 ``--merge directory`` 的效果差不多了：
+  如果强行加入 inc 的话结果就和上面用 `--merge directory` 的效果差不多了：
   每个顶点会都指向 inc
-* 排除 inc 后，要注意的是有些只包含宏定义的头文件并没有对应的 ``*.c`` 文件，
-  比如上面的 ``"p2i" -> "type"`` 存在 inc/type.h ，但是并没有 type.c 这么一个文件，
+* 排除 inc 后，要注意的是有些只包含宏定义的头文件并没有对应的 `*.c` 文件，
+  比如上面的 `"p2i" -> "type"` 存在 inc/type.h ，但是并没有 type.c 这么一个文件，
   那么这一行应当删除掉
-* 将文件名替换成目录名后会出现重复的项目，\ ``"ide" -> "printk"`` 和 ``"vga" -> "printk"``
-  替换后的结果都是 ``"drv" -> "libs"``\ ，需要去重
+* 将文件名替换成目录名后会出现重复的项目，\ `"ide" -> "printk"` 和 `"vga" -> "printk"`
+  替换后的结果都是 `"drv" -> "libs"`\ ，需要去重
 
 把这些事情交给脚本吧，从每个要统计的模块（目录）里面取得文件列表，
-把文件名替换为目录名，去除单独的 ``*.h`` 文件对应的行，去除重复行。
+把文件名替换为目录名，去除单独的 `*.h` 文件对应的行，去除重复行。
 
 .. code-block:: sh
 

@@ -68,7 +68,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 primary_domain = 'any'
 
 # Use :code: as default role, so we can write `content` instead of ``content``.
-# default_role = 'code'
+default_role = 'code'
 
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error

@@ -252,9 +252,9 @@ Golang 相关
 -----------
 
 The Go Language
-  - 修复标准库 ``text/scanner`` 中一处 BUG [#]_
-  - 修复 ``go vet`` 中一处错误的逃逸分析 [#]_
-  - 补充 ``go build`` 时一个缺失的 linker flag [#]_
+  - 修复标准库 `text/scanner` 中一处 BUG [#]_
+  - 修复 `go vet` 中一处错误的逃逸分析 [#]_
+  - 补充 `go build` 时一个缺失的 linker flag [#]_
 
 fasthttp
   为 HTTP 库 fasthttp 修复 BUG [#]_
