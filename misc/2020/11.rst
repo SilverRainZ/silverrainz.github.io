@@ -201,7 +201,7 @@ The Docutils Document Tree
     如柬埔寨、泰国。其纪年法，称佛灭纪元，以释迦牟尼佛灭度（涅槃）当年度为计算基准。
     一般以 **公元前544年** 为佛涅槃元年 [#]_
 
-由此可知，佛灭纪年的年份减去 544 即为公元纪年， ``2533 - 544 = 1989`` ，
+由此可知，佛灭纪年的年份减去 544 即为公元纪年， `2533 - 544 = 1989` ，
 所以万佛塔奠基于公元 1989 年。
 
 BTW 上文提到阴阳历，查了下也是个有意思的概念：
@@ -224,16 +224,16 @@ LilyPond 文件结构 [#]_
 
 可能出现在 top-level 的表达式如下：
 
-- Output definition, such as ``\paper``, ``\midi``, and ``\layout``
+- Output definition, such as `\paper`, `\midi`, and `\layout`
   重复的定义会被合并，若冲突后者优先
-- Direct scheme expression, such as ``#(set-default-paper-size "a7" 'landscape)``
+- Direct scheme expression, such as `#(set-default-paper-size "a7" 'landscape)`
   这里的 scheme 是指 :enwiki:`Scheme_(programming_language)`
-- ``\header`` 表达式，定义谱面的头部，包含标题、作曲家等信息
-- ``\score`` 表达式，包含单个 Music Expression [#]_ ，所有顶层的 ``\score``
-  会被隐式地包含在 ``\book`` 里
-- ``\book`` 表达式，用来实现同一份 ``*.ly`` 文件输出多份谱子
-- ``\bookpart`` 表达式，似乎是用来占位以保证谱子不跨页的
-- 任意 Music Expression，会被隐式地加上 ``\score``
+- `\header` 表达式，定义谱面的头部，包含标题、作曲家等信息
+- `\score` 表达式，包含单个 Music Expression [#]_ ，所有顶层的 `\score`
+  会被隐式地包含在 `\book` 里
+- `\book` 表达式，用来实现同一份 `*.ly` 文件输出多份谱子
+- `\bookpart` 表达式，似乎是用来占位以保证谱子不跨页的
+- 任意 Music Expression，会被隐式地加上 `\score`
 - Markup text
 - Variable
 
@@ -263,7 +263,7 @@ Yield in Python
 
 简单来说，使用了 `yield` 关键字的函数被 `__call__` 时，函数体不会被执行，
 而是返回一个 Generator 对象，这个对象是 iterable 的。当该对象被 `__iter__` 的时候，
-对应的函数体开始执行，遇到 ``yield`` 时返回，当该对象被 ``__next__`` 的时候，
+对应的函数体开始执行，遇到 `yield` 时返回，当该对象被 `__next__` 的时候，
 从上次 yield 的地方 resume。
 
 .. seealso:: 这篇 SO 的回答很通俗了： https://stackoverflow.com/a/231855

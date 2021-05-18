@@ -54,10 +54,10 @@ Python BtyeCode:
        else:
            print 'Try Again !'
 
-正常人反着推肯定是写: ``arr[i] -  (key[seed] ^ seed)`` 不过这样肯定推不出来,
+正常人反着推肯定是写: `arr[i] -  (key[seed] ^ seed)` 不过这样肯定推不出来,
 因为出题人写错了… (师兄想出来的… 打死我也不知道是题目错了啊…),
-出题的用了正确的算法给出密文之后, 把 ``rst.append((ord(v) ^ ord(key[seed]) + seed) % 255)``
-写成了: ``rst.append((ord(v) + seed ^ ord(key[seed])) % 255)``
+出题的用了正确的算法给出密文之后, 把 `rst.append((ord(v) ^ ord(key[seed]) + seed) % 255)`
+写成了: `rst.append((ord(v) + seed ^ ord(key[seed])) % 255)`
 所以没必要深究什么了,代码:
 
 .. code-block:: c
@@ -92,7 +92,7 @@ Python BtyeCode:
        return 0;
    }
 
-``flag: WCTF{ILOVEPYTHONSOMUCH}``
+`flag: WCTF{ILOVEPYTHONSOMUCH}`
 
 简单的ELF逆向:
 --------------
@@ -142,7 +142,7 @@ Python BtyeCode:
    }
 
 果然代码的可读性不是很好, 前面的printf之类的被我省去了, 重点放在while循环和那个if上,
-可以看到if要求的是几个变量必须分别为 ``0, 8, 2, 3,}``
+可以看到if要求的是几个变量必须分别为 `0, 8, 2, 3,}`
 应该就是flag 的后部分了, 从最后的判断right和wrong可以看出v13是判断正确与否的变量.
 
 while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic View模式, 这样汇编代码显得很清晰,
@@ -199,7 +199,7 @@ while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic Vi
 
 
 刚好17个项(0-10h),
-所以说 ``arr_i[i] = ((arr_2[i] – 1) + (arr_2[i] – 1)>>0x1f)>>1``
+所以说 `arr_i[i] = ((arr_2[i] – 1) + (arr_2[i] – 1)>>0x1f)>>1`
 (忽略了shr 和 sar 以及各种细节问题… 所幸没有出错)
 (vim 来处理这些最爽了)
 
@@ -226,7 +226,7 @@ while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic Vi
        return 0;
    }
 
-``flag: wctf{ElF_lnX_Ckm_0823}``
+`flag: wctf{ElF_lnX_Ckm_0823}`
 
 简单的PE文件逆向:
 -----------------
@@ -261,7 +261,7 @@ x86平台, 双击没法运行, 应该需要某个古老的C++运行时, 那就�
    system("pause");
 
 同样是把flag分成两部分, 后面五个必须是1024},前面的在一个for循环里算出:
-``v76[i] != byte_415768[*(&v53 + i)]``
+`v76[i] != byte_415768[*(&v53 + i)]`
 通过一个数组v53[]运算出下标, 再用下标从另一个数组byte_415768[]取出值来, 数组是:
 
 .. code-block:: text
@@ -307,7 +307,7 @@ x86平台, 双击没法运行, 应该需要某个古老的C++运行时, 那就�
        system("pause");
    }
 
-``flag: wctf{Pe_cRackme1c1024}``
+`flag: wctf{Pe_cRackme1c1024}`
 
 --------------------------------------------------------------------------------
 

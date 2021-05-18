@@ -96,7 +96,7 @@
    :avatar: https://github.com/iovxw.png
 
    - 神秘的有猫人士
-   - 总是能够回应我的 ``Q_Q`` 的热心群友
+   - 总是能够回应我的 `Q_Q` 的热心群友
    - 专治 troll
 
 已失效

@@ -59,4 +59,4 @@
 习作
 ====
 
-以 ``fm-%d%d%d`` (Fast Modeling) 为 ID，不需要特别给习作命名。
+以 `fm-%d%d%d` (Fast Modeling) 为 ID，不需要特别给习作命名。

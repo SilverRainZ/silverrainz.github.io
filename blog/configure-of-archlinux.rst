@@ -35,16 +35,16 @@
 * scrot
 * compton
 
-xmobar, 配置文件在\ ``.xmobarrc``\ , 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
+xmobar, 配置文件在\ `.xmobarrc`\ , 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
 也可以自己获取系统信息, :del:`我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.`
 
 ..
 
    2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
-   ``font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"``
+   `font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"`
 
 
-dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按\ ``mod + q``\ 触发.
+dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按\ `mod + q`\ 触发.
 
 trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:
 
@@ -69,7 +69,7 @@ feh 用来设置桌面背景, 设置背景很有必要, 如果不设置的话,
 
    feh --bg-scale /home/la/Pictures/Wallpapers/blog-bg.jpg
 
-scrot 截图的快捷键在 XMonad 的配置文件\ ``~/.xmonad/xmonad.hs``\ 里面绑定:
+scrot 截图的快捷键在 XMonad 的配置文件\ `~/.xmonad/xmonad.hs`\ 里面绑定:
 
 .. code-block:: haskell
 
@@ -81,10 +81,10 @@ scrot 截图的快捷键在 XMonad 的配置文件\ ``~/.xmonad/xmonad.hs``\ 里
    , ((0, xK_Print), spawn "scrot -e \'mv $f ~/Pictures/Screenshots/\'")
    ]
 
-``-s``\ 参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
-只能在截图后用\ ``-e 'mv $f ~/Pictures/Screenshots'``\ 把截图放到指定目录.
+`-s`\ 参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
+只能在截图后用\ `-e 'mv $f ~/Pictures/Screenshots'`\ 把截图放到指定目录.
 
-上面这些配置大多写在启动脚本\ ``startup.sh``\ 里, 每个命令后边都得加上一个\ ``&``.
+上面这些配置大多写在启动脚本\ `startup.sh`\ 里, 每个命令后边都得加上一个\ `&`.
 
 无线网络管理
 ------------
@@ -96,12 +96,12 @@ scrot 截图的快捷键在 XMonad 的配置文件\ ``~/.xmonad/xmonad.hs``\ 里
 * network-manager-applet
 * gnome-keyring
 
-注意如果你之前连接无线网络用的是\ ``netctl``\ 的话, 记得把有关的服务给 disable 了,
+注意如果你之前连接无线网络用的是\ `netctl`\ 的话, 记得把有关的服务给 disable 了,
 因为 networkmanager 和他有冲突, 安装完后执行 NetworkManager 启动服务.
 
 network-manager-applet 是 networkmanager 的前端.
 
-似乎不安装 ``gnome-keyring``\ 的话就无法连上加密的无线网络.
+似乎不安装 `gnome-keyring`\ 的话就无法连上加密的无线网络.
 
 IM
 --
@@ -124,14 +124,14 @@ TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 
 
 * IRC 客户端用火狐的 ChatZilla
-* Telegram 客户端用 Cutegram, 得装 ``fcitx-qt5`` 才能正常输入,
+* Telegram 客户端用 Cutegram, 得装 `fcitx-qt5` 才能正常输入,
   另 TG 似乎已经被墙(手机上却仍然可以登录), Cutegram 无法登录, 挂个代理就行.
 * qTox 也还凑合, 主要是可以听歌.
 
 GTK
 ---
 
-默认的 gtk 界面在 XMonad 下相当地丑, 可以安装\ ``lxappearance``\ 来调整 GTK 的主题.
+默认的 gtk 界面在 XMonad 下相当地丑, 可以安装\ `lxappearance`\ 来调整 GTK 的主题.
 
 对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑...
@@ -141,14 +141,14 @@ konsole 的界面却依然很丑...
    2015-7-24: 经过 IRC 里 :friend:`farseerfc` 前辈和 :friend:`quininer` 的 :del:`调教` ,
    发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.
 
-   2015-8-30: 安装社区源\ ``gnome-breeze-git``\ 主题, 以及 plasma5 的\ ``breeze``\ 主题,
-   可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量\ ``QT_STYLE_OVERRIDE=breeze``
+   2015-8-30: 安装社区源\ `gnome-breeze-git`\ 主题, 以及 plasma5 的\ `breeze`\ 主题,
+   可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量\ `QT_STYLE_OVERRIDE=breeze`
 
 
 输入法:
 -------
 
-在\ ``~/.xprofile``\ 中加入:
+在\ `~/.xprofile`\ 中加入:
 
 .. code-block:: bash
 

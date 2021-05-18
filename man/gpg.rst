@@ -65,8 +65,8 @@ Key Server 上的密钥过期了怎么办
 
 上传到 key server 上的只是公钥，过期(Expire)也是相对于公钥而言的，因为私钥应当
 永远被保密，且其控制权完全在于拥有者。拥有私钥的人有权控制公钥的有效期，因此在
-gpg 中，仅需 ``gpg --edit-key <uid>`` ，选中相应的密钥对，执行 ``expire`` 命令
-重设有效时间，然后再次上传公钥 ``gpp --keyserver xxxx --sendkey xxxx`` 即可。
+gpg 中，仅需 `gpg --edit-key <uid>` ，选中相应的密钥对，执行 `expire` 命令
+重设有效时间，然后再次上传公钥 `gpp --keyserver xxxx --sendkey xxxx` 即可。
 
 为什么新密钥也会有子钥
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -83,13 +83,13 @@ Debian Wiki [#]_ 如是说：
     ...
     sub   rsa4096 2017-08-16 [E] [expires: 2018-08-16]
 
-子密钥确实是只用于加密 ``[E]`` 的，另，可以通过 ``gpg --full-gen-key`` 创建一个
+子密钥确实是只用于加密 `[E]` 的，另，可以通过 `gpg --full-gen-key` 创建一个
 仅用于签名的密钥，你会发现它的输出就只有三行，不再包含额外的子钥。
 
 如何添加子钥
 ~~~~~~~~~~~~
 
-``gpg --edit-keys <keyid>`` 之后用 ``addkey`` 命令添加即可，子钥没有独立的
+`gpg --edit-keys <keyid>` 之后用 `addkey` 命令添加即可，子钥没有独立的
 UID，也没法单独从 key server 获取下来，所以大概没办法只用子钥在社区源打包了。
 
 对 key server 的操作是不可撤销的
@@ -102,7 +102,7 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
 Tips
 ----
 
-- 使用 USTCLUG 的崔主席密钥服务器：https://sks.ustclug.org/，``--recv-keys``
+- 使用 USTCLUG 的崔主席密钥服务器：https://sks.ustclug.org/，`--recv-keys`
   速度飞快。
 - GPG 默认将 `~/.gunpu` 的权限设置为 700，只有你自己才能访问你的密钥
 

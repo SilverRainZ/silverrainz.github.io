@@ -40,7 +40,7 @@ Learning Scheme
 quote
 ^^^^^
 
-``quote`` 用来阻止符号（symbol）被求值，\ ``'`` 是其缩略形式:
+`quote` 用来阻止符号（symbol）被求值，\ `'` 是其缩略形式:
 
 .. code:: scheme
 
@@ -53,21 +53,21 @@ quote
 '''''''''''
 
 普通的 symbol 会对所以参数求值并返回值，特殊形式的 symbol
-不会对所有的参数求值： ``qutoe``\ （这是当然的） ``lambda`` ``define``
-``if`` ``set!``
+不会对所有的参数求值： `qutoe`\ （这是当然的） `lambda` `define`
+`if` `set!`
 
 pair & list
 ^^^^^^^^^^^
 
-``(cons 1 2)`` 生成一个 pair ``(1 . 2)``\ ，pair 的第一个元素被称为
+`(cons 1 2)` 生成一个 pair `(1 . 2)`\ ，pair 的第一个元素被称为
 car， 第二个元素被称为 cdr.
 
 按照如下定义嵌套的 pair 被称为 list：
 
--  ``'()`` 是 list
--  ``(cons element list)`` 是 list，element 可以是任意类型
+-  `'()` 是 list
+-  `(cons element list)` 是 list，element 可以是任意类型
 
-可以使用 ``(null? list)`` 来判断表是否空（\ ``'()``\ ）
+可以使用 `(null? list)` 来判断表是否空（\ `'()`\ ）
 
 .. code:: scheme
 
@@ -79,8 +79,8 @@ car， 第二个元素被称为 cdr.
 car & cdr & list
 ''''''''''''''''
 
-函数 ``car`` 和 ``cdr`` 分别取回一个 pair 的 car 部分和 cdr 部分，
-``list`` 用于构造一个表
+函数 `car` 和 `cdr` 分别取回一个 pair 的 car 部分和 cdr 部分，
+`list` 用于构造一个表
 
 .. code:: scheme
 
@@ -120,7 +120,7 @@ procedure
 lambda
 ''''''
 
-``lambda``\ ，接受两个参数，返回一个
+`lambda`\ ，接受两个参数，返回一个
 procedure，参数一是参数表，参数二是函数体：
 
 .. code:: scheme
@@ -132,9 +132,9 @@ procedure，参数一是参数表，参数二是函数体：
 define
 ''''''
 
-``define``
+`define`
 声明并绑定一个全局变量，参数一为变量名，参数二为被绑定的对象，
-借此可以复用 ``lambda`` 所生成的 procedure。
+借此可以复用 `lambda` 所生成的 procedure。
 
 .. code:: scheme
 
@@ -159,10 +159,10 @@ define
 if
 ''
 
-``(if predicate then_value else_value)`` 当 ``predicate`` 为真则对
-``then_value`` 求值， 反之则对 ``else_value`` 求值，\ ``else_value``
-部分可以省略，求得的值会传出括号外。 对于 ``predicate``\ ，任意值（包括
-``#t``\ ）被认为 ture，\ ``#f`` 则是 false。
+`(if predicate then_value else_value)` 当 `predicate` 为真则对
+`then_value` 求值， 反之则对 `else_value` 求值，\ `else_value`
+部分可以省略，求得的值会传出括号外。 对于 `predicate`\ ，任意值（包括
+`#t`\ ）被认为 ture，\ `#f` 则是 false。
 
 .. code:: scheme
 
@@ -171,11 +171,11 @@ if
 not & and & or
 ''''''''''''''
 
--  ``not`` 接受一个参数，取反
--  ``and`` 接受任意个参数，从左到右求值，若出现 ``#f`` 则返回 ``#f``\ ，
-   若全不为 ``#f`` 则返回最后一个参数的值
--  ``and`` 接受任意个参数，从左到右求值，返回第一个不是 ``#f`` 的参数，
-   若全是 ``#f`` 则返回最后一个参数的值
+-  `not` 接受一个参数，取反
+-  `and` 接受任意个参数，从左到右求值，若出现 `#f` 则返回 `#f`\ ，
+   若全不为 `#f` 则返回最后一个参数的值
+-  `and` 接受任意个参数，从左到右求值，返回第一个不是 `#f` 的参数，
+   若全是 `#f` 则返回最后一个参数的值
 
 cond
 ''''
@@ -191,17 +191,17 @@ cond
       (predicate_n clauses_n)
       (else        clauses_else))
 
-遇到成立的 ``predicate`` 则执行对应的子句后返回，全部不成立则执行
-``else`` 的子句。
+遇到成立的 `predicate` 则执行对应的子句后返回，全部不成立则执行
+`else` 的子句。
 
 equ
 '''
 
--  ``=`` 判断两个数字是否相等
--  ``eq?``
+-  `=` 判断两个数字是否相等
+-  `eq?`
    比较两个参数的地址，不要使用它来比较数字：其结果取决于编译器实现
--  ``eqv?`` 是 ``eq`` 的超集，对于原子类型（atom？）会进行正确的比较
--  ``equal?`` 比较 list 与 vector
+-  `eqv?` 是 `eq` 的超集，对于原子类型（atom？）会进行正确的比较
+-  `equal?` 比较 list 与 vector
 
 ref:
 http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme
@@ -209,14 +209,14 @@ http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eq
 let
 ^^^
 
-``(let bind body)`` 为 ``body`` 语句绑定局部变量，变量在 ``bind``
-中初始化， ``bind`` 中的变量不可互相引用：
+`(let bind body)` 为 `body` 语句绑定局部变量，变量在 `bind`
+中初始化， `bind` 中的变量不可互相引用：
 
 .. code:: scheme
 
     (let ((i 1)) (+ i 2))   => 3
 
-``let`` 是 ``lambda`` 的语法糖：
+`let` 是 `lambda` 的语法糖：
 
 .. code:: scheme
 
@@ -227,8 +227,8 @@ let
 let\*
 '''''
 
-使用 ``let*`` 可以引用定义在同个绑定中的变量（\ ``let*`` 事实上是嵌套的
-``let`` 的语法糖）：
+使用 `let*` 可以引用定义在同个绑定中的变量（\ `let*` 事实上是嵌套的
+`let` 的语法糖）：
 
 .. code:: scheme
 
@@ -237,7 +237,7 @@ let\*
 named let
 '''''''''
 
-可以为一个 ``let`` 命名来实现循环：
+可以为一个 `let` 命名来实现循环：
 
 .. code:: scheme
 
@@ -250,7 +250,7 @@ named let
 letrec
 ''''''
 
-允许 ``bind`` 中的变量递归地调用自己：
+允许 `bind` 中的变量递归地调用自己：
 
 .. code:: scheme
 
@@ -263,10 +263,10 @@ letrec
 do
 ^^
 
-``(do binds (predicate value) body)`` 变量在 ``bind`` 中被绑定， 若
-``predicate`` 为真， 则函数跳出 ``do`` 语句，值 ``value`` 被传递出来，
-否则循环继续。 ``bind`` 的形式是 ``((p i j) ... )`` 变量 ``p``
-被初始化为 ``i``\ ， 在循环后被更新为 ``j``
+`(do binds (predicate value) body)` 变量在 `bind` 中被绑定， 若
+`predicate` 为真， 则函数跳出 `do` 语句，值 `value` 被传递出来，
+否则循环继续。 `bind` 的形式是 `((p i j) ... )` 变量 `p`
+被初始化为 `i`\ ， 在循环后被更新为 `j`
 
 .. code:: scheme
 
@@ -300,8 +300,8 @@ Higher Order Function
 map
 '''
 
-``(map procedure list1 list2 ...)`` ``map`` 把 ``procedure``
-应用到列表上， 返回新的列表，表的个数由 ``procedure`` 决定
+`(map procedure list1 list2 ...)` `map` 把 `procedure`
+应用到列表上， 返回新的列表，表的个数由 `procedure` 决定
 
 .. code:: scheme
 
@@ -310,7 +310,7 @@ map
 for-each
 ''''''''
 
-格式与 ``map`` 相同，不返回具体的值，用于副作用：
+格式与 `map` 相同，不返回具体的值，用于副作用：
 
 .. code:: scheme
 
@@ -323,7 +323,7 @@ for-each
 fold
 ''''
 
-有左折叠（\ ``foldl``\ ）和右折叠（\ ``foldr``\ ）:
+有左折叠（\ `foldl`\ ）和右折叠（\ `foldr`\ ）:
 
 .. code:: scheme
 
@@ -349,10 +349,10 @@ input
 port
 ''''
 
-``(open-input-file file-name)`` 用于打开一个文件返回一个端口，
-``(read-char port)`` 从端口读取一个字符，读取到 EOF 的时候返回一个
-``eof-object``\ ， 可用 ``eof-object?`` 检查，使用
-``(close-input-port port)`` 关闭端口
+`(open-input-file file-name)` 用于打开一个文件返回一个端口，
+`(read-char port)` 从端口读取一个字符，读取到 EOF 的时候返回一个
+`eof-object`\ ， 可用 `eof-object?` 检查，使用
+`(close-input-port port)` 关闭端口
 
 .. code:: scheme
 
@@ -365,18 +365,18 @@ port
               (display chr)
             (loop (read-char fp)))))))
 
-``(call-with-input-file file-name procedure)`` ： 函数将打开
-``file-name`` 得到的端口传递给 ``procedure``\ ， ``procedure``
+`(call-with-input-file file-name procedure)` ： 函数将打开
+`file-name` 得到的端口传递给 `procedure`\ ， `procedure`
 结束后端口需要手动关闭
 
-``(with-input-from-file file-name procedure)`` ：
-将文件作为标准输入打开，因此 ``procedure`` 不需要参数， ``procedure``
+`(with-input-from-file file-name procedure)` ：
+将文件作为标准输入打开，因此 `procedure` 不需要参数， `procedure`
 结束后文件会自动被关闭
 
 read
 ''''
 
-``(read port)`` 从端口中读入一个 S-Expression（!）：
+`(read port)` 从端口中读入一个 S-Expression（!）：
 
 .. code:: scheme
 
@@ -394,42 +394,42 @@ output
 port
 ''''
 
-``(open-output-file file-name)``
+`(open-output-file file-name)`
 打开一个文件，返回一个用于输出到该文件的端口
 
-``(open-output-file file-name)`` 关闭输出端口
+`(open-output-file file-name)` 关闭输出端口
 
-``(call-with-output-file file-name procedure)``
+`(call-with-output-file file-name procedure)`
 
-``(with-output-to-file file-name procedure)``
+`(with-output-to-file file-name procedure)`
 
 output func
 '''''''''''
 
-以下函数的 ``port`` 都是可选参数，省略则输出到 stdout
+以下函数的 `port` 都是可选参数，省略则输出到 stdout
 
-``(wirte obj port)`` 将 ``obj`` 输出至 ``port``\ ，
+`(wirte obj port)` 将 `obj` 输出至 `port`\ ，
 
 .. code:: scheme
 
     (write #\c)         => #\c
     (write "string")    => "string"
 
-``(display obj port)`` 将 ``obj`` 输出至 ``port``\ ，
+`(display obj port)` 将 `obj` 输出至 `port`\ ，
 
 .. code:: scheme
 
     (display #\c)         => c
     (display "string")    => string
 
-``(wirte-char char port)`` 往 ``port`` 写入一个字符
+`(wirte-char char port)` 往 `port` 写入一个字符
 
 赋值
 ^^^^
 
-赋值具有破坏性（destructive）, Scheme 中具有破坏性的方法都以 ``!`` 结尾
+赋值具有破坏性（destructive）, Scheme 中具有破坏性的方法都以 `!` 结尾
 
-``(set! var val)`` 为一个参数赋值，赋值前参数应该被定义
+`(set! var val)` 为一个参数赋值，赋值前参数应该被定义
 
 词法闭包（lexical closure）
 '''''''''''''''''''''''''''
@@ -442,12 +442,12 @@ output func
 副作用
 ''''''
 
-赋值 ``set!`` 和 IO 操作都是副作用，
+赋值 `set!` 和 IO 操作都是副作用，
 
 表的赋值
 ''''''''
 
-``set-car!`` ``set-cdr!`` 分别用于为表的 car 和 cdr 部分赋值，
+`set-car!` `set-cdr!` 分别用于为表的 car 和 cdr 部分赋值，
 参数可以是 S-Expression
 
 用 list 实现一个队列
@@ -504,8 +504,8 @@ list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部
 
 .. note:: 此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
           不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
-          中储存了 pair 时，用的是引用， 注意 ``set!``
-          更改的是这个变量名的指向， ``set-cdr!`` 更改的是指向的对象内部的值
+          中储存了 pair 时，用的是引用， 注意 `set!`
+          更改的是这个变量名的指向， `set-cdr!` 更改的是指向的对象内部的值
           :(
 
 .. code:: scheme
@@ -533,5 +533,5 @@ list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部
 Symbol
 ------
 
-``(symbol? x)`` 判断 ``x`` 是否为一个符号，\ ``(string->symbol str)`` 将
-``str`` 转换为符号，\ ``(symbol->string sym)`` 将 ``sym`` 转化为字符串
+`(symbol? x)` 判断 `x` 是否为一个符号，\ `(string->symbol str)` 将
+`str` 转换为符号，\ `(symbol->string sym)` 将 `sym` 转化为字符串

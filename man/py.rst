@@ -105,7 +105,7 @@ Use class as plain old data structure (POD) via dataclasses [#]_::
 
 .. note:: New in python 3.7.
 
-Auto Enumerations like ``iota`` in golang::
+Auto Enumerations like `iota` in golang::
 
    from enum import Enum, auto
    class Color(Enum):

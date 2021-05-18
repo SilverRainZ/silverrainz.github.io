@@ -123,7 +123,7 @@ classs variable 当 instance variable 用的时候（因为方便写 type annoat
 .. [#] https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables
 .. [#] https://github.com/satwikkansal/wtfpython#-class-attributes-and-instance-attributes
 
-英语通常不使用书名号 ``《》``
+英语通常不使用书名号 `《》`
 =============================
 
 英语没有用书名号的传统，通常用斜体来表示。

@@ -24,7 +24,7 @@
 ^^^^^^^^^^
 
 该函数检测程序是否正在被调试, 是的话返回1,否则返回0,
-该函数位于\ ``Kernel32.dll``\ 中, 其代码如下:
+该函数位于\ `Kernel32.dll`\ 中, 其代码如下:
 
 .. code-block:: nasm
 
@@ -32,15 +32,15 @@
    mov eax, dword ptr fs:[eax + 0x30]
    movzx eax, byte ptr ds:[eax + 0x2]
 
-fs寄存器指示了(并不是储存了)\ ``PEB``\ (Process Environment Block)的地址,
+fs寄存器指示了(并不是储存了)\ `PEB`\ (Process Environment Block)的地址,
 因为GDT的关系,fs寄存器中储存的只是选择子而不是地址,
 因此要从fs的0x18偏移处取一个指向自己的self指针(这一步实际上是可以省略的).
 
-接下来从\ ``PEB``\ 的0x30偏移处取得\ ``NT_TIB``\ 结构的首地址,
-该结构的0x2偏移处是\ ``BeingDebugged``\ 字段, 表示当前进程是否被调试,
+接下来从\ `PEB`\ 的0x30偏移处取得\ `NT_TIB`\ 结构的首地址,
+该结构的0x2偏移处是\ `BeingDebugged`\ 字段, 表示当前进程是否被调试,
 因此通过这个函数可以检测调试器.
 
-你可以在代码中直接使用\ ``IsDebuggerParent``\ 或者嵌入等价的汇编代码.
+你可以在代码中直接使用\ `IsDebuggerParent`\ 或者嵌入等价的汇编代码.
 动态载入函数比直接引入好些.
 
 0x0.1 栗子
@@ -85,7 +85,7 @@ fs寄存器指示了(并不是储存了)\ ``PEB``\ (Process Environment Block)�
 
 
 * 如果能定位到函数的话, 修改他的流程.
-* 可以在载入程序后, 把那个\ ``BeingDebugged``\ 位置0,
+* 可以在载入程序后, 把那个\ `BeingDebugged`\ 位置0,
   当然, HideDebugger插件已经替我们做了这件事.
 
 0x1 检测进程名I
@@ -162,25 +162,25 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 利用这些函数检测调试器的经典过程是这样的:
 
 
-#. 首先用\ ``GetProcAddress``\ 动态载入上面的其他函数
-#. 调用\ ``EnumProcesses``\ 对所有进程进行枚举, 实际上是获得一个储存了所有进程PID的列表
-#. 以获取到的PID为参数调用\ ``OpenProcess``\ , 取得进程句柄
-#. 用获取到的句柄执行\ ``EnumProcessModules``\ 枚举进程的模块, 只取第一个模块
-#. 使用进程句柄和模块句柄为参数调用\ ``GetModuleBaseNameA``\ 得到进程名
+#. 首先用\ `GetProcAddress`\ 动态载入上面的其他函数
+#. 调用\ `EnumProcesses`\ 对所有进程进行枚举, 实际上是获得一个储存了所有进程PID的列表
+#. 以获取到的PID为参数调用\ `OpenProcess`\ , 取得进程句柄
+#. 用获取到的句柄执行\ `EnumProcessModules`\ 枚举进程的模块, 只取第一个模块
+#. 使用进程句柄和模块句柄为参数调用\ `GetModuleBaseNameA`\ 得到进程名
 #. 和要检测的进程名作比较, 这决定了程序的流程
-#. 如果是待检测进程的话, 选择自行退出或者是结束调试器, 可能用到\ ``TerminatePorcess``
-#. 调用\ ``CloseHandle``\ 关闭句柄
+#. 如果是待检测进程的话, 选择自行退出或者是结束调试器, 可能用到\ `TerminatePorcess`
+#. 调用\ `CloseHandle`\ 关闭句柄
 
 0x1.1 栗子
 ^^^^^^^^^^
 
-``//TODO``
+`//TODO`
 
 0x1.2 绕过
 ^^^^^^^^^^
 
 
-* 令OpenProcess始终返回\ ``NULL``\ , 打不开任何进程.
+* 令OpenProcess始终返回\ `NULL`\ , 打不开任何进程.
 * 改动OpenProcess后的程序流程
 * 更改OD的名字, 进程名也会同时被更改;(最简单的做法了)
 
@@ -203,8 +203,8 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
    );
 
 该函数对指定的进程做快照, dwFlags参数决定进程的那一部分会被包含在快照中.
-参数二为PID, 返回快照句柄. 指定参数 ``CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)``
-则对系统中所有的进程进行快照, 可以被\ ``Process32First``\ 进行枚举.
+参数二为PID, 返回快照句柄. 指定参数 `CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)`
+则对系统中所有的进程进行快照, 可以被\ `Process32First`\ 进行枚举.
 
 
 * Process32First
@@ -233,7 +233,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 取回快照中下一个进程的信息(然而你必须先用Process32First取第一个), 参数和Process32First基本相同.
 
-``Process32First``\ 和\ ``Process32Next``\ 中涉及到的\ ``PPROCESSENTRY32``\ 结构体如下:
+`Process32First`\ 和\ `Process32Next`\ 中涉及到的\ `PPROCESSENTRY32`\ 结构体如下:
 
 .. code-block:: c
 
@@ -256,14 +256,14 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 利用该方法检测进程的基本流程是:
 
 
-* 调用\ ``CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)``\ 获得所有进程快照
-* 用\ ``Process32First``\ 取得第一个进程的信息, 判断是否是要检测的进程
-* 用\ ``Process32Next``\ 循环检测其他进程
+* 调用\ `CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)`\ 获得所有进程快照
+* 用\ `Process32First`\ 取得第一个进程的信息, 判断是否是要检测的进程
+* 用\ `Process32Next`\ 循环检测其他进程
 
 0x2.1 栗子
 ^^^^^^^^^^
 
-``//TODO``
+`//TODO`
 
 0x2.2 绕过
 ^^^^^^^^^^
@@ -301,7 +301,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 0x3.1 栗子
 ^^^^^^^^^^
 
-``//TODO``
+`//TODO`
 
 0x3.2 绕过
 ^^^^^^^^^^
@@ -323,11 +323,11 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
    * SetUnhandledExceptionFilter
 
-   ```c
+   ``c
    LPTOP_LEVEL_EXCEPTION_FILTER WINAPI SetUnhandledExceptionFilter(
      _In_ LPTOP_LEVEL_EXCEPTION_FILTER lpTopLevelExceptionFilter
    );
-   ```
+   ``
    该函数让应用程序可以取代该进程中所有线程的系统异常处理函数.(大概是吧...)
 
    > Enables an application to supersede the top-level exception handler of each
@@ -344,11 +344,11 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
    * UnhandledExceptionFilter
 
-   ```c
+   ``c
    LONG WINAPI UnhandledExceptionFilter(
      _In_ struct _EXCEPTION_POINTERS *ExceptionInfo
    );
-   ```
+   ``
 
    如果当前进程被调试的话, 程序定义的函数(?)会将未处理的异常传递给调试器.
    否则, 它将可选地显示一个应用程序错误的消息框, 并使得异常处理函数执行.
@@ -396,7 +396,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
    可以用来判断程序是否被调试, 它是随着`UnhandledExceptionFilter`被调用(在系统领空中),
    但是这个函数也可以单独抽取出来被调用.
 
-   ```c
+   ``c
    NTSTATUS WINAPI ZwQueryInformationProcess(
      _In_      HANDLE           ProcessHandle,
      _In_      PROCESSINFOCLASS ProcessInformationClass,
@@ -404,7 +404,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
      _In_      ULONG            ProcessInformationLength,
      _Out_opt_ PULONG           ReturnLength
    );
-   ```
+   ``
 
    取得特定进程的信息.
    在这里只需要知道使ProcessInformationClass = ProcessDebugPort (7),
@@ -435,7 +435,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 NtGlobalFlag
 ^^^^^^^^^^^^
 
-该标志在\ ``PEB``\ 中,对于x86, 在0x68处
+该标志在\ `PEB`\ 中,对于x86, 在0x68处
 对于x64, 在 0xbc 处.
 
 定位到PEB:
@@ -454,7 +454,7 @@ NtGlobalFlag 默认总是0, 除非它被一个调试器所附加.
    > FLG_HEAP_VALIDATE_PARAMETERS (0x40)
 
 
-因此, 如果\ ``NtGlobalFlag == 0x10 + 0x20 + 0x40 =  0x70``\ 时, 程序正在被调试.
+因此, 如果\ `NtGlobalFlag == 0x10 + 0x20 + 0x40 =  0x70`\ 时, 程序正在被调试.
 
 ProcessHeap
 ^^^^^^^^^^^
@@ -464,7 +464,7 @@ ProcessHeap
 OutputDebugStringA
 ^^^^^^^^^^^^^^^^^^
 
-``OutputDebugStringA``\ 是个函数, 该函数向调试器输出一个字符串,
+`OutputDebugStringA`\ 是个函数, 该函数向调试器输出一个字符串,
 它能用于反调试是因为OD的一个bug, 当用这个函数输出一长串的%s字串时, OD会崩溃.
 
 0x4.1 栗子

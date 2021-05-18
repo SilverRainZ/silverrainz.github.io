@@ -2,7 +2,7 @@
 读书笔记
 ========
 
-.. todo:: Use ``.. book-list::``
+.. todo:: Use `.. book-list::`
 
 长评
 ====

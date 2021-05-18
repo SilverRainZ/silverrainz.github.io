@@ -11,7 +11,7 @@
 
 今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:
 
-首先我把本来 ``.vimrc`` 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
+首先我把本来 `.vimrc` 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
 同时维护兼容两个平台的配置文件实在是麻烦.
 
 fcitx.vim
@@ -22,8 +22,8 @@ fcitx.vim
 
 从这里可以下载: `fcitx.vim <http://www.vim.org/scripts/script.php?script_id=3764>`_.
 
-这个插件的安装很容易, 最简单的方式是直接把 ``so/fctix.vim``
-放到 ``.vim/plugin`` 目录下就好, 最好在 ``.vimrc`` 里加上一句: ``set ttimeoutlen=100``
+这个插件的安装很容易, 最简单的方式是直接把 `so/fctix.vim`
+放到 `.vim/plugin` 目录下就好, 最好在 `.vimrc` 里加上一句: `set ttimeoutlen=100`
 
 如果想要启用 Python 支持的话, 要加入一个环境变量:
 
@@ -37,8 +37,8 @@ Vundle
 ------
 
 神器, 用来管理插件的插件, 可以从 GitHub, 其他 Git 服务器或者本地的 Git 目录获取并安装插件,
-把 `gmarik/Vundle.vim <https://github.com/gmarik/Vundle.vim>`_ clone 到 ``.vim`` 下,
-在 ``.vimrc`` 里添加如下内容:
+把 `gmarik/Vundle.vim <https://github.com/gmarik/Vundle.vim>`_ clone 到 `.vim` 下,
+在 `.vimrc` 里添加如下内容:
 
 .. code-block:: vim
 
@@ -69,17 +69,17 @@ Vundle
    " see :h vundle for more details or wiki for FAQ
    " Put your non-Plugin stuff after this line
 
-然后重启 ``:PluginInstall``\ , 就安装好了, 如果想要添加新的插件, 在 ``Plugin '...'``
-那一句之后添加 ``Plugin '插件地址'`` 再 ``:PluginInstall`` 一下就好了.
-对于在 GitHub 上的插件地址, 可以直接写 ``owner/repo-name`` 这样的形式.
+然后重启 `:PluginInstall`\ , 就安装好了, 如果想要添加新的插件, 在 `Plugin '...'`
+那一句之后添加 `Plugin '插件地址'` 再 `:PluginInstall` 一下就好了.
+对于在 GitHub 上的插件地址, 可以直接写 `owner/repo-name` 这样的形式.
 
 PowerLine
 ---------
 
 漂亮的状态栏插件
 
-在\ ``.vimrc`` 相应位置里加一句 ``Plugin 'Lokaltog/vim-powerline'``\ ,
-再 ``:PluginInstall``\ , 加上如下配置:
+在\ `.vimrc` 相应位置里加一句 `Plugin 'Lokaltog/vim-powerline'`\ ,
+再 `:PluginInstall`\ , 加上如下配置:
 
 .. code-block:: vim
 
@@ -114,13 +114,13 @@ YouCompleteMe
    " A code-completion engine for Vim
    Plugin 'Valloric/YouCompleteMe'
 
-安装时提示 ``YouCompleteMe unavailable: requires Vim compiled with Python 2.x support.``
+安装时提示 `YouCompleteMe unavailable: requires Vim compiled with Python 2.x support.`
 
-即我这个版本的 vim 编译时没有 Python 2 的支持, 可以用 ``vim --version`` 查看是否开启,
-没有开启的话会有 ``-python`` 这一项.
+即我这个版本的 vim 编译时没有 Python 2 的支持, 可以用 `vim --version` 查看是否开启,
+没有开启的话会有 `-python` 这一项.
 
 openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手动编译.
-(后来知道在 ``editor`` 源里有vim)
+(后来知道在 `editor` 源里有vim)
 
 首先从 `vim-7.4.tar.bz2 <ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2>`_
 下载 vim 7.4 的源码, 解压.

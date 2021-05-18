@@ -53,8 +53,8 @@
 
 Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套变得很不清晰,
 偏偏又不提供 switch 语句或者 Pattern Matching, 所以代码中的各种 if 又省不了,
-这个有点痛苦. 不过 ``if xx in [...]`` 这样的语法我倒是觉得挺好的,
-避免了\ ``if a==xx || a == xxx || ...`` 这样的超长 if.
+这个有点痛苦. 不过 `if xx in [...]` 这样的语法我倒是觉得挺好的,
+避免了\ `if a==xx || a == xxx || ...` 这样的超长 if.
 
 函数式特性
 ----------
@@ -67,7 +67,7 @@ Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套�
 高阶函数
 --------
 
-很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用\ ``map``\ 用得很爽.
+很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用\ `map`\ 用得很爽.
 sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信息, 本来我是这样写的:
 
 .. code-block:: python
@@ -76,7 +76,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
    print('python sync.py [operation]')
    print('python sync.py [operation] [target]')
 
-有了\ ``map``\ , 可以把所有的 help 信息放在一个 list 里面, 再用\ ``map``\ 对每个元素应用\ ``print``\ :
+有了\ `map`\ , 可以把所有的 help 信息放在一个 list 里面, 再用\ `map`\ 对每个元素应用\ `print`\ :
 
 .. code-block:: python
 
@@ -86,11 +86,11 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
              ]
    list(map(print, helpstr))
 
-注意这里不能直接\ ``map(print, helpstr)``\ , ``map``\ 返回一个\ ``generator``\ ,
-而\ ``list()``\ 接受一个\ ``generator``\ 得到一个列表, 这样\ ``print``\ 才会得以执行.(大概是这样?)
+注意这里不能直接\ `map(print, helpstr)`\ , `map`\ 返回一个\ `generator`\ ,
+而\ `list()`\ 接受一个\ `generator`\ 得到一个列表, 这样\ `print`\ 才会得以执行.(大概是这样?)
 
-``map``\ 不仅在这里有用到, ``deploy``\ 和\ ``collect``\ 是两个相反的操作, 无非是把两个地址交换,
-地址被存在一个二元组的列表里, 所以可以用\ ``map``\ 翻转:
+`map`\ 不仅在这里有用到, `deploy`\ 和\ `collect`\ 是两个相反的操作, 无非是把两个地址交换,
+地址被存在一个二元组的列表里, 所以可以用\ `map`\ 翻转:
 
 .. code-block:: python
 
@@ -111,7 +111,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 部分应用
 --------
 
-``map``\ 只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
+`map`\ 只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
 获得一个只需要一个参数的函数, 在 Python 中似乎不能直接做到, 但我们有折衷的办法:
 
 .. code-block:: python
@@ -120,7 +120,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
    # ...
    list(map(lambda x: deploy(op,x),g_target[1:]))
 
-用一个 lambda 来使得\ ``deploy``\ 对外只有一个参数.
+用一个 lambda 来使得\ `deploy`\ 对外只有一个参数.
 
 库
 --

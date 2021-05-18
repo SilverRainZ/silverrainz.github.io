@@ -240,7 +240,7 @@ Self
 作业
 ====
 
-以 ``xfczk2`` 为 ID。
+以 `xfczk2` 为 ID。
 
 要求：
    - 以 :doc:`./find-yourself` 中的小创作提炼出来的关键词为参考，选定一个作为主题

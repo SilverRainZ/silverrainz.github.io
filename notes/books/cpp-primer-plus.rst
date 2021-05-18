@@ -9,12 +9,12 @@ C++ Primer Plus
 ch3 处理数据
 ------------
 
--  使用 ``cout << hex;`` 控制程序以 16 进制输出数字，类似的控制符有
-   ``oct`` 和 ``dec`` 如果想要声明变量 ``hex`` 则要用 ``std::hex``
+-  使用 `cout << hex;` 控制程序以 16 进制输出数字，类似的控制符有
+   `oct` 和 `dec` 如果想要声明变量 `hex` 则要用 `std::hex`
    来表示该控制符
--  ``int func(void)`` 和 ``int func()`` 都表示该程序不接受任何参数
+-  `int func(void)` 和 `int func()` 都表示该程序不接受任何参数
 
-    NOTE: 在 C语言中， ``int func()`` 则表示接受任意多的参数
+    NOTE: 在 C语言中， `int func()` 则表示接受任意多的参数
 
 -  强制类型转换：
 
@@ -45,11 +45,11 @@ ch4 复合类型
 
     "aaa" "bbb"  <=> "aaabbb\0"
 
--  ``cin << str`` 的读取以空白符号为终点，使用
-   ``cin.getline(str, size)`` 可破： 读取指定数目，遇到换行停止，而
-   ``cin.get(str, size)`` 则不丢弃换行
--  C++ 风格的字符串：\ ``#include <string>`` 可以用 ``+`` 拼接，更加安全
--  声明结构体变量允许省略 ``struct`` 关键字
+-  `cin << str` 的读取以空白符号为终点，使用
+   `cin.getline(str, size)` 可破： 读取指定数目，遇到换行停止，而
+   `cin.get(str, size)` 则不丢弃换行
+-  C++ 风格的字符串：\ `#include <string>` 可以用 `+` 拼接，更加安全
+-  声明结构体变量允许省略 `struct` 关键字
 -  不允许直接将整数赋给指针
 
 .. code:: cpp

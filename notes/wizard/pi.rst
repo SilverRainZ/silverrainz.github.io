@@ -57,12 +57,12 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
          $ mkdir .ssh
 
-      从 la-tlp450 执行 ``ssh-copy-id -i .ssh/pi3 la@la-pi3``
+      从 la-tlp450 执行 `ssh-copy-id -i .ssh/pi3 la@la-pi3`
 
       .. note::
 
          记不住 authorized_keys 的名字和它的权限没有关系，
-         用 ``ssh-copy-id`` 代替手动复制
+         用 `ssh-copy-id` 代替手动复制
 
    #. 禁用 root 登陆 :archwiki:`OpenSSH_(简体中文)#禁用或限制_root_账户登录`::
 
@@ -123,7 +123,7 @@ syncthing-webui     30501/http
 挂载大容量存储
 ~~~~~~~~~~~~~~
 
-.. todo:: 想用 ``systemctl --user`` 管理这个 mount，试了挺久没有成功，先放着
+.. todo:: 想用 `systemctl --user` 管理这个 mount，试了挺久没有成功，先放着
 
 参考 `这篇文章 <https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/>`_
 和 :manpage:`SYSTEMD.MOUNT(5)`::
@@ -134,7 +134,7 @@ syncthing-webui     30501/http
 .. note:: la-wdbuzg0010bb 是大学时期买的一个 1TB 的西数移动硬盘。
           一直闲置所以用来当树莓派的存储
 
-.. note:: systemd 对 mount unit 的文件名有要求，使用 ``systemd-escape --path`` 转义之
+.. note:: systemd 对 mount unit 的文件名有要求，使用 `systemd-escape --path` 转义之
 
 编写 mount 文件如下：
 
@@ -210,8 +210,8 @@ WebDAV
 
 .. note::
 
-   本来想用 ``root /home/la/public`` ，试了下发现不支持 follow symlink，只好用
-   mnt 的地址 ``root /mnt/la-wdbuzg0010bb/la-pi3-public``
+   本来想用 `root /home/la/public` ，试了下发现不支持 follow symlink，只好用
+   mnt 的地址 `root /mnt/la-wdbuzg0010bb/la-pi3-public`
 
 修改 public 目录权限让 nginx.service 对应的 http 用户能够正常读写::
 
@@ -282,7 +282,7 @@ Syncthing
    # systemctl enable --now syncthing@la.service
 
 :archpkg:`syncthing` 提供的 systemd service 没有开启网页管理界面，通过
-``systemctl edit`` 启用它::
+`systemctl edit` 启用它::
 
    # systemctl edit --now syncthing@la.service
 

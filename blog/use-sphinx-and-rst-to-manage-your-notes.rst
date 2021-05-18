@@ -72,7 +72,7 @@ Node 的包管理器 npm 会将一个应用的所有依赖都安装在项目目�
 
 除去打包上的槽点，nodejs-gitbook 这工具的使用体验也是相当差：目录文件 SUMMARY.md
 需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 **8.6 秒**
-—— 它似乎并没有办法 incremental build；\ ``gitbook serve`` 命令能在本地启动一个 HTTP Server
+—— 它似乎并没有办法 incremental build；\ `gitbook serve` 命令能在本地启动一个 HTTP Server
 预览书籍，并且文件改变的时候网页会自动刷新，这很赞，可是你为什么没告诉我每次文件改动
 都要 **重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍** 呢？于是每次改动后你
 需要十多秒后才能够「实时预览」。
@@ -89,8 +89,8 @@ Markdown 是啥这里就不说了……Markdown 的问题在于它太轻又没�
 
 目前最流行的 Markdown 方言应该是 GFM(GitHub Flavored Markdown) 了，
 但即使你坚持只用 GFM 编写你的文档，你依然会遇到问题：
-不同的 GFM 的实现存在细节上的差异。声明标题的 ``#`` 后面需要空格么？
-加粗字体的 ``**`` 左右需要空格隔开么？直接跟非符号的文字会有问题么，
+不同的 GFM 的实现存在细节上的差异。声明标题的 `#` 后面需要空格么？
+加粗字体的 `**` 左右需要空格隔开么？直接跟非符号的文字会有问题么，
 Unicode 的文字和符号能被分清么？在不将文件生成为 HTML 之前，你很难知道你的文档是
 什么样子。
 
@@ -117,9 +117,9 @@ reStructuredText 的语法稍微复杂了一点，具体可以看
 就我所知， reStructuredText 有两种支持扩展的语法： 解释文本（Interpreted Text）
 和 指令（Directives）。
 
-在 reStructuredText 中，用单个反引号 ``` `` 包围的字符串称为
+在 reStructuredText 中，用单个反引号 `` ` 包围的字符串称为
 `Interpreted Text <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#interpreted-text>`_
-，反引号中的内容根据角色（Role）有不同解释方式。Role 由冒号 ``:`` 包围，可以位于
+，反引号中的内容根据角色（Role）有不同解释方式。Role 由冒号 `:` 包围，可以位于
 Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了不少的内联标记。比如：
 
 .. code-block::
@@ -130,7 +130,7 @@ Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了�
 
 Interpreted Text 只能作为行内元素使用（无法跨行），而
 `Explicit Markup <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#explicit-markup-blocks>`_
-。作用的对象则是文本块。Explicit Mark 以在行首的两个句号 ``..`` 开始，后跟一个空格，
+。作用的对象则是文本块。Explicit Mark 以在行首的两个句号 `..` 开始，后跟一个空格，
 接下来的行保持相同缩进，直到文本块结束。
 
 Explicit Markup 被用来实现
@@ -167,7 +167,7 @@ Explicit Markup 被用来实现
 * 
   指令（Directives）是 reStructuredText 的又一扩展机制：插入图片，
   代码声明等语法均由 Directives 实现，和 Role 一样，指令可以被开发者定义。
-  指令名后跟两个冒号，冒号后是参数。在新的一行里可以指定选项，选项由 ``:`` 包围，
+  指令名后跟两个冒号，冒号后是参数。在新的一行里可以指定选项，选项由 `:` 包围，
   后跟选项值。选项之后还可能有文本块。
 
   .. code-block::
@@ -215,16 +215,16 @@ reStructuredText 作为标记语言。Sphinx 被用来编写 `Python 的官方�
 Shpinx 的安装和使用
 -------------------
 
-执行 ``pip install sphinx`` 即可安装 Sphinx，Arch Linux 用户可以执行
-``pacman -S python-sphinx`` 安装。Sphinx 提供了 ``sphinx-quickstart`` 程序，
+执行 `pip install sphinx` 即可安装 Sphinx，Arch Linux 用户可以执行
+`pacman -S python-sphinx` 安装。Sphinx 提供了 `sphinx-quickstart` 程序，
 可以交互式地建立一个 Sphinx 项目。项目目录下的 conf.py 储存了 Sphinx 的配置，
 index.rst 则是默认的文档首页。
 
-使用 ``sphinx-build -b html <srcdir> <builddir>`` 可以从 ``<srcdir>`` 生成 HTML
-文档输出到 ``<builddir>``\ ，如果在 ``sphinx-quickstart`` 中指定了生成 Makefile，通过
-``make html`` 即可生成 HTML 文档到预定义的 build 目录。
+使用 `sphinx-build -b html <srcdir> <builddir>` 可以从 `<srcdir>` 生成 HTML
+文档输出到 `<builddir>`\ ，如果在 `sphinx-quickstart` 中指定了生成 Makefile，通过
+`make html` 即可生成 HTML 文档到预定义的 build 目录。
 
-Sphinx 似乎没有提供类似 ``gitbook serve`` 在本地启动 HTTP 服务器的功能，Linux
+Sphinx 似乎没有提供类似 `gitbook serve` 在本地启动 HTTP 服务器的功能，Linux
 用户在 Makefile 中增加如下内容则可方便的在默认浏览器打开文档的首页：
 
 .. code-block:: makefile
@@ -235,7 +235,7 @@ Sphinx 似乎没有提供类似 ``gitbook serve`` 在本地启动 HTTP 服务器
 组织和索引
 ----------
 
-Sphinx 定义了 ``toctree`` 指令作为目录树，各个文档由目录树组织在一起，
+Sphinx 定义了 `toctree` 指令作为目录树，各个文档由目录树组织在一起，
 在构建文档的时候，如果存在没有被引用到的文档，Sphinx 会发出警告。
 
 .. code-block:: rst
@@ -250,11 +250,11 @@ Sphinx 定义了 ``toctree`` 指令作为目录树，各个文档由目录树组
 intro.rst 中的标题保持一致。如果 intro.rst 中存在章节，也会在目录树中显示出来，
 但整个目录树的深度不超过 2。
 
-如果只想要在目录树中显示文档的标题而不显示内部的章节，需要为 ``toctree`` 指令开启
-``:titlesonly:`` 选项。
+如果只想要在目录树中显示文档的标题而不显示内部的章节，需要为 `toctree` 指令开启
+`:titlesonly:` 选项。
 
-``toctree`` 在开启 ``:glob:`` 的情况下支持通配符，比如 ``*`` 匹配当前目录下所有的
-（排除自身，下同）rst 文档。\ ``index*`` 匹配当前目录下所有以 index 开头的 rst 文档。
+`toctree` 在开启 `:glob:` 的情况下支持通配符，比如 `*` 匹配当前目录下所有的
+（排除自身，下同）rst 文档。\ `index*` 匹配当前目录下所有以 index 开头的 rst 文档。
 
 我在笔记的不同分类的文件夹中都建立了如下内容的 index.rst：
 

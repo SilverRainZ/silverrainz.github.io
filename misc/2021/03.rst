@@ -13,7 +13,7 @@ GTK 很早就实现了能用的 Wayland 后端，在之后 Firefox 实验性地�
 
 XMonad →  Sway
     Arch 源里为数不多的 Wayland compositor，再也不想写看不懂的 Haskell 配置文件了，
-    Sway 能 hot reloading 很香，比 ``xmonad --recompile`` 不知道高到哪里里去了
+    Sway 能 hot reloading 很香，比 `xmonad --recompile` 不知道高到哪里里去了
 
 dzen2 →  Waybar
     Sway 自带的 Swaybar 不够好用，很多系统信息还有手动获取，
@@ -29,7 +29,7 @@ xfce-notifyd →  Mako
 Wob
     之前没用过类似的东西，挺有意思
 
-使用启动管理器的用户自然不必忧心如何 Sway，WM 用户可以在 ``.profile`` 中加入以下代码，
+使用启动管理器的用户自然不必忧心如何 Sway，WM 用户可以在 `.profile` 中加入以下代码，
 方便从 TTY1 登陆的时候自动进入 Sway::
 
     # If running from tty1 start sway
@@ -40,11 +40,11 @@ Wob
 
 .. note::
 
-   ``.xprofile`` 文件不会再被 source，其中的环境变量应当寻找合适的地方存放，
-   我将其放在了 ``~/.config/sway/pre-startup`` 中
+   `.xprofile` 文件不会再被 source，其中的环境变量应当寻找合适的地方存放，
+   我将其放在了 `~/.config/sway/pre-startup` 中
 
 Firefox
-    设置 ``MOZ_ENABLE_WAYLAND=1`` 以启用 Wayland 支持
+    设置 `MOZ_ENABLE_WAYLAND=1` 以启用 Wayland 支持
 
 Midi.js 的一个有趣应用
 ======================
@@ -58,12 +58,12 @@ https://lexcast.github.io/orchestra/
 
 .. highlight:: ini
 
-Arch 上的 syncthing 包提供的 service 启用了 ``-no-browser`` 选项，
+Arch 上的 syncthing 包提供的 service 启用了 `-no-browser` 选项，
 因此没有网页管理界面可用，运行在我的 pi3 上的 syncthing 也因此不好管理。
 
 直接修改 service 文件是不可取的，会在下一次系统更新时被覆盖。systemd 提供了
-``systemctl edit`` 命令来修改 service，但实际上并没有修改 service 本身，
-而是创建了 ``/etc/systemd/system/xxx.service.d/override.conf`` 来覆盖原 service
+`systemctl edit` 命令来修改 service，但实际上并没有修改 service 本身，
+而是创建了 `/etc/systemd/system/xxx.service.d/override.conf` 来覆盖原 service
 的行为::
 
     # /etc/systemd/system/syncthing@la.service.d/override.conf
@@ -71,10 +71,10 @@ Arch 上的 syncthing 包提供的 service 启用了 ``-no-browser`` 选项，
     ExecStart=
     ExecStart=/usr/bin/syncthing -gui-address="http://la-pi3:8384" -no-restart -logflags=0
 
-.. note:: 注意 ``ExecStart=`` 用来清空之前的值，
-          不然 systemd 会认为你指定了多个 ``ExecStart`` [#]_
+.. note:: 注意 `ExecStart=` 用来清空之前的值，
+          不然 systemd 会认为你指定了多个 `ExecStart` [#]_
 
-.. note:: 使用 ``systemctl revert`` 来取消你的 override [#]_
+.. note:: 使用 `systemctl revert` 来取消你的 override [#]_
 
 .. [#] https://unix.stackexchange.com/a/468067
 .. [#] https://unix.stackexchange.com/a/449053
@@ -96,7 +96,7 @@ CloudFlare 当然是支持的，但是 CF 的 free domain 不支持用 API key �
 让 Sphinx 支持 Isso 评论
 ========================
 
-一言以蔽之，用最近写的 `sphinxnotes-isso`_ 即可，在文档的任意位置插入 ``.. isso::``
+一言以蔽之，用最近写的 `sphinxnotes-isso`_ 即可，在文档的任意位置插入 `.. isso::`
 既可有最下面的效果。
 
 .. _sphinxnotes-isso: https://sphinx-notes.github.io/isso/
@@ -130,7 +130,7 @@ Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 
 SMTP 服务
 ---------
 
-SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 ``noreply@silverrainz.me``
+SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 `noreply@silverrainz.me`
 分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：
 
 .. code-block:: ini

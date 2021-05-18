@@ -6,5 +6,5 @@ Characteristics of Unix:
 - Only hundreds of system calls
 - Everything is file.
 - Written in C (?)
-- Fast process creation with ``fork``
+- Fast process creation with `fork`
 - Interprocess communication (IPC)
