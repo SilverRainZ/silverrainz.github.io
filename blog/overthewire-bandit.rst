@@ -235,7 +235,7 @@ bandit26
 
 执行 `cat /etc/passwd | grep bandit26` 得到::
 
-   **bandit26**\ :x:11026:11026:bandit level 26:/home/\ **bandit26**\ :/usr/bin/showtext
+   *bandit26*\ :x:11026:11026:bandit level 26:/home/\ *bandit26*\ :/usr/bin/showtext
 
 
 (我到这里就卡住了)

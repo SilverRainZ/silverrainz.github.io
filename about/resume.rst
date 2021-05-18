@@ -144,7 +144,7 @@ XATTR Support for GNU/Hurd [#]_
 大部分代码为业务逻辑，不便展开。
 
 Lua 插件平台 L*g
------------------
+----------------
 
 :时间: 2017 年 -- 2020 年
 :类型: 商业项目
@@ -201,7 +201,7 @@ sphinxnotes-lilypond [#]_
   乐谱
 
 sphinxnotes-any [#]_
-  一个用以描述 **任何** 对象的 Sphinx Domain，可以认为该插件允许用户通过
+  一个用以描述 *任何* 对象的 Sphinx Domain，可以认为该插件允许用户通过
   写文档的方式构建简单的数据库
 
 sphinxnotes-strike [#]_

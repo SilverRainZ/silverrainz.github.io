@@ -52,8 +52,8 @@ Number of pass-in arguments::
 
 The "pass-in argument list::
 
-    $* # Default, an **array**
-    $@ # Default, a **string**
+    $* # Default, an *array*
+    $@ # Default, a *string*
 
 The arguments of previous command::
 

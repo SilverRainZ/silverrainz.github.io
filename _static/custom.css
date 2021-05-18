@@ -1,0 +1,14 @@
+/* Center title */
+h1 {
+    text-align: center;
+}
+/* Hide headerlink of doctitle */
+h1 > a.headerlink {
+    display: none;
+}
+
+/* Show emphasis text in bold, non-italic style */
+em {
+    font-style: normal;
+    font-weight: bold;
+}

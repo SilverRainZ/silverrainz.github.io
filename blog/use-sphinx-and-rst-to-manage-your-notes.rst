@@ -71,10 +71,10 @@ Node 的包管理器 npm 会将一个应用的所有依赖都安装在项目目�
 
 
 除去打包上的槽点，nodejs-gitbook 这工具的使用体验也是相当差：目录文件 SUMMARY.md
-需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 **8.6 秒**
+需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 *8.6 秒*
 —— 它似乎并没有办法 incremental build；\ `gitbook serve` 命令能在本地启动一个 HTTP Server
 预览书籍，并且文件改变的时候网页会自动刷新，这很赞，可是你为什么没告诉我每次文件改动
-都要 **重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍** 呢？于是每次改动后你
+都要 *重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍* 呢？于是每次改动后你
 需要十多秒后才能够「实时预览」。
 
 以上所述的问题针对 GitBook 3.2.1 及以下版本。
@@ -126,7 +126,6 @@ Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了�
 
    :emphasis:`text` 等价于 *text*
    :strong:`text` 等价于 **text**
-
 
 Interpreted Text 只能作为行内元素使用（无法跨行），而
 `Explicit Markup <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#explicit-markup-blocks>`_
