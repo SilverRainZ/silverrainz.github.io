@@ -1,10 +1,10 @@
 {% if avatar %}
 .. image:: {{ avatar }}
    :width: 120px
-   :alt: {{ names[0] }}
+   :alt: {{ name[0] }}
    :align: right
 {% endif %}
 
 {{ blog }}
 
-{{ content | join('\n') }}
+{% if content %}{{ content }}{% endif %}

@@ -310,7 +310,7 @@ I Should
    :id: xfczk-015
    :date: 2021-03-03
    :size: 32k
-   :medium: 水彩、铅笔
+   :medium: 水彩 铅笔
    :image: /_images/IMG_0103.jpg
 
 | 我一生都无法遇见我的敌人
@@ -354,7 +354,7 @@ I Should
    :id: xfczk-018
    :date: 2021-03-04
    :size: 32k
-   :medium: 色粉笔、水彩、铅笔
+   :medium: 色粉笔 水彩 铅笔
    :image: /_images/IMG_0081.jpg
 
 前些日子河北封城，没办法去北京复诊，一度以为网购发达没有什么买不到，
@@ -469,7 +469,7 @@ I Should
    :id: xfczk-025
    :date: 2021-03-16
    :size: 32k
-   :medium: 橄榄绿色粉、炭精粉、白色粉笔
+   :medium: 橄榄绿色粉 炭精粉 白色粉笔
    :image: /_images/IMG_0106.jpg
 
 很久没画色粉，是失败的尝试，灰色的卡纸限制了我能用的色域，软的纸面也让

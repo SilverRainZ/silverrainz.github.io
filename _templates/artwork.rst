@@ -1,22 +1,15 @@
 :编号: {{ id }}
 :日期: {{ date }}
-:尺幅: {{ size }}
-:媒介: {{ medium }}
+:尺幅: :artwork.size:`{{ size }} <{{ size }}>`
+:媒介: {% for m in medium %}:artwork.medium:`{{ m }} <{{ m }}>` {% endfor %}
 
 {% if image %}
-
 .. figure:: {{ image }}
    :width: 80%
 
    {{ id }}
-
-{{ content | join('\n') }}
-
 {% else %}
-
 .. todo:: 图片未上传
-
-{{ content | join('\n') }}
-
 {% endif %}
 
+{% if content %}{{ content }}{% endif %}

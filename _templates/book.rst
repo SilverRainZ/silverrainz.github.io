@@ -14,4 +14,4 @@
 :状态: {{ status }}
 {% endif %}
 
-{{ content | join('\n') }}
+{% if content %}{{ content }}{% endif %}
