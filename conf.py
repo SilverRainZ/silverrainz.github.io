@@ -156,35 +156,42 @@ extlinks = {
 }
 
 extensions.append('sphinxnotes.any')
-any_schemas = [{
-    'type': 'friend',
-    'fields': {
-        'others': ['avatar', 'blog'],
-    },
-    'templates': {
-        'reference': '@{{ title }}',
-        'content': open('_templates/friend.rst', 'r').read(),
-    }
-}, {
-    'type': 'book',
-    'fields': {
-        'others': ['isbn', 'status', 'startat', 'endat', 'bookmark'],
-    },
-    'templates': {
-        'reference': '《{{ title }}》',
-        'content': open('_templates/book.rst', 'r').read(),
-    }
-}, {
-    'type': 'artwork',
-    'fields': {
-        'id': 'id',
-        'others': ['date', 'medium', 'size', 'image'],
-    },
-    'templates': {
-        'reference': '《{{ title }}》',
-        'content': open('_templates/artwork.rst', 'r').read(),
-    },
-}]
+from sphinxnotes.any import Schema, Field as F
+any_schemas = [
+    Schema('friend',
+           name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
+           attrs={'avatar': F(), 'blog': F()},
+           description_template=open('_templates/friend.rst', 'r').read(),
+           reference_template='👤{{ title }}',
+           missing_reference_template='❌👤{{ title }}',
+           ambiguous_reference_template='{{ title }}'),
+    Schema('book',
+           name=F(referenceable=True, form=F.Form.LINES),
+           attrs={
+               'isbn': F(unique=True, referenceable=True),
+               'status': F(referenceable=True),
+               'startat': F(referenceable=True),
+               'endat': F(referenceable=True),
+               'bookmark': F(),
+           },
+           description_template=open('_templates/book.rst', 'r').read(),
+           reference_template='《{{ title }}》',
+           missing_reference_template='《{{ title }}》（未找到）',
+           ambiguous_reference_template='《{{ title }}》（消歧义）'),
+    Schema('artwork',
+           name=F(referenceable=True),
+           attrs={
+               'id': F(unique=True, referenceable=True, required=True),
+               'date': F(referenceable=True),
+               'medium': F(referenceable=True, form=F.Form.WORDS),
+               'size': F(referenceable=True),
+               'image': F(),
+           },
+           description_template=open('_templates/artwork.rst', 'r').read(),
+           reference_template='《{{ title }}》',
+           missing_reference_template='《{{ title }}》（未找到）',
+           ambiguous_reference_template='{{ title }}')
+]
 
 extensions.append('ablog')
 blog_path = 'blog'
