@@ -2,7 +2,7 @@
 哈默手稿
 ========
 
-.. book::
+.. book:: _
    :isbn: 9787564070724
    :status: Abandon
    :startat: 2021-01-23
