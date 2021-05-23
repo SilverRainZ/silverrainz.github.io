@@ -164,7 +164,7 @@ any_schemas = [
            description_template=open('_templates/friend.rst', 'r').read(),
            reference_template='👤{{ title }}',
            missing_reference_template='❌👤{{ title }}',
-           ambiguous_reference_template='{{ title }}'),
+           ambiguous_reference_template='👥{{ title }}'),
     Schema('book',
            name=F(required=True, referenceable=True, form=F.Form.LINES),
            attrs={
@@ -190,7 +190,14 @@ any_schemas = [
            description_template=open('_templates/artwork.rst', 'r').read(),
            reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
            missing_reference_template='《{{ title }}》（未找到）',
-           ambiguous_reference_template='{{ title }}')
+           ambiguous_reference_template='{{ title }}'),
+    Schema('artist',
+           name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
+           attrs={'movement': F(referenceable=True, form=F.Form.WORDS)},
+           description_template=open('_templates/artist.rst', 'r').read(),
+           reference_template='👤{{ title }}',
+           missing_reference_template='❌👤{{ title }}',
+           ambiguous_reference_template='👥{{ title }}'),
 ]
 
 extensions.append('ablog')
