@@ -478,9 +478,25 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-17
    :size: 32k
    :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210517_022947__01__01.jpg
 
 我把我不喜欢的东西慢慢地从身上敲下来。
 
 *变成更完美的我。*
 
 .. seealso:: :artwork:`HOW I LIVE` :artwork:`我的敌人在哪里`
+
+出行准备
+--------
+
+.. artwork:: _
+   :id: xfczk2-008
+   :date: 2021-05-23
+   :size: 32k
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210523_180430__01__01.jpg
+
+我不能游在干涸的河床上。
+
+.. seealso:: 鱼鱼的姿势参考了 :artist:`安格尔` 的《泉》，
+   构图上想有 :artist:`霍伯` 那样的感觉，:del:`但最后啥也没有`。
