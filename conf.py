@@ -166,7 +166,7 @@ any_schemas = [
            missing_reference_template='❌👤{{ title }}',
            ambiguous_reference_template='{{ title }}'),
     Schema('book',
-           name=F(referenceable=True, form=F.Form.LINES),
+           name=F(required=True, referenceable=True, form=F.Form.LINES),
            attrs={
                'isbn': F(unique=True, referenceable=True),
                'status': F(referenceable=True),
@@ -188,7 +188,7 @@ any_schemas = [
                'image': F(),
            },
            description_template=open('_templates/artwork.rst', 'r').read(),
-           reference_template='《{{ title }}》',
+           reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
            missing_reference_template='《{{ title }}》（未找到）',
            ambiguous_reference_template='{{ title }}')
 ]
