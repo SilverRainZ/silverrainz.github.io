@@ -45,7 +45,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinxnotes.strike',
-    # 'sphinxcontrib.plantuml',
+    'sphinxcontrib.plantuml',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -144,6 +144,7 @@ extlinks = {
     'search': ('https://duckduckgo.com/?q=%s', '🔍'),
     'twitter': ('https://twitter.com/%s', '👤'),
     'ghuser': ('https://github.com/%s', '👤'),
+    'ghorg': ('https://github.com/%s', '👥'),
     'ghrepo': ('https://github.com/%s', '⛺'),
     'weibo': ('https://weibo.com/%s', '👤'),
     'aur': ('https://aur.archlinux.org/packages/%s', '📦'),
