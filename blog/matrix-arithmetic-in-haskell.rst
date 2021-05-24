@@ -9,6 +9,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
 想把上课教的几个矩阵运算写出来...虽然调试了半天, 回头一看,
 好吧原来这么久简单的东西花了我那么多时间.

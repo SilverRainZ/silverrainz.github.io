@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:
 

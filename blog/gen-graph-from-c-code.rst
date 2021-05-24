@@ -7,6 +7,7 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 前天是操作系统课程设计的截止日期，这意味这 `OS67 这个坑 <https://github.com/SilverRainZ/OS67>`_
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，

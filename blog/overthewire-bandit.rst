@@ -9,6 +9,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 题目地址: `OverTheWire: Bandit <http://overthewire.org/wargames/bandit/>`_.
 
 考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,

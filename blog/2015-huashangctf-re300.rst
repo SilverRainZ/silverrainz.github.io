@@ -6,6 +6,8 @@
    :tags: CTF
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 程序在此： `toetrix-crackme.exe <http://jianguoyun.com/p/Dbz27p8QtNrvBRiq2w4>`_\ ， VC++ 6.0 编写，无壳， CLI 程序。
 
 这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码

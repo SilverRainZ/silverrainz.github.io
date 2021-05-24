@@ -7,6 +7,7 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 `Read The Docs <http://readthedocs.io/>`_
 上发布，地址是 `notes.silverrainz.me <http://notes.silverrainz.me>`_\ ，旧域名在过期前也同样有效。
