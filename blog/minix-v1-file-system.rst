@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 .. contents::
 
 Minix FS

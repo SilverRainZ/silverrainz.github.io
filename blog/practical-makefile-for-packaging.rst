@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 ..
 
    Note: 这篇文章假设你已经知道基本的 Makefile 编写规则

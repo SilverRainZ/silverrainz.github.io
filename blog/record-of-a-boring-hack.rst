@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
 大概八点二十分到机房, 老师并没有说什么.
 

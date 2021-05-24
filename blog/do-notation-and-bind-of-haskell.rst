@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 
 明明在开学的时候，:book:`Haskell 趣学指南` 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，

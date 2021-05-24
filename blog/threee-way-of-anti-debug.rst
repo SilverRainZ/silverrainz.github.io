@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 这里面没有什么自己的东西,
 都是从看雪的\ `OD从零系列教程 <http://bbs.pediy.com/showthread.php?t=184679>`_\ 里看来的.
 最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,

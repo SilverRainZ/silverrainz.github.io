@@ -7,6 +7,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 地址: `OverTheWire: Leviathan <http://overthewire.org/wargames/leviathan/>`_.
 
 说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？

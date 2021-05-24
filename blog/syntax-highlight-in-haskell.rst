@@ -9,6 +9,8 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
 书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。
 
 不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，

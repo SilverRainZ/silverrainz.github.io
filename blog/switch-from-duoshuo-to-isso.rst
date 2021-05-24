@@ -9,6 +9,7 @@
    :author: LA
    :language: zh_CN
 
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 前阵子多说 `对外宣布 <http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241>`_
 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的

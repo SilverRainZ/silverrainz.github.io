@@ -7,7 +7,10 @@
    :author: LA
    :language: zh_CN
 
-   update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
+
+.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+
+.. note:: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
    并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
    还请参考 `第五章 调度 | xv6 中文文档 <https://th0ar.gitbooks.io/xv6-chinese/content/content/chapter5.html>`_
 
