@@ -113,8 +113,8 @@ html_css_files.append('alabaster-custom.css')
 nosidebar_page = ['nosidebar.html']
 standard_page = ['about.html', 'localtoc.html', 'searchbox.html']
 blog_post_page = ['about.html', 'postcard.html', 'localtoc.html',
-                 'recentposts.html', 'tagcloud.html', 'categories.html',
-                 'archives.html', 'searchbox.html']
+                  'recentposts.html', 'tagcloud.html', 'categories.html',
+                  'archives.html', 'searchbox.html']
 # TODO...
 
 html_sidebars = {
@@ -139,20 +139,20 @@ todo_include_todos = True
 
 extensions.append('sphinx.ext.extlinks')
 extlinks = {
-    'zhwiki': ('https://zh.wikipedia.org/wiki/%s', ''),
-    'enwiki': ('https://wikipedia.org/wiki/%s', ''),
-    'search': ('https://duckduckgo.com/?q=%s', ''),
-    'twitter': ('https://twitter.com/%s', '@'),
-    'ghuser': ('https://github.com/%s', '@'),
-    'ghrepo': ('https://github.com/%s', ''),
-    'weibo': ('https://weibo.com/%s', '@'),
-    'aur': ('https://aur.archlinux.org/packages/%s', ''),
-    'archpkg': ('https://archlinux.org/packages/%s', ''),
-    'archwiki': ('https://wiki.archlinux.org/index.php/%s', ''),
-    'zhihuq': ('https://www.zhihu.com/question/%s', 'Q: '),
-    'zhihua': ('https://www.zhihu.com/answer/%s', 'A: '),
-    'zhihup': ('https://www.zhihu.com/people/%s', '@'),
-    'pypi': ('https://pypi.org/project/%s', ''),
+    'zhwiki': ('https://zh.wikipedia.org/wiki/%s', '📖'),
+    'enwiki': ('https://wikipedia.org/wiki/%s', '📖'),
+    'search': ('https://duckduckgo.com/?q=%s', '🔍'),
+    'twitter': ('https://twitter.com/%s', '👤'),
+    'ghuser': ('https://github.com/%s', '👤'),
+    'ghrepo': ('https://github.com/%s', '⛺'),
+    'weibo': ('https://weibo.com/%s', '👤'),
+    'aur': ('https://aur.archlinux.org/packages/%s', '📦'),
+    'archpkg': ('https://archlinux.org/packages/%s', '📦'),
+    'archwiki': ('https://wiki.archlinux.org/index.php/%s', '📖'),
+    'zhihuq': ('https://www.zhihu.com/question/%s', '❓'),
+    'zhihua': ('https://www.zhihu.com/answer/%s', '❓'),
+    'zhihup': ('https://www.zhihu.com/people/%s', '👤'),
+    'pypi': ('https://pypi.org/project/%s', '📦'),
 }
 
 extensions.append('sphinxnotes.any')
