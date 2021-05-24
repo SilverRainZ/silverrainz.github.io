@@ -1,11 +1,13 @@
-==
-Me
-==
+===========
+SilverRainZ
+===========
 
 .. friend:: _
             Shengyu Zhang
-            SilverRainZ
             LA
+            i
+            me
+            谷月轩
 
 Intro
 -----
