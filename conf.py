@@ -43,9 +43,9 @@ extensions = [
     'sphinxcontrib.email',
     'sphinxnotes.lilypond',
     'sphinx.ext.githubpages',
-    'sphinx.ext.intersphinx',
     'sphinxnotes.strike',
     'sphinxcontrib.plantuml',
+    'sphinxcontrib.asciinema',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

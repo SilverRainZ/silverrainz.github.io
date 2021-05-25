@@ -27,6 +27,7 @@ Haskell 趣学指南
 
 .. book:: _
    :isbn: 9787115335593
+   :status: Finished
 
 已读，但没笔记。
 
@@ -34,31 +35,54 @@ Haskell 趣学指南
 ------
 
 .. book:: _
+   :status: Finished
+
+月亮与六便士
+------------
+
+.. book:: _
+   :isbn: 9787533936020
+   :status: Finished
+   :endat: 2018-03-04
 
 撒哈拉的故事
 ------------
 
 .. book:: _
+   :status: Finished
 
 雨季不再来
 ----------
 
 .. book:: _
+   :status: Finished
+   :endat: 2019-03-02
 
 三体
 ----
 
 .. book:: _
+          三体全集
+   :isbn: 9787229042066
+   :status: Finished
+   :endat: 2018-09-26
+
 
 纳尔齐斯与歌尔德蒙
 ------------------
 
 .. book:: _
+   :isbn: 9787532742295
+   :status: Finished
+   :endat: 2020-03-01
 
 德米安
 ------
 
 .. book:: _
+          德米安:彷徨少年时 
+   :isbn: 9787509365786
+   :status: Finished
    :endat: 2020-07-28
 
 我时常意识到⾃⼰心⾥有⼀个巨⼤的空洞，以及它⽆法被填补的铁⼀般的事实。
@@ -73,6 +97,7 @@ Haskell 趣学指南
 
 .. book:: _
           Educated
+   :status: Finished
    :endat: 2020-07-28
 
 我突然意识到自己和《Educated》中的偏执狂并没有太大区别：「父亲」带着家人们

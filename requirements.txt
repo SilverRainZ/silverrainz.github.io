@@ -11,3 +11,4 @@ sphinxnotes-strike
 sphinxnotes-isso
 sphinx-sitemap
 sphinxcontrib-plantuml
+sphinxcontrib.asciinema
