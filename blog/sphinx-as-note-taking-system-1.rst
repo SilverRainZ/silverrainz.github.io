@@ -8,13 +8,13 @@
    :category: 我如何用 Sphinx 建立笔记系统
    :language: zh_CN
 
-.. tip:: 这是 :ref:`category-我如何用-sphinx-建立笔记系统` 系列的第 |n| 篇，你可以通过订阅 :ref:`RSS <blog-feed>` 来获取后续更新。
+.. hint:: 这是 :ref:`category-我如何用-sphinx-建立笔记系统` 系列的第 |n| 篇，你可以通过订阅 :ref:`RSS <blog-feed>` 来获取后续更新。
 
 .. |n| replace:: 一
 
-.. tip:: 这个笔记系统是带有强烈个人色彩的 :ref:`笔记系统需求` 下诞生的，并不适合所有人，你可以稍作了解，再决定是否继续阅读。
+.. hint:: 这个笔记系统是带有强烈个人色彩的 :ref:`笔记系统需求` 下诞生的，并不适合所有人，你可以稍作了解，再决定是否继续阅读。
 
-.. tip:: 这篇文章作为系列的开场白，非常切题地只讲了我选择 Sphinx 的理由，不感兴趣也可以直接看 :doc:`下一篇文章 </blog/sphinx-as-note-taking-system-2>`
+.. hint:: 这篇文章作为系列的开场白，非常切题地只讲了我选择 Sphinx 的理由，不感兴趣也可以直接看 :doc:`下一篇文章 </blog/sphinx-as-note-taking-system-2>`
 
 ..
 
