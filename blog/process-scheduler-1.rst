@@ -8,7 +8,7 @@
    :language: zh_CN
 
 
-.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+.. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 .. note:: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
    并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,

@@ -7,7 +7,7 @@
    :author: LA
    :language: zh_CN
 
-.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+.. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:
 

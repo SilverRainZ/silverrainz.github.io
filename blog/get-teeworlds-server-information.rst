@@ -7,7 +7,7 @@
    :author: LA
    :language: zh_CN
 
-.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+.. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
 （什么是 `teeworlds <https://zh.wikipedia.org/wiki/Teeworlds>`_\ ？），
