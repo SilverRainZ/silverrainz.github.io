@@ -7,7 +7,7 @@
    :author: LA
    :language: zh_CN
 
-.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+.. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
 没注意到当前我的账户名是中文的. 导致了我在 `C:\Users\` 目录下的用户目录变成了中文的.

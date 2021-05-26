@@ -7,7 +7,7 @@
    :author: LA
    :language: zh_CN
 
-.. note:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
+.. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
 因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
 每次都从一台机复制到另一台实在麻烦, 而且不知道哪台电脑上使用的配置是最新改动的.
