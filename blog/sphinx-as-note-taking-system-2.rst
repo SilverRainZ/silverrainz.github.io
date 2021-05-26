@@ -3,7 +3,7 @@
 ==========================================
 
 .. post:: 2021-05-25
-   :tags: Sphinx
+   :tags: Sphinx, reStructuredText, 笔记系统
    :author: LA
    :category: 我如何用 Sphinx 建立笔记系统
    :language: zh_CN
