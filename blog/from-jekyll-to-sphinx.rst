@@ -3,7 +3,7 @@
 =================
 
 .. post:: 2020-12-26
-   :tags: Python Sphinx
+   :tags: Python, Sphinx, 变更
    :author: LA
    :language: zh_CN
 

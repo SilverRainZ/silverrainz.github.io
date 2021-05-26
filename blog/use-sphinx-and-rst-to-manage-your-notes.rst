@@ -3,7 +3,7 @@
 =========================================
 
 .. post:: 2017-03-29
-   :tags: Sphinx, reStructuredText
+   :tags: Sphinx, reStructuredText, 笔记系统
    :author: LA
    :language: zh_CN
 
