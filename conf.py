@@ -73,7 +73,8 @@ default_role = 'code'
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
-keep_warnings = True
+if not CI:
+    keep_warnings = True
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
