@@ -1,5 +1,5 @@
 :orphan:
-:Last Update: 2021-03-16
+:Last Update: 2021-05-28
 :Version: 1.0
 
 ======
@@ -27,20 +27,7 @@
 :fa:`search` 关注领域
 =====================
 
-分布式系统
-    TODO
-
-流处理系统
-    TODO
-
-自由软件
-    尤其是自由的 Linux 桌面软件 (Gnome/KDE, FreeDesktop, Wayland)
-
-操作系统内核
-    Linux, xv6, Plan9, osv...
-
-开发效率工具
-    TODO
+分布式系统 | 流处理系统 | 自由桌面软件 | 操作系统内核 | 开发效率工具
 
 :fa:`cogs` 专业技能
 ===================
@@ -269,6 +256,8 @@ Read The Docs
 - 维护 PNMixer [#]_ 的中文翻译
 - 为书籍 :book:`Haskell 趣学指南` 全书校正代码格式 [#]_
 - 为开源游戏 DDNet 修复 BUG [#]_
+- 为中国科学技术大学 Linux 用户协会（USTCLUG）设计社团 LOGO [#]_
+- 为知名 C/C++ Language Server 项目 ccls 设计 LOGO [#]_
 
 :fa:`info` 其他
 ===============
@@ -276,6 +265,7 @@ Read The Docs
 文章
 ----
 
+- 《我如何用Sphinx 建立笔记系统》系列文章 [#]_
 - 《Srain - Modern IRC Client written in GTK》 [#]_
 - 《编写便于打包的 Makefile》 [#]_
 - 《2015 华山杯 CTF Reverse 300》 [#]_
@@ -320,6 +310,9 @@ Read The Docs
 .. [#] https://github.com/nicklan/pnmixer
 .. [#] https://github.com/MnO2/learnyouahaskell-zh/pull/60
 .. [#] https://github.com/ddnet/ddnet/pull/1390
+.. [#] https://lug.ustc.edu.cn/news/2018/09/lug-logo-collect-result/
+.. [#] https://github.com/MaskRay/ccls/issues/628
+.. [#] https://silverrainz.gitee.io/blog/category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html
 .. [#] https://srain.im/2020/02/29/introducing-srain.html
 .. [#] https://silverrainz.gitee.io/blog/practical-makefile-for-packaging.html
 .. [#] https://silverrainz.gitee.io/blog/2015-huashangctf-re300.html
