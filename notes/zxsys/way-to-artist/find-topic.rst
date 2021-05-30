@@ -532,3 +532,14 @@ overhaed 非常大，有时会变得不是我自己。
    —— :friend:`SilverRainZ`
 
 .. [#] :zhwiki:`西西弗斯`
+
+Antihug
+-------
+
+.. artwork:: _
+   :id: xfczk2-011
+   :date: 2021-05-30
+   :size: 32k
+   :medium: 水彩 铅笔
+
+无法断定外来拥抱的安全性。
