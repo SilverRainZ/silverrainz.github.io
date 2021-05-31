@@ -6,9 +6,8 @@
 {% if image %}
 .. figure:: {{ image }}
    :width: 80%
-
-   {{ id }}
 {% else %}
+
 .. todo:: 图片未上传
 {% endif %}
 
