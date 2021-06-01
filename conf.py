@@ -200,6 +200,12 @@ any_schemas = [
            reference_template='👤{{ title }}',
            missing_reference_template='❌👤{{ title }}',
            ambiguous_reference_template='👥{{ title }}'),
+    Schema('gallery',
+           name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
+           attrs={'website': F()},
+           description_template=open('_templates/gallery.rst', 'r').read(),
+           reference_template='🖼️{{ title }}',
+           missing_reference_template='❌🖼️{{ title }}'),
 ]
 
 extensions.append('ablog')
