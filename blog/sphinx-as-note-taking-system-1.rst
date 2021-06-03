@@ -60,9 +60,9 @@
 
 - 我希望能 *结构化地描述笔记中的对象* ，并对它们进行引用、索引和分类，听起来有些强迫症但并非空穴来风：
 
-  - 我的 :doc:`绘画训练计划 </notes/zxsys/index>` 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：:ref:`any-artworkmediumindex`
-  - 我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：:ref:`any-artistindex`
-  - 我的 :ref:`朋友们 <any-friendindex>` 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 :friend:`quininer`，其实也是避免冗余的一个方式
+  - 我的 :doc:`绘画训练计划 </notes/zxsys/index>` 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：:ref:`any-artwork.medium`
+  - 我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：:ref:`any-artist`
+  - 我的 :ref:`朋友们 <any-friend>` 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 :friend:`quininer`，其实也是避免冗余的一个方式
 
 - 我是 Linux 用户（B.T.W. Arch Linux [#]_），我在终端下工作，*我希望我的笔记在终端能被良好地检索和浏览*
 - 我偏爱纯文本，作为曾经的 Mircosoft Word 的用户，我不喜欢复杂的富文本带来的难以预测的排版问题，以及兼容问题
