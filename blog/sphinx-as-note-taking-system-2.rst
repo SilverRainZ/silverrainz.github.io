@@ -191,10 +191,10 @@ Snippet 命令行工具
 根据 ID 索引 ``:artwork:`test-1```               :artwork:`test-1`
 更精确一点   ``:artwork.id:`test-1```            :artwork.id:`test-1`
 所有水彩画   ``:artwork.medium:`水彩```          :artwork.medium:`水彩`
-所有媒介     ``:ref:`any-artworkmediumindex```   :ref:`any-artworkmediumindex`
+所有媒介     ``:ref:`any-artwork.medium```       :ref:`any-artwork.medium`
 ============ =================================== ===============================
 
-我现在用这个扩展来管理我的 :ref:`读书笔记 <any-bookindex>`、:ref:`习作 <any-artworkindex>`、:ref:`艺术家记录 <any-artistindex>`、:ref:`友情链接 <any-friendindex>`。关于它如何工作，它还能怎么玩，也会有单独的文章来说明。
+我现在用这个扩展来管理我的 :ref:`读书笔记 <any-book>`、:ref:`习作 <any-artwork>`、:ref:`艺术家记录 <any-artist>`、:ref:`友情链接 <any-friend>`。关于它如何工作，它还能怎么玩，也会有单独的文章来说明。
 
 .. _Directives: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#directives
 .. _Jinja Template: https://github.com/SilverRainZ/bullet/blob/master/_templates/artwork.rst
