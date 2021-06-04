@@ -252,9 +252,10 @@ if CI:
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
-extensions.append('sphinx.ext.intersphinx')
-intersphinx_mapping = {
-    'python': ('https://docs.python.org/3', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
-    'srain': ('https://srainapp.github.io/docs', None),
-}
+if CI:
+    extensions.append('sphinx.ext.intersphinx')
+    intersphinx_mapping = {
+        'python': ('https://docs.python.org/3', None),
+        'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
+        'srain': ('https://srainapp.github.io/docs', None),
+    }
