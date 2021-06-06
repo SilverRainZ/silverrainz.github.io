@@ -1,7 +1,7 @@
 sphinxcontrib-email
 sphinxcontrib-images
 sphinxnotes-lilypond
-sphinxnotes-any>=2.0a0
+sphinxnotes-any>=2.0
 sphinx-panels
 ablog
 sphinx-autobuild
