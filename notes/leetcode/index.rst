@@ -5,6 +5,7 @@ Leetcode 刷题记录
 :date: 2021-03-10
 
 .. toctree::
+   :titlesonly:
 
    dp
 
@@ -78,3 +79,15 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 
 .. literalinclude:: ./n2-add-tow-numbers/main.go
    :language: go
+
+416. Partition Equal Subset Sum
+===============================
+
+把一个集合分成两个，使其 sum 分别相等，可以转化为：
+
+.. |Sa| replace:: S\ :sub:`a`
+
+假设原集合 sum 为 |Sa| ，从集合中选出一个子集，使其 sum 刚好的为 |Sa|/2 ——  这是一个 01 背包问题，背包容量为 |Sa|/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。
+
+.. literalinclude:: ./n416-partition-equal-subset-sum/src/lib.rs
+   :language: rust
