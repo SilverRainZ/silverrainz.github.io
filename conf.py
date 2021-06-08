@@ -83,6 +83,9 @@ if not CI:
 # files.
 show_authors = True
 
+# A URL to cross-reference manpage directives.
+manpages_url = 'https://linux.die.net/man/{section}/{page}'
+
 # -- Options for HTML output -------------------------------------------------
 
 # Add any paths that contain custom static files (such as style sheets) here,
