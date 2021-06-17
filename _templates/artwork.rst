@@ -4,7 +4,7 @@
 :媒介: {% for m in medium %}:artwork.medium:`{{ m }} <{{ m }}>` {% endfor %}
 
 {% if image %}
-.. figure:: {{ image }}
+.. image:: {{ image }}
    :width: 80%
 {% else %}
 

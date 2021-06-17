@@ -1,4 +1,3 @@
 _build/
 _any
-run.py
-sphinxnote
+_cache/
