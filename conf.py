@@ -262,3 +262,10 @@ if CI:
         'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
         'srain': ('https://srainapp.github.io/docs', None),
     }
+
+# extensions.append('sphinxcontrib.images')
+# images_config = {
+#     'override_image_directive': True,
+#     'cache_path': '_cache',
+#     'download': True,
+# }

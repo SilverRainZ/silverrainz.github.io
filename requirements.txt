@@ -1,5 +1,5 @@
 sphinxcontrib-email
-sphinxcontrib-images
+sphinxcontrib-images>=0.9.3
 sphinxnotes-lilypond
 sphinxnotes-any>=2.0
 sphinx-panels
