@@ -136,6 +136,10 @@ html_search_language = language
 
 html_last_updated_fmt = datefmt
 
+# A list of paths that contain extra files not directly related to the
+# documentation.
+html_extra_path = ['robots.txt']
+
 # -- Pre extension configuration ---------------------------------------------------
 
 extensions.append('sphinx.ext.todo')
