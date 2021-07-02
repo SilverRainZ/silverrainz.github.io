@@ -2,10 +2,9 @@
 造型实验室
 ==========
 
-:date: 2020-06 ~ 2021-06
-:address: 河北省三河市燕郊经济开发区
-:organization: 造型实验室
-:status: Work In Progress
+.. event:: _
+   :date: 2020-06-28 2021-06-26
+   :location: 河北 燕郊
 
 线下学习请联系 :weibo:`@李晓飞 <lixiaofeiart>` 老师。
 

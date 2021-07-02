@@ -213,6 +213,16 @@ any_schemas = [
            description_template=open('_templates/gallery.rst', 'r').read(),
            reference_template='🖼️{{ title }}',
            missing_reference_template='❌🖼️{{ title }}'),
+    Schema('event',
+           name=F(referenceable=True, required=True),
+           attrs={
+               'date': F(referenceable=True, form=F.Form.LINES),
+               'location': F(referenceable=True),
+           },
+           description_template=open('_templates/event.rst', 'r').read(),
+           reference_template='📅{{ title }}',
+           missing_reference_template='❌📅{{ title }}',
+           ambiguous_reference_template='📅{{ title }}'),
 ]
 
 extensions.append('ablog')
