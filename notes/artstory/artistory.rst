@@ -7,6 +7,7 @@
 
 .. contents::
    :local:
+   :depth: 1
 
 刘小东
 ======
@@ -215,8 +216,9 @@
             Marlene Dumas
             Dumas
    :movement: 当代艺术
-   :topic: 个人身份 种族身份 女性身份
-   :artwork: 邪恶是凡常之事
+
+:topic: 个人身份 种族身份 女性身份
+:artwork: 邪恶是凡常之事
 
 南非白人女性艺术家。
 
@@ -236,6 +238,31 @@
             佛洛伊德
             弗洛伊德
    :movement: 表现主义
+
+陈丹青
+======
+
+.. artist:: _
+
+克洛德·莫奈
+===========
+
+.. artist:: _
+            莫奈
+            Claude Monet
+            Monet
+   :movement: 印象主义
+
+理查德·迪本科恩
+===============
+
+.. artist:: _
+            迪本科恩
+            Richard Diebenkorn
+            Diebenkorn
+   :movement: 抽象表现主义
+
+.. seealso:: :artist:`阿丽卡`
 
 等待翻牌子
 ==========
