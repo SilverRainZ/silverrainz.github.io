@@ -14,10 +14,11 @@
    prelude
    light-and-shadow
    indoor-sketching
-   modeling-and-space
+   modeling
    fast-modeling
    way-to-artist/index
    learn-from-master
+   string-modeling
    tips
    glossary
 
