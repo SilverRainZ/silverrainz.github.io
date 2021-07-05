@@ -91,3 +91,11 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 
 .. literalinclude:: ./n416-partition-equal-subset-sum/src/lib.rs
    :language: rust
+
+21. Merge Two Sorted Lists
+==========================
+
+纯逻辑题。
+
+.. literalinclude:: ./n21-merge-two-sorted-lists/main.go
+   :language: go
