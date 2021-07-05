@@ -223,6 +223,18 @@ any_schemas = [
            reference_template='📅{{ title }}',
            missing_reference_template='❌📅{{ title }}',
            ambiguous_reference_template='📅{{ title }}'),
+    Schema('leetcode',
+           name=F(referenceable=True, required=True),
+           attrs={
+               'id': F(unique=True, referenceable=True),
+               'diffculty': F(referenceable=True),
+               'language': F(referenceable=True, form=F.Form.WORDS),
+               'key': F(referenceable=True, form=F.Form.WORDS),
+           },
+           description_template=open('_templates/leetcode.rst', 'r').read(),
+           reference_template='🧮{{ title }}',
+           missing_reference_template='❌🧮{{ title }}',
+           ambiguous_reference_template='🧮{{ title }}'),
 ]
 
 extensions.append('ablog')
