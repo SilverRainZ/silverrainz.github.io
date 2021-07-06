@@ -231,7 +231,7 @@ any_schemas = [
                'language': F(referenceable=True, form=F.Form.WORDS),
                'key': F(referenceable=True, form=F.Form.WORDS),
                'date': F(referenceable=True, form=F.Form.WORDS),
-               'reference': F(referenceable=True, form=F.Form.LINES),
+               'reference': F(referenceable=True),
            },
            description_template=open('_templates/leetcode.rst', 'r').read(),
            reference_template='🧮{{ title }}',
