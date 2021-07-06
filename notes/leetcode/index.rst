@@ -119,6 +119,24 @@ Maximum Subarray
    :id: maximum-subarray
    :diffculty: Easy
    :language: go
-   :key: 动态规划 分治
+   :key: 动态规划 分治法
 
-题目本身比较简单，一维 DP 或者贪心均可做。
+题目本身比较简单，一维 DP 或者贪心 :math:`O(n)` 可做。
+
+.. |Ml| replace:: M\ :sub:`left`
+.. |Mr| replace:: M\ :sub:`right`
+.. |Mm| replace:: M\ :sub:`middle`
+
+题干提示可用分治法做，"which is more subtle"，是一个吃力不讨好的解法。但很有代表性：
+
+设数组最大子序列为 M ，M = max(|Ml|, |Mr|, |Mm|)，分别为左半边数组的最大子序列，右半边数组的最大子序列，或者是从中间算起，横跨左右的最大子序列。
+
+- 当问题规模缩减至 1 的时候， |Ml|, |Mr|, |Mm| 显然为数组里唯一的元素
+- |Mm| 的值不可由子问题推导出来，只能在数组 l 和 r 分别逆序和顺序遍历，求各自的从边缘开始的最大子序列，是一个 :math:`O(n)` 的操作 -- 这就决定了这个解法比 DP 慢，在每一轮子问题的解决都要遍历一次
+- 二分法，所以问题要 :math:`O(\log_{2}n)` 个规模的子问题
+
+复杂度为 :math:`O(n\log n)` 。
+
+.. seealso:: `算法复杂度中的O(logN)底数是多少`_
+
+   .. _算法复杂度中的O(logN)底数是多少: https://www.cnblogs.com/lulin1/p/9516132.html
