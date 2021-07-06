@@ -38,6 +38,7 @@ Valid Parentheses
    :id: valid-parentheses
    :diffculty: Easy
    :language: rust
+   :date: 2021-05-04
 
 熟悉语法……
 
@@ -48,6 +49,7 @@ LRU Cache
    :id: lru-cache
    :diffculty: Medium
    :language: go
+   :date: 2021-05-08
 
 想用 rust 写个 LRU cache 吧发现 `std::collection:LinkedList` 没有暴露出类似
 链表节点的结构体……有的话所有权也是问题，`Cursor` 看起来像然而 nightly only，
@@ -62,6 +64,7 @@ LFU Cache
    :id: lfu-cache
    :diffculty: Medium
    :language: go
+   :date: 2021-05-08
 
 在 touch 一个元素的的时候从链表尾部往上找，是一个 O(n) 的操作，然而
 Leetcode 给过了…… 要是在 `SCAU OJ`_ 是肯定要 TLE。
@@ -84,6 +87,7 @@ Add Two Numbers
    :id: add-two-numbers
    :diffculty: Medium
    :language: go
+   :date: 2021-05-13
 
 凡是链表的题目都不能用 rust :'(
 
@@ -95,6 +99,7 @@ Partition Equal Subset Sum
    :diffculty: Medium
    :language: rust
    :key: 动态规划
+   :date: 2021-06-21
 
 把一个集合分成两个，使其 sum 分别相等，可以转化为：
 
@@ -109,6 +114,7 @@ Merge Two Sorted Lists
    :id: merge-two-sorted-lists
    :diffculty: Easy
    :language: go
+   :date: 2021-07-05
 
 纯逻辑题。
 
@@ -120,6 +126,7 @@ Maximum Subarray
    :diffculty: Easy
    :language: go
    :key: 动态规划 分治法
+   :date: 2021-07-05 2021-07-06
 
 题目本身比较简单，一维 DP 或者贪心 :math:`O(n)` 可做。
 
@@ -149,7 +156,8 @@ Climbing Stairs
    :diffculty: Easy
    :language: go
    :key: 搜索 动态规划
-   :solution: https://blog.csdn.net/zgpeace/article/details/88382121
+   :date: 2021-07-06
+   :reference: https://blog.csdn.net/zgpeace/article/details/88382121
 
 记忆化搜索
    写一个暴力版本，时间复杂度 :math:`O(2^n)`。记忆冗余结果后复杂度应为 :math:`O(n)`(?)。空间复杂度 :math:`O(n)`
@@ -168,6 +176,7 @@ Binary Tree Inorder Traversal
    :diffculty: Easy
    :language: go
    :key: 二叉树
+   :date: 2021-07-06
 
 纯数据结构题，没啥好说。
 
@@ -178,4 +187,14 @@ Symmetric Tree
    :id: symmetric-tree
    :diffculty: Easy
    :language: go
-   :key:
+   :key: 二叉树
+   :date: 2021-07-06
+   :reference: https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
+
+递归解法
+   按递归做的话是带点变化的数据结构题，左右子树互为镜像，任意对称的节点的左子树等于右子树。 
+
+非递归解法
+   引入栈，按 `左->中->右` 和 `右->中->左` 应得到完全相同的序列。
+
+   .. tip:: 前序遍历写起来应当简单一点
