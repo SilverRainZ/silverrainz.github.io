@@ -230,6 +230,7 @@ any_schemas = [
                'diffculty': F(referenceable=True),
                'language': F(referenceable=True, form=F.Form.WORDS),
                'key': F(referenceable=True, form=F.Form.WORDS),
+               'solution': F(referenceable=True, form=F.Form.LINES),
            },
            description_template=open('_templates/leetcode.rst', 'r').read(),
            reference_template='🧮{{ title }}',

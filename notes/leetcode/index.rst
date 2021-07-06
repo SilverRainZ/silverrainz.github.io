@@ -140,3 +140,42 @@ Maximum Subarray
 .. seealso:: `算法复杂度中的O(logN)底数是多少`_
 
    .. _算法复杂度中的O(logN)底数是多少: https://www.cnblogs.com/lulin1/p/9516132.html
+
+Climbing Stairs
+===============
+
+.. leetcode:: _
+   :id: climbing-stairs
+   :diffculty: Easy
+   :language: go
+   :key: 搜索 动态规划
+   :solution: https://blog.csdn.net/zgpeace/article/details/88382121
+
+记忆化搜索
+   写一个暴力版本，时间复杂度 :math:`O(2^n)`。记忆冗余结果后复杂度应为 :math:`O(n)`(?)。空间复杂度 :math:`O(n)`
+
+递推
+   有一点动态规划的味道，但逻辑上非常简单，时间空间复杂度都是 :math:`O(n)`
+
+斐波那契数列
+   空间上当然可以到 :math:`O(1)` ，不写了
+
+Binary Tree Inorder Traversal
+=============================
+
+.. leetcode:: _
+   :id: binary-tree-inorder-traversal
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树
+
+纯数据结构题，没啥好说。
+
+Symmetric Tree
+==============
+
+.. leetcode:: _
+   :id: symmetric-tree
+   :diffculty: Easy
+   :language: go
+   :key:
