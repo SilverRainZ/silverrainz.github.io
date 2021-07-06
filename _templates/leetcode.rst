@@ -1,9 +1,9 @@
 :地址: https://leetcode.com/problems/{{ id }}
 :难度: :leetcode.diffculty:`{{ diffculty }} <{{ diffculty }}>`
 :语言: {% for l in language %}:leetcode.language:`{{ l }} <{{ l }}>` {% endfor %}
-{% if key %}:思路: {{ key }}{% endif %}
-{% if solution %}:他人题解: {% for s in solution %} - {{ s }}
-{% endfor %}{% endif %}
+{% if key %}:思路: {% for k in key %}:leetcode.key:`{{ k }} <{{ k }}>` {% endfor %}{% endif %}
+{% if date %}:日期: {% for d in date %}:leetcode.date:`{{ d }} <{{ d }}>` {% endfor %}{% endif %}
+{% if reference %}:参考: {{ reference }}{% endif %}
 
 .. dropdown:: 题解
 
