@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 title=$(python -c "print('$1'.replace('-', ' ').title())")
-title_delim=$(python -c "print('='*len('$title'))")
+title_delim=$(python -c "print('-'*len('$title'))")
 
 cat <<EOF >> index.rst
 
