@@ -4,6 +4,7 @@ title=$(python -c "print('$1'.replace('-', ' ').title())")
 title_delim=$(python -c "print('='*len('$title'))")
 
 cat <<EOF >> index.rst
+
 $title
 $title_delim
 
@@ -12,6 +13,7 @@ $title_delim
    :diffculty:
    :language:
    :key:
+   :date: $(date +%F)
 EOF
 
 mkdir $1
