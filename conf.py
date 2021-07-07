@@ -235,7 +235,7 @@ any_schemas = [
            },
            description_template=open('_templates/leetcode.rst', 'r').read(),
            reference_template='🧮{{ title }}',
-           missing_reference_template='❌🧮{{ title }}',
+           missing_reference_template='🧮{{ title }}',
            ambiguous_reference_template='🧮{{ title }}'),
 ]
 

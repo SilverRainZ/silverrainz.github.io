@@ -16,16 +16,31 @@ Leetcode 刷题记录
 
 .. tip::
 
-   用 :file:`new-problem.sh` 来开始一道新题目：
+   用 :file:`./new-problem.sh` 来开始一道新题目：
 
    .. literalinclude:: ./new-problem.sh
       :language: bash
+
+日记
+====
+
+:leetcode.date:`2021-07-05`
+   刷 Easy 题练手感
+
+:leetcode.date:`2021-07-06`
+   刷 Easy 题练手感
+
+:leetcode.date:`2021-07-07`
+   继续刷 Easy 题练手感，尝试一道 Medium
+
+题解
+====
 
 .. contents::
    :local:
 
 Two Sum
-=======
+-------
 
 .. leetcode:: _
    :id: two-sum
@@ -39,7 +54,7 @@ Two Sum
 
 
 Valid Parentheses
-=================
+-----------------
 
 .. leetcode:: _
    :id: valid-parentheses
@@ -50,7 +65,7 @@ Valid Parentheses
 熟悉语法……
 
 LRU Cache
-=========
+---------
 
 .. leetcode:: _
    :id: lru-cache
@@ -65,7 +80,7 @@ LRU Cache
 但如果换成 go 的话…… :del:`这么简单的题也算 medium 吗` ，可能因为太实用了所以写起来不难？
 
 LFU Cache
-=========
+---------
 
 .. leetcode:: _
    :id: lfu-cache
@@ -88,7 +103,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 .. _SCAU OJ: http://acm.scau.edu.cn:8000
 
 Add Two Numbers
-===============
+---------------
 
 .. leetcode:: _
    :id: add-two-numbers
@@ -99,7 +114,7 @@ Add Two Numbers
 凡是链表的题目都不能用 rust :'(
 
 Partition Equal Subset Sum
-==========================
+--------------------------
 
 .. leetcode:: _
    :id: partition-equal-subset-sum
@@ -115,7 +130,7 @@ Partition Equal Subset Sum
 假设原集合 sum 为 |Sa| ，从集合中选出一个子集，使其 sum 刚好的为 |Sa|/2 ——  这是一个 01 背包问题，背包容量为 |Sa|/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。
 
 Merge Two Sorted Lists
-======================
+----------------------
 
 .. leetcode:: _
    :id: merge-two-sorted-lists
@@ -126,7 +141,7 @@ Merge Two Sorted Lists
 纯逻辑题。
 
 Maximum Subarray
-================
+----------------
 
 .. leetcode:: _
    :id: maximum-subarray
@@ -156,7 +171,7 @@ Maximum Subarray
    .. _算法复杂度中的O(logN)底数是多少: https://www.cnblogs.com/lulin1/p/9516132.html
 
 Climbing Stairs
-===============
+---------------
 
 .. leetcode:: _
    :id: climbing-stairs
@@ -176,7 +191,7 @@ Climbing Stairs
    空间上当然可以到 :math:`O(1)` ，不写了
 
 Binary Tree Inorder Traversal
-=============================
+-----------------------------
 
 .. leetcode:: _
    :id: binary-tree-inorder-traversal
@@ -188,7 +203,7 @@ Binary Tree Inorder Traversal
 纯数据结构题，没啥好说。
 
 Symmetric Tree
-==============
+--------------
 
 .. leetcode:: _
    :id: symmetric-tree
@@ -207,7 +222,7 @@ Symmetric Tree
    .. tip:: 前序遍历写起来应当简单一点
 
 Maximum Depth Of Binary Tree
-============================
+----------------------------
 
 .. leetcode:: _
    :id: maximum-depth-of-binary-tree
@@ -219,7 +234,7 @@ Maximum Depth Of Binary Tree
 数据结构题。
 
 Best Time to Buy and Sell Stock
-===============================
+-------------------------------
 
 .. leetcode:: _
    :id: best-time-to-buy-and-sell-stock
@@ -227,6 +242,7 @@ Best Time to Buy and Sell Stock
    :language: rust
    :key: 动态规划
    :date: 2021-07-07
+   :reference: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/
 
 写了三个版本：
 
@@ -234,7 +250,8 @@ Best Time to Buy and Sell Stock
    TLE，每次 `i+1..prices.len()` 的回溯有大量荣誉计算，复杂度为 :math:`O(n!)`
 
 DP1
-   其实不太算 DP，但不重要。 `profit[i]` 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 `profit[i] = profit[j] + (prices[i] - prices[j])`, where `j < i && prices[j] <= prices[i]` 。复杂度依然为 :math:`O(n!)` ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。
+   其实不太算 DP，参考里给出了非常 DP 的解法。 
+   `profit[i]` 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 `profit[i] = profit[j] + (prices[i] - prices[j])`, where `j < i && prices[j] <= prices[i]` 。复杂度依然为 :math:`O(n!)` ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。
 
    .. note:: 实际上 `profit[i]` 可以只从 `profit[i-1]` 推断，见下
 
@@ -244,7 +261,7 @@ DP2
    从题意上看，方程的意思是：在第 i-1 天我们已经取得了能取得的最大收益，那第 i 天也应该参考第 i-1 天的购入时机，如果亏本了，则不购入。
 
 Invert Binary Tree
-==================
+------------------
 
 .. leetcode:: _
    :id: invert-binary-tree
@@ -258,7 +275,7 @@ Invert Binary Tree
 .. [#] https://twitter.com/mxcl/status/608682016205344768
 
 Best Time to Buy and Sell Stock II
-==================================
+----------------------------------
 
 .. leetcode:: _
    :id: best-time-to-buy-and-sell-stock-ii
@@ -266,3 +283,33 @@ Best Time to Buy and Sell Stock II
    :language: rust
    :key: 动态规划
    :date: 2021-07-07
+
+:leetcode:`Best Time to Buy and Sell Stock` 的一个简单变体，允许多次买卖，没啥好说。
+
+Best Time to Buy and Sell Stock III
+-----------------------------------
+
+.. leetcode:: _
+   :id: best-time-to-buy-and-sell-stock-iii
+   :diffculty: Hard
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-07
+   :reference: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iii-by-wrnt/
+
+:leetcode:`Best Time to Buy and Sell Stock` 的一个更难的变体，允许至多两次不重叠的买卖。
+
+解法一
+   按 :leetcode:`Best Time to Buy and Sell Stock` 的解法，进行一次买卖，在此基础得到一个第 i 天收入的数组 `max_profit1` ，*该收入不一定是当日卖出所得*
+
+   第二次买卖，需在第一次买卖后一天（当天卖，当天买没有意义，收益和一次买卖没差）::
+
+      profit2[i] = max(max_profit1[i-2], profit2[i-1]) + (prices[i] - prices[i-1])
+
+   `profit2` 数组为第一次买卖 *后*，第 i 天的收入的数组，若收入为负，则放弃该交易，收入为 0。
+
+   可以看到 `profit2[i]` 肯定会赚 i-1 天的差价 `prices[i] - prices[i-1]`，但可以选择加上 i-2 天时第一次买卖的最大收入 `max_profit1[i-2]` 或者沿用 i-1 t天做第二次买卖的最优策略。
+
+   最终 `profit2` 数组中的最大值为答案。
+
+   复杂度为 :math:`2*O(n)` ，这个常数可以优化掉，测评里只比 6.67% 的选手快，:math:`O(n)` 已经是这个问题的极限了，暂时不知道哪里有问题。
