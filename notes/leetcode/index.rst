@@ -31,7 +31,7 @@ Leetcode 刷题记录
    刷 Easy 题练手感
 
 :leetcode.date:`2021-07-07`
-   继续刷 Easy 题练手感，尝试一道 Medium
+   继续刷 Easy 题练手感， :del:`尝试一道 Medium` ，做 :leetcode:`Best Time to Buy and Sell Stock` 系列三题，勉强出一道 Hard
 
 题解
 ====
@@ -306,10 +306,34 @@ Best Time to Buy and Sell Stock III
 
       profit2[i] = max(max_profit1[i-2], profit2[i-1]) + (prices[i] - prices[i-1])
 
-   `profit2` 数组为第一次买卖 *后*，第 i 天的收入的数组，若收入为负，则放弃该交易，收入为 0。
+   `profit2` 数组为第一次买卖 *后* ，第 i 天的收入的数组，若收入为负，则放弃该交易，收入为 0。
 
    可以看到 `profit2[i]` 肯定会赚 i-1 天的差价 `prices[i] - prices[i-1]`，但可以选择加上 i-2 天时第一次买卖的最大收入 `max_profit1[i-2]` 或者沿用 i-1 t天做第二次买卖的最优策略。
 
    最终 `profit2` 数组中的最大值为答案。
 
    复杂度为 :math:`2*O(n)` ，这个常数可以优化掉，测评里只比 6.67% 的选手快，:math:`O(n)` 已经是这个问题的极限了，暂时不知道哪里有问题。
+
+.. todo:: 更快的解法
+
+Single Number
+-------------
+
+.. leetcode:: _
+   :id: single-number
+   :diffculty: Easy
+   :language: rust
+   :key: 位操作
+   :date: 2021-07-07
+   :reference: https://www.cnblogs.com/grandyang/p/4130577.html
+
+遥想 pcf 师傅还跟我讨论过这题，可惜没记住。反正不看题解打死也做不出来。
+
+Diameter Of Binary Tree
+-----------------------
+
+.. leetcode:: _
+   :id: diameter-of-binary-tree
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树
