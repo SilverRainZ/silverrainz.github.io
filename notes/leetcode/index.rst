@@ -14,6 +14,13 @@ Leetcode 刷题记录
 
 .. _Top 100 Liked Questions: https://leetcode.com/problemset/all/?listId=79h8rn6
 
+.. tip::
+
+   用 :file:`new-problem.sh` 来开始一道新题目：
+
+   .. literalinclude:: ./new-problem.sh
+      :language: bash
+
 .. contents::
    :local:
 
@@ -198,3 +205,64 @@ Symmetric Tree
    引入栈，按 `左->中->右` 和 `右->中->左` 应得到完全相同的序列。
 
    .. tip:: 前序遍历写起来应当简单一点
+
+Maximum Depth Of Binary Tree
+============================
+
+.. leetcode:: _
+   :id: maximum-depth-of-binary-tree
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树
+   :date: 2021-07-07
+
+数据结构题。
+
+Best Time to Buy and Sell Stock
+===============================
+
+.. leetcode:: _
+   :id: best-time-to-buy-and-sell-stock
+   :diffculty: Easy
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-07
+
+写了三个版本：
+
+暴力
+   TLE，每次 `i+1..prices.len()` 的回溯有大量荣誉计算，复杂度为 :math:`O(n!)`
+
+DP1
+   其实不太算 DP，但不重要。 `profit[i]` 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 `profit[i] = profit[j] + (prices[i] - prices[j])`, where `j < i && prices[j] <= prices[i]` 。复杂度依然为 :math:`O(n!)` ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。
+
+   .. note:: 实际上 `profit[i]` 可以只从 `profit[i-1]` 推断，见下
+
+DP2
+   更好的状态转移方程是 `profit[i] = max(profit[i-1] + (prices[i] - prices[i-1]), 0)` 。复杂度为 :math:`O(n)` ，超过了 85%+ 的选手，够了。
+
+   从题意上看，方程的意思是：在第 i-1 天我们已经取得了能取得的最大收益，那第 i 天也应该参考第 i-1 天的购入时机，如果亏本了，则不购入。
+
+Invert Binary Tree
+==================
+
+.. leetcode:: _
+   :id: invert-binary-tree
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树
+   :date: 2021-07-07
+
+我能去 Google 了吗？[#]_
+
+.. [#] https://twitter.com/mxcl/status/608682016205344768
+
+Best Time to Buy and Sell Stock II
+==================================
+
+.. leetcode:: _
+   :id: best-time-to-buy-and-sell-stock-ii
+   :diffculty: Easy
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-07
