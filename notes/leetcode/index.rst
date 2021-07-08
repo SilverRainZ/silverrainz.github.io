@@ -31,7 +31,7 @@ Leetcode 刷题记录
    刷 Easy 题练手感
 
 :leetcode.date:`2021-07-07`
-   继续刷 Easy 题练手感， :del:`尝试一道 Medium` ，做 :leetcode:`Best Time to Buy and Sell Stock` 系列三题，勉强出一道 Hard
+   继续刷 Easy 题练手感，:del:`尝试一道 Medium` ，做 :leetcode:`Best Time to Buy and Sell Stock` 系列三题，勉强出一道 Hard
 
 题解
 ====
@@ -97,8 +97,8 @@ Leetcode 给过了…… 要是在 `SCAU OJ`_ 是肯定要 TLE。
 frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
 桶内部是一个小的 LRU，这样 touch 就是 O(n) 了。
 
-想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 O(n)
-的查找变成 O(logN) 而已，大量重复的 freq 值是很浪费时间和空间的。
+想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 :math:`O(n)`
+的查找变成 :math:`O(\log n)` 而已，大量重复的 freq 值是很浪费时间和空间的。
 
 .. _SCAU OJ: http://acm.scau.edu.cn:8000
 
@@ -337,3 +337,19 @@ Diameter Of Binary Tree
    :diffculty: Easy
    :language: go
    :key: 二叉树
+   :date: 2021-07-08
+   :reference: https://www.cnblogs.com/wangxiaoyong/p/10449634.html
+
+这题本不难，答案是所有节点中「左子树深度 + 右子树深度」最大的值。
+
+解法1
+   没能 AC，留下是为了提醒自己。
+
+   实现稍复杂，思路上是实现一个对每个节点返回左右臂展（其实就是深度）的函数：需要考虑 `root.Left != nil` 和 `root.Right != nil` 的情况，总之是对的，但因为思路的不明确，实现了一个 `func maxInts(s ...int)` 的函数，在递归前存了 `res` 在数组里，在递归后拿它来做运算…… 非常典型的错误
+
+解法2
+   仅修正了比较前的 `res` 被覆盖的问题，AC ，但 `maxInts` 很慢。
+
+解法3
+   标准解法，参考里的题解有个莫名其妙的 `+1` 再 `-1` ，没有用。
+
