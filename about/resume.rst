@@ -1,6 +1,5 @@
 :orphan:
 :Last Update: 2021-05-28
-:Version: 1.0
 
 ======
 张盛宇

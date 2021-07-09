@@ -277,6 +277,24 @@
 .. artist:: _
    :movement: 当代艺术
 
+文森特·梵高
+===========
+
+.. artist:: _
+            梵高    
+            凡高
+            Vincent Willem van Gogh
+            Van Gogh
+   :movement: 后印象主义
+
+
+巴尔蒂斯
+========
+
+.. artist:: _
+            Balthus
+   :movement: 具象主义
+
 等待翻牌子
 ==========
 

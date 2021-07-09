@@ -413,3 +413,17 @@ Shortest Subarray To Be Removed To Make Array Sorted
 非也，`[0,l]` 和 `[r, len(N)-1]` 分别有序，但整体不一定有序，而且可能重叠，如 `[1, 2, 100]` 和 `[0, 2, 5]`，从 `ll in l->0` 和 `rr in len(N)-1 -> r` 两个方向找恰好 `N[ll] < N[rr]` 即为答案，递归可做。
 
 .. note:: 注意整个数组有序的边界条件。
+
+House Robber
+------------
+
+.. leetcode:: _
+   :id: house-robber
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-09
+
+抢劫第 i 间房子能获得财产 `M[i]`，最大收入 `R[i]`。递推方程：`R[i] = max(R[i-2], R[i-2]) + M[i]`，答案为最大的 `R[i]`。
+
+手动初始化前三个 R 有点累。
