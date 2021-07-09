@@ -33,6 +33,12 @@ Leetcode 刷题记录
 :leetcode.date:`2021-07-07`
    继续刷 Easy 题练手感，:del:`尝试一道 Medium` ，做 :leetcode:`Best Time to Buy and Sell Stock` 系列三题，勉强出一道 Hard
 
+:leetcode.date:`2021-07-08`
+   有事早上出门一趟，回来也累的不想做题。晚上刷了一道二叉树的题目，因为粗心浪费了很多时间。
+
+:leetcode.date:`2021-07-09`
+   睡晚了，情绪不佳。两道 Medium 一道 Easy，就这样吧。
+
 题解
 ====
 
@@ -353,3 +359,57 @@ Diameter Of Binary Tree
 解法3
    标准解法，参考里的题解有个莫名其妙的 `+1` 再 `-1` ，没有用。
 
+Merge Two Binary Trees
+----------------------
+
+.. leetcode:: _
+   :id: merge-two-binary-trees
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树
+   :date: 2021-07-09
+
+数据结构题。
+
+Maximum Product Subarray
+------------------------
+
+.. leetcode:: _
+   :id: maximum-product-subarray
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-09
+   :reference: https://leetcode-cn.com/problems/maximum-product-subarray/solution/cheng-ji-zui-da-zi-shu-zu-by-leetcode-solution/
+
+:leetcode:`Maximum Subarray` 的变体，求乘积最大的子序列。偷偷看了一眼题解：得到了「开两个 dp 数组」的提示。
+
+`N` 为给定数组，用 `P[i]` 表示以 i 结尾的子序列的最大乘积，假设数组只有非负数，那么 `P[i]` 的值只和 `N[i]` 和 `P[i-1]` 相关： `P[i] = P[i-1] * N[i]` 。
+
+但数组可能出现负数：
+
+- 用 `P[i]` 表示以 i 结尾的子序列的最大正乘积
+- 用 `Pn[i]` 表示以 i 结尾的子序列的最小负乘积
+
+根据 `N[i]` 的正负不同：`Pn` 的值可能转化为 `P`，`P` 的值可能也转化为 `Pn`:
+
+- `P[i] = max(N[0], P[i-1]*N[0], Pn[i-1]*N[0])`
+- `Pn[i] = min(N[0], P[i-1]*N[0], Pn[i-1]*N[0])`
+
+
+Shortest Subarray To Be Removed To Make Array Sorted
+----------------------------------------------------
+
+.. leetcode:: _
+   :id: shortest-subarray-to-be-removed-to-make-array-sorted
+   :diffculty: Medium
+   :language: rust
+   :date: 2021-07-09
+
+略难，写了很复杂的代码依然 WA，感受是：当你需要判断非常复杂的情况时，思路大概率部队。
+
+移除 *一个* 最短的子序列使整个数组有序，那该数组必形如：`[ 有序..., 无序..., 有序...]`，当然两个有序的部分可能是空数组。数组为 `N`，易从左到右分别求出有序的部分 `[0,l]` 和 `[r, len(N)-1]`，那 `[l+1, r-1]` 是否就为最小的无序子序列呢？
+
+非也，`[0,l]` 和 `[r, len(N)-1]` 分别有序，但整体不一定有序，而且可能重叠，如 `[1, 2, 100]` 和 `[0, 2, 5]`，从 `ll in l->0` 和 `rr in len(N)-1 -> r` 两个方向找恰好 `N[ll] < N[rr]` 即为答案，递归可做。
+
+.. note:: 注意整个数组有序的边界条件。
