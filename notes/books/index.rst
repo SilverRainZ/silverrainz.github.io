@@ -129,5 +129,8 @@ Haskell 趣学指南
    :isbn: ASIN-B01H6UY7XW
    :status: Reading
    :startat: 2021-07-02
+   :endat: 2021-07-11
 
 在刘澳的咨询室看到的书，翻了几页觉得有用，于是开始读。
+
+这不是写给患者的书。
