@@ -37,7 +37,13 @@ Leetcode 刷题记录
    有事早上出门一趟，回来也累的不想做题。晚上刷了一道二叉树的题目，因为粗心浪费了很多时间。
 
 :leetcode.date:`2021-07-09`
-   睡晚了，情绪不佳。两道 Medium 一道 Easy，就这样吧。
+   睡晚了，情绪不佳。三道 Medium 一道 Easy，就这样吧。
+
+2021-07-10 - 2021-07-11
+   周末情绪管理失败。
+
+:leetcode.date:`2021-07-12`
+   2 Medium 1 Hard。情绪非常差，我想应该怪 :book:`我们内心的冲突`。
 
 题解
 ====
@@ -427,3 +433,61 @@ House Robber
 抢劫第 i 间房子能获得财产 `M[i]`，最大收入 `R[i]`。递推方程：`R[i] = max(R[i-2], R[i-2]) + M[i]`，答案为最大的 `R[i]`。
 
 手动初始化前三个 R 有点累。
+
+Longest Increasing Subsequence
+------------------------------
+
+.. leetcode:: _
+   :id: longest-increasing-subsequence
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划 二分法
+   :date: 2021-07-12
+   :reference: https://blog.csdn.net/lxt_Lucia/article/details/81206439
+
+经典 DP 题。
+
+维护以 `i` 结尾的 LIS 的长度
+   设数组为 `N`，`F[i]` 为以 `i` 结尾的最长上升子序列的长度，有递推式：`F[i] = F[j]+1`，where `N[i] < N[j]`，这个 j 得通过一个 `0..i` 的循环获取，因此复杂度 为 :math:`O(n^2)`
+
+维护长度为 `i` 的 LIS 结尾元素的最小值
+   复杂度 :math:`O(n\log n)`，是我想不出来的解法 T_T。
+
+   .. note:: 感觉没有说明白，算了。
+
+Edit Distance
+-------------
+
+.. leetcode:: _
+   :id: edit-distance
+   :diffculty: Hard
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-12
+   :reference: https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/
+
+太难了……毫无思路直接看题解。
+
+Minimum ASCII Delete Sum for Two Strings
+----------------------------------------
+
+.. leetcode:: _
+   :id: minimum-ascii-delete-sum-for-two-strings
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-12
+
+:leetcode:`Edit Distance` 的变种，将最少操作数变成了最少的 ASCII 之和而已。
+
+一开始审错题，难受。
+
+Longest Common Subsequence
+--------------------------
+
+.. leetcode:: _
+   :id: longest-common-subsequence
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划
+   :date:
