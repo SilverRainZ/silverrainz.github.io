@@ -2,10 +2,10 @@
 :ISBN: {{ isbn }}
 {% endif %}
 {% if startat %}
-:开始于: {{ startat }}
+:开始于: {% for s in startat %}:book.startat:`{{ s }} <{{ s }}>` {% endfor %}
 {% endif %}
 {% if endat %}
-:结束于: {{ endat }}
+:结束于: {% for e in endat %}:book.endat:`{{ e }} <{{ e }}>` {% endfor %}
 {% endif %}
 {% if bookmark %}
 :书签: 第 {{ bookmark }} 页
