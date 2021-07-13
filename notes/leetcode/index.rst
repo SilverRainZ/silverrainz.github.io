@@ -45,6 +45,16 @@ Leetcode 刷题记录
 :leetcode.date:`2021-07-12`
    2 Medium 1 Hard。情绪非常差，我想应该怪 :book:`我们内心的冲突`。
 
+:leetcode.date:`2021-07-13`
+   3 Medium 1 Easy。情绪稳定了一些。
+
+复习
+====
+
+重点题目
+
+多解法
+
 题解
 ====
 
@@ -533,7 +543,54 @@ Longest Palindromic Substring
 
 .. leetcode:: _
    :id: longest-palindromic-substring
-   :diffculty:
+   :diffculty: Medium
+   :language: rust
+   :key: 递归 动态规划
+   :date: 2021-07-13
+
+钻了牛角尖……还不如直接看题解。
+
+分情况递归
+   字符串为 `S`，开一个全局变量存最大回文字串的区间 `ANS = (0, 0)`，对每一个 `S[i]`，从中间往两边扫，可获得所有的 "YXY" 的奇数回文串。但注意有 "YXXY" 的偶数回文串，则对每一个相等的 `S[i-1]` 和 `S[i]` 往两边扫。
+
+   复杂度为 :math:`O(n^2)`，感觉可以用记忆化优化一下。
+
+DP
+   状态数组 `D[i][j]` 表示 `S[i..j]` 是否为回文串。若 `S[i] == S[j]`，则 `D[i][j]` 为回文串的话需要：
+
+   - `i - j < 2`
+   - 或者 `D[i+1][j-1]` 为回文串 where `i - j < 2`
+
+   复杂度同为 :math:`O(n^2)`。
+   
+   .. note:: 应当注意两层循环的方向，外层 `i = n -> 0`，内层 `j = i -> n` 是为了保证求 `D[i][j]` 时 `D[i+1][j-1]` 已解出
+
+.. todo:: 听说有 :math:`O(n)` 的做法，改日再学习吧。
+
+Linked List Cycle
+-----------------
+
+.. leetcode:: _
+   :id: linked-list-cycle
+   :diffculty: Easy
+   :language: go
+   :key: 双指针
+   :date: 2021-07-13
+
+无论如何时间复杂度都是 :math:`O(n)`，用哈希标表存 visited 的做法不用说了。
+
+题目要求用 :math:`O(1)` 空间，估计我独立做不出来。很久前听 :friend:`pcf` 说到用两个指针，所以稍微回忆了一下：用两个步长不一致的指针，一个每次一个节点，一个每次两个节点，如果成环的话总会相遇。
+
+.. seealso:: :friend:`fei.li` 的 解法_ 惊为天人
+
+   .. _解法: https://leetcode-cn.com/problems/linked-list-cycle/solution/qiao-miao-li-yong-zhi-zhen-cun-chu-jie-d-xeca/
+
+Product of Array Except Self
+----------------------------
+
+.. leetcode:: _
+   :id: product-of-array-except-self
+   :diffculty: Medium
    :language:
    :key:
-   :date: 2021-07-13
+   :date:
