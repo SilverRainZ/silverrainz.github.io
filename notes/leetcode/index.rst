@@ -490,4 +490,50 @@ Longest Common Subsequence
    :diffculty: Medium
    :language: rust
    :key: 动态规划
-   :date:
+   :date: 2021-07-13
+
+涉及两个数组的 DP 问题常常是二维 DP，和 `:leetcode:`Edit Distance` 的思路有相似之处。
+
+两串为 `S1`, `S2`。`定义数组 `D[i][j]` 表示 `S1[0..i]` `S2[0..j]` 的 LCS 长度：
+
+- 讨论 `D[i-1][j]`, `D[i][j-1]`, `D[i-1][j-1]` 和 `D[i][j]` 的递推关系
+- 讨论可能的 `D[0..i][j]`, `D[i][0..j]` 的初始化
+
+.. note:: 当 `S1[0..i] = A B C D` `S2[0..j] = A D`，不需要在 `D[i-1][j]` 中讨论 
+   `S1[i-1] == D` 的加入对 LCS 长度的影响，这部分情况完全由 `D[i-1][j-1]` 覆盖。
+
+因此递推公式为::
+
+   D[i][j] = max(D[i-1][j], D[i][j-1], D[i-1][j-1] + X)
+
+   where X = 1 when S1[i-1] == S2[j-1]
+
+当 `S1[i-1] == S2[j-1]` 时，LCS 延长。
+
+Longest Palindromic Subsequence
+-------------------------------
+
+.. leetcode:: _
+   :id: longest-palindromic-subsequence
+   :diffculty: Medium
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-13
+
+最长回文串。
+
+作为 :leetcode:`Longest Common Subsequence` 的变种
+   将字符串翻转过来作为第二个数组，求 LCS 即可。
+
+常规解法
+   TODO
+
+Longest Palindromic Substring
+-----------------------------
+
+.. leetcode:: _
+   :id: longest-palindromic-substring
+   :diffculty:
+   :language:
+   :key:
+   :date: 2021-07-13
