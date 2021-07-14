@@ -180,9 +180,8 @@ any_schemas = [
            attrs={
                'isbn': F(unique=True, referenceable=True),
                'status': F(referenceable=True),
-               'startat': F(referenceable=True),
-               'endat': F(referenceable=True),
-               'bookmark': F(),
+               'startat': F(referenceable=True, form=F.Form.WORDS),
+               'endat': F(referenceable=True, form=F.Form.WORDS),
            },
            description_template=open('_templates/book.rst', 'r').read(),
            reference_template='《{{ title }}》',
