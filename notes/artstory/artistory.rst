@@ -3,7 +3,7 @@
 ========
 
    从来就没有艺术，只有艺术家 [#]_
-   ——  :zhwiki:`贡布里希`
+   ——  :book:`艺术的故事`
 
 .. contents::
    :local:
@@ -332,4 +332,4 @@
 
 .. rubric:: 脚注
 
-.. [#] 原文 *There really is no such things as Art. There are only artists*
+.. [#] 原文是：There really is no such things as Art. There are only artists
