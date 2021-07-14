@@ -77,6 +77,8 @@ openSSH 8.4 后出现  load pubkey "/key/file/path": invalid format
 .. [#] :manpage:`SSH-KEYGEN(1)`
 .. [#] https://lwn.net/Articles/821544/
 
+.. _motif-of-music:
+
 作曲中的动机（motif）和主题（theme）
 =====================================
 
