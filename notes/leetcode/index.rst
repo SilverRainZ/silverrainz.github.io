@@ -48,6 +48,12 @@ Leetcode 刷题记录
 :leetcode.date:`2021-07-13`
    3 Medium 1 Easy。情绪稳定了一些。
 
+:leetcode.date:`2021-07-14`
+   崩溃一天。
+
+:leetcode.date:`2021-07-15`
+   TODO
+
 复习
 ====
 
@@ -585,16 +591,6 @@ Linked List Cycle
 
    .. _解法: https://leetcode-cn.com/problems/linked-list-cycle/solution/qiao-miao-li-yong-zhi-zhen-cun-chu-jie-d-xeca/
 
-Product of Array Except Self
-----------------------------
-
-.. leetcode:: _
-   :id: product-of-array-except-self
-   :diffculty: Medium
-   :language:
-   :key:
-   :date:
-
 Linked List Cycle II
 --------------------
 
@@ -602,5 +598,42 @@ Linked List Cycle II
    :id: linked-list-cycle-ii
    :diffculty: Medium
    :language: go
-   :key:
-   :date: 2021-07-14
+   :key: 双指针
+   :date: 2021-07-15
+   :reference: https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
+
+看的题解。
+
+我根本没在动脑子…… :(
+
+Product of Array Except Self
+----------------------------
+
+.. leetcode:: _
+   :id: product-of-array-except-self
+   :diffculty: Medium
+   :language:
+   :key: 前缀数组
+   :date: 2021-07-15
+   :reference: https://cntofu.com/book/186/problems/238.product-of-array-except-self.md
+
+
+不许用除法，想不出来，看的题解。
+
+双前缀数组
+   巧妙的双前缀数组，时间空间复杂度均为 :math:`O(n)`。
+
+双前缀数组 无无额外空间
+   题目希望 :math:`O(1)` 的空间复杂度，可以用一个临时变量存累乘结果，直接用存答案的数组的空间。
+
+Trapping Rain Water
+-------------------
+
+.. leetcode:: _
+   :id: trapping-rain-water
+   :diffculty: Hard
+   :language: rust
+   :key: 动态规划
+   :date: 2021-07-15
+
+似乎 :friend:`pcf` 也和我提到过，然而完全忘了。
