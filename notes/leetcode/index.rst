@@ -39,7 +39,7 @@ Leetcode 刷题记录
 :leetcode.date:`2021-07-09`
    睡晚了，情绪不佳。三道 Medium 一道 Easy，就这样吧。
 
-2021-07-10 - 2021-07-11
+:leetcode.date:`2021-07-10` - :leetcode.date:`2021-07-11`
    周末情绪管理失败。
 
 :leetcode.date:`2021-07-12`
@@ -52,14 +52,28 @@ Leetcode 刷题记录
    崩溃一天。
 
 :leetcode.date:`2021-07-15`
-   TODO
+   1 Hard 2 Medium。
+
+   看题解的一天，遇见不熟悉的类型这也正常。速度应该提上去，明天计时看看。
+
+   情绪回复了一些，因为昨晚给 :book:`艺术的故事` 做笔记很开心。
 
 复习
 ====
 
-重点题目
+思路总结
+--------
 
-多解法
+一时没有思路
+   先暴力解，再优化。暴力并非暴力模拟，而是不计复杂度地「优雅」地解决问题。当涉及复杂的模拟的时候，往往是思路出了错
+
+   优雅：即找到核心的子问题
+
+20 分钟后还没有思路
+   看题解，保证做题量
+
+重点题目
+--------
 
 题解
 ====
@@ -300,8 +314,6 @@ Invert Binary Tree
 
 我能去 Google 了吗？[#]_
 
-.. [#] https://twitter.com/mxcl/status/608682016205344768
-
 Best Time to Buy and Sell Stock II
 ----------------------------------
 
@@ -541,8 +553,7 @@ Longest Palindromic Subsequence
 作为 :leetcode:`Longest Common Subsequence` 的变种
    将字符串翻转过来作为第二个数组，求 LCS 即可。
 
-常规解法
-   TODO
+.. todo:: 常规解法
 
 Longest Palindromic Substring
 -----------------------------
@@ -633,7 +644,36 @@ Trapping Rain Water
    :id: trapping-rain-water
    :diffculty: Hard
    :language: rust
-   :key: 动态规划
+   :key: 动态规划 双指针 单调栈
    :date: 2021-07-15
 
 似乎 :friend:`pcf` 也和我提到过，然而完全忘了。
+
+看题解。
+
+动态规划
+   其实也不像动态规划……倒不如说是 :leetcode:`Product of Array Except Self` 的变种，同样用到两个数组。
+
+   `L[i]`, `R[i]` 为以第 `i` 格为中心，左右的最高点的高度，每一格可能容纳的水量为 `W[i] = min(L[i], R[i]) - Height[i]`。
+
+单调栈 [#]_
+   利用单调栈的性质，维护一个由高到低的水洼左边，每次 pop 的时候，算该水洼里的一层水
+
+.. todo:: 还有 :math:`O(1)` 解法…… 歇会儿。
+
+Next Greater Element I
+----------------------
+
+.. leetcode:: _
+   :id: next-greater-element-i
+   :diffculty: Easy
+   :language: rust
+   :key: 单调栈
+   :date:
+
+--------------------------------------------------------------------------------
+
+.. rubric:: 脚注
+
+.. [#] https://twitter.com/mxcl/status/608682016205344768
+.. [#] https://oi-wiki.org/ds/monotonous-stack/
