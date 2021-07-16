@@ -291,6 +291,13 @@ if CI:
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
+    extensions.append('sphinx_reredirects')
+    # https://documatt.gitlab.io/sphinx-reredirects/usage.html
+    redirects = {
+        # '<docname>': '<html/url>'
+        'notes/srain': 'https://srainapp.github.io/docs/arch/index.html',
+    }
+
 # extensions.append('sphinxcontrib.images')
 # images_config = {
 #     'override_image_directive': True,
