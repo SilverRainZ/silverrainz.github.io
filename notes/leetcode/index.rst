@@ -4,11 +4,6 @@ Leetcode 刷题记录
 
 :date: 2021-03-10
 
-.. toctree::
-   :titlesonly:
-
-   dp
-
 借鉴了 :ghrepo:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
 先从 🔥 `Top 100 Liked Questions`_ 开始看看？
 
@@ -57,6 +52,9 @@ Leetcode 刷题记录
    看题解的一天，遇见不熟悉的类型这也正常。速度应该提上去，明天计时看看。
 
    情绪回复了一些，因为昨晚给 :book:`艺术的故事` 做笔记很开心。
+
+:leetcode.date:`2021-07-16`
+   PASS
 
 复习
 ====
@@ -179,6 +177,7 @@ Merge Two Sorted Lists
    :diffculty: Easy
    :language: go
    :date: 2021-07-05
+   :key: 链表
 
 纯逻辑题。
 
@@ -367,7 +366,7 @@ Single Number
    :date: 2021-07-07
    :reference: https://www.cnblogs.com/grandyang/p/4130577.html
 
-遥想 pcf 师傅还跟我讨论过这题，可惜没记住。反正不看题解打死也做不出来。
+遥想 :friend:`pcf` 师傅还跟我讨论过这题，可惜没记住。反正不看题解打死也做不出来。
 
 Diameter Of Binary Tree
 -----------------------
@@ -591,7 +590,7 @@ Linked List Cycle
    :id: linked-list-cycle
    :diffculty: Easy
    :language: go
-   :key: 双指针
+   :key: 链表 快慢指针
    :date: 2021-07-13
 
 无论如何时间复杂度都是 :math:`O(n)`，用哈希标表存 visited 的做法不用说了。
@@ -609,7 +608,7 @@ Linked List Cycle II
    :id: linked-list-cycle-ii
    :diffculty: Medium
    :language: go
-   :key: 双指针
+   :key: 链表 快慢指针
    :date: 2021-07-15
    :reference: https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
 
@@ -669,7 +668,94 @@ Next Greater Element I
    :diffculty: Easy
    :language: rust
    :key: 单调栈
-   :date:
+   :date: 2021-07-16
+
+读题花了挺久……
+
+暴力法可直接做，复杂度 :math:`O(m*n)，`m` 为 `nums1` 长度，`n` 为 `nums2` 长度。
+
+更好的做法是对 `nums2` 维护一个数组 `G[i]`，代表在 `nums2[i]` 右边比它大的元素（即 Next Greater Element），将 `nums1[i] => i` 的映射存在哈希表中，遍历 `nums2` 时可以得出答案。
+
+`G[i]` 的求法为：从 `nums2.len() => 0` 方向维护一个单调递减的栈，依次尝试 push `nums2[i]`，当比栈顶大时，将栈中已有元素 pop 出；当比栈顶小时，`G[i] = top_of_stack`，之后 `nums2[i]` 入栈。
+
+.. tip:: `G[i]` 不依赖上一次循环的结果，在实际中可以就地求出，不必开辟空间
+
+建哈希表复杂度为 :math:`O(m)`，建单调栈复杂度为 :math:`O(n)`，总的时间复杂度为 :math:`O(m+n)`。
+
+Swap Nodes in Pairs
+-------------------
+
+.. leetcode:: _
+   :id: swap-nodes-in-pairs
+   :diffculty: Medium
+   :language: go
+   :key: 链表
+   :date: 2021-07-16
+
+用一个步进为 2 的循环即可。
+
+Reverse Linked List
+-------------------
+
+.. leetcode:: _
+   :id: reverse-linked-list
+   :diffculty: Easy
+   :language: go
+   :key: 链表
+   :date: 2021-07-16
+   :reference: https://zhuanlan.zhihu.com/p/86745433
+
+:del:`没啥好说`。
+
+递归
+   万万没想到……递归我没写出来。看题解，题解说很明白了。
+
+迭代
+   拿个栈。
+
+
+Reverse Linked List II
+----------------------
+
+.. leetcode:: _
+   :id: reverse-linked-list-ii
+   :diffculty: Medium
+   :language: go
+   :key: 链表
+   :date: 2021-07-16
+
+:leetcode:`Reverse Linked List` 的变种。被翻转的链表的 tail 应始终指向右边不翻转的部分，因此处理右边界的时候要花点心思。
+
+Implement Trie Prefix Tree
+--------------------------
+
+.. leetcode:: _
+   :id: implement-trie-prefix-tree
+   :diffculty: Medium
+   :language: go
+   :key: Tire树
+   :date: 2021-07-16
+
+纯数据结构题。
+
+Combination Sum
+---------------
+
+.. leetcode:: _
+   :id: combination-sum
+   :diffculty: Medium
+   :language: rust
+   :key:
+   :date: 2021-07-16
+
+Reverse Nodes In K Group
+------------------------
+
+.. leetcode:: _
+   :id: reverse-nodes-in-k-group
+   :diffculty: Hard
+   :language: go
+   :key: 链表
 
 --------------------------------------------------------------------------------
 
@@ -677,3 +763,4 @@ Next Greater Element I
 
 .. [#] https://twitter.com/mxcl/status/608682016205344768
 .. [#] https://oi-wiki.org/ds/monotonous-stack/
+
