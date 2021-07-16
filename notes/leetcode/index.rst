@@ -54,7 +54,9 @@ Leetcode 刷题记录
    情绪回复了一些，因为昨晚给 :book:`艺术的故事` 做笔记很开心。
 
 :leetcode.date:`2021-07-16`
-   PASS
+   3 Medium 2 Easy。
+
+   主要是 :friend:`void001` 推荐的链表题。某些 Easy 并不比 Medium 好做。
 
 复习
 ====
@@ -746,7 +748,6 @@ Combination Sum
    :diffculty: Medium
    :language: rust
    :key:
-   :date: 2021-07-16
 
 Reverse Nodes In K Group
 ------------------------
