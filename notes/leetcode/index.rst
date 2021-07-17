@@ -58,6 +58,11 @@ Leetcode 刷题记录
 
    主要是 :friend:`void001` 推荐的链表题。某些 Easy 并不比 Medium 好做。
 
+:leetcode.date:`2021-07-17`
+   2 Medium。
+
+   状态不佳，两道回溯题，为什么我看不懂快排？
+
 复习
 ====
 
@@ -747,7 +752,37 @@ Combination Sum
    :id: combination-sum
    :diffculty: Medium
    :language: rust
-   :key:
+   :key: 回溯
+   :date: 2021-07-17
+
+从给定的 `candicates` 生成 sum 为 `target` 的组合。
+
+递归可破，和之前的题不一样的是在每一次调用都伴随着一个新的解，所以要带着解的数组一起递归。
+
+Generate Parentheses
+--------------------
+
+.. leetcode:: _
+   :id: generate-parentheses
+   :diffculty: Medium
+   :language: rust
+   :key: 回溯
+   :date: 2021-07-17
+
+和 :leetcode:`Combination Sum` 类似的解法。
+
+每一次递归中需要的决策是：要闭合几个未闭合的括号。
+
+Sort an Array
+-------------
+
+.. leetcode:: _
+   :id: sort-an-array
+   :diffculty: Medium
+   :language: rust
+   :key: 排序
+
+情绪又不好了，看了近两个小时的快排教程没看进去。
 
 Reverse Nodes In K Group
 ------------------------
