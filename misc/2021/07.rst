@@ -8,30 +8,19 @@
 :Date: 2021-07-18
 :URL: https://zhuanlan.zhihu.com/p/139258985
 
-.. glssary::
-
-   BFE
-      这里说的是 Bilibili Front End，理解为边缘节点的 proxy 即可
-
-   SLE
-      Server Load Balancing
-
-   BFF
-      Backend for Frontend
-
 负载均衡
    - 前端负载均衡 以 DNS 为主
 
-      - 尽量选择最近节点
-      - 基于带宽策略调度选择 API 进入机房
-      - 基于 *可用服务容量* 平衡流量
+     - 尽量选择最近节点
+     - 基于带宽策略调度选择 API 进入机房
+     - 基于 *可用服务容量* 平衡流量
 
    - 数据中心内部负载均衡
 
-      - 均衡流量分发
-      - *可靠识别异常节点*
-      - scale-out，增加同质节点以扩容
-      - 减少错误，提高可用性
+     - 均衡流量分发
+     - *可靠识别异常节点*
+     - scale-out，增加同质节点以扩容
+     - 减少错误，提高可用性
 
    为客户端分配 backend 子集：:search:`Deterministic Subsetting`
 
@@ -54,3 +43,17 @@
 超时
    - 进程内超时控制
    - 跨进程超时控制（依赖 RPC 框架）
+
+.. rubric:: 名词解释
+
+.. glossary::
+
+   BFE
+      这里说的是 Bilibili Front End，理解为边缘节点的 proxy 即可
+
+   SLE
+      Server Load Balancing
+
+   BFF
+      Backend for Frontend
+
