@@ -34,17 +34,11 @@ Leetcode 刷题记录
 :leetcode.date:`2021-07-09`
    睡晚了，情绪不佳。三道 Medium 一道 Easy，就这样吧。
 
-:leetcode.date:`2021-07-10` - :leetcode.date:`2021-07-11`
-   周末情绪管理失败。
-
 :leetcode.date:`2021-07-12`
    2 Medium 1 Hard。情绪非常差，我想应该怪 :book:`我们内心的冲突`。
 
 :leetcode.date:`2021-07-13`
    3 Medium 1 Easy。情绪稳定了一些。
-
-:leetcode.date:`2021-07-14`
-   崩溃一天。
 
 :leetcode.date:`2021-07-15`
    1 Hard 2 Medium。
@@ -62,6 +56,11 @@ Leetcode 刷题记录
    2 Medium。
 
    状态不佳，两道回溯题，为什么我看不懂快排？
+
+:leetcode.date:`2021-07-19`
+   1 Hard 3 Medium。
+
+   感冒了，状态也很差。
 
 复习
 ====
@@ -781,8 +780,48 @@ Sort an Array
    :diffculty: Medium
    :language: rust
    :key: 排序
+   :date: 2021-07-19
+   :reference: https://rust-algo.club/sorting/quicksort
 
-情绪又不好了，看了近两个小时的快排教程没看进去。
+:2021-07-17: 情绪又不好了，看了近两个小时的快排教程没看进去。
+
+使用固定 pivot 的普通的快排会 TLE，因为有一个近乎有序的大数组 case。
+
+Rust 标准库没有生成随机数的函数……糊了一个。
+
+Combination Sum II
+------------------
+
+.. leetcode:: _
+   :id: combination-sum-ii
+   :diffculty: Medium
+   :language: rust
+   :key: 回溯
+   :date: 2021-07-19
+
+:leetcode:`Combination Sum` 的变种。
+
+增加了 `candicates` 可重复、以及结果不许重复的两个限制。
+
+3Sum
+----
+
+.. leetcode:: _
+   :id: 3sum
+   :diffculty: Medium
+   :language: rust
+   :key: 双指针
+   :date: 2021-07-19
+   :reference: https://leetcode-cn.com/problems/3sum/solution/san-shu-zhi-he-by-leetcode-solution/
+
+题目有双指针的标签，我怎么觉得回溯法就能做？试试看。
+
+不能，评测 TLE 了，本地则是爆栈
+
+双指针
+   看题解，把三重循环优化到二重了，复杂度 :math:`O(n^2)`
+
+   .. note:: 答案不许重复，`i`，`j` 的循环里都有 `nums[i] == nums[i - 1]` 的判断以跳过重复元素，但不必要对 `k` 判断，因为 `i`，`j` 已经不重复了，`k` 自然不重复
 
 Reverse Nodes In K Group
 ------------------------
@@ -792,6 +831,9 @@ Reverse Nodes In K Group
    :diffculty: Hard
    :language: go
    :key: 链表
+   :date: 2021-07-19
+
+:leetcode:`Reverse Linked List II` 的变种，多了两个返回值： 一个用于返回翻转后的链表 tail，方便接下一段翻转链表，另一个一个用于判断该段需不需要 reverse，比较琐碎。
 
 --------------------------------------------------------------------------------
 
