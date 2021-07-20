@@ -62,6 +62,9 @@ Leetcode 刷题记录
 
    感冒了，状态也很差。
 
+:leetcode.date:`2021-07-19`
+   2 Medium 2 Easy，疲了。
+
 复习
 ====
 
