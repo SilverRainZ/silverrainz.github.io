@@ -835,6 +835,55 @@ Reverse Nodes In K Group
 
 :leetcode:`Reverse Linked List II` 的变种，多了两个返回值： 一个用于返回翻转后的链表 tail，方便接下一段翻转链表，另一个一个用于判断该段需不需要 reverse，比较琐碎。
 
+Evaluate Reverse Polish Notation
+--------------------------------
+
+.. leetcode:: _
+   :id: evaluate-reverse-polish-notation
+   :diffculty: Medium
+   :language: rust
+   :date: 2021-07-20
+
+模拟题，只是对 rust 的字符串操作不太熟悉。
+
+Balanced Binary Tree
+--------------------
+
+.. leetcode:: _
+   :id: balanced-binary-tree
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树 平衡二叉树
+   :date: 2021-07-20
+
+判断子树是否平衡的时候要同时返回子树深度供父节点用。
+
+Convert Sorted Array To Binary Search Tree
+------------------------------------------
+
+.. leetcode:: _
+   :id: convert-sorted-array-to-binary-search-tree
+   :diffculty: Easy
+   :language: go
+   :key: 二叉树 二叉搜索树
+   :date: 2021-07-20
+
+数组本身排好序了，用二分的方法就能找到每一层的 root。
+
+Balance A Binary Search Tree
+----------------------------
+
+.. leetcode:: _
+   :id: balance-a-binary-search-tree
+   :diffculty: Medium
+   :language: go
+   :key: 二叉树 平衡二叉树
+   :date: 2021-07-20
+
+:leetcode:`Convert Sorted Array To Binary Search Tree` 的变种。
+
+中序遍历 BST 能得到一个有序数组，用二分法构造出来的 BST 就是平衡的。
+
 --------------------------------------------------------------------------------
 
 .. rubric:: 脚注
