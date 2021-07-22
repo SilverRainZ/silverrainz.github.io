@@ -62,7 +62,7 @@ Leetcode 刷题记录
 
    感冒了，状态也很差。
 
-:leetcode.date:`2021-07-19`
+:leetcode.date:`2021-07-20`
    2 Medium 2 Easy，疲了。
 
 复习
@@ -135,16 +135,19 @@ LFU Cache
    :id: lfu-cache
    :diffculty: Medium
    :language: go
-   :date: 2021-05-08
+   :date: 2021-05-08 2021-7-22
+   :reference: https://github.com/halfrost/Halfrost-Field/blob/master/contents/Go/LRU:LFU_interview.md
 
-在 touch 一个元素的的时候从链表尾部往上找，是一个 O(n) 的操作，然而
-Leetcode 给过了…… 要是在 `SCAU OJ`_ 是肯定要 TLE。
+解法 1
+   在 touch 一个元素的的时候从链表尾部往上找，是一个 :math:`O(n)` 的操作，然而
+   Leetcode 给过了…… 要是在 `SCAU OJ`_ 是肯定要 TLE。
 
-.. note:: 看一眼输入输出限制，想想边界值，比如 `cap == 0` 的情况就忽略了
+   .. note:: 看一眼输入输出限制，想想边界值，比如 `cap == 0` 的情况就忽略了
 
-更聪明的做法是按 freq 分成多个桶，每次 touch 一个元素就把它挪到对应的
-frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
-桶内部是一个小的 LRU，这样 touch 就是 O(n) 了。
+解法 2
+   更好的做法是按 freq 分成多个桶，每次 touch 一个元素就把它挪到对应的
+   frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
+   桶内部是一个小的 LRU，这样 touch 就是 :math:`O(n)` 了。
 
 想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 :math:`O(n)`
 的查找变成 :math:`O(\log n)` 而已，大量重复的 freq 值是很浪费时间和空间的。

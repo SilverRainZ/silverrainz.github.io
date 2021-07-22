@@ -296,6 +296,7 @@ if CI:
     redirects = {
         # '<docname>': '<html/url>'
         'notes/srain': 'https://srainapp.github.io/docs/arch/index.html',
+        'notes/leetcode': 'notes/2021-interview/leetcode/index.html'
     }
 
 # extensions.append('sphinxcontrib.images')
