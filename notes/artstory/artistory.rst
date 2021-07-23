@@ -287,13 +287,30 @@
             Van Gogh
    :movement: 后印象主义
 
-
 巴尔蒂斯
 ========
 
 .. artist:: _
             Balthus
    :movement: 具象主义
+
+卡洛林沃克
+==========
+
+.. artist:: _
+            Caroline Walker    
+
+:enwiki:`Caroline_Walker_(artist)`
+
+http://carolinewalker.org
+
+贝基苏斯
+========
+
+.. artist:: _
+            Becky Suss
+
+https://www.beckysuss.net/
 
 等待翻牌子
 ==========
