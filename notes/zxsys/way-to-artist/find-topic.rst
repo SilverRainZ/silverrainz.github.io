@@ -790,3 +790,14 @@ Antihug
 我不需要圣人，让他们都去死吧。
 
 .. seealso:: :artwork:`圣人在高台上布道`
+
+自画像
+------
+
+.. artwork:: _
+   :id: xfczk2-024
+   :size: 32k
+   :date: 2021-07-24
+   :medium: 铅笔
+
+这张画放很久了，抽空完成一下。
