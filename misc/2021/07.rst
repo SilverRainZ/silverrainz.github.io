@@ -2,8 +2,11 @@
 2021-07
 =======
 
-读毛剑《B站高可用架构实践》
-===========================
+.. contents::
+   :local:
+
+毛剑 - B站高可用架构实践
+========================
 
 :Date: 2021-07-18
 :URL: https://zhuanlan.zhihu.com/p/139258985
@@ -57,3 +60,57 @@
    BFF
       Backend for Frontend
 
+eBPF
+====
+
+:URL: https://blog.fleeto.us/post/what-is-ebpf/
+
+
+ZBS：SmartX 分布式块存储 - 元数据篇
+====================================
+
+:Date: 2021-07-28
+:URL: https://zhuanlan.zhihu.com/p/36138609
+
+分布式存储中通常需要解决的问题：
+   - 元数据服务
+
+      - 集群成员管理
+      - 数据寻址
+      - 副本分配
+      - 负载均衡
+      - 心跳
+      - 垃圾回收
+      - …
+
+   - 数据存储引擎
+
+      - 单机存储
+      - 本地磁盘的管理
+      - 磁盘故障处理
+      - …
+
+   - 一致性协议
+
+元数据服务
+   需求
+      - 可靠性
+
+         - 多副本
+         - 故障转移（Failover）
+
+      - 高性能
+
+         - 响应时间短
+         - 高吞吐
+
+      - 轻量级
+
+   解决方案
+      - LevelDB + ZooKeeper
+      - Log Replication
+
+      Meta Server Leader 将数据库 log 操作写入 Zk，写入成功后将修改提交到本地 LevelDB，Meta Server Standby 从 Zk 读取 log 提交到本地 LevelDB
+
+   故障转移
+      Leader 发生故障，其他 Meta Server 再次进行选主，新选的 Leader 会从 Zk 同步所有未消耗的 log，提交后则对外提供服务

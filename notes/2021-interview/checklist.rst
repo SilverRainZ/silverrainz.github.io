@@ -268,6 +268,9 @@ Raft |x|
 
 看 Wiki 即可，好懂多了。
 
+外部排序
+--------
+
 关系型数据库
 ============
 
@@ -307,6 +310,8 @@ ACID |x|
  :Serializable: 完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞
 
  表级别锁和行级别锁
+
+幻读？
   
 索引 |x|
 --------
@@ -456,17 +461,24 @@ A/B Test
 
 协程 异步 读写分离
 
+故障转移
+--------
+
 中间件
 ======
 
 Redis 等缓存
 ------------
 
-Kafka 等消息队列
-----------------
+Kafka
+-----
+
+基于 topic 的订阅模式。
 
 投递语义
-~~~~~~~~
+   :at most once:  至多一次，消息可能会丢，但不会重复
+   :at least once: 至少一次，消息肯定不会丢失，但可能重复
+   :exactly once:  有且只有一次，消息不丢失不重复，且只消费一次。
 
 etcd zk 等集群协同
 ------------------
@@ -498,6 +510,29 @@ fork & exec |x|
 - `mkfifo` 命名管道（传统管道属于匿名管道，其生存期不超过创建管道的进程的生存期。但命名管道的生存期可以与操作系统运行期一样长）
 - Shared Memory
 - Mapped File
+
+DMA |x|
+-------
+
+Direct Memory Access，允许某些电脑内部的硬件子系统（电脑外设），可以独立地直接读写系统内存，而不需 CPU 介入处理 。
+
+每一个DMA通道有一个16位地址寄存器和一个16位计数寄存器。要初始化资料传输时，设备驱动程序一起设置DMA通道的地址和计数寄存器，以及资料传输的方向，读取或写入。然后指示DMA硬件开始这个传输动作。当传输结束的时候，设备就会以中断的方式通知中央处理器。 
+
+
+Huge Page |x|
+-------------
+
+4K -> ??
+
+- TLB 需求减少 cache missing 减少
+- 减少了页面数量，页表也少了一级，使得缺页中断的数量大大减少，缺页中断的处理效率也有了提高
+
+透明巨型页。
+
+死锁 |x|
+--------
+
+讲一下操作系统死锁是如何发生的，以及如何解决死锁
 
 Golang
 ======
@@ -629,8 +664,8 @@ Dive in to code
    :gcBgMarkStartWorkers: 为每个 P（线程上的本地调度器）启动一个 gcMarkWoker
    :gcDrain: Mark 阶段的标记代码主要实现
 
-内存管理 |x|
-------------
+内存管理
+--------
 
 逃逸分析: `go run` with `-gcflags '-m -l'`
 
@@ -641,6 +676,143 @@ Dive in to code
    :mcache: per-P cache，可以认为是 local cache，不需要加锁
    :mcentral: 全局 cache，mcache 不够用的时候向 mcentral 申请。
    :mheap: 当 mcentral 也不够用的时候，通过 mheap 向操作系统申请。
+
+Runtime 内部实现
+----------------
+
+Channel
+-------
+
+Mutex & RWMutex
+---------------
+
+:URL: https://zhuanlan.zhihu.com/p/349590549
+
+读写问题的三大类
+   读优先
+      占有锁时，后来的读进程可以立即获得锁
+
+      :Pros: 可以提高并发性能（后来的读进程不需要等待）
+      :Cons: 读进程过多，会导致写进程一直处于等待中，出现写饥饿现象
+
+   写优先（RWMutex）
+      优先是指如果有写进程在等待锁，会阻止后来的进程获得锁
+
+      :Pros: 写饥饿的问题
+
+   - 不区分优先级
+
+`interface{}`
+-------------
+
+内存泄漏
+--------
+
+死锁检测
+--------
+
+数据竞争
+--------
+
+云原生
+======
+
+k8s
+---
+
+Docker
+------
+
+共享内核
+   Docker image 里不包含内核，程序共享宿主机内核
+
+Namespace
+   用 :man:`unshare(1)` 创建
+
+   :Mount:   每个容器能看到不同的文件系统层次结构
+   :UTS:     每个容器可以有自己的 hostname 和 domainame
+   :IPC:     每个容器有其自己的 :man:`sysvipc(7)` 和 :man:`mq_overview(7)` 队列，只有在同一个 IPC namespace 的进程之间才能互相通信
+   :PID:     每个 PID namespace 中的进程可以有其独立的 PID，也使得容器中的每个进程有两个 PID
+   :Network: 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等
+   :User:    每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户
+
+Cgroup 
+   通过 sysfs `/sys/fs/cgroup` 控制，创建目录，并指定 PID，如：`/sys/fs/cgroup/cpu/docker/03dd196f415276375f754d51ce29b418b170bd92d88c5e420d6901c32f93dc14`
+
+   or `systemd-cgls`
+
+   :Resource limitation: 限制资源使用，比如内存使用上限以及文件系统的缓存限制。
+   :Prioritization: 优先级控制，比如：CPU利用和磁盘IO吞吐。
+   :Accounting: 一些审计或一些统计，主要目的是为了计费。
+   :Control: 挂起进程，恢复执行进程。
+
+AUFS、OverlayFS、VFS、Brtfs
+
+OverlayFS
+   lowerdir、uperdir、merged，其中lowerdir是只读的image layer，其实就是rootfs，
+
+   lowerdir是可以有多个目录。upperdir则是在lowerdir之上的一层，这层是读写层，在启动一个容器时候会进行创建，所有的对容器数据更改都发生在这里层，
+   对比示例中的C。最后 merged 目录是容器的挂载点，也就是给用户暴露的统一视角
+
+进程模型
+   :dockerd: 和 docker-cli 通信，管理镜像
+   :containerd: 管理容器
+   :container-shim: 通过 runC 运行容器
+
+隔离
+~~~~
+
+:网络: namespace
+
+虚拟化
+======
+
+KVM
+---
+
+Kernel-based Virtual Machine
+
+在 Linux 中，通过设备 `/dev/kvm` + `ioctl` 进行通信。
+
+CPU 虚拟化
+   VMX 指令集
+
+   VMX的非根操作模式是一个相对受限的执行环境，为了适应虚拟化而专门做了一定的修改；在客户机中执行的一些特殊的敏感指令或者一些异常会触发“VM Exit”退到虚拟机监控器中，从而运行在VMX根模式。正是这样的限制，让虚拟机监控器保持了对处理器资源的控制 [#]_
+
+内存虚拟化
+   CR3 控制寄存器 存放页目录地址
+
+   给虚拟客户机操作系统提供一个从0地址开始的连续物理内存空间，同时在多个客户机之间实现隔离和调度
+
+   :Without KVM: 影子页表（Shadow Page Table）
+   :Within KVM: EPT（Extended Page Tables，扩展页表）
+                EPT的控制权在 Hypervisor 掌握，因此不需要 VMexit，只有当CPU工作在非根模式时才参与内存地址的转换
+
+   VPID（Virtual-processor identifier）
+
+   TLB: (Translation Lookaside Buffer)用于改进虚拟地址到物理地址转换速度的缓存
+
+IO 虚拟化
+   - 模拟：在 Hypervisor 中模拟一个传统的I/O设备的特性
+   - 虚拟化专用接口：virtio
+   - 直接分配设备：
+
+      - VT-d（Virtualization Technology For Directed I/O）：I/O设备分配、DMA重定向、中断重定向、中断投递等
+      - SR-IOV
+   - 设备共享：需要设备支持多个虚拟机功能接口
+
+架构
+   KVM虚拟化的核心主要由以下两个模块组成：
+
+   1. 内核模块，它属于标准Linux内核的一部分，是一个专门提供虚拟化功能的模块，主要负责CPU和内存的虚拟化，包括：客户机的创建、虚拟内存的分配、CPU执行模式的切换、vCPU寄存器的访问、vCPU的执行
+
+   2. QEMU用户态工具，它是一个普通的Linux进程，为客户机提供设备模拟的功能，包括模拟BIOS、PCI/PCIE总线、磁盘、网卡、显卡、声卡、键盘、鼠标等。同时它通过ioctl系统调用与内核态的KVM模块进行交互。
+      在KVM虚拟化架构下，每个客户机就是一个QEMU进程，在一个宿主机上有多少个虚拟机就会有多少个QEMU进程；客户机中的每一个虚拟CPU对应QEMU进程中的一个执行线程
+
+libvirt
+-------
+
+是一套用于管理硬件虚拟化的开源API、守护进程与管理工具
 
 算法
 ====
@@ -657,3 +829,5 @@ Dive in to code
    - 01 背包 |x|
 
 .. rubric:: 脚注
+
+.. [#] https://developer.aliyun.com/article/724399

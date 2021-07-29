@@ -345,7 +345,7 @@ Best Time to Buy and Sell Stock III
    :diffculty: Hard
    :language: rust
    :key: 动态规划
-   :date: 2021-07-07
+   :date: 2021-07-07 2021-07-28
    :reference: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iii-by-wrnt/
 
 :leetcode:`Best Time to Buy and Sell Stock` 的一个更难的变体，允许至多两次不重叠的买卖。
@@ -365,7 +365,10 @@ Best Time to Buy and Sell Stock III
 
    复杂度为 :math:`2*O(n)` ，这个常数可以优化掉，测评里只比 6.67% 的选手快，:math:`O(n)` 已经是这个问题的极限了，暂时不知道哪里有问题。
 
-.. todo:: 更快的解法
+解法2
+   看的题解。
+
+   对每个状态（两次购买，两次出售）各构造一个互相依赖的状态转移方程。
 
 Single Number
 -------------
@@ -890,10 +893,39 @@ Balance A Binary Search Tree
 
 中序遍历 BST 能得到一个有序数组，用二分法构造出来的 BST 就是平衡的。
 
+Ones and Zeroes
+---------------
+
+.. leetcode:: _
+   :id: ones-and-zeroes
+   :diffculty: Medium
+   :language: go
+   :key: 动态规划
+   :date: 2021-07-28
+
+01 背包问题，但需要同时填满两个容量不同的背包。
+
+.. note:: 
+
+   在不优化的情况下，空间复杂度为 :math:`O(len*m*n)`，需要一个三维的状态数组，
+   在 `m < count0 && n < count1` 的情况下，需要将 `dp[i-1]` 的状态复制到 `dp[i]`
+   反之，可以应用递推公式。
+
+   在优化的空间的情况下，第 i 轮循环中，未遍历 dp 的值即为 i-1 轮循环残留的值。
+
+Reorder List
+------------
+
+.. leetcode:: _
+   :id: reorder-list
+   :diffculty: Medium
+   :language: go
+   :key: 链表
+   :date: 2021-07-28
+
 --------------------------------------------------------------------------------
 
 .. rubric:: 脚注
 
 .. [#] https://twitter.com/mxcl/status/608682016205344768
 .. [#] https://oi-wiki.org/ds/monotonous-stack/
-
