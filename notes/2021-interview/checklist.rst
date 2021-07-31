@@ -683,6 +683,8 @@ Runtime 内部实现
 Channel
 -------
 
+:URL: https://golang.design/under-the-hood/zh-cn/part2runtime/ch09lang/chan/
+
 Mutex & RWMutex
 ---------------
 
@@ -711,8 +713,51 @@ Mutex & RWMutex
 死锁检测
 --------
 
+   当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁
+
+   ——  :zhwiki:`死锁`
+   
+死锁的条件：
+   :禁止抢占（no preemption）: 系统资源不能被强制从一个进程中退出。
+   :持有和等待（hold and wait）: 一个进程可以在等待时持有系统资源。
+   :互斥（mutual exclusion）: 资源只能同时分配给一个行程，无法多个行程共享。
+   :循环等待（circular waiting）: 一系列进程互相持有其他进程所需要的资源。
+
+1. fatal error: all goroutines are asleep - deadlock!
+2. runtime stack
+
+
+.. seealso:: :zhwiki:`哲学家就餐问题`
+
+避免死锁：
+
+- 不用锁（使用无锁的结构）
+- 约定资源的使用和释放
+
+工程上：
+
+- defer
+- 内部方法无锁
+- 超时放弃（有一定问题）
+
 数据竞争
 --------
+
+`sync.Cond` 的虚假唤醒
+======================
+
+因为 condition 的判断是用户代码，在 `Wait()` 返回之后，因此只能要求用户用忙等的方式等到 condition 满足的时刻：
+
+   Because c.L is not locked when Wait first resumes, the caller typically cannot assume that the condition is true when Wait returns. Instead, the caller should Wait in a loop:
+
+   .. code-block:: go
+
+      c.L.Lock()
+      for !condition() {
+          c.Wait()
+      }
+      // ... make use of condition ...
+      c.L.Unlock()
 
 云原生
 ======
@@ -813,6 +858,37 @@ libvirt
 -------
 
 是一套用于管理硬件虚拟化的开源API、守护进程与管理工具
+
+流处理
+======
+
+Flink CheckPoint
+----------------
+
+Operator State
+Keyed State
+
+PLER vs Flink
+-------------
+
+- CheckPoint
+- UDF
+- Watermark
+
+逻辑计划优化
+-------------
+
+- 常量折叠
+- 列裁剪
+
+乱序元素
+--------
+
+:URL: https://www.cnblogs.com/rossiXYZ/p/12286407.html
+
+:Watermark:
+:allowLateNess: 延迟窗口关闭时间
+:sideOutPut: 指定窗口已经彻底关闭后，就会把所有过期延迟数据放到侧输出流，让用户决定如何处理
 
 算法
 ====
