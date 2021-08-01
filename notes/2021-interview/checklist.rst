@@ -677,18 +677,39 @@ Dive in to code
    :mcentral: 全局 cache，mcache 不够用的时候向 mcentral 申请。
    :mheap: 当 mcentral 也不够用的时候，通过 mheap 向操作系统申请。
 
-Runtime 内部实现
-----------------
-
-Channel
--------
+Channel |x|
+-----------
 
 :URL: https://golang.design/under-the-hood/zh-cn/part2runtime/ch09lang/chan/
 
-Mutex & RWMutex
----------------
+`sync.Mutex` |x|
+----------------
 
-:URL: https://zhuanlan.zhihu.com/p/349590549
+:URL: - https://www.jianshu.com/p/ce1553cc5b4f
+      - https://golang.org/src/sync/mutex.go
+
+互斥、自旋（正常状态）、公平（饥饿状态）。
+
+自旋
+   不 park，直接 CAS 抢 `mutexWoken` 位，而非被唤醒后再抢
+
+   限制条件
+      - P > 0 
+      - 自旋次数有限
+      - P 的 runq 为空：没有待调度的 G
+
+公平
+   等待时间超过 `starvationThresholdNs`
+
+   饥饿模式下 Unlock，仅唤醒第一个 waiter，一定能抢锁成功
+
+还是蛮复杂的，记个差不多就行。
+
+`sync.RWMutex` |x|
+------------------
+
+:URL: - https://golang.org/src/sync/rwmutex.go
+      - https://zhuanlan.zhihu.com/p/349590549
 
 读写问题的三大类
    读优先
@@ -704,47 +725,105 @@ Mutex & RWMutex
 
    - 不区分优先级
 
+Golang 的实现是写的互斥锁 + 读计数器，感觉有点别扭。
+
+一个我认为应当 detect 但实际上没还有的错误用法：
+
+.. code-block:: go
+
+   package main
+
+   import (
+           "fmt"
+           "sync"
+           "time"
+   )
+
+   func main() {
+           var mu sync.RWMutex
+
+           go func() {
+                   fmt.Println("Lock")
+                   mu.Lock()
+                   fmt.Println("Locked")
+
+                   defer func() {
+                           fmt.Println("Unlock")
+                           mu.Unlock()
+                           fmt.Println("Unlocked")
+                   }()
+
+                   time.Sleep(5 * time.Second)
+           }()
+           time.Sleep(100 * time.Millisecond)
+
+           go func() {
+                   time.Sleep(100 * time.Millisecond)
+
+                   fmt.Println("RUnlock")
+                   mu.RUnlock()
+                   fmt.Println("RUnlocked")
+           }()
+
+           fmt.Println("RLock")
+           mu.RLock()
+           fmt.Println("RLocked")
+   }
+
+
+`sync.Map` |x|
+--------------
+
+:URL: https://golang.org/src/sync/map.go
+
+Defer
+-----
+
+小坑点：参数是提前求值的
+
+`struct runtime._defer` 组成了一条 defer link list。
+
+:<1.13: 堆上分配
+:>=1.13: 栈上分配
+:<1.14: Open coded
+
 `interface{}`
 -------------
 
 内存泄漏
 --------
 
-死锁检测
---------
+死锁检测 |x|
+------------
 
    当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁
 
    ——  :zhwiki:`死锁`
    
 死锁的条件：
-   :禁止抢占（no preemption）: 系统资源不能被强制从一个进程中退出。
-   :持有和等待（hold and wait）: 一个进程可以在等待时持有系统资源。
-   :互斥（mutual exclusion）: 资源只能同时分配给一个行程，无法多个行程共享。
-   :循环等待（circular waiting）: 一系列进程互相持有其他进程所需要的资源。
+   :禁止抢占:     系统资源不能被强制从一个进程中退出。
+   :持有和等待:   一个进程可以在等待时持有系统资源。
+   :互斥:         资源只能同时分配给一个行程，无法多个行程共享。
+   :循环等待:     一系列进程互相持有其他进程所需要的资源。
 
 1. fatal error: all goroutines are asleep - deadlock!
 2. runtime stack
-
 
 .. seealso:: :zhwiki:`哲学家就餐问题`
 
 避免死锁：
 
-- 不用锁（使用无锁的结构）
+- 使用无锁的结构
 - 约定资源的使用和释放
 
-工程上：
-
-- defer
-- 内部方法无锁
-- 超时放弃（有一定问题）
+  - 超时放弃
+  - 非瓶颈不用细粒度所，避免复杂情况
 
 数据竞争
 --------
 
-`sync.Cond` 的虚假唤醒
-======================
+`sync.Cond` 的虚假唤醒 |x|
+==========================
 
 因为 condition 的判断是用户代码，在 `Wait()` 返回之后，因此只能要求用户用忙等的方式等到 condition 满足的时刻：
 
@@ -765,18 +844,18 @@ Mutex & RWMutex
 k8s
 ---
 
-Docker
-------
+Docker |x|
+----------
 
 共享内核
    Docker image 里不包含内核，程序共享宿主机内核
 
 Namespace
-   用 :man:`unshare(1)` 创建
+   用 :manpage:`unshare(1)` 创建
 
    :Mount:   每个容器能看到不同的文件系统层次结构
    :UTS:     每个容器可以有自己的 hostname 和 domainame
-   :IPC:     每个容器有其自己的 :man:`sysvipc(7)` 和 :man:`mq_overview(7)` 队列，只有在同一个 IPC namespace 的进程之间才能互相通信
+   :IPC:     每个容器有其自己的 :manpage:`sysvipc(7)` 和 :manpage:`mq_overview(7)` 队列，只有在同一个 IPC namespace 的进程之间才能互相通信
    :PID:     每个 PID namespace 中的进程可以有其独立的 PID，也使得容器中的每个进程有两个 PID
    :Network: 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等
    :User:    每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户
@@ -812,8 +891,8 @@ OverlayFS
 虚拟化
 ======
 
-KVM
----
+KVM |x|
+-------
 
 Kernel-based Virtual Machine
 
@@ -886,7 +965,7 @@ PLER vs Flink
 
 :URL: https://www.cnblogs.com/rossiXYZ/p/12286407.html
 
-:Watermark:
+:Watermark: 根据流的情况制定开启和关闭策略
 :allowLateNess: 延迟窗口关闭时间
 :sideOutPut: 指定窗口已经彻底关闭后，就会把所有过期延迟数据放到侧输出流，让用户决定如何处理
 
