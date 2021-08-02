@@ -304,12 +304,12 @@ ACID |x|
 
 ..
 
- :Read Uncommitted: 允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
- :Read Committed: 只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)
- :Repeated Read: 可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读
- :Serializable: 完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞
+:Read Uncommitted: 允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
+:Read Committed: 只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)
+:Repeated Read: 可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读
+:Serializable: 完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞
 
- 表级别锁和行级别锁
+表级别锁和行级别锁
 
 幻读？
   
@@ -774,7 +774,14 @@ Golang 的实现是写的互斥锁 + 读计数器，感觉有点别扭。
 `sync.Map` |x|
 --------------
 
-:URL: https://golang.org/src/sync/map.go
+:URL: - https://golang.org/src/sync/map.go
+      - https://colobu.com/2017/07/11/dive-into-sync-Map/
+
+检测 "concurrent map read and map write"
+   用 `hashWriting`_ bit 表示当前是否在进行写操作
+
+.. _hashWriting: https://github.com/golang/go/blob/master/src/runtime/map.go#L102
+
 
 Defer
 -----
@@ -786,6 +793,13 @@ Defer
 :<1.13: 堆上分配
 :>=1.13: 栈上分配
 :<1.14: Open coded
+
+`&^` 操作符 |x|
+---------------
+
+日常是很少用上，标准库代码里见得多。
+
+Bit clear，`a &^ b == a & ^b`。
 
 `interface{}`
 -------------
