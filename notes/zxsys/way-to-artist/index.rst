@@ -11,8 +11,6 @@
    :titlesonly:
 
    prepare
-   find-yourself
-   find-topic
    find-language
 
 找自己
