@@ -312,13 +312,19 @@ http://carolinewalker.org
 
 https://www.beckysuss.net/
 
+弗朗西斯科·何塞·德·戈雅-卢西恩特斯
+==================================
+
+.. artist:: _
+            戈雅
+            Francisco José de Goya y Lucientes
+
 等待翻牌子
 ==========
 
 - 提香
 - 拉斐尔
 - 康斯泰勃尔
-- 弗朗西斯科·何塞·德·戈雅-卢西恩特斯（戈雅）
 - 弗朗西斯·培根
 - 委拉斯开兹
 - 透纳
