@@ -1,0 +1,144 @@
+=======
+2021-08
+=======
+
+Vala Tutorial
+=============
+
+:URL: https://wiki.gnome.org/Projects/Vala/Tutorial
+
+.. highlight:: vala
+
+- Compile to C
+- Use GLib type & objecct system
+
+@
+   用 `@` 前缀来允许使用关键字或者数字作为变量名
+new
+   使用 `Object obj = new Object()` 实例化对象
+注释
+   C 风格的注释，`/**` 是文档注释
+类型
+   value types 
+      - 传值
+      - 支持绑定方法 (`ture.to_string()`)
+
+      struct
+         成员支持 public/private
+      enum
+         朴素的 int 值
+      string
+         `"""`
+            跨行字符串
+         `@` 前缀
+            类似 Python 的 f-string：`@"$a * $b"`
+         切片
+            正：`foo[7:12]`，负：`foo[-4:-2]`
+         不可变
+            `string a = "foo"; a[0] = 'b'` 不合法
+         和其他类型转换
+            `.parse()` 和 `.to_string()`
+         `in` 操作符
+            string in string
+      array
+         定长数组，同样传值
+
+         栈上声明::
+
+            int a[10];
+            
+         堆上（可以 `.resize()`）::
+
+            int[] a = new int[10]
+            int[] b = { 2, 4, 6, 8 }
+
+         切片
+            支持切片
+         `unowned`
+            用 `unowned int[] c = b[1:3]` 防止传值
+         多维
+            ::
+
+               int[,] c = new int[3,4];
+               int[,] d = {{2, 4, 6, 8}
+                          {3, 5, 7, 9},
+                          {1, 3, 5, 7}};
+         
+            多维数组无法降维：无法省略任意维的下标
+         追加
+            `+=`
+
+   reference types
+      常常继承 `GLib.Object`，基于 reference count 的内存管理，有 `null`
+
+      用 `class` 关键字声明::
+
+         /* defining a class */
+         class Track : GLib.Object {             /* subclassing 'GLib.Object' */
+             public double mass;                 /* a public field */
+             public double name { get; set; }    /* a public property */
+             private bool terminated = false;    /* a private field */
+             public void terminate() {           /* a public method */
+                 terminated = true;
+             }
+         }
+
+静态 cast
+   C-style，没有 runtime 开销::
+
+      int i = 10;
+      float j = (float) i;
+
+类型推断
+   用 `var` 代替显式的类型声明::
+
+      var p = new Person();     // same as: Person p = new Person();
+      var s = "hello";          // same as: string s = "hello";
+      var l = new List<int>();  // same as: List<int> l = new List<int>();
+      var i = 10;               // same as: int i = 10;
+      
+创建类型 
+   TODO
+
+操作符
+   自操作
+      `++, --, +=, -=, /=, *=, %=,  |=, &=, ^=`
+   三目运算
+      `true ? 1 : 0`
+   null coalescing
+       else if null: `a ?? b` => `a != null ? a : b`
+   in
+      需要 `.contains()` 方法支持，对于 string 是搜索字串
+   
+控制流
+   .. hint:: 条件判断总是需要 bool，和 C 里只要求非零指有区别
+
+   循环
+      支持 `break` `continue`::
+   
+         while (a > b) { a--; }
+         do { a--; } while (a > b);
+         for (int a = 0; a < 10; a++) { stdout.printf("%d\n", a); }
+         foreach (int a in int_array) { stdout.printf("%d\n", a); }
+
+   分支
+      ::
+
+         if (a > 0) { stdout.printf("a is greater than 0\n"); }
+         else if (a < 0) { stdout.printf("a is less than 0\n"); }
+         else { stdout.printf("a is equal to 0\n"); }
+
+         switch (a) {
+         case 1:
+             stdout.printf("one\n");
+             break;
+         case 2:
+         case 3:
+             stdout.printf("two or three\n");
+             break;
+         default:
+             stdout.printf("unknown\n");
+             break;
+         }
+
+https://wiki.gnome.org/Projects/Vala/Tutorial#Language_Elements
