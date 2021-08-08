@@ -2,12 +2,18 @@
 2021-08
 =======
 
+.. contents::
+   :local:
+
 Vala Tutorial
 =============
 
 :URL: https://wiki.gnome.org/Projects/Vala/Tutorial
 
 .. highlight:: vala
+
+Basics
+------
 
 - Compile to C
 - Use GLib type & objecct system
@@ -19,7 +25,7 @@ new
 注释
    C 风格的注释，`/**` 是文档注释
 类型
-   value types 
+   value types
       - 传值
       - 支持绑定方法 (`ture.to_string()`)
 
@@ -46,7 +52,7 @@ new
          栈上声明::
 
             int a[10];
-            
+
          堆上（可以 `.resize()`）::
 
             int[] a = new int[10]
@@ -63,7 +69,7 @@ new
                int[,] d = {{2, 4, 6, 8}
                           {3, 5, 7, 9},
                           {1, 3, 5, 7}};
-         
+
             多维数组无法降维：无法省略任意维的下标
          追加
             `+=`
@@ -71,17 +77,7 @@ new
    reference types
       常常继承 `GLib.Object`，基于 reference count 的内存管理，有 `null`
 
-      用 `class` 关键字声明::
-
-         /* defining a class */
-         class Track : GLib.Object {             /* subclassing 'GLib.Object' */
-             public double mass;                 /* a public field */
-             public double name { get; set; }    /* a public property */
-             private bool terminated = false;    /* a private field */
-             public void terminate() {           /* a public method */
-                 terminated = true;
-             }
-         }
+      见 OOP 一节
 
 静态 cast
    C-style，没有 runtime 开销::
@@ -96,8 +92,8 @@ new
       var s = "hello";          // same as: string s = "hello";
       var l = new List<int>();  // same as: List<int> l = new List<int>();
       var i = 10;               // same as: int i = 10;
-      
-创建类型 
+
+创建类型
    TODO
 
 操作符
@@ -109,13 +105,13 @@ new
        else if null: `a ?? b` => `a != null ? a : b`
    in
       需要 `.contains()` 方法支持，对于 string 是搜索字串
-   
+
 控制流
    .. hint:: 条件判断总是需要 bool，和 C 里只要求非零指有区别
 
-   循环
-      支持 `break` `continue`::
-   
+   循环，支持 `break` `continue`
+      ::
+
          while (a > b) { a--; }
          do { a--; } while (a > b);
          for (int a = 0; a < 10; a++) { stdout.printf("%d\n", a); }
@@ -141,4 +137,153 @@ new
              break;
          }
 
-https://wiki.gnome.org/Projects/Vala/Tutorial#Language_Elements
+Language Elements
+   方法
+      - Vala 方法总会被编译成 C 函数：因此总是接受 *若干* 参数，返回 *一个* 结果
+      - 推荐下划线分割的全小写
+      - 不支持重载
+
+      默认参数
+         ::
+
+            void f(int x, string s = "hello", double z = 0.5) { }
+
+      Nullable value
+         ::
+
+            string? method_name(string? text, Foo? foo, Bar bar) {
+                // ...
+            }
+
+   Delegate type
+      感觉是用来约束函数签名的
+
+      .. seealso:: `委托（C# 编程指南）`_
+
+         .. _委托（C# 编程指南）: https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/delegates/
+
+   匿名函数
+      ::
+
+         (a) => { stdout.printf("%d\n", a); }
+
+   Namespace
+      声明
+         推荐驼峰::
+
+            namespace NameSpaceName {
+                // ...
+            }
+
+         - 不在任何命名空间的对象会被放在全局的匿名命名空间中
+         - 命名空间可嵌套声明
+      引用
+         `using` 关键字::
+
+            using NameSpaceName;
+
+         - "GLib" 命名空间总是默认引用
+         - 为了避免歧义，需要从全局空间开始索引，可以使用 `global::` 前缀
+
+      用 `class NameSpace1.Test { ... }` 可以将 class 声明在特定命名空间中。
+
+   Struct
+      声明
+         推荐驼峰，需要显式设置成员的 access modifier::
+
+            struct StructName {
+                public int a;
+            }
+
+      实例化
+         ::
+
+            Color c1 = Color();  // or Color c1 = {};
+            Color c2 = { 0.5, 0.5, 1.0 };
+            Color c3 = Color() {
+                red = 0.5,
+                green = 0.5,
+                blue = 1.0
+            };
+
+      总是在栈上分配，并且在赋值时传值
+
+   Class
+      总是在堆上分配，并且在赋值时传址
+
+   Interface
+      Vala 的 interface 可携带默认实现
+
+Code Attributes
+   对编译期的指示，形如::
+
+      [AttributeName(param1 = value1, param2 = value2, ...)]
+
+   :`[CCode(...)]`: Bindings in vapi files
+   :`[DBus(...)]`: Exporting remote interfaces via D-Bus
+
+Object Oriented Programming
+---------------------------
+
+Access modifier
+   :public:    No restrictions to access
+   :private:   (default) Access is limited to within the class/struct definition
+   :protected: Access is limited to within the class definition and any class that inherits from the class
+   :internal:   Access is limited exclusively to classes defined within the same package
+
+Constructor Overloading
+   不支持，用以下语法替代::
+
+      public class Button : Object {
+         public Button.with_label(string label) {}
+      }
+
+      new Button.with_label("Click me");
+
+Destruction
+   熟悉的语法::
+
+      class Button : Object {
+             ~Button() { }
+         }
+
+Signals
+   `GLib.Object` 的信号机制的语法糖::
+
+      public class Test : GLib.Object {
+          public signal void sig_1(int a);
+          public static void main(string[] args) {
+              var t1 = new Test();
+              t1.sig_1.connect((t, a) => {
+                  stdout.printf("%d\n", a);
+              });
+              t1.sig_1(5);
+          }
+      }
+
+    Signal 现在只能是 `public` 的
+
+    Code Attributes
+      `[Signal (action=true, detailed=true, run=true, no_recurse=true, no_hooks=true)]`
+
+Properties
+   Getter & Setter::
+
+      class Person : Object {
+          /* Property with standard getter and setter and default value */
+          public int age { get; set; default = 32; }
+      }
+
+   Code Attributes::
+
+      [Description(nick = "age in years", blurb = "This is the person's age in years")]
+
+      [CCode(notify = false)]
+
+   Notify::
+
+      alice.notify["age"].connect((s, p) => {
+          stdout.printf("age has changed\n");
+      });
+
+https://wiki.gnome.org/Projects/Vala/Tutorial#Properties
