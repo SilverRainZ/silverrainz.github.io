@@ -3,6 +3,7 @@
 =======
 
 .. contents::
+   :local:
 
 杀猪盘
 ======
@@ -177,7 +178,105 @@ SlideBox
 CCTalk 课件转 PDF
 =================
 
-.. todo:: 帮妹子做的，待记录
+手机上打开 CC Talk 课程， 用 :aur:`scrcpy` 连上。
+
+用 xdotool 获取 scrcpy 窗口 ID，切页按钮 X-Y 坐标，手动填写课件页数。用以下脚本定时切页 + 截图:
+
+.. code-block:: bash
+   :caption: auto.sh
+
+   #!/bin/sh
+
+   X=1259
+   Y=389
+   WIN=54525974
+   PG=178
+
+   notify-send Pending....
+   sleep 5
+   notify-send Start!
+
+   for i in $(seq 1 $PG); do
+       xdotool mousemove $X $Y
+       xdotool key --window $WIN Ctrl+Alt+a
+       sleep 0.8
+       xdotool click --window $WIN Ctrl+Alt+a
+       sleep 0.5
+   done
+
+   notify-send Done!
+
+:kbd:`Ctrl+Alt+a` 绑定触发截屏脚本：
+
+.. code-block:: bash
+   :caption: auto.sh
+
+   #!/bin/sh
+
+   CH=$(cat ch.txt)
+   I=$(cat counter.txt)
+   PG=$(printf "%03d" ${I})
+   echo Chapter ${CH}, Page ${PG}
+
+   mkdir -p ch${CH}
+   maim -u -f jpg ch${CH}/${PG}.jpg
+
+   echo $((I+1)) > counter.txt
+
+截完一章用 krita 看需要裁掉的边缘的坐标，用以下脚本裁剪：
+
+.. code-block:: bash
+   :caption: cut.sh
+
+   #!/bin/sh
+
+   for i in 15; do
+       cd ch${i}
+       for j in $(ls); do
+           mogrify -crop 864x630+232+80 ${j}
+       done
+       cd ..
+   done
+
+从网页上复制章节名字，用 ImageMagick 生成封面:
+
+.. code-block:: bash
+   :caption: mkcover.sh
+
+   #!/bin/sh
+
+   title=()
+
+   j=1
+   for i in "${title[@]}"; do
+       mkdir -p ch${j}
+       convert \
+           -background white \
+           -fill black \
+           -pointsize 72 \
+           -font Noto-Serif-CJK-SC-Medium \
+           label:"${i}" \
+           ch${j}/000.jpg
+       j=$((j+1))
+   done
+
+从截图生成 PDF：
+
+.. code-block:: bash
+   :caption: mkpdf.sh
+
+   #!/bin/sh
+
+   title=()
+
+   for i in 15; do
+       cd ch${i}
+       j=$((i-1))
+       convert $(ls *.jpg) "../${title[j]}.pdf"
+       cd ..
+   done
+
+但这一切毫无意义 ——  2021-08-11
 
 The Docutils Document Tree
 ==========================

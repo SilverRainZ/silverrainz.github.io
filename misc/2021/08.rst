@@ -286,4 +286,13 @@ Properties
           stdout.printf("age has changed\n");
       });
 
-https://wiki.gnome.org/Projects/Vala/Tutorial#Properties
+Inheritance
+   `GObject` 的实现决定了 Vala 只支持单继承。
+
+   `base()`
+      即 python 里的 `super()`
+
+Abstract Classes
+   用 `abstract` 声明抽象类，或者用 `virtual` 提供默认实现。用 `override` 提供实现。
+
+Interfaces
