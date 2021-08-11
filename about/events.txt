@@ -20,6 +20,8 @@
     -> 2019.10
     -> 2020.02
     -> 2020.06
+    -> 2020.07
+    -> 2021.06
     -> future [style=invis];
 
     {rank=same past}
@@ -64,5 +66,9 @@
 
     {rank=same 2020.06 quit_chaitin[label="Quit from Chaitin Tech"]}
     join_chaitin -> quit_chaitin;
+
+    {rank=same 2020.07 start_learn_sketch[label="Learn classical sketch from 李晓飞"]}
+    {rank=same 2021.06 end_learn_sketch[label="End classical sketch course"]}
+    start_learn_sketch -> end_learn_sketch;
 
     {rank=same future}
