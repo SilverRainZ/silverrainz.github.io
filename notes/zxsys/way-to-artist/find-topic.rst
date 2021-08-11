@@ -801,3 +801,23 @@ Antihug
    :medium: 铅笔
 
 这张画放很久了，抽空完成一下。
+
+宋大元帅陵旁夜景
+----------------
+
+.. artwork:: _
+   :id: xfczk2-025
+   :size: 32k
+   :date: 2021-08-03
+   :medium: 水彩
+
+挑选真理
+--------
+
+.. artwork:: _
+   :id: xfczk2-025
+   :size: 32k
+   :date: 2021-08-03
+   :medium: 水彩
+
+.. seealso:: :artwork:`怀疑论者`

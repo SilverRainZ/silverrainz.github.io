@@ -13,8 +13,8 @@ Intro
 -----
 
 - I am Shengyu Zhang, a.k.a *SilverRainZ*, *谷月轩*
-- Former programmer, 10% stream processing, 10% distributed system, and 80% fool
-- Future painter, you can see my previous works on `LOFTER`_
+- Programmer: :ghuser:`SilverRainZ`
+- Part-time artist: :ref:`any-artwork.id`
 - Arch Linux user, active member of `Arch Linux CN Community`_
 - Author of `Srain IRC Client`_
 - :doc:`enemy` of SilverRainZ
@@ -30,7 +30,7 @@ Contact
 You can contact me in the following ways:
 
 :Email:     :email:`i@silverrainz.me`
-:IRC:       SilverRainZ @ freenode
+:IRC:       SilverRainZ @ Libera Chat
 :WeChat:    You can reqeust it by email
 
 Timeline
