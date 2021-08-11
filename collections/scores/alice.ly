@@ -10,14 +10,14 @@ prelude = \repeat unfold 2 {
     e,4 c g d
     f, c g d
     g, c g d
-    g,8(a,8\6) c4 g d
+    g,8(a,8\6) c4 g d \break
 }
 
 interlude = \repeat unfold 2 {
   <e, g>4 c' d' g'
   <f, g>4 c' d' g'
   <g, g>4 c' d' g'
-  <f, g>4 c' d' g'
+  <f, g>4 c' d' g' \break
 }
 
 pieceA = {
@@ -95,49 +95,49 @@ symbols =  {
   \pieceA
   \pieceB
   \pieceC
-  \pieceD
+  \pieceD \break
 
   %13
   \pieceA
   \pieceB
   \pieceC
-  \pieceDi
+  \pieceDi \break
 
   %17
   \pieceA
   \pieceB
   \pieceC
-  \pieceD
+  \pieceD \break
 
   %21
   \pieceA
   \pieceBi
   \pieceCi
-  \pieceD
+  \pieceD \break
 
   %25
   \pieceA
   \pieceB
   <c a>4 c' <g, e'> <d f'>
-  \pieceD
+  \pieceD \break
 
   %29
   \pieceA
   \pieceB
   \pieceC
-  \pieceDi
+  \pieceDi \break
 
   %33
   \pieceA
   \pieceB
   \pieceC
-  \pieceD
+  \pieceD \break
 
   %37
   \pieceA
   \pieceBi
   \pieceCi
-  \pieceDii
+  \pieceDii \break
 
   \bar "||"
 
@@ -147,25 +147,25 @@ symbols =  {
   %42
   \pieceAi
   \pieceBii
-  \pieceCii
+  \pieceCii \break
   \pieceDiii
 
   %46
   \pieceAi
   \pieceBiii
-  \pieceCiii
+  \pieceCiii \break
   \pieceDiii
 
   %50
   \pieceAi
   \pieceBiii
-  \pieceCiv
+  \pieceCiv \break
 
   %53
   \pieceA
   \pieceBi
   \pieceCi
-  \pieceDii
+  \pieceDii \break
 
   \bar "||"
 
@@ -173,25 +173,25 @@ symbols =  {
   \pieceA
   \pieceB
   \pieceC
-  \pieceD
+  \pieceD \break
 
   %61
   \pieceA
   \pieceB
   \pieceC
-  \pieceDi
+  \pieceDi \break
 
   %65
   \pieceA
   \pieceB
   \pieceC
-  \pieceD
+  \pieceD \break
 
   %69
   \pieceA
   \pieceBi
   \pieceCi
-  \pieceDiv
+  \pieceDiv \break
 
   \bar "||"
 
@@ -212,7 +212,7 @@ symbols =  {
 
 \score {
   <<
-    \new Staff {
+    \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
       \clef "G_8"
       \symbols
     }

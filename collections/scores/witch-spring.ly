@@ -12,15 +12,15 @@ symbols =  {
   % 1
   c'4 c' c' c'8 b8
   c'4 g' c' c'8 b8
-  c'4 g' (c'') c''8 b'8
-  c''2 r2
+  c'4 g' (ais') c''8 b'8
+  c''2 r2 \break
 
   %14
   e'4 g c'2
   a8 c'8 c'8 d'8 c'2
 
   e'4 g' c'2
-  c'4 d'8 e'8 c'4 g
+  c'4 d'8 e'8 c'4 g \break
 
   e'4 g c'2
   a8 c'8 c'8 d'8 e'4 c'
@@ -32,7 +32,7 @@ symbols =  {
 
 \score {
   <<
-    \new Staff {
+    \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
       \clef "G_8"
       \symbols
     }

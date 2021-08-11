@@ -163,6 +163,7 @@ extlinks = {
     'zhihua': ('https://www.zhihu.com/answer/%s', '❓'),
     'zhihup': ('https://www.zhihu.com/people/%s', '👤'),
     'pypi': ('https://pypi.org/project/%s', '📦'),
+    'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', 'https://lilypond.org/doc/v2.20/Documentation/'),
 }
 
 extensions.append('sphinxnotes.any')
@@ -263,13 +264,13 @@ if CI:
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if not CI:
-    extensions.append('sphinxnotes.snippet.ext')
-    snippet_config = {}
-    snippet_patterns = {
-        'd': ['.*'],
-        'c': ['man/.*'],
-    }
+# if not CI:
+#     extensions.append('sphinxnotes.snippet.ext')
+#     snippet_config = {}
+#     snippet_patterns = {
+#         'd': ['.*'],
+#         'c': ['man/.*'],
+#     }
 
 extensions.append('sphinx_panels')
 # For ``fa`` role
