@@ -6,7 +6,6 @@ The Rust Programming Language
    Rust 程序设计语言
    :isbn: 9781718500440
    :startat: 2020-03-11
-   :bookmark: 314
 
 .. highlight:: rust
 
