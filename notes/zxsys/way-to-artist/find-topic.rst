@@ -815,9 +815,9 @@ Antihug
 --------
 
 .. artwork:: _
-   :id: xfczk2-025
+   :id: xfczk2-026
    :size: 32k
-   :date: 2021-08-03
+   :date: 2021-08-10
    :medium: 水彩
 
 .. seealso:: :artwork:`怀疑论者`
