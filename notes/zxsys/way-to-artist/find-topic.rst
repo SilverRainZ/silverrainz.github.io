@@ -821,3 +821,24 @@ Antihug
    :medium: 水彩
 
 .. seealso:: :artwork:`怀疑论者`
+
+鸡胸
+----
+
+.. artwork:: _
+   :id: xfczk2-027
+   :size: 32k
+   :date: 2021-08-15
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210815_115254__01.jpg
+
+丢在垃圾桶里的半身模特，在知乎上截的图。
+
+画完线稿之后规划了一下颜色，模特用黄色，垃圾桶用蓝色。
+但最终的用色除了蓝色都降了纯度，左边的地面和计划的有所区别。
+
+.. image:: /_images/artwork-xfczk2/v2-7b123234565d9e62ea2ed3f552fc0c6a_r.jpg
+   :width: 40%
+
+.. image:: /_images/artwork-xfczk2/IMG_20210814_231427.jpg
+   :width: 40%
