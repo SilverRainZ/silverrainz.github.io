@@ -264,13 +264,14 @@ if CI:
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-# if not CI:
-#     extensions.append('sphinxnotes.snippet.ext')
-#     snippet_config = {}
-#     snippet_patterns = {
-#         'd': ['.*'],
-#         'c': ['man/.*'],
-#     }
+if not CI:
+    extensions.append('sphinxnotes.snippet.ext')
+    snippet_config = {}
+    snippet_patterns = {
+        'd': ['.*'],
+        's': ['man/.*', 'notes/.*', 'misc/.*'],
+        'c': ['man/.*'],
+    }
 
 extensions.append('sphinx_panels')
 # For ``fa`` role
