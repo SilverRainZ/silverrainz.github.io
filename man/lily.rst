@@ -9,6 +9,40 @@ LilyPond
 .. contents::
    :local:
 
+文件结构 [#]_
+=============
+
+可能出现在顶层的表达式如下：
+
+Output definition,
+   例如`\paper`, `\midi`, and `\layout`，重复的定义会被合并，若冲突后者优先
+
+Direct scheme expression
+   类似 `#(set-default-paper-size "a7" 'landscape)`
+
+   .. note:: 这里的 scheme 是指 :enwiki:`Scheme_(programming_language)`
+
+`\header`
+   定义谱面的头部，包含标题、作曲家等信息
+
+`\score`
+   包含单个 Music Expression [#]_ ，所有顶层的 `\score`，会被隐式地包含在 `\book` 里
+
+`\book`
+   用来实现同一份 :file:`*.ly` 文件输出多份谱子
+
+`\bookpart`
+   似乎是用来占位以保证谱子不跨页的
+
+Music Expression
+   会被隐式地包含在 `\score` 里
+
+Markup text
+   TODO
+
+Variable
+   任意自定义的变量
+
 记谱法
 ======
 
@@ -34,7 +68,7 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 五线谱六线谱混排
 ~~~~~~~~~~~~~~~~
 
-`\symbols` 是个 music expression [#]_ ::
+`\symbols` 是个 music expression [music-expr]_ ::
 
    \score {
      <<
@@ -76,7 +110,8 @@ MIDI
 
 .. rubric:: 脚注
 
+.. [#] :lilydoc:`notation/file-structure`
 .. [#] :lilydoc:`music-glossary/pitch-names`
-.. [#] :lilydoc:`learning/music-expressions-explained`
+.. [music-expr] :lilydoc:`learning/music-expressions-explained`
 .. [#] :lilydoc:`notation/using-midi-instruments`
 .. [#] :lilydoc:`notation/midi-instruments`
