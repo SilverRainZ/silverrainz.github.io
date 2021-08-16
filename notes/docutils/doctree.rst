@@ -125,4 +125,4 @@ visit 和 depart 方法。
 
 
 .. [#] https://docutils.sourceforge.io/docs/ref/doctree.html
-.. [#] :zhwiki: 生活在树上
+.. [#] :zhwiki:`生活在树上`
