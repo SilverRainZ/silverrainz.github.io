@@ -321,24 +321,9 @@ BTW 上文提到阴阳历，查了下也是个有意思的概念：
 LilyPond 文件结构 [#]_
 ======================
 
-可能出现在 top-level 的表达式如下：
+.. versionchanged:: 2020-08-16
 
-- Output definition, such as `\paper`, `\midi`, and `\layout`
-  重复的定义会被合并，若冲突后者优先
-- Direct scheme expression, such as `#(set-default-paper-size "a7" 'landscape)`
-  这里的 scheme 是指 :enwiki:`Scheme_(programming_language)`
-- `\header` 表达式，定义谱面的头部，包含标题、作曲家等信息
-- `\score` 表达式，包含单个 Music Expression [#]_ ，所有顶层的 `\score`
-  会被隐式地包含在 `\book` 里
-- `\book` 表达式，用来实现同一份 `*.ly` 文件输出多份谱子
-- `\bookpart` 表达式，似乎是用来占位以保证谱子不跨页的
-- 任意 Music Expression，会被隐式地加上 `\score`
-- Markup text
-- Variable
-
-.. [#] https://lilypond.org/doc/v2.20/Documentation/notation/file-structure
-.. [#] http://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained
-
+   Moved to :doc:`/man/lily`.
 
 形而上学的一些基本概念
 ======================
