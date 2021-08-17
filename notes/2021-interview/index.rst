@@ -20,12 +20,12 @@
 ========== ==== ====== ====== ====
 公司       地址 途径   状态   结果
 ---------- ---- ------ ------ ----
-Zilliz     上海 BOSS   口头   *拒*
+Zilliz     上海 BOSS   *口头* *拒*
 富途       深圳 BOSS   一面   凉
 金山       珠海 BOSS   *正式* *拒*
 TapTap     上海 BOSS   一面   凉
 *SmartX*   深圳 BOSS   三面   凉
-*PingCAP*  深圳 *内推* *HR面* ?
+*PingCAP*  深圳 *内推* *口头* *拒*
 UCloud     深圳 BOSS   一面   凉
 货拉拉     深圳 BOSS   二面   凉
 得物       上海 BOSS   二面   凉

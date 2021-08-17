@@ -842,3 +842,15 @@ Antihug
 
 .. image:: /_images/artwork-xfczk2/IMG_20210814_231427.jpg
    :width: 40%
+
+模特
+----
+
+.. artwork:: _
+   :id: xfczk2-028
+   :size: 32k
+   :date: 2021-08-16
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
+
+2013-11-17，应该是在广州某个地铁站旁边拍的照片。
