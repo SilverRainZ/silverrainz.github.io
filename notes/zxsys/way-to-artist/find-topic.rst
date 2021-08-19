@@ -854,3 +854,12 @@ Antihug
    :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
 
 2013-11-17，应该是在广州某个地铁站旁边拍的照片。
+
+无题
+----
+
+.. artwork:: _
+   :id: xfczk2-029
+   :size: 32k
+   :date: 2021-08-18
+   :medium: 水彩
