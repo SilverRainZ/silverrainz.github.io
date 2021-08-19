@@ -29,7 +29,7 @@ Docutils Hacker's Guide
 
 .. deprecated:: 2020-11-21
 
-   Moved to :doc:`/notes/sphinx-as-pim/docutils-hacker-guide`
+   Moved to :doc:`/notes/docutils/docutils-hacker-guide`
 
 股市基本概念
 ============
