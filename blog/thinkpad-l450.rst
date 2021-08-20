@@ -5,7 +5,7 @@
 ========================================
 
 .. post:: 2016-03-11
-   :tags: 设备
+   :tags: 设备, Arch Linux
    :author: LA
    :language: zh_CN
 
