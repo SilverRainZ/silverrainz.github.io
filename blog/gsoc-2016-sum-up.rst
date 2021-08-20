@@ -6,6 +6,7 @@
    :tags: GSoC
    :author: LA
    :language: zh_CN
+   :category: GSoc 2016
 
 .. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
