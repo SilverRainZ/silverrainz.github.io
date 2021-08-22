@@ -579,6 +579,7 @@ overhaed 非常大，有时会变得不是我自己。
    :size: 32k
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210517_022947__01__01.jpg
+   :album: album-32k-1
 
 我把我不喜欢的东西慢慢地从身上敲下来。
 
@@ -595,6 +596,7 @@ overhaed 非常大，有时会变得不是我自己。
    :size: 32k
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210523_180430__01__01.jpg
+   :album: album-32k-1
 
 我不能游在干涸的河床上。
 
@@ -671,6 +673,7 @@ Antihug
    :size: 32k
    :medium: 水彩 色粉笔 铅笔
    :image: /_images/artwork-xfczk2/IMG_20210607_000828__01.jpg
+   :album: album-32k-1
 
 | 这是一个商业项目团队在某一刻保存下的快照
 | 这是横跨了 2020 到 2021 的一张离职名单
@@ -693,7 +696,7 @@ Antihug
 
 .. artwork:: _
    :id: xfczk2-016
-   :medium: 数字 Procreate
+   :medium: Procreate
 
 它们纠集起来会成为什么，会是我的敌人吗？
 
@@ -723,6 +726,7 @@ Antihug
    :size: 8k
    :medium: 炭精粉 色粉笔
    :image: /_images/artwork-xfczk2/IMG_20210626_185729__01.jpg
+   :album: album-a3-1
 
 黄剑说像 :artist:`毛焰` ，我觉得像谁不重要。
 
@@ -737,6 +741,7 @@ Antihug
    :size: 8k
    :medium: 彩色铅笔 炭精粉
    :image: /_images/artwork-xfczk2/IMG_20210626_185717__01.jpg
+   :album: album-a3-1
 
 自觉并不好，但晓飞老师觉得好，那就放进来吧。
 
@@ -749,6 +754,7 @@ Antihug
    :size: 8k
    :medium: 炭精粉
    :image: /_images/artwork-xfczk2/IMG_20210626_185746__01.jpg
+   :album: album-a3-1
 
 我不甘于无聊的画面，又陷在过渡的时间里动弹不得。
 那就破坏吧，破碎比平庸有趣一点。
@@ -762,6 +768,7 @@ Antihug
    :size: 8k
    :medium: 炭精粉
    :image: /_images/artwork-xfczk2/IMG_20210625_153512.jpg
+   :album: album-a3-1
 
 离开画室的倒数第二天，从右到左，依次是若涵、黄剑和小龙。
 
@@ -831,6 +838,7 @@ Antihug
    :date: 2021-08-15
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210815_115254__01.jpg
+   :album: album-32k-1
 
 丢在垃圾桶里的半身模特，在知乎上截的图。
 
@@ -852,6 +860,7 @@ Antihug
    :date: 2021-08-16
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
+   :album: album-32k-1
 
 2013-11-17，应该是在广州某个地铁站旁边拍的照片。
 

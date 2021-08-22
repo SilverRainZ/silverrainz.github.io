@@ -2,6 +2,7 @@
 :日期: {{ date }}
 :尺幅: :artwork.size:`{{ size }} <{{ size }}>`
 :媒介: {% for m in medium %}:artwork.medium:`{{ m }} <{{ m }}>` {% endfor %}
+{% if album %}:画集: :artwork.album:`{{ album }} <{{ album }}>`{% endif %}
 
 {% if image %}
 .. image:: {{ image }}

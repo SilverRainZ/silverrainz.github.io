@@ -196,6 +196,7 @@ any_schemas = [
                'medium': F(referenceable=True, form=F.Form.WORDS),
                'size': F(referenceable=True),
                'image': F(),
+               'album': F(referenceable=True),
            },
            description_template=open('_templates/artwork.rst', 'r').read(),
            reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
