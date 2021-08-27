@@ -55,7 +55,7 @@ trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:
    2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg\ :sup:`AUR`
 
 
-.. code-block:: bash
+.. code:: bash
 
    trayer --edge top --align right --widthtype percent --width 11 \
           --SetDockType true --SetPartialStrut true --transparent true --alpha 0 \
@@ -67,13 +67,13 @@ trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:
 feh 用来设置桌面背景, 设置背景很有必要, 如果不设置的话,
 关闭窗口的时候不会有明显的反馈, 浮动窗口也会留下难看的拖影.
 
-.. code-block:: bash
+.. code:: bash
 
    feh --bg-scale /home/la/Pictures/Wallpapers/blog-bg.jpg
 
 scrot 截图的快捷键在 XMonad 的配置文件\ `~/.xmonad/xmonad.hs`\ 里面绑定:
 
-.. code-block:: haskell
+.. code:: haskell
 
    defaultConfig
    `additionalKeys`
@@ -116,7 +116,7 @@ TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
 不过根据错误提示和 Arch Linux Wiki, 装了几个包就解决问题了.
 
-.. code-block:: bash
+.. code:: bash
 
    ➜  pacman -S lib32-ncurses lib32-mpg123
    ➜  winetrick riched20 ie6 mfc42 cjkfonts wenquanyi
@@ -152,7 +152,7 @@ konsole 的界面却依然很丑...
 
 在\ `~/.xprofile`\ 中加入:
 
-.. code-block:: bash
+.. code:: bash
 
    export GTK_IM_MODULE=fcitx
    export QT_IM_MODULE=fcitx

@@ -28,7 +28,7 @@
 该函数检测程序是否正在被调试, 是的话返回1,否则返回0,
 该函数位于\ `Kernel32.dll`\ 中, 其代码如下:
 
-.. code-block:: nasm
+.. code:: nasm
 
    mov eax, dword ptr fs:[0x18]
    mov eax, dword ptr fs:[eax + 0x30]
@@ -48,7 +48,7 @@ fs寄存器指示了(并不是储存了)\ `PEB`\ (Process Environment Block)的�
 0x0.1 栗子
 ^^^^^^^^^^
 
-.. code-block:: c
+.. code:: c
 
    #include <stdio.h>
    #include <windows.h>
@@ -103,7 +103,7 @@ fs寄存器指示了(并不是储存了)\ `PEB`\ (Process Environment Block)的�
 
 * EnumProcesses
 
-.. code-block:: c
+.. code:: c
 
    BOOL WINAPI EnumProcesses(
      _Out_ DWORD *pProcessIds,
@@ -118,7 +118,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * GetModuleBaseNameA
 
-.. code-block:: c
+.. code:: c
 
    DWORD WINAPI GetModuleBaseName(
      _In_     HANDLE  hProcess,
@@ -134,7 +134,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * OpenProcess
 
-.. code-block:: c
+.. code:: c
 
    HANDLE WINAPI OpenProcess(
      _In_ DWORD dwDesiredAccess,
@@ -148,7 +148,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * EnumProcessModules
 
-.. code-block:: c
+.. code:: c
 
    BOOL WINAPI EnumProcessModules(
      _In_  HANDLE  hProcess,
@@ -197,7 +197,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * CreateToolhelp32Snapshot
 
-.. code-block:: c
+.. code:: c
 
    HANDLE WINAPI CreateToolhelp32Snapshot(
      _In_ DWORD dwFlags,
@@ -211,7 +211,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * Process32First
 
-.. code-block:: c
+.. code:: c
 
    BOOL WINAPI Process32First(
      _In_    HANDLE           hSnapshot,
@@ -226,7 +226,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * Process32Next
 
-.. code-block:: c
+.. code:: c
 
    BOOL WINAPI Process32Next(
      _In_  HANDLE           hSnapshot,
@@ -237,7 +237,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 `Process32First`\ 和\ `Process32Next`\ 中涉及到的\ `PPROCESSENTRY32`\ 结构体如下:
 
-.. code-block:: c
+.. code:: c
 
    PROCESSENTRY32 structure
    typedef struct tagPROCESSENTRY32 {
@@ -283,7 +283,7 @@ EnumProcesses 枚举所有的进程PID, 第一个参数是缓冲区, 储存所�
 
 * FindWindowA
 
-.. code-block:: c
+.. code:: c
 
    HWND WINAPI FindWindow(
      _In_opt_ LPCTSTR lpClassName,
@@ -449,7 +449,7 @@ NtGlobalFlag
 NtGlobalFlag 默认总是0, 除非它被一个调试器所附加.
 当调试器创建一个进程时, NtGlobalFlag会有如下的值:
 
-.. code-block::
+.. code::
 
    > FLG_HEAP_ENABLE_TAIL_CHECK (0x10)
    > FLG_HEAP_ENABLE_FREE_CHECK (0x20)

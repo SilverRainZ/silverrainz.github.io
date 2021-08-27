@@ -40,7 +40,7 @@ Minix 则不同了, 作为曾经流行过的文件系统, 在 Linux 上至今都
 首先用\ `bximage`\ 建立一个硬盘镜像文件, 再用\ `mkfs.minix`\ 建立文件系统,
 如果需要复制文件进去的话, 用\ `mount`\ 挂载.
 
-.. code-block:: bash
+.. code:: bash
 
    bximage bin/rootfs.img -hd=10M -imgmode=flat -mode=create -q
    mkfs.minix bin/rootfs.img -1 -n14
@@ -54,7 +54,7 @@ Minix 则不同了, 作为曾经流行过的文件系统, 在 Linux 上至今都
 检查无误的话, fsck 会输出该磁盘的超级块信息及里面包含的所有文件.
 若出错, fsck 会给出详尽的错误信息, 比如下面这段:
 
-.. code-block:: bash
+.. code:: bash
 
    ➜  OS67 git:(master) ✗  fsck.minix -fsl ./bin/rootfs.img
    Forcing filesystem check on ./bin/rootfs.img.
@@ -82,7 +82,7 @@ Minix 文件系统结构
 
 Minix 文件系统的结构如下:
 
-.. code-block::
+.. code::
 
    Minix v1 file system structure
    zone:  0           1              2             2 + imap_blk        ...         ...
@@ -103,7 +103,7 @@ i 节点
 
 i 节点是 Minix FS 中最重要的结构体, 其定义如下:
 
-.. code-block:: c
+.. code:: c
 
    // OS67/inc/minix.h
    /* in-disk minix inode */
@@ -135,7 +135,7 @@ i 节点被储存在磁盘的 i 节点块(inodes zone)中, 并按排列顺序被
 
 目录被实现为一种特殊的文件, 目录的数据由一个或多个\ `dir_entry`\ 结构组成.
 
-.. code-block:: c
+.. code:: c
 
    // OS67/inc/minix.h
    /* minix directroy entry */
@@ -186,7 +186,7 @@ OS67 的 bootsector 实现在 `OS67/boot/bootsect.asm`
 超级块(superblock), 用来存放整个文件系统的元信息, 比如磁盘大小, i节点数目,
 虚拟块数目, Magic nubmer 等.  Minix FS 的超级块结构如下:
 
-.. code-block:: c
+.. code:: c
 
    // OS67/inc/minix.h
    struct super_block{
@@ -209,7 +209,7 @@ OS67 的 bootsector 实现在 `OS67/boot/bootsect.asm`
 
 `OS67/inc/minix.h`\ 实现了两个宏来定位这些位图块.
 
-.. code-block:: c
+.. code:: c
 
    /* bit per block */
    #define BPB (BSIZE*8)
@@ -240,7 +240,7 @@ i 节点块(inode)
 
 这些块用来储存 i 节点, 用宏\ `IBLK`\ 根据 i 节点号, 定位到块号, 同样注意 i 节点从 1 开始计数.
 
-.. code-block:: c
+.. code:: c
 
    #define IBLK(sb, i) (2 + ((sb).imap_blk) + ((sb).zmap_blk) + ((i) - 1)/IPB)
 
@@ -269,7 +269,7 @@ i 节点块(inode)
 注意: 这里一次读取的是一个虚拟块(1024 byte), 而不是一个物理意义上的扇区(常见大小是 512 byee),
 因此得把上层传来的虚拟块号, 转化为物理扇区号, 并且一次读取两个扇区.
 
-.. code-block:: c
+.. code:: c
 
    uint32_t phy_blkn = b->blkno*(BSIZE/PHY_BSIZE);
    ...
@@ -306,7 +306,7 @@ bget
 
 以上的两个层次都和叫做块缓冲区的结构: `buf`\ 密切相关, `buf`\ 的结构如下:
 
-.. code-block:: c
+.. code:: c
 
    // OS67/inc/buf.h
    struct buf {
@@ -327,7 +327,7 @@ i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c
 
 磁盘中的 i 节点结构上面已经讲过了, 内存中的 i 节点\ `inode`\ 结构如下:
 
-.. code-block:: c
+.. code:: c
 
    // OS67/inc/minix.h
    /* in-memorty inode */

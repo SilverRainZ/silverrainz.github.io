@@ -29,7 +29,7 @@ use `for` loop::
 
 Edit inplace:
 
-.. code-block:: sh
+.. code:: sh
 
     awk -i inplace
 

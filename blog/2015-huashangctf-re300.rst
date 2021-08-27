@@ -18,7 +18,7 @@
 
 程序储存的地图如下：
 
-.. code-block:: c-objdump
+.. code:: c-objdump
 
    .data:00407030 ; char map[]
    .data:00407030 map             db 1, 1, 0, 1, 1, 1, 0, 1, 1
@@ -33,7 +33,7 @@
 
 转化成十进制：
 
-.. code-block::
+.. code::
 
    1,  1, 0,  1,  1,  1,  0, 1, 1
    1,  0, 0,  0,  0,  0,  0, 0, 1
@@ -49,7 +49,7 @@
 
 用 IDA 分析整理得到 main 函数代码如下：
 
-.. code-block:: c
+.. code:: c
 
    int __cdecl main(int argc, const char **argv, const char **envp)
    {
@@ -122,7 +122,7 @@
 
 看一下 `find_start` 函数：
 
-.. code-block:: c
+.. code:: c
 
    char __cdecl find_start(int start, int e_y, int e_x)
    {
@@ -156,7 +156,7 @@
 
 接下来看 `go_left` 函数：
 
-.. code-block:: c
+.. code:: c
 
    char *__cdecl go_left(int y, int x)
    {
@@ -190,7 +190,7 @@
 处理完一次移动之后 `step` 自增 2，进行下一次移动，直到整个序列结束。
 就执行 `check_no_start` 做最后的检查：
 
-.. code-block:: c
+.. code:: c
 
    char check_no_start()
    {
@@ -225,7 +225,7 @@
 
 移动箱子的顺序的和路径如下：
 
-.. code-block::
+.. code::
 
    62 = 62
    52 = 515351

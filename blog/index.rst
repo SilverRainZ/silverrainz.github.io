@@ -4,7 +4,7 @@
 
 个体 :any:friend:`SilverRainZ` 的日志使用 Sphinx+ABlog 管理。
 
-.. code-block:: console
+.. code:: console
 
    $ journalctl -a -f -u SilverRainZ@sphinx.service
 

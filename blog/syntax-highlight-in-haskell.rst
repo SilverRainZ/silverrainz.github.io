@@ -64,7 +64,7 @@
 还有一个问题，也是转义，本来为了代码的简洁，将正则表达式写在了文件里，每行一个，
 逐行读取，接下来读每个正则对应的颜色，代码很漂亮：
 
-.. code-block:: haskell
+.. code:: haskell
 
    handle <- openFile "keywords.txt" ReadMode
    pattern <- sequence . replicate 5 . hGetLine handle
@@ -76,7 +76,7 @@
 你没法从文件的一行里面读取一个回车吧，并且\n后面还有内容，所以这种方案失败，
 我只把关键字放在了文件里。代码变成了：
 
-.. code-block:: haskell
+.. code:: haskell
 
    pattern' = [ "/\\*(.|\n|\r)*\\*/"
               , "//.*"
@@ -127,7 +127,7 @@ Haskell的IO()像是一种具有传染性的代码（诶我说的不是GPL），
 不知道这么写是否正确， 什么才是好的代码， 这个问题至今还是很模糊啊。
 （不过谈论这个问题之前应该把前面那些问题先解决了才是）
 
-.. code-block:: haskell
+.. code:: haskell
 
    import System.IO
    import Text.Regex.Posix

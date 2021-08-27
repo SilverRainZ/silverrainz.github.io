@@ -69,7 +69,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
   我在网上找到了\ `这个脚本 <https://github.com/ervandew/dotfiles/blob/master/bin/dzen2>`_\ ，
   可以从 xrandr 获取屏幕宽度，按指定的比例算出宽度来，我针对我的需要做了一点修改：
 
-.. code-block:: bash
+.. code:: bash
 
    #!/usr/bin/sh
    # Author: ervandew
@@ -112,7 +112,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 
 xmonad.hs 那边要这样写：
 
-.. code-block:: haskell
+.. code:: haskell
 
    myLogHook xmproc = dynamicLogWithPP $ defaultPP
                        { ppCurrent = dzenColor "#87ceff" "#1a1a1a" . pad
@@ -152,7 +152,7 @@ xmonad.hs 那边要这样写：
 
 * 启用了 xmonad 的 smartBorder，这样在不需要边框的时候就不会有讨厌的边框了
 
-.. code-block:: haskell
+.. code:: haskell
 
    import XMonad.Layout.NoBorders
 
@@ -168,7 +168,7 @@ xmonad.hs 那边要这样写：
 
 * 受上面那个 dzen2 wrapper 启发，在 `.xinitrc` 里面增加了判断外接屏幕是否存在的脚本：
 
-.. code-block:: bash
+.. code:: bash
 
    # Dual screens auto dectection
    internal="^\(\(eDP\|LVDS\)-\?[0-9]\+\)"

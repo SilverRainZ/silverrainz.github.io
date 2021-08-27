@@ -113,7 +113,7 @@ Inline Elements
 `visitor` 继承自 `docutils.nodes.NodeVisitor` ，且需要实现各个类型节点的
 visit 和 depart 方法。
 
-.. code-block:: python
+.. code:: python
 
    class Translator(nodes.NodeVisitor):
 

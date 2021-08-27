@@ -51,7 +51,7 @@ Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接\ `su
   而不是 `a, b -> c`\ , 柯里函数是一个一元函数， 每次调用只接受一个参数，
   并返回一个固化了该参数的一元函数，书里的比喻非常有趣，对于代码：
 
-.. code-block:: haskell
+.. code:: haskell
 
    multThree :: Int -> Int -> Int -> Int
    multThree x y z = x * y * z
@@ -62,7 +62,7 @@ Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接\ `su
 也就是135。
 
 
-.. code-block:: haskell
+.. code:: haskell
 
    qsort :: (Ord a) => [a] -> [a]
    qsort [] = []

@@ -249,7 +249,7 @@ ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 `Isso <https://posa
       reST
       ^^^^
 
-      .. code-block:: rst
+      .. code:: rst
 
          .. digraph::: dot
 
@@ -271,7 +271,7 @@ ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 `Isso <https://posa
       reST
       ^^^^
 
-      .. code-block:: rst
+      .. code:: rst
 
          .. uml::
 
@@ -296,7 +296,7 @@ ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 `Isso <https://posa
 :pypi:`sphinxcontrib.asciinema`
    在文档中嵌入 asciinema 录制的终端操作：
 
-   .. code-block:: rst
+   .. code:: rst
 
       .. asciinema:: 117813
 

@@ -185,7 +185,7 @@ Python Typing Hint 引入大量 import 导致脚本启动慢
 
 Python 3.5.2+ 可以使用 :py:const:`typing.TYPE_CHECKING`:
 
-.. code-block:: python
+.. code:: python
 
    if TYPE_CHECKING:
        import expensive_mod

@@ -25,7 +25,7 @@
 服务器就会返回返回包含游戏的数据，我对照着\ `其中的一个脚本 <http://pastebin.com/W0qjxzvr>`_
 写了个 Python 版本：
 
-.. code-block:: python
+.. code:: python
 
    #!/usr/bin/env python3
    import socket

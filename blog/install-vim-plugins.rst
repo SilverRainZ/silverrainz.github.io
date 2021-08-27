@@ -27,7 +27,7 @@ fcitx.vim
 
 如果想要启用 Python 支持的话, 要加入一个环境变量:
 
-.. code-block:: bash
+.. code:: bash
 
    export FCITX_SOCKET=/tmp/fcitx-remote.sock
 
@@ -40,7 +40,7 @@ Vundle
 把 `gmarik/Vundle.vim <https://github.com/gmarik/Vundle.vim>`_ clone 到 `.vim` 下,
 在 `.vimrc` 里添加如下内容:
 
-.. code-block:: vim
+.. code:: vim
 
    set nocompatible              " be iMproved, required
    filetype off                  " required
@@ -81,7 +81,7 @@ PowerLine
 在\ `.vimrc` 相应位置里加一句 `Plugin 'Lokaltog/vim-powerline'`\ ,
 再 `:PluginInstall`\ , 加上如下配置:
 
-.. code-block:: vim
+.. code:: vim
 
    " powerline
    set nocompatible    " 不兼容 vi
@@ -96,7 +96,7 @@ Nerdtree
 
 文件浏览插件, 还是用 Vundle 安装.
 
-.. code-block:: vim
+.. code:: vim
 
    " A tree explorer plugin for vim.
    Plugin 'scrooloose/nerdtree'
@@ -109,7 +109,7 @@ YouCompleteMe
 据说是最好的 C/C++ 补全插件? 这个安装略波折.
 首先用 Vundle 安装:
 
-.. code-block:: vim
+.. code:: vim
 
    " A code-completion engine for Vim
    Plugin 'Valloric/YouCompleteMe'
@@ -127,14 +127,14 @@ openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手
 
 删除原来的 vim
 
-.. code-block:: bash
+.. code:: bash
 
    $ ~  zypper rm gvim
    $ ~  zypper rm vim
 
 先安装各种依赖包:
 
-.. code-block:: bash
+.. code:: bash
 
    $ ~  zypper in python-devel
    $ ~  zypper in ruby-devel
@@ -144,7 +144,7 @@ openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手
 
 编译:
 
-.. code-block:: bash
+.. code:: bash
 
    $ ~ ./configure --with-features=huge \
                --enable-rubyinterp  \
@@ -164,7 +164,7 @@ openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手
 
 安装后就可以编译 YCM 了:
 
-.. code-block:: bash
+.. code:: bash
 
    $ ~ zypper in llvm-clang cmake
    $ ~ cd .vim/bundle/YouCompleteMe

@@ -38,7 +38,7 @@
 dot 文件大概长这样，每一行代表连接两个顶点的边
 用 Graphviz 的 dot 命令可以从 dot 文件生成 png。
 
-.. code-block:: text
+.. code:: text
 
    digraph callgraph {
    "move_cur" -> "outb" [style=solid];
@@ -63,7 +63,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
 既然整个项目的图太大了，那就生成模块内部的调用图好了，OS67 的项目结构长这样，
 模块和文件夹基本上是一一对应的：
 
-.. code-block:: console
+.. code:: console
 
    $ tree -d
    .
@@ -85,7 +85,7 @@ dot 文件大概长这样，每一行代表连接两个顶点的边
 
 需要生成调用图的模块有 `dev drv fs kern libs mm proc`\ ，来写个小脚本自动生成好了：
 
-.. code-block:: sh
+.. code:: sh
 
    #!/usr/bin/sh
    mods='dev drv fs kern libs mm proc'
@@ -148,7 +148,7 @@ cinclude2dot 还提供了一个 `--merge directory` 选项，把相同目录的�
 
 执行 `cinclude2dot --include inc --merge module > $dotfile`\ ，得到各个「文件」间的调用关系。
 
-.. code-block:: text
+.. code:: text
 
    digraph "source tree" {
        "ls" -> "usys"
@@ -183,7 +183,7 @@ cinclude2dot 还提供了一个 `--merge directory` 选项，把相同目录的�
 把这些事情交给脚本吧，从每个要统计的模块（目录）里面取得文件列表，
 把文件名替换为目录名，去除单独的 `*.h` 文件对应的行，去除重复行。
 
-.. code-block:: sh
+.. code:: sh
 
    #!/usr/bin/sh
 

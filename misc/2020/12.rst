@@ -7,7 +7,7 @@
 Jekyll Post To Sphinx Document
 ==============================
 
-.. code-block:: bash
+.. code:: bash
 
    #!/usr/bin/sh
 
@@ -26,7 +26,7 @@ Jekyll Post To Sphinx Document
        mv $r ${r:11}
    done
 
-.. code-block:: awk
+.. code:: awk
 
    # Skip empty line
    NR==1 {
@@ -89,7 +89,7 @@ Python 中的 {Class,Instance} Variable
 
 当然对 Python Newbie 来说哪有容易发现 bug，下面是犯错的 case：
 
-.. code-block:: python
+.. code:: python
 
     class Foo(object):
         bar = []
