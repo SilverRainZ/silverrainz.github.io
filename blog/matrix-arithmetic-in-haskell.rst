@@ -30,7 +30,7 @@
 
 实现矩阵转置的时候卡了一下, 我原来写的是
 
-.. code-block:: haskell
+.. code:: haskell
 
    transpose :: Matrix -> Matrix
    transpose (Matrix []) = Matrix []
@@ -61,7 +61,7 @@
 
 看看接下来教的什么或许可以再往代码里加点东西, 改天看看别人是怎么写的.
 
-.. code-block:: haskell
+.. code:: haskell
 
    data Matrix = Matrix {getMartix :: [[Int]]}
 

@@ -113,7 +113,7 @@ Hurd 并不是一个内核，而只是一套微内核守护进程，真正的内
 Translator 是一类程序，相当于一个 Server，translator 需要与一个文件绑定，
 用户通过访问这个文件来实现对 Server 的请求，如下：
 
-.. code-block::
+.. code::
 
    $ touch hello
    $ cat hello
@@ -186,7 +186,7 @@ mentor 们显然对我之前看文档表现出来的低下的效率和理解力�
 写代码比起看文档有实实在在的产出，也就有东西向 mentor 们汇报了，相比他们对我的评价也有所上升，
 从 5 月 18 号到 7 月 4 号，我完成了大部分的功能并进行了调试，实现并导出了如下四个函数：
 
-.. code-block::
+.. code::
 
    /* 列出节点的所有 key */
    error_t ext2_list_xattr (struct node *np, char *buffer, int *len);

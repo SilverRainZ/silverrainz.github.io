@@ -39,7 +39,7 @@
 
 我们先假设项目的结构如下，代码写了什么不重要~
 
-.. code-block::
+.. code::
 
    .
    ├── build
@@ -74,7 +74,7 @@ srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。
 下都是可行的，Arch Linux 偏向于安装在最后一个目录。
 于是安装 *大小为 16x16 的图标* 的脚本可以这么写：
 
-.. code-block:: shell
+.. code:: shell
 
    cd data/icons/16x16; \
        for png in *.png; do \
@@ -84,7 +84,7 @@ srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。
 
 这里先不管 `$(DESTDIR)` 是什么东西，把它当作空变量即可：
 
-.. code-block:: shell
+.. code:: shell
 
    install -Dm644 "$$png" \
        "/usr/share/icons/hicolor/16x16/apps/$$png"; \
@@ -118,7 +118,7 @@ GNU make 提供了 prefix 等变量确定各种文件安装的位置\ [#fn-prefi
 
 `make install` 可以这么写（为了命名统一，prefix 用大写）：
 
-.. code-block:: Makefile
+.. code:: Makefile
 
    PREFIX = /usr/local
 
@@ -133,7 +133,7 @@ GNU make 提供了 prefix 等变量确定各种文件安装的位置\ [#fn-prefi
 放置各种文件的规范有了，但程序应该如何找到他的数据文件呢？
 用 gcc 的 `-D` 参数声明一个宏，在编译的时候告诉程序的 prefix：
 
-.. code-block:: Makefile
+.. code:: Makefile
 
    CC = gcc
    CFLAGS = -O2 -Wall
@@ -146,7 +146,7 @@ GNU make 提供了 prefix 等变量确定各种文件安装的位置\ [#fn-prefi
 
 在程序中你就可以根据这个宏在获得你的数据文件：
 
-.. code-block:: c
+.. code:: c
 
    #ifndef PACKAGE_DATA_DIR
    #define PACKAGE_DATA_DIR "/usr/local"
@@ -180,7 +180,7 @@ GNU make 提供了 prefix 等变量确定各种文件安装的位置\ [#fn-prefi
 
 `make PREFIX=/usr; make PREFIX=/usr install` 后，产生的文件如下：
 
-.. code-block::
+.. code::
 
    /usr/bin/srain
    /usr/share/srain/pixmaps/srain-avatar.png
@@ -188,7 +188,7 @@ GNU make 提供了 prefix 等变量确定各种文件安装的位置\ [#fn-prefi
 
 `make PREFIX=/home/la/tmp; make PREFIX=/home/la/tmp install` 则是：
 
-.. code-block::
+.. code::
 
    /home/la/tmp/bin/srain
    /home/la/tmp/share/srain/pixmaps/srain-avatar.png
@@ -205,7 +205,7 @@ DESTDIR
 
 变量 `DESTDIR`\ [#fn-destdir]_ 就是用来实现 Staged Install 的，把之前的 `make install` 改成这样：
 
-.. code-block:: Makefile
+.. code:: Makefile
 
    PREFIX = /usr/local
    install:
@@ -219,7 +219,7 @@ DESTDIR
 注意 DESTDIR 变量只应该作用在 install 阶段，\ `make PREFIX=/usr; make PREFIX=/usr DESTDIR=/tmp/`
 会把所有文件都安装在 `/tmp` 下， 所有的影响都被限制在该目录内。这次生成的文件应该是：
 
-.. code-block::
+.. code::
 
    /tmp/usr/bin/srain
    /tmp/usr/share/srain/pixmaps/srain-avatar.png
@@ -239,7 +239,7 @@ Configure
 
 :del:`于是大家都去用 autotools 了`
 
-.. code-block:: sh
+.. code:: sh
 
    #!/bin/sh
 
@@ -274,7 +274,7 @@ Makefile 最前面加上一句 `PREFIX = /usr`\ （实际操作顺序是反过�
 
 这样的一个项目打包起来是很愉快的 :)
 
-.. code-block:: sh
+.. code:: sh
 
    pkgname=srain
 

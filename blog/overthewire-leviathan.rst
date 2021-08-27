@@ -18,7 +18,7 @@
 
 登入机器后发现家目录有个带 `suid` 权限的可执行文件 `printfile`\ ，属主是 `leviathan3`\ ，用户组是 `leviathan2`\ ，带 `suid` 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。
 
-.. code-block:: text
+.. code:: text
 
    leviathan2@melinda:~$ ll printfile  
    -r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
@@ -32,7 +32,7 @@
 
 以下是 `diaasm main` 的结果，假设执行了 `r filename`\ ：
 
-.. code-block:: objdump
+.. code:: objdump
 
    0x0804852d <+0>:     push   %ebp
    0x0804852e <+1>:     mov    %esp,%ebp
@@ -109,7 +109,7 @@
 
 access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 `./printfile "flag here"`\ ，对于 access 函数来说是执行了 `access("flag here", 4)`\ , 检查对 `flag here` 这个文件的访问权限，而对 cat 来说是这样的 `system("cat flag here")`\ ，因此可以利用这个区别来绕过 access 函数。
 
-.. code-block:: shell
+.. code:: shell
 
    leviathan2@melinda:/tmp$ mkdir slove
    leviathan2@melinda:/tmp$ cd slove
@@ -123,7 +123,7 @@ access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处�
 
 另外发现了一个新工具 ltrace，能够跟踪库函数的调用，就不用像刚才那样分析整个程序了（后面的题目大多数是过一遍 ltrace 就行了）：
 
-.. code-block:: shell
+.. code:: shell
 
    leviathan2@melinda:~$ ltrace ~/printfile /etc/leviathan_pass/leviathan2
    __libc_start_main(0x804852d, 2, 0xffffd6f4, 0x8048600 <unfinished ...>

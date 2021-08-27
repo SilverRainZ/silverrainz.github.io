@@ -49,7 +49,7 @@ GDT
 这里使用的用户态的特权级为 3, 因此用户态的程序, 其所在的数据段代码段的 DPL,
 段寄存器低 2 位的 RPL 都得是 3, 因此设置的 全局段描述符表(GDT) 如下:
 
-.. code-block:: c
+.. code:: c
 
    // OS67/kern/gdt.c
    gdt_install(0, 0, 0, 0, 0);
@@ -106,7 +106,7 @@ IDT
 (需要将 IDT 的类型设置为 中断门(Interrupt gate))
 因为这种中断通常和当前进程没有什么关系.
 
-.. code-block:: c
+.. code:: c
 
    idt_install(0, (uint32_t)fault0, SEL_KCODE << 3, GATE_INT, IDT_PR|IDT_DPL_KERN);
 
@@ -114,7 +114,7 @@ IDT
 因此要将处理系统调用的 IDT 设置为 陷阱门(Trap gate), 并且 DPL 为\ `IDT_DPL_USER`\ (3).
 如下:
 
-.. code-block:: c
+.. code:: c
 
    idt_install(ISR_SYSCALL, (uint32_t)_syscall, SEL_KCODE << 3, GATE_TRAP, IDT_PR | IDT_DPL_USER);
 
@@ -131,7 +131,7 @@ TSS 的选择子放在 GDT 里, 但是其\ `AC_RE`\ (ACCESS_REVERSE)位为 0 来
 
 因此 TSS 的初始化是这样的:
 
-.. code-block:: c
+.. code:: c
 
    void tss_init(){
        gdt_install(SEL_TSS, (uint32_t)&tss, sizeof(tss),AC_PR | AC_AC | AC_EX, GDT_GR);
@@ -141,7 +141,7 @@ TSS 的选择子放在 GDT 里, 但是其\ `AC_RE`\ (ACCESS_REVERSE)位为 0 来
 
 在从进程的内核态回到用户态的时候, 要设置一次 TSS, 以下函数在\ `uvm_switch`\ 里面被调用:
 
-.. code-block:: c
+.. code:: c
 
    void tss_set(uint16_t ss0, uint32_t esp0){
        memset((void *)&tss, 0, sizeof(tss));
@@ -169,7 +169,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由\ `p
 为了方便地构造栈, 我们需要定义出中断时保存的上下文, int 指令保存的信息还不够,
 我们需要自己保存更多的寄存器:
 
-.. code-block:: c
+.. code:: c
 
    struct int_frame{
        /* segment registers */
@@ -221,7 +221,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由\ `p
 
 进程上下文看起来比中断上下文简单许多, 不过更富技巧性.
 
-.. code-block:: c
+.. code:: c
 
    struct context{
        uint32_t edi;
@@ -235,7 +235,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由\ `p
 
 我们用下面这个函数来切换进程上下文:
 
-.. code-block:: objdump-nasm
+.. code:: objdump-nasm
 
    ; context_switch(struct context **old, context *new)
    ; 当你调用这个函数时, 会依次 压入 new, old 和 eip
@@ -296,7 +296,7 @@ OS67 的内存分配实现在 `OS67/mm/pmm.c`\ , 使用一个简单的栈来存�
 结构体 proc 用来储存一个进程的信息, 内核中有一个数组\ `struct ptable[NPROC]`\ 来管理所有的进程.
 结构体\ `proc`\ 定义如下:
 
-.. code-block:: c
+.. code:: c
 
    struct proc{
        volatile uint8_t pid;

@@ -28,7 +28,7 @@ State Monad是一种函数，当然也是一种Monad，是一种带状态的计�
 State Monad对于bind(>>=)的一种解释是这样子的：
 来自：\ `https://wiki.haskell.org/State_Monad <https://wiki.haskell.org/State_Monad>`_
 
-.. code-block:: haskell
+.. code:: haskell
 
    `>>=` :: State s a -> (a -> State s b) -> State s b
    (act1 >>= fact2) s = runState act2 is
@@ -46,7 +46,7 @@ act1是一个带状态计算，接受状态s后（不能直接接受，必须用
 
 那么对于：
 
-.. code-block:: haskell
+.. code:: haskell
 
    type Stack = [Int]
 
@@ -76,7 +76,7 @@ do实际上是嵌套的>>=的一个语法糖，\ `x <- foo` 就是一个绑定�
 下面的两段程序是等价的，第二段程序为了最后能用\ `return （x*y）`\ ，
 就得两个lambda嵌套起来。
 
-.. code-block:: haskell
+.. code:: haskell
 
    i = do
        x <- f 3
@@ -94,12 +94,12 @@ do实际上是嵌套的>>=的一个语法糖，\ `x <- foo` 就是一个绑定�
 但是要push三个值，push并不需要从\ `>>=`\ 接收值，
 可以用lambda来更改(因为没有利用到前面的值，所以这里嵌套与否都没问题)：
 
-.. code-block:: haskell
+.. code:: haskell
 
    test' :: State Stack Int
    test' = push 3 >>= (\_ -> push 4) >>= (\_ -> push 5) >>= (\_ -> pop)
 
-.. code-block:: text
+.. code:: text
 
    ghci> runState test' []
    (5,[4,3])
@@ -107,7 +107,7 @@ do实际上是嵌套的>>=的一个语法糖，\ `x <- foo` 就是一个绑定�
 
 最后，书里的\ `>>=` 实现是这样子的：
 
-.. code-block:: haskell
+.. code:: haskell
 
    (State h) >>= f = State $ \s -> let (a, newState) = h s
                                        (State g) = f a

@@ -729,7 +729,7 @@ Golang 的实现是写的互斥锁 + 读计数器，感觉有点别扭。
 
 一个我认为应当 detect 但实际上没还有的错误用法：
 
-.. code-block:: go
+.. code:: go
 
    package main
 
@@ -843,7 +843,7 @@ Bit clear，`a &^ b == a & ^b`。
 
    Because c.L is not locked when Wait first resumes, the caller typically cannot assume that the condition is true when Wait returns. Instead, the caller should Wait in a loop:
 
-   .. code-block:: go
+   .. code:: go
 
       c.L.Lock()
       for !condition() {

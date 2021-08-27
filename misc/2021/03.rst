@@ -112,7 +112,7 @@ Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 
 考虑多个实例，每个实例在单独目录下，必须有 :file:`comments.db` 和 :file:`isso.cfg`
 两个文件。用如下脚本实现多个实例的启动:
 
-.. code-block:: bash
+.. code:: bash
 
    #!/bin/bash
 
@@ -133,7 +133,7 @@ SMTP 服务
 SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 `noreply@silverrainz.me`
 分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：
 
-.. code-block:: ini
+.. code:: ini
 
    [smtp]
    username = noreply@silverrainz.me

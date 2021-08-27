@@ -148,6 +148,6 @@ Packing
 
 Check pypi upload error:
 
-.. code-block:: bash
+.. code:: bash
 
    $ twine check dist/*

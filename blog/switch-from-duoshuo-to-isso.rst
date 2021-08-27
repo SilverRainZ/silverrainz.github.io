@@ -53,7 +53,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 *以下的操�
 
 首先从 AUR 安装安装 Isso：
 
-.. code-block::
+.. code::
 
    $ yaourt -S isso
 
@@ -68,7 +68,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 *以下的操�
 安装完成后，打开 `/etc/isso.conf` 文件，文件对各个配置项都有详细的解释，
 需要重点关注的配置如下：
 
-.. code-block:: ini
+.. code:: ini
 
    # Isso configuration file
    [general]
@@ -104,7 +104,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 *以下的操�
 
 nginx 配置如下（参考 `Running Isso <https://posativ.org/isso/docs/quickstart/#running-isso>`_\ ）：
 
-.. code-block:: nginx
+.. code:: nginx
 
    server {
        listen [::]:80;
@@ -133,7 +133,7 @@ nginx 配置如下（参考 `Running Isso <https://posativ.org/isso/docs/quickst
 
 只要在网页中插入如下代码即可插入评论框：
 
-.. code-block:: html
+.. code:: html
 
    <script data-isso="//comments.silverrainz.me/"
            src="//comments.silverrainz.me/js/embed.min.js"></script>
@@ -146,7 +146,7 @@ Jekyll's Way
 对于 Jekyll 博客，比较好的做法是 `_includes` 目录下在建立 `comments` 文件用来
 存放评论框代码：
 
-.. code-block:: html
+.. code:: html
 
    <link rel="stylesheet" href="{{ site.baseurl }}/assets/comments.css">
 
@@ -185,7 +185,7 @@ certbot 完成，certbot 位于 [Community] 源中。验证所有权可以通过
 Let's Encrypt 访问你的网站上的随机验证文件完成，如果你使用 nginx 的话，更简单的
 方式是安装软件包 certbot-nginx，指定 certbot 使用 nginx 验证方式即可。
 
-.. code-block::
+.. code::
 
    # pacman -S certbot certbot-nginx
 
@@ -193,7 +193,7 @@ Let's Encrypt 访问你的网站上的随机验证文件完成，如果你使用
 运行 certbot 申请证书需要各种参数，参数也可以写在配置文件中，方便续签证书使用，
 假设配置文件地址为 `/etc/letsencrypt/cli.ini`\ ：
 
-.. code-block:: ini
+.. code:: ini
 
    rsa-key-size = 4096
    domains = comments.silverrainz.me
@@ -207,14 +207,14 @@ certbot 的更多用法见：\ `User Guide <https://certbot.eff.org/docs/using.h
 
 执行以下命令申请证书：
 
-.. code-block::
+.. code::
 
    # certbot -c /etc/letsencrypt/cli.ini certonly
 
 
 接着按 certbot 的输出提示操作即可，当你看到类似信息的时候，说明证书已经申请成功了：
 
-.. code-block::
+.. code::
 
    IMPORTANT NOTES:
     - Congratulations! Your certificate and chain have been saved at /etc/letsencrypt/live/comments.silverrainz.me/fullchain.pem.
@@ -222,7 +222,7 @@ certbot 的更多用法见：\ `User Guide <https://certbot.eff.org/docs/using.h
 
 获得证书后，修改 nginx 中 `comments.silverrainz.me` 的 server blcok：
 
-.. code-block:: nginx
+.. code:: nginx
 
    server {
        listen 443 ssl http2;
@@ -257,7 +257,7 @@ certbot 的更多用法见：\ `User Guide <https://certbot.eff.org/docs/using.h
 Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍做了一下调整，保存在
 `assets/comments.css` 中：
 
-.. code-block:: css
+.. code:: css
 
    #isso-thread {
        padding:8px;
@@ -305,7 +305,7 @@ Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍�
 
 假设多说数据文件名为 `duoshuo.json`\ ：
 
-.. code-block::
+.. code::
 
    $ wget https://raw.githubusercontent.com/JamesPan/duoshuo-migrator/master/duoshuo-migrator.py
    $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
@@ -313,21 +313,21 @@ Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍�
 
 然后导入 Isso 数据库：
 
-.. code-block::
+.. code::
 
    # isso -c /etc/isso.conf import wp.xml
 
 
 导入后到对应页面发现之前的评论并没有出现 :-(，使用以下命令将数据库的内容导出来看看
 
-.. code-block::
+.. code::
 
    $ echo -e '"page: URI","page: title","ID","mode","created on","modified on","author: name","author: email","author: website","author: IP","likes","dislikes","voters","text"\n'"$(sqlite3 /var/lib/isso/comments.db -csv 'SELECT threads.uri, threads.title, comments.id, comments.mode, datetime(comments.created, "unixepoch", "localtime"), datetime(comments.modified, "unixepoch", "localtime"), comments.author, comments.email, comments.website, comments.remote_addr, comments.likes, comments.dislikes, comments.voters,comments.text FROM comments INNER JOIN threads ON comments.tid=threads.id')" > export.csv
 
 
 这是导出来的 about 页面的一条评论：
 
-.. code-block::
+.. code::
 
    ...
    "page: URI","page: title","ID","mode","created on","modified on","author: name","author: email","author: website","author: IP","likes","dislikes","voters","text"
@@ -336,7 +336,7 @@ Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍�
 
 而 `wp.xml` 中对应的部分是：
 
-.. code-block::
+.. code::
 
    ...
        <item>

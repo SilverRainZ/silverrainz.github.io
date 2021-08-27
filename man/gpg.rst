@@ -14,7 +14,7 @@ Q & A
 
 这是我的新 key 的输出啦：
 
-.. code-block:: console
+.. code:: console
 
     $ gpg -k i@srain.im
     pub   rsa4096 2017-08-16 [SC] [expires: 2018-08-16]
@@ -30,7 +30,7 @@ Q & A
 
 每个密钥的输出都有四行，大概是这么个意思：
 
-.. code-block:: none
+.. code:: none
     :linenos:
 
     密钥类型 算法&位长 创建时间 [用途] [expires: 过期时间]

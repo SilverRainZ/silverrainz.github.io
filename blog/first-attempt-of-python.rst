@@ -31,7 +31,7 @@
 
 现在只支持我常用的三个软件的配置: vim, pentadacytl, zsh.
 
-.. code-block::
+.. code::
 
    sync   -- a simple script used to sync profile
    python sync.py [operation]
@@ -71,7 +71,7 @@ Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套�
 很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用\ `map`\ 用得很爽.
 sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信息, 本来我是这样写的:
 
-.. code-block:: python
+.. code:: python
 
    print('sync -- a simple script used to sync profile')
    print('python sync.py [operation]')
@@ -79,7 +79,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 
 有了\ `map`\ , 可以把所有的 help 信息放在一个 list 里面, 再用\ `map`\ 对每个元素应用\ `print`\ :
 
-.. code-block:: python
+.. code:: python
 
    helpstr = [ 'sync -- a simple script used to sync profile'
              , 'python sync.py [operation]'
@@ -93,7 +93,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 `map`\ 不仅在这里有用到, `deploy`\ 和\ `collect`\ 是两个相反的操作, 无非是把两个地址交换,
 地址被存在一个二元组的列表里, 所以可以用\ `map`\ 翻转:
 
-.. code-block:: python
+.. code:: python
 
    if op == 'deploy':
        path = list(map(lambda x:(x[1],x[0]), path))
@@ -103,7 +103,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 
 本来上面那个翻转元组的 lambda 在 Python 2+ 可以这么写:
 
-.. code-block:: python
+.. code:: python
 
    lambda (a, b):(b, a)
 
@@ -115,7 +115,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 `map`\ 只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
 获得一个只需要一个参数的函数, 在 Python 中似乎不能直接做到, 但我们有折衷的办法:
 
-.. code-block:: python
+.. code:: python
 
    def deploy(op, target):
    # ...

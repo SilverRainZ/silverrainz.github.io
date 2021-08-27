@@ -173,7 +173,7 @@ WebDAV
 
 以下配置加入 :file:`/etc/nginx/nginx.conf`:
 
-.. code-block:: nginx
+.. code:: nginx
 
    load_module /usr/lib/nginx/modules/ngx_http_dav_ext_module.so;
 
