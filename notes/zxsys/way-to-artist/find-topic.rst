@@ -872,3 +872,16 @@ Antihug
    :size: 32k
    :date: 2021-08-18
    :medium: 水彩
+
+
+葡萄糖体内循环
+--------------
+
+.. artwork:: _
+   :id: xfczk2-030
+   :size: 32k
+   :date: 2021-08-29
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
+
+用想象力造出注射液，为我提供想象的能量。
