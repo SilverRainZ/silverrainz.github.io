@@ -7,7 +7,7 @@
 
 symbols =  {
   \time 4/4
-  \tempo 4 = 60
+  \tempo 4 = 50
 
   % 1
   c'4 g a f
