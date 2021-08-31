@@ -885,3 +885,13 @@ Antihug
    :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
 
 用想象力造出注射液，为我提供想象的能量。
+
+鹿港小镇
+--------
+
+.. artwork:: _
+   :id: xfczk2-031
+   :size: 32k
+   :date: 2021-08-24
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
