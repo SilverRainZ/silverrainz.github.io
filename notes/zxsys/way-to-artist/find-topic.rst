@@ -895,3 +895,15 @@ Antihug
    :date: 2021-08-24
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
+
+Abbey Road
+----------
+
+.. artwork:: _
+   :id: xfczk2-032
+   :size: 32k
+   :date: 2021-08-31
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210831_175415__01.jpg
+
+只是又一个 :enwiki:`Abbey Road` 的 neta 而已，尽管我完全不听披头士。
