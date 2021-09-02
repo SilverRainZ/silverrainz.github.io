@@ -907,3 +907,16 @@ Abbey Road
    :image: /_images/artwork-xfczk2/IMG_20210831_175415__01.jpg
 
 只是又一个 :enwiki:`Abbey Road` 的 neta 而已，尽管我完全不听披头士。
+
+Moonrise
+--------
+
+.. artwork:: _
+   :id: xfczk2-033
+   :size: 32k
+   :date: 2021-09-01
+   :medium: 水彩
+   :image: /_images/artwork-xfczk2/IMG_20210901_233812__01.jpg
+
+时隔一年半后的上班第一天。
+
