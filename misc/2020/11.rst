@@ -283,7 +283,7 @@ The Docutils Document Tree
 
 .. deprecated:: 2020-11-21
 
-   Moved to :doc:`/notes/sphinx-as-pim/doctree`
+   Moved to :doc:`/notes/docutils/doctree`
 
 佛历二五三三年
 ==============
@@ -318,8 +318,8 @@ BTW 上文提到阴阳历，查了下也是个有意思的概念：
 .. [#] :zhwiki:`阴阳合历`
 .. [#] 旦：甲骨文字形，象太阳从地面刚刚升起的样子
 
-LilyPond 文件结构 [#]_
-======================
+LilyPond 文件结构
+=================
 
 .. versionchanged:: 2020-08-16
 

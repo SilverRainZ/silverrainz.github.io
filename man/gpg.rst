@@ -30,7 +30,7 @@ Q & A
 
 每个密钥的输出都有四行，大概是这么个意思：
 
-.. code:: none
+.. code-block:: none
     :linenos:
 
     密钥类型 算法&位长 创建时间 [用途] [expires: 过期时间]

@@ -341,7 +341,7 @@ Self
 
 :date: 2021-06-25
 
-其实是 :doc:`./find-yourself.rst` 的作业了。
+其实是 :doc:`./find-yourself` 的作业了。
 
 牛永琦
 ~~~~~~

@@ -14,6 +14,7 @@
    prelude
    light-and-shadow
    indoor-sketching
+   outdoor-sketching
    modeling
    fast-modeling
    way-to-artist/index
