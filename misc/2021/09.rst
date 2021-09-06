@@ -1,0 +1,25 @@
+====
+九月
+====
+
+.. contents::
+   :local:
+
+配置 macOS 开发环境
+===================
+
+iTerm 将 :kbd:`command` 映射到 :kbd:`control`
+---------------------------------------------
+
+交换系统 control command 的情况下，参考 `How to forward CMD shortcuts to iTerm as CTRL shortcuts`_
+
+.. _How to forward CMD shortcuts to iTerm as CTRL shortcuts: https://thurlow.io/macos/2018/04/13/how-to-forward-command-shortcuts-to-iterm-as-ctrl-shortcuts.html
+
+类 vim-fcitx 的自动输入法切换
+-----------------------------
+
+参见 `OS X 也可以使用 fcitx.vim 了`_
+
+.. _OS X 也可以使用 fcitx.vim 了: https://www.v2ex.com/t/232988
+
+切换模式出现未预期的 :kbd:`^C`： :ghrepo:`xcodebuild/fcitx-vim-osx/issues/7`
