@@ -290,6 +290,7 @@
    :medium: 炭精粉
    :date: 2020-10-06
    :image: /_images/artwork-lns/IMG_20201006_161510.jpg
+   :album: album-16k-1
 
 .. artwork::
    :id: lns-025
@@ -297,6 +298,7 @@
    :medium: 炭精粉
    :date: 2020-10-08
    :image: /_images/artwork-lns/IMG_20201008_150452.jpg
+   :album: album-16k-1
 
 
 .. artwork::
@@ -305,6 +307,7 @@
    :medium: 炭精粉
    :date: 2020
    :image: /_images/artwork-lns/IMG_20201006_161523.jpg
+   :album: album-16k-1
 
 .. artwork::
    :id: lns-027
@@ -312,6 +315,7 @@
    :medium: 炭精粉
    :date: 2020
    :image: /_images/artwork-lns/IMG_20201012_104131.jpg
+   :album: album-16k-1
 
 .. artwork::
    :id: lns-028
