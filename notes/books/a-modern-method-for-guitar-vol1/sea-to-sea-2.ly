@@ -9,6 +9,8 @@ symbols =  {
   \time 4/4
   \tempo 4 = 50
 
+  \drums { hh4 hh hh hh }
+
   % 1
   c'4 g a f
   g4 e f d
