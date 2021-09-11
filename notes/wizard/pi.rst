@@ -109,6 +109,7 @@ webdav              30500/http
 nfs                 default
 syncthing           default
 syncthing-webui     30501/http
+sphinx-bullet       30502/http
 =================== ==========
 
 文件服务

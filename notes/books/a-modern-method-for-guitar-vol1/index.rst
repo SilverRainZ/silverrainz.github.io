@@ -21,7 +21,41 @@ Sea to Sea
 
 吉他二：
 
-.. lilyinclude:: ./sea-to-sea-2.ly
-   :nofooter:
-   :noedge:
-   :audio:
+.. tabbed:: 全曲
+
+   .. lilyinclude:: ./sea-to-sea-2.ly
+      :nofooter:
+      :noedge:
+      :audio:
+
+.. tabbed:: 1-8 小节
+
+   .. lilyinclude:: ./sea-to-sea-2-b1b8.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+
+.. tabbed:: 9-16 小节
+
+   .. lilyinclude:: ./sea-to-sea-2-b9b16.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+
+.. tabbed:: 17-24 小节
+
+   .. lilyinclude:: ./sea-to-sea-2-b17b24.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+
+.. tabbed:: 25-32 小节
+
+   .. lilyinclude:: ./sea-to-sea-2-b25b32.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
