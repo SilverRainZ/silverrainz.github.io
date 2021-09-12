@@ -14,14 +14,25 @@
 音阶
 ====
 
-.. tabbed:: bB 调
+找出几个适合自己音域（唱得舒服）的调。自我感觉是在 A2 :lily:`{a}` 到 D4 :lily:`{d''}` 这样子。
+
+.. tabbed:: A 调
 
    .. lilyinclude:: ./scale.ly
       :noheader:
       :nofooter:
       :noedge:
-      :loop:
-      :transpose: c bes
+      :audio:
+      :transpose: c a,
+
+.. tabbed:: B 调
+
+   .. lilyinclude:: ./scale.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+      :transpose: c b,
 
 .. tabbed:: C 调
 
@@ -29,7 +40,7 @@
       :noheader:
       :nofooter:
       :noedge:
-      :loop:
+      :audio:
 
 .. tabbed:: D 调
 
@@ -37,23 +48,5 @@
       :noheader:
       :nofooter:
       :noedge:
-      :loop:
+      :audio:
       :transpose: c d
-
-.. tabbed:: F 调
-
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
-      :transpose: c f
-
-.. tabbed:: G 调
-
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
-      :transpose: c g

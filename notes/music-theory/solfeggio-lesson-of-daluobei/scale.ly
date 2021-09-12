@@ -4,7 +4,7 @@ symbols =  {
   \time 4/4
   \tempo 4 = 70
 
-  \drums { hh4 hh hh hh }
+  c4 c c c
  
   c4 d e f
   g4 a b c'
@@ -12,7 +12,7 @@ symbols =  {
   c'4 b a g
   f4 e d c
 
-  \drums { hh4 hh hh hh }
+  c4 c c c
 
   c4 d c2
   c4 e c2
