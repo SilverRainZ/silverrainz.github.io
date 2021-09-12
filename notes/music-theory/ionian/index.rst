@@ -3,7 +3,7 @@
 ============
 
 :date: 2020-07-19
-:status: Work In Progress
+:status: Abandoned
 
 用民谣选手的方式来熟悉各自然大调（Ionian）。
 
