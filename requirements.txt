@@ -1,6 +1,6 @@
 sphinxcontrib-email
 sphinxcontrib-images>=0.9.3
-sphinxnotes-lilypond
+sphinxnotes-lilypond>=1.1
 sphinxnotes-any>=2.0
 sphinx-panels
 ablog
