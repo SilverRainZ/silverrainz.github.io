@@ -275,8 +275,9 @@ if not CI:
     }
 
 extensions.append('sphinx_panels')
-# For ``fa`` role
-html_css_files.append('https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css')
+if CI:
+    # For ``fa`` role
+    html_css_files.append('https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css')
 
 extensions.append('sphinxnotes.isso')
 isso_url = 'https://comments.silverrainz.me:30500'
