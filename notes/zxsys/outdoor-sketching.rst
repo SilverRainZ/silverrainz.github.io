@@ -42,6 +42,7 @@
    :id: anf-000
    :size: 8k
    :medium: 炭精粉
+   :image: /_images/artwork-anf/IMG_20210822_160656__01__01.jpg
    :album: album-16k-1
 
    和 :friend:`宋航` 一起在忆江南门口画的第一张夜景，之后因为种种原因也没有继续画了，总之活到了现在。
@@ -71,6 +72,7 @@
    :size: 16k
    :date: 2021-09-06
    :medium: 炭精粉
+   :image: /_images/artwork-anf/IMG_20210912_190245__01.jpg
    :album: album-16k-1
 
    依然打算画被路灯光圈笼罩的场景，在暗部和色序上加大了功夫，但还是不够。另一方面是纸（老人头粗面）不好。
@@ -82,6 +84,7 @@
    :size: 16k
    :date: 2021-09-08
    :medium: 炭精粉
+   :image: /_images/artwork-anf/IMG_20210912_185714__01.jpg
    :album: album-16k-1
 
    把更多的精力放在色序上，有进步。照片拍出来不太对，难道我得搞一个相机吗？
@@ -96,6 +99,7 @@
    :size: 16k
    :date: 2021-09-09
    :medium: 炭精粉
+   :image: /_images/artwork-anf/IMG_20210912_185745__01.jpg
    :album: album-16k-1
 
    感受到夜景的色距非常微妙而重要，要是盯着暗部找画里面的深浅的话，很容易就画得过亮，所以观察方法很重要。
