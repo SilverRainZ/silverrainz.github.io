@@ -877,6 +877,7 @@ Antihug
    :size: 32k
    :date: 2021-08-18
    :medium: 水彩
+   :album: album-32k-1
 
 
 葡萄糖体内循环
@@ -888,6 +889,7 @@ Antihug
    :date: 2021-08-29
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
+   :album: album-32k-1
 
 用想象力造出注射液，为我提供想象的能量。
 
@@ -900,6 +902,7 @@ Antihug
    :date: 2021-08-24
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
+   :album: album-32k-1
 
 Abbey Road
 ----------
@@ -922,5 +925,36 @@ Moonrise
    :date: 2021-09-01
    :medium: 水彩
    :image: /_images/artwork-xfczk2/IMG_20210901_233812__01.jpg
+   :album: album-32k-1
 
 时隔一年半后的上班第一天。
+
+换鞋
+----
+
+.. artwork:: _
+   :id: xfczk2-034
+   :size: 32k
+   :date: 2021-09-13
+   :medium: 铅笔 矿物色粉
+   :album: album-32k-1
+
+试了新材料，深蓝（？）和大红色的矿物色粉。
+
+不合适的鞋要换掉，可是换掉就要光脚了。
+
+光脚吧，没有其他的可以失去。
+
+试色纸
+-------
+
+.. artwork:: _
+   :id: xfczk2-035
+   :size: 16k
+   :date: 2021-09-13
+   :medium: 矿物色粉
+   :album: album-16k-1
+
+画 :artwork:`换鞋` 时候的试色纸，因为看着好看就留下了。
+
+很像某位大师的作品哈哈哈，但我记不起来了。
