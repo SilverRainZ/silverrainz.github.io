@@ -41,7 +41,6 @@ CI = os.environ.get('CI') is not None
 extensions = [
     'sphinx.ext.graphviz',
     'sphinxcontrib.email',
-    'sphinxnotes.lilypond',
     'sphinx.ext.githubpages',
     'sphinxnotes.strike',
     'sphinxcontrib.plantuml',
@@ -308,3 +307,6 @@ if CI:
 #     'cache_path': '_cache',
 #     'download': True,
 # }
+
+extensions.append('sphinxnotes.lilypond')
+lilypond_audio_volume = 300
