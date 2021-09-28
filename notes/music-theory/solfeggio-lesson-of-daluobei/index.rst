@@ -50,3 +50,32 @@
       :noedge:
       :audio:
       :transpose: c d
+
+小红帽
+======
+
+.. tabbed:: C 调
+
+   .. lilyinclude:: ./little-red-riding-hood.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+
+.. tabbed:: D 调
+
+   .. lilyinclude:: ./little-red-riding-hood.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+      :transpose: c d
+
+.. tabbed:: A 调
+
+   .. lilyinclude:: ./little-red-riding-hood.ly
+      :noheader:
+      :nofooter:
+      :noedge:
+      :audio:
+      :transpose: c a

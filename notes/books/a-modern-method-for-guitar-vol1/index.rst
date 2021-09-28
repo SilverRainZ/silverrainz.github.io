@@ -26,7 +26,7 @@ Sea to Sea
    .. lilyinclude:: ./sea-to-sea-2.ly
       :nofooter:
       :noedge:
-      :audio:
+      :loop:
 
 .. tabbed:: 1-8 小节
 
@@ -34,7 +34,7 @@ Sea to Sea
       :noheader:
       :nofooter:
       :noedge:
-      :audio:
+      :loop:
 
 .. tabbed:: 9-16 小节
 
@@ -42,7 +42,7 @@ Sea to Sea
       :noheader:
       :nofooter:
       :noedge:
-      :audio:
+      :loop:
 
 .. tabbed:: 17-24 小节
 
@@ -50,7 +50,7 @@ Sea to Sea
       :noheader:
       :nofooter:
       :noedge:
-      :audio:
+      :loop:
 
 .. tabbed:: 25-32 小节
 
@@ -58,4 +58,4 @@ Sea to Sea
       :noheader:
       :nofooter:
       :noedge:
-      :audio:
+      :loop:
