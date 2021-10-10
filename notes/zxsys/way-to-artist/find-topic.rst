@@ -960,8 +960,8 @@ Moonrise
 
 很像某位大师的作品哈哈哈，但我记不起来了。
 
-有轨电我
---------
+有轨电车司机
+------------
 
 .. artwork:: _
    :id: xfczk2-036
@@ -971,6 +971,26 @@ Moonrise
    :album: album-32k-1
    :image: /_images/artwork-xfczk2/IMG_20210925_134940__01.jpg
 
-| 我手里是自由意志
-| 我的方向代表真实主张
-| 恍惚的血光是美好未来
+Anti-Recommendation
+-------------------
+
+.. artwork:: _
+   :id: xfczk2-037
+   :size: 32k
+   :date: 2021-10-03
+   :medium: 水彩
+   :album: album-32k-1
+
+拥抱申请
+--------
+
+.. artwork:: _
+   :id: xfczk2-038
+   :size: 32k
+   :date: 2021-10-10
+   :medium: 水彩 铅笔
+   :album: album-32k-1
+
+路过的人啊，无论是谁，请抱一抱我。
+
+.. seealso:: :artwork:`xfczk-039`
