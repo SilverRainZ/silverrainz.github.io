@@ -14,6 +14,7 @@
    find-yourself
    find-topic
    find-language
+   exhibition
 
 找自己
 ======
