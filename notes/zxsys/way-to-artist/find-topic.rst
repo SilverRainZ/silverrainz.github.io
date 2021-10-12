@@ -994,3 +994,18 @@ Anti-Recommendation
 路过的人啊，无论是谁，请抱一抱我。
 
 .. seealso:: :artwork:`xfczk-039`
+
+
+花
+--
+
+.. artwork:: _
+   :id: xfczk2-038
+   :size: 32k
+   :date: 2021-10-10
+   :medium: 水彩 铅笔
+   :album: album-32k-1
+
+我失去种一朵玫瑰的耐心了，现在就要。
+
+.. seealso:: :artwork:`xfczk-039`
