@@ -996,16 +996,14 @@ Anti-Recommendation
 .. seealso:: :artwork:`xfczk-039`
 
 
-花
---
+我失去种一朵玫瑰的耐心了，现在就要
+----------------------------------
 
 .. artwork:: _
    :id: xfczk2-038
    :size: 32k
-   :date: 2021-10-10
+   :date: 2021-10-12
    :medium: 水彩 铅笔
    :album: album-32k-1
 
-我失去种一朵玫瑰的耐心了，现在就要。
-
-.. seealso:: :artwork:`xfczk-039`
+.. seealso:: :artwork:`一种玫瑰标本及其制备工艺`
