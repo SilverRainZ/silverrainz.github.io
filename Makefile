@@ -22,6 +22,10 @@ commit:
 	git commit -m "$(shell date +'%Y-%m-%d %H:%M')"
 	git push
 
+pull:
+	git fetch origin master
+	git merge origin master
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
