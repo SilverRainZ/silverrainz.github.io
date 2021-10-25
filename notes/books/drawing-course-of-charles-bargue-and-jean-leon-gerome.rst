@@ -9,3 +9,9 @@
    :startat: 2021-10-23
 
 以 `charles` 为 ID，临摹书中范画。
+
+
+.. term:: 影线
+          交叉影线
+   :field: 绘画
+   :enwiki: Hatching
