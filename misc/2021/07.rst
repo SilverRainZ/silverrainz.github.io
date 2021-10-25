@@ -49,16 +49,20 @@
 
 .. rubric:: 名词解释
 
-.. glossary::
+.. term:: BFE
+   :field: 计算机
 
-   BFE
-      这里说的是 Bilibili Front End，理解为边缘节点的 proxy 即可
+   这里说的是 Bilibili Front End，理解为边缘节点的 proxy 即可
 
-   SLE
-      Server Load Balancing
+.. term:: SLE
+   :field: 计算机
 
-   BFF
-      Backend for Frontend
+   Server Load Balancing
+
+.. term:: BFF
+   :field: 计算机
+
+   Backend for Frontend
 
 eBPF
 ====

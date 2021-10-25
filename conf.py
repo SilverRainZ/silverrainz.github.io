@@ -238,6 +238,17 @@ any_schemas = [
            reference_template='🧮{{ title }}',
            missing_reference_template='🧮{{ title }}',
            ambiguous_reference_template='🧮{{ title }}'),
+    Schema('term',
+           name=F(referenceable=True, required=True, form=F.Form.LINES),
+           attrs={
+               'field': F(referenceable=True),
+               'enwiki': F(),
+               'zhwiki': F(),
+           },
+           description_template=open('_templates/term.rst', 'r').read(),
+           reference_template='#️⃣{{ title }}',
+           missing_reference_template='#️⃣{{ title }}',
+           ambiguous_reference_template='#️⃣{{ title }}'),
 ]
 
 extensions.append('ablog')
