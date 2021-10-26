@@ -79,3 +79,13 @@
       :noedge:
       :audio:
       :transpose: c a
+
+大小三和弦
+==========
+
+.. lilyinclude:: ./triad.ly
+   :noheader:
+   :nofooter:
+   :noedge:
+   :audio:
+   :loop:
