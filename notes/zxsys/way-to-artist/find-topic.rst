@@ -990,11 +990,10 @@ Moonrise
    :size: 16k
    :date: 2021-09-13
    :medium: 矿物色粉
+   :image: /_images/artwork-xfczk2/IMG_20211027_090959.jpg
    :album: album-16k-1
 
 画 :artwork:`换鞋` 时候的试色纸，因为看着好看就留下了。
-
-很像某位大师的作品哈哈哈，但我记不起来了。
 
 有轨电车司机
 ------------
@@ -1046,3 +1045,12 @@ Anti-Recommendation
    :image: /_images/artwork-xfczk2/IMG_20211023_155357.jpg
 
 .. seealso:: :artwork:`一种玫瑰标本及其制备工艺`
+
+点评
+====
+
+演示文稿
+--------
+
+:artwork:`xfczk2-000` - :artwork:`xfczk2-039`
+   :download:`/_downloads/submit2.pptx`
