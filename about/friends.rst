@@ -52,8 +52,8 @@
    :blog: https://farseerfc.me/
    :avatar: https://farseerfc.me/images/avatar.jpg
 
-    - 在霓虹读 PHD 的博学的 F\ :del:`ire`\ C\ :del:`hild` 前辈，人生赢家
-    - 学识渊博，性格儒雅
+   - 在霓虹读 PHD 的博学的 F\ :del:`ire`\ C\ :del:`hild` 前辈，人生赢家
+   - 学识渊博，性格儒雅
 
 .. friend:: KenOokamiHoro
             萌狼
