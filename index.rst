@@ -23,7 +23,12 @@
       :maxdepth: 1
       :glob:
 
-      notes/*
+      notes/zxsys/index
+      notes/artstory/index
+      notes/books/index
+      notes/music-theory/index
+      notes/6-lectures-on-sketch
+
       notes/*/index
 
    -----------------------------------------------------------------------------
