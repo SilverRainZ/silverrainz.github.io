@@ -21,10 +21,10 @@ jobs:
         REMOTE: git@gitee.com:silverrainz/silverrainz.git
         GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_TOKEN }}
         GIT_SSH_NO_VERIFY_HOST: "true"
-    - name: Trigger Gitee Pages Rebuild
-      uses: yanglbme/gitee-pages-action@main
-      with:
-        gitee-username: SilverRainZ
-        gitee-password: ${{ secrets.GITEE_PASSWORD }}
-        gitee-repo: silverrainz/silverrainz
-        branch: gh-pages
+    # - name: Trigger Gitee Pages Rebuild
+    #   uses: yanglbme/gitee-pages-action@main
+    #   with:
+    #     gitee-username: SilverRainZ
+    #     gitee-password: ${{ secrets.GITEE_PASSWORD }}
+    #     gitee-repo: silverrainz/silverrainz
+    #     branch: gh-pages
