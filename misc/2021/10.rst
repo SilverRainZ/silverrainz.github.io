@@ -8,6 +8,12 @@
 math/rand 相关算法
 ==================
 
+随机数生成器
+   - XORSHIFT generator  
+
+洗牌算法
+   - Fisher - Yate Shulffu
+
 Oneplus6 刷机 LineageOS 18.01
 =============================
 
@@ -28,3 +34,27 @@ Oneplus6 刷机 LineageOS 18.01
 昨天看 :book:`巴尔格素描教程`，说：「19 世纪学院派画家认为，收尾是职业精神的体现，能反映平和的心境，也能完全表达画家的理念」
 
 :del:`这就是我不够学院派的原因吧`。裁剪压缩都已经轻车熟路了，但是很想要一个自动裁剪的工具是真的。
+
+奥菲莉亚
+========
+
+.. term:: _
+
+:date: 2021-10-30
+
+买了一辆二手小电驴，900 块钱，能开 30 公里左右，应该不算亏。
+
+正好明天去上海看展，可以骑着它去地铁站。展上有 :artist:`米莱` 的成名作 :zhwiki:`奥菲莉娅 <奥菲莉娅_(油画)>`。那给我的小电驴起名叫奥菲莉亚吧！
+
+安卓 syncthing 部分目录显示「未同步」
+=====================================
+
+:date: 2021-10-31
+
+因为部分文件名带了冒号（`:`）导致了。
+
+有人汇报过 `一样的问题并且机型也是一加 <https://forum.syncthing.net/t/permission-denied-on-files-with-colon-on-android-11-permission-denied-on-syncthing-tmp-files-on-android/16096>`_ 。按说和外存的文件系统有关系，但我懒得去看了，不让用冒号就不用嘛：
+
+.. code:: console
+
+   $ for i in $( ls | grep ':'); do mv $i $(echo $i | tr ':' '-'); done
