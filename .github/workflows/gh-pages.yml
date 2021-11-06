@@ -1,5 +1,8 @@
 name: Publish Github Pages
-on: [push]
+on:
+  push:
+    branches:
+      - master
 jobs:
   gh-pages:
     name: Publish Github Pages
