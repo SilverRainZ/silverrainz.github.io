@@ -130,7 +130,7 @@ html_sidebars = {
 
 # If true, the reST sources are included in the HTML build as _sources/name.
 # I don't want to public my sources, so set it to false.
-html_copy_source = False
+html_copy_source = True
 
 html_search_language = language
 
@@ -138,7 +138,7 @@ html_last_updated_fmt = datefmt
 
 # A list of paths that contain extra files not directly related to the
 # documentation.
-html_extra_path = ['robots.txt']
+html_extra_path = ['robots.txt', 'LICENSE']
 
 # -- Pre extension configuration ---------------------------------------------------
 
