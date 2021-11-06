@@ -61,7 +61,7 @@ language_full = '简体中文'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.rst']
 
 # Provided by sphinxnotes.any
 primary_domain = 'any'
