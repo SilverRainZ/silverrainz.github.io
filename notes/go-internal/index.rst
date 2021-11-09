@@ -1,0 +1,8 @@
+===============
+Golang Internal
+===============
+
+.. toctree::
+   :glob:
+
+   *
