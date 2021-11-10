@@ -8,6 +8,8 @@
    :local:
    :backlinks: none
 
+.. _alice:
+
 Alice
 =====
 
