@@ -71,7 +71,7 @@ symbols = {
 
 \score {
   <<
-    \new Staff {
+    \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
       \clef "G_8"
       \symbols
     }
