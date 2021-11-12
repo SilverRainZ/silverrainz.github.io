@@ -109,6 +109,22 @@
    :audio:
    :loop:
 
+自主练习
+========
+
+G 大调小步舞曲 高声部 
+---------------------
+
+从 `Bach - Minuet in G BWV Ahn. 114 <https://www.8notes.com/scores/2944.asp>`_ 提出来的。
+
+我现在用的 Sound Font （:archpkg:`extra/fluidsynth` 2.2.3-1）的尼龙吉他音源有点问题，在 :lily:`{ c''' }` 以上的某个八分音的时值有问题，暂时换回了钢琴。
+
+.. lilyinclude:: ./minuet-in-g.ly
+   :noheader:
+   :nofooter:
+   :noedge:
+   :audio:
+
 答疑
 ====
 
@@ -138,3 +154,4 @@
 :大萝北: 嗯嗯是的
 :谷月轩: [苦涩]我居然搞错了这么久。
 :谷月轩: 懂了懂了，谢谢老师。
+
