@@ -83,8 +83,28 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
      >>
   }
 
+指定调式
+----------
+
+以 G 大调为例，在任意一个 expression block 中：`\key g \major`。
+
+每行四小节
+----------
+
+每四个小节后面加个 `\break`。
+
+节奏
+----
+
+附点
+~~~~
+
+:附点: 在时值数后加一个点：`a8.`
+:双附点: 加俩点了
+
 输出
 ====
+
 
 MIDI
 ----
