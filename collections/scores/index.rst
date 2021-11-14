@@ -29,3 +29,13 @@ Witch Sprint I OP
    :nofooter:
    :noedge:
    :audio:
+
+girlfriend
+==========
+
+.. todo:: 还只有旋律，等我耳朵更好一点再来吧。
+
+.. lilyinclude:: girlfriend.ly
+   :nofooter:
+   :noedge:
+   :audio:

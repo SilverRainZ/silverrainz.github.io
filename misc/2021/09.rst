@@ -23,3 +23,6 @@ iTerm 将 :kbd:`command` 映射到 :kbd:`control`
 .. _OS X 也可以使用 fcitx.vim 了: https://www.v2ex.com/t/232988
 
 切换模式出现未预期的 :kbd:`^C`： :ghrepo:`xcodebuild/fcitx-vim-osx/issues/7`
+
+插入模式无法记住上次输入法
+   要保证你激活的英文输入法是 "US"（美式英语）
