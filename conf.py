@@ -280,7 +280,7 @@ if not CI:
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
-        's': ['man/.*', 'notes/.*', 'misc/.*'],
+        's': ['man/.*', 'notes/.*', 'misc/.*', 'collections/.*', 'about/.*'],
         'c': ['man/.*'],
     }
 
