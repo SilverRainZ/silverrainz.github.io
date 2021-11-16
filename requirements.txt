@@ -13,3 +13,4 @@ sphinx-sitemap
 sphinxcontrib-plantuml
 sphinxcontrib.asciinema
 sphinx-reredirects
+sphinxnotes-recentupdate

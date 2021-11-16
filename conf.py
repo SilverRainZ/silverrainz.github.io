@@ -321,3 +321,6 @@ if CI:
 
 extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
+
+extensions.append('sphinxnotes.recentupdate')
+recentupdate_date_format = datefmt
