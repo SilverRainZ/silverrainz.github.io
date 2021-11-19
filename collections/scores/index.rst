@@ -39,3 +39,13 @@ girlfriend
    :nofooter:
    :noedge:
    :audio:
+
+Alice 间奏
+==========
+
+之前武士桑的吉他谱里没有，是用口琴吹的，扒出来的节奏好像有问题：
+
+.. lilyinclude:: alice2.ly
+   :nofooter:
+   :noedge:
+   :audio:
