@@ -10,3 +10,25 @@ Cambalache - Gtk4 界面设计工具
 Gtk4 已经发布了挺长一段时间，但 Gtk 的界面设计工具 Galde 并不打算支持 Gtk4。维护者 `xjuan <https://blogs.gnome.org/xjuan/>`_ 另起炉灶开发了 Cambalache。
 
 作者在 Flathub 上发布了 flatpak 的版本。Arch Linux 的 cn 源用户可用  `pacman -S archlinuxcn/cambalache-git` 食用。
+
+Zsh 看起来不遵循 $PATH
+======================
+
+.. highlight:: console
+
+在试用 goenv，通过修改了 PATH 来 hook go 版本后，发现 zsh 不听话，还是 system 的 go，
+`which` 和 `where` 给出了不同的结果::
+
+   $ which go
+   /usr/local/bin/go
+
+   $ where go
+   /Users/bytedance/.goenv/shims/go
+   /usr/local/bin/go
+   /usr/local/bin/go
+
+查阅 `stackoverflow <https://stackoverflow.com/a/36547391>`_ ，直觉上理解是为了加速查找 binary 的速度而预先对 $PATH 中的 binary 做了 hash，hash 理当在每次 $PATH 更改的时候自动更新，但也许 goenv 动态改 PATH 的脚本没有触发它的更新？总之::
+
+   $ rehash
+
+即可。
