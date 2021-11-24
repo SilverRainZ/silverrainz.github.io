@@ -125,7 +125,6 @@
    :size: 16k
    :date: 2021-11-16
    :medium: 炭精粉 矿物色粉
-   :image:
    :album: album-16k-1
 
    距离画上一张居然已经过去了两个月 :(
