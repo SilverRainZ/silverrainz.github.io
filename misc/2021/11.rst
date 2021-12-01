@@ -2,6 +2,9 @@
 十一月
 ======
 
+.. contents:: 目录
+   :local:
+
 Cambalache - Gtk4 界面设计工具
 ==============================
 
@@ -32,3 +35,43 @@ Zsh 看起来不遵循 $PATH
    $ rehash
 
 即可。
+
+最近接触到的一些新名词
+======================
+
+.. term:: VPC
+          虚拟私有云
+   :field: 计算机/云
+   :zhwiki: 虛擬私有雲
+
+   虚拟私有云，特指该私有云并非独立物理部署，而是建立在公有云上。
+
+
+.. term:: Lambda 架构
+          Lambda Architecture
+   :field: 计算机/大数据
+   :enwiki: Lambda_architecture
+
+   通过流式处理和批式处理系统的结合，平衡一个数据处理系统的吞吐和延时。 
+
+   - Batch Layer：批处理/离线处理
+   - Speed Layer：流处理/实时处理
+   - Query Layer：合并上述两个 layer 的视图，响应用户请求
+
+.. term:: Kappa 架构
+          Kappa Architecture
+
+   通过改进 :term:`Lambda 架构` 中的 Speed Layer，使它既能够进行实时数据处理，同时也有能力在业务逻辑更新的情况下重新处理以前处理过的历史数据 [#]_ 
+
+   具体一点：用Kafka或者类似MQ队列系统收集各种各样的数据，需要几天的数据量就保存几天。当需要全量重新计算时，重新起一个流计算实例，从头开始进行处理，并输出到一个新的结果存储中。当新的实例做完后，停止老的流计算实例，并把老的一些结果删除。[#]_
+
+
+   .. [#] By *Jay Kreps*
+   .. [#] https://docherish.com/post/da-shu-ju-chang-yong-de-jia-gou-lambda-he-kappa/
+
+.. term:: Shuffle Service
+
+   TODO
+
+   - ESS
+   - CSS
