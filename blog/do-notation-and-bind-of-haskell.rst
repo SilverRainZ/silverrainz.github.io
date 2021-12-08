@@ -3,7 +3,7 @@
 ========================================
 
 .. post:: 2015-04-09
-   :tags: Haskell
+   :tags: Haskell, 函数式编程
    :author: LA
    :language: zh_CN
 
