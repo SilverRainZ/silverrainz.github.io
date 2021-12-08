@@ -110,6 +110,11 @@ html_theme_options = {
     'touch_icon': 'logo.png',
     'description': description,
     'page_width': '80%',
+    'github_user': author_id,
+    'github_repo': 'bullet',
+    'github_banner': True,
+    'github_button': True,
+    'github_type': 'star',
 }
 html_css_files.append('alabaster-custom.css')
 
