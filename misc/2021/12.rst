@@ -1,0 +1,39 @@
+======
+十二月
+======
+
+修了一个 go build panic 的问题
+==============================
+
+:Date: 2012-12-10
+
+`go build '"a"'` 就能让 Go 1.17 以下的编译器 panic：
+
+.. code:: console
+
+   $ go build '"a"'
+   panic: path "\"a\"" not in error "invalid import path \"\\\"a\\\"\"" [recovered]
+           panic: path "\"a\"" not in error "invalid import path \"\\\"a\\\"\""
+
+   goroutine 1 [running]:
+   cmd/go/internal/load.(*preload).flush(0xc0001196c0)
+           /usr/local/Cellar/go/1.17/libexec/src/cmd/go/internal/load/pkg.go:1041 +0x78
+   panic({0x14f7e80, 0xc000119770})
+   ...
+
+虽然并不是严重的 bug 也不影响我的工作，但觉得应该挺好修所以修了一下：`golang/go#50089`__
+不巧 `Gerrit 的导入功能坏了`__，也不知道能不能合进去。
+
+__ https://github.com/golang/go/pull/50089
+__ https://github.com/golang/go/issues/49696
+
+Go 试验性 feature - SetMaxHeap
+==============================
+
+和环境变量 `GOGC` 相似，GOGC 指定触发 GC 的百分比阈值，`SetMaxHeap` 指定触发 GC 的固定值（比如说存活对象到达 15G 时触发一次 GC）
+
+`SetMaxHeap` 能配合物理内存来设定阈值，通过牺牲内存使用，从而降低 GC 频率，以降低时延。
+
+参见 :del:`坐我隔壁桌的同事写的`：`Golang实验性功能SetMaxHeap 固定值GC`__
+
+__ https://www.jianshu.com/p/4069d1e3d716
