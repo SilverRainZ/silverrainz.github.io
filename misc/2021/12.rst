@@ -2,6 +2,20 @@
 十二月
 ======
 
+.. contents::
+   :local:
+
+Go 试验性 feature - SetMaxHeap
+==============================
+
+和环境变量 `GOGC` 相似，GOGC 指定触发 GC 的百分比阈值，`SetMaxHeap` 指定触发 GC 的固定值（比如说存活对象到达 15G 时触发一次 GC）
+
+`SetMaxHeap` 能配合物理内存来设定阈值，通过牺牲内存使用，从而降低 GC 频率，以降低时延。
+
+参见 :del:`坐我隔壁桌的同事写的`：`Golang实验性功能SetMaxHeap 固定值GC`__
+
+__ https://www.jianshu.com/p/4069d1e3d716
+
 修了一个 go build panic 的问题
 ==============================
 
@@ -27,13 +41,19 @@
 __ https://github.com/golang/go/pull/50089
 __ https://github.com/golang/go/issues/49696
 
-Go 试验性 feature - SetMaxHeap
-==============================
+Srain 1.3.1 和 1.2.5 发布了
+===========================
 
-和环境变量 `GOGC` 相似，GOGC 指定触发 GC 的百分比阈值，`SetMaxHeap` 指定触发 GC 的固定值（比如说存活对象到达 15G 时触发一次 GC）
+:Date: 2021-12-18
 
-`SetMaxHeap` 能配合物理内存来设定阈值，通过牺牲内存使用，从而降低 GC 频率，以降低时延。
+:ghrepo:`SrainApp/srain/releases/tag/1.3.1`
+   小版本，只有 bugfix。主要是修了一个重连时加入频道的 BUG__：NickServ 认证的时候并没有一个合适的时机决定何时重新加入。
 
-参见 :del:`坐我隔壁桌的同事写的`：`Golang实验性功能SetMaxHeap 固定值GC`__
+:ghrepo:`SrainApp/srain/releases/tag/1.2.5`
+   1.3.1 bugfix 的 backport。
 
-__ https://www.jianshu.com/p/4069d1e3d716
+:ghuser:`progval` 很积极地贡献 message-tags__ 相关的支持，可惜我没有太多热情了。
+初步的支持会在 1.4 出现，对用户来说暂时没有区别。
+
+__ https://github.com/SrainApp/srain/issues/274
+__ https://ircv3.net/specs/extensions/message-tags
