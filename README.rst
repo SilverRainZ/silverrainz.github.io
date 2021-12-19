@@ -72,6 +72,7 @@ if you don’t need to view these contents:
 
 - Lilypond
 - Timidity++
+- FFmpeg
 - ImageMagick
 - Graphviz
 - PlantUML
