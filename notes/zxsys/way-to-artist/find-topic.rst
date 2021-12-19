@@ -1071,6 +1071,18 @@ Anti-Recommendation
 
 不用再害怕了，没有别的可以接着失去。
 
+有星星和微风的夜晚
+------------------
+
+.. artwork:: _
+   :id: xfczk2-041
+   :size: 32k
+   :date: 2021-12-19
+   :medium: 钢笔
+   :image: /_images/artwork-xfczk2/fa18a106008a4a6.jpg
+
+是我每天睡前都会做的，一个含糊又浪漫的梦。
+
 点评
 ====
 
