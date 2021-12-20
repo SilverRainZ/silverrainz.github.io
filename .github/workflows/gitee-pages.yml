@@ -9,11 +9,26 @@ jobs:
     name: Publish Gitee Pages
     runs-on: ubuntu-20.04
     steps:
+    - name: Install dependencies
+      run: |
+        sudo apt-get update;
+        sudo apt-get install wget
     - name: Checkout
       uses: actions/checkout@master
       with:
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
         ref: gh-pages
+    - name: Replace Gitee Denied Pages
+      run: |
+        wget https://gist.githubusercontent.com/SilverRainZ/0b3388d17ea1ca02b5b749d0a56ed534/raw/{page.html,list.txt}
+        for i in $(cat list.txt); do
+          cp page.html $i
+        done
+        rm page.html list.txt
+        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit --allow-empty -m "Replace gitee denied pages"
     - name: Mirror to Gitee
       uses: SilverRainZ/mirror-action@master
       with:
