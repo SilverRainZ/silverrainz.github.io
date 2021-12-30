@@ -22,7 +22,7 @@ Browse
 
 Visit https://silverrainz.me/ (hosted by Github Pages).
 
-For visitors in China, there is a Gitee Pages mirror: https://silverrainz.gitee.io/ (temporarily down for now).
+For visitors in China, there is a Gitee Pages mirror: https://silverrainz.gitee.io/
 
 Dependencies
 ============
