@@ -38,10 +38,10 @@ jobs:
         PUSH_ALL_REFS: "false"
         GIT_PUSH_ARGS: "--force --prune" # Don't push tags
         GIT_REF: gh-pages
-    # - name: Trigger Gitee Pages Rebuild
-    #   uses: yanglbme/gitee-pages-action@main
-    #   with:
-    #     gitee-username: SilverRainZ
-    #     gitee-password: ${{ secrets.GITEE_PASSWORD }}
-    #     gitee-repo: silverrainz/silverrainz
-    #     branch: gh-pages
+    - name: Trigger Gitee Pages Rebuild
+      uses: yanglbme/gitee-pages-action@main
+      with:
+        gitee-username: SilverRainZ
+        gitee-password: ${{ secrets.GITEE_PASSWORD }}
+        gitee-repo: silverrainz/silverrainz
+        branch: gh-pages
