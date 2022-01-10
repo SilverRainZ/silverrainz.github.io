@@ -67,7 +67,7 @@
 
 .. friend:: frantic1048
             卡夫
-   :blog: http://frantic1048.logdown.com/
+   :blog: https://pyonpyon.today/
    :avatar: https://github.com/frantic1048.png
 
    - 萌萌的现代前端魔法师
