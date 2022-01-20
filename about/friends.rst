@@ -100,6 +100,16 @@
    - 总是能够回应我的 `Q_Q` 的热心群友
    - 专治 troll
 
+.. friend:: zu1k
+            https://lgf.im/
+   :blog: https://lgf.im/
+   :avatar: https://github.com/zu1k.png
+
+   - :ghrepo:`zu1k/good-mitm` 和 :ghrepo:`zu1k/copy-translator` 作者
+   - `破解过贵司的 XRay`__
+
+   __ https://github.com/zu1k/xray-crack-rm
+
 已失效
 ======
 
