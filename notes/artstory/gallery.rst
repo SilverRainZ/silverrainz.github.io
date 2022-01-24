@@ -50,3 +50,13 @@ AYE
 ------
 
 .. gallery:: _
+
+PACE
+----
+
+.. gallery:: _
+             佩斯
+             佩斯画廊
+             Pace
+             Pace Gallery
+   :website: https://www.pacegallery.com/
