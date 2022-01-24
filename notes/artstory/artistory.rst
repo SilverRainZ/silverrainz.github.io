@@ -373,6 +373,22 @@ https://www.beckysuss.net/
 
 :term:`黄金分割` 的直接印证
 
+毛焰
+====
+
+.. artist:: _
+   :movement: 新写实主义 当代艺术
+   :gallery: PACE
+
+资源
+----
+
+- `毛焰在 PACE 上的主页`__
+- `写实主义的探险——何多苓、毛焰作品展览序`__
+
+__ https://www.pacegallery.com/artists/mao-yan/
+__ http://art.china.cn/mjda/2009-03/17/content_2795258.htm
+
 等待翻牌子
 ==========
 
