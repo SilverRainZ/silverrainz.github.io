@@ -208,7 +208,10 @@ any_schemas = [
            ambiguous_reference_template='{{ title }}'),
     Schema('artist',
            name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
-           attrs={'movement': F(referenceable=True, form=F.Form.WORDS)},
+           attrs={
+               'movement': F(referenceable=True, form=F.Form.WORDS),
+               'gallery': F(referenceable=True, form=F.Form.WORDS),
+           },
            description_template=open('_templates/artist.rst', 'r').read(),
            reference_template='🧑‍🎨{{ title }}',
            missing_reference_template='🧑‍🎨{{ title }}',
