@@ -211,6 +211,8 @@ any_schemas = [
            attrs={
                'movement': F(referenceable=True, form=F.Form.WORDS),
                'gallery': F(referenceable=True, form=F.Form.WORDS),
+               'enwiki': F(),
+               'zhwiki': F(),
            },
            description_template=open('_templates/artist.rst', 'r').read(),
            reference_template='🧑‍🎨{{ title }}',

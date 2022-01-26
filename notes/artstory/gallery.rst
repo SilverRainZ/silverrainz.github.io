@@ -19,10 +19,11 @@ AYE
 .. gallery:: _
    :website: http://www.ayegallery.com
 
-蜂巢
-----
+蜂巢艺术中心
+------------
 
 .. gallery:: _
+             蜂巢
    :website: http://www.ayegallery.com
 
 偏锋
@@ -46,10 +47,14 @@ AYE
 国外
 ====
 
-古高轩
-------
+
+Gagosian
+--------
 
 .. gallery:: _
+             高古轩
+             高古轩画廊
+   :website: https://gagosian.com/
 
 PACE
 ----
