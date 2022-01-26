@@ -380,9 +380,11 @@ https://www.beckysuss.net/
    :movement: 新写实主义 当代艺术
    :gallery: PACE
 
+..
+
    一个个表情正在消失的时代肖像。
 
-   —— 批评家栗宪庭《写实主义的探险》
+   — 批评家栗宪庭《写实主义的探险》
 
 1968 年生于湖南湘潭，毕业于中央美术学院油画系，现居南京，任教于南京艺术学院美术系。
 
@@ -428,6 +430,15 @@ __ http://art.china.cn/mjda/2009-03/17/content_2795258.htm
 __ http://www.art-ba-ba.com/main/main.art?threadId=198474&forumId=8
 __ https://posts.careerengine.us/p/5f9e00add477c721eb24d318
 
+爱德华·蒙克
+===========
+
+.. artist:: _
+            蒙克
+            Edvard Munch
+            Munch
+   :movement: 表现主义
+
 等待翻牌子
 ==========
 
@@ -454,7 +465,7 @@ __ https://posts.careerengine.us/p/5f9e00add477c721eb24d318
 和 :friend:`SilverRainZ` 有一定相似的：
 
 - 康斯泰勃尔
-- 爱德华·蒙克 神经质
+- :artist:`蒙克` 神经质
 - 文森特·梵高 病态和失败
 - 卡米耶·毕沙罗 温和
 - 达芬奇 乐于研究
