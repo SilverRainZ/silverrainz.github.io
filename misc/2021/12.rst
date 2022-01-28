@@ -57,3 +57,18 @@ Srain 1.3.1 和 1.2.5 发布了
 
 __ https://github.com/SrainApp/srain/issues/274
 __ https://ircv3.net/specs/extensions/message-tags
+
+形式文法
+========
+
+G 四元组
+
+正则文法
+
+上下文无关文法
+
+   BNF 范式
+
+   LL LR 解析器
+
+   LookAhead K
