@@ -77,11 +77,11 @@
 
    .. toctree::
       :caption: 随记
+      :reversed:
       :maxdepth: 2
+      :glob:
 
-      misc/2021/index
-      misc/2020/index
-      misc/2017/index
+      misc/*/index
 
    -----------------------------------------------------------------------------
 
