@@ -5,8 +5,10 @@
 {% if album %}:画集: :artwork.album:`{{ album }} <{{ album }}>`{% endif %}
 
 {% if image %}
-.. image:: {{ image }}
-   :width: 80%
+.. figure:: {{ image | thumbnail }}
+   :target: https://raw.githubusercontent.com/SilverRainZ/bullet/master{{ image }}
+
+   {{ title }}
 {% else %}
 
 .. todo:: 图片未上传

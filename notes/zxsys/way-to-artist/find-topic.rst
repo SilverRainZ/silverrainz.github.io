@@ -300,7 +300,7 @@ Self
    小原野子
 
 消除人的欲望，呈现自然的随机性
-   格哈德里希特 
+   格哈德里希特
 
    贾思伯琼斯 《美国国旗》
 
@@ -448,640 +448,603 @@ Self
    2021-10-18
       我尝试对此刻的痛苦进行快照，在纸上尽力还原这对简洁的冲突，一旦冲突在纸上成立，我就好像完成了什么似的，不管最后这个冲突能不能解决，我都能更放松一些，我知道我的痛苦从哪里来，也知道它们无法要我的命。
 
-伪善与善
---------
-
-.. artwork:: _
-   :id: xfczk2-000
-   :date: 2021-04-17
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_152742.jpg
-   :album: album-32k-1
-
-   :相麻: 假設在某個地方，有神明存在。
-          神明做了一個實驗。那個實驗的目的，是想讓人變成善人。然後祂挑了一位青年，
-          作為實驗的樣本。
-   :惠:   然後呢？
-   :相麻: 在實驗一開始，神明創造一個那位青年的冒牌貨。
-          冒牌貨本身並不具備意誌，只會做出和真正的青年相同的行動。
-          神明認為隻要有另一個自己，或許就能透過客觀檢視自己的行為，讓人變成善人。
-   :惠:   如果是神明，那應該不用做實驗也能知道結果吧。
-   :相麻: 那位神明雖然幾近全能，卻非常無知。
-   :惠:   喔，為什麼？既然是全能，那應該也能讓自己變全知才對啊。
-   :相麻: 雖然曾經獲得足以被稱為全知的知識，不過祂馬上就舍棄那些知識。
-          所以祂變成一個幾近全能，卻也極度接近無知的神明。神明也是有很多苦衷的。
-   :惠:   好吧。總之神明做了一個創造善人的實驗，並做出某位青年的冒牌貨。
-   :相麻: 沒錯。可是青年的行動並沒有改變。雖然他絕對不算壞人，卻也沒到被稱為善人的地步。
-          冒牌貨也和他一樣，過著不算好也不算壞的生活。
-   :惠:   那神明滿意了嗎？
-   :相麻: 不，所以祂進行第二個實驗，神明對青年下了某種詛咒，
-          只要一看見悲傷的人，全身就會疼痛不已的詛咒。
-   :惠:   喔，那還真是不得了。
-   :相麻: 所以青年變得無法對悲傷的人置之不理。為了消除自己的疼痛
-          他對所有悲傷的人伸出援手。
-   :惠:   原來如此。然後呢？
-   :相麻: 青年的冒牌貨，也做了相同的行動。雖然不會全身疼痛不已
-          不過他被設計成會做出和青年一樣的舉動。所以青年和冒牌貨，都度過善人的一生
-          故事到這裏就結束了。
-   :惠:   神看見這個結果後，有怎麼樣嗎？
-   :相麻: 祂替青年和冒牌貨各自取了名字。
-   :惠:   什麼名字？
-   :相麻: 一個叫做善，另一個叫偽善。
-   :惠:   話說回來，相麻。這故事到底有什麼意義？
-   :相麻: 只是個比喻而已。為了讓你明白，自己是個一絲不苟的善人。
-   :惠:   到底要怎麼想，事情才會變成那樣？
-   :相麻: 惠。你覺得哪一邊是善，哪一邊是偽善？
-   :惠:   真正的青年是偽善，冒牌貨是善。
-   :相麻: 為什麼你會這麼認為？
-   :惠:   真正的青年是為了自己才幫助別人，冒牌貨則是在毫無任何打算的情況下助人。
-           不用想也知道，哪一邊是純粹的善。
-   :相麻: 不過真正的青年是按照自己的意思在行動，冒牌貨只是遵從本人而已喔？
-   :惠:   這並不構成問題。為了自己所做的行為，根本就稱不上是純粹的善。
-
-   ... [#]_
-
-这里我复述了上面的 :ref:`矛盾` ，并附上自己的意见。
-
-.. [#] :zhwiki:`重启咲良田`
-
-试解电车难题
-------------
-
-.. artwork:: _
-   :id: xfczk2-001
-   :date: 2021-04-19
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_152913.jpg
-   :album: album-32k-1
-
-这里我描述一种 :ref:`荒诞` ，我解不开题，只能装傻了。
-
-HOW I LIVE
-----------
-
-.. artwork:: _
-   :id: xfczk2-002
-   :date: 2021-04-21
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153029.jpg
-   :album: album-32k-1
-
-我不善于休息，一直在不同的，互相重叠的上下文之间切换。
-
-overhaed 非常大，有时会变得不是我自己。
-
-疹子
-----
-
-.. artwork:: _
-   :id: xfczk2-003
-   :date: 2021-04-27
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153146.jpg
-   :album: album-32k-1
-
-我觉得浑身不舒服，什么都不想画，草草应付了事。
-
-冰川领航员
-----------
-
-.. artwork:: _
-   :id: xfczk2-004
-   :date: 2021-05-02
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153252.jpg
-   :album: album-32k-1
+.. panels::
+   :container: container-fluid
+   :column: col-lg-4 col-md-6 col-sm-12 col-xs-12 p-2
+
+   ---
+   :column: col-lg-8 p-2
+
+   .. artwork:: 伪善与善
+      :id: xfczk2-000
+      :date: 2021-04-17
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_152742.jpg
+      :album: album-32k-1
+
+      :相麻: 假設在某個地方，有神明存在。
+             神明做了一個實驗。那個實驗的目的，是想讓人變成善人。然後祂挑了一位青年，
+             作為實驗的樣本。
+      :惠:   然後呢？
+      :相麻: 在實驗一開始，神明創造一個那位青年的冒牌貨。
+             冒牌貨本身並不具備意誌，只會做出和真正的青年相同的行動。
+             神明認為隻要有另一個自己，或許就能透過客觀檢視自己的行為，讓人變成善人。
+      :惠:   如果是神明，那應該不用做實驗也能知道結果吧。
+      :相麻: 那位神明雖然幾近全能，卻非常無知。
+      :惠:   喔，為什麼？既然是全能，那應該也能讓自己變全知才對啊。
+      :相麻: 雖然曾經獲得足以被稱為全知的知識，不過祂馬上就舍棄那些知識。
+             所以祂變成一個幾近全能，卻也極度接近無知的神明。神明也是有很多苦衷的。
+      :惠:   好吧。總之神明做了一個創造善人的實驗，並做出某位青年的冒牌貨。
+      :相麻: 沒錯。可是青年的行動並沒有改變。雖然他絕對不算壞人，卻也沒到被稱為善人的地步。
+             冒牌貨也和他一樣，過著不算好也不算壞的生活。
+      :惠:   那神明滿意了嗎？
+      :相麻: 不，所以祂進行第二個實驗，神明對青年下了某種詛咒，
+             只要一看見悲傷的人，全身就會疼痛不已的詛咒。
+      :惠:   喔，那還真是不得了。
+      :相麻: 所以青年變得無法對悲傷的人置之不理。為了消除自己的疼痛
+             他對所有悲傷的人伸出援手。
+      :惠:   原來如此。然後呢？
+      :相麻: 青年的冒牌貨，也做了相同的行動。雖然不會全身疼痛不已
+             不過他被設計成會做出和青年一樣的舉動。所以青年和冒牌貨，都度過善人的一生
+             故事到這裏就結束了。
+      :惠:   神看見這個結果後，有怎麼樣嗎？
+      :相麻: 祂替青年和冒牌貨各自取了名字。
+      :惠:   什麼名字？
+      :相麻: 一個叫做善，另一個叫偽善。
+      :惠:   話說回來，相麻。這故事到底有什麼意義？
+      :相麻: 只是個比喻而已。為了讓你明白，自己是個一絲不苟的善人。
+      :惠:   到底要怎麼想，事情才會變成那樣？
+      :相麻: 惠。你覺得哪一邊是善，哪一邊是偽善？
+      :惠:   真正的青年是偽善，冒牌貨是善。
+      :相麻: 為什麼你會這麼認為？
+      :惠:   真正的青年是為了自己才幫助別人，冒牌貨則是在毫無任何打算的情況下助人。
+              不用想也知道，哪一邊是純粹的善。
+      :相麻: 不過真正的青年是按照自己的意思在行動，冒牌貨只是遵從本人而已喔？
+      :惠:   這並不構成問題。為了自己所做的行為，根本就稱不上是純粹的善。
+
+      ... [#]_
+
+      这里我复述了上面的 :ref:`矛盾` ，并附上自己的意见。
+
+      .. [#] :zhwiki:`重启咲良田`
+
+   ------------
+
+   .. artwork:: 试解电车难题
+      :id: xfczk2-001
+      :date: 2021-04-19
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_152913.jpg
+      :album: album-32k-1
+
+   这里我描述一种 :ref:`荒诞` ，我解不开题，只能装傻了。
+
+   ----------
+
+   .. artwork:: HOW I LIVE
+      :id: xfczk2-002
+      :date: 2021-04-21
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153029.jpg
+      :album: album-32k-1
+
+      我不善于休息，一直在不同的，互相重叠的上下文之间切换。
+
+      overhaed 非常大，有时会变得不是我自己。
+
+   ----
+
+   .. artwork:: 疹子
+      :id: xfczk2-003
+      :date: 2021-04-27
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153146.jpg
+      :album: album-32k-1
+
+      我觉得浑身不舒服，什么都不想画，草草应付了事。
+
+   ----------
+
+   .. artwork:: 冰川领航员
+      :id: xfczk2-004
+      :date: 2021-05-02
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153252.jpg
+      :album: album-32k-1
 
-名字来自 :zhwiki:`水星领航员` ，但没什么关系。
+      名字来自 :zhwiki:`水星领航员` ，但没什么关系。
 
-我小心翼翼地驾驶着自己，光看水面上的部分没有用，它们一定关联着更潜意识的，
-更不愿意被看到的某些东西。
+      我小心翼翼地驾驶着自己，光看水面上的部分没有用，它们一定关联着更潜意识的，
+      更不愿意被看到的某些东西。
 
-内窥
-----
+   ----
 
-.. artwork:: _
-   :id: xfczk2-005
-   :date: 2021-05-02
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153414.jpg
-   :album: album-32k-1
+   .. artwork:: 内窥
+      :id: xfczk2-005
+      :date: 2021-05-02
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153414.jpg
+      :album: album-32k-1
 
-把视线插入自己身体里，我能窥见自己吗？
-在一边忙着 :artwork:`领航 <冰川领航员>` 的情况下。
+      把视线插入自己身体里，我能窥见自己吗？
+      在一边忙着 :artwork:`领航 <冰川领航员>` 的情况下。
 
-求雨
-----
+   ----
 
-.. artwork:: _
-   :id: xfczk2-006
-   :date: 2021-05-10
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153502.jpg
-   :album: album-32k-1
+   .. artwork:: 求雨
+      :id: xfczk2-006
+      :date: 2021-05-10
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153502.jpg
+      :album: album-32k-1
 
-没画好，所以什么都没有表达出来。
+      没画好，所以什么都没有表达出来。
 
-剥离
-----
-
-.. artwork:: _
-   :id: xfczk2-007
-   :date: 2021-05-17
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210517_022947__01__01.jpg
-   :album: album-32k-1
-
-我把我不喜欢的东西慢慢地从身上敲下来。
-
-*变成更完美的我。*
-
-.. seealso:: :artwork:`HOW I LIVE` :artwork:`我的敌人在哪里`
-
-出行准备
---------
-
-.. artwork:: _
-   :id: xfczk2-008
-   :date: 2021-05-23
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210523_180430__01__01.jpg
-   :album: album-32k-1
-
-我不能游在干涸的河床上。
-
-.. seealso:: 鱼鱼的姿势参考了 :artist:`安格尔` 的《泉》，
-   构图上想有 :artist:`霍伯` 那样的感觉，:del:`但最后啥也没有`。
-
-意识流分析
-----------
-
-.. artwork:: _
-   :id: xfczk2-009
-   :date: 2021-05-28
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153608.jpg
-   :album: album-32k-1
-
-我意识到自己非物质的部分是由意识构筑的，意识又分为可控的小部分和不可控的大部分。小部分是普通意义上的「我」，大部分是湍急暗涌的潜意识。
-
-西西弗斯的一天
---------------
-
-.. artwork:: _
-   :id: xfczk2-010
-   :date: 2021-05-29
-   :size: 32k
-   :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_153711.jpg
-   :album: album-32k-1
-
-西西弗斯每天：
-
-   必须将一块巨石推上山顶，而每次到达山顶后巨石又滚回山下 [#]_
-   —— :zhwiki:`希腊神话`
-
-西西弗斯每天：
-
-   必须推开被子才能起床，每次巨石滚回山下又要盖上被子睡觉
-   —— :friend:`SilverRainZ`
-
-.. [#] :zhwiki:`西西弗斯`
-
-Antihug
--------
-
-.. artwork:: _
-   :id: xfczk2-011
-   :date: 2021-05-30
-   :size: 32k
-   :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_153841.jpg
-   :album: album-32k-1
+   ----
 
-我不会拒绝任何人的拥抱，没有人的拥抱是特别的，都同样地能抚慰我。可道德上不能这样，于是我伸出手抱住了自己。
-
-我
---
-
-.. artwork:: _
-   :id: xfczk2-012
-   :date: 2021-06-01
-   :size: 32k
-   :medium: 色粉笔 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153933.jpg
-   :album: album-32k-1
-
-认识你自己
-----------
+   .. artwork:: 剥离
+      :id: xfczk2-007
+      :date: 2021-05-17
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210517_022947__01__01.jpg
+      :album: album-32k-1
 
-.. artwork:: _
-   :id: xfczk2-013
-   :date: 2021-06-03
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154020.jpg
-   :album: album-32k-1
-
-离职名单
---------
-
-.. artwork:: _
-   :id: xfczk2-014
-   :date: 2021-06-07
-   :size: 32k
-   :medium: 水彩 色粉笔 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20210607_000828__01.jpg
-   :album: album-32k-1
-
-| 这是一个商业项目团队在某一刻保存下的快照
-| 这是横跨了 2020 到 2021 的一张离职名单
-| 这是「我」的过去苟延残喘至今的最后一口气
-| 这是锚在北京的一个点，未来要辐射到中国的的各个地方
-
-忆江南小区的保安岗
-------------------
-
-.. artwork:: _
-   :id: xfczk2-015
-   :date: 2021-06-08
-   :size: 32k
-   :medium: 色粉笔 牛皮纸
-   :image: /_images/artwork-xfczk2/IMG_20211023_154121.jpg
-   :album: album-32k-1
-
-我不是老好人，我只是太过孤寂怕无法自己燃过这个夜晚，所以才帮你的忙。
-
-意识的纠集
-----------
-
-.. artwork:: _
-   :id: xfczk2-016
-   :date: 2021-06-12
-   :medium: Procreate
-   :image: /_images/artwork-xfczk2/未命名作品.png
-   :album: album-32k-1
-
-它们纠集起来会成为什么，会是我的敌人吗？
-
-.. seealso:: :artwork:`意识流分析`
-
-漫长的剥离
-----------
-
-.. artwork:: _
-   :id: xfczk2-017
-   :date: 2021-06-15
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154212.jpg
-   :album: album-32k-1
-
-在我以为我在重建这段感情的时候，它其实还在剥离，一刻也没有停止过。所谓「改变」带来的痛感其实和之前的不适并没有分别。
+      我把我不喜欢的东西慢慢地从身上敲下来。
 
-等到了意识到的时候，痛感变成愤懑和孤独，我用睡眠和自慰冲刷它们，从马桶里冲走，它们不必带到以后的生活里。
-
-.. seealso:: :artwork:`阵痛`
+      *变成更完美的我。*
 
-自画像
-------
-
-.. artwork:: _
-   :id: xfczk2-018
-   :date: 2021-06-21
-   :size: 8k
-   :medium: 炭精粉 色粉笔
-   :image: /_images/artwork-xfczk2/IMG_20210626_185729__01.jpg
-   :album: album-a3-1
-
-黄剑说像 :artist:`毛焰` ，我觉得像谁不重要。
-
-这是我自己，是我的媒介和步骤综合呈现出来的画面。
-
-无题
-----
-
-.. artwork:: _
-   :id: xfczk2-019
-   :date: 2021-06-22
-   :size: 8k
-   :medium: 彩色铅笔 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210626_185717__01.jpg
-   :album: album-a3-1
-
-自觉并不好，但晓飞老师觉得好，那就放进来吧。
-
-各向异性的无聊
---------------
-
-.. artwork:: _
-   :id: xfczk2-020
-   :date: 2021-06-24
-   :size: 8k
-   :medium: 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210626_185746__01.jpg
-   :album: album-a3-1
-
-我不甘于无聊的画面，又陷在过渡的时间里动弹不得。
-那就破坏吧，破碎比平庸有趣一点。
-
-逃离前夜
---------
-
-.. artwork:: _
-   :id: xfczk2-021
-   :date: 2021-06-25
-   :size: 8k
-   :medium: 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210625_153512.jpg
-   :album: album-a3-1
-
-离开画室的倒数第二天，从右到左，依次是若涵、黄剑和小龙。
-
-吃了劳拉西泮后的自画像
-----------------------
-
-.. artwork:: _
-   :id: xfczk2-022
-   :date: 2021-07-04
-   :size: 32k
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154357.jpg
-
-回到广东的第五天，三十多度的高温让人不舒服，虽然此刻我把空调打开了。
-
-情绪因为和 jiang 纠缠不清，所以又挨了重重一下。一宿没睡，胸口沉重得像铁块。我意识到自己陷入难以自拔的焦虑状态了。我想办法让自己动起来，整理绘画笔记，看 :book:`我们内心的冲突` 。到了晚上的时候决定再吃几天劳拉西泮：我不知道见效有多快，相信会有用的。
-
-为往圣开绝路
-------------
-
-.. artwork:: _
-   :id: xfczk2-023
-   :size: 32k
-   :date: 2021-07-06
-   :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_154454.jpg
-
-我不需要圣人，让他们都去死吧。
-
-.. seealso:: :artwork:`圣人在高台上布道`
-
-自画像
-------
-
-.. artwork:: _
-   :id: xfczk2-024
-   :size: 32k
-   :date: 2021-07-24
-   :medium: 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_154558.jpg
-
-这张画放很久了，抽空完成一下。
-
-宋大元帅陵旁夜景
-----------------
-
-.. artwork:: _
-   :id: xfczk2-025
-   :size: 32k
-   :date: 2021-08-03
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154654.jpg
-
-挑选真理
---------
-
-.. artwork:: _
-   :id: xfczk2-026
-   :size: 32k
-   :date: 2021-08-10
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154748.jpg
-
-.. seealso:: :artwork:`怀疑论者`
-
-鸡胸
-----
-
-.. artwork:: _
-   :id: xfczk2-027
-   :size: 32k
-   :date: 2021-08-15
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210815_115254__01.jpg
-   :album: album-32k-1
-
-丢在垃圾桶里的半身模特，在知乎上截的图。
-
-画完线稿之后规划了一下颜色，模特用黄色，垃圾桶用蓝色。
-但最终的用色除了蓝色都降了纯度，左边的地面和计划的有所区别。
-
-.. image:: /_images/artwork-xfczk2/v2-7b123234565d9e62ea2ed3f552fc0c6a_r.jpg
-   :width: 40%
-
-.. image:: /_images/artwork-xfczk2/IMG_20210814_231427.jpg
-   :width: 40%
-
-模特
-----
-
-.. artwork:: _
-   :id: xfczk2-028
-   :size: 32k
-   :date: 2021-08-16
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
-   :album: album-32k-1
-
-2013-11-17，应该是在广州某个地铁站旁边拍的照片。
-
-无题
-----
-
-.. artwork:: _
-   :id: xfczk2-029
-   :size: 32k
-   :date: 2021-08-18
-   :medium: 水彩
-   :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_154915.jpg
-
-葡萄糖体内循环
---------------
-
-.. artwork:: _
-   :id: xfczk2-030
-   :size: 32k
-   :date: 2021-08-29
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
-   :album: album-32k-1
-
-用想象力造出注射液，为我提供想象的能量。
-
-鹿港小镇
---------
-
-.. artwork:: _
-   :id: xfczk2-031
-   :size: 32k
-   :date: 2021-08-24
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
-   :album: album-32k-1
-
-Abbey Road
-----------
-
-.. artwork:: _
-   :id: xfczk2-032
-   :size: 32k
-   :date: 2021-08-31
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210831_175415__01.jpg
-
-只是又一个 :enwiki:`Abbey Road` 的 neta 而已，尽管我完全不听披头士。
-
-Moonrise
---------
-
-.. artwork:: _
-   :id: xfczk2-033
-   :size: 32k
-   :date: 2021-09-01
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210901_233812__01.jpg
-   :album: album-32k-1
-
-时隔一年半后的上班第一天。
-
-换鞋
-----
-
-.. artwork:: _
-   :id: xfczk2-034
-   :size: 32k
-   :date: 2021-09-13
-   :medium: 铅笔 矿物色粉
-   :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20210925_134836__01.jpg
-
-试了新材料，深蓝（？）和大红色的矿物色粉。
-
-不合适的鞋要换掉，可是换掉就要光脚了。
-
-光脚吧，没有其他的可以失去。
-
-试色纸
--------
-
-.. artwork:: _
-   :id: xfczk2-035
-   :size: 16k
-   :date: 2021-09-13
-   :medium: 矿物色粉
-   :image: /_images/artwork-xfczk2/IMG_20211027_090959.jpg
-   :album: album-16k-1
-
-画 :artwork:`换鞋` 时候的试色纸，因为看着好看就留下了。
-
-有轨电车司机
-------------
-
-.. artwork:: _
-   :id: xfczk2-036
-   :size: 32k
-   :date: 2021-09-24
-   :medium: 水彩 铅笔
-   :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20210925_134940__01.jpg
-
-Anti-Recommendation
--------------------
-
-.. artwork:: _
-   :id: xfczk2-037
-   :size: 32k
-   :date: 2021-10-03
-   :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211003_231240__01.jpg
-   :album: album-32k-1
-
-拥抱申请
---------
-
-.. artwork:: _
-   :id: xfczk2-038
-   :size: 32k
-   :date: 2021-10-10
-   :medium: 水彩 铅笔
-   :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_155634.jpg
-
-路过的人啊，无论是谁，请抱一抱我。
-
-.. seealso:: :artwork:`xfczk-039`
-
-
-我失去种一朵玫瑰的耐心了，现在就要
-----------------------------------
-
-.. artwork:: _
-   :id: xfczk2-039
-   :size: 32k
-   :date: 2021-10-12
-   :medium: 水彩 铅笔
-   :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_155357.jpg
-
-.. seealso:: :artwork:`一种玫瑰标本及其制备工艺`
-
-飞走的面孔，逃跑的月亮，抓逃兵的网子，仆了街也要翘二郎腿的靓仔，杭州人，假装在转球的中指，烟雾里面容不清的人
-------------------------------------------------------------------------------------------------------------
-
-.. artwork:: _
-   :id: xfczk2-040
-   :size: 16k
-   :date: 2021-10-12
-   :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211114_005453.jpg
-
-听 Faye 君推荐的 Lush 的歌，产生了一些支离破碎的东西，都写在标题里了。
-
-强盗的造访
-----------
-
-.. artwork:: _
-   :id: xfczk2-042
-   :size: 16k
-   :date: 2021-10-22
-   :medium: 水彩
-
-这个房间本来就不会有人来，强盗的到来只是一个意外。
-
-不用再害怕了，没有别的可以接着失去。
-
-有星星和微风的夜晚
-------------------
-
-.. artwork:: _
-   :id: xfczk2-041
-   :size: 32k
-   :date: 2021-12-19
-   :medium: 钢笔
-   :image: /_images/artwork-xfczk2/fa18a106008a4a6.jpg
-
-是我每天睡前都会做的，一个含糊又浪漫的梦。
+      .. seealso:: :artwork:`HOW I LIVE` :artwork:`我的敌人在哪里`
+
+   --------
+
+   .. artwork:: 出行准备
+      :id: xfczk2-008
+      :date: 2021-05-23
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210523_180430__01__01.jpg
+      :album: album-32k-1
+
+      我不能游在干涸的河床上。
+
+      .. seealso:: 鱼鱼的姿势参考了 :artist:`安格尔` 的《泉》，
+         构图上想有 :artist:`霍伯` 那样的感觉，:del:`但最后啥也没有`。
+
+   ----------
+
+   .. artwork:: 意识流分析
+      :id: xfczk2-009
+      :date: 2021-05-28
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153608.jpg
+      :album: album-32k-1
+
+      我意识到自己非物质的部分是由意识构筑的，意识又分为可控的小部分和不可控的大部分。小部分是普通意义上的「我」，大部分是湍急暗涌的潜意识。
+
+   --------------
+
+   .. artwork:: 西西弗斯的一天
+      :id: xfczk2-010
+      :date: 2021-05-29
+      :size: 32k
+      :medium: 水彩 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20211023_153711.jpg
+      :album: album-32k-1
+
+      西西弗斯每天：
+
+         必须将一块巨石推上山顶，而每次到达山顶后巨石又滚回山下 [#]_
+         —— :zhwiki:`希腊神话`
+
+      西西弗斯每天：
+
+         必须推开被子才能起床，每次巨石滚回山下又要盖上被子睡觉
+         —— :friend:`SilverRainZ`
+
+      .. [#] :zhwiki:`西西弗斯`
+
+   -------
+
+   .. artwork:: Antihug
+      :id: xfczk2-011
+      :date: 2021-05-30
+      :size: 32k
+      :medium: 水彩 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20211023_153841.jpg
+      :album: album-32k-1
+
+      我不会拒绝任何人的拥抱，没有人的拥抱是特别的，都同样地能抚慰我。可道德上不能这样，于是我伸出手抱住了自己。
+
+   ---
+
+   .. artwork:: 我
+      :id: xfczk2-012
+      :date: 2021-06-01
+      :size: 32k
+      :medium: 色粉笔 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_153933.jpg
+      :album: album-32k-1
+
+   ----------
+
+   .. artwork:: 认识你自己
+      :id: xfczk2-013
+      :date: 2021-06-03
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_154020.jpg
+      :album: album-32k-1
+
+   --------
+
+   .. artwork:: 离职名单
+      :id: xfczk2-014
+      :date: 2021-06-07
+      :size: 32k
+      :medium: 水彩 色粉笔 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20210607_000828__01.jpg
+      :album: album-32k-1
+
+      | 这是一个商业项目团队在某一刻保存下的快照
+      | 这是横跨了 2020 到 2021 的一张离职名单
+      | 这是「我」的过去苟延残喘至今的最后一口气
+      | 这是锚在北京的一个点，未来要辐射到中国的的各个地方
+
+   ------------------
+
+   .. artwork:: 忆江南小区的保安岗
+      :id: xfczk2-015
+      :date: 2021-06-08
+      :size: 32k
+      :medium: 色粉笔 牛皮纸
+      :image: /_images/artwork-xfczk2/IMG_20211023_154121.jpg
+      :album: album-32k-1
+
+      我不是老好人，我只是太过孤寂怕无法自己燃过这个夜晚，所以才帮你的忙。
+
+   ----------
+
+   .. artwork:: 意识的纠集
+      :id: xfczk2-016
+      :date: 2021-06-12
+      :medium: Procreate
+      :image: /_images/artwork-xfczk2/未命名作品.png
+      :album: album-32k-1
+
+      它们纠集起来会成为什么，会是我的敌人吗？
+
+      .. seealso:: :artwork:`意识流分析`
+
+   ----------
+
+   .. artwork:: 漫长的剥离
+      :id: xfczk2-017
+      :date: 2021-06-15
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_154212.jpg
+      :album: album-32k-1
+
+      在我以为我在重建这段感情的时候，它其实还在剥离，一刻也没有停止过。所谓「改变」带来的痛感其实和之前的不适并没有分别。
+
+      等到了意识到的时候，痛感变成愤懑和孤独，我用睡眠和自慰冲刷它们，从马桶里冲走，它们不必带到以后的生活里。
+
+      .. seealso:: :artwork:`阵痛`
+
+   ------
+
+   .. artwork:: 自画像
+      :id: xfczk2-018
+      :date: 2021-06-21
+      :size: 8k
+      :medium: 炭精粉 色粉笔
+      :image: /_images/artwork-xfczk2/IMG_20210626_185729__01.jpg
+      :album: album-a3-1
+
+      黄剑说像 :artist:`毛焰` ，我觉得像谁不重要。
+
+      这是我自己，是我的媒介和步骤综合呈现出来的画面。
+
+   ----
+
+   .. artwork:: 无题
+      :id: xfczk2-019
+      :date: 2021-06-22
+      :size: 8k
+      :medium: 彩色铅笔 炭精粉
+      :image: /_images/artwork-xfczk2/IMG_20210626_185717__01.jpg
+      :album: album-a3-1
+
+      自觉并不好，但晓飞老师觉得好，那就放进来吧。
+
+   --------------
+
+   .. artwork:: 各向异性的无聊
+      :id: xfczk2-020
+      :date: 2021-06-24
+      :size: 8k
+      :medium: 炭精粉
+      :image: /_images/artwork-xfczk2/IMG_20210626_185746__01.jpg
+      :album: album-a3-1
+
+      我不甘于无聊的画面，又陷在过渡的时间里动弹不得。
+      那就破坏吧，破碎比平庸有趣一点。
+
+   --------
+
+   .. artwork:: 逃离前夜
+      :id: xfczk2-021
+      :date: 2021-06-25
+      :size: 8k
+      :medium: 炭精粉
+      :image: /_images/artwork-xfczk2/IMG_20210625_153512.jpg
+      :album: album-a3-1
+
+      离开画室的倒数第二天，从右到左，依次是若涵、黄剑和小龙。
+
+   ----------------------
+
+   .. artwork:: 吃了劳拉西泮后的自画像
+      :id: xfczk2-022
+      :date: 2021-07-04
+      :size: 32k
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_154357.jpg
+
+      回到广东的第五天，三十多度的高温让人不舒服，虽然此刻我把空调打开了。
+
+      情绪因为和 Jiang 纠缠不清，所以又挨了重重一下。一宿没睡，胸口沉重得像铁块。我意识到自己陷入难以自拔的焦虑状态了。我想办法让自己动起来，整理绘画笔记，看 :book:`我们内心的冲突` 。到了晚上的时候决定再吃几天劳拉西泮：我不知道见效有多快，相信会有用的。
+
+
+   ------------
+
+   .. artwork:: 为往圣开绝路
+      :id: xfczk2-023
+      :size: 32k
+      :date: 2021-07-06
+      :medium: 水彩 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20211023_154454.jpg
+
+      我不需要圣人，让他们都去死吧。
+
+      .. seealso:: :artwork:`圣人在高台上布道`
+
+   ------
+
+   .. artwork:: 自画像
+      :id: xfczk2-024
+      :size: 32k
+      :date: 2021-07-24
+      :medium: 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20211023_154558.jpg
+
+      这张画放很久了，抽空完成一下。
+
+   ----------------
+
+   .. artwork:: 宋大元帅陵旁夜景
+      :id: xfczk2-025
+      :size: 32k
+      :date: 2021-08-03
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_154654.jpg
+
+   --------
+
+   .. artwork:: 挑选真理
+      :id: xfczk2-026
+      :size: 32k
+      :date: 2021-08-10
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211023_154748.jpg
+
+   .. seealso:: :artwork:`怀疑论者`
+
+   ----
+
+   .. artwork:: 鸡胸
+      :id: xfczk2-027
+      :size: 32k
+      :date: 2021-08-15
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210815_115254__01.jpg
+      :album: album-32k-1
+
+      丢在垃圾桶里的半身模特，在知乎上截的图。
+
+      画完线稿之后规划了一下颜色，模特用黄色，垃圾桶用蓝色。
+      但最终的用色除了蓝色都降了纯度，左边的地面和计划的有所区别。
+
+      .. image:: /_images/artwork-xfczk2/v2-7b123234565d9e62ea2ed3f552fc0c6a_r.jpg
+         :width: 40%
+
+      .. image:: /_images/artwork-xfczk2/IMG_20210814_231427.jpg
+         :width: 40%
+
+   ----
+
+   .. artwork:: 模特
+      :id: xfczk2-028
+      :size: 32k
+      :date: 2021-08-16
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
+      :album: album-32k-1
+
+      2013-11-17，应该是在广州某个地铁站旁边拍的照片。
+
+   ----
+
+   .. artwork:: 无题
+      :id: xfczk2-029
+      :size: 32k
+      :date: 2021-08-18
+      :medium: 水彩
+      :album: album-32k-1
+      :image: /_images/artwork-xfczk2/IMG_20211023_154915.jpg
+
+   --------------
+
+   .. artwork:: 葡萄糖体内循环
+      :id: xfczk2-030
+      :size: 32k
+      :date: 2021-08-29
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
+      :album: album-32k-1
+
+      用想象力造出注射液，为我提供想象的能量。
+
+   --------
+
+   .. artwork:: 鹿港小镇
+      :id: xfczk2-031
+      :size: 32k
+      :date: 2021-08-24
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
+      :album: album-32k-1
+
+   ----------
+
+   .. artwork:: Abbey Road
+      :id: xfczk2-032
+      :size: 32k
+      :date: 2021-08-31
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210831_175415__01.jpg
+
+      只是又一个 :enwiki:`Abbey Road` 的 neta 而已，尽管我完全不听披头士。
+
+   --------
+
+   .. artwork:: Moonrise
+      :id: xfczk2-033
+      :size: 32k
+      :date: 2021-09-01
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20210901_233812__01.jpg
+      :album: album-32k-1
+
+      时隔一年半后的上班第一天。
+
+   ----
+
+   .. artwork:: 换鞋
+      :id: xfczk2-034
+      :size: 32k
+      :date: 2021-09-13
+      :medium: 铅笔 矿物色粉
+      :album: album-32k-1
+      :image: /_images/artwork-xfczk2/IMG_20210925_134836__01.jpg
+
+      试了新材料，深蓝（？）和大红色的矿物色粉。
+
+      不合适的鞋要换掉，可是换掉就要光脚了。
+
+      光脚吧，没有其他的可以失去。
+
+   -------
+
+   .. artwork:: 试色纸
+      :id: xfczk2-035
+      :size: 16k
+      :date: 2021-09-13
+      :medium: 矿物色粉
+      :image: /_images/artwork-xfczk2/IMG_20211027_090959.jpg
+      :album: album-16k-1
+
+      画 :artwork:`换鞋` 时候的试色纸，因为看着好看就留下了。
+
+   ------------
+
+   .. artwork:: 有轨电车司机
+      :id: xfczk2-036
+      :size: 32k
+      :date: 2021-09-24
+      :medium: 水彩 铅笔
+      :album: album-32k-1
+      :image: /_images/artwork-xfczk2/IMG_20210925_134940__01.jpg
+
+   -------------------
+
+   .. artwork:: Anti-Recommendation
+      :id: xfczk2-037
+      :size: 32k
+      :date: 2021-10-03
+      :medium: 水彩
+      :image: /_images/artwork-xfczk2/IMG_20211003_231240__01.jpg
+      :album: album-32k-1
+
+   --------
+
+   .. artwork:: 拥抱申请
+      :id: xfczk2-038
+      :size: 32k
+      :date: 2021-10-10
+      :medium: 水彩 铅笔
+      :album: album-32k-1
+      :image: /_images/artwork-xfczk2/IMG_20211023_155634.jpg
+
+      路过的人啊，无论是谁，请抱一抱我。
+
+      .. seealso:: :artwork:`xfczk-039`
+
+
+   ----------------------------------
+
+   .. artwork:: 我失去种一朵玫瑰的耐心了，现在就要
+      :id: xfczk2-039
+      :size: 32k
+      :date: 2021-10-12
+      :medium: 水彩 铅笔
+      :album: album-32k-1
+      :image: /_images/artwork-xfczk2/IMG_20211023_155357.jpg
+
+      .. seealso:: :artwork:`一种玫瑰标本及其制备工艺`
+
+   ---
+
+   .. artwork:: 飞走的面孔，逃跑的月亮，抓逃兵的网子，仆了街也要翘二郎腿的靓仔，杭州人，假装在转球的中指，烟雾里面容不清的人
+      :id: xfczk2-040
+      :size: 16k
+      :date: 2021-10-12
+      :medium: 水彩 铅笔
+      :image: /_images/artwork-xfczk2/IMG_20211114_005453.jpg
+
+      听 Faye 君推荐的 Lush 的歌，产生了一些支离破碎的东西，都写在标题里了。
+
+   ----------
+
+   .. artwork:: 强盗的造访
+      :id: xfczk2-042
+      :size: 16k
+      :date: 2021-10-22
+      :medium: 水彩
+
+      这个房间本来就不会有人来，强盗的到来只是一个意外。
+
+      不用再害怕了，没有别的可以接着失去。
+
+   ------------------
+
+   .. artwork:: 有星星和微风的夜晚
+      :id: xfczk2-041
+      :size: 32k
+      :date: 2021-12-19
+      :medium: 钢笔
+      :image: /_images/artwork-xfczk2/fa18a106008a4a6.jpg
+
+      是我每天睡前都会做的，一个含糊又浪漫的梦。
 
 点评
 ====
@@ -1106,3 +1069,7 @@ Anti-Recommendation
 绘画是思维的痕迹。
 
 主题催生风格，而非风格催生风格，画画是求仁得仁的，但艺术可不是。
+
+--------------------------------------------------------------------------------
+
+.. isso::
