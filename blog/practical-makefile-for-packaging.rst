@@ -303,7 +303,3 @@ Makefile 最前面加上一句 `PREFIX = /usr`\ （实际操作顺序是反过�
 .. [#fn-prefix] `GNU Coding Standards#Variables for Installation Directories <https://www.gnu.org/prep/standards/html_node/Directory-Variables.html>`_\
 .. [#fn-destdir] `GNU Coding Standards#DESTDIR: Support for Staged Installs <https://www.gnu.org/prep/standards/standards.html#DESTDIR>`_\
 .. [#fn-practical-makefiles] `Practical Makefiles, by example <http://nuclear.mutantstargoat.com/articles/make>`_\
-
---------------------------------------------------------------------------------
-
-.. isso::

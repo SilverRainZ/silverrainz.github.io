@@ -151,7 +151,3 @@ reStructuredText + Sphinx
 .. [#] https://www.quora.com/What-is-meant-by-btw-I-use-arch
 .. [#] https://docutils.sourceforge.io/rst.html
 .. [#] https://www.sphinx-doc.org
-
---------------------------------------------------------------------------------
-
-.. isso::

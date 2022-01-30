@@ -42,7 +42,3 @@ Timeline
 Events worth recording:
 
 .. include:: ./events.txt
-
---------------------------------------------------------------------------------
-
-.. isso::

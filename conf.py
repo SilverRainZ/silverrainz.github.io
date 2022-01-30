@@ -12,6 +12,8 @@
 #
 import os
 import sys
+from textwrap import dedent
+
 sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
@@ -31,7 +33,7 @@ datefmt = '%Y-%m-%d'
 
 # -- Enviroment information -----------------------------------------------------
 
-CI = os.environ.get('CI') is not None
+PROD = os.environ.get('CI') is not None
 
 # -- General configuration ---------------------------------------------------
 
@@ -77,7 +79,7 @@ default_role = 'code'
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
-if not CI:
+if not PROD:
     keep_warnings = True
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
@@ -294,11 +296,11 @@ blog_feed_subtitle = description
 fontawesome_included = True
 html_css_files.append('ablog.css')
 
-if CI:
+if PROD:
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if not CI:
+if not PROD:
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -308,19 +310,29 @@ if not CI:
     }
 
 extensions.append('sphinx_panels')
-if CI:
+if PROD:
     # For ``fa`` role
     html_css_files.append('https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css')
 
-extensions.append('sphinxnotes.isso')
-isso_url = 'https://comments.silverrainz.me:30500'
+if PROD:
+    extensions.append('sphinxnotes.isso')
+    isso_url = 'https://comments.silverrainz.me:30500'
 
-if CI:
+    rst_epilog += dedent("""
+    .. topic:: 评论
+
+        如果你有任何意见，请在此评论。
+        如果你留下了电子邮箱，我可能会通过 :email:`comments@silverrainz.me` 回复你。
+
+        .. isso::
+    """)
+
+if PROD:
     extensions.append('sphinx_sitemap')
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
-if CI:
+if PROD:
     extensions.append('sphinx.ext.intersphinx')
     intersphinx_mapping = {
         'python': ('https://docs.python.org/3', None),
