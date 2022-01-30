@@ -20,7 +20,7 @@ project = '银色子弹'
 author = 'Shengyu Zhang'
 author_id = 'SilverRainZ'
 author_nick = 'LA'
-copyright = '2020-2021, ' + author
+copyright = '2020-2022, ' + author
 
 # -- Non-standard project information ----------------------------------------
 
@@ -167,7 +167,7 @@ extlinks = {
     'zhihua': ('https://www.zhihu.com/answer/%s', '❓'),
     'zhihup': ('https://www.zhihu.com/people/%s', '👤'),
     'pypi': ('https://pypi.org/project/%s', '📦'),
-    'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', 'https://lilypond.org/doc/v2.20/Documentation/'),
+    'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', None),
 }
 
 extensions.append('sphinxnotes.any')
