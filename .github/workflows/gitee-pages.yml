@@ -36,7 +36,7 @@ jobs:
         GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_TOKEN }}
         GIT_SSH_NO_VERIFY_HOST: "true"
         PUSH_ALL_REFS: "false"
-        GIT_PUSH_ARGS: "--force --prune" # Don't push tags
+        GIT_PUSH_ARGS: "--prune" # Don't push tags, Dont' force push
         GIT_REF: gh-pages
     - name: Trigger Gitee Pages Rebuild
       uses: yanglbme/gitee-pages-action@main
