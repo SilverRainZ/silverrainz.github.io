@@ -166,7 +166,3 @@ konsole 的界面却依然很丑...
 上面有提到的全部配置文件参见:
 
 `SilverRainZ/dotfiles - Github <https://github.com/SilverRainZ/dotfiles>`_
-
---------------------------------------------------------------------------------
-
-.. isso::

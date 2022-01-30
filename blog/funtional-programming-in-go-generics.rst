@@ -546,7 +546,3 @@ __ https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-pa
 __ https://hedzr.com/golang/fp/golang-functional-programming-in-brief/
 __ https://www.youtube.com/watch?v=wqs8n5Uk5OM
 __ https://www.uncarved.com/articles/not-currying/
-
---------------------------------------------------------------------------------
-
-.. isso::

@@ -265,7 +265,3 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 * `我的项目链接 <https://summerofcode.withgoogle.com/archive/2016/projects/5786848613892096>`_
 * `Patch 和脚本 <https://github.com/SilverRainZ/gsoc-2016>`_
 * `我的 Hurd fork <https://github.com/SilverRainZ/hurd>`_
-
---------------------------------------------------------------------------------
-
-.. isso::

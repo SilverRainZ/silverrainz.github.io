@@ -6,7 +6,3 @@ Add Isso Comments to Your Sphinx Documentation
    :tags: Draft
    :author: LA
    :language: en
-
---------------------------------------------------------------------------------
-
-.. isso::

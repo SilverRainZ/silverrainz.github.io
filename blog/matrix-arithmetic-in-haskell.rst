@@ -96,7 +96,3 @@
    instance Show Matrix where
        show (Matrix []) = ""
        show (Matrix (x:xs)) = show x ++ "\n" ++ show (Matrix xs)
-
---------------------------------------------------------------------------------
-
-.. isso::

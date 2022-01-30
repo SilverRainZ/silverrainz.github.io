@@ -480,7 +480,3 @@ OutputDebugStringA
 * 修改对应的值
 * HideOD 插件的 HideNtDebugBit选项, 以及 OutDebugStringA 选项或
   Hide Debugger插件的OutputDebugString exploit选项
-
---------------------------------------------------------------------------------
-
-.. isso::

@@ -298,8 +298,3 @@ Syncthing
 
    # systemctl daemon-reload
    # systemctl restart syncthing@la.service
-
---------------------------------------------------------------------------------
-
-.. isso::
-   :id: /notes/pi
