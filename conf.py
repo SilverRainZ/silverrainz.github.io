@@ -35,6 +35,9 @@ datefmt = '%Y-%m-%d'
 
 PROD = os.environ.get('CI') is not None
 
+if PROD:
+    tags.add('prod')
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
