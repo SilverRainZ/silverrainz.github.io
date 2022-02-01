@@ -64,400 +64,402 @@
 
 画室的墙上贴着以前同学的优秀习作（据说都是 :friend:`梁兰` 画的）：
 
-.. image:: /_images/artwork-lns/IMG_20200805_181148.jpg
-   :width: 30%
-.. image:: /_images/artwork-lns/IMG_20200805_181202.jpg
-   :width: 60%
+.. grid:: 1 2 2 2
+   :gutter: 1
+
+   .. grid-item-card::
+
+      .. image:: /_images/artwork-lns/IMG_20200805_181148.jpg
+
+   .. grid-item-card::
+
+      .. image:: /_images/artwork-lns/IMG_20200805_181202.jpg
 
 阶段一 - 熟悉材料
 -----------------
 
-.. panels::
-   :container: container-fluid
-   :column: col-lg-4 col-md-6 col-sm-12 col-xs-12 p-2
+.. grid:: 1 2 2 2
+   :gutter: 1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-000
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-15
-      :image: /_images/artwork-lns/IMG_20200716_172754.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-000
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-15
+         :image: /_images/artwork-lns/IMG_20200716_172754.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-001
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-16
-      :image: /_images/artwork-lns/IMG_20200716_211933.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-001
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-16
+         :image: /_images/artwork-lns/IMG_20200716_211933.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-002
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-19
-      :image: /_images/artwork-lns/IMG_20200719_171454.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-002
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-19
+         :image: /_images/artwork-lns/IMG_20200719_171454.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-003
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-20
-      :image: /_images/artwork-lns/IMG_20200720_212411.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-003
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-20
+         :image: /_images/artwork-lns/IMG_20200720_212411.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-004
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-22
-      :image: /_images/artwork-lns/IMG_20200722_210747.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-004
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-22
+         :image: /_images/artwork-lns/IMG_20200722_210747.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-005
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-23
-      :image: /_images/artwork-lns/IMG_20200723_213018.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-005
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-23
+         :image: /_images/artwork-lns/IMG_20200723_213018.jpg
+         :album: sketch-book-16k-3
 
-      开始对材料熟悉起来，知道了如何画出极致的黑，如何攃出会发光的白。
+         开始对材料熟悉起来，知道了如何画出极致的黑，如何攃出会发光的白。
 
 阶段二 - 理清秩序
 -----------------
 
-.. panels::
-   :container: container-fluid
-   :column: col-lg-4 col-md-6 col-sm-12 col-xs-12 p-2
+.. grid:: 1 2 2 2
+   :gutter: 1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-006
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-24
-      :image: /_images/artwork-lns/IMG_20200724_171940.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-006
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-24
+         :image: /_images/artwork-lns/IMG_20200724_171940.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-007
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-27
-      :image: /_images/artwork-lns/IMG_20200727_205025.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-007
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-27
+         :image: /_images/artwork-lns/IMG_20200727_205025.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-008
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-07-28
-      :image: /_images/artwork-lns/IMG_20200728_210141.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-008
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-07-28
+         :image: /_images/artwork-lns/IMG_20200728_210141.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-009
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-03
-      :image: /_images/artwork-lns/IMG_20200803_084242.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-009
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-03
+         :image: /_images/artwork-lns/IMG_20200803_084242.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-010
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-03
-      :image: /_images/artwork-lns/IMG_20200803_084254.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-010
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-03
+         :image: /_images/artwork-lns/IMG_20200803_084254.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-011
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-04
-      :image: /_images/artwork-lns/IMG_20200804_085154.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-011
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-04
+         :image: /_images/artwork-lns/IMG_20200804_085154.jpg
+         :album: sketch-book-16k-3
 
-      :artwork:`lns-009` 被 :friend:`王磊` 改后的样子，但我其实不太喜欢他对光的理论。但不得不说刻意造光确实是一种本领，我做得不好。
+         :artwork:`lns-009` 被 :friend:`王磊` 改后的样子，但我其实不太喜欢他对光的理论。但不得不说刻意造光确实是一种本领，我做得不好。
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-012
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-10
-      :image: /_images/artwork-lns/IMG_20200810_195532.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-012
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-10
+         :image: /_images/artwork-lns/IMG_20200810_195532.jpg
+         :album: sketch-book-16k-3
 
-      这个石膏比较脏，因此总把脏的地方同暗部混淆不清，改了多次亦没有改好，现在看来也非常难受。
+         这个石膏比较脏，因此总把脏的地方同暗部混淆不清，改了多次亦没有改好，现在看来也非常难受。
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-013
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-12
-      :image: /_images/artwork-lns/IMG_20200812_194028.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-013
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-12
+         :image: /_images/artwork-lns/IMG_20200812_194028.jpg
+         :album: sketch-book-16k-3
 
-      光感开始出现。
-   ---
+         光感开始出现。
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-014
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-18
-      :image: /_images/artwork-lns/IMG_20200818_202457.jpg
-      :album: sketch-book-16k-3
+      .. artwork::
+         :id: lns-014
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-18
+         :image: /_images/artwork-lns/IMG_20200818_202457.jpg
+         :album: sketch-book-16k-3
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-015
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2020-08-20
-      :image: /_images/artwork-lns/IMG_20210822_160424__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-015
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2020-08-20
+         :image: /_images/artwork-lns/IMG_20210822_160424__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-016
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-22
-      :image: /_images/artwork-lns/IMG_20210822_160452__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-016
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-22
+         :image: /_images/artwork-lns/IMG_20210822_160452__01__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-017
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-25
-      :image: /_images/artwork-lns/IMG_20210822_160452__01__02.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-017
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-25
+         :image: /_images/artwork-lns/IMG_20210822_160452__01__02.jpg
+         :album: album-a3-1
 
-      这一张的秩序已经没有很大的问题，并且开始将多余的精力放在了亮暗面上。
+         这一张的秩序已经没有很大的问题，并且开始将多余的精力放在了亮暗面上。
 
 阶段三 - 理清亮暗面
 -------------------
 
-.. panels::
-   :container: container-fluid
-   :column: col-lg-4 col-md-6 col-sm-12 col-xs-12 p-2
+.. grid:: 1 2 2 2
+   :gutter: 1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-018
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-08-27
-      :image: /_images/artwork-lns/IMG_20210822_160554__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-018
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-08-27
+         :image: /_images/artwork-lns/IMG_20210822_160554__01__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-019
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-09-09
-      :image: /_images/artwork-lns/IMG_20210822_160554__01__02__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-019
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-09-09
+         :image: /_images/artwork-lns/IMG_20210822_160554__01__02__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-020
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-09-14
-      :image: /_images/artwork-lns/IMG_20210822_160739__01__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-020
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-09-14
+         :image: /_images/artwork-lns/IMG_20210822_160739__01__01__01.jpg
+         :album: album-a3-1
 
-      :friend:`顺宝` 帮我改过头发和墙上的阴影，从这一张明显感受到「明确的暗部形状」带来的光感的体积感。
+         :friend:`顺宝` 帮我改过头发和墙上的阴影，从这一张明显感受到「明确的暗部形状」带来的光感的体积感。
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-021
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2020-09-15
-      :image: /_images/artwork-lns/IMG_20210822_160536__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-021
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2020-09-15
+         :image: /_images/artwork-lns/IMG_20210822_160536__01__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-022
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-09-15
-      :image: /_images/artwork-lns/IMG_20210822_160536__01__02.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-022
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-09-15
+         :image: /_images/artwork-lns/IMG_20210822_160536__01__02.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-023
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2020-09-27
-      :image: /_images/artwork-lns/IMG_20200927_161941.jpg
+      .. artwork::
+         :id: lns-023
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2020-09-27
+         :image: /_images/artwork-lns/IMG_20200927_161941.jpg
 
-      在 :friend:`蔓纯` 老师画室演示给她看的小场景，很认真，一边讲一边画是有用的，虽然现在回头看问题很多。
+         在 :friend:`蔓纯` 老师画室演示给她看的小场景，很认真，一边讲一边画是有用的，虽然现在回头看问题很多。
 
-      很想留一张画在画室，所以没有带走，可惜今年（2021）去的时候好像已经不见了——说明画得还是太差。
+         很想留一张画在画室，所以没有带走，可惜今年（2021）去的时候好像已经不见了——说明画得还是太差。
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-024
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-10-06
-      :image: /_images/artwork-lns/IMG_20201006_161510.jpg
-      :album: album-16k-1
+      .. artwork::
+         :id: lns-024
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-10-06
+         :image: /_images/artwork-lns/IMG_20201006_161510.jpg
+         :album: album-16k-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-025
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-10-08
-      :image: /_images/artwork-lns/IMG_20201008_150452.jpg
-      :album: album-16k-1
+      .. artwork::
+         :id: lns-025
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-10-08
+         :image: /_images/artwork-lns/IMG_20201008_150452.jpg
+         :album: album-16k-1
 
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-026
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020
-      :image: /_images/artwork-lns/IMG_20201006_161523.jpg
-      :album: album-16k-1
+      .. artwork::
+         :id: lns-026
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020
+         :image: /_images/artwork-lns/IMG_20201006_161523.jpg
+         :album: album-16k-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-027
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020
-      :image: /_images/artwork-lns/IMG_20201012_104131.jpg
-      :album: album-16k-1
+      .. artwork::
+         :id: lns-027
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020
+         :image: /_images/artwork-lns/IMG_20201012_104131.jpg
+         :album: album-16k-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-028
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2020-10-14
-      :image: /_images/artwork-lns/IMG_20210822_160831__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-028
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2020-10-14
+         :image: /_images/artwork-lns/IMG_20210822_160831__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-029
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2020-10
-      :image: /_images/artwork-lns/IMG_20210822_161051__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-029
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2020-10
+         :image: /_images/artwork-lns/IMG_20210822_161051__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-030
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020-10-27
-      :image: /_images/artwork-lns/IMG_20210822_160900__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-030
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020-10-27
+         :image: /_images/artwork-lns/IMG_20210822_160900__01__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-031
-      :size: 16k
-      :medium: 炭精粉
-      :date: 2020
-      :image: /_images/artwork-lns/IMG_20210822_160900__01__02__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-031
+         :size: 16k
+         :medium: 炭精粉
+         :date: 2020
+         :image: /_images/artwork-lns/IMG_20210822_160900__01__02__01.jpg
+         :album: album-a3-1
 
 阶段四 - 调整色序
 -----------------
 
-.. panels::
-   :container: container-fluid
-   :column: col-lg-4 col-md-6 col-sm-12 col-xs-12 p-2
+.. grid:: 1 2 2 2
+   :gutter: 1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-032
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2021-02-07
-      :image: /_images/artwork-lns/IMG_20210822_160356__01__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-032
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2021-02-07
+         :image: /_images/artwork-lns/IMG_20210822_160356__01__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-033
-      :size: 8k
-      :medium: 炭精粉 橄榄绿
-      :date: 2021-05-06
-      :image: /_images/artwork-lns/IMG_20210822_161142__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-033
+         :size: 8k
+         :medium: 炭精粉 橄榄绿
+         :date: 2021-05-06
+         :image: /_images/artwork-lns/IMG_20210822_161142__01.jpg
+         :album: album-a3-1
 
-   ---
+   .. grid-item-card::
 
-   .. artwork::
-      :id: lns-034
-      :size: 8k
-      :medium: 炭精粉
-      :date: 2021-5-21
-      :image: /_images/artwork-lns/IMG_20210822_161529__01.jpg
-      :album: album-a3-1
+      .. artwork::
+         :id: lns-034
+         :size: 8k
+         :medium: 炭精粉
+         :date: 2021-5-21
+         :image: /_images/artwork-lns/IMG_20210822_161529__01.jpg
+         :album: album-a3-1

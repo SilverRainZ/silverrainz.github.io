@@ -36,72 +36,75 @@
 
 --------------------------------------------------------------------------------
 
-.. panels::
+.. grid:: 1 2 2 2
+   :gutter: 2
 
-   .. toctree::
-      :caption: 笔记
-      :maxdepth: 1
-      :glob:
+   .. grid-item-card::
 
-      notes/zxsys/index
-      notes/artstory/index
-      notes/books/index
-      notes/music-theory/index
-      notes/6-lectures-on-sketch
+      .. toctree::
+         :caption: 笔记
+         :maxdepth: 1
+         :glob:
 
-      notes/*/index
+         notes/zxsys/index
+         notes/artstory/index
+         notes/books/index
+         notes/music-theory/index
+         notes/6-lectures-on-sketch
+         notes/*/index
 
-   -----------------------------------------------------------------------------
+   .. grid-item-card::
 
-   .. toctree::
-      :caption: 博客
-      :maxdepth: 1
+      .. toctree::
+         :caption: 博客
+         :maxdepth: 1
 
-      博客首页 <blog/index>
+         博客首页 <blog/index>
 
-   .. postlist:: 10
-      :format: {title}
-      :list-style: disc
+      .. postlist:: 10
+         :format: {title}
+         :list-style: disc
 
-   :ref:`所有日志…  <blog-posts>`
+      :ref:`所有日志…  <blog-posts>`
 
-   -----------------------------------------------------------------------------
+   .. grid-item-card::
 
-   .. toctree::
-      :caption: 手册
-      :maxdepth: 1
-      :glob:
+      .. toctree::
+         :caption: 手册
+         :maxdepth: 1
+         :glob:
 
-      man/*/index
-      man/*
+         man/*/index
+         man/*
 
-   -----------------------------------------------------------------------------
+   .. grid-item-card::
 
-   .. toctree::
-      :caption: 随记
-      :reversed:
-      :maxdepth: 2
-      :glob:
+      .. toctree::
+         :caption: 随记
+         :reversed:
+         :maxdepth: 2
+         :glob:
 
-      misc/*/index
+         misc/*/index
 
-   -----------------------------------------------------------------------------
 
-   .. toctree::
-      :caption: 收集室
-      :maxdepth: 1
-      :glob:
+   .. grid-item-card::
 
-      collections/*
-      collections/*/index
+      .. toctree::
+         :caption: 收集室
+         :maxdepth: 1
+         :glob:
 
-   -----------------------------------------------------------------------------
+         collections/*
+         collections/*/index
 
-   .. toctree::
-      :caption: 关于
-      :maxdepth: 1
+   .. grid-item-card::
 
-      我 <about/me>
-      about/site
-      about/friends
-      简历 <about/resume>
+      .. toctree::
+         :caption: 关于
+         :maxdepth: 1
+
+         我 <about/me>
+         about/site
+         about/friends
+         简历 <about/resume>

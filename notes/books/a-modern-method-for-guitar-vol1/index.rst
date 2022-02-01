@@ -21,41 +21,43 @@ Sea to Sea
 
 吉他二：
 
-.. tabbed:: 全曲
+.. tab-set::
 
-   .. lilyinclude:: ./sea-to-sea-2.ly
-      :nofooter:
-      :noedge:
-      :loop:
+   .. tab-item:: 全曲
 
-.. tabbed:: 1-8 小节
+      .. lilyinclude:: ./sea-to-sea-2.ly
+         :nofooter:
+         :noedge:
+         :loop:
 
-   .. lilyinclude:: ./sea-to-sea-2-b1b8.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
+   .. tab-item:: 1-8 小节
 
-.. tabbed:: 9-16 小节
+      .. lilyinclude:: ./sea-to-sea-2-b1b8.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :loop:
 
-   .. lilyinclude:: ./sea-to-sea-2-b9b16.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
+   .. tab-item:: 9-16 小节
 
-.. tabbed:: 17-24 小节
+      .. lilyinclude:: ./sea-to-sea-2-b9b16.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :loop:
 
-   .. lilyinclude:: ./sea-to-sea-2-b17b24.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
+   .. tab-item:: 17-24 小节
 
-.. tabbed:: 25-32 小节
+      .. lilyinclude:: ./sea-to-sea-2-b17b24.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :loop:
 
-   .. lilyinclude:: ./sea-to-sea-2-b25b32.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :loop:
+   .. tab-item:: 25-32 小节
+
+      .. lilyinclude:: ./sea-to-sea-2-b25b32.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :loop:

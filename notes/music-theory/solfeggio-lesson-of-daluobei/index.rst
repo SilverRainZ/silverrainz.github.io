@@ -19,69 +19,73 @@
 
 找出几个适合自己音域（唱得舒服）的调。自我感觉是在 A2 :lily:`{a}` 到 D4 :lily:`{d''}` 这样子。
 
-.. tabbed:: A 调
+..tab-set::
 
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
-      :transpose: c a,
+   .. tab-item:: A 调
 
-.. tabbed:: B 调
+      .. lilyinclude:: ./scale.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
+         :transpose: c a,
 
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
-      :transpose: c b,
+   .. tab-item:: B 调
 
-.. tabbed:: C 调
+      .. lilyinclude:: ./scale.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
+         :transpose: c b,
 
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
+   .. tab-item:: C 调
 
-.. tabbed:: D 调
+      .. lilyinclude:: ./scale.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
 
-   .. lilyinclude:: ./scale.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
-      :transpose: c d
+   .. tab-item:: D 调
+
+      .. lilyinclude:: ./scale.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
+         :transpose: c d
 
 小红帽
 ------
 
-.. tabbed:: C 调
+..tab-set::
 
-   .. lilyinclude:: ./little-red-riding-hood.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
+   .. tab-item:: C 调
 
-.. tabbed:: D 调
+      .. lilyinclude:: ./little-red-riding-hood.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
 
-   .. lilyinclude:: ./little-red-riding-hood.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
-      :transpose: c d
+   .. tab-item:: D 调
 
-.. tabbed:: A 调
+      .. lilyinclude:: ./little-red-riding-hood.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
+         :transpose: c d
 
-   .. lilyinclude:: ./little-red-riding-hood.ly
-      :noheader:
-      :nofooter:
-      :noedge:
-      :audio:
-      :transpose: c a
+   .. tab-item:: A 调
+
+      .. lilyinclude:: ./little-red-riding-hood.ly
+         :noheader:
+         :nofooter:
+         :noedge:
+         :audio:
+         :transpose: c a
 
 大小三和弦
 ----------
