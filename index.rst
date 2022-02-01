@@ -7,25 +7,23 @@
 银色子弹
 ========
 
-.. only:: prod
+.. recentupdate:: 5
 
-   .. recentupdate:: 5
+   .. dropdown:: 最近更新
+      :open:
 
-      .. dropdown:: 最近更新
-         :open:
-
-         {% for r in revisions %}
-         :{{ r.date | strftime }}:
-            {% if r.modification %}
-            - 修改了 {{ r.modification | roles("doc") | join("、") }}
-            {% endif %}
-            {% if r.addition %}
-            - 新增了 {{ r.addition | roles("doc") | join("、") }}
-            {% endif %}
-            {% if r.deletion %}
-            - 删除了 {{ r.deletion | join("、") }}
-            {% endif %}
-         {% endfor %}
+      {% for r in revisions %}
+      :{{ r.date | strftime }}:
+         {% if r.modification %}
+         - 修改了 {{ r.modification | roles("doc") | join("、") }}
+         {% endif %}
+         {% if r.addition %}
+         - 新增了 {{ r.addition | roles("doc") | join("、") }}
+         {% endif %}
+         {% if r.deletion %}
+         - 删除了 {{ r.deletion | join("、") }}
+         {% endif %}
+      {% endfor %}
 
 .. centered:: *Yes silver bullet here.*
 

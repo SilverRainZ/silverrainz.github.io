@@ -152,6 +152,10 @@ html_extra_path = ['robots.txt', 'LICENSE']
 
 # -- Pre extension configuration ---------------------------------------------------
 
+extensions.append('sphinxnotes.mock')
+mock_directives = []
+mock_directives.append('contents') # Theme has built-in local-toc, see html_theme
+
 extensions.append('sphinx.ext.todo')
 todo_include_todos = True
 
@@ -345,5 +349,8 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-extensions.append('sphinxnotes.recentupdate')
-recentupdate_date_format = datefmt
+if PROD:
+    extensions.append('sphinxnotes.recentupdate')
+    recentupdate_date_format = datefmt
+else:
+    mock_directives.append('recentupdate')

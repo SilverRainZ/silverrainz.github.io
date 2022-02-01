@@ -15,3 +15,4 @@ sphinxcontrib.asciinema
 sphinx-reredirects
 sphinxnotes-recentupdate
 sphinx-book-theme
+sphinxnotes-mock
