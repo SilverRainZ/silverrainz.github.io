@@ -238,53 +238,46 @@ ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 `Isso <https://posa
    ``:ghuser:`SilverRainZ``` :ghuser:`SilverRainZ`
    ========================= =====================
 
-:ghrepo:`executablebooks/sphinx-panels`
+:ghrepo:`executablebooks/sphinx-design`
    提供了 reST 不支持的分栏功能（见下），顺便还享用了它内置的 :fa:`font` Font Awesome 支持
 
 内置扩展 `sphinx.ext.graphviz`
    用 Dot Language 绘制简单的流程图：
 
-   .. panels::
+   .. grid::
 
-      reST
-      ^^^^
+      .. grid-item-card:: reST
 
-      .. code:: rst
+         .. code:: rst
 
-         .. digraph::: dot
+            .. digraph::: dot
+
+               Alice -> Bob
+
+      .. grid-item-card:: 效果
+
+         .. digraph:: dot
 
             Alice -> Bob
-
-      --------------------------------------------------------------------------
-      效果
-      ^^^^
-
-      .. digraph:: dot
-
-         Alice -> Bob
 
 :pypi:`sphinxcontrib-plantuml`
    用 Plant UML 绘制各种图表：
 
-   .. panels::
+   .. grid::
 
-      reST
-      ^^^^
+      .. grid-item-card:: reST
 
-      .. code:: rst
+         .. code:: rst
+
+            .. uml::
+
+               [Alice] -> [Bob]
+
+      .. grid-item-card:: 效果
 
          .. uml::
 
             [Alice] -> [Bob]
-
-      --------------------------------------------------------------------------
-      效果
-      ^^^^
-
-      .. uml::
-
-         [Alice] -> [Bob]
-
 
 :pypi:`sphinxcontrib.email`
    生成难以被爬虫抓取的邮件地址，防止 SPAM

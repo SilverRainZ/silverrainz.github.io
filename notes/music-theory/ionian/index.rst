@@ -48,143 +48,145 @@
 :选段: 全曲
 :原因: 旋律好听，进行简单，之前没练过，对我也有一点特别的意义
 
-.. tabbed:: C 调
+.. tab-set::
 
-    旋律：
+   .. tab-item:: C 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a c
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a c
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a c
+       伴奏：
 
-.. tabbed:: G 调
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a c
 
-    旋律：
+   .. tab-item:: G 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a g
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a g
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a g
+       伴奏：
 
-.. tabbed:: D 调
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a g
 
-    旋律：
+   .. tab-item:: D 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a d
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a d
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a d
+       伴奏：
 
-.. tabbed:: A 调（原调）
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a d
 
-    旋律：
+   .. tab-item:: A 调（原调）
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
+       伴奏：
 
-.. tabbed:: bE 调
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
 
-    旋律：
+   .. tab-item:: bE 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a ees
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a ees
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a ees
+       伴奏：
 
-.. tabbed:: bB 调
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a ees
 
-    旋律：
+   .. tab-item:: bB 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a bes
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a bes
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a bes
+       伴奏：
 
-.. tabbed:: F 调
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a bes
 
-    旋律：
+   .. tab-item:: F 调
 
-    .. lilyinclude:: ./songbie.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a f
+       旋律：
 
-    伴奏：
+       .. lilyinclude:: ./songbie.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a f
 
-    .. lilyinclude:: ./songbie-chord.ly
-       :noheader:
-       :nofooter:
-       :noedge:
-       :audio:
-       :transpose: a f
+       伴奏：
+
+       .. lilyinclude:: ./songbie-chord.ly
+          :noheader:
+          :nofooter:
+          :noedge:
+          :audio:
+          :transpose: a f
 
 Johann Pachelbel《Canon in D Major》
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
