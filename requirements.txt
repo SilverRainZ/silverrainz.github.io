@@ -2,7 +2,7 @@ sphinxcontrib-email
 sphinxcontrib-images>=0.9.3
 sphinxnotes-lilypond>=1.1
 sphinxnotes-any>=3.0a0
-sphinx-panels
+sphinx-design
 ablog
 sphinx-autobuild
 sphinxcontrib.gtagjs
