@@ -9,6 +9,7 @@ jobs:
   gitee-pages:
     name: Publish Gitee Pages
     runs-on: ubuntu-20.04
+    timeout-minutes: 15
     steps:
     - name: Setup locale
       run: |
