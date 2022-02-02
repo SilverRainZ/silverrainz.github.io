@@ -1,10 +1,15 @@
-{% if avatar %}
-.. image:: {{ avatar }}
-   :width: 120px
-   :alt: {{ name[0] }}
-   :align: right
-{% endif %}
+.. grid:: 2
+   :gutter: 1
 
-{{ blog }}
+   .. grid-item-card::
+      :columns: 6 6 4 3
+      :img-background: {{ avatar }}
+      :link: {{ blog }}
 
-{% if content %}{{ content }}{% endif %}
+   .. grid-item-card::
+      :columns: 6 6 8 9
+
+
+      {% for line in content %}
+      {{ line }}
+      {% endfor %}

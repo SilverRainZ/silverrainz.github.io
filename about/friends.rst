@@ -11,7 +11,7 @@
    对 infra 研究颇深，什么都会的 F 叔。
 
    - :book:`Haskell 趣学指南` 的翻译者之一
-   - 毕业设计是一个 `kernel <https://github.com/fleurer/fleurix>`_，
+   - 毕业设计是一个 `kernel <https://github.com/fleurer/fleurix>`_
    - 在写 `OS67 <https://github.com/SilverRainZ/OS67>`_ 的时候给我很大的帮助
 
 .. friend:: lilydjwg
@@ -28,8 +28,7 @@
    :avatar: https://github.com/quininer.png
 
    - 前 `Tox <https://tox.chat/>`_ 支持者
-   - 现 Rust 支持者，在 Rust 上的造诣仅次于
-     `DCjanus <https://github.com/AwesomeDCjanus/AwesomeDCjanus>`_
+   - 现 Rust 支持者，在 Rust 上的造诣仅次于 :ghorg:`AwesomeDCjanus`
 
 .. friend:: Ricter
    :blog: https://ricterz.me/
@@ -109,16 +108,3 @@
    - `破解过贵司的 XRay`__
 
    __ https://github.com/zu1k/xray-crack-rm
-
-已失效
-======
-
-.. friend:: 夏殇
-   :blog: https://xiashang.sinaapp.com/
-
-   大黑客白总
-
-.. friend:: BiTeMe
-   :blog: https://highlight.ink/orca
-
-   SCAUSEC 队友
