@@ -2,6 +2,8 @@ name: Publish Gitee Pages
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - .github/workflows/gh-pages.yml
 
 jobs:
   gitee-pages:
@@ -47,7 +49,7 @@ jobs:
         GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_TOKEN }}
         GIT_SSH_NO_VERIFY_HOST: "true"
         PUSH_ALL_REFS: "false"
-        GIT_PUSH_ARGS: "--prune" # Don't push tags, Dont' force push
+        GIT_PUSH_ARGS: "--force --prune" # Don't push tags, Dont' force push
         GIT_REF: gitee-pages
     - name: Trigger Gitee Pages Rebuild
       uses: yanglbme/gitee-pages-action@main

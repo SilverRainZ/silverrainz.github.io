@@ -2,6 +2,8 @@ name: Publish Github Pages
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - .github/workflows/gitee-pages.yml
 
 jobs:
   gh-pages:
