@@ -185,6 +185,7 @@ any_schemas = [
     Schema('friend',
            name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
            attrs={'avatar': F(), 'blog': F()},
+           content=F(form=F.Form.LINES),
            description_template=open('_templates/friend.rst', 'r').read(),
            reference_template='👤{{ title }}',
            missing_reference_template='👤{{ title }}',
