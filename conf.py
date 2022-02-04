@@ -355,3 +355,9 @@ if PROD:
     recentupdate_date_format = datefmt
 else:
     mock_directives.append('recentupdate')
+
+if PROD:
+    extensions.append('sphinxext.opengraph')
+    ogp_site_url = baseurl
+    ogp_site_name = project
+    ogp_image = baseurl + logo

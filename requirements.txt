@@ -16,3 +16,4 @@ sphinx-reredirects
 sphinxnotes-recentupdate
 sphinx-book-theme
 sphinxnotes-mock
+sphinxext-opengraph
