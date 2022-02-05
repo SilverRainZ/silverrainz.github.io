@@ -17,6 +17,9 @@ math/rand 相关算法
 Oneplus6 刷机 LineageOS 18.01
 =============================
 
+.. event:: _
+   :date: 2021-10-23
+
 给 :doc:`/notes/zxsys/way-to-artist/find-topic` 作业拍照
 ========================================================
 

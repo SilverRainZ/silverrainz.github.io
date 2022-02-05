@@ -1,0 +1,84 @@
+====
+二月
+====
+
+.. contents::
+   :local:
+
+OnePlus 6 从 LineageOS 18.1 刷回氢 OS 10
+========================================
+
+:Date: 2020-02-05
+
+.. highlight:: bash
+
+.. note:: 我对安卓手机刷机并不了解，记录仅为存档备忘。
+
+感谢 :friend:`xiaoqing.wu` 的指点。
+
+上次 :event:`Oneplus6 刷机 LineageOS 18.01` 后觉得 LineageOS 还是太过粗糙，自带应用的体验很差，耗电也飞快。
+所以还是决定换回原生的 {氢,氧} OS。
+
+因为已经刷过一次了，所以 *OEM 解锁* 和 *Bootloader 解锁* 均已完成。
+
+进入 Bootloader
+---------------
+
+开启 USB 调试，执行::
+
+   $ adb reboot bootloader
+
+或者在关机模式长按 :kbd:`power + volume up` 约十秒 [#]_ 。
+
+进入 TWRP
+---------
+
+在 https://twrp.me/oneplus/oneplus6.html 可以下载到适用 OP6 的 TWRP recovery。
+
+LineageOS 18.1 是 Android 11，目前仅最新的 3.6.0 才支持（虽然我不明白为什么一个能用来刷系统的 recovery 还需要适配手机上原有的系统）。低于此版本会出现如下错误：
+
+.. code::
+
+   QUALCOMM CrashDump Mode
+
+   Attempted to kill init! exitcode=0x0000000b complete_and_exit
+
+但实际上最新版（`twrp-3.6.0_11-0-enchilada.img`）在我的机器上启动的时候，卡在 TWRP 的界面上迟迟进不去。我在 XDA 上找到了一个 `非官方版的的 OnePlus6 TWRP`__，实测能用。
+
+__ https://forum.xda-developers.com/t/recovery-11-unofficial-twrp-for-oneplus-6-6t.4382121/
+
+刷入系统
+---------
+
+安装包：
+
+- `氢 OS 安装包`__
+- `氧 OS 安装包`__
+
+国内用 Google 全家桶很累，而且影响续航，所以对比后我还是选择了装回氢 OS。
+
+刷入系统前在TWRP 界面中选择「清除」-> 「清除 data 分区」（大概就是机佬们说的双清），*否则刷入的新系统无法正常初始化*。
+
+.. warning::
+
+   这一步会清除手机内置存储（照片，视频等），请提前备份。
+
+之后将下载的 zip 包 `adb sideload` 即可::
+
+   $ adb sideload OnePlus6Hydrogen_22.K.51_OTA_051_all_2105262251_6fed6a93c6c54103.zip
+
+如果出现 `error: insufficient permissions for device` 的错误，执行::
+
+   $ adb kill-server
+   $ sudo adb start-server
+
+
+重试即可 [#]_
+
+__ https://www.oneplus.com/cn/support/softwareupgrade/details?code=PM1574150497163
+__ https://www.oneplus.in/support/softwareupgrade/details?code=PM1574156173727
+
+.. rubric:: 参考
+
+.. [#] https://www.thecustomdroid.com/boot-oneplus-6-bootloader-recovery-mode/
+.. [#] https://itsfoss.com/fix-error-insufficient-permissions-device/
