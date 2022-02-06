@@ -2,8 +2,10 @@
 室内场景训练
 ============
 
-:date: 2020-07-16
-:status: Finished
+.. event:: _
+   :date: 2020-07-16
+
+   :status: Finished
 
 .. contents:: 目录
    :local:
