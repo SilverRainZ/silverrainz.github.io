@@ -28,11 +28,20 @@ Sphinx + Sphinx Notes
 变更记录
 ========
 
+2022-02
+   换了个新主题 :pypi:`sphinx-book-theme`，侧边栏支持固定，兼容 ABlog，移动端体验好多了。
+   主题自带 local-toc 支持，因此文档里的 `.. contents::` 指令没用了，写了个扩展 :pypi:`sphinxnotes-mock` 来屏蔽它。
+
 2021-03
-  借助 sphinxnotes-isso 扩展重新启用 Isso。
+  - 扩展 :pypi:`sphinxnotes-isso` 投入使用，用了阿哥的腾讯云机器，重新启用 Isso 评论
+  - 扩展 :pypi:`sphinxnotes.snippet` 投入使用
+
+2021-02
+   为方便国内访问，建立 Gitee 镜像，地址为： https://silverrainz.gitee.io
 
 2020-12
-    将博客迁移到 Sphinx + ABlog。
+    - 将博客迁移到 Sphinx + ABlog，详见 :doc:`/blog/migrate-to-sphinx`
+    - 扩展 :pypi:`sphinxnotes.any` 投入使用
 
 2020-04
     评论框维护成本高且各有限制，弃用之，交流请发邮件。
