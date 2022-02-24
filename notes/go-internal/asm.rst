@@ -69,10 +69,9 @@ Function Arguments
 
 Local Symbols
    :x-8(SP): The local variable named "x"
+   :x+8(SP): The function argument named "x"
 
-   .. hint:: 
-
-      Use negative offsets (`-` but not `+`) because `SP` points to the highest address within the local stack frame
+   Positive offsets (`+`) for function argument and negative offsets (`-`) for local variable. `SP` points to the highest address within the local stack frame
 
    .. note:: 
 
