@@ -82,3 +82,18 @@ __ https://www.oneplus.in/support/softwareupgrade/details?code=PM1574156173727
 
 .. [#] https://www.thecustomdroid.com/boot-oneplus-6-bootloader-recovery-mode/
 .. [#] https://itsfoss.com/fix-error-insufficient-permissions-device/
+
+
+Go compiler: SSA optimization rules description language
+========================================================
+
+:Date: 2022-02-24
+:URL: https://quasilyte.dev/blog/post/go_ssa_rules/
+
+Go 编译器定义了一种类似 Lisp S-Expr 的 DSL 用以表达 SSA 的优化规则，但仅适合用于 rewrite SSA 中的 `ssa.Value` 对象，因为 `ssa.BasicBlock` 以及其组成的 Control Flow Graph (CFG) 难以描述为树状结构，自然也无法用 S-Expr 表达。
+
+每条规则的形式为 `S-Expr -> S-Expr`，类似模式匹配，能被左侧 S-Expr 匹配的 `ssa.Value` 会被 transform 为右侧的形式。
+
+规则文件以 `.rules` 结尾，位于 `src/cmd/compile/internal/ssa/gen/`__ 目录下。
+
+__ https://github.com/golang/go/blob/master/src/cmd/compile/internal/ssa/gen/
