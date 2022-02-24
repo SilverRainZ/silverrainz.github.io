@@ -172,11 +172,13 @@ extlinks = {
     'aur': ('https://aur.archlinux.org/packages/%s', '📦'),
     'archpkg': ('https://archlinux.org/packages/%s', '📦'),
     'archwiki': ('https://wiki.archlinux.org/index.php/%s', '📖'),
-    'zhihuq': ('https://www.zhihu.com/question/%s', '❓'),
-    'zhihua': ('https://www.zhihu.com/answer/%s', '❓'),
+    'zhihua': ('https://www.zhihu.com/answer/%s', '🙋'),
+    'zhihuq': ('https://www.zhihu.com/question/%s', '🤔'),
     'zhihup': ('https://www.zhihu.com/people/%s', '👤'),
     'pypi': ('https://pypi.org/project/%s', '📦'),
     'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', None),
+    'so.q': ('https://stackoverflow.com/a/%s', '🤔'),
+    'so.a': ('https://stackoverflow.com/a/%s', '🙋'),
 }
 
 extensions.append('sphinxnotes.any')
