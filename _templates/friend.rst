@@ -1,15 +1,24 @@
-.. grid:: 2
+.. grid:: 1 1 2 2
    :gutter: 1
 
-   .. grid-item-card::
-      :columns: 6 6 4 3
-      :img-background: {{ avatar }}
-      :link: {{ blog }}
+   .. grid-item::
+      :columns: 3
 
-   .. grid-item-card::
-      :columns: 6 6 8 9
+      .. grid:: 1 1 1 1
+         :gutter: 1
 
+         .. grid-item-card::
+            :img-background: {{ avatar }}
+            :link: {{ blog }}
 
-      {% for line in content %}
-      {{ line }}
-      {% endfor %}
+   .. grid-item::
+      :columns: 9
+
+      .. grid:: 1 1 1 1
+         :gutter: 1
+
+         .. grid-item-card::
+
+            {% for line in content %}
+            {{ line }}
+            {% endfor %}
