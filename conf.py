@@ -355,6 +355,7 @@ lilypond_audio_format = 'mp3'
 if PROD:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
+    recentupdate_exclude_path = templates_path
 else:
     mock_directives.append('recentupdate')
 
