@@ -6,10 +6,11 @@ Github 万圣节彩蛋
 
 每年存个档吧，我记得往年也截过，不知道能否找到。
 
-.. figure:: /_images/github-halloween-2021.png
+.. grid:: 1 1 1 1
+   :gutter: 1
 
-   2021
+   .. grid-item-card:: 2021
+      :img-bottom: /_images/github-halloween-2021.png
 
-.. figure:: /_images/github-2016.png
-
-   2016
+   .. grid-item-card:: 2016
+      :img-bottom: /_images/github-2016.png
