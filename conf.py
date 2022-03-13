@@ -326,8 +326,8 @@ if PROD:
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
+extensions.append('sphinx.ext.intersphinx')
 if PROD:
-    extensions.append('sphinx.ext.intersphinx')
     intersphinx_mapping = {
         'python': ('https://docs.python.org/3', None),
         'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
@@ -356,6 +356,7 @@ if PROD:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = templates_path
+    recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 else:
     mock_directives.append('recentupdate')
 
