@@ -28,51 +28,91 @@ Sphinx + Sphinx Notes
 变更记录
 ========
 
-2022-02
-   换了个新主题 :pypi:`sphinx-book-theme`，侧边栏支持固定，兼容 ABlog，移动端体验好多了。
-   主题自带 local-toc 支持，因此文档里的 `.. contents::` 指令没用了，写了个扩展 :pypi:`sphinxnotes-mock` 来屏蔽它。
+.. container:: timeline
 
-2021-03
-  - 扩展 :pypi:`sphinxnotes-isso` 投入使用，用了阿哥的腾讯云机器，重新启用 Isso 评论
-  - 扩展 :pypi:`sphinxnotes.snippet` 投入使用
+   .. card:: 2022-02
+      :width: 50%
+      :margin: 0 2 auto 0 
 
-2021-02
-   为方便国内访问，建立 Gitee 镜像，地址为： https://silverrainz.gitee.io
+      换了个新主题 :pypi:`sphinx-book-theme`，侧边栏支持固定，兼容 ABlog，移动端体验好多了。
+      主题自带 local-toc 支持，因此文档里的 `.. contents::` 指令没用了，写了个扩展 :pypi:`sphinxnotes-mock` 来屏蔽它。
 
-2020-12
-    - 将博客迁移到 Sphinx + ABlog，详见 :doc:`/blog/migrate-to-sphinx`
-    - 扩展 :pypi:`sphinxnotes.any` 投入使用
+   .. card:: 2021-03
+      :width: 50%
+      :margin: 0 2 0 auto 
 
-2020-04
-    评论框维护成本高且各有限制，弃用之，交流请发邮件。
+      - 扩展 :pypi:`sphinxnotes-isso` 投入使用，用了阿哥的腾讯云机器，重新启用 Isso 评论
+      - 扩展 :pypi:`sphinxnotes.snippet` 投入使用
 
-2017-06
-    多说停止服务，评论系统切换到 Isso，之前的评论数据已迁移。参见文章：
-    :doc:`/blog/switch-from-duoshuo-to-isso`
+   .. card:: 2021-02
+      :width: 50%
+      :margin: 0 2 auto 0 
 
-2017-04
-    借助 CloudFlare 缓存了 silverrainz.me 和 tech.silverrainz.me，同时启用了 HTTPS。
+      为方便国内访问，建立 Gitee 镜像，地址为： https://silverrainz.gitee.io
 
-2017-03
-    将个人笔记 notes.silverrainz.me 从 Gitbook 迁移到 Sphinx，
-    托管于 Read The Docs，参见文章： 用 Sphinx + reStructuredText 构建笔记系统。
+   .. card:: 2020-12
+      :width: 50%
+      :margin: 0 2 0 auto 
+      
+      - 将博客迁移到 Sphinx + ABlog，详见 :doc:`/blog/migrate-to-sphinx`
+      - 扩展 :pypi:`sphinxnotes.any` 投入使用
 
-2017-01
-    域名变更为 silverrainz.me，博客地址亦变更为 tech.silverrainz.me，
-    域名 lastavengers.me 将于 2017 年 8 月失效。
+   .. card:: 2020-04
+      :width: 50%
+      :margin: 0 2 auto 0 
 
-2016-08
-    Markdown 引擎从 Rdiscount 切换到 Kramdown，
-    启用了域名 lastavengers.me 作为个人主页，博客地址变更为 tech.lastavengers.me
-    移除了 Project 页
+      评论框维护成本高且各有限制，弃用之，交流请发邮件。
 
-2015-11 ~ 2016-01
-    博客升级，增加了 Project，About 页面，支持点击浏览大图，加入了 font-awesome。
+   .. card:: 2017-06
+      :width: 50%
+      :margin: 0 2 0 auto 
 
-2015-03
-    使用 Jekyll 搭建新博客， 托管在 Github 上。
+      多说停止服务，评论系统切换到 Isso，之前的评论数据已迁移。参见文章：:doc:`/blog/switch-from-duoshuo-to-isso`
 
-2014-01
-    注册 博客园_ 。
+   .. card:: 2017-04
+      :width: 50%
+      :margin: 0 2 auto 0 
 
-.. _博客园: https://www.cnblogs.com/lastavengers/
+      借助 CloudFlare 缓存了 silverrainz.me 和 tech.silverrainz.me，同时启用了 HTTPS。
+
+   .. card:: 2017-03
+      :width: 50%
+      :margin: 0 2 0 auto 
+      
+      将个人笔记 notes.silverrainz.me 从 Gitbook 迁移到 Sphinx，
+      托管于 Read The Docs，参见文章： 用 Sphinx + reStructuredText 构建笔记系统。
+
+   .. card:: 2017-01
+      :width: 50%
+      :margin: 0 2 auto 0 
+
+      域名变更为 silverrainz.me，博客地址亦变更为 tech.silverrainz.me，
+      域名 lastavengers.me 将于 2017 年 8 月失效。
+
+   .. card:: 2016-08
+      :width: 50%
+      :margin: 0 2 0 auto 
+
+      - Markdown 引擎从 Rdiscount 切换到 Kramdown，
+      - 启用了域名 lastavengers.me 作为个人主页，博客地址变更为 tech.lastavengers.me
+      - 移除了 Project 页
+
+   .. card:: 2015-11 ~ 2016-01
+      :width: 50%
+      :margin: 0 2 auto 0 
+
+      博客升级，增加了 Project，About 页面，支持点击浏览大图，加入了 font-awesome。
+
+   .. card:: 2015-03
+      :width: 50%
+      :margin: 0 2 0 auto 
+
+      使用 Jekyll 搭建新博客，托管在 Github 上。
+
+   .. card:: 2014-01
+      :width: 50%
+      :margin: 0 2 auto 0 
+      
+      注册 博客园_ 。
+
+   .. _博客园: https://www.cnblogs.com/lastavengers/

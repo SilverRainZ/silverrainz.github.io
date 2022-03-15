@@ -1,8 +1,8 @@
 .. highlight:: console
 
-=================================
-Golang Compiler and Related Tools
-=================================
+========
+Go Tools
+========
 
 :Date: 2022-02-08
 
