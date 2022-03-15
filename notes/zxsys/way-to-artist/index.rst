@@ -14,8 +14,8 @@
    find-yourself
    find-topic
    find-language
-   exhibition
    stealing
+   exhibition
 
 找自己
 ======
