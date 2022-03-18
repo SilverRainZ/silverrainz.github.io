@@ -504,6 +504,66 @@ __ https://posts.careerengine.us/p/5f9e00add477c721eb24d318
 __ https://zh-cn.mahlerfoundation.org/mahler/contemporaries/edvard-munch/
 __ https://artsandculture.google.com/story/jwVxeKrk7FekXg
 
+王郁洋
+======
+
+.. artist:: _
+   :movement: 当代艺术
+   :gallery: 弈来
+
+https://www.wangyuyang.net/
+
+冷广敏
+======
+
+.. artist:: _
+   :movement: 当代艺术
+   :gallery: 蜂巢
+
+新兴媒介 思考
+
+曾扬
+====
+
+.. artist:: _
+   :movement: 当代艺术
+   :gallery: K空间
+
+- 佛法
+- 理念
+- 修行
+
+虔诚
+
+欧劲
+====
+
+.. artist:: _
+   :movement: 当代艺术
+   :gallery: 马刺
+
+数字艺术，分形？
+
+达米恩·赫斯特
+=============
+
+.. artist:: _
+            达明·赫斯特
+            Damien Hirst
+   :movement: 当代艺术 装置艺术
+   :gallery: Gagosian
+
+- 夺人眼球
+- 生死观
+
+《献给上帝之爱》
+《生者对死者无动于衷》
+《对逃亡的后天无能》
+
+蝴蝶与玻璃花窗
+
+.. seealso:: :artist:`马修巴尼`、:artist:`张洹`、:artist:`艾未未`、:artist:`陈箴`
+
 等待翻牌子
 ==========
 
