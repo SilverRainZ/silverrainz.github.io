@@ -13,23 +13,20 @@
 .. gallery:: _
    :website: http://www.beijingcommune.com
 
-AYE
----
-
-.. gallery:: _
-   :website: http://www.ayegallery.com
-
-蜂巢艺术中心
-------------
+蜂巢当代艺术中心
+----------------
 
 .. gallery:: _
              蜂巢
+             AYE
    :website: http://www.ayegallery.com
 
-偏锋
-----
+偏锋画廊
+--------
 
 .. gallery:: _
+             偏锋
+             PIFO
    :website: https://pifo.cn/zh/
 
 玉兰堂
@@ -38,30 +35,40 @@ AYE
 .. gallery:: _
    :website: https://line-gallery.com
 
-尤伦斯
-------
+尤伦斯当代艺术中心
+------------------
 
 .. gallery:: _
+             尤伦斯
+             UCCA
    :website: https://ucca.org.cn
+
+马刺画廊
+--------
+
+.. gallery:: _
+             马刺
+             博而励
+             SPURS
+   :website: http://www.spursgallery.com
 
 国外
 ====
 
-
-Gagosian
---------
+Gagosian Gallery
+----------------
 
 .. gallery:: _
+             Gagosian
              高古轩
              高古轩画廊
    :website: https://gagosian.com/
 
-PACE
-----
+PACE Gallery
+------------
 
 .. gallery:: _
+             Pace
              佩斯
              佩斯画廊
-             Pace
-             Pace Gallery
    :website: https://www.pacegallery.com/
