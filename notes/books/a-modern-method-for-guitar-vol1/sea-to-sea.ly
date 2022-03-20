@@ -1,8 +1,8 @@
 \version "2.20.0"
 \header {
-  title = "Sea to Sea, Guitar 2"
+  title = "Sea to Sea"
+  subtitle = "(二重奏)"
   composer = "A Mordern Method for Guitar"
-
 }
 
 symbolsGuitarA =  {
