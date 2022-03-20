@@ -21,3 +21,13 @@ Sea to Sea
    :noedge:
    :nofooter:
    :loop:
+
+One, Two, Tree, Four
+====================
+
+.. lilyinclude:: ./one-two-tree-four.ly
+   :noedge:
+   :nofooter:
+   :loop:
+
+.. todo:: Guitar2
