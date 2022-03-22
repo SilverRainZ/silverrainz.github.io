@@ -225,6 +225,7 @@ any_schemas = [
                'gallery': F(referenceable=True, form=F.Form.WORDS),
                'enwiki': F(),
                'zhwiki': F(),
+               'artwork': F(form=F.Form.WORDS),
            },
            description_template=open('_templates/artist.rst', 'r').read(),
            reference_template='🧑‍🎨{{ title }}',
