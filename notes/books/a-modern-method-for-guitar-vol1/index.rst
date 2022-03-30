@@ -29,5 +29,3 @@ One, Two, Tree, Four
    :noedge:
    :nofooter:
    :loop:
-
-.. todo:: Guitar2

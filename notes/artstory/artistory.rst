@@ -625,6 +625,16 @@ https://www.wangyuyang.net/
 
 热爱浮世絵的 :artist:`梵高` 临摹过两幅他的作品。
 
+杉本博司
+========
+
+.. artist:: _
+   :movement: 当代艺术
+   :zhwiki: 杉本博司
+   :artwork: 东京宫37号展厅，巴黎
+
+被誉为观念摄影的第一人。
+
 等待翻牌子
 ==========
 

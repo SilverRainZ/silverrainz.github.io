@@ -83,6 +83,34 @@ symbolsGuitarB =  {
   d4 f a c'
 
   % 12
+  e'4 d'2 a4
+  c'4 b2 f4
+  a4 g2 b4
+  c'1
+
+  % 16
+  <f a>2 <g b>
+  <a c'>2 d'4 e'
+  <b f'>2 <b g'>  % TODO: 指法
+  <c' e'>1
+
+  % 20
+  d4 d2 e4
+  f4 f2 g4
+  a4 d'2 c'4
+  b4 g f d
+
+  % 24
+  c4 e2 g4
+  c'4 b2 a4
+  a4 g2 c4
+  d4 f a c'
+
+  % 28
+  e'4 d'2 a4
+  c'4 b2 f4
+  a4 g2 b4
+  c'4 g c2
 }
 
 \score {
