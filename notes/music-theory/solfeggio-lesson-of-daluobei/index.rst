@@ -19,7 +19,7 @@
 
 找出几个适合自己音域（唱得舒服）的调。自我感觉是在 A2 :lily:`{a}` 到 D4 :lily:`{d''}` 这样子。
 
-..tab-set::
+.. tab-set::
 
    .. tab-item:: A 调
 
@@ -59,7 +59,7 @@
 小红帽
 ------
 
-..tab-set::
+.. tab-set::
 
    .. tab-item:: C 调
 
