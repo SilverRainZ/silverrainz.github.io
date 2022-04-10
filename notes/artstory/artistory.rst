@@ -48,17 +48,25 @@
 时间主题  无论怎之样你都在衰败
 《和田》
 
-怀斯
-====
+安德鲁·怀斯
+===========
 
 .. artist:: _
+            怀斯
+            安德鲁·魏斯
+            魏斯
+            Andrew Wyeth
+            Wyeth
    :movement: 写实主义
+   :zhwiki: 安德鲁·魏斯
+   :artwork: 克里斯蒂娜的世界
 
 ..
 
    今晚老师讲怀斯，无论画面里有没有人，我总是觉得看起来没有生气—— 像死了放很久的样子
 
    —— :weibo:`SilverRainZ <6180711501>`
+
 
 多病 父为著名插画家 受 :artist:`波提契利` 技法影响 怀乡 :artist:`霍默`
 :artist:`四川乡土艺术` 的模仿对象
@@ -185,9 +193,6 @@ DeepL 的机翻已经如此完美了吗：
 
 __ https://www.bilibili.com/video/BV1L7411d7iq
 __ https://www.sohu.com/a/275289121_748541
-
-科维尔
-======
 
 雷内·马格丽特
 =============
@@ -460,8 +465,6 @@ https://www.beckysuss.net/
 
 人与动物在同个画面中出现。
 
-
-
 大量圆形构图 和 :term:`同形的重复`。
 
 :term:`黄金分割` 的直接印证
@@ -634,6 +637,22 @@ https://www.wangyuyang.net/
    :artwork: 东京宫37号展厅，巴黎
 
 被誉为观念摄影的第一人。
+
+桑德罗·波提切利
+===============
+
+.. artist:: _
+            波提切利
+            Sandro Botticelli
+            Botticelli
+            Alessandro Filipepi
+            Filipepi
+            亚历桑德罗·菲利佩皮
+            菲利佩皮
+            三博士来朝
+   :artwork: 春 维纳斯的诞生
+   :movement: 文艺复兴
+   :zhwiki: 桑德罗·波提切利
 
 等待翻牌子
 ==========
