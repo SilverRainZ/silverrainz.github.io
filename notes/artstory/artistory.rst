@@ -13,6 +13,7 @@
    - :artist:`毛焰`
    - :artist:`蒙克`
    - :artist:`霍伯`
+   - :artist:`梵高`
    - …
 
 .. contents::
@@ -383,7 +384,18 @@ __ https://www.sohu.com/a/275289121_748541
             凡高
             Vincent Willem van Gogh
             Van Gogh
-   :movement: 后印象主义
+   :movement: 后印象主义 表现主义
+   :zhwiki: 文森特·梵高
+   :enwiki: Vincent van Gogh
+   :artwork: 星夜 向日葵 有乌鸦的麦田
+
+荷兰画家。深刻影响了二十世纪艺术，尤其是 :artist.movement:`野兽派` 与 :artist.movement:`德国表现主义`。
+
+:artist.movement:`浮世绘` 
+   梵高非常喜欢日本的浮世绘，收集了上百件此类画作，也模仿过一些日本画家的作品，例如 《花魁（仿英泉）》（:artist:`溪斋英泉`）、《李树开花》（:artist:`歌川广重`）
+
+:artist.movement:`印象派` :artist.movement:`点彩派`
+   梵高在巴黎看过了关于印象派和点彩派的展览。
 
 巴尔蒂斯
 ========
