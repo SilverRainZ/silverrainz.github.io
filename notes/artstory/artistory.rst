@@ -454,20 +454,20 @@ https://www.beckysuss.net/
 - 早期：其他前辈的影子
 - 中期：笔触的形式感 象征意义
 
-
-
 和 :artist:`梵高` 在阿尔勒时期，受其影响而改变。
 
-
-科尔维尔
-========
+艾历克斯·科尔维尔
+=================
 
 .. artist:: _
-            Alrx Colville
+            科尔维尔
+            David Alexander Colville
+            Alex Colville
             Colville
+   :movement: 当代艺术 写实主义
    :artwork: 马与火车
 
-加拿大著名当代画家。
+1920 - 2013，加拿大著名当代画家、版画家。
 
 父亲是钢铁厂的工程师，受其设计图和工具的影响。
 
