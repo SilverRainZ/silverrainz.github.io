@@ -284,7 +284,8 @@ blog_authors = {
 blog_default_author = author_nick
 blog_languages = {
     language: (language_full, None),
-    'en':     ('English',  None),
+    # FIXME: https://github.com/sunpy/ablog/issues/136
+    # 'en':     ('English',  None),
 }
 blog_default_language = language
 post_date_format = datefmt
