@@ -313,8 +313,9 @@ if PROD:
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
 
+    # Require extensions 'sphinx_design'
     rst_epilog += dedent("""
-    .. topic:: 评论
+    .. card:: 评论
 
         如果你有任何意见，请在此评论。
         如果你留下了电子邮箱，我可能会通过 :email:`comments@silverrainz.me` 回复你。
