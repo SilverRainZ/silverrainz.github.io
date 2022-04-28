@@ -17,3 +17,6 @@ em {
 .sig-object {
     margin-top: 1em;
 }
+.sig-object + dd {
+    margin-left: 0px;
+}
