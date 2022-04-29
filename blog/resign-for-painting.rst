@@ -231,9 +231,12 @@
 画不准的底气
 ============
 
-.. rubric:: 脚注
+脚注
+====
 
-.. [#] https://silverrainz.lofter.com/post/39aab0_3e1e1f2
+.. [#] `谷月轩 @ LOFTER 2014/11/25`__
+
+__ https://silverrainz.lofter.com/post/39aab0_3e1e1f2
 
 .. _蔓纯老师: http://www.artpollo.com/linmanchun
 .. _长亭科技: https://www.chaitin.cn
