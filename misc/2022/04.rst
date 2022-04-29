@@ -1,0 +1,34 @@
+====
+四月
+====
+
+.. contents::
+   :local:
+
+Firefox 99.0.1-1 更新后字体异常
+===============================
+
+:Date: 2022-04-24
+
+.. figure:: /_images/2022-04-24_15:59:34.png
+
+   https://www.archlinuxcn.org/ 单词间出现了很多空格，数字无法显示和输
+
+`#archlinxu-cn` 的聊天记录::
+
+   [16:11:43] <SilverRainZ*> 有人在 firefox 99 上遇到字体异常的问题吗？单词间出现了很多空格，数字无法显示和输入： https://imgur.com/a/IdB8w3U
+   [16:11:44] <xmppbot> [Lisa] SilverRainZ: ⇪网页标题: Imgur: The magic of the Internet
+   [16:12:49] <nichi_bot> [Patrick Kanna] 调整你的字体优先级
+   [16:13:02] <nichi_bot> [Patrick Kanna] 估计是 Emoji 字体被优先选择了
+   [16:13:29] <nichi_bot> [依云] 不要优先 noto emoji 字体
+   [16:14:29] = genieliu 退出了聊天室：Ping timeout: 272 seconds
+   [16:15:42] <SilverRainZ*> 确实我配置了 /etc/fonts/conf.avail/51-noto-color-emoji.conf
+   [16:15:50] <SilverRainZ*> 移除就好了。
+   [16:16:11] <SilverRainZ*> 依云: Patrick Kanna: 优先级要降到什么样比较合适呢？
+   [16:16:34] <nichi_bot> [lich] 可以在about:config里单独设置
+   [16:16:34] <nichi_bot> 9[依云] 删掉就好。pango 会自行处理好。
+   [16:17:01] = WAR10CK 加入了频道
+   [16:17:02] <SilverRainZ*> 依云: wow 赞。
+
+满天星不流行的理由
+==================
