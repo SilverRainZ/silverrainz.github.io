@@ -114,6 +114,91 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 主观性的色彩偏好
 ================
 
+伊顿进行过大量有关主观性色彩的实验，具体做法是让受试者自由地画出自认为和谐，舒服的色彩组合方案。
+
+   为了使这类实验获得成功，绘画和首先必须要对色彩有基本的敏感性。如果没有对调色进行过深入研究，没有用画笔和颜料进行过相应的实践，那么就无法获得可靠的结果。
+
+   —— P20
+
+尽管如此，为了好玩，我还是和 YY 在没有经过调色训练的情况下做了一些色彩实验：
+
+四季色卡，用颜色来描述自己对四个季节的感受：
+
+.. grid:: 1 2 2 2
+   :gutter: 1
+
+   .. grid-item-card::
+
+      .. artwork:: 四季色卡
+         :id: taoc-004
+         :size: 32k
+         :medium: 水彩
+         :date: 2022-04-25
+         :image: /_images/artwork-taoc/mmexport1650950079664__01.jpg
+
+         YY 画的四季色卡。
+
+   .. grid-item-card::
+
+      .. artwork:: 四季色卡
+         :id: aoc-000 aoc-001 aoc-002 aoc-003
+         :size: 32
+         :medium: 水彩
+         :date: 2022-04-25
+         :image: /_images/artwork-taoc/IMG_20220426_091620__01__01.jpg
+
+         我画的四季色卡。
+
+印象试纸，用颜色来描述对对方的主观印象：
+
+.. grid:: 1 2 2 2
+   :gutter: 1
+
+   .. grid-item-card::
+
+      .. artwork:: LA 的印象试纸 1
+         :id: taoc-005
+         :size: 32k
+         :medium: 水彩
+         :date: 2022-04-27
+         :image: /_images/artwork-taoc/mmexport1651241068440__01.jpg
+
+         检验员 DYY。
+
+         作为受试对象，最开始喜欢这张，感觉用了强烈的倾向来形容我是一个什么样的人，而且和我的自我评价大概接近。
+         当然，这些都是含糊不清的。
+
+   .. grid-item-card::
+
+      .. artwork:: DYY 的印象试纸
+         :id: taoc-006
+         :size: 32
+         :medium: 水彩
+         :date: 2022-04-28
+
+         检测员 :friend:`LA`。
+
+   .. grid-item-card::
+      :columns: 12
+
+      .. artwork:: LA 的印象试纸 2
+         :id: taoc-005
+         :size: 32k
+         :medium: 水彩
+         :date: 2022-04-27
+         :image: /_images/artwork-taoc/mmexport1651158545296__01.jpg
+
+         检验员 DYY。
+
+         经过检验员一番 :del:`卖关子` 讲解后，我更喜欢这张。
+
+         这次的复检一以贯之的心机（说好听点，叫「观念」），认真地沿着时间填满了每个格子，代表在这个时间对我的色彩印象。长长的时间线上用 :del:`潦草的` 字母打了结，代表了一些具体的事件，当然我也不会告诉你是什么 :D
+
+         和 :artwork:`我做的试纸 <taoc-006>` 相比，Y 表现让我有点羞愧：
+
+         - 一是因为我的颜色总是落到非常具体的意象上，因为太具体而无法形成统一的印象，我的观念不够好
+         - 二是我没有那么她那般的认真，尽管我也真诚地表达了，但没有达到对等的投入程度也是一种虚伪
+
 参考
 ====
 
