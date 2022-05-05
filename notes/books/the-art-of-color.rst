@@ -101,7 +101,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 唯太阳和人心不可直视
 ~~~~~~~~~~~~~~~~~~~~
 
-17 日和 Y 在咖啡店，为了展示 :enwiki:`色彩适应 <Chromatic adaptation>` 的存在，盯着太阳看了好几秒，以求在视网膜上印出一个黄绿色的补偿影像。
+17 日和 YY 在咖啡店，为了展示 :enwiki:`色彩适应 <Chromatic adaptation>` 的存在，盯着太阳看了好几秒，以求在视网膜上印出一个黄绿色的补偿影像。
 
 .. warning:: 这是危险的行为，可能导致 光性角膜炎 或者 日光性视网膜病变 [#]_
 
@@ -122,34 +122,56 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 
 尽管如此，为了好玩，我还是和 YY 在没有经过调色训练的情况下做了一些色彩实验：
 
-四季色卡，用颜色来描述自己对四个季节的感受：
+四季色卡
+--------
 
-.. grid:: 1 2 2 2
-   :gutter: 1
+用颜色来描述自己对四个季节的感受：
 
-   .. grid-item-card::
+.. card::
 
-      .. artwork:: 四季色卡
-         :id: taoc-004
-         :size: 32k
-         :medium: 水彩
-         :date: 2022-04-25
-         :image: /_images/artwork-taoc/mmexport1650950079664__01.jpg
+   .. artwork:: 四季色卡
+      :id: taoc-004
+      :size: 32k
+      :medium: 水彩
+      :date: 2022-04-25
+      :image: /_images/artwork-taoc/mmexport1650950079664__01.jpg
 
-         YY 画的四季色卡。
+      YY 画的四季色卡。
 
-   .. grid-item-card::
+      :春: 春天和 YY 之前画的心境那张有些许相似，不知道是不是巧合
+      :夏: 夏天是夜空、树林和橙月。YY 说用了撒了盐表现夜跑时沁出的汗，虽然因为不熟悉材料没撒好，但一提到汗，和夏天有关的其他印象：急促的鼻息、昏黄的路灯，聒噪的虫鸣，也一并跟着涌现了
+      :秋: 秋天和春天一样短暂又流动
+      :冬: YY 的冬天的没有太多大自然的介入，更多的是夜里亮起的星星和灯火
 
-      .. artwork:: 四季色卡
-         :id: aoc-000 aoc-001 aoc-002 aoc-003
-         :size: 32
-         :medium: 水彩
-         :date: 2022-04-25
-         :image: /_images/artwork-taoc/IMG_20220426_091620__01__01.jpg
+      我们聊到「伤感的空气」，对她来说是「春天的鲜花和泥土香」。
+      YY 的大部分春天都在读书，春季往往是不得闲的期末，期末后又常常是离别。
+      今晚（22.05.05）又聊到，我说伤感是因为「太好了又捉不住」，话音缓缓落下后，又觉得说怎么会捉不住呢，其实应该都捉住啦。
 
-         我画的四季色卡。
+      我想起三毛写的 `《春天不是读书天》`__，翻来重看了一遍，虽然和文章没什么关系，现在的 YY 春天也不用读书啦，就慢慢地过吧 :del:`可现在是夏天了诶`。
 
-印象试纸，用颜色来描述对对方的主观印象：
+      __ https://www.haoshuya.com/11/6097/417390.html
+
+
+.. card::
+
+   .. artwork:: 四季色卡
+      :id: aoc-000 aoc-001 aoc-002 aoc-003
+      :size: 32
+      :medium: 水彩
+      :date: 2022-04-25
+      :image: /_images/artwork-taoc/IMG_20220426_091620__01__01.jpg
+
+      我画的四季色卡。
+
+      :春: 小草的末梢被冻得微微发红，树木又新长了一圈年轮，春天的绿色对我来说是安全又熟悉的
+      :夏: 我的夏天是昼夜等分的，夜里是有木兰花香的教学楼，时不时手腕上有血流下來；白天是亮得睁不开眼的柏油路面，我和同学们顶着大太阳不知道要去哪里玩
+      :秋: 秋天的天空好像比其他的季节更宽敞一些，想来「秋高气爽」很恰当了
+      :冬: 冬天是冻鼻子的清冷空气，是嘴里呼出的白雾，是学院路光秃秃的行道树。冬天只是被延长了的夏夜，除了没有偶尔飘进窗来的木兰花香
+
+印象试纸
+--------
+
+用颜色来描述对对方的主观印象：
 
 .. grid:: 1 2 2 2
    :gutter: 1
@@ -214,4 +236,3 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 
 __ https://www.universetoday.com/18689/color-of-the-sun/
 __ https://www.cdstm.cn/gallery/hycx/qyzx/201908/t20190802_920736.html
-
