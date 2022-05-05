@@ -179,3 +179,27 @@
          小区的地下停车场，楼梯间有灯光，也正好非常巧地没带小台灯。
 
          用橡皮来修形状是不好的习惯，在这张练习里已经努力少用了，因此形体上也比较扭曲，不需要管，把注意力集中在秩序上吧。
+
+   .. grid-item-card::
+
+      .. artwork::
+         :id: anf-010
+         :size: 16k
+         :date: 2022-05-01
+         :medium: 炭精粉
+         :image: /_images/artwork-anf/IMG_20220504_122850__01.jpg
+
+         TODO
+
+   .. grid-item-card::
+
+      .. artwork::
+         :id: anf-011
+         :size: 16k
+         :date: 2022-05-03
+         :medium: 炭精粉
+         :image: /_images/artwork-anf/IMG_20220504_122939__01.jpg
+
+         TODO
+
+         正确的色序能够一定程度上弥补形体的缺陷。
