@@ -363,7 +363,7 @@ I Should
    :image: /_images/IMG_0116.jpg
    :album: album-32k-1
 
-N/A
+都过去了。
 
 度洛西汀戒断反应
 ----------------
@@ -917,7 +917,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
 
 #. :artwork:`xfczk-005`
 #. :artwork:`xfczk-006`
-#. :artwork:`xfczk-017`
 
 文艺作品衍生
 ^^^^^^^^^^^^
