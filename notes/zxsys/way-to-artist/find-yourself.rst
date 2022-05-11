@@ -352,19 +352,6 @@ I Should
 
 全向十字路口拥挤的人群。
 
-闲敲棋子落灯花
---------------
-
-.. artwork:: _
-   :id: xfczk-017
-   :date: 2021-03-03
-   :size: 32k
-   :medium: 炭精粉
-   :image: /_images/IMG_0116.jpg
-   :album: album-32k-1
-
-都过去了。
-
 度洛西汀戒断反应
 ----------------
 
