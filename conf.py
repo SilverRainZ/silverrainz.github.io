@@ -272,6 +272,16 @@ any_schemas = [
            reference_template='#️⃣{{ title }}',
            missing_reference_template='#️⃣{{ title }}',
            ambiguous_reference_template='#️⃣{{ title }}'),
+    Schema('jour',
+           name=F(referenceable=True, required=True),
+           attrs={
+               'date': F(),
+               'category': F(),
+           },
+           description_template=open('_templates/jour.rst', 'r').read(),
+           reference_template='📰{{ title }}',
+           missing_reference_template='📰{{ title }}',
+           ambiguous_reference_template='📰{{ title }}')
 ]
 
 extensions.append('ablog')
