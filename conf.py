@@ -304,7 +304,7 @@ if not PROD:
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
-        's': ['man/.*', 'notes/.*', 'misc/.*', 'collections/.*', 'about/.*'],
+        's': ['man/.*', 'notes/.*', 'jour/.*', 'collections/.*', 'about/.*'],
         'c': ['man/.*'],
     }
 
@@ -329,6 +329,7 @@ if PROD:
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
+# NOTE: required by ablog
 extensions.append('sphinx.ext.intersphinx')
 if PROD:
     intersphinx_mapping = {
@@ -337,11 +338,11 @@ if PROD:
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
+if PROD:
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
         # '<docname>': '<html/url>'
-        'notes/srain': 'https://srainapp.github.io/docs/arch/index.html',
     }
 
 # extensions.append('sphinxcontrib.images')

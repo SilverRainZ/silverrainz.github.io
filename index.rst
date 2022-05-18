@@ -83,7 +83,7 @@
          :maxdepth: 2
          :glob:
 
-         misc/*/index
+         jour/*/index
 
 
    .. grid-item-card::
