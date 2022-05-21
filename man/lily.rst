@@ -15,7 +15,7 @@ LilyPond
 可能出现在顶层的表达式如下：
 
 Output definition,
-   例如`\paper`, `\midi`, and `\layout`，重复的定义会被合并，若冲突后者优先
+   例如 `\paper`, `\midi`, and `\layout`，重复的定义会被合并，若冲突后者优先
 
 Direct scheme expression
    类似 `#(set-default-paper-size "a7" 'landscape)`
@@ -26,7 +26,7 @@ Direct scheme expression
    定义谱面的头部，包含标题、作曲家等信息
 
 `\score`
-   包含单个 Music Expression [#]_ ，所有顶层的 `\score`，会被隐式地包含在 `\book` 里
+   包含单个 Music Expression [music-expr]_ ，所有顶层的 `\score`，会被隐式地包含在 `\book` 里
 
 `\book`
    用来实现同一份 :file:`*.ly` 文件输出多份谱子
@@ -105,6 +105,14 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 输出
 ====
 
+指定输出文件名称
+----------------
+
+在 `\score` block 显式地指定 `\book`， 再指定 `\bookOutputSuffix` 即可 [#]_ ::
+
+   \book {
+     \bookOutputSuffix "alice"
+     \score { … }
 
 MIDI
 ----
@@ -133,5 +141,6 @@ MIDI
 .. [#] :lilydoc:`notation/file-structure`
 .. [#] :lilydoc:`music-glossary/pitch-names`
 .. [music-expr] :lilydoc:`learning/music-expressions-explained`
+.. [#] https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names
 .. [#] :lilydoc:`notation/using-midi-instruments`
 .. [#] :lilydoc:`notation/midi-instruments`
