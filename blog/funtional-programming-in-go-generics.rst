@@ -3,7 +3,7 @@
 ==================================
 
 .. post:: 2021-10-27
-   :tags: Golang, 函数式编程
+   :tags: Golang, 泛型, 函数式编程
    :author: LA
    :language: zh_CN
 
