@@ -379,3 +379,5 @@ if PROD:
     ogp_site_url = baseurl
     ogp_site_name = project
     ogp_image = baseurl + logo
+
+extensions.append('sphinxnotes.extweb')
