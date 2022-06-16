@@ -50,6 +50,7 @@
          notes/music-theory/index
          notes/6-lectures-on-sketch
          notes/*/index
+         notes/abraxas
 
    .. grid-item-card::
 
