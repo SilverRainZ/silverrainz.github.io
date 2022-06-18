@@ -5,6 +5,36 @@
 .. contents::
    :local:
 
+Srain 的域名迁移到 srian.silverrainz.me
+========================================
+
+.. jour:: _
+   :date: 2022-06-18
+
+17 年的时候我在 phoenixlzx__ 的 Cat Networks 买下 srain.im 这个域名，用于 :ghrepo:`SrainApp/srain` 的各个站点。
+有一段时间还用它作为自己的域名邮箱，毕竟 `i@srain.im` 这样简短的邮箱太有诱惑力了。
+
+.. figure:: /_images/2022-06-18_12_57_10.png
+   :width: 80%
+
+在长亭的初期并不忙，工作外的时间除了偶尔画画，基本都用来开发 Srain。很多东西不懂，就硬写，基本上每加一个大功能就不得不重构一遍，慢慢地倒是也有些进步。与其说它是一个开源项目，倒不如说是我工程实践的练兵场。
+
+后来慢慢忙起来，直到 20 年我离开长亭前夕，才把 1.0 匆匆发出来：:doc:`/blog/srain-and-me`
+
+再后来，服务商从 Cat Networks 改成了 Riven Cloud，不知道还是不是 phoenixlzx 的公司。前阵子的一封邮件，告诉我又到了续费的时候：
+
+.. figure:: /_images/2022-06-18_13_12_35.png
+   :width: 80%
+
+我已经一两年没有活跃在 IRC 上了，一个作者都不再使用的开源软件，还有有往前发展的可能吗？曾经想通过 Srain 在社区小有名气，想参与 IRCv3 的讨论，想用 Rust + GTK4 重写，但现在好像什么都做不到了。
+
+我决定不再为 srain.im 续费，用我个人域名的一个子域 srain.silverainz.me 来替代它。折腾了一个晚上迁移老旧的 Jekyll 站点，发布了一则没有人看的 通告__。
+
+Srain 应该不会向前走了，我不知道我会不会。
+
+__ https://blog.phoenixlzx.com/
+__ https://srain.silverrainz.me/blog/migrate-domain.html
+
 好吃的番茄炒蛋
 ==============
 

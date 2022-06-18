@@ -19,7 +19,7 @@ SilverRainZ
    - :doc:`enemy` of SilverRainZ
 
    .. _Free Software: https://www.gnu.org/philosophy/free-sw.html
-   .. _Srain IRC Client: https://srain.im/
+   .. _Srain IRC Client: https://srain.silverrainz.me/
    .. _Arch Linux CN Community: http://archlinuxcn.org
    .. _LOFTER: http://silverrainz.lofter.com
 

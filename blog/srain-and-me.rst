@@ -7,14 +7,12 @@
    :author: LA
    :language: zh_CN
 
-
 .. hint:: 这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 :ghrepo:`SilverRainZ/bullet` 反馈
 
-.. topic:: 前注
+.. admonition:: 前注
 
    这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
    不知道这里何时能够不荒废。
-
 
 :ghrepo:`SrainApp/srain` 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。
 
@@ -39,12 +37,11 @@ Arch Linux CN 社区的 zwindl 和 VOID001 愿意和我共同维护这个项目�
 如果有其他发行版的 maintainer 愿意将 Srain 加入你们的软件源，欢迎联系我。
 Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 
-`Modern IRC client written in GTK <https://srain.im/2020/02/29/introducing-srain.html>`_.
+`Modern IRC client written in GTK <https://srain.silverrainz.me/blog/introducing-srain.html>`_.
 
-..
+.. update:: 2020-04-06
 
-   Update：从 02-29 发布后截至 2020-04-06，Srain 又进入了三个发行版的官方仓库，
+   从 02-29 发布后截至 2020-04-06，Srain 又进入了三个发行版的官方仓库，
    合并了 8 位社区贡献者的 PR，收到了数十个来自社区的反馈，发布了三个版本，
    尽管在（只能称之为火花的）宣传热度过去后，来自社区的贡献会慢慢变少，
    但我相信是会有人受益于这个软件的吧，一切都会顺利进行的吧，I pray。
-
