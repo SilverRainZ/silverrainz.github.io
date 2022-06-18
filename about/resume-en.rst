@@ -282,8 +282,8 @@ Patents
 =================================
 
 .. [#] https://github.com/SilverRainZ/OS67
-.. [#] https://srain.im
-.. [#] https://doc.srain.im/en/latest/faq.html#what-is-relay-message-transform
+.. [#] https://srain.silverrainz.me
+.. [#] https://srain.silverrainz.me/faq.html#what-is-relay-message-transform
 .. [#] https://summerofcode.withgoogle.com/archive/2016/projects/5786848613892096
 .. [#] https://git.sceen.net/hurd/hurd.git/commit/?id=6ebebc80de3dfc7ada3a69d609f00088c2143be3
 .. [#] https://silverrainz.gitee.io//blog/gsoc-2016-sum-up.html#id12
@@ -312,7 +312,7 @@ Patents
 .. [#] https://lug.ustc.edu.cn/news/2018/09/lug-logo-collect-result/
 .. [#] https://github.com/MaskRay/ccls/issues/628
 .. [#] https://silverrainz.gitee.io/blog/category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html
-.. [#] https://srain.im/2020/02/29/introducing-srain.html
+.. [#] https://srain.silverrainz.me/introducing-srain.html
 .. [#] https://silverrainz.gitee.io/blog/practical-makefile-for-packaging.html
 .. [#] https://silverrainz.gitee.io/blog/2015-huashangctf-re300.html
 .. [#] https://silverrainz.gitee.io/blog/process-scheduler-1.html
