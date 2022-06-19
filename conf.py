@@ -50,6 +50,7 @@ extensions = [
     'sphinxnotes.strike',
     'sphinxcontrib.plantuml',
     'sphinxcontrib.asciinema',
+    'sphinx_copybutton',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
