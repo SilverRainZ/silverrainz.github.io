@@ -22,9 +22,17 @@ commit:
 	git commit -m "$(shell date +'%Y-%m-%d %H:%M')"
 	git push
 
+commit-skip-recentupdate:
+	git commit -m "[skip-recentupdate] $(shell date +'%Y-%m-%d %H:%M')"
+	git push
+
+commit-skip-build:
+	git commit -m "[skip ci] $(shell date +'%Y-%m-%d %H:%M')"
+	git push
+
 pull:
 	git fetch origin master
-	git merge origin master
+	git merge origin/master
 
 # Put it first so that "make" without argument is like "make help".
 help:
