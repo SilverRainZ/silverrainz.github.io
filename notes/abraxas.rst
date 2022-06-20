@@ -24,3 +24,20 @@
 我总是在准备逃跑。平日里脚上没有行动，脑子在不停地翻滚寻找危险的迹象，一旦有所发现，就像为了证明了什么一般，双脚就踉踉跄跄，狂奔又急停，蒙头跑一会儿可能又折返。
 
 这样的预感会先产生，之后只需要再套上一点蛛丝马迹就可以应验，我作为预言家的贤明又添了一分。
+
+世界在迷雾里
+------------
+
+.. artwork:: _
+   :id: abraxas-001
+   :date: 2022-06-19
+   :size: 16k
+   :medium: 水彩
+   :image: /_images/artwork-abraxas/WechatIMG57.jpeg
+..
+   
+   Der Vogel kämpft sich aus dem Ei. Das Ei ist die Welt. Wer geboren werden will, muß eine Welt zerstören. Der Vogel fliegt zu Gott. Der Gott heißt :enwiki:`Abraxas`.
+
+   这只鸟奋力冲破蛋壳。世界则是这颗蛋。如果有谁想要出生，就得摧毁一个世界。这只鸟飞向上帝，上帝的名字叫做 :zhwiki:`阿卜拉克薩斯`。
+
+   -- :book:`德米安`
