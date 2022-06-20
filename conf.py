@@ -282,7 +282,17 @@ any_schemas = [
            description_template=open('_templates/jour.rst', 'r').read(),
            reference_template='📰{{ title }}',
            missing_reference_template='📰{{ title }}',
-           ambiguous_reference_template='📰{{ title }}')
+           ambiguous_reference_template='📰{{ title }}'),
+    Schema('okr',
+           name=F(referenceable=True, required=True),
+           attrs={
+               'id': F(unique=True, referenceable=True, required=True),
+               'krs': F(form=F.Form.LINES),
+               'scores': F(form=F.Form.WORDS),
+           },
+           description_template=open('_templates/okr.rst', 'r').read(),
+           reference_template='🥅{{ title }}'),
+
 ]
 
 extensions.append('ablog')
