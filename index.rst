@@ -30,7 +30,6 @@
 .. centered:: :doc:`关于我 <about/me>`
    | :doc:`关于本站 <about/site>`
    | :doc:`友人帐 <about/friends>`
-   | :doc:`todo`
 
 --------------------------------------------------------------------------------
 
@@ -96,6 +95,15 @@
 
          collections/*
          collections/*/index
+
+   .. grid-item-card::
+
+      .. toctree::
+         :caption: 事竟成
+         :maxdepth: 2
+
+         gtd/okr/index
+         gtd/todo
 
    .. grid-item-card::
 
