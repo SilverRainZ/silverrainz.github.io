@@ -41,3 +41,15 @@
    这只鸟奋力冲破蛋壳。世界则是这颗蛋。如果有谁想要出生，就得摧毁一个世界。这只鸟飞向上帝，上帝的名字叫做 :zhwiki:`阿卜拉克薩斯`。
 
    -- :book:`德米安`
+
+学步
+----
+
+.. artwork:: _
+   :id: abraxas-002
+   :date: 2022-06-21
+   :size: 16k
+   :medium: 丙烯
+   :image: /_images/artwork-abraxas/WechatIMG59.jpeg
+
+不熟悉材料，还要多多练习。

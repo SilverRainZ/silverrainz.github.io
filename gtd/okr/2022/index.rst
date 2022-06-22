@@ -34,7 +34,7 @@
    先开始，先画，从舒适的地方挪到有挑战的地方。
 
    我过于珍惜羽毛，不熟悉的技法让我痛苦，所以 :doc:`/notes/zxsys/way-to-artist/find-language` 先停一停。
-   表达总有顾虑，但对我来说不是最难的事，而且现在正是搞清楚自己的时候：:doc:`/notes/abraxas/index` 
+   表达总有顾虑，但对我来说不是最难的事，而且现在正是搞清楚自己的时候：:doc:`/notes/abraxas`
 
 __ https://weibo.com/1731633122/LoL8VrMq2
 
@@ -47,5 +47,5 @@ __ https://weibo.com/1731633122/LoL8VrMq2
          使用 Rust 写一个中小型项目，可能是 Srain 2.0
    :scores: 0 0
 
-六月
+2022-06-20
    相对来说，我的技术广度已经不错了，现在最有性价比的是学习有壁垒又能结合工作的东西。
