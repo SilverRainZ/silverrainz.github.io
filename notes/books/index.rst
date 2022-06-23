@@ -158,3 +158,11 @@ Haskell 趣学指南
    :isbn: ASIN-B01H6UY7Z0
    :status: Reading
    :startat: 2021-08-19
+
+爱灵魂自我教程
+---------------
+
+.. book:: _
+   :isbn: 9787563399932
+   :status: Reading
+   :startat: 2022-06-23
