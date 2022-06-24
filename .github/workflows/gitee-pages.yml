@@ -11,23 +11,33 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 15
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        # Required by chetan/git-restore-mtime-action and sphinx-notes@pages
+        fetch-depth: 0
+    - name: Fix timestamps
+      uses: chetan/git-restore-mtime-action@master
     - name: Setup locale
       run: |
         sudo locale-gen en_US.UTF-8
         sudo update-locale
     - name: Install dependencies
-      run: |
-        sudo apt-get update;
-        sudo apt-get install lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg
-        sudo apt-get install wget
-    - name: Setup python
-      uses: actions/setup-python@v2
-    - name: Checkout
-      uses: actions/checkout@v3
+      uses: awalsh128/cache-apt-pkgs-action@v1
       with:
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+        packages: lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg wget
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+    - name: Cache
+      uses: actions/cache@v3
+      with:
+        path: /tmp/sphinxnotes-pages
+        key: ${{ runner.os }}-Sphinx-Gitee
     - name: Build and Commit
-      uses: sphinx-notes/pages@v2
+      uses: sphinx-notes/pages@cache1
       with:
         documentation_path: .
         requirements_path: ./requirements.txt
