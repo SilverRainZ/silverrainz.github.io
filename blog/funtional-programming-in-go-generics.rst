@@ -2,6 +2,7 @@
 函数式编程在 Go 泛型下的实用性探索
 ==================================
 
+
 .. post:: 2021-10-27
    :tags: Golang, 泛型, 函数式编程
    :author: LA
@@ -52,7 +53,7 @@ __ https://go2goplay.golang.org/
 - 嵌入单个类型意义不大，我们可以用 `|` 来描述类型的 union::
 
    type Integer2 interface {
-       int ｜ int8 | int16 | int32 | int64
+       int | int8 | int16 | int32 | int64
    }
 
 - `~T` 语法可以表示该类型的「基础类型」是 `T`，比如说我们的自定义类型 `type MyInt int` 不满足上述的 `Integer1` 约束，但满足以下的约束::
@@ -475,7 +476,7 @@ __ https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-pa
 我们在 代码生成之困_ 提到过，在类型约束中可以用 `~T` 的语法约束所有 基础类型为 `T` 的类型，这是 Go 在语法层面上首次暴露出「基础类型」的概念，在之前我们只能通过 `reflect.(Value).Kind` 获取。而在 type assertion 和 type switch 里并没有对应的语法处理「基础类型」::
 
    type Int interface {
-           ~int ｜ ~uint
+           ~int | ~uint
    }
 
    func IsSigned[T Int](n T) {
