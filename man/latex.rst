@@ -13,4 +13,4 @@ __ https://www.mathjax.org/
 
 `通用 LaTeX 数学公式语法手册`__ 归纳得很清楚详细了。
 
-__ https://uinika.gitee.io/Zen/LaTex/
+__ http://www.uinio.com/Math/LaTex/
