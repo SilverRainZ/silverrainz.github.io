@@ -6,8 +6,10 @@
 
 .. centered:: 404 / 页面未找到 / Page Not Found
 
+**这里现在只有一地灰尘，如果你想找回这个地址过去指向的页面，请留下邮箱评论，或者直接联系** :friend:`i`
+
+--------------------------------------------------------------------------------
+
 .. figure:: /_images/404.jpg
 
-   Xu Bing, *Where Does the Dust Itself Collect?*, 2004. Dust, scaffolding, wood, and six gelatin silver prints, overall dimensions variable; prints: 13 x 18 cm each. Courtesy the artist © Xu Bing. Photo: Xu Bing, courtesy Xu Bing Studio
-
-这里现在只有一地灰尘，如果你想找回这个地址过去指向的页面，请联系 :friend:`i`。
+   Xu Bing, **Where Does the Dust Itself Collect?**, 2004. Dust, scaffolding, wood, and six gelatin silver prints, overall dimensions variable; prints: 13 x 18 cm each. Courtesy the artist © Xu Bing. Photo: Xu Bing, courtesy Xu Bing Studio
