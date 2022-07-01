@@ -19,3 +19,4 @@ sphinxnotes-mock
 sphinxext-opengraph
 sphinxnotes.extweb
 sphinx-copybutton
+sphinx-notfound-page

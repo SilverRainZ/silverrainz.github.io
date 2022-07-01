@@ -392,3 +392,7 @@ if PROD:
     ogp_image = baseurl + logo
 
 extensions.append('sphinxnotes.extweb')
+
+if PROD:
+    extensions.append('notfound.extension')
+    notfound_urls_prefix = None
