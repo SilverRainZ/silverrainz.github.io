@@ -28,12 +28,8 @@ Contact
 
 You can contact me in the following ways:
 
-.. |wechat| image:: /_images/wechat-qrcode.jpeg
-   :width: 30%
-
 :Email:     :email:`i@silverrainz.me`
 :IRC:       SilverRainZ @ Libera Chat
-:WeChat:    |wechat|
 
 Timeline
 --------
