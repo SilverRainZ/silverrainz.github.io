@@ -103,7 +103,8 @@
          :maxdepth: 2
 
          gtd/okr/index
-         gtd/todo
+         gtd/dida
+         gtd/sphinx-todo
 
    .. grid-item-card::
 
