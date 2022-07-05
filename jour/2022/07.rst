@@ -1,0 +1,32 @@
+====
+七月
+====
+
+.. contents::
+   :local:
+
+vDSO
+====
+
+.. term:: _
+          virtual ELF dynamic shared object
+   :field: Linux
+   :enwiki: VDSO
+
+:manpage:`vdso(7)`，即 virtual ELF dynamic shared object，是一个很小的动态链接库（Shared library），在用户进程启动时会被 linux kernel 自动映射到进程的地址空间里。
+
+vDSO 被设计用来用来加速一些 *频繁被调用* 且 *不涉及数据安全问题*  的系统调用，例如 :manpage:`gettimeofday(2)`、:manpage:`getpid(2)` 等，随架构不同有所不同。用户基本上不需要知道 vDSO 的存在，这部分的细节被 glibc 隐藏了。
+
+用 :manpage:`ldd(1)` 可以看到每个程序都依赖了 `linux-vdso.so.1`，并且这个 so 并不存在于磁盘上：
+
+.. code:: console
+
+   $ ldd /bin/ls
+           linux-vdso.so.1 (0x00007ffde9bae000)
+           libcap.so.2 => /usr/lib/libcap.so.2 (0x00007fd45ef0c000)
+           libc.so.6 => /usr/lib/libc.so.6 (0x00007fd45ed00000)
+           /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007fd45ef6e000)
+
+`Linux vDSO 概述`__ 讲解了快速系统调用的发展历程和 vDSO 的相关细节。
+
+__ https://zhuanlan.zhihu.com/p/436454953
