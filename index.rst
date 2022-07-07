@@ -46,6 +46,7 @@
          notes/zxsys/index
          notes/artstory/index
          notes/books/index
+         notes/man/index
          notes/music-theory/index
          notes/6-lectures-on-sketch
          notes/*/index
@@ -68,16 +69,6 @@
    .. grid-item-card::
 
       .. toctree::
-         :caption: 手册
-         :maxdepth: 1
-         :glob:
-
-         man/*/index
-         man/*
-
-   .. grid-item-card::
-
-      .. toctree::
          :caption: 随记
          :reversed:
          :maxdepth: 2
@@ -86,33 +77,35 @@
          jour/*/index
 
 
-   .. grid-item-card::
+   .. grid-item::
 
-      .. toctree::
-         :caption: 收集室
-         :maxdepth: 1
-         :glob:
+      .. card::
 
-         collections/*
-         collections/*/index
+         .. toctree::
+            :caption: 关于
+            :maxdepth: 1
 
-   .. grid-item-card::
+            我 <about/me>
+            about/site
+            about/friends
+            简历 <about/resume>
 
-      .. toctree::
-         :caption: 事竟成
-         :maxdepth: 2
+      .. card::
 
-         gtd/okr/index
-         gtd/dida
-         gtd/sphinx-todo
+         .. toctree::
+            :caption: 事竟成
+            :maxdepth: 2
 
-   .. grid-item-card::
+            gtd/okr/index
+            gtd/dida
+            gtd/sphinx-todo
 
-      .. toctree::
-         :caption: 关于
-         :maxdepth: 1
+      .. card::
 
-         我 <about/me>
-         about/site
-         about/friends
-         简历 <about/resume>
+         .. toctree::
+            :caption: 收集室
+            :maxdepth: 1
+            :glob:
+
+            collections/*
+            collections/*/index
