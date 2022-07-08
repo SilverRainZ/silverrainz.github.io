@@ -94,7 +94,7 @@
 
          .. toctree::
             :caption: 事竟成
-            :maxdepth: 2
+            :maxdepth: 1
 
             gtd/okr/index
             gtd/dida
