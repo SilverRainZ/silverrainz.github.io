@@ -300,12 +300,41 @@ __ https://www.sohu.com/a/275289121_748541
 =============
 
 .. artist:: _
-            贝克曼  
+            贝克曼
             Max Beckmann
             Beckmann
    :movement: 表现主义 德国表现主义 新即物主义
+   :artwork: 出发 捉迷藏 阿尔戈英雄 带篷马车 鸟的地狱 带号角的自画像
 
-.. seealso:: 这是晓飞老师推荐我多了解的画家之一，另一位是 :artist:`柯克西卡`
+.. hint:: 这是晓飞老师推荐我多了解的画家之一，另一位是 :artist:`柯克西卡`
+
+德国画家，其作品受印象派及象征主义的影响，常常刻画悲剧之中或极具生机的人物。
+
+受 :artist:`老彼得·勃鲁盖尔` 影响。
+
+尽管他被归类为表现主义画家，但他对此持反对态度：
+
+   "[t]here is only one thing that always happens in good art. This is the conjunction of the artistic sensuality with the artistic objectivity and actuality of the things to be represented"  [#]_
+
+一战后他的态度发生了转变，他开始思考简化艺术的新方法，同时保持他对现实主义的参与：
+
+   I hope ultimately to become ever more simplified, ever more concentrated in expression, but I will never - this much I know - give up fullness, roundness, the vitally pulsating
+
+   ...
+
+   [e]verything I did previously [to the war] was no more than an apprenticeship. I'm still learning and growing
+
+粗黑的轮廓 -> 暴力
+
+.. [#] `Max Beckmann: An Encounter with Expressionism`__
+
+-  `人间喜剧，荒诞不经 | 马克思·贝克曼 Max Beckmann`__
+- `Beckmann丨鸟地狱 魔幻城 成人寓言`__
+
+__ https://web.archive.org/web/20060110110026/http://web.grinnell.edu/art/gexp/essays/beckmann.html
+__ https://zhuanlan.zhihu.com/p/85341385
+__ https://zhuanlan.zhihu.com/p/58675411
+
 
 玛琳·杜马斯
 ===========
@@ -380,7 +409,7 @@ __ https://www.sohu.com/a/275289121_748541
 ===========
 
 .. artist:: _
-            梵高    
+            梵高
             凡高
             Vincent Willem van Gogh
             Van Gogh
@@ -389,13 +418,32 @@ __ https://www.sohu.com/a/275289121_748541
    :enwiki: Vincent van Gogh
    :artwork: 星夜 向日葵 有乌鸦的麦田
 
-荷兰画家。深刻影响了二十世纪艺术，尤其是 :artist.movement:`野兽派` 与 :artist.movement:`德国表现主义`。
+荷兰画家。深刻影响了二十世纪艺术，尤其是 :artist.movement:`野兽派` 与 :artist.movement:`德国表现主义 <德国表现主义>`。
 
-:artist.movement:`浮世绘` 
-   梵高非常喜欢日本的浮世绘，收集了上百件此类画作，也模仿过一些日本画家的作品，例如 《花魁（仿英泉）》（:artist:`溪斋英泉`）、《李树开花》（:artist:`歌川广重`）
+:artist.movement:`浮世绘`
+   梵高非常喜欢日本的浮世绘，收集了上百件此类画作，也模仿过一些日本画家的作品，例如:
 
-:artist.movement:`印象派` :artist.movement:`点彩派`
+   - `《花魁（仿英泉）》`__ （:artist:`溪斋英泉`）、
+   - `《李树开花》`__ （:artist:`歌川广重` `《李树开花》`__ ）、
+
+:artist.movement:`印象派 <印象主义>` :artist.movement:`点彩派`
    梵高在巴黎看过了关于印象派和点彩派的展览。
+
+:artist.movement:`野兽派`
+   梵高的作品影响了 :artist:`马蒂斯`、:artist:`安德烈·德朗` 和 :artist:`弗拉芒克` 等人，一定程度上导致了野兽派的诞生。
+
+   其作品中，颇具野兽派味道的如：:zhwiki:`《鸢尾花》 <鸢尾花 (梵高)>`
+
+:artist.movement:`现实主义`
+  - `《夕阳下两位农妇开掘积雪覆盖的田地》`__ （仿 :artist:`米勒` :zhwiki:`《拾穗》 <拾穗>` ）
+  - `《囚徒之圈》`__ （仿 :artist:`多雷` `《囚徒之圈》`__ ）
+
+__ https://commons.wikimedia.org/wiki/File:Van_Gogh_-_la_courtisane.jpg
+__ https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Bloeiende_pruimenboomgaard-_naar_Hiroshige_-_Google_Art_Project.jpg?uselang=zh
+__ https://artsandculture.google.com/asset/one-hundred-famous-views-of-edo-plum-garden-in-kameido-utagawa-hiroshige/DgFIyemrWrUgaQ?hl=zh
+__ https://zh.wikipedia.org/wiki/%E6%96%87%E6%A3%AE%E7%89%B9%C2%B7%E6%A2%B5%E9%AB%98#/media/File:Van_Gogh_-_Zwei_grabende_B%C3%A4uerinnen_auf_schneebedecktem_Feld.jpeg
+__ https://zh.wikipedia.org/wiki/%E6%96%87%E6%A3%AE%E7%89%B9%C2%B7%E6%A2%B5%E9%AB%98#/media/File:Vincent_Willem_van_Gogh_037.jpg
+__ https://commons.wikimedia.org/wiki/File:Newgate-prison-exercise-yard.jpg
 
 巴尔蒂斯
 ========
@@ -408,7 +456,7 @@ __ https://www.sohu.com/a/275289121_748541
 ==========
 
 .. artist:: _
-            Caroline Walker    
+            Caroline Walker
    :enwiki: Caroline_Walker_(artist)
 
 
@@ -522,7 +570,7 @@ https://www.beckysuss.net/
 
 未完成时期（2011-）
    2011年夏受一威士忌品牌发起的“艺术家驻村计划”之邀，去苏格兰酒厂体验创作。
-   
+
    直观看肖像中多了一些接近肤色的颜色，反而少了一点味道。
 
 资源
