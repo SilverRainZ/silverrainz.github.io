@@ -12,7 +12,6 @@ Golang
 
          pprof
          coverage
-         escape-analysis
 
    .. grid-item-card::
 
@@ -22,3 +21,6 @@ Golang
          dev
          asm
          type-assertion
+         escape-analysis
+         ast
+         ssa
