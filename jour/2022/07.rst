@@ -65,3 +65,32 @@ Linux 5.18+ 因声卡驱动问题无法休眠
 可以临时修复此问题。
 
 __ https://bbs.archlinux.org/viewtopic.php?pid=2042801#p2042801
+
+中年人的第一台 NAS
+==================
+
+.. jour:: _
+   :date: 2022-07-08
+
+.. figure:: /_images/火狐截图_2022-07-12T16-26-32.235Z.png
+   :alt: https://twitter.com/hywallove/status/1536054160994738176
+
+   万幸，我现在只油了三分之一。
+
+好同事 :ghuser:`WangLeonard` 把他退役的一台群晖 :zhwiki:`NAS <网络附接存储>` 借我玩了两周，型号是 `ds218+`__ ，双盘位，双核 2GHz，内存 6 GB。
+虽然我没有很强的存储需求，可这是一台性能还不错的 x86 Linux 主机诶！而且 群晖的套件__ 用起来比 :doc:`折腾树莓派 </notes/wizard/pi>` 轻松多了。
+遂以一个很优惠的价格淘了下来，感觉占人家便宜了 Q_Q。
+
+__ https://www.synology.com/zh-tw/products/DS218play
+__ https://www.synology.com/zh-tw/dsm/packages
+
+装系统
+   将 NAS 插上网线连上路由器，接通电源，NAS 会自动通过 DHCP 获取 IP。
+
+   :aur:`synology-assistant` 提供了一个 GUI 程序用来探测局域网中群晖 NAS 的地址 ，方便我们连上管理界面。Wayland 用户如果遇到发现程序 crash 了（`qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""`）可以试试 `unset QT_QPA_PLATFORM` 再执行程序。
+
+组内网
+   用 tailscale__ 一步到位，基于 user-space 的 WireGuard 实现，操作简单，节点之间能直连。
+   单用户 20 台设备以下免费。
+
+__ https://tailscale.com/
