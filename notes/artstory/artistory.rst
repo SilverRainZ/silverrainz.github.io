@@ -718,13 +718,72 @@ https://www.wangyuyang.net/
    :movement: 文艺复兴
    :zhwiki: 桑德罗·波提切利
 
+尼古拉·普桑
+===========
+
+.. artist:: _
+            普桑
+            Nicolas Poussin
+            Poussin
+   :zhwiki: 尼古拉·普桑
+   :movement: 巴洛克 古典主义
+   :artwork: 阿尔卡迪亚的牧人
+
+17 世纪法国巴洛克时期重要画家，普桑的画清晰而富有秩序，注重线条而甚于色彩。普桑的大部分职业生涯在罗马度过，学习文艺复兴和巴洛克时期绘画，受 :artist:`拉斐尔` 影响颇深。[poussin0]_
+
+普桑存世的画作中有大量 使用棕褐色墨水的创作草稿__ ，造型讲究，光影有序，相当耐看。
+
+普桑曾为 :artist:`达芬奇` 《绘画论》的手稿画插图，以便出版。[poussin1]_
+
+.. [poussin0] :zhwiki:`尼古拉·普桑`
+.. [poussin1] `法国版拉斐尔——尼古拉‧普桑的艺术深度`__
+
+__ https://artsandculture.google.com/entity/m0gt5t?col=RGB_F4E1A2
+__ https://www.epochtimes.com/gb/20/5/31/n12149996.htm
+
+弗朗西斯·培根
+=============
+
+.. artist:: _
+            培根
+            Francis Bacon
+            Bacon
+   :artwork: 以受难为题的三张习作
+
+.. hint:: 鉴于即友 `@今天不写是小狗`__ 多次说我的画像培根，于是来了解一下。
+
+生于爱尔兰的英国画家，是 :zhwiki:`哲学家培根  <弗兰西斯·培根>` 异母兄的后代。
+
+培根在巴黎看了 :artist:`Poussin` 的画作 :enwiki:`The_Massacre_of_the_Innocents_(Poussin)` ，决心开始绘画。 培根亦受 :artist:`毕加索` 的作品鼓舞。 [bacon0]_
+
+一般认为 :enwiki:`以受难为题的三张习作 <Three Studies for Figures at the Base of a Crucifixion>` 是培根的第一张成熟作品。
+
+「培根的身上帶著一種屠宰場的氣質」 [bacon1]_ 这句话相当准确。
+
+   真正的畫家不是按照事物實際存在的樣子來畫它們，而是根據他們對這些事物的感覺來畫。[bacon1]_
+
+   -- 培根
+
+..
+
+   或許我可以換一種說法：培根的肖像畫是對於『我』的界限的質問。一個個體可以歪斜變形到什麼程度而依然是自己？ 一個被愛的生命體可以歪斜到什麼程度而依然是一個被愛的生命體？一張可親的臉在疾病裡，在瘋狂裡，在仇恨裡，在死亡裡漸行漸遠，這張臉依然可辨嗎？『我』不再是『我』的邊界在哪裡？[bacon1]_
+
+   -- 米蘭．昆德拉《相遇》，2009
+
+培根的另一张广为人知的作品是模仿 :artist:`委拉斯盖兹` 的 :zhwiki:`《英诺森十世》 <File:PopeInnocentX.jpg>` 的 :zhwiki:`《英诺森十世》 <File:171105_155748150-260x345.jpg>`
+
+.. [bacon0] :zhwiki:`弗朗西斯·培根_(画家)`
+.. [bacon1] `《以受難為題的三張習作》：和法蘭西斯培根創造的怪物比起來，我們是不是更可怕呢？`__
+
+__ https://m.okjike.com/users/de7eaa5c-35bb-4f90-8eae-c0a39b2762b0
+__ https://www.thenewslens.com/article/156968
+
 等待翻牌子
 ==========
 
 - 提香
 - 拉斐尔
 - 康斯泰勃尔
-- 弗朗西斯·培根
 - 委拉斯开兹
 - 透纳
 - 德拉克罗瓦
