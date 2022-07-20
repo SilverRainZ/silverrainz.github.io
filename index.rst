@@ -51,6 +51,7 @@
          notes/6-lectures-on-sketch
          notes/*/index
          notes/abraxas
+         notes/nju-static-program-analysis
 
    .. grid-item-card::
 
