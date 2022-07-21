@@ -77,7 +77,7 @@ __ https://bbs.archlinux.org/viewtopic.php?pid=2042801#p2042801
 
    万幸，我现在只油了三分之一。
 
-好同事 :ghuser:`WangLeonard` 把他退役的一台群晖 :zhwiki:`NAS <网络附接存储>` 借我玩了两周，型号是 `ds218+`__ ，双盘位，双核 2GHz，内存 6 GB。
+好同事 :people:`WangLeonard` 把他退役的一台群晖 :zhwiki:`NAS <网络附接存储>` 借我玩了两周，型号是 `ds218+`__ ，双盘位，双核 2GHz，内存 6 GB。
 虽然我没有很强的存储需求，可这是一台性能还不错的 x86 Linux 主机诶！而且 群晖的套件__ 用起来比 :doc:`折腾树莓派 </notes/wizard/pi>` 轻松多了。
 遂以一个很优惠的价格淘了下来，感觉占人家便宜了 Q_Q。
 

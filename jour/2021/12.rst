@@ -12,7 +12,7 @@ Go 试验性 feature - SetMaxHeap
 
 `SetMaxHeap` 能配合物理内存来设定阈值，通过牺牲内存使用，从而降低 GC 频率，以降低时延。
 
-参见 :del:`坐我隔壁桌的` :ghuser:`WangLeonard` 写的：`Golang实验性功能SetMaxHeap 固定值GC`__
+参见 :del:`坐我隔壁桌的` :people:`WangLeonard` 写的：`Golang实验性功能SetMaxHeap 固定值GC`__
 
 __ https://www.jianshu.com/p/4069d1e3d716
 

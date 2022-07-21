@@ -14,7 +14,7 @@ OnePlus 6 从 LineageOS 18.1 刷回氢 OS 10
 
 .. note:: 我对安卓手机刷机并不了解，记录仅为存档备忘。
 
-感谢 :friend:`xiaoqing.wu` 的指点。
+感谢 :people:`soyking` 的指点。
 
 上次 :event:`Oneplus6 刷机 LineageOS 18.01` 后觉得 LineageOS 还是太过粗糙，自带应用的体验很差，耗电也飞快。
 所以还是决定换回原生的 {氢,氧} OS。

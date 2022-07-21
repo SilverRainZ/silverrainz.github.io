@@ -309,7 +309,7 @@ Single Number
    :date: 2021-07-07
    :reference: https://www.cnblogs.com/grandyang/p/4130577.html
 
-遥想 :friend:`pcf` 师傅还跟我讨论过这题，可惜没记住。反正不看题解打死也做不出来。
+遥想 :people:`pcf` 师傅还跟我讨论过这题，可惜没记住。反正不看题解打死也做不出来。
 
 Diameter Of Binary Tree
 -----------------------
@@ -538,9 +538,9 @@ Linked List Cycle
 
 无论如何时间复杂度都是 :math:`O(n)`，用哈希标表存 visited 的做法不用说了。
 
-题目要求用 :math:`O(1)` 空间，估计我独立做不出来。很久前听 :friend:`pcf` 说到用两个指针，所以稍微回忆了一下：用两个步长不一致的指针，一个每次一个节点，一个每次两个节点，如果成环的话总会相遇。
+题目要求用 :math:`O(1)` 空间，估计我独立做不出来。很久前听 :people:`pcf` 说到用两个指针，所以稍微回忆了一下：用两个步长不一致的指针，一个每次一个节点，一个每次两个节点，如果成环的话总会相遇。
 
-.. seealso:: :friend:`fei.li` 的 解法_ 惊为天人
+.. seealso:: :people:`lifeiren` 的 解法_ 惊为天人
 
    .. _解法: https://leetcode-cn.com/problems/linked-list-cycle/solution/qiao-miao-li-yong-zhi-zhen-cun-chu-jie-d-xeca/
 
@@ -589,7 +589,7 @@ Trapping Rain Water
    :key: 动态规划 双指针 单调栈
    :date: 2021-07-15
 
-似乎 :friend:`pcf` 也和我提到过，然而完全忘了。
+似乎 :people:`pcf` 也和我提到过，然而完全忘了。
 
 看题解。
 
