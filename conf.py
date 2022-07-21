@@ -292,7 +292,17 @@ any_schemas = [
            },
            description_template=open('_templates/okr.rst', 'r').read(),
            reference_template='🥅{{ title }}'),
-
+    Schema('people',
+           name=F(unique=True, referenceable=True, required=True),
+           attrs={
+               'github': F(),
+               'blog': F(),
+               'enwiki': F(),
+               'zhwiki': F(),
+               'weibo': F(),
+           },
+           description_template=open('_templates/people.rst', 'r').read(),
+           reference_template='👤{{ title }}'),
 ]
 
 extensions.append('ablog')
