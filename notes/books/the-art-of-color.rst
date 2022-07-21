@@ -101,7 +101,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 唯太阳和人心不可直视
 ~~~~~~~~~~~~~~~~~~~~
 
-17 日和 YY 在咖啡店，为了展示 :enwiki:`色彩适应 <Chromatic adaptation>` 的存在，盯着太阳看了好几秒，以求在视网膜上印出一个黄绿色的补偿影像。
+17 日和 :people:`YY` 在咖啡店，为了展示 :enwiki:`色彩适应 <Chromatic adaptation>` 的存在，盯着太阳看了好几秒，以求在视网膜上印出一个黄绿色的补偿影像。
 
 .. warning:: 这是危险的行为，可能导致 光性角膜炎 或者 日光性视网膜病变 [#]_
 
@@ -120,7 +120,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 
    —— P20
 
-尽管如此，为了好玩，我还是和 YY 在没有经过调色训练的情况下做了一些色彩实验：
+尽管如此，为了好玩，我还是和 :people:`YY` 在没有经过调色训练的情况下做了一些色彩实验：
 
 四季色卡
 --------
@@ -136,10 +136,10 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
       :date: 2022-04-25
       :image: /_images/artwork-taoc/mmexport1650950079664__01.jpg
 
-      YY 画的四季色卡。
+      :people:`YY` 画的四季色卡。
 
       :春: 春天和 YY 之前画的心境那张有些许相似，不知道是不是巧合
-      :夏: 夏天是夜空、树林和橙月。YY 说用了撒了盐表现夜跑时沁出的汗，虽然因为不熟悉材料没撒好，但一提到汗，和夏天有关的其他印象：急促的鼻息、昏黄的路灯，聒噪的虫鸣，也一并跟着涌现了
+      :夏: 夏天是夜空、树林和橙月。:people:`YY` 说用了撒了盐表现夜跑时沁出的汗，虽然因为不熟悉材料没撒好，但一提到汗，和夏天有关的其他印象：急促的鼻息、昏黄的路灯，聒噪的虫鸣，也一并跟着涌现了
       :秋: 秋天和春天一样短暂又流动
       :冬: YY 的冬天的没有太多大自然的介入，更多的是夜里亮起的星星和灯火
 
@@ -185,7 +185,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
          :date: 2022-04-27
          :image: /_images/artwork-taoc/mmexport1651241068440__01.jpg
 
-         检验员 DYY。
+         检验员 :people:`YY`。
 
          作为受试对象，本来比较喜欢这张，感觉检验员使用了强烈的倾向来形容我是一个什么样的人，而且和我的自我评价大概接近。
          当然，这些都是含糊不清的。
@@ -217,7 +217,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
          :date: 2022-04-27
          :image: /_images/artwork-taoc/mmexport1651158545296__01.jpg
 
-         检验员 DYY。
+         检验员 :people:`YY`。
 
          经过检验员一番 :del:`卖关子` 讲解后，我更喜欢这张。
 

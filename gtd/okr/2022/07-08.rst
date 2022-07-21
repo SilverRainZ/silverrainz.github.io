@@ -43,7 +43,7 @@
 
    https://github.com/golang/go/issues/51180 可以看看，确实是有问题的。
 
-   :ghuser:`WangLeonard` 今天推荐了一个讲 Runtime 的 UP 主，应该比看书顺畅一些：
+   :people:`WangLeonard` 今天推荐了一个讲 Runtime 的 UP 主，应该比看书顺畅一些：
 
    .. bilibili:: BV1hv411x7we
 
