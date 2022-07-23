@@ -36,7 +36,7 @@ jobs:
         path: /tmp/sphinxnotes-pages
         key: ${{ runner.os }}-Sphinx-Github1
     - name: Build and Commit
-      uses: sphinx-notes/pages@cache1
+      uses: sphinx-notes/pages@cache2
       with:
         documentation_path: .
         requirements_path: ./requirements.txt
