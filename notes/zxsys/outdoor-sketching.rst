@@ -203,7 +203,7 @@
    :size: 16k
    :date: 2022-05-03
    :medium: 炭精粉
-   :image: _images/artwork-anf/IMG_20220504_122921__01.jpg
+   :image: /_images/artwork-anf/IMG_20220504_122921__01.jpg
 
    :people:`YY` 的第三张，非常棒的一张！
 
@@ -219,7 +219,7 @@
    :size: 16k
    :date: 2022-07-07
    :medium: 炭精粉
-   :image: _images/artwork-anf/IMG_20220707_233454__01__01.jpg
+   :image: /_images/artwork-anf/IMG_20220707_233454__01__01.jpg
 
    从 :artwork:`anf-011` 之后有了一些底气，两个月不画碳粉手生了也不会胆怯。
 
@@ -228,3 +228,14 @@
    杭州的晚上没有风，汗珠从渗出到滴落的过程也是顺畅的。
 
    .. warning:: 顺畅的同时，好像又少了些味道，警惕之。
+
+.. artwork:: 西溪北苑的第十一个夜晚
+   :id: anf-015
+   :size: 16k
+   :date: 2022-07-14
+   :medium: 炭精粉
+   :image: /_images/artwork-anf/IMG_20220715_195007__01.jpg
+
+   画的是小区里的核酸检测站，是一个集装箱活动房。
+
+   太热了。
