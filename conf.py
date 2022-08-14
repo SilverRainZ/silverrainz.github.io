@@ -120,6 +120,7 @@ html_theme_options = {
     "use_repository_button": True,
     "use_download_button": False,
     "show_toc_level": 2,
+    "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
 
 nosidebar_page = ['nosidebar.html']
