@@ -313,4 +313,4 @@ ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 `Isso <https://posa
 
 .. rubric:: 脚注
 
-.. [#] :doc:`/man/git`
+.. [#] :doc:`/notes/man/git`

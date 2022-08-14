@@ -74,7 +74,6 @@
 
 .. friend:: VOID001
             夏娜
-            void001
    :blog: https://void-shana.moe/
    :avatar: https://github.com/VOID001.png
 

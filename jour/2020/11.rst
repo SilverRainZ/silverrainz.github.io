@@ -323,7 +323,7 @@ LilyPond 文件结构
 
 .. versionchanged:: 2020-08-16
 
-   Moved to :doc:`/man/lily`.
+   Moved to :doc:`/notes/man/lily`.
 
 形而上学的一些基本概念
 ======================
