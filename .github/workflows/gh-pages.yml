@@ -34,7 +34,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: /tmp/sphinxnotes-pages
-        key: ${{ runner.os }}-Sphinx-Github1
+        key: ${{ runner.os }}-Sphinx-Github2
     - name: Build and Commit
       uses: sphinx-notes/pages@cache2
       with:
