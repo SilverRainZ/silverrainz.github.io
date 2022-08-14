@@ -22,7 +22,7 @@ Go 1.18 新增了一个重大的语言特性：泛型。本文不会描述泛型
 
 .. admonition:: 译者注
 
-   关于泛型的简要介绍，可以看看 :doc:`./funtional-programming-in-go-generics`
+   关于泛型的简要介绍，可以看看 :doc:`/blog/funtional-programming-in-go-generics`
 
 需要明确的是，这里提供的是通用的准则而非硬性的规定。请结合你自己的判断。但如果你拿不准，建议还是采用本文提供的准则。
 
