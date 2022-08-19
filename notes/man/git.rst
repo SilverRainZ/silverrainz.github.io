@@ -33,3 +33,10 @@ Delete remote tag::
 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计::
 
     *.rst linguist-detectable=true
+
+GitHub
+======
+
+`我订阅的所有 Issue`__
+
+__ https://github.com/notifications/subscriptions
