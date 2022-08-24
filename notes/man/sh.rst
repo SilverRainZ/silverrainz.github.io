@@ -2,10 +2,6 @@
 Shell Script
 ============
 
------------------------
-sh, bash, zsh and so on
------------------------
-
 :date: 2020-12-26
 :version: 1
 
@@ -62,3 +58,16 @@ The arguments of previous command::
     !*      # All
     !:n     # N-th
     !:n-m   # Range n~m
+
+Bash `set` options
+==================
+
+Get help::
+
+   $ bash -c 'help set'
+
+脚本常用参数：
+
+:-e: Exit immediately if a command exits with a non-zero status.
+:-x: Print commands and their arguments as they are executed.
+:-u: Treat unset variables as an error when substituting.
