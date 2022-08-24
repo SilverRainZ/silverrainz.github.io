@@ -12,6 +12,7 @@ Golang
 
          pprof
          coverage
+         godoc
 
    .. grid-item-card::
 
