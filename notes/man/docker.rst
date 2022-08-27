@@ -19,5 +19,9 @@ Get a clean Debian 10 shell with PWD mounted and 80 port exposed::
 :`-p`, `--expose`:      Bind port 8080 of the *container* to TCP port 80 of
                         *host* on 127.0.0 [#]_
 
+开机启动::
+
+   $ docker update --restart=always name
+
 .. [#] https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount
 .. [#] https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose
