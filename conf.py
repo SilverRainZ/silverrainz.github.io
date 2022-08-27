@@ -94,7 +94,7 @@ if not PROD:
 show_authors = True
 
 # A URL to cross-reference manpage directives.
-manpages_url = 'https://linux.die.net/man/{section}/{page}'
+manpages_url = 'https://man7.org/linux/man-pages/man{section}/{page}.{section}.html'
 
 # -- Options for HTML output -------------------------------------------------
 
