@@ -46,8 +46,73 @@
      - Transfer function <=  问题 + 语义
      - 控制流 <= flow merging
 
-:math:`\top`: Top
-   Unknown sign, 用来表示一个符号是未知的
+:math:`\top`
+   Top sign, 用来表示一个符号是未知的（Unknown）
 
-:math:`\bot`: Bottom
-   Undefined sign, 用来表示一个符号是未定义的
+:math:`\bot` 
+   Bottom sign, 用来表示一个符号是未定义的（Undefined ）
+
+2. Intermediate Representation
+==============================
+
+Intermediate Representation (IR) 是介于高级编程语言和字节码之间的一种中间表现形式，通常是 语言无关 + 机器无关的。用于编译优化和程序分析。
+
+AST 和 IR 的异同：
+
+.. figure:: /_images/18492e22-a308-4a83-9c1a-6819d8025917.png
+
+常见的 IR 形式：
+
+- :term:`3AC` 最常用
+- :term:`SSA`
+
+常见的 IR 语言：
+
+- C - 天然的汇编抽象语言
+- LLVM IR
+- Soot (3AC)
+- Jimple (Typed 3AC)
+
+.. term:: Three-Addrress Code
+          3AC
+          TAC
+          三地址码
+
+   :enwiki:`Three-address_code`
+
+   .. figure:: /_images/6e1456b0-5734-4083-8617-fb8676028fe3.png
+
+.. term:: Static Single-Assignment
+          SSA
+          静态单赋值
+   
+   .. figure:: /_images/00cce13d-de57-41ac-b41b-84455cc2d6d7.png
+
+.. term:: Control Flow Graph
+          CFG
+          控制流程图
+
+   .. figure:: /_images/0bc9d1e2-3ea7-4c5f-b1ea-6f948c8684fb.png
+
+.. term:: Basic Block
+          BB
+          基本块
+
+   Entry of BB must be dest of a JUMP instr.
+   Exit of BB must be a JUMP instr.
+
+   .. figure:: /_images/dd34afeb-87e1-4cea-b8d5-d903eb179cb8.png
+
+
+Some Soot Stuffs
+----------------
+
+`$x`: temp var of soot.
+
+Java invoke type:
+
+:special:   constructor, super class mentod, private method
+:virtual:   instance method call (virtual dispatch)
+:interface: can not optmizetion, check interface implementation
+:static:    call static method
+:dynamic:   for lambda
