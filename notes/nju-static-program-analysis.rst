@@ -46,11 +46,13 @@
      - Transfer function <=  问题 + 语义
      - 控制流 <= flow merging
 
-:math:`\top`
-   Top sign, 用来表示一个符号是未知的（Unknown）
+.. term:: Top
 
-:math:`\bot` 
-   Bottom sign, 用来表示一个符号是未定义的（Undefined ）
+   :math:`\top`，用来表示一个符号是未知的（Unknown）
+
+.. term:: Bottom
+
+   :math:`\bot`, 用来表示一个符号是未定义的（Undefined ）
 
 2. Intermediate Representation
 ==============================
@@ -103,7 +105,6 @@ AST 和 IR 的异同：
 
    .. figure:: /_images/dd34afeb-87e1-4cea-b8d5-d903eb179cb8.png
 
-
 Some Soot Stuffs
 ----------------
 
@@ -116,3 +117,75 @@ Java invoke type:
 :interface: can not optmizetion, check interface implementation
 :static:    call static method
 :dynamic:   for lambda
+
+3. Data Flow Analysis I
+=======================
+
+.. term:: Data Flow Analysis
+          数据流分析
+          DFA
+
+   How *Data* is *Flow* on :term:`CFG`?
+
+   :Data: is application-specific data, an abstraction (such as :term:`Top`, :term:`Bottom`)
+   :Flow: through the nodes(:term:`BB`\ s, statements) and edges (control flows)
+          of CFG (program). Safe-approximation?
+
+
+   Different data flow analysis application has:
+
+   - different data abstraction
+   - different flow safe-approximation strategies (策略)
+   - different transfer functions and control-flow handlings
+
+   .. figure:: /_images/screenshot-20220906-202633.png
+
+.. term:: May Analysis::
+
+   Output information *may* be true (over-approximation, sound?).
+
+   Most static analyses is *May Analysis*.
+
+.. term:: Must Analysis::
+
+   Output information *must* be must (under-approximation, complete?).
+
+Over- and under-approximation are both safty of analysis.
+
+Input/Ouput States
+   The set of possible data flow values is the domain for this application.
+
+   .. figure:: /_images/screenshot-20220906-203643.png
+
+      Target of :term:`DFA`.
+
+Forward/Backward Analysis
+   Nothing special.
+
+Application
+-----------
+
+Reaching Definitions Analysis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Intra-producedural CFG
+2. No alias (alias: Pointer Analysis)
+
+Dummy definition.
+
+Bit Vectors
+
+不动点计算
+
+A\B => A but exclude B
+
+模版
+
+停机：IN[S] 不变时，OUT[S] 不变
+
+OUT[S] never shrinks
+
+.. figure:: /_images/screenshot-20220906-212807.png
+
+   Iteration Cycles
+
