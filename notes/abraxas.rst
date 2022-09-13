@@ -103,6 +103,6 @@
    :date: 2022-09-10
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-abraxas/abraxas-005.jpg
+   :image: /_images/artwork-abraxas/abraxas-006.jpg
 
 :people:`YY` 画的小时候的我。
