@@ -94,16 +94,6 @@
       .. card::
 
          .. toctree::
-            :caption: 事竟成
-            :maxdepth: 1
-
-            gtd/okr/index
-            gtd/dida
-            gtd/sphinx-todo
-
-      .. card::
-
-         .. toctree::
             :caption: 收集室
             :maxdepth: 1
             :glob:
