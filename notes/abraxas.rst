@@ -77,8 +77,32 @@
    :date: 2022-07-24
    :size: 16k
    :medium: 丙烯
-   :image: /_images/artwork-abraxas//IMG_20220724_171026__01__01.jpg
+   :image: /_images/artwork-abraxas/IMG_20220724_171026__01__01.jpg
 
 本来想作为 :artwork:`abraxas-003` 的正式版，也因为那张送人了，想好好再画一张。
 
 对丙烯的掌握依然不好，毕竟没系统训练过。相比前一张，大体的氛围依然存在，只是窗台的天色更亮了些，更接近的我快要睡着的清晨时分。
+
+茶舍
+----
+
+.. artwork:: _
+   :id: abraxas-005
+   :date: 2022-09-12
+   :size: 16k
+   :medium: 水彩
+   :image: /_images/artwork-abraxas/abraxas-005.jpg
+
+为了换取 :artwork:`abraxas-006` 而画了 :people:`YY`。
+
+:friend:`i` 小时候
+------------------
+
+.. artwork:: _
+   :id: abraxas-006
+   :date: 2022-09-10
+   :size: 32k
+   :medium: 水彩
+   :image: /_images/artwork-abraxas/abraxas-005.jpg
+
+:people:`YY` 画的小时候的我。
