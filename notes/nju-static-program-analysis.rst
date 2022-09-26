@@ -146,9 +146,13 @@ Java invoke type:
 
    Most static analyses is *May Analysis*.
 
+   一般情况下 state 初始化为空集。
+
 .. term:: Must Analysis::
 
    Output information *must* be must (under-approximation, complete?).
+
+   一般情况下 state 初始化为全集。
 
 Over- and under-approximation are both safty of analysis.
 
@@ -189,3 +193,19 @@ OUT[S] never shrinks
 
    Iteration Cycles
 
+4. Data Flow Analysis II
+========================
+
+Live Variable Analysis
+~~~~~~~~~~~~~~~~~~~~~~
+
+Abstraction
+   Use a bit vector, one bit for one variable assignment (`v = x`). 1 for alive and 0 for dead.
+
+Transfer function: (no formal)
+   - Do backward iteratiom, find variable use statements in every basic block, once found, set corrspoind bit according its value.
+   - Merge: `1 + ? -> 1` (It is a may analysis)
+   - How to determine value?
+
+Initial State
+   All variables are dead, bit vector: `000...00`
