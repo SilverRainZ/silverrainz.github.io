@@ -27,6 +27,18 @@
 
 .. centered:: *Yes silver bullet here.*
 
+.. only:: lan
+
+   .. card::
+
+      .. toctree::
+         :caption: 浪人泊处
+         :maxdepth: 1
+
+         ronin/okr/index
+         ronin/endoscope/index
+         ronin/inbox/index
+
 .. centered:: :doc:`关于我 <about/me>`
    | :doc:`关于本站 <about/site>`
    | :doc:`友人帐 <about/friends>`
