@@ -8,3 +8,6 @@ _cache/
 
 # macOS
 .DS_Store
+
+# Private content
+ronin/
