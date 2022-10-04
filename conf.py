@@ -33,10 +33,13 @@ datefmt = '%Y-%m-%d'
 
 # -- Enviroment information -----------------------------------------------------
 
-PROD = os.environ.get('CI') is not None
+if os.environ.get('CI') is None:
+    ENV = 'lan'
+else:
+    ENV = 'wan'
+tags.add(ENV)
 
-if PROD:
-    tags.add('prod')
+print(str(tags))
 
 # -- General configuration ---------------------------------------------------
 
@@ -83,7 +86,7 @@ default_role = 'code'
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
-if not PROD:
+if ENV == 'lan':
     keep_warnings = True
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
@@ -327,11 +330,11 @@ blog_feed_subtitle = description
 fontawesome_included = True
 html_css_files.append('ablog-custom.css')
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if not PROD:
+if ENV == 'lan':
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -342,7 +345,7 @@ if not PROD:
 
 extensions.append('sphinx_design')
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
 
@@ -356,21 +359,21 @@ if PROD:
         .. isso::
     """)
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinx_sitemap')
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
 # NOTE: required by ablog
 extensions.append('sphinx.ext.intersphinx')
-if PROD:
+if ENV == 'wan':
     intersphinx_mapping = {
         'python': ('https://docs.python.org/3', None),
         'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
@@ -388,7 +391,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
@@ -396,7 +399,7 @@ if PROD:
 else:
     mock_directives.append('recentupdate')
 
-if PROD:
+if ENV == 'wan':
     extensions.append('sphinxext.opengraph')
     ogp_site_url = baseurl
     ogp_site_name = project
@@ -404,6 +407,6 @@ if PROD:
 
 extensions.append('sphinxnotes.extweb')
 
-if PROD:
+if ENV == 'wan':
     extensions.append('notfound.extension')
     notfound_urls_prefix = None
