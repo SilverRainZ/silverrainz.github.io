@@ -64,6 +64,7 @@
          notes/*/index
          notes/abraxas
          notes/nju-static-program-analysis
+         notes/color
 
    .. grid-item-card::
 
