@@ -9,6 +9,9 @@ Github 万圣节彩蛋
 .. grid:: 1 1 1 1
    :gutter: 1
 
+   .. grid-item-card:: 2022
+      :img-bottom: /_images/火狐截图_2022-10-30T16-45-17.748Z.png
+
    .. grid-item-card:: 2021
       :img-bottom: /_images/github-halloween-2021.png
 
