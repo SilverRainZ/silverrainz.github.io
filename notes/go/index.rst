@@ -25,3 +25,4 @@ Golang
          escape-analysis
          ast
          ssa
+         generics
