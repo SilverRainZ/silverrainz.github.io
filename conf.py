@@ -39,8 +39,6 @@ else:
     ENV = 'wan'
 tags.add(ENV)
 
-print(str(tags))
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
