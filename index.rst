@@ -65,6 +65,7 @@
          notes/abraxas
          notes/nju-static-program-analysis
          notes/color
+         notes/nintendo-switch
 
    .. grid-item-card::
 
