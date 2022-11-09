@@ -32,7 +32,7 @@
    rst -u-> sphinx: 构建
 
    cloud pages.github as "Github Pages（主站）"
-   cloud pages.gitee as "Gittee Pages（镜像）"
+   cloud pages.gitee as "Gitee Pages（镜像）"
    repo -u-> pages.github: Github Action
    pages.github -> pages.gitee: Github Action
 
