@@ -59,6 +59,19 @@ The arguments of previous command::
     !:n     # N-th
     !:n-m   # Range n~m
 
+
+Command Line Wrapper 模版
+-------------------------
+
+::
+
+   #!/bin/bash
+
+   EXEC="xxxx"
+
+   exec $EXEC $*
+
+
 Bash `set` options
 ==================
 
