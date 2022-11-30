@@ -1,22 +1,33 @@
+# https://github.com/actions/starter-workflows/blob/main/pages/static.yml
 name: Publish Github Pages
+
 on:
   push:
-    branches: [master]
+    branches: [$default-branch]
     paths-ignore:
       - .github/workflows/gitee-pages.yml
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   pages:
     name: Publish Github Pages
     runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        # Required by chetan/git-restore-mtime-action and sphinx-notes@pages
-        fetch-depth: 0
-    - name: Fix timestamps
-      uses: chetan/git-restore-mtime-action@master
     - name: Setup locale
       run: |
         sudo locale-gen en_US.UTF-8
@@ -25,24 +36,9 @@ jobs:
       uses: awalsh128/cache-apt-pkgs-action@v1.2.0
       with:
         packages: lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg
-    - name: Setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-        cache: 'pip'
-    - name: Cache
-      uses: actions/cache@v3
-      with:
-        path: /tmp/sphinxnotes-pages
-        key: ${{ runner.os }}-Sphinx-Github2
-    - name: Build and Commit
+    - name: Build documentation
       uses: sphinx-notes/pages@cache2
       with:
         documentation_path: .
         requirements_path: ./requirements.txt
-        sphinx_version: 4.5.0
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
+        cache: true
