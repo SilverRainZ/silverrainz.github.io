@@ -14,10 +14,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        # Required by chetan/git-restore-mtime-action and sphinx-notes@pages
+        # Required by sphinx-notes@pages
         fetch-depth: 0
-    - name: Fix timestamps
-      uses: chetan/git-restore-mtime-action@master
     - name: Setup locale
       run: |
         sudo locale-gen en_US.UTF-8
@@ -31,13 +29,8 @@ jobs:
       with:
         python-version: '3.10'
         cache: 'pip'
-    - name: Cache
-      uses: actions/cache@v3
-      with:
-        path: /tmp/sphinxnotes-pages
-        key: ${{ runner.os }}-Sphinx-Gitee2
     - name: Build and Commit
-      uses: sphinx-notes/pages@cache1
+      uses: sphinx-notes/pages@v2
       with:
         documentation_path: .
         requirements_path: ./requirements.txt
