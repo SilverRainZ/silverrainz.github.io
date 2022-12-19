@@ -1,3 +1,4 @@
+===
 Git
 ===
 
@@ -33,6 +34,10 @@ Delete remote tag::
 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计::
 
     *.rst linguist-detectable=true
+
+Rebase 时保留 base 分支改动::
+
+   git checkout --theirs <FILE>
 
 GitHub
 ======
