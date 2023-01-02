@@ -1,0 +1,6 @@
+/* Custom inline literal style, from sphinx_rtd_theme. */
+code.code.literal {
+	background: #fff;
+	border: 1px solid #e1e4e5;
+	padding: 0 5px;
+}
