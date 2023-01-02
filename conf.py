@@ -123,6 +123,7 @@ html_theme_options = {
     "show_toc_level": 2,
     "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
+html_css_files.append('sphinx-book-theme-custom.css')
 
 nosidebar_page = ['nosidebar.html']
 blog_post_page = [ # Provided by sphinx_book_theme
