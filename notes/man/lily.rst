@@ -2,6 +2,8 @@
 LilyPond
 ========
 
+:Online Editor: https://www.hacklily.org/
+
 .. highlight:: lilypond
 
 .. hint:: 页面上的预览由 :pypi:`sphinxnotes-lilypond` 生成
