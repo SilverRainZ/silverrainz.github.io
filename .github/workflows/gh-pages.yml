@@ -20,7 +20,7 @@ jobs:
     - run: |
         sudo locale-gen en_US.UTF-8
         sudo update-locale
-    - uses: awalsh128/cache-apt-pkgs-action@v1.2.0
+    - uses: awalsh128/cache-apt-pkgs-action@master
       with:
         packages: lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg
     - id: deployment
