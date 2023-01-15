@@ -1,0 +1,11 @@
+=======
+2023-01
+=======
+
+在 Arch Linux + Wayland 运行 steam 上的《文明六》
+=================================================
+
+- 安装 :archpkg:`steam-native-runtime` 并使用 :command:`steam-native` 启动 steam 客户端
+- 在 steam 「库」中右键文明，「属性」→ 「通用」→ 「高级选项」，修改启动选项为::
+
+   QT_QPA_PLATFORM=xcb LD_PRELOAD=/usr/lib/libfreetype.so %command%
