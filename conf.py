@@ -52,6 +52,8 @@ extensions = [
     'sphinxcontrib.plantuml',
     'sphinxcontrib.asciinema',
     'sphinx_copybutton',
+    'sphinxcontrib.youtube',
+    'sphinxnotes.extweb',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -403,8 +405,6 @@ if ENV == 'wan':
     ogp_site_url = baseurl
     ogp_site_name = project
     ogp_image = baseurl + logo
-
-extensions.append('sphinxnotes.extweb')
 
 if ENV == 'wan':
     extensions.append('notfound.extension')
