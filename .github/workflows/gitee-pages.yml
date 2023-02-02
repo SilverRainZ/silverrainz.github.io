@@ -5,6 +5,12 @@ on:
     paths-ignore:
       - .github/workflows/gh-pages.yml
 
+# Cancel any in-progress job or run
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+concurrency:
+  group: gitee-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gitee-pages:
     name: Publish Gitee Pages
