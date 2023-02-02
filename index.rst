@@ -85,11 +85,13 @@
 
       .. toctree::
          :caption: 随记
-         :reversed:
          :maxdepth: 2
          :glob:
 
-         jour/*/index
+         jour/2023/index
+         jour/2022/index
+         jour/more
+
 
 
    .. grid-item::
