@@ -20,3 +20,4 @@ sphinxext-opengraph
 sphinxnotes.extweb
 sphinx-copybutton
 sphinx-notfound-page
+sphinxcontrib-youtube
