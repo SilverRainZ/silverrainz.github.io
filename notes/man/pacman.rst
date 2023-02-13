@@ -6,7 +6,7 @@ Pacman
 
 Remove packages cache (recent 1 installed packages and all uninstalled packages)::
 
-    # paccache -rk1 -ruk0 paccache
+    # paccache -rk1 -ruk0
 
 Removing unused packages (orphans)::
 
