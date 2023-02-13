@@ -148,6 +148,13 @@ Packing
 
 Check pypi upload error:
 
-.. code:: bash
+.. code:: console
 
    $ twine check dist/*
+
+Check source and wheel content:
+
+.. code:: console
+
+   $ tar tf dist/*.tar.gz
+   $ unzip -l dist/*.whl
