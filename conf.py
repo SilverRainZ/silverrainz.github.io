@@ -127,12 +127,12 @@ html_theme_options = {
 }
 html_css_files.append('sphinx-book-theme-custom.css')
 
-nosidebar_page = ['nosidebar.html']
+nosidebar_page = ['nosidebar']
 blog_post_page = [ # Provided by sphinx_book_theme
-                  'sidebar-logo.html', 'search-field.html',
+                  'navbar-logo',
                   # Provided by ABlog
-                  'postcard.html', 'recentposts.html', 'tagcloud.html',
-                  'categories.html', 'archives.html']
+                  'postcard', 'recentposts', 'tagcloud',
+                  'categories', 'archives']
 # TODO...
 
 html_sidebars = {
