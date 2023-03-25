@@ -14,7 +14,7 @@ sphinxcontrib-plantuml
 sphinxcontrib.asciinema
 sphinx-reredirects
 sphinxnotes-recentupdate
-sphinx-book-theme>=0.3.2
+sphinx-book-theme>=1.0.0
 sphinxnotes-mock
 sphinxext-opengraph
 sphinxnotes.extweb

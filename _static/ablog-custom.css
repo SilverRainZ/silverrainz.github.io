@@ -14,6 +14,7 @@
 .postlist-style-disc p:nth-child(1) > .reference {
   font-size: initial;
   font-style: initial;
+  font-weight: 400;
 }
 
 /*********************************
@@ -21,9 +22,6 @@
  *********************************/
 
 /* Style for combining toctree and postlist of index.rst */
-ul.postlist-style-disc {
-  padding-left: 1.5em;
-}
 ul.postlist-style-disc li + li {
    margin-top: 0;
 }
