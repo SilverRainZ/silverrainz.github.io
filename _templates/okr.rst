@@ -1,4 +1,7 @@
-.. list-table:: OKR-{{ id }}
+:编号: ``{{ id }}``
+{% if parent %}:对齐: :okr:`{{ parent }}`{% endif %}
+
+.. list-table::
    :header-rows: 1
    :align: center
    :widths: auto
