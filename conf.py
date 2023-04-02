@@ -185,6 +185,7 @@ extlinks = {
     'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', None),
     'so.q': ('https://stackoverflow.com/a/%s', '🤔 %s'),
     'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
+    'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
 }
 
 extensions.append('sphinxnotes.any')
@@ -294,6 +295,7 @@ any_schemas = [
                'id': F(unique=True, referenceable=True, required=True),
                'krs': F(form=F.Form.LINES),
                'scores': F(form=F.Form.WORDS),
+               'parent': F(),
            },
            description_template=open('_templates/okr.rst', 'r').read(),
            reference_template='🥅{{ title }}'),
