@@ -4,8 +4,19 @@ Godoc
 
 .. highlight:: console
 
-Build a latest godoc from :ghrepo:`golang/tools` repository::
+Install
+=======
+
+Use `go install`::
+
+   $ go install golang.org/x/tools/cmd/godoc@latest
+
+Build from source (:ghrepo:`golang/tools`)::
 
    $ cd tools
    $ go build ./cmd/godoc/ -o doc
-   $ ./doc -http=localhost:6060
+
+Usage
+=====
+
+   $ godoc -http=localhost:6060
