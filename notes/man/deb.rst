@@ -14,7 +14,7 @@ Debian Packing
 
    # dpkg -i ./xxx.deb
 
-更新 :file:`debian/changelog` [#]_ ::
+更新 :file:`debian/changelog` [#]_ ，需要 `devscripts`::
 
    $ dch -i
 
