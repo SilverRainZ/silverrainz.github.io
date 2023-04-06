@@ -1066,6 +1066,7 @@ Anti-Recommendation
    :size: 16k
    :date: 2021-10-22
    :medium: 水彩
+   :image: /_images/1681336658.jpg
 
 这个房间本来就不会有人来，强盗的到来只是一个意外。
 
@@ -1082,6 +1083,8 @@ Anti-Recommendation
    :image: /_images/artwork-xfczk2/fa18a106008a4a6.jpg
 
 是我每天睡前都会做的，一个含糊又浪漫的梦。
+
+:2023-04-06: 现在不做了。
 
 点评
 ====
