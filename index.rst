@@ -27,7 +27,7 @@
 
 .. centered:: *Yes silver bullet here.*
 
-.. only:: lan
+.. only:: private
 
    .. card::
 
