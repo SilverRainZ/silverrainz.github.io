@@ -20,5 +20,10 @@ Debian Packing
 
 `dch` 命令位于 `devscripts` 包中。
 
+清除构建缓存 [#]_ ::
+
+   $ debian/rules clean
+
 .. [#] https://www.debian.org/doc/manuals/maint-guide/build.en.html
 .. [#] https://www.debian.org/doc/manuals/maint-guide/update.en.html
+.. [#] https://stackoverflow.com/a/23872636
