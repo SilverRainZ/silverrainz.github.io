@@ -10,9 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+from __future__ import annotations
 import os
 import sys
 from textwrap import dedent
+from enum import Enum, auto
 
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -28,16 +30,51 @@ copyright = '2020-2022, ' + author
 
 logo = '_static/logo.png'
 description = 'Yes silver bullet here.'
-baseurl = 'https://silverrainz.me/'
 datefmt = '%Y-%m-%d'
 
 # -- Enviroment information -----------------------------------------------------
 
-if os.environ.get('CI') is None:
-    ENV = 'lan'
-else:
-    ENV = 'wan'
-tags.add(ENV)
+class Deployment(Enum):
+    Github = auto()
+    Gitee = auto()
+    Raspi = auto() # Raspberry Pi
+    Local = auto()
+
+    @classmethod
+    def current(cls) -> Deployment:
+        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
+            return Deployment.Github
+        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
+            return Deployment.Github
+        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
+            return Deployment.Raspi
+        return Deployment.Local
+
+    def is_private(self) -> bool:
+        return not self.is_public()
+
+    def is_public(self) -> bool:
+        return self in [Deployment.Github, Deployment.Gitee]
+
+    def is_mirror(self) -> bool:
+        return self is not Deployment.Github
+
+    def url(self) -> str:
+        if self == Deployment.Github:
+            return 'https://silverrainz.me/'
+        elif self == Deployment.Gitee:
+            return 'https://silverrainz.gitee.io/'
+        elif self == Deployment.Raspi:
+            return 'https://rpi3/bullet'
+        else:
+            # file:///build_dir/html/index.html
+            return 'TODO'
+
+D = Deployment.current()
+print('Deployment:', D)
+# For `.. only::` directive.
+if D.is_private():
+    tags.add('private') # type: ignore
 
 # -- General configuration ---------------------------------------------------
 
@@ -86,7 +123,7 @@ default_role = 'code'
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
-if ENV == 'lan':
+if D.is_private():
     keep_warnings = True
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
@@ -108,7 +145,7 @@ html_static_path = ['_static']
 
 html_css_files = ['custom.css']
 
-html_baseurl = baseurl
+html_baseurl = D.url()
 
 html_title = project
 
@@ -125,6 +162,12 @@ html_theme_options = {
     "show_toc_level": 2,
     "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
+
+if D.is_mirror():
+    src = Deployment.Github
+    html_theme_options['announcement'] = \
+        f'<p> 这是部署于 {D} 的镜像，源站位于 <a class="source-site" href="{src.url()}">{src.url()}</a></p>';
+
 html_css_files.append('sphinx-book-theme-custom.css')
 
 nosidebar_page = ['nosidebar']
@@ -315,7 +358,7 @@ any_schemas = [
 extensions.append('ablog')
 blog_path = 'blog'
 blog_title = project
-blog_baseurl = baseurl
+blog_baseurl = D.url()
 blog_authors = {
     author_nick: (author, blog_baseurl),
 }
@@ -333,11 +376,11 @@ blog_feed_subtitle = description
 fontawesome_included = True
 html_css_files.append('ablog-custom.css')
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if ENV == 'lan':
+if D.is_private():
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -348,7 +391,7 @@ if ENV == 'lan':
 
 extensions.append('sphinx_design')
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
 
@@ -362,21 +405,22 @@ if ENV == 'wan':
         .. isso::
     """)
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinx_sitemap')
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
 # NOTE: required by ablog
 extensions.append('sphinx.ext.intersphinx')
-if ENV == 'wan':
+if D.is_public():
+    # Fetech intersphinx info too slow.
     intersphinx_mapping = {
         'python': ('https://docs.python.org/3', None),
         'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
@@ -394,7 +438,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
@@ -402,12 +446,13 @@ if ENV == 'wan':
 else:
     mock_directives.append('recentupdate')
 
-if ENV == 'wan':
+if D.is_public():
     extensions.append('sphinxext.opengraph')
-    ogp_site_url = baseurl
+    ogp_site_url = D.url()
     ogp_site_name = project
-    ogp_image = baseurl + logo
+    ogp_image = D.url() + logo
 
-if ENV == 'wan':
+if D is Deployment.Local:
+    # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = None
