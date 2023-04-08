@@ -44,8 +44,8 @@ class Deployment(Enum):
     def current(cls) -> Deployment:
         if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
             return Deployment.Github
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
-            return Deployment.Github
+        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Gitee Pages':
+            return Deployment.Gitee
         if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
             return Deployment.Raspi
         return Deployment.Local
