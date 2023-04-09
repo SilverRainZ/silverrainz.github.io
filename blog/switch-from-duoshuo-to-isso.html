@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="从多说迁移到 Isso" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/switch-from-duoshuo-to-isso.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="前阵子多说 对外宣布 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的 评论管理后台的域名也已经停止解析了。 这其实是意料之中的事情，缺乏盈利途径的多说长久以来一直处于缺乏维护的状态， 三头两头挂一次，这次终于撑不下去了。总之还是感谢这一两年来多说它提供的方便又免费 的评论服务。即使是这么一个没人看的小博客，评论功能也是不可缺少的，感谢归感谢，..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="前阵子多说 对外宣布 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的 评论管理后台的域名也已经停止解析了。 这其实是意料之中的事情，缺乏盈利途径的多说长久以来一直处于缺乏维护的状态， 三头两头挂一次，这次终于撑不下去了。总之还是感谢这一两年来多说它提供的方便又免费 的评论服务。即使是这么一个没人看的小博客，评论功能也是不可缺少的，感谢归感谢，..." />
+
+    <title>从多说迁移到 Isso &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/switch-from-duoshuo-to-isso';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/switch-from-duoshuo-to-isso.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2017-06-10
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/isso.html">Isso</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>从多说迁移到 Isso</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">为什么是 Isso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">架设服务</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">邮件通知</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">客户端</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jekyll-s-way">Jekyll’s Way</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https">HTTPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">样式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">数据迁移</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">安全</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">不足</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="isso">
+<h1>从多说迁移到 Isso<a class="headerlink" href="#isso" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>前阵子多说 <a class="reference external" href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241">对外宣布</a>
+它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
+评论管理后台的域名也已经停止解析了。</p>
+<p>这其实是意料之中的事情，缺乏盈利途径的多说长久以来一直处于缺乏维护的状态，
+三头两头挂一次，这次终于撑不下去了。总之还是感谢这一两年来多说它提供的方便又免费
+的评论服务。即使是这么一个没人看的小博客，评论功能也是不可缺少的，感谢归感谢，
+我还是得找个下家 :-) 。</p>
+<section id="id2">
+<h2>为什么是 Isso<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>我所见的各种静态博客用得最多的还是 Disqus，曾经我也是 Disqus 的用户，但是 Disqus
+存在着一些问题：</p>
+<ul class="simple">
+<li><p><span class="sphinxnotes-strike" style="text-decoration: line-through;">被墙，这当然不是 Disqus 本身的问题，这甚至不算是个问题</span></p></li>
+<li><p>评论无法彻底被删除，我曾经在 #archlinux-cn 讨论过这个问题，有人说既然你把数据
+公开地 post 到网上来了，就别想着它能够被删除，因为任何人都可以将他备份起来。
+我不敢苟同，数据是公开的没错，但作为这个评论系统的管理员，我应当有权利让这些
+数据从我「管辖」的范围内删除，而 Disqus 并没有给我这样的权利。更重要的是，看着
+这样删不掉的数据真的是太不爽了</p></li>
+<li><p>非 Disqus 用户无法方便地评论，甚至会诱导你注册帐号</p></li>
+</ul>
+<p>经过这次多说的关闭，我还是倾向于寻找一个开源的，能自己架设的评论系统。
+<a class="reference external" href="https://tomli.blog">biergaizi</a> 在微博推荐了
+Disqus 的开源替代：<a class="reference external" href="https://posativ.org/isso/">Isso</a>，Isso 在 Github 上有 2k+
+的 stars，开发虽然看起来不活跃但也不至于死掉，官网的 Demo 看起来不错，
+AUR 里面还有有现成的包能用，于是就决定是你了，Isso！</p>
+<p>我的博客托管在 Github 上，源码存放于：
+<a class="github reference external" href="https://github.com/SilverRainZ/tech">SilverRainZ/tech</a>，
+Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <em>以下的操作均针对该代码仓库
+以及 vps 上的 Arch 环境。</em></p>
+</section>
+<section id="id4">
+<h2>架设服务<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>首先从 AUR 安装安装 Isso：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ yaourt -S isso
+</pre></div>
+</div>
+<p>其依赖 python-misaka-v1 和 python-html5lib-9x07 也是 AUR 包，yaourt 也会帮
+我们安装上。AUR 虽好，但在安装的时候最好还是检查一下 PKGBUILD 和 .install 文件，
+以避免来自收到来自一些混乱邪恶的打包者的恶意（比如前阵子就有人在 Pypi 和 Gem
+投了恶意包 Orz）。</p>
+<p><span class="sphinxnotes-strike" style="text-decoration: line-through;">考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……</span></p>
+<p>安装完成后，打开 <code class="code docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 文件，文件对各个配置项都有详细的解释，
+需要重点关注的配置如下：</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isso configuration file</span>
+<span class="k">[general]</span>
+<span class="c1"># 数据库地址，默认值是在 /tmp 里，无法持久化</span>
+<span class="na">dbpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/lib/isso/comments.db</span>
+<span class="c1"># 使用 Isso 的网站地址，从不在这个列表里的地址发出的评论会被忽略</span>
+<span class="na">host</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">http</span><span class="o">:</span><span class="s">//tech.silverrainz.me/</span>
+<span class="w">    </span><span class="na">https</span><span class="o">:</span><span class="s">//tech.silverrainz.me/</span>
+<span class="na">...</span>
+
+<span class="c1"># 日志</span>
+<span class="na">log-file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/isso.log</span>
+
+<span class="k">[server]</span>
+<span class="c1"># 监听端口</span>
+<span class="na">listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://localhost:8080</span>
+<span class="na">...</span>
+
+<span class="k">[guard]</span>
+<span class="c1"># 开启 SPAM 保护</span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="c1"># 每分钟内最多五个新评论</span>
+<span class="na">ratelimit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+<span class="c1"># 评论不需要填写邮箱</span>
+<span class="na">require-email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+<span class="na">...</span>
+</pre></div>
+</div>
+<p>更详细的配置参考： <a class="reference external" href="https://posativ.org/isso/docs/configuration/server/">Server Configuration</a></p>
+<p>填写配置之后执行 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">isso.service</span></code> 就能启动 Isso 了。但注意配置文件
+里监听的是本地地址的端口，这里将用 nginx 反向代理将连接转发给 Isso。</p>
+<p>nginx 配置如下（参考 <a class="reference external" href="https://posativ.org/isso/docs/quickstart/#running-isso">Running Isso</a>）：</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">comments.silverrainz.me</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 是指向 vps 的域名，你需要在域名所使用的 DNS
+服务器提供者那里修改 A 记录。</p>
+<section id="id5">
+<h3>邮件通知<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+<p>// TODO</p>
+<p>还不会配 SMTP，先搁着。</p>
+</section>
+</section>
+<section id="id6">
+<h2>客户端<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<p>只要在网页中插入如下代码即可插入评论框：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;//comments.silverrainz.me/&quot;</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&quot;//comments.silverrainz.me/js/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<section id="jekyll-s-way">
+<h3>Jekyll’s Way<a class="headerlink" href="#jekyll-s-way" title="此标题的永久链接">#</a></h3>
+<p>对于 Jekyll 博客，比较好的做法是 <code class="code docutils literal notranslate"><span class="pre">_includes</span></code> 目录下在建立 <code class="code docutils literal notranslate"><span class="pre">comments</span></code> 文件用来
+存放评论框代码：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ site.baseurl }}/assets/comments.css&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;//comments.silverrainz.me/&quot;</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&quot;//comments.silverrainz.me/js/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span>
+         <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;{{ page.title }}&quot;</span>
+         <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;{{ page.id }}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">data-isso-id</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">data-title</span></code>  用来指定文章的唯一标识符和标题。
+为每个文章指定标识符便于以后的各种迁移。<code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code>
+和  <code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.title</span> <span class="pre">}}</span></code>
+是 Jekyll 提供的模板，用于获取本页面的 ID 和标题。
+title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 <code class="code docutils literal notranslate"><span class="pre">_posts</span></code> 中的文章自动生成 ID，
+对于 <code class="code docutils literal notranslate"><span class="pre">_post/2017-06-10-switch-from-duoshuo-to-isso.md</span></code>，
+其 ID 是 <code class="code docutils literal notranslate"><span class="pre">/2017/06/10/switch-from-duoshuo-to-isso</span></code>。</p>
+<p>然后在页面模板 <code class="code docutils literal notranslate"><span class="pre">_layouts/page.html</span></code> 里面引用 <code class="code docutils literal notranslate"><span class="pre">comments</span></code> 文件：
+<code class="code docutils literal notranslate"><span class="pre">{%</span> <span class="pre">include</span> <span class="pre">comments</span> <span class="pre">%}</span></code>
+就可以在每个使用了 page 模板的网页上显示评论框了。</p>
+<p>详情请参见：<a class="reference external" href="https://github.com/SilverRainZ/tech/commit/91fba1ed944ddc48d10df6dd21fceae5a0860b74">Commit: Replace duoshuo with isso</a></p>
+</section>
+</section>
+<section id="https">
+<h2>HTTPS<a class="headerlink" href="#https" title="此标题的永久链接">#</a></h2>
+<p>对于启用了 HTTPS 的博客来说，部署还没有结束：在 HTTPS 页面（博客）中引用的
+HTTP 脚本 (<a class="reference external" href="http://comments.silverrainz.me/js/embed.min.js">http://comments.silverrainz.me/js/embed.min.js</a>) 被认为是危险的
+Mixed Content，现代浏览器会拒绝加载它们，因此评论框并不能显示出来。</p>
+<p>还好我们有 Let’s Encrypt，给 Isso 上 HTTPS 并不是难事。</p>
+<p>只要验证了你对域名的所有权，Let’s Encrypt 就为你签发证书，整个签发过程通过
+certbot 完成，certbot 位于 [Community] 源中。验证所有权可以通过让
+Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使用 nginx 的话，更简单的
+方式是安装软件包 certbot-nginx，指定 certbot 使用 nginx 验证方式即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pacman -S certbot certbot-nginx</span>
+</pre></div>
+</div>
+<p>运行 certbot 申请证书需要各种参数，参数也可以写在配置文件中，方便续签证书使用，
+假设配置文件地址为 <code class="code docutils literal notranslate"><span class="pre">/etc/letsencrypt/cli.ini</span></code>：</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">rsa-key-size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4096</span>
+<span class="na">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">comments.silverrainz.me</span>
+<span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;e-mail address&gt;</span>
+<span class="na">authenticator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">nginx</span>
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">domains</span></code> 是一个用逗号分隔的域名列表，可以让一个证书能用在多个域名上。
+<code class="code docutils literal notranslate"><span class="pre">authenticator</span> <span class="pre">=</span> <span class="pre">nginx</span></code> 需要你安装 certbot-nginx。</p>
+<p>certbot 的更多用法见：<a class="reference external" href="https://certbot.eff.org/docs/using.html">User Guide</a></p>
+<p>执行以下命令申请证书：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># certbot -c /etc/letsencrypt/cli.ini certonly</span>
+</pre></div>
+</div>
+<p>接着按 certbot 的输出提示操作即可，当你看到类似信息的时候，说明证书已经申请成功了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at /etc/letsencrypt/live/comments.silverrainz.me/fullchain.pem.
+ - ...
+</pre></div>
+</div>
+<p>获得证书后，修改 nginx 中 <code class="code docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 的 server blcok：</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/comments.silverrainz.me/fullchain.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/comments.silverrainz.me/privkey.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_trusted_certificate</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/comments.silverrainz.me/chain.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_session_timeout</span><span class="w"> </span><span class="s">1d</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:50m</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_session_tickets</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Strict-Transport-Security</span><span class="w"> </span><span class="s">max-age=15768000</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_stapling</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_stapling_verify</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">comments.silverrainz.me</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>至此，应当可以通过 HTTPS 访问 Isso 的脚本了。</p>
+</section>
+<section id="id7">
+<h2>样式<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h2>
+<p>Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍做了一下调整，保存在
+<code class="code docutils literal notranslate"><span class="pre">assets/comments.css</span></code> 中：</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-postbox</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">auth-section</span><span class="w"> </span><span class="p">.</span><span class="nc">input-wrapper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">auth-section</span><span class="w"> </span><span class="p">.</span><span class="nc">post-action</span><span class="w"> </span><span class="nt">input</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">border-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#DDD</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">post-action</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#FFF</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-comment</span><span class="w"> </span><span class="nt">a</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#FFF</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">isso-thread</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-comment</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-comment-header</span><span class="w"> </span><span class="p">.</span><span class="nc">author</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#DDD</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="kc">larger</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>数据迁移<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h2>
+<p>完成部署和简单的美化后，接下来就该把旧数据迁移过来了。</p>
+<p>在多说宣布关闭的时候我就从后台导出了我的所有评论数据，数据文件的格式是 JSON，
+而 Isso 仅支持 Disqus 和 Wordpress 的 WXR 文件。本着不重复造轮子的原则，我找到了
+这个脚本：<a class="reference external" href="https://github.com/JamesPan/duoshuo-migrator">duoshuo-migrator</a>，
+注意脚本依赖 python2 和 python2-lxml。</p>
+<p>假设多说数据文件名为 <code class="code docutils literal notranslate"><span class="pre">duoshuo.json</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/JamesPan/duoshuo-migrator/master/duoshuo-migrator.py
+$ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
+</pre></div>
+</div>
+<p>然后导入 Isso 数据库：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># isso -c /etc/isso.conf import wp.xml</span>
+</pre></div>
+</div>
+<p>导入后到对应页面发现之前的评论并没有出现 :-(，使用以下命令将数据库的内容导出来看看</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo -e &#39;&quot;page: URI&quot;,&quot;page: title&quot;,&quot;ID&quot;,&quot;mode&quot;,&quot;created on&quot;,&quot;modified on&quot;,&quot;author: name&quot;,&quot;author: email&quot;,&quot;author: website&quot;,&quot;author: IP&quot;,&quot;likes&quot;,&quot;dislikes&quot;,&quot;voters&quot;,&quot;text&quot;\n&#39;&quot;$(sqlite3 /var/lib/isso/comments.db -csv &#39;SELECT threads.uri, threads.title, comments.id, comments.mode, datetime(comments.created, &quot;unixepoch&quot;, &quot;localtime&quot;), datetime(comments.modified, &quot;unixepoch&quot;, &quot;localtime&quot;), comments.author, comments.email, comments.website, comments.remote_addr, comments.likes, comments.dislikes, comments.voters,comments.text FROM comments INNER JOIN threads ON comments.tid=threads.id&#39;)&quot; &gt; export.csv
+</pre></div>
+</div>
+<p>这是导出来的 about 页面的一条评论：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="s2">&quot;page: URI&quot;</span><span class="p">,</span><span class="s2">&quot;page: title&quot;</span><span class="p">,</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span><span class="s2">&quot;created on&quot;</span><span class="p">,</span><span class="s2">&quot;modified on&quot;</span><span class="p">,</span><span class="s2">&quot;author: name&quot;</span><span class="p">,</span><span class="s2">&quot;author: email&quot;</span><span class="p">,</span><span class="s2">&quot;author: website&quot;</span><span class="p">,</span><span class="s2">&quot;author: IP&quot;</span><span class="p">,</span><span class="s2">&quot;likes&quot;</span><span class="p">,</span><span class="s2">&quot;dislikes&quot;</span><span class="p">,</span><span class="s2">&quot;voters&quot;</span><span class="p">,</span><span class="s2">&quot;text&quot;</span>
+<span class="o">/</span><span class="n">about</span><span class="o">.</span><span class="n">html</span><span class="p">,</span><span class="s2">&quot;关于&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;2015-11-10 22:28:27&quot;</span><span class="p">,,</span><span class="s2">&quot;Forrest Chang&quot;</span><span class="p">,</span><span class="o">*************</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span><span class="p">,</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">forrestchang</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="p">,</span><span class="o">***.**.***.*</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;在知乎上看到，博主今年大二吗？&quot;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>而 <code class="code docutils literal notranslate"><span class="pre">wp.xml</span></code> 中对应的部分是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>...
+    &lt;item&gt;
+      &lt;title&gt;关于&lt;/title&gt;
+      &lt;link&gt;http://lastavenger.github.io/about.html&lt;/link&gt;
+      &lt;content:encoded&gt;&lt;![CDATA[]]&gt;&lt;/content:encoded&gt;
+      &lt;dsq:thread_identifier&gt;5f3988f7e293c4ef57003c774e2a71aa&lt;/dsq:thread_identifier&gt;
+      &lt;dsq:thread_identifier&gt;5f3988f7e293c4ef57003c774e2a71aa&lt;/dsq:thread_identifier&gt;
+      &lt;wp:post_date_gmt&gt;&lt;/wp:post_date_gmt&gt;
+      &lt;wp:comment_status&gt;open&lt;/wp:comment_status&gt;
+      &lt;wp:comment&gt;
+        &lt;dsq:remote&gt;
+          &lt;dsq:id&gt;&lt;/dsq:id&gt;
+          &lt;dsq:avatar&gt;&lt;/dsq:avatar&gt;
+        &lt;/dsq:remote&gt;
+        &lt;wp:comment_id&gt;6215529386569892609&lt;/wp:comment_id&gt;
+        &lt;wp:comment_author&gt;Forrest Chang&lt;/wp:comment_author&gt;
+        &lt;wp:comment_author_email&gt;*************@gmail.com&lt;/wp:comment_author_email&gt;
+        &lt;wp:comment_author_url&gt;http://forrestchang.github.io/&lt;/wp:comment_author_url&gt;
+        &lt;wp:comment_author_IP&gt;***.**.***.***&lt;/wp:comment_author_IP&gt;
+        &lt;wp:comment_date_gmt&gt;2015-11-10 22:28:27&lt;/wp:comment_date_gmt&gt;
+        &lt;wp:comment_content&gt;&lt;![CDATA[在知乎上看到，博主今年大二吗？]]&gt;&lt;/wp:comment_content&gt;
+        &lt;wp:comment_approved&gt;1&lt;/wp:comment_approved&gt;
+        &lt;wp:comment_parent&gt;0&lt;/wp:comment_parent&gt;
+      &lt;/wp:comment&gt;
+
+      ...
+
+    &lt;/item&gt;
+...
+</pre></div>
+</div>
+<p>在多说中我使用 Jekyll 提供的 <code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code> 来标识文章，
+我在 about 页面设置的 id 是 <code class="code docutils literal notranslate"><span class="pre">/about</span></code>，因此在 about 页面的评论框代码会请求获取
+<code class="code docutils literal notranslate"><span class="pre">/about</span></code> 页面中的评论，而数据库中的 URI 却是 <code class="code docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
+<p>从多说评论数据转换而来的 <code class="code docutils literal notranslate"><span class="pre">wp.xml</span></code> 中并没有保留之前的文章 ID (Thread ID)，Isso 应该是
+直接从域名里把 URI 取出来当作文章 ID 的：
+<code class="code docutils literal notranslate"><span class="pre">&lt;link&gt;http://lastavenger.github.io/about.html&lt;/link&gt;</span></code> =&gt; <code class="code docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
+<p>于是尝试用 vim 把链接里面的 <code class="code docutils literal notranslate"><span class="pre">.html</span></code> 去掉：<code class="code docutils literal notranslate"><span class="pre">:%s/.html&lt;/link&gt;/&lt;/link&gt;/</span></code>，重新导入，
+评论就乖乖地出现了。</p>
+</section>
+<section id="id9">
+<h2>安全<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h2>
+<p>// TODO</p>
+<p>Isso 的安全性尚未考证，毫无安全技能点的我也只能先搁着了 :-(。</p>
+</section>
+<section id="id10">
+<h2>不足<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h2>
+<p>当然 Isso 的缺点也是很多的……</p>
+<ul class="simple">
+<li><p>没有管理界面，要管理评论只能手动操作数据库</p></li>
+<li><p>交互并不好：从不在白名单的地址（<code class="code docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 的 <code class="code docutils literal notranslate"><span class="pre">hosts</span></code> 列表）发出评论，
+评论框是没反应的；如果你的评论 字数不足/邮件地址格式不对/网址不对，点评论按钮也不会
+有任何反馈</p></li>
+<li><p>以后遇到了再补……</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/switch-from-duoshuo-to-isso" data-title="从多说迁移到 Isso" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>用 Sphinx + reStructuredText 构建笔记系统</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="srain-and-me.html">
+      <span>Srain 1.0 发布了</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">为什么是 Isso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">架设服务</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">邮件通知</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">客户端</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jekyll-s-way">Jekyll’s Way</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https">HTTPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">样式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">数据迁移</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">安全</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">不足</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

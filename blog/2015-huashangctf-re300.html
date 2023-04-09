@@ -1,0 +1,1020 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="2015 华山杯 CTF Reverse 300" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/2015-huashangctf-re300.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="程序在此： toetrix-crackme.exe ， VC++ 6.0 编写，无壳， CLI 程序。 这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码 总算是摸清楚了程序的流程。因为这种复杂度的题目之前没有做出来过，特此记录。 程序很像一个推箱子游戏，在一个 9*9 的二维地图中有三种元素： 0，1， 10 * x + 2 分别代表空气，障碍和箱子，你需要做的就是将..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="程序在此： toetrix-crackme.exe ， VC++ 6.0 编写，无壳， CLI 程序。 这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码 总算是摸清楚了程序的流程。因为这种复杂度的题目之前没有做出来过，特此记录。 程序很像一个推箱子游戏，在一个 9*9 的二维地图中有三种元素： 0，1， 10 * x + 2 分别代表空气，障碍和箱子，你需要做的就是将..." />
+
+    <title>2015 华山杯 CTF Reverse 300 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/2015-huashangctf-re300';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/2015-huashangctf-re300.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-11-02
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tag"></i>
+    
+    </span>
+  
+  
+  <a href="tag/ctf.html">CTF</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2015 华山杯 CTF Reverse 300</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="ctf-reverse-300">
+<h1>2015 华山杯 CTF Reverse 300<a class="headerlink" href="#ctf-reverse-300" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>程序在此： <a class="reference external" href="http://jianguoyun.com/p/Dbz27p8QtNrvBRiq2w4">toetrix-crackme.exe</a>， VC++ 6.0 编写，无壳， CLI 程序。</p>
+<p>这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码
+总算是摸清楚了程序的流程。因为这种复杂度的题目之前没有做出来过，特此记录。</p>
+<p>程序很像一个推箱子游戏，在一个 <code class="code docutils literal notranslate"><span class="pre">9*9</span></code> 的二维地图中有三种元素： 0，1，<code class="code docutils literal notranslate"><span class="pre">10</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">2</span></code>
+分别代表空气，障碍和箱子，你需要做的就是将所有的箱子推出地图。</p>
+<p>程序储存的地图如下：</p>
+<div class="highlight-c-objdump notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">map</span><span class="p">[]</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w"> </span><span class="n">map</span><span class="w">             </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">Ch</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="n">Ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="n">Eh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">48</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">52</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">.</span><span class="n">data</span><span class="o">:</span><span class="mo">00407030</span><span class="w">                 </span><span class="n">db</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>转化成十进制：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>可以看到每个箱子都是 <code class="code docutils literal notranslate"><span class="pre">X2</span></code> 形式的数字。</p>
+<p>用 IDA 分析整理得到 main 函数代码如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="kr">__cdecl</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">envp</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">step</span><span class="p">;</span><span class="w"> </span><span class="c1">// esi@1</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">direct</span><span class="p">;</span><span class="w"> </span><span class="c1">// bl@2</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">;</span><span class="w"> </span><span class="c1">// eax@2</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"> </span><span class="c1">// eax@13</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// [sp+8h] [bp-30h]@2</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// [sp+Ch] [bp-2Ch]@2</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">input</span><span class="p">;</span><span class="w"> </span><span class="c1">// [sp+10h] [bp-28h]@1</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">v10</span><span class="p">;</span><span class="w"> </span><span class="c1">// [sp+36h] [bp-2h]@1</span>
+
+<span class="w">    </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">aInputYourSn</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="n">aS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input</span><span class="p">);</span>
+<span class="w">    </span><span class="n">v10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">direct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">            </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">step</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">48</span><span class="p">;</span>
+<span class="w">            </span><span class="n">step</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">find_start</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="c1">// 遍历数组 返回的 x y 是箱子坐标</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="mi">49</span><span class="p">:</span><span class="w">                                </span><span class="c1">// &#39;1&#39; 左</span>
+<span class="w">                    </span><span class="n">go_left</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="mi">50</span><span class="p">:</span><span class="w">                                </span><span class="c1">// &#39;2&#39; 右</span>
+<span class="w">                    </span><span class="n">go_right</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="mi">51</span><span class="p">:</span><span class="w">                                </span><span class="c1">// &#39;3&#39; 上</span>
+<span class="w">                    </span><span class="n">go_up</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">52</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                        </span><span class="k">goto</span><span class="w"> </span><span class="n">LABEL_12</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">go_down</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                      </span><span class="c1">// &#39;4&#39; 下</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">step</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="nl">LABEL_12</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">check_no_start</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="n">aBDBuzeBuDGoodJ</span><span class="p">);</span><span class="w">                        </span><span class="c1">// ∑(っ °Д °;)っ  good job!</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="n">aIsbuzebuIsjrII</span><span class="p">);</span><span class="w">                        </span><span class="c1">// (╯°Д°)╯︵ ┻━┻  try again!</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>程序接受的输入以两个十进制位位为一组，
+第一位 <code class="code docutils literal notranslate"><span class="pre">start</span></code> 来指定一个箱子： 地图中值为（<code class="code docutils literal notranslate"><span class="pre">10</span> <span class="pre">*</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">2</span></code>）的元素
+（在 <code class="code docutils literal notranslate"><span class="pre">find_start</span></code> 函数中处理，返回 x，y 为箱子的坐标）；
+第二位 <code class="code docutils literal notranslate"><span class="pre">direct</span></code> 用来指定推箱子的方向，<em>字符</em> 1 2 3 4 分别代表方向左右上下
+（由 <code class="code docutils literal notranslate"><span class="pre">go_xx</span></code> 函数处理）。</p>
+<blockquote>
+<div><p>比如序列 2321 就是把值为 <code class="code docutils literal notranslate"><span class="pre">2*10</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">22</span></code> 的箱子往上 <code class="code docutils literal notranslate"><span class="pre">3</span></code> 移动， 再把该箱子往左 <code class="code docutils literal notranslate"><span class="pre">1</span></code> 移动。</p>
+</div></blockquote>
+<p>看一下 <code class="code docutils literal notranslate"><span class="pre">find_start</span></code> 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="kr">__cdecl</span><span class="w"> </span><span class="n">find_start</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">e_y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">e_x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// ecx@3</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// eax@5</span>
+
+<span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_x</span><span class="p">;</span>
+<span class="w">            </span><span class="cm">/* *(&amp;map + 9 * (*e_y) + *e_x)  -&gt;  map[y][x] */</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">map</span><span class="p">[</span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_y</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_x</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">e_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>函数遍历整个二维数组 <code class="code docutils literal notranslate"><span class="pre">map</span></code>，如果在 map 中发现等于 <code class="code docutils literal notranslate"><span class="pre">10</span> <span class="pre">*</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">2</span></code> 的数字就 return
+此时 <code class="code docutils literal notranslate"><span class="pre">e_x</span></code> <code class="code docutils literal notranslate"><span class="pre">e_y</span></code> 中便是该点坐标。</p>
+<p>接下来看 <code class="code docutils literal notranslate"><span class="pre">go_left</span></code> 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="kr">__cdecl</span><span class="w"> </span><span class="n">go_left</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// eax@1</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">map</span><span class="p">[</span><span class="mi">9</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">                   </span><span class="c1">// 遇到非 0 点</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">map</span><span class="p">[</span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 边缘检测</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">xchg_point</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">            </span><span class="c1">// 交换本次起点和终点的值，如果到达边缘，交换的就是同一个点。</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>该函数接受箱子的坐标，然后往坐标的左边走（<code class="code docutils literal notranslate"><span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">0</span></code>），
+如果遇到一个非 0 点，即跳出循环。</p>
+<p>如果 <code class="code docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">-1</span></code> 说明从该箱子左边到边界都是 0，箱子可以移出地图了，
+于是把该箱子坐标处的值标记为 1（变成障碍了，便于接下来交换）。</p>
+<p>接下来函数把箱子的坐标 <code class="code docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> 和 移动终点的坐标 <code class="code docutils literal notranslate"><span class="pre">(i+1,</span> <span class="pre">y)</span></code> 传给函数 <code class="code docutils literal notranslate"><span class="pre">xchg_point</span></code>，
+函数 <code class="code docutils literal notranslate"><span class="pre">xchg_point</span></code> 比较简单，仅仅是交换两个点的值。</p>
+<p>这样就完成了一次左移，<code class="code docutils literal notranslate"><span class="pre">go_right</span></code> <code class="code docutils literal notranslate"><span class="pre">go_up</span></code> 等函数同理。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果终点是边界的话，箱子的值会被置为 1，交换后的结果就是：箱子处变为 0，终点变为 1。</p>
+</div>
+<p>处理完一次移动之后 <code class="code docutils literal notranslate"><span class="pre">step</span></code> 自增 2，进行下一次移动，直到整个序列结束。
+就执行 <code class="code docutils literal notranslate"><span class="pre">check_no_start</span></code> 做最后的检查：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="nf">check_no_start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// esi@1</span>
+<span class="w">    </span><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// ecx@2</span>
+
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">map</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">_BYTE</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w">      </span><span class="c1">// 有一个箱子</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">end_of_map</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>检查整个 <code class="code docutils literal notranslate"><span class="pre">map</span></code> 中是否有形如 <code class="code docutils literal notranslate"><span class="pre">X2</span></code> 的数字，即是否还有箱子存在，
+如果没有的话，返回 1，这就是我们期望的结果。</p>
+<p>根据以上流程我们就可以手动算出一个能移除所有箱子的序列，</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>每个箱子移动可以不是连续的，可以先移动一个箱子到一个地方，再去移动另一个。</p>
+</div>
+<p>移动箱子的顺序的和路径如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">62</span> <span class="o">=</span> <span class="mi">62</span>
+<span class="mi">52</span> <span class="o">=</span> <span class="mi">515351</span>
+<span class="mi">82</span> <span class="o">=</span> <span class="mi">8183</span>
+<span class="mi">72</span> <span class="o">=</span> <span class="mi">7372</span>
+<span class="mi">42</span> <span class="o">=</span> <span class="mi">4441</span>
+<span class="mi">12</span> <span class="o">=</span> <span class="mi">141114</span>
+<span class="mi">32</span> <span class="o">=</span> <span class="mi">3431</span>
+<span class="mi">22</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="mi">42</span> <span class="o">=</span> <span class="mi">4244</span>
+</pre></div>
+</div>
+<p>因此得到 key： <code class="code docutils literal notranslate"><span class="pre">625153518183737244411411143431234244</span></code></p>
+<p>附上分析时使用的 <a class="reference external" href="http://jianguoyun.com/p/DaHaiScQtNrvBRjo2w4">idb 数据库</a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/2015-huashangctf-re300" data-title="2015 华山杯 CTF Reverse 300" id="isso-thread"></section></div>
+</div>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="process-scheduler-1.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>用户态进程的简单实现及调度(一)</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="gen-graph-from-c-code.html">
+      <span>从 C 源码生成 函数/模块 调用图</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

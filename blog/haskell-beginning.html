@@ -1,0 +1,902 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="Hello Haskell" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/haskell-beginning.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本 《Haskell 趣学指南》 ，这下子更没有不学的理由了。 多说一句，有趣的是这本书的译者之一竟然是 👤fleuria ，我曾经好几次发邮件询问他有关OS的事情， 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 👤 MaskRay ，曾经在中大听过蓝莲花的宣讲会， 可惜当时他并没有在场。 不得不说世界真..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本 《Haskell 趣学指南》 ，这下子更没有不学的理由了。 多说一句，有趣的是这本书的译者之一竟然是 👤fleuria ，我曾经好几次发邮件询问他有关OS的事情， 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 👤 MaskRay ，曾经在中大听过蓝莲花的宣讲会， 可惜当时他并没有在场。 不得不说世界真..." />
+
+    <title>Hello Haskell &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/haskell-beginning';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/haskell-beginning.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-01-30
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/haskell.html">Haskell</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hello Haskell</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">安装</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">随便说说</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="hello-haskell">
+<h1>Hello Haskell<a class="headerlink" href="#hello-haskell" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
+<a class="reference internal" href="../notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"><code class="xref any any-book docutils literal notranslate"><span class="pre">《Haskell</span> <span class="pre">趣学指南》</span></code></a> ，这下子更没有不学的理由了。</p>
+<p>多说一句，有趣的是这本书的译者之一竟然是 <a class="reference internal" href="../about/friends.html#friend-fleuria" title="friend fleurer"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤fleuria</span></code></a> ，我曾经好几次发邮件询问他有关OS的事情，
+没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 <a class="reference external" href="https://github.com/MaskRay">👤 MaskRay</a> ，曾经在中大听过蓝莲花的宣讲会，
+可惜当时他并没有在场。 不得不说世界真是太小了.</p>
+<aside class="topic">
+<p class="topic-title">2021-02-12</p>
+<p>当时在宣讲会上的是诸葛建伟老师和 <a class="reference external" href="https://github.com/ztrix">👤 ztrix</a> ，
+后来我加入长亭科技，ztrix 自然也成为了我的老板。</p>
+</aside>
+<p>好了说点正事。</p>
+<section id="id1">
+<h2>安装<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<p>Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">ghc</span></code>,
+但是比ghc更方便的是Haskell Platform, 安装同样可以<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">haskell-platform</span></code>,
+在 Windows 上则可以直接去官网下载安装包。</p>
+</section>
+<section id="id2">
+<h2>随便说说<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
+现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：</p>
+<ul class="simple">
+<li><p>列表推导式很神奇，<code class="code docutils literal notranslate"><span class="pre">[x</span> <span class="pre">|</span> <span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">xs</span> <span class="pre">,</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100]</span></code>,其形式类似于之前用来描述集合的公式，
+之前上离散的时候不明白为什么要有谓词这个鸡肋的概念，原来可以用在这里;</p></li>
+<li><p>类型类（Type Class）: 有点像是接口之类的东西，这个类型类的实例具有特定的特征，
+类型类也必须为这些实例提供对应的方法，两个数如果可比较（Ord），那么就能判断这两个数的相等性（Eq）;</p></li>
+<li><p>模式匹配（Pattern Macthing）: 一开始我自动脑补成了函数的重载，但其实不是重载，
+因为函数的参数根本就没有改变。 是不是觉得模式匹配只是可以避免<code class="code docutils literal notranslate"><span class="pre">if-else</span></code>而已，
+类似于case？ 后来书里也说到了模式匹配就是case的语法糖，我暂时是说不出模式匹配到底有什么特别的地方，
+但是在写递归函数的时候模式匹配用起来特别顺手；</p></li>
+<li><p>递归： 拜模式匹配所赐，递归在Haskell写起来真是漂亮极了。</p></li>
+<li><p>柯里函数 （Curry Function）： 请注意他的命名来自于 Haskell Curry, 对，
+和Haskell这个名字的来源一样。柯里函数的出现解释了为什么接受多个参数的函数的声明必须类似于<code class="code docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>
+而不是 <code class="code docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>, 柯里函数是一个一元函数， 每次调用只接受一个参数，
+并返回一个固化了该参数的一元函数，书里的比喻非常有趣，对于代码：</p></li>
+</ul>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">multThree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">multThree</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span>
+</pre></div>
+</div>
+<p>你可以将函数看做小工厂， 它们会取一些原材料，然后生产一些东西，对于上面的代码，
+执行 multThree 3 5 9，我们将数值3喂给multThree工厂，这个工厂产生了一个更小的工厂，
+这家小工厂得到数值5，继续搞出来一家小工厂， 第三家工厂得到数值9,产出最终的结果，
+也就是135。</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">qsort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">qsort</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lteq</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">gt</span>
+<span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">lteq</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+<span class="w">          </span><span class="n">gt</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>对于我这种初学者来说，最有诱惑力也最后成就感的自然就是三行快排了。。。
+诶，去掉声明就是三行了。当然还会有更加厉害的实现，不过，先这样好了。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/haskell-beginning" data-title="Hello Haskell" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="idf-reverse-writeup.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>IDF 实验室逆向题部分题解</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="syntax-highlight-in-haskell.html">
+      <span>Syntax Highligh.hs</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">安装</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">随便说说</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

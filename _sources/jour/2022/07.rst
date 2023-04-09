@@ -1,0 +1,96 @@
+====
+七月
+====
+
+.. contents::
+   :local:
+
+vDSO
+====
+
+.. term:: _
+          virtual ELF dynamic shared object
+   :field: Linux
+   :enwiki: VDSO
+
+:manpage:`vdso(7)`，即 virtual ELF dynamic shared object，是一个很小的动态链接库（Shared library），在用户进程启动时会被 linux kernel 自动映射到进程的地址空间里。
+
+vDSO 被设计用来用来加速一些 *频繁被调用* 且 *不涉及数据安全问题*  的系统调用，例如 :manpage:`gettimeofday(2)`、:manpage:`getpid(2)` 等，随架构不同有所不同。用户基本上不需要知道 vDSO 的存在，这部分的细节被 glibc 隐藏了。
+
+用 :manpage:`ldd(1)` 可以看到每个程序都依赖了 `linux-vdso.so.1`，并且这个 so 并不存在于磁盘上：
+
+.. code:: console
+
+   $ ldd /bin/ls
+           linux-vdso.so.1 (0x00007ffde9bae000)
+           libcap.so.2 => /usr/lib/libcap.so.2 (0x00007fd45ef0c000)
+           libc.so.6 => /usr/lib/libc.so.6 (0x00007fd45ed00000)
+           /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007fd45ef6e000)
+
+`Linux vDSO 概述`__ 讲解了快速系统调用的发展历程和 vDSO 的相关细节。
+
+__ https://zhuanlan.zhihu.com/p/436454953
+
+Linux 5.18+ 因声卡驱动问题无法休眠
+==================================
+
+.. jour:: _
+   :date: 2022-07-08
+
+`dmesg` 输出：
+
+.. code:: plain
+
+   [ 3940.276311] sof-audio-pci-intel-tgl 0000:00:1f.3: ------------[ DSP dump start ]------------
+   [ 3940.276317] sof-audio-pci-intel-tgl 0000:00:1f.3: Firmware boot failure due to timeout
+   [ 3940.276320] sof-audio-pci-intel-tgl 0000:00:1f.3: fw_state: SOF_FW_BOOT_IN_PROGRESS (2)
+   [ 3940.276471] sof-audio-pci-intel-tgl 0000:00:1f.3: invalid header size 0xffffffff. FW oops is bogus
+   [ 3940.276475] sof-audio-pci-intel-tgl 0000:00:1f.3: unexpected fault 0x00000000 trace 0x00000000
+   [ 3940.276478] sof-audio-pci-intel-tgl 0000:00:1f.3: ------------[ DSP dump end ]------------
+   [ 3940.276481] sof-audio-pci-intel-tgl 0000:00:1f.3: error: failed to boot DSP firmware after resume -5
+   [ 3940.276515] sof-audio-pci-intel-tgl 0000:00:1f.3: error: PM_GATE ipc error -19
+   [ 3940.276539] sof-audio-pci-intel-tgl 0000:00:1f.3: failed to set requested target DSP state 0 substate 1
+   [ 3940.276542] sof-audio-pci-intel-tgl 0000:00:1f.3: error: setting dsp state 0 substate 1
+   [ 3940.276544] sof-audio-pci-intel-tgl 0000:00:1f.3: error: failed to power down DSP during suspend -19
+   [ 3940.276546] sof-audio-pci-intel-tgl 0000:00:1f.3: PM: pci_pm_freeze(): snd_sof_suspend+0x0/0x20 [snd_sof] returns -19
+   [ 3940.276579] sof-audio-pci-intel-tgl 0000:00:1f.3: PM: dpm_run_callback(): pci_pm_freeze+0x0/0xc0 returns -19
+   [ 3940.276593] sof-audio-pci-intel-tgl 0000:00:1f.3: PM: failed to freeze async: error -19
+
+根据 `Arch Linux 论坛的讨论`__ ，新建 :file:`/etc/modprobe.d/sof.conf` 文件，内容为
+
+.. code:: config
+
+   options snd_sof sof_debug=128
+
+可以临时修复此问题。
+
+__ https://bbs.archlinux.org/viewtopic.php?pid=2042801#p2042801
+
+中年人的第一台 NAS
+==================
+
+.. jour:: _
+   :date: 2022-07-08
+
+.. figure:: /_images/火狐截图_2022-07-12T16-26-32.235Z.png
+   :alt: https://twitter.com/hywallove/status/1536054160994738176
+
+   万幸，我现在只油了三分之一。
+
+好同事 :people:`WangLeonard` 把他退役的一台群晖 :zhwiki:`NAS <网络附接存储>` 借我玩了两周，型号是 `ds218+`__ ，双盘位，双核 2GHz，内存 6 GB。
+虽然我没有很强的存储需求，可这是一台性能还不错的 x86 Linux 主机诶！而且 群晖的套件__ 用起来比 :doc:`折腾树莓派 </notes/wizard/pi>` 轻松多了。
+遂以一个很优惠的价格淘了下来，感觉占人家便宜了 Q_Q。
+
+__ https://www.synology.com/zh-tw/products/DS218play
+__ https://www.synology.com/zh-tw/dsm/packages
+
+装系统
+   将 NAS 插上网线连上路由器，接通电源，NAS 会自动通过 DHCP 获取 IP。
+
+   :aur:`synology-assistant` 提供了一个 GUI 程序用来探测局域网中群晖 NAS 的地址 ，方便我们连上管理界面。Wayland 用户如果遇到发现程序 crash 了（`qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""`）可以试试 `unset QT_QPA_PLATFORM` 再执行程序。
+
+组内网
+   用 tailscale__ 一步到位，基于 user-space 的 WireGuard 实现，操作简单，节点之间能直连。
+   单用户 20 台设备以下免费。
+
+__ https://tailscale.com/

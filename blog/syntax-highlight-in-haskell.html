@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="Syntax Highligh.hs" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/syntax-highlight-in-haskell.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。 不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮， 有个想法就是将整段代码按是否高亮划分为一些元素: 关键字, 字符, 宏, 字符串, 块注释, 行注释, 数字, 函数, 空白, 其他. 然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。 不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮， 有个想法就是将整段代码按是否高亮划分为一些元素: 关键字, 字符, 宏, 字符串, 块注释, 行注释, 数字, 函数, 空白, 其他. 然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过..." />
+
+    <title>Syntax Highligh.hs &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/syntax-highlight-in-haskell';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/syntax-highlight-in-haskell.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-02-16
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/haskell.html">Haskell</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Syntax Highligh.hs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">正则</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">双引号的转义</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">反斜杠的转义</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haskell">Haskell</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#io">IO用起来束手束脚</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">不知道这么写是否合适</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="syntax-highligh-hs">
+<h1>Syntax Highligh.hs<a class="headerlink" href="#syntax-highligh-hs" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。</p>
+<p>不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
+有个想法就是将整段代码按是否高亮划分为一些元素:</p>
+<ul class="simple">
+<li><p>关键字</p></li>
+<li><p>字符</p></li>
+<li><p>宏</p></li>
+<li><p>字符串</p></li>
+<li><p>块注释</p></li>
+<li><p>行注释</p></li>
+<li><p>数字</p></li>
+<li><p>函数</p></li>
+<li><p>空白</p></li>
+<li><p>其他</p></li>
+</ul>
+<p>然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过这个想法暂时没实现。</p>
+<section id="id1">
+<h2>正则<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<section id="id2">
+<h3>双引号的转义<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h3>
+<p>另外遇到的问题是正则表达式，首先是双引号内字符串的匹配问题，对正则不熟悉，
+试了很多次都没法匹配，因为考虑了反斜杠 对引号的转义问题，从语言描述上可以说：</p>
+<blockquote>
+<div><p>匹配两个引号之间的尽量短的所有内容，并且内容中不能包含回车和没有被转义的引号
+（即只能包含左侧有奇数个反斜杠的引号）</p>
+</div></blockquote>
+<p>写正则实在是太烧脑子了，匹配奇数个可以用 <code class="code docutils literal notranslate"><span class="pre">[^\]((\\)*\&quot;)</span></code> ，
+然后最后面的引号只能左侧包含偶数个引号 <code class="code docutils literal notranslate"><span class="pre">[^\]((\\)*&quot;)</span></code>
+（本来可以将两个分组用后向引用省略了，试了一下发现错误，也不知道怎么解决）
+最后写出来是恶心的表达式：<code class="code docutils literal notranslate"><span class="pre">&quot;(.|[^\](\\)*&quot;)*?[^\](\\)*&quot;</span></code>，但是还是有问题:</p>
+<blockquote>
+<div><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>“regexp”</p></td>
+<td><p>匹配 “regexp”</p></td>
+</tr>
+<tr class="row-even"><td><p>“regexp&quot;regexp”</p></td>
+<td><p>匹配 “regexp&quot;regexp”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“reg &quot; exp”reg”exp”</p></td>
+<td><p>匹配 “reg &quot; 和 “reg”</p></td>
+</tr>
+<tr class="row-even"><td><p>“reg &quot;””regexp”</p></td>
+<td><p>匹配 <code class="code docutils literal notranslate"><span class="pre">&quot;reg</span> <span class="pre">\&quot;</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">&quot;&quot;regexp&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>就最后一个错了，因为”也是满足<code class="code docutils literal notranslate"><span class="pre">[^\](\\)*&quot;</span></code>的，懒得再想了。</p>
+</section>
+<section id="id3">
+<h3>反斜杠的转义<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h3>
+<p>还有一个问题，也是转义，本来为了代码的简洁，将正则表达式写在了文件里，每行一个，
+逐行读取，接下来读每个正则对应的颜色，代码很漂亮：</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">handle</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">openFile</span><span class="w"> </span><span class="s">&quot;keywords.txt&quot;</span><span class="w"> </span><span class="kt">ReadMode</span>
+<span class="nf">pattern</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">replicate</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">hGetLine</span><span class="w"> </span><span class="n">handle</span>
+<span class="nf">color</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">replicate</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">lhGetLine</span><span class="w"> </span><span class="n">handle</span>
+<span class="kr">let</span><span class="w"> </span><span class="n">patCol</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">color</span>
+</pre></div>
+</div>
+<p>后来发现没法匹配块注释<code class="code docutils literal notranslate"><span class="pre">/*(.|n)**/</span></code>，原因在于表达式里面的n只是代表回车，
+而当你从文件里面读 “n” 的时候，他就真的是“n” 了，他代表一个反斜杠和一个字符n。
+你没法从文件的一行里面读取一个回车吧，并且n后面还有内容，所以这种方案失败，
+我只把关键字放在了文件里。代码变成了：</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">pattern&#39;</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">&quot;/</span><span class="se">\\</span><span class="s">*(.|</span><span class="se">\n</span><span class="s">|</span><span class="se">\r</span><span class="s">)*</span><span class="se">\\</span><span class="s">*/&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;//.*&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#.*&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">(.|(</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\\\\\&quot;</span><span class="s">)*[^</span><span class="se">\\\\</span><span class="s">](</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\&quot;</span><span class="s">&quot;</span>
+<span class="w">           </span><span class="p">]</span>
+<span class="nf">color</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Gray&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span><span class="p">]</span>
+<span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="n">keywords</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readFile</span><span class="w"> </span><span class="s">&quot;keywords.txt&quot;</span>
+<span class="w">        </span><span class="kr">let</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">pattern&#39;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">keywords</span><span class="p">]</span>
+<span class="w">            </span><span class="n">patCol</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">color</span>
+</pre></div>
+</div>
+<p>这里又引发一个问题是：之前本来不用转义的 <code class="code docutils literal notranslate"><span class="pre">&quot;</span></code> 变成了 <code class="code docutils literal notranslate"><span class="pre">&quot;</span></code>，需要转义一次的 <code class="code docutils literal notranslate"><span class="pre">\</span></code>，变成了<code class="code docutils literal notranslate"><span class="pre">\\</span></code>，
+表达式更难看了。 而且需要注意到的是最难看的那个表达式里面的懒惰匹配 “?” 没有出现，
+我一加他就出错。所以出现了更多的问题，效果比在测试器里面的还差。</p>
+<aside class="topic">
+<p class="topic-title">2015.3.2 update:</p>
+<p>事实上Haskell的Posix库的底层是C的Regex.h,并且Posix规范的正则并不支持懒惰匹配。</p>
+</aside>
+</section>
+</section>
+<section id="haskell">
+<h2>Haskell<a class="headerlink" href="#haskell" title="此标题的永久链接">#</a></h2>
+<p>除了了上面那些讨厌的问题之外，对于Haskell本身，也有一些不适应的地方。</p>
+<section id="io">
+<h3>IO用起来束手束脚<a class="headerlink" href="#io" title="此标题的永久链接">#</a></h3>
+<p>Haskell的IO()像是一种具有传染性的代码（诶我说的不是GPL），一个函数中一旦出现了IO操作，
+函数的返回值就被限定为 IO()，导致你没法往外传参数，除非你把值包裹在IO()里变成IO(String)这样一种结构，
+调用这个函数的函数也必须是IO操作，这一循环直到main才终止。当然Haskell这样做肯定是有它的理由的，
+但是他们所说的“纯粹与非纯粹的分离”，我还暂时体会不到这样做的好处。</p>
+</section>
+<section id="id4">
+<h3>不知道这么写是否合适<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
+<ul class="simple">
+<li><p>我将正则保存在一个列表，将每个正则对应的颜色保存在另一个列表，
+再从文件里读取匹配关键字的正则加在第一个列表的尾部，合并两个列表；</p></li>
+<li><p>将要着色的文件读出，传给htmlen函数；</p></li>
+<li><p>htmlen函数调用rep函数对代码进行着色（用左折叠flodl的方式调用），
+然后为返回的结果加上html的头部尾部标签还有样式；</p></li>
+<li><p>rep函数接受htmlen传给的文件内容，以及存有正则和颜色的二元组，
+每一次对文件中匹配该表达式的模式加上&amp;lt;font color&amp;gt;标签</p></li>
+</ul>
+<p>不知道这么写是否正确， 什么才是好的代码， 这个问题至今还是很模糊啊。
+（不过谈论这个问题之前应该把前面那些问题先解决了才是）</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">System.IO</span>
+<span class="kr">import</span><span class="w"> </span><span class="nn">Text.Regex.Posix</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Pattern</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">String</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Color</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">String</span>
+<span class="cm">{- Highlighter in Haskell -}</span>
+<span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="nb">()</span>
+<span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Reading config...&quot;</span>
+<span class="w">        </span><span class="n">keywords</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readFile</span><span class="w"> </span><span class="s">&quot;keywords.txt&quot;</span>
+<span class="w">        </span><span class="kr">let</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">pattern&#39;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">keywords</span><span class="p">]</span>
+<span class="w">            </span><span class="n">patCol</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">color</span>
+<span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Processing...&quot;</span>
+<span class="w">        </span><span class="n">contents</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readFile</span><span class="w"> </span><span class="s">&quot;test.java&quot;</span>
+<span class="w">        </span><span class="n">writeFile</span><span class="w"> </span><span class="s">&quot;test.java.html&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">htmlen</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">patCol</span>
+<span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Finished.&quot;</span>
+
+<span class="nf">htmlHead</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&lt;!DOCTYPE html&gt;&lt;head&gt;&lt;meta charset=</span><span class="se">\&quot;</span><span class="s">utf-8</span><span class="se">\&quot;</span><span class="s">&gt;&lt;/head&gt;&quot;</span>
+<span class="nf">htmlStyle</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&lt;style&gt;code{font: 14px/200% </span><span class="se">\&quot;</span><span class="s">Consolas</span><span class="se">\&quot;</span><span class="s">;}&lt;/style&gt;&lt;body&gt;&lt;pre&gt;&lt;code&gt;&quot;</span>
+<span class="nf">htmlLast</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>
+<span class="nf">htmlen</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[(</span><span class="kt">Pattern</span><span class="p">,</span><span class="w"> </span><span class="kt">Color</span><span class="p">)]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
+<span class="nf">htmlen</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="n">patCol</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="n">htmlBody</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldl</span><span class="w"> </span><span class="n">rep</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="n">patCol</span>
+<span class="w">                        </span><span class="kr">in</span><span class="w"> </span><span class="n">htmlHead</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">htmlStyle</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">htmlBody</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">htmlLast</span>
+
+<span class="nf">rep</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Pattern</span><span class="p">,</span><span class="w"> </span><span class="kt">Color</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
+<span class="nf">rep</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">patCol</span><span class="o">@</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">True</span>
+<span class="w">            </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="p">(</span><span class="n">_head</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">_tail</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">_head</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">rep</span><span class="w"> </span><span class="n">_tail</span><span class="w"> </span><span class="n">patCol</span><span class="p">)</span>
+<span class="w">              </span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">code</span>
+<span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&lt;font color=&quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span>
+<span class="w">          </span><span class="n">le</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&lt;/font&gt;&quot;</span>
+
+<span class="nf">pattern&#39;</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">&quot;/</span><span class="se">\\</span><span class="s">*(.|</span><span class="se">\n</span><span class="s">|</span><span class="se">\r</span><span class="s">)*</span><span class="se">\\</span><span class="s">*/&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;//.*&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#.*&quot;</span>
+<span class="w">           </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">(.|(</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\\\\\&quot;</span><span class="s">)*[^</span><span class="se">\\\\</span><span class="s">](</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\&quot;</span><span class="s">&quot;</span>
+<span class="w">           </span><span class="p">]</span>
+<span class="nf">color</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Gray&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>最后的结果如下：</p>
+<img alt="../_images/2021-02-12_14%3A56%3A46.png" src="../_images/2021-02-12_14%3A56%3A46.png" />
+<p>可以看到最后一个字符串是着色错误的。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/syntax-highlight-in-haskell" data-title="Syntax Highligh.hs" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="haskell-beginning.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Hello Haskell</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="windows-chinese-username.html">
+      <span>把 Windows 中文用户名改为英文</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">正则</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">双引号的转义</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">反斜杠的转义</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haskell">Haskell</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#io">IO用起来束手束脚</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">不知道这么写是否合适</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

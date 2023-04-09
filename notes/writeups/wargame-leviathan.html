@@ -1,0 +1,1060 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="wargame-leviathan" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/writeups/wargame-leviathan.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="ssh addr: leviathan.labs.overthewire.org, url: http://overthewire.org/wargames/leviathan/. leviathan0: flag: leviathan0 leviathan1: flag: rioGegei8m 在~/.backup/bookmarks.html 搜索 password 可得。 leviat..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="ssh addr: leviathan.labs.overthewire.org, url: http://overthewire.org/wargames/leviathan/. leviathan0: flag: leviathan0 leviathan1: flag: rioGegei8m 在~/.backup/bookmarks.html 搜索 password 可得。 leviat..." />
+
+    <title>wargame-leviathan &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/mirror-redirect.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/writeups/wargame-leviathan';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/writeups/wargame-leviathan.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Seed Lab" href="seedlabs/index.html" />
+    <link rel="prev" title="Capture the Flag" href="index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../zxsys/index.html">造型实验室</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/prelude.html">暴露问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/light-and-shadow.html">光影分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/indoor-sketching.html">室内场景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/outdoor-sketching.html">室外夜景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/modeling.html">形体分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/fast-modeling.html">快速形体分解</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../zxsys/way-to-artist/index.html">艺术创作方法</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/prepare.html">课前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-yourself.html">找自己</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-topic.html">找主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-language.html">找语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/stealing.html">偷师学艺</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/exhibition.html">参展须知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/learn-from-master.html">向大师学绘画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/string-modeling.html">线造型训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/tips.html">一些零碎知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/glossary.html">术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../artstory/index.html">增量艺术史</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/artistory.html">艺术家史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gallery.html">画廊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gossip.html">逸闻</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../books/index.html">读书笔记</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../books/code-complete-2.html">代码大全 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/codex-hammer.html">哈默手稿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/cpp-primer-plus.html">C++ Primer Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-course-of-charles-bargue-and-jean-leon-gerome.html">查尔斯巴尔格素描教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-lessons-from-the-great-masters.html">向大师学绘画·素描基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/teach-yourself-scheme-in-fixnum-days.html">Learning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-art-of-color.html">色彩艺术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-rust-programming-language.html">The Rust Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-story-of-art.html">艺术的故事</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/a-modern-method-for-guitar-vol1/index.html">伯克利现代吉他教程·卷一</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../books/linux-kernel-development/index.html">Linux Kernel Development</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/chapter-1_2.html">Chapter 1 and 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/compile-and-run-kernel-in-qemu.html">Compile and Run Kernel in Qemu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/misc.html">一些零碎的东西</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gdb.html">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/grep.html">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/latex.html">LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/lily.html">LilyPond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/make.html">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html">Man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/pacman.html">Pacman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/py.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rsync.html">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rust.html">Rust Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../music-theory/index.html">乐理笔记</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/interval-of-music.html">音程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2021-interview/index.html">2021 面试记录</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docutils/index.html">Docutils 文档阅读</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../go/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../go/pprof.html">PProf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/coverage.html">覆盖率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/godoc.html">Godoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/dev.html">Develop Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/asm.html">Go’s Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/type-assertion.html">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/gc.html">GC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ast.html">Abstract Syntax Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ssa.html">Static Single-Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../wizard/index.html">配置向导</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Capture the Flag</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="seedlabs/index.html">Seed Lab</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wargame-bandit/index.html">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wargame-narnia/index.html">wargame-narnia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/07.html">七月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/06.html">六月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/05.html">五月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/03.html">三月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/10.html">十月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/09.html">九月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/05.html">五月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/03.html">三月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/02.html">二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/06.html">六月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/01.html">一月</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">关于</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/resume.html">简历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">收集室</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../collections/github-halloween.html">Github 万圣节彩蛋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>wargame-leviathan</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan0">leviathan0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan1">leviathan1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan2">leviathan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan3">leviathan3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan4">leviathan4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan5">leviathan5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan6">leviathan6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan7">leviathan7</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="wargame-leviathan">
+<h1>wargame-leviathan<a class="headerlink" href="#wargame-leviathan" title="此标题的永久链接">#</a></h1>
+<ul class="simple">
+<li><p>ssh addr: leviathan.labs.overthewire.org</p></li>
+<li><p>url: <a class="reference external" href="http://overthewire.org/wargames/leviathan/">http://overthewire.org/wargames/leviathan/</a></p></li>
+</ul>
+<section id="leviathan0">
+<h2>leviathan0<a class="headerlink" href="#leviathan0" title="此标题的永久链接">#</a></h2>
+<p>flag: leviathan0</p>
+</section>
+<section id="leviathan1">
+<h2>leviathan1<a class="headerlink" href="#leviathan1" title="此标题的永久链接">#</a></h2>
+<p>flag: rioGegei8m</p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">~/.backup/bookmarks.html</span></code> 搜索 <code class="code docutils literal notranslate"><span class="pre">password</span></code> 可得。</p>
+</section>
+<section id="leviathan2">
+<h2>leviathan2<a class="headerlink" href="#leviathan2" title="此标题的永久链接">#</a></h2>
+<p>flag: ougahZi8Ta</p>
+<p>home 目录下有一程序名为 check，执行之，要求输入密码， 首先
+<code class="code docutils literal notranslate"><span class="pre">strings</span> <span class="pre">check</span></code> 查看一下程序中的字符串，似乎没有发现什么像 flag
+的字串，不过倒是发现了一个 <code class="code docutils literal notranslate"><span class="pre">/bin/sh</span></code>，推测程序会启动一个 shell。</p>
+<p>用 gdb 调试，对 main 下断点后反汇编，关键部分如下：</p>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">0x0804857a &lt;+77&gt;:    call   0x80483c0 &lt;printf@plt&gt;</span>
+<span class="x">0x0804857f &lt;+82&gt;:    call   0x80483d0 &lt;getchar@plt&gt;</span>
+<span class="x">0x08048584 &lt;+87&gt;:    mov    %al,0x14(%esp)</span>
+<span class="x">0x08048588 &lt;+91&gt;:    call   0x80483d0 &lt;getchar@plt&gt;</span>
+<span class="x">0x0804858d &lt;+96&gt;:    mov    %al,0x15(%esp)</span>
+<span class="x">0x08048591 &lt;+100&gt;:   call   0x80483d0 &lt;getchar@plt&gt;</span>
+<span class="x">0x08048596 &lt;+105&gt;:   mov    %al,0x16(%esp)</span>
+<span class="x">0x0804859a &lt;+109&gt;:   movb   $0x0,0x17(%esp)</span>
+<span class="x">0x0804859f &lt;+114&gt;:   lea    0x18(%esp),%eax</span>
+<span class="x">0x080485a3 &lt;+118&gt;:   mov    %eax,0x4(%esp)</span>
+<span class="x">0x080485a7 &lt;+122&gt;:   lea    0x14(%esp),%eax</span>
+<span class="x">0x080485ab &lt;+126&gt;:   mov    %eax,(%esp)</span>
+<span class="x">0x080485ae &lt;+129&gt;:   call   0x80483b0 &lt;strcmp@plt&gt;</span>
+<span class="x">0x080485b3 &lt;+134&gt;:   test   %eax,%eax</span>
+<span class="x">0x080485b5 &lt;+136&gt;:   jne    0x80485c5 &lt;main+152&gt;</span>
+<span class="x">0x080485b7 &lt;+138&gt;:   movl   $0x804868b,(%esp)</span>
+<span class="x">0x080485be &lt;+145&gt;:   call   0x8048400 &lt;system@plt&gt;</span>
+<span class="x">0x080485c3 &lt;+150&gt;:   jmp    0x80485d1 &lt;main+164&gt;</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">printf</span></code> 用来输出 “password” 字样，之后连续三个
+<code class="code docutils literal notranslate"><span class="pre">getchar</span></code>，之后把该字符串和 <code class="code docutils literal notranslate"><span class="pre">esp</span> <span class="pre">+</span> <span class="pre">14</span></code> 处的字符串作为参数给
+<code class="code docutils literal notranslate"><span class="pre">strcmp&#64;plt</span></code>，根据比较的结果决定流程， 因此对 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code> 下断：
+<code class="code docutils literal notranslate"><span class="pre">break</span> <span class="pre">strcmp&#64;plt</span></code>，输入密码后查看堆栈：<code class="code docutils literal notranslate"><span class="pre">x/10x</span> <span class="pre">$esp</span></code></p>
+<p>过程如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0xffffd63c</span><span class="p">:</span>     <span class="mh">0x080485b3</span>      <span class="mh">0xffffd654</span>      <span class="mh">0xffffd658</span>      <span class="mh">0x0804a000</span>
+<span class="mh">0xffffd64c</span><span class="p">:</span>     <span class="mh">0x08048642</span>      <span class="mh">0x00000001</span>      <span class="mh">0x00333231</span>      <span class="mh">0x00786573</span>
+<span class="mh">0xffffd65c</span><span class="p">:</span>     <span class="mh">0x00646f67</span>      <span class="mh">0x65766f6c</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">0xffffd658</span></code> 处即是该程序的 password，用 <code class="code docutils literal notranslate"><span class="pre">x/s</span> <span class="pre">0xffffd658</span></code> 可看。</p>
+</section>
+<section id="leviathan3">
+<h2>leviathan3<a class="headerlink" href="#leviathan3" title="此标题的永久链接">#</a></h2>
+<p>flag: Ahdiemoo1j</p>
+<p>这道题想了很久还是不会，最终上网看答案了……</p>
+<p>登入机器后发现家目录有个带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="code docutils literal notranslate"><span class="pre">printfile</span></code>，
+属主是 <code class="code docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="code docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code>
+的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>关于 linux 下的权限，更多请参见 <a class="reference external" href="TODO">linux/privileges.md//TODO</a>。</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ll printfile
+-r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
+leviathan2@melinda:~$ ./printfile
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@melinda:~$ ./printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
+</pre></div>
+</div>
+<p>从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印
+<code class="code docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示
+<code class="code docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>， 上 gdb 分析看看。</p>
+<p>以下是 <code class="code docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="code docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  0x0804852d &lt;+0&gt;:     push   %ebp</span>
+<span class="x">  0x0804852e &lt;+1&gt;:     mov    %esp,%ebp</span>
+<span class="x">  0x08048530 &lt;+3&gt;:     and    $0xfffffff0,%esp</span>
+<span class="x">  0x08048533 &lt;+6&gt;:     sub    $0x230,%esp</span>
+<span class="x">  0x08048539 &lt;+12&gt;:    mov    0xc(%ebp),%eax           ; argv 参数地址</span>
+<span class="x">  0x0804853c &lt;+15&gt;:    mov    %eax,0x1c(%esp)          ; argv 保存到 [esp + 0x1c]</span>
+<span class="x">  0x08048540 &lt;+19&gt;:    mov    %gs:0x14,%eax            ; Thread-Local Storage, 不知道是什么</span>
+<span class="x">  0x08048546 &lt;+25&gt;:    mov    %eax,0x22c(%esp)</span>
+<span class="x">  0x0804854d &lt;+32&gt;:    xor    %eax,%eax</span>
+<span class="x">  0x0804854f &lt;+34&gt;:    cmpl   $0x1,0x8(%ebp)           ; \ argc 和 1 比较，此处 argc 应该为 2</span>
+<span class="x">  0x08048553 &lt;+38&gt;:    jg     0x804857e &lt;main+81&gt;      ; / argc &gt; 1 则跳</span>
+<span class="x">  0x08048555 &lt;+40&gt;:    movl   $0x8048690,(%esp)</span>
+<span class="x">  0x0804855c &lt;+47&gt;:    call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">  0x08048561 &lt;+52&gt;:    mov    0x1c(%esp),%eax</span>
+<span class="x">  0x08048565 &lt;+56&gt;:    mov    (%eax),%eax</span>
+<span class="x">  0x08048567 &lt;+58&gt;:    mov    %eax,0x4(%esp)</span>
+<span class="x">  0x0804856b &lt;+62&gt;:    movl   $0x80486a5,(%esp)</span>
+<span class="x">  0x08048572 &lt;+69&gt;:    call   0x80483b0 &lt;printf@plt&gt;</span>
+<span class="x">  0x08048577 &lt;+74&gt;:    mov    $0xffffffff,%eax</span>
+<span class="x">  0x0804857c &lt;+79&gt;:    jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048553 &lt;+38&gt; 的跳转，以上代码不必分析了</span>
+<span class="x">  0x0804857e &lt;+81&gt;:    mov    0x1c(%esp),%eax          ; 取出储存的 argv</span>
+<span class="x">  0x08048582 &lt;+85&gt;:    add    $0x4,%eax                ; 移动到 argv 的第一个参数（从 0 计数）</span>
+<span class="x">  0x08048585 &lt;+88&gt;:    mov    (%eax),%eax              ; 取出 argv[1] 的值，指向字符串 ‘filename’</span>
+<span class="x">  0x08048587 &lt;+90&gt;:    movl   $0x4,0x4(%esp)           ; \ 参数二：int amode</span>
+<span class="x">  0x0804858f &lt;+98&gt;:    mov    %eax,(%esp)              ; | argv[1] 作参数一： char *path</span>
+<span class="x">  0x08048592 &lt;+101&gt;:   call   0x8048420 &lt;access@plt&gt;   ; / access(argv[1], 4)，成功返回 0</span>
+<span class="x">  0x08048597 &lt;+106&gt;:   test   %eax,%eax</span>
+<span class="x">  0x08048599 &lt;+108&gt;:   je     0x80485ae &lt;main+129&gt;     ; 跳</span>
+<span class="x">  0x0804859b &lt;+110&gt;:   movl   $0x80486b9,(%esp)</span>
+<span class="x">  0x080485a2 &lt;+117&gt;:   call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">  0x080485a7 &lt;+122&gt;:   mov    $0x1,%eax</span>
+<span class="x">  0x080485ac &lt;+127&gt;:   jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048599 &lt;+108&gt; 的跳转</span>
+<span class="x">  0x080485ae &lt;+129&gt;:   mov    0x1c(%esp),%eax          ; \</span>
+<span class="x">  0x080485b2 &lt;+133&gt;:   add    $0x4,%eax                ; | 取得 argv[1]</span>
+<span class="x">  0x080485b5 &lt;+136&gt;:   mov    (%eax),%eax              ; /</span>
+<span class="x">  0x080485b7 &lt;+138&gt;:   mov    %eax,0xc(%esp)           ; \ ...: argv[1]</span>
+<span class="x">  0x080485bb &lt;+142&gt;:   movl   $0x80486d4,0x8(%esp)     ; | char *format: string &quot;/bin/cat %s&quot;</span>
+<span class="x">  0x080485c3 &lt;+150&gt;:   movl   $0x1ff,0x4(%esp)         ; | size_t size: 511</span>
+<span class="x">  0x080485cb &lt;+158&gt;:   lea    0x2c(%esp),%eax          ; |</span>
+<span class="x">  0x080485cf &lt;+162&gt;:   mov    %eax,(%esp)              ; | char *str</span>
+<span class="x">  0x080485d2 &lt;+165&gt;:   call   0x8048410 &lt;snprintf@plt&gt; ; / snprintf(str, 511, &quot;/bin/cat %s&quot;, argv[1]);</span>
+<span class="x">  0x080485d7 &lt;+170&gt;:   lea    0x2c(%esp),%eax</span>
+<span class="x">  0x080485db &lt;+174&gt;:   mov    %eax,(%esp)              ; \</span>
+<span class="x">  0x080485de &lt;+177&gt;:   call   0x80483e0 &lt;system@plt&gt;   ; / system(&quot;/bin/cat filename&quot;);</span>
+<span class="x">  0x080485e3 &lt;+182&gt;:   mov    $0x0,%eax</span>
+<span class="x">  0x080485e8 &lt;+187&gt;:   mov    0x22c(%esp),%edx</span>
+<span class="x">  0x080485ef &lt;+194&gt;:   xor    %gs:0x14,%edx</span>
+<span class="x">  0x080485f6 &lt;+201&gt;:   je     0x80485fd &lt;main+208&gt;</span>
+<span class="x">  0x080485f8 &lt;+203&gt;:   call   0x80483c0 &lt;__stack_chk_fail@plt&gt;</span>
+<span class="x">  0x080485fd &lt;+208&gt;:   leave</span>
+<span class="x">  0x080485fe &lt;+209&gt;:   ret</span>
+<span class="x">end of assembler dump.</span>
+</pre></div>
+</div>
+<p>可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell
+命令 “/bin/cat filename”。</p>
+<p>问题出在 <code class="code docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
+<blockquote>
+<div><p>The access() function shall check the file named by the pathname
+pointed to by the path argument for accessibility according to the
+bit pattern contained in amode, <em>using the real user ID in place of
+the effective user</em> <em>ID and the real group ID in place of the
+effective group ID.</em></p>
+</div></blockquote>
+<p>而 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="code docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行
+<code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access
+函数总是失败的。</p>
+<p>但是用 gdb 改变程序的流程也是
+<a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs">不可行</a>
+的，非 root 的 gdb 调试带 suid
+权限的程序时，程序不会获得本来应该有的权限 （否则 gdb
+就可以任意地改变程序的行为了），即使绕过了 access 函数，
+你依然会得到一个 <code class="code docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
+<p>到这里我就没辙了，只能看别人的 writeup 了： <a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/">OverTheWire Leviathan
+Wargame Solution
+2</a>
+，看完发现脑洞确实不够大。</p>
+<p><em>Solution:</em>:</p>
+<p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的， 执行
+<code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>， 对于 access 函数来说是执行了
+<code class="code docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="code docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，
+而对 cat 来说是这样的 <code class="code docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code> =
+<code class="code docutils literal notranslate"><span class="pre">system*(&quot;cat</span> <span class="pre">flag;</span> <span class="pre">cat</span> <span class="pre">here&quot;)</span></code>， 因此可以利用这个区别来绕过 access
+函数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:/tmp$ mkdir slove
+leviathan2@melinda:/tmp$ cd slove
+leviathan2@melinda:/tmp/slove$ touch &#39;flag here&#39;    # 带空格的文件名
+leviathan2@melinda:/tmp/slove$ ln -s /etc/leviathan_pass/leviathan3 flag
+leviathan2@melinda:/tmp/slove$ ls
+flag  flag here
+leviathan2@melinda:/tmp/slove$ ~/printfile &#39;flag here&#39;  # access 检测的是刚刚建立的新文件， cat 显示的则是 flag 和 here
+Ahdiemoo1j
+/bin/cat: here: No such file or directory
+</pre></div>
+</div>
+<p>另外发现了一个新工具 ltrace，能够跟踪库函数的调用，
+就不用像刚才那样分析整个程序了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ltrace ~/printfile /etc/leviathan_pass/leviathan2
+__libc_start_main(0x804852d, 2, 0xffffd6f4, 0x8048600 &lt;unfinished ...&gt;
+access(&quot;/etc/leviathan_pass/leviathan2&quot;, 4)                                       = 0
+snprintf(&quot;/bin/cat /etc/leviathan_pass/lev&quot;..., 511, &quot;/bin/cat %s&quot;, &quot;/etc/leviathan_pass/leviathan2&quot;) = 39
+system(&quot;/bin/cat /etc/leviathan_pass/lev&quot;...ougahZi8Ta
+&lt;no return ...&gt;
+--- SIGCHLD (Child exited) ---
+&lt;... system resumed&gt; )                                                            = 0
++++ exited (status 0) +++
+</pre></div>
+</div>
+</section>
+<section id="leviathan4">
+<h2>leviathan4<a class="headerlink" href="#leviathan4" title="此标题的永久链接">#</a></h2>
+<p>flag: vuH0coox6m</p>
+<p>这次学乖了，扫了几眼汇编，程序把一大堆东西放到栈里然后 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code>，
+果断用 ltrace 看看：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ll level3
+-r-sr-x--- 1 leviathan4 leviathan3 9962 Mar 21  2015 level3*
+
+leviathan3@melinda:~$ ltrace ./level3
+__libc_start_main(0x80485fe, 1, 0xffffd744, 0x80486d0 &lt;unfinished ...&gt;
+strcmp(&quot;h0no33&quot;, &quot;kakaka&quot;)                                                              = -1
+printf(&quot;Enter the password&gt; &quot;)                                                          = 20
+fgets(Enter the password&gt; 1234
+&quot;1234\n&quot;, 256, 0xf7fcbc20)                                                        = 0xffffd53c
+strcmp(&quot;1234\n&quot;, &quot;snlprintf\n&quot;)                                                         = -1
+puts(&quot;bzzzzzzzzap. WRONG&quot;bzzzzzzzzap. WRONG
+)                                                              = 19
++++ exited (status 0) +++
+
+leviathan3@melinda:~$ ltrace ./level3
+__libc_start_main(0x80485fe, 1, 0xffffd744, 0x80486d0 &lt;unfinished ...&gt;
+strcmp(&quot;h0no33&quot;, &quot;kakaka&quot;)                                                              = -1
+printf(&quot;Enter the password&gt; &quot;)                                                          = 20
+fgets(Enter the password&gt; snlprintf
+&quot;snlprintf\n&quot;, 256, 0xf7fcbc20)                                                   = 0xffffd53c
+strcmp(&quot;snlprintf\n&quot;, &quot;snlprintf\n&quot;)                                                    = 0
+puts(&quot;[You&#39;ve got shell]!&quot;[You&#39;ve got shell]!
+)                                                             = 20
+system(&quot;/bin/sh&quot;$
+$
+ &lt;no return ...&gt;
+--- SIGCHLD (Child exited) ---
+&lt;... system resumed&gt; )                                                                  = 0
++++ exited (status 0) +++
+</pre></div>
+</div>
+<p>唔，结果直接出来了，前面的 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code> 还是个障眼法，在 ltrace
+里面是拿不到 euid 权限的，在外面再试一次：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ./level3
+Enter the password&gt; snlprintf
+[You&#39;ve got shell]!
+$ id
+uid=12003(leviathan3) gid=12003(leviathan3) euid=12004(leviathan4) groups=12004(leviathan4),12003(leviathan3)
+$ cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+$
+</pre></div>
+</div>
+</section>
+<section id="leviathan5">
+<h2>leviathan5<a class="headerlink" href="#leviathan5" title="此标题的永久链接">#</a></h2>
+<p>flag: Tith4cokei</p>
+<p>诶，为什么题目越往后越简单呢……</p>
+<p>登录，<code class="code docutils literal notranslate"><span class="pre">.trash</span></code> 目录下有一程序
+<code class="code docutils literal notranslate"><span class="pre">bin</span></code>，执行后输出一组八位二进制数字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan4@melinda:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+</pre></div>
+</div>
+<p>继续用 ltrace 看看：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan4@melinda:~/.trash$ ltrace ./bin
+__libc_start_main(0x80484cd, 1, 0xffffd724, 0x80485c0 &lt;unfinished ...&gt;
+fopen(&quot;/etc/leviathan_pass/leviathan5&quot;, &quot;r&quot;)                                            = 0
++++ exited (status 255) +++
+</pre></div>
+</div>
+<p>这里程序以二进制方式打开 <code class="code docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan5</span></code>
+之后异常退出了， 因为在 ltrace
+包裹下它并没有读取这个文件的权限。这里就可以大胆猜测输出的数字
+就是文件的二进制表示了，不放心的话继续用 gdb 粗略看看它做了什么，
+<code class="code docutils literal notranslate"><span class="pre">fopen</span></code> 之后调用 <code class="code docutils literal notranslate"><span class="pre">fget</span></code>，得到内容之后 <code class="code docutils literal notranslate"><span class="pre">putchar</span></code>，八九不离十。</p>
+<p>复制那段数字，用 vim 把转成字串数组，再用一行 python 搞定：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;01010100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;01110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101000&#39;</span><span class="p">,</span> <span class="s1">&#39;00110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01100011&#39;</span><span class="p">,</span> <span class="s1">&#39;01101111&#39;</span><span class="p">,</span> <span class="s1">&#39;01101011&#39;</span><span class="p">,</span> <span class="s1">&#39;01100101&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;00001010&#39;</span><span class="p">])</span>
+<span class="go">&#39;Tith4cokei\n&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="leviathan6">
+<h2>leviathan6<a class="headerlink" href="#leviathan6" title="此标题的永久链接">#</a></h2>
+<p>flag: UgaoFee4li</p>
+<p>登录，执行直接执行 <code class="code docutils literal notranslate"><span class="pre">~/leviathan5</span></code>，提示找不到
+<code class="code docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>，新建文件 <code class="code docutils literal notranslate"><span class="pre">echo</span> <span class="pre">2333</span> <span class="pre">&gt;</span> <span class="pre">/tmp/file.log</span></code>，看看
+ltrace：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ./leviathan5
+Cannot find /tmp/file.log
+
+leviathan5@melinda:~$ echo 2333 &gt; /tmp/file.log
+leviathan5@melinda:~$ ltrace ./leviathan5
+__libc_start_main(0x80485ed, 1, 0xffffd734, 0x8048690 &lt;unfinished ...&gt;
+fopen(&quot;/tmp/file.log&quot;, &quot;r&quot;)                                                             = 0x804b008
+fgetc(0x804b008)                                                                        = &#39;2&#39;
+feof(0x804b008)                                                                         = 0
+putchar(50, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 50
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;\n&#39;
+feof(0x804b008)                                                                         = 0
+putchar(10, 0x8048720, 0xffffd73c, 0xf7e5710d2333
+)                                          = 10
+fgetc(0x804b008)                                                                        = &#39;\377&#39;
+feof(0x804b008)                                                                         = 1
+fclose(0x804b008)                                                                       = 0
+getuid()                                                                                = 12005
+setuid(12005)                                                                           = 0
+unlink(&quot;/tmp/file.log&quot;)                                                                 = 0
++++ exited (status 0) +++
+leviathan5@melinda:~$
+</pre></div>
+</div>
+<p>看起来是打印一个文件之后把文件删除：
+<code class="code docutils literal notranslate"><span class="pre">fopen</span> <span class="pre">-&gt;</span> <span class="pre">fgetc</span> <span class="pre">-&gt;</span> <span class="pre">feof</span> <span class="pre">-&gt;</span> <span class="pre">putchar</span> <span class="pre">-&gt;</span> <span class="pre">getuid</span> <span class="pre">-&gt;</span> <span class="pre">setuid</span> <span class="pre">-&gt;</span> <span class="pre">unlink</span></code>，
+不知道 getuid 和 setuid 在这里有什么用。</p>
+<p>所以把 flag 文件链接到 <code class="code docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+leviathan5@melinda:~$ ./leviathan5
+UgaoFee4li
+</pre></div>
+</div>
+</section>
+<section id="leviathan7">
+<h2>leviathan7<a class="headerlink" href="#leviathan7" title="此标题的永久链接">#</a></h2>
+<p>flag: ahy7MaeBo9</p>
+<p>直接执行可以看到需要一个 4 位的数字做参数，用 ltrace 可以看到程序调用了
+<code class="code docutils literal notranslate"><span class="pre">itoa</span></code> 来把字符串转成数字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6
+usage: ./leviathan6 &lt;4 digit code&gt;
+leviathan6@melinda:~$ ./leviathan6 1234
+Wrong
+leviathan6@melinda:~$ ltrace ./leviathan6 1234
+__libc_start_main(0x804850d, 2, 0xffffd734, 0x8048590 &lt;unfinished ...&gt;
+atoi(0xffffd870, 0xffffd734, 0xffffd740, 0xf7e5710d)                                    = 1234
+puts(&quot;Wrong&quot;Wrong
+)                                                                           = 6
++++ exited (status 6) +++
+</pre></div>
+</div>
+<p>上 gdb：</p>
+<p>假设执行了 ./leviathan6 1234</p>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">(gdb) disassemble main</span>
+<span class="x">Dump of assembler code for function main:</span>
+<span class="x">   0x0804850d &lt;+0&gt;:     push   %ebp</span>
+<span class="x">   0x0804850e &lt;+1&gt;:     mov    %esp,%ebp</span>
+<span class="x">   0x08048510 &lt;+3&gt;:     and    $0xfffffff0,%esp</span>
+<span class="x">   0x08048513 &lt;+6&gt;:     sub    $0x20,%esp</span>
+<span class="x">-&gt; 0x08048516 &lt;+9&gt;:     movl   $0x1bd3,0x1c(%esp)   ; 后面会用到 0x1c(%esp)</span>
+<span class="x">   0x0804851e &lt;+17&gt;:    cmpl   $0x2,0x8(%ebp)       ; if (argc == 2)</span>
+<span class="x">   0x08048522 &lt;+21&gt;:    je     0x8048545 &lt;main+56&gt;  ; 参数数量不对就跳走</span>
+<span class="x">   0x08048524 &lt;+23&gt;:    mov    0xc(%ebp),%eax</span>
+<span class="x">   0x08048527 &lt;+26&gt;:    mov    (%eax),%eax</span>
+<span class="x">   0x08048529 &lt;+28&gt;:    mov    %eax,0x4(%esp)</span>
+<span class="x">   0x0804852d &lt;+32&gt;:    movl   $0x8048620,(%esp)</span>
+<span class="x">   0x08048534 &lt;+39&gt;:    call   0x8048390 &lt;printf@plt&gt;</span>
+<span class="x">   0x08048539 &lt;+44&gt;:    movl   $0xffffffff,(%esp)</span>
+<span class="x">   0x08048540 &lt;+51&gt;:    call   0x80483e0 &lt;exit@plt&gt;</span>
+<span class="x">; 跳转至此：</span>
+<span class="x">   0x08048545 &lt;+56&gt;:    mov    0xc(%ebp),%eax       ; char** argv</span>
+<span class="x">   0x08048548 &lt;+59&gt;:    add    $0x4,%eax            ; char** argv + 4</span>
+<span class="x">   0x0804854b &lt;+62&gt;:    mov    (%eax),%eax          ; char** argv[1] 指向 &#39;1234&#39;</span>
+<span class="x">   0x0804854d &lt;+64&gt;:    mov    %eax,(%esp)</span>
+<span class="x">   0x08048550 &lt;+67&gt;:    call   0x8048400 &lt;atoi@plt&gt; ; atoi(&#39;1234&#39;)</span>
+<span class="x">-&gt; 0x08048555 &lt;+72&gt;:    cmp    0x1c(%esp),%eax      ; eax = 1234;  [esp + 0x1c] = 0x1bd3</span>
+<span class="x">   0x08048559 &lt;+76&gt;:    jne    0x8048575 &lt;main+104&gt;</span>
+
+<span class="x">   0x0804855b &lt;+78&gt;:    movl   $0x3ef,(%esp)</span>
+<span class="x">   0x08048562 &lt;+85&gt;:    call   0x80483a0 &lt;seteuid@plt&gt;</span>
+<span class="x">   0x08048567 &lt;+90&gt;:    movl   $0x804863a,(%esp)</span>
+<span class="x">   0x0804856e &lt;+97&gt;:    call   0x80483c0 &lt;system@plt&gt;</span>
+<span class="x">   0x08048573 &lt;+102&gt;:   jmp    0x8048581 &lt;main+116&gt;</span>
+<span class="x">   0x08048575 &lt;+104&gt;:   movl   $0x8048642,(%esp)</span>
+<span class="x">   0x0804857c &lt;+111&gt;:   call   0x80483b0 &lt;puts@plt&gt;</span>
+<span class="x">   0x08048581 &lt;+116&gt;:   leave</span>
+<span class="x">   0x08048582 &lt;+117&gt;:   ret</span>
+<span class="x">End of assembler dump.</span>
+<span class="x">(gdb) break  *0x08048555</span>
+<span class="x">Breakpoint 1 at 0x8048555</span>
+<span class="x">(gdb) run 1234</span>
+<span class="x">Starting program: /home/leviathan6/leviathan6 1234</span>
+
+<span class="x">Breakpoint 1, 0x08048555 in main ()</span>
+<span class="x">(gdb) x/u $esp +0x1c</span>
+<span class="x">0xffffd65c:     7123</span>
+<span class="x">(gdb) x/x $esp +0x1c</span>
+<span class="x">0xffffd65c:     0x00001bd3</span>
+<span class="x">(gdb) set $eax=7123</span>
+<span class="x">(gdb) c</span>
+<span class="x">Continuing.</span>
+<span class="x">$</span>
+</pre></div>
+</div>
+<p>程序把输入的参数用 <code class="code docutils literal notranslate"><span class="pre">atoi</span></code> 转成数字然后和常数 <code class="code docutils literal notranslate"><span class="pre">0x1bd3</span></code> 比较，相同则
+PASS， 于是 get 到 7123 就是 key：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6 7123
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+$
+</pre></div>
+</div>
+<p>至此 leviathan 就做完了，除了第三题很有意思之外，其他都没什么难度
+（也多亏了 ltrace），登入 leviathan7 的账户能看到这个：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan7@melinda:~$ cat CONGRATULATIONS
+Well Done, you seem to have used a \*nix system before, now try something more serious.
+(Please don&#39;t post writeups, solutions or spoilers about the games on the web. Thank you!)
+</pre></div>
+</div>
+<p>虽然说是 don’t post，可是我还是发出来了……抱歉。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/notes/writeups/wargame-leviathan" data-title="wargame-leviathan" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">Capture the Flag</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="seedlabs/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Seed Lab</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan0">leviathan0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan1">leviathan1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan2">leviathan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan3">leviathan3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan4">leviathan4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan5">leviathan5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan6">leviathan6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leviathan7">leviathan7</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

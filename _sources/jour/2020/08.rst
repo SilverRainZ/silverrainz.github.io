@@ -1,0 +1,94 @@
+====
+八月
+====
+
+GTK 3.99 - GTK Development Blog
+===============================
+
+@mclasen 在这篇博客 [#]_ 里大概讲了一下 3.98 之后引入的新 feature：
+
+Event controllers for keyboard shortcuts:
+    说的应该是 `GtkShortcutControllers` [#]_
+
+    - Event Controller 看起来 [#]_ 是将 GTK3 中各种输入事件的处理从 `GtkWidget`
+      中拆出来的工具类
+    - 在 GTK3 中，全局的键盘快捷键是通过 `GtkAccelGroup` 或者绑定
+      `::button-press-event` 实现的，前者的 API 我一眼没看懂……
+      `GtkShortcutControllers` 看起来直观多了
+
+Movable popovers
+    Gnome3 之后他们一直很喜欢这种风格的交互
+
+Row-recycling list and grid views
+    可以看这篇博客 [#]_ ，我还没细看，只浏览了下关键字：
+    比如说对于列表控件 ，数据（data）存储在 `GListModel` 中，
+    而表示一个行的控件（view）仅会创建视野中能看到的那部分，
+    滚动浏览的时候，新出现的 row 会复用消失掉的 row 的控件，
+    对于有大量 row 的 list 和 grid 的场景会有显著的性能提升（Srain 有救了
+
+Revamped accessibility infrastructure
+    对 a11y 没有太多了解
+
+Animation API
+    同样没有了解，Media in GTK 4 [#]_ 有涉及到这个
+
+最后，GTK4 真的要来了：
+
+    We are committed to releasing GTK 4 before the end of year.
+    Between now and then, we are doing more work on accessibility backends,
+    improving the macOS backend, writing documentation, and examples.
+
+.. [#] https://blog.gtk.org/2020/07/31/gtk-3-99/
+.. [#] https://developer.gnome.org/gtk4/stable/GtkShortcutController.html
+.. [#] https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/
+.. [#] https://blog.gtk.org/2020/06/07/scalable-lists-in-gtk-4/
+.. [#] https://blog.gtk.org/2020/05/20/media-in-gtk-4/
+
+PPTP & L2TP
+===========
+
+PPTP
+    - Pros: 速度快
+    - Cons:
+
+测试磁盘读写速度
+================
+
+测试连续写 [#]_ ::
+
+    dd if=/dev/zero of=test.img bs=1G count=1 oflag=dsync
+
+.. [#] https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-dd-command/
+
+自由簧 (Free reed)
+==================
+
+openSSH 8.4 后出现  load pubkey "/key/file/path": invalid format
+================================================================
+
+之前版本的 openSSH 默认使用的密钥类型 "ssh-rsa" 使用 sha1 签 [#]_ 名，
+而 sha1 已经被证明是不安全的了。
+
+    It is now possible to perform chosen-prefix attacks against the
+    SHA-1 algorithm for less than USD$50K. For this reason, we will be
+    disabling the "ssh-rsa" public key signature algorithm by default in a
+    near-future release. [#]_
+
+.. [#] :manpage:`SSH-KEYGEN(1)`
+.. [#] https://lwn.net/Articles/821544/
+
+.. _motif-of-music:
+
+作曲中的动机（motif）和主题（theme）
+=====================================
+
+动机是一组短小的音乐材料（可能是旋律或节奏），是曲子的起源。
+
+动机发展出短句，短句拼凑成乐句和乐段，并加以巩固贯穿全曲，然后这叫主题。 [#]_
+
+.. [#] https://www.zhihu.com/question/35722383/answer/64156534
+
+手机投屏到电脑和树莓派
+======================
+
+kodi & scrcpy

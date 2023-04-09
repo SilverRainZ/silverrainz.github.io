@@ -1,0 +1,41 @@
+====
+一月
+====
+
+.. contents::
+   :local:
+
+PdqSort - Pattern-defeating Quicksort
+=====================================
+
+:Date: 2022-01-28
+
+拜读了 :ghuser:`zhangyunhao116` 写的 Go 泛型版本的 PdqSort 实现：:ghrepo:`zhangyunhao116/pdqsort`。
+PdqSort 是一种较先进的 unstable 的混合排序算法，在 Boost 和 Rust 中均有使用。
+
+:小规模数据: insertion sort
+:默认情况: 改进的 quick sort
+:表现不好时: heap sort 以保证最坏的复杂度 :math:`O(n\log n)` 
+
+改进的 quick sort
+-----------------
+
+选取 pivot
+   采样，取中位数
+
+处理 common case
+   近似有序
+      :衡量: 取样判断是否近似有序（选取 pivot 时顺便做的）
+      :策略: Partial insertion sort（改进的插入排序）
+   大量重复元素
+      :衡量: Sub-array 之外左侧的值（肯定比 sub-array 里的值小）等于选中的 pivot
+      :策略: 提前将重复元素排在一起，避免下次选中其作为 pivot
+   
+抵抗 bad case
+   近似逆序时
+      :衡量: 取样判断是否近似有序
+      :策略: 反转数组
+
+   Pivot 表现不佳
+      :衡量: 上次 partition 的 pivot 的位置离 sub-array 两端很近
+      :策略: Shuffle 若干元素，如果还是不佳，fallback 到 heap sort

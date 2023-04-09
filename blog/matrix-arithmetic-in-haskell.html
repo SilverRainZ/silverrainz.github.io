@@ -1,0 +1,894 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="用 Haskell 实现的矩阵运算" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/matrix-arithmetic-in-haskell.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神, 想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看, 好吧原来这么久简单的东西花了我那么多时间. 虽然到现在的我都没把趣学指南看完因为课有点多 事实上是太懒了, 只看到了State Monad这里吧, 还不是太懂, 一旦碰到「作为Monad值的函数」,「作为Applicate值的函数」这种东西我就抓..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神, 想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看, 好吧原来这么久简单的东西花了我那么多时间. 虽然到现在的我都没把趣学指南看完因为课有点多 事实上是太懒了, 只看到了State Monad这里吧, 还不是太懂, 一旦碰到「作为Monad值的函数」,「作为Applicate值的函数」这种东西我就抓..." />
+
+    <title>用 Haskell 实现的矩阵运算 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/matrix-arithmetic-in-haskell';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/matrix-arithmetic-in-haskell.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-03-17
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/haskell.html">Haskell</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>用 Haskell 实现的矩阵运算</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="haskell">
+<h1>用 Haskell 实现的矩阵运算<a class="headerlink" href="#haskell" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
+想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
+好吧原来这么久简单的东西花了我那么多时间.</p>
+<p>虽然到现在的我都没把趣学指南看完因为课有点多<span class="sphinxnotes-strike" style="text-decoration: line-through;">事实上是太懒了</span>, 只看到了State Monad这里吧,
+还不是太懂, 一旦碰到「作为Monad值的函数」,「作为Applicate值的函数」这种东西我就抓瞎了.</p>
+<p>说回矩阵吧, 用Haskell写这个还是挺爽的, 相较于C来说:</p>
+<ul class="simple">
+<li><p>不用和各种数组下标打交道</p></li>
+<li><p>经常编译不过, 但一旦通过编译, 往往就得到正确的结果了</p></li>
+<li><p>函数出乎意料地短, 数乘和矩阵加减本来都是用递归实现的, 写完后发现原来分别可以用map和zipWith来替代,
+一下子长度就缩短了一半不止</p></li>
+</ul>
+<p>各种类型错误让我想起了以前写Delphi的时候…</p>
+<p>实现矩阵转置的时候卡了一下, 我原来写的是</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">transpose</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="nf">transpose</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">transpose</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="n">ys</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="n">ys</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">transpose</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="n">ys</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>一直爆empty list exception, 因为pattern matching 不到 ys, 最后一步是<code class="code docutils literal notranslate"><span class="pre">[[],[]...]</span></code>
+而不是<code class="code docutils literal notranslate"><span class="pre">[]</span></code>, 上网查了一下矩阵转置函数才知道可以用<code class="code docutils literal notranslate"><span class="pre">[]:_</span></code>来匹配.</p>
+<p>对于矩阵乘法, 我采取的是将右边那个矩阵转置, 这样就可以简化成行乘行, 左边矩阵拆成单行乘过去.</p>
+<p>在用<code class="code docutils literal notranslate"><span class="pre">$</span></code>的时候总是遇到问题…总是报错, 也不知道为什么…我把简单地$当成让函数右结合的操作符,
+但是如果写: <code class="code docutils literal notranslate"><span class="pre">getMartix</span> <span class="pre">$</span> <span class="pre">Matrix</span> <span class="pre">xs</span> <span class="pre">`mmul</span></code> ys` 就错误.
+看来理解还是有偏差的.</p>
+<p>下面的代码分别实现了:</p>
+<ul class="simple">
+<li><p>矩阵加法 plus</p></li>
+<li><p>矩阵减法 sub</p></li>
+<li><p>矩阵数乘 smul</p></li>
+<li><p>矩阵乘积 mmul</p></li>
+<li><p>矩阵的Eq实例和show实例</p></li>
+</ul>
+<p>到底乘法用的是 multiplication 还是 product 呢… 好奇怪.</p>
+<p>因为定义矩阵直接用了 <code class="code docutils literal notranslate"><span class="pre">[[Int]]</span></code>, 无法限制每个list的长度,
+所以并不能保证这个Matrix里面肯定是一个符合定义的矩阵, 这个不知道怎么加以限制.</p>
+<p>看看接下来教的什么或许可以再往代码里加点东西, 改天看看别人是怎么写的.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="p">{</span><span class="n">getMartix</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[[</span><span class="kt">Int</span><span class="p">]]}</span>
+
+<span class="nf">smul</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="nf">i</span><span class="w"> </span><span class="p">`</span><span class="n">smul</span><span class="p">`</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="n">xs</span>
+
+<span class="nf">plus</span><span class="w"> </span><span class="ow">::</span><span class="w">  </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">`</span><span class="n">plus</span><span class="p">`</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="n">ys</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">+</span><span class="p">))</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="n">ys</span>
+
+<span class="nf">sub</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">`</span><span class="n">sub</span><span class="p">`</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="n">ys</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="p">))</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="n">ys</span>
+
+<span class="nf">transpose</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="nf">transpose</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="p">(</span><span class="kt">[]:</span><span class="kr">_</span><span class="p">))</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">transpose</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">    </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">getMartix</span><span class="w"> </span><span class="p">(</span><span class="n">transpose</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+
+<span class="nf">mmul</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Matrix</span>
+<span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="p">`</span><span class="n">mmul</span><span class="p">`</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span>
+<span class="kt">Matrix</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">`</span><span class="n">mmul</span><span class="p">`</span><span class="w"> </span><span class="n">ys</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">    </span><span class="kt">Matrix</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="p">(</span><span class="n">mul_</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">getMartix</span><span class="w"> </span><span class="p">(</span><span class="n">transpose</span><span class="w"> </span><span class="n">ys</span><span class="p">))</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">getMartix</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">`</span><span class="n">mmul</span><span class="p">`</span><span class="w"> </span><span class="n">ys</span><span class="p">)</span>
+
+<span class="nf">mul_</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[[</span><span class="kt">Int</span><span class="p">]]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">mul_</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">mul_</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="p">(</span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">mul_</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">ys</span>
+
+<span class="kr">instance</span><span class="w"> </span><span class="kt">Eq</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">    </span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">True</span>
+<span class="w">    </span><span class="kt">Matrix</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">        </span><span class="n">length</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="p">(</span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="n">ys</span>
+
+<span class="kr">instance</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="kt">Matrix</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">    </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="kt">Matrix</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/matrix-arithmetic-in-haskell" data-title="用 Haskell 实现的矩阵运算" id="isso-thread"></section></div>
+</div>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="windows-chinese-username.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>把 Windows 中文用户名改为英文</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="some-minds-about-linux.html">
+      <span>不求甚解者用不好 Linux</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

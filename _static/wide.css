@@ -1,0 +1,9 @@
+/* Stylesheet for _templates/wide.html */
+
+div.body {
+    max-width: none;
+}
+
+div.document {
+    width: 90%;
+}

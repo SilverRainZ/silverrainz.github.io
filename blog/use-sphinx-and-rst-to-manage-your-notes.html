@@ -1,0 +1,1091 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="用 Sphinx + reStructuredText 构建笔记系统" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/use-sphinx-and-rst-to-manage-your-notes.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 Read The Docs 上发布，地址是 notes.silverrainz.me ，旧域名在过期前也同样有效。 前言: GitBook 是一个用于发布书籍的平台，允许你用 Markdown 编写书籍并使用 git 仓库管理， 还能通过这个平台发布到网络上，GitBook 同时也是 Gitbook 平台推出的书籍生成工具..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 Read The Docs 上发布，地址是 notes.silverrainz.me ，旧域名在过期前也同样有效。 前言: GitBook 是一个用于发布书籍的平台，允许你用 Markdown 编写书籍并使用 git 仓库管理， 还能通过这个平台发布到网络上，GitBook 同时也是 Gitbook 平台推出的书籍生成工具..." />
+
+    <title>用 Sphinx + reStructuredText 构建笔记系统 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/use-sphinx-and-rst-to-manage-your-notes';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/use-sphinx-and-rst-to-manage-your-notes.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2017-03-29
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  
+  
+  
+  
+  
+  <a href="tag/restructuredtext.html">reStructuredText</a>
+  
+  
+  
+  
+  
+  <a href="tag/sphinx.html">Sphinx</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>用 Sphinx + reStructuredText 构建笔记系统</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前言</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-js">为什么我不喜欢 Node.js</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-vs-restructuredtext">Markdown vs reStructuredText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">Sphinx 简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-restructuredtext">将 Markdown 笔记转化为 reStructuredText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shpinx">Shpinx 的安装和使用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">组织和索引</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">使用 Read The Docs 发布</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="sphinx-restructuredtext">
+<h1>用 Sphinx + reStructuredText 构建笔记系统<a class="headerlink" href="#sphinx-restructuredtext" title="此标题的永久链接">#</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>这是一次失败的尝试，在此基础上我建立了更完备、可持续的系统，请看 <a class="reference internal" href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"><em>我如何用 Sphinx 建立笔记系统</em></a> 系列</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 <a class="reference external" href="http://readthedocs.io/">Read The Docs</a>
+上发布，地址是 <a class="reference external" href="http://notes.silverrainz.me">notes.silverrainz.me</a>，旧域名在过期前也同样有效。</p>
+<section id="id1">
+<h2>前言<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<p>GitBook 是一个用于发布书籍的平台，允许你用 Markdown 编写书籍并使用 git 仓库管理，
+还能通过这个平台发布到网络上，GitBook 同时也是 Gitbook 平台推出的书籍生成工具的名字。</p>
+<p>去年十月的的时候我开始用 GitBook + Markdown 维护自己的一些零碎的笔记。
+为此在 Arch Linux 打包了 <a class="reference external" href="https://aur.archlinux.org/packages/nodejs-gitbook/">nodejs-gitbook</a>，
+又写了一个自动生成目录摘要的 <a class="reference external" href="https://github.com/SilverRainZ/dotfiles/blob/master/bin/gitbook-summary">小脚本</a>。</p>
+<p>为什么现在我又迁移到 Sphinx + reStructuredText 呢？因为：</p>
+<ol class="arabic simple">
+<li><p>GitBook 是 Node.JS 写的</p></li>
+<li><p>Markdown 无法适应稍微复杂的写作场景</p></li>
+</ol>
+</section>
+<section id="node-js">
+<h2>为什么我不喜欢 Node.js<a class="headerlink" href="#node-js" title="此标题的永久链接">#</a></h2>
+<p>我不知道 Node.js 开发者为何如此热衷于用它来造各种轮子甚至用来写各种本地应用。
+Node 的包管理器 npm 会将一个应用的所有依赖都安装在项目目录下。
+每个应用的依赖都是独立的 —— 这对部署来说很方便。并且 npm 的分包粒度相当细，
+随便装个包都能带上几百个依赖，连一个字符串的 leftpad 函数都可以单独作为一个包。
+去年愚人节的时候，<a class="reference external" href="https://www.npmjs.com/package/left-pad">这个梗</a>都玩得很开心……</p>
+<p>因此 Linux 发行版的打包者要打包一个 Node 包，就得打包并维护它附带的成百上千
+的依赖，或者直接将包本身和依赖打在一起，代价就是要更新其中一个依赖就得更新整个包
+以及接受系统中的文件重复。总之，Node.js 的打包只能在麻烦和冗余两者之间作出选择。
+听说 openSUSE 社区还写了一套工具专门用来从多如牛毛的 npm 包自动生成 rpm 包。</p>
+<p>当然对于 Arch Linux 社区，肯定是拿起一把梭就干，即使是官方源的包也都是：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>--prefix<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$pkgdir</span><span class="s2">&quot;</span>/usr<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$srcdir</span><span class="s2">&quot;</span>/<span class="nv">$pkgname</span>-<span class="nv">$pkgver</span>.tgz
+</pre></div>
+</div>
+<p>依赖什么的？不管，例行公事地从 source 下载要安装的包，依赖的什么完全由 npm 处理。</p>
+<p>于是我打包的 nodejs-gitbook （事实上还包含了 nodejs-gitbook-cli）足足有 2w+
+个文件，我仿佛看到无数细碎的 Javascript 脚本在我的 SSD 上蠕动……</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/ la @ la-arch 10:35 -&gt; ~
+$ pacman -Ql nodejs-gitbook | wc -l
+23009
+</pre></div>
+</div>
+<p>相比之下 python-sphinx 清爽多了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/ la @ la-arch 21:27 -&gt; ~
+$ pacman -Ql python-sphinx | wc -l
+922
+</pre></div>
+</div>
+<p>除去打包上的槽点，nodejs-gitbook 这工具的使用体验也是相当差：目录文件 SUMMARY.md
+需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 <em>8.6 秒</em>
+—— 它似乎并没有办法 incremental build；<code class="code docutils literal notranslate"><span class="pre">gitbook</span> <span class="pre">serve</span></code> 命令能在本地启动一个 HTTP Server
+预览书籍，并且文件改变的时候网页会自动刷新，这很赞，可是你为什么没告诉我每次文件改动
+都要 <em>重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍</em> 呢？于是每次改动后你
+需要十多秒后才能够「实时预览」。</p>
+<p>以上所述的问题针对 GitBook 3.2.1 及以下版本。</p>
+</section>
+<section id="markdown-vs-restructuredtext">
+<h2>Markdown vs reStructuredText<a class="headerlink" href="#markdown-vs-restructuredtext" title="此标题的永久链接">#</a></h2>
+<p>Markdown 是啥这里就不说了……Markdown 的问题在于它太轻又没有一个统一的标准。
+因此各个社区都自顾自地实现了一套自己的方言，同样是叫 Markdown，
+你在这里可以显示的内容，换了一个地方就打回原型。
+当然你可以选择使用这些方言里面所共有的语法，而这点语法可能只够在论坛回回帖用。</p>
+<p>目前最流行的 Markdown 方言应该是 GFM(GitHub Flavored Markdown) 了，
+但即使你坚持只用 GFM 编写你的文档，你依然会遇到问题：
+不同的 GFM 的实现存在细节上的差异。声明标题的 <code class="code docutils literal notranslate"><span class="pre">#</span></code> 后面需要空格么？
+加粗字体的 <code class="code docutils literal notranslate"><span class="pre">**</span></code> 左右需要空格隔开么？直接跟非符号的文字会有问题么，
+Unicode 的文字和符号能被分清么？在不将文件生成为 HTML 之前，你很难知道你的文档是
+什么样子。</p>
+<p>另，程序员是 Markdown 的主要使用群体，而 Markdown 居然使用「在行末空两格」
+作为换行标记，trailing whitespace 怎么能忍呢……（这个貌似是扩展语法）</p>
+<p>reStructuredText 同样是轻量标记语言的一种，Python Docutils 是其主要实现，
+reStructuredText 的语法稍微复杂了一点，具体可以看
+<a class="reference external" href="http://zh-sphinx-doc.readthedocs.io/en/latest/rest.html">reStructuredText 简介</a>。</p>
+<p>相对于 Markdown，reStructuredText：</p>
+<ul class="simple">
+<li><p>提供了更丰富的语法元素：原生 Markdown 并不能调整插图大小，不支持表格（GFM 支持），
+不支持脚注，引用，注释 —— 当然这些 reStructuredText 都支持</p></li>
+<li><p>对格式的要求更高：我所见过 Markdown 渲染器对待 Mardkown 的态度和浏览器对于
+HTML 类似，在处理无法识别的语法的时候会选择忽略。而 Docutils 在遇到未知语法的时候会报错。
+因此 Markdown 用户可能需要多次的预览文档来排错，而 reStructuredText 用户可以从报错获得
+出现错误的位置</p></li>
+<li><p>有更统一的实现：这一点貌似不太公平，因为 Markdown 的实现众多，而 reStructuredText
+貌似就只有 Docutils 了？但实际上 reStructuredText 的标准也比 Markdown 明确得多</p></li>
+<li><p>在语法上提供了扩展的途径。而 Markdown 并没有，通用的扩展方法是在文档里插入 HTML 标签……</p></li>
+</ul>
+<p>就我所知， reStructuredText 有两种支持扩展的语法： 解释文本（Interpreted Text）
+和 指令（Directives）。</p>
+<p>在 reStructuredText 中，用单个反引号 `` ` 包围的字符串称为
+<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#interpreted-text">Interpreted Text</a>
+，反引号中的内容根据角色（Role）有不同解释方式。Role 由冒号 <code class="code docutils literal notranslate"><span class="pre">:</span></code> 包围，可以位于
+Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了不少的内联标记。比如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:emphasis:`text` 等价于 *text*
+:strong:`text` 等价于 **text**
+</pre></div>
+</div>
+<p>Interpreted Text 只能作为行内元素使用（无法跨行），而
+<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#explicit-markup-blocks">Explicit Markup</a>
+。作用的对象则是文本块。Explicit Mark 以在行首的两个句号 <code class="code docutils literal notranslate"><span class="pre">..</span></code> 开始，后跟一个空格，
+接下来的行保持相同缩进，直到文本块结束。</p>
+<p>Explicit Markup 被用来实现</p>
+<ul>
+<li><p>脚注：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">这是脚注</span> <span class="p">[</span><span class="c1">#f1]_ ，这也是脚注 [#f2]_ 。</span>
+
+<span class="o">..</span> <span class="p">[</span><span class="c1">#f1] 第一条脚注的文本.</span>
+<span class="o">..</span> <span class="p">[</span><span class="c1">#f2] 第二条脚注的文本.</span>
+</pre></div>
+</div>
+</li>
+<li><p>引用：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">这篇笔记参考了</span> <span class="p">[</span><span class="n">reStructuredText</span> <span class="n">简介</span><span class="p">]</span><span class="n">_</span>
+
+<span class="o">..</span> <span class="p">[</span><span class="n">reStructuredText</span> <span class="n">简介</span><span class="p">]</span><span class="n">_</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">zh</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">doc</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">rest</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</li>
+<li><p>显式的超链接：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>这是一个 `标题`_
+
+.. _标题: http://silverrainz.me
+</pre></div>
+</div>
+</li>
+<li><p>指令（Directives）是 reStructuredText 的又一扩展机制：插入图片，
+代码声明等语法均由 Directives 实现，和 Role 一样，指令可以被开发者定义。
+指令名后跟两个冒号，冒号后是参数。在新的一行里可以指定选项，选项由 <code class="code docutils literal notranslate"><span class="pre">:</span></code> 包围，
+后跟选项值。选项之后还可能有文本块。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. 能够指定高宽，alt 文本，对齐的图片，比 Markdown 不知道高到哪里去了~
+.. image:: picture.jpeg
+    :height: 100px
+    :width: 200 px
+    :scale: 50 %
+    :alt: alternate text
+    :align: right
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="sphinx">
+<h2>Sphinx 简介<a class="headerlink" href="#sphinx" title="此标题的永久链接">#</a></h2>
+<p>Sphinx 是 Georg Brandl 用 Python 编写的文档创建工具，以 BSD 协议开源，使用
+reStructuredText 作为标记语言。Sphinx 被用来编写 <a class="reference external" href="https://docs.python.org/">Python 的官方文档</a>。
+去年 6 月的时候，<a class="reference external" href="https://lwn.net/Articles/692704/">Linux Kernel 也开始使用 Sphinx + reStructuredText 管理内核文档</a>。
+这里有一个使用 Sphinx 创建文档的项目列表：<a class="reference external" href="http://www.sphinx-doc.org/en/stable/examples.html">Projects using Sphinx</a>。</p>
+<ul class="simple">
+<li><p>Sphinx 能够将文档输出为 HTML，LaTex，Manuals page 等多种格式。</p></li>
+<li><p>在 reStructuredText 的语法基础上提供了各种信息（文档，章节，函数，引用，术语）的交叉引用</p></li>
+<li><p>Sphinx 还能轻松地定义文档的层次结构：自动生成目录树，自动发现目录下的其他文档</p></li>
+<li><p>Sphinx 对 Python/C/C++ 等语言提供了良好的支持</p></li>
+<li><p>支持扩展，你可以编写自己的模块</p></li>
+</ul>
+<blockquote>
+<div><p>看起来 Sphinx 的功能比 GitBook 丰富得多，但其实它们之间没什么可比性，
+因为 Sphinx 是文档生成工具而 GitBook 只是简单的书籍生成工具。</p>
+</div></blockquote>
+</section>
+<section id="markdown-restructuredtext">
+<h2>将 Markdown 笔记转化为 reStructuredText<a class="headerlink" href="#markdown-restructuredtext" title="此标题的永久链接">#</a></h2>
+<p>使用 Sphinx 管理笔记的第一步是将之前笔记转成 rst 格式，Pandoc 大法好：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>md<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.md&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>pandoc<span class="w"> </span>--from<span class="o">=</span>markdown<span class="w"> </span>--to<span class="o">=</span>rst<span class="w"> </span>--output<span class="o">=</span><span class="k">$(</span>dirname<span class="w"> </span><span class="nv">$md</span><span class="k">)</span>/<span class="k">$(</span>basename<span class="w"> </span><span class="nv">$md</span><span class="k">)</span>.rst<span class="w"> </span><span class="nv">$md</span><span class="p">;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+<section id="shpinx">
+<h2>Shpinx 的安装和使用<a class="headerlink" href="#shpinx" title="此标题的永久链接">#</a></h2>
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span></code> 即可安装 Sphinx，Arch Linux 用户可以执行
+<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">python-sphinx</span></code> 安装。Sphinx 提供了 <code class="code docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> 程序，
+可以交互式地建立一个 Sphinx 项目。项目目录下的 conf.py 储存了 Sphinx 的配置，
+index.rst 则是默认的文档首页。</p>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-b</span> <span class="pre">html</span> <span class="pre">&lt;srcdir&gt;</span> <span class="pre">&lt;builddir&gt;</span></code> 可以从 <code class="code docutils literal notranslate"><span class="pre">&lt;srcdir&gt;</span></code> 生成 HTML
+文档输出到 <code class="code docutils literal notranslate"><span class="pre">&lt;builddir&gt;</span></code>，如果在 <code class="code docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> 中指定了生成 Makefile，通过
+<code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> 即可生成 HTML 文档到预定义的 build 目录。</p>
+<p>Sphinx 似乎没有提供类似 <code class="code docutils literal notranslate"><span class="pre">gitbook</span> <span class="pre">serve</span></code> 在本地启动 HTTP 服务器的功能，Linux
+用户在 Makefile 中增加如下内容则可方便的在默认浏览器打开文档的首页：</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">view</span><span class="o">:</span>
+<span class="w">    </span>xdg-open<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>BUILDDIR<span class="k">)</span><span class="s2">/html/index.html&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>组织和索引<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>Sphinx 定义了 <code class="code docutils literal notranslate"><span class="pre">toctree</span></code> 指令作为目录树，各个文档由目录树组织在一起，
+在构建文档的时候，如果存在没有被引用到的文档，Sphinx 会发出警告。</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    <span class="nc">:maxdepth:</span> 2
+
+    intro
+</pre></div>
+</div>
+<p>上面的 rst 指令定义了一个最大深度为 2 的目录树，包含了当前目录下的 intro.rst 文件。
+在渲染出来的 HTML 文件中，目录树会显示到 intro.html 的链接，链接的标题则会和
+intro.rst 中的标题保持一致。如果 intro.rst 中存在章节，也会在目录树中显示出来，
+但整个目录树的深度不超过 2。</p>
+<p>如果只想要在目录树中显示文档的标题而不显示内部的章节，需要为 <code class="code docutils literal notranslate"><span class="pre">toctree</span></code> 指令开启
+<code class="code docutils literal notranslate"><span class="pre">:titlesonly:</span></code> 选项。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">toctree</span></code> 在开启 <code class="code docutils literal notranslate"><span class="pre">:glob:</span></code> 的情况下支持通配符，比如 <code class="code docutils literal notranslate"><span class="pre">*</span></code> 匹配当前目录下所有的
+（排除自身，下同）rst 文档。<code class="code docutils literal notranslate"><span class="pre">index*</span></code> 匹配当前目录下所有以 index 开头的 rst 文档。</p>
+<p>我在笔记的不同分类的文件夹中都建立了如下内容的 index.rst：</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Title</span>
+<span class="gh">=====</span>
+
+Description.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:glob:</span>
+   <span class="nc">:titlesonly:</span>
+
+   *
+   */index
+</pre></div>
+</div>
+<p>这个 index.rst 会匹配当前目录所有的 rst 文档，并在所有的文件夹下寻找 index.rst。
+所有的笔记通过 index.rst 被组织到一起。</p>
+</section>
+<section id="id5">
+<h2>使用 Read The Docs 发布<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
+<p><a class="reference external" href="http://readthedocs.io/">Read The Docs</a> 是一个托管和展示文档的平台，支持 Sphinx
+项目。在网站上注册后，授权 Github 即可从 Github 那边导入仓库。</p>
+<p>因此可以将笔记本身托管在 Github 上，每次更新时会通过 webhook 自动更新
+Read The Docs 上的文档。</p>
+<p>P.S. Read The Docs 的主站看起来很简陋…… 给我一种要完蛋了的感觉。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/use-sphinx-and-rst-to-manage-your-notes" data-title="用 Sphinx + reStructuredText 构建笔记系统" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="gsoc-2016-sum-up.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>GSoC 2016 小记 - 误打误撞三个月</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="switch-from-duoshuo-to-isso.html">
+      <span>从多说迁移到 Isso</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前言</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-js">为什么我不喜欢 Node.js</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-vs-restructuredtext">Markdown vs reStructuredText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">Sphinx 简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-restructuredtext">将 Markdown 笔记转化为 reStructuredText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shpinx">Shpinx 的安装和使用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">组织和索引</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">使用 Read The Docs 发布</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

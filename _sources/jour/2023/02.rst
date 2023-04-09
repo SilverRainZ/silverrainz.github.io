@@ -1,0 +1,21 @@
+====
+二月
+====
+
+setup.py, setup.cfg 和 pyproject.toml
+=====================================
+
+:URL: `Understanding setup.py, setup.cfg and pyproject.toml in Python`__
+
+历史包袱：
+
+   The subject of Python packaging, installation and publication is a bit complicated for mainly historic reasons – the original distutils module was created over 20 years ago.
+
+An example python project: :ghrepo:`IanHopkinson/mypackage`, another one: :ghrepo:`pyscaffold/pyscaffold-demo` (from pyscaffold).
+
+- :file:`setup.py`: required by :pypi:`setuptool`, to help with the packaging process
+- :file:`setup.cfg`: let us not need to be executed (setup.py) to be read packaging configuration
+- :file:`pyproject.toml`: intorduced in :pep:`518`, provides a way of separating configuration of the build system from a specific, optional library (setuptools) and also enabling setuptools to install itself without already being installed (bootstrap)
+- :file:`src/`: a fxied source directory ensures that you must install a package to test it, so as your users would do. Also it prevents tools like pytest incidently importing it.
+
+__ https://ianhopkinson.org.uk/2022/02/understanding-setup-py-setup-cfg-and-pyproject-toml-in-python/

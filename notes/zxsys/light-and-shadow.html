@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="光影分解训练" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/zxsys/light-and-shadow.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="date, 2020-07-01,, status, Finished,. 通过使用有限的色层写生多张小幅石膏，观察（光影的）现象，总结规律。 画的时候以呈现光与空间的感觉为目标。 分四个阶段，这么分是为了为了掌握规律，之后的绘画中步骤是无所谓的，但也可将其作为作画的步骤。 务必摒弃抄暗部形状的画法 。 指导思想: 个人认为这个训练的指导思想有二： 梳理观察思路， 穷尽一切观察手段 ：- 直..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="date, 2020-07-01,, status, Finished,. 通过使用有限的色层写生多张小幅石膏，观察（光影的）现象，总结规律。 画的时候以呈现光与空间的感觉为目标。 分四个阶段，这么分是为了为了掌握规律，之后的绘画中步骤是无所谓的，但也可将其作为作画的步骤。 务必摒弃抄暗部形状的画法 。 指导思想: 个人认为这个训练的指导思想有二： 梳理观察思路， 穷尽一切观察手段 ：- 直..." />
+
+    <title>光影分解训练 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/mirror-redirect.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/zxsys/light-and-shadow';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/zxsys/light-and-shadow.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="室内场景训练" href="indoor-sketching.html" />
+    <link rel="prev" title="暴露问题" href="prelude.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">造型实验室</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prelude.html">暴露问题</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">光影分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-sketching.html">室内场景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outdoor-sketching.html">室外夜景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeling.html">形体分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast-modeling.html">快速形体分解</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="way-to-artist/index.html">艺术创作方法</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/prepare.html">课前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/find-yourself.html">找自己</a></li>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/find-topic.html">找主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/find-language.html">找语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/stealing.html">偷师学艺</a></li>
+<li class="toctree-l3"><a class="reference internal" href="way-to-artist/exhibition.html">参展须知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="learn-from-master.html">向大师学绘画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-modeling.html">线造型训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips.html">一些零碎知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../artstory/index.html">增量艺术史</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/artistory.html">艺术家史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gallery.html">画廊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gossip.html">逸闻</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../books/index.html">读书笔记</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../books/code-complete-2.html">代码大全 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/codex-hammer.html">哈默手稿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/cpp-primer-plus.html">C++ Primer Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-course-of-charles-bargue-and-jean-leon-gerome.html">查尔斯巴尔格素描教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-lessons-from-the-great-masters.html">向大师学绘画·素描基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/teach-yourself-scheme-in-fixnum-days.html">Learning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-art-of-color.html">色彩艺术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-rust-programming-language.html">The Rust Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-story-of-art.html">艺术的故事</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/a-modern-method-for-guitar-vol1/index.html">伯克利现代吉他教程·卷一</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../books/linux-kernel-development/index.html">Linux Kernel Development</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/chapter-1_2.html">Chapter 1 and 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/compile-and-run-kernel-in-qemu.html">Compile and Run Kernel in Qemu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/misc.html">一些零碎的东西</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gdb.html">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/grep.html">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/latex.html">LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/lily.html">LilyPond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/make.html">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html">Man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/pacman.html">Pacman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/py.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rsync.html">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rust.html">Rust Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../music-theory/index.html">乐理笔记</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/interval-of-music.html">音程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2021-interview/index.html">2021 面试记录</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docutils/index.html">Docutils 文档阅读</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../go/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../go/pprof.html">PProf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/coverage.html">覆盖率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/godoc.html">Godoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/dev.html">Develop Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/asm.html">Go’s Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/type-assertion.html">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/gc.html">GC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ast.html">Abstract Syntax Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ssa.html">Static Single-Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../wizard/index.html">配置向导</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writeups/index.html">Capture the Flag</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../writeups/seedlabs/index.html">Seed Lab</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../writeups/seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-bandit/index.html">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-narnia/index.html">wargame-narnia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/07.html">七月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/06.html">六月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/05.html">五月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/03.html">三月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/10.html">十月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/09.html">九月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/05.html">五月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/03.html">三月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/02.html">二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/06.html">六月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/01.html">一月</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">关于</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/resume.html">简历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">收集室</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../collections/github-halloween.html">Github 万圣节彩蛋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>光影分解训练</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">指导思想</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">阶段训练</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1. 只画亮暗面</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2. 增加中黑和浅灰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3. 增加重黑和深灰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4. 全因素素描</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">为什么光感空间感不够强？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">多光源的情况下如何区别亮暗面？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">作业</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="id1">
+<h1>光影分解训练<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2020-07-01</p>
+</dd>
+<dt class="field-even">status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Finished</p>
+</dd>
+</dl>
+<p>通过使用有限的色层写生多张小幅石膏，观察（光影的）现象，总结规律。
+画的时候以呈现光与空间的感觉为目标。</p>
+<p>分四个阶段，这么分是为了为了掌握规律，之后的绘画中步骤是无所谓的，但也可将其作为作画的步骤。
+<em>务必摒弃抄暗部形状的画法</em> 。</p>
+<section id="id2">
+<h2>指导思想<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>个人认为这个训练的指导思想有二：</p>
+<ol class="arabic">
+<li><p>梳理观察思路， <em>穷尽一切观察手段</em> ：</p>
+<ul>
+<li><p>直接观察：改变观察的远近、角度，眯眼观察、触摸物象、</p></li>
+<li><p>借助工具：改变光源（特定的光源下会出现一些不好观察的形体）、铅锤、卡尺</p></li>
+<li><p>运用规律：借助已有的造型知识（包括下面总结的规律），物象的共性（解剖知识之于人）
+总结出规律，来 <em>辅助</em> 判断该物象的造型特征</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>很多时候规律在理论上不是完备的，而只是作为一种朴素的经验总结，因此不能照搬规律</p></li>
+<li><p>这个训练中的很多规律在 <a class="reference internal" href="../6-lectures-on-sketch.html"><span class="doc">素描六讲</span></a> 已经提及了</p></li>
+</ul>
+</div>
+</li>
+<li><p>实验求证：穷尽以上方法均无法观察明白的话，可以列出有限的几种可能，在画面上进行实验，
+根据（光影）效果决定选用哪个结论</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>比如我们搞不清楚某个地方是亮面还是暗面的话，可以先当作亮面画，
+再当做暗面画，对比两种情况下那种的光感更强烈，选用强烈者</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>保持并最大化：</p>
+<ul class="simple">
+<li><p>每一步里都要保持光感和空间感</p></li>
+<li><p>每一步里都要在遵从上一步的 <em>秩序</em> （即不破坏上一步的色层关系）的前提下进行</p></li>
+<li><p>在每一步的光感和空间感达到极致时才进行下一步，</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id3">
+<h2>阶段训练<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<section id="id4">
+<h3>1. 只画亮暗面<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
+<dl class="simple">
+<dt>色层</dt><dd><p>白、黑</p>
+</dd>
+<dt>要求</dt><dd><p>只画物体的亮暗两个面，亮面留白，暗面平涂，边线要虚</p>
+</dd>
+<dt>难点</dt><dd><ul class="simple">
+<li><p>存在一些灰面，难以判断属于亮面还是暗面</p></li>
+<li><p>只有两个层次的情况下如何体现体积感</p></li>
+</ul>
+</dd>
+<dt>亮暗面的判断</dt><dd><ul class="simple">
+<li><p>亮暗面的存在是客观事实，不能说「把这个面当作亮面」</p></li>
+<li><p>亮暗面由光源和物象两个因素产生， <em>光能照射到的地方就是亮部</em> ，照不到的地方就是暗部，
+光线在物象上切点的连线即为明暗交界线</p></li>
+<li><p>从单元形体（而非整个物象）的层面上讲，可以根据形体的 <em>凹凸、（受光的）方向、（距离光源的）远近</em>
+三个因素入手</p></li>
+</ul>
+</dd>
+<dt>如何体现光感和空间感</dt><dd><p>光感取决于三个因素：</p>
+<ul class="simple">
+<li><p>暗部的形状（ 在 <a class="reference internal" href="../6-lectures-on-sketch.html#id6"><span class="std std-ref">造型的诞生</span></a> 有提及），形象地讲，
+<em>暗部是包裹在形体上的</em> ，更详细一点：</p>
+<ul>
+<li><p>背光面的形状受物象本身影响</p></li>
+<li><p>投影面的形状投影所在物和产生投影的物象影响</p></li>
+<li><p>暗部的形状是匹配的形状：</p>
+<ul>
+<li><p>同一暗部的要分配到多个形体中判断（匹配之一）</p></li>
+<li><p>为同一形体服务的多个多个暗部也之间存在匹配关系（匹配之二）</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>暗部的灰度，太浅（朦胧）或太暗（剪影）都显得平，具体程度要 <em>凭感觉</em> ，
+在实践上可以 <em>由浅到深</em> ，如果感觉光感不够则把暗部逐渐加深，
+直到 <em>光感最大化</em> 为止</p></li>
+<li><p>边的虚实，太虚会拉不开前后，太实会显得像剪影，总体上应当偏虚一些</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>务必仔细检查每个暗部的形状是否「匹配」了再进行下一步</p>
+</div>
+</section>
+<section id="id5">
+<span id="id6"></span><h3>2. 增加中黑和浅灰<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+<dl>
+<dt>色层</dt><dd><p>白、浅灰、黑、中黑</p>
+</dd>
+<dt>要求</dt><dd><p>在 1 的基础上，暗部增加中黑层次，亮部增加浅灰层次（面积最大），要呈现光与空间感</p>
+</dd>
+<dt>难点</dt><dd><ul class="simple">
+<li><p>如何找出中黑和浅灰？</p></li>
+<li><p>如何画出有区分度的色层？</p></li>
+</ul>
+</dd>
+<dt>区分中黑</dt><dd><ul>
+<li><p>通过观察：暗部中明显深的地方就是中黑</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>除非色差非常明显，否则不要直接通过「比较深浅」来确定中黑，
+而是要去 <em>从整体上去归纳色层</em> ，</p>
+</div>
+</li>
+<li><p>根据一些规律：</p>
+<ul class="simple">
+<li><p>同一固有色下，暗部的中投影面大概率比背光面深（直观地想是因为没有反光）</p></li>
+<li><p>面的朝向性：在同一光源下，相同朝向的形体的暗部具有相似的色度，要将这些相似的暗部都归纳在一个色层里</p></li>
+</ul>
+</li>
+<li><p>通过实验：在难以确定的情况下通过实验（上面提到了）确定中黑</p></li>
+</ul>
+</dd>
+<dt>区分浅灰</dt><dd><p>正受光的面是白，其他的亮部都是浅灰</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>存在一些看起来并不很白的正受光面和看起来不很灰的侧受光面，
+同样这里不能陷入「比较深浅」的泥沼，而要 <em>从整体上去归纳色层</em> ，
+可以把光源的远近考虑进去判断：
+离光源远越远，亮部是浅灰的概率就越大，即使是正受光面，也可能是属于浅灰，
+即使看起来很亮。也可能属于浅灰</p>
+</div>
+</dd>
+<dt>画有区分度的色层</dt><dd><ul class="simple">
+<li><p>在不同色层使用不同 B 的铅笔，在只有一种铅笔可用的情况下，
+可以通过 <em>排线的疏密</em> 区分色层，但注意太稀疏的排线可能会影响后期的塑造</p></li>
+<li><p>画的时候宁浅勿深，方便后期加深拉开色距</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><em>同一固有色下，暗部的所有面总比亮部暗</em> ，暗部内部和亮部内部的色层的色距不能太大，
+更不能超过亮暗部之间的色距。宁可雷同也不能破坏秩序</p>
+</div>
+</section>
+<section id="id7">
+<h3>3. 增加重黑和深灰<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h3>
+<dl class="simple">
+<dt>色层</dt><dd><p>白、浅灰、深灰、黑、中黑、重黑</p>
+</dd>
+<dt>要求</dt><dd><p>在 2 的基础上，暗部加上最重的黑，亮部加上深灰，边线保持虚，保持光与空间</p>
+</dd>
+</dl>
+<p>2 里面提及的思路基本上可以套用到 3 里，额外补充一点其他规律：</p>
+<ul class="simple">
+<li><p>重黑往往出现在：</p>
+<ul>
+<li><p>投影的起始点</p></li>
+<li><p>强烈的明暗交界线（和光源的距离、角度适合就会显得很强烈）</p></li>
+<li><p>剧烈变化的形体（裂缝、凹陷等）</p></li>
+<li><p>离光源比较近（太近了反射会削弱）的暗部</p></li>
+<li><p>离光源很远的（光可能衰减、被干扰、遮挡；几乎没有反射）的暗部</p></li>
+</ul>
+</li>
+<li><p>深灰往往出现在：</p>
+<ul>
+<li><p>非常侧的受光面</p>
+<ul>
+<li><p>明暗交界线到亮部的转折处</p></li>
+</ul>
+</li>
+<li><p>离光源非常远的测受光面</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id8">
+<h3>4. 全因素素描<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h3>
+<dl class="simple">
+<dt>要求</dt><dd><p>画成完整的全因素素描</p>
+</dd>
+</dl>
+<p>实际上是要做到： 继续深化突出光和空间</p>
+<ul id="id9">
+<li><p>盯着空间画</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>「盯着空间画」听起来有点玄，在我理解是：在原来的色层上，根据空间关系进行加深、
+过渡，并且用线要体现形体的走向</p>
+</div>
+</li>
+<li><p>体现形体的饱满感，检查块面在整个形体上的转向是否明确</p></li>
+<li><p>整理大的秩序，注意 亮 - 暗 - 亮 的节奏变化</p></li>
+</ul>
+<p>其他（我觉得）要注意的点：</p>
+<ul class="simple">
+<li><p>警惕抄颜色，画的是光影而不是物象</p></li>
+<li><p>尊重（物象和背景的）固有色</p></li>
+<li><p>作为古典素描的练习，应当弱化反光的存在</p></li>
+<li><p>视觉上的明显的内轮廓线不一定要在画面上体现，以光影效果为重</p></li>
+<li><p>避免形体上的大修改，思考如何让现有的形匹配而不是修改他们</p></li>
+</ul>
+</section>
+</section>
+<section id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="此标题的永久链接">#</a></h2>
+<section id="id10">
+<h3>为什么光感空间感不够强？<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h3>
+<p>检查：</p>
+<ol class="arabic simple">
+<li><p>亮暗面是否找准了？</p></li>
+<li><p>亮暗面之间的色距是否合适？</p></li>
+<li><p>亮暗面内部的色距是否超过了亮暗面之间的色距？</p></li>
+</ol>
+</section>
+<section id="id11">
+<h3>多光源的情况下如何区别亮暗面？<a class="headerlink" href="#id11" title="此标题的永久链接">#</a></h3>
+<ul class="simple">
+<li><p>多个光源都照不到的地方肯定为暗面。</p></li>
+<li><p>多个光源都能照到的地方肯定为亮面（很大几率是画面中的白）</p></li>
+</ul>
+<p>主要的难点在于部分光源照到的地方的区分，可以选取其中一个作为主光源。
+选取主光源后，可以将主光源照不到的地方确定为暗面，反之亦然。
+但注意这个过程中要带入自己的判断：如果这个面被归纳为暗面，
+但作为亮面能体现出更好的光感，那么将其归纳为亮面————即， <em>多做实验</em> 。
+在判断了一个面后，与该面同方向的面也可以判断出来了</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>可以通过遮挡光源来确定某个面到底受哪个光源的影响</p>
+</div>
+</section>
+</section>
+<section id="id12">
+<h2>作业<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h2>
+<dl class="any">
+<dt class="sig sig-object any" id="artwork-l-000">
+<span class="sig-name descname"><span class="pre">单光源下的小卫</span></span><a class="headerlink" href="#artwork-l-000" title="永久链接至目标">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">编号<span class="colon">:</span></dt>
+<dd class="field-odd"><p>l-000</p>
+</dd>
+<dt class="field-even">日期<span class="colon">:</span></dt>
+<dd class="field-even"><p>2020-07-10</p>
+</dd>
+<dt class="field-odd">尺幅<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-artwork.size.html#cap-4k" title="artwork 4k"><code class="xref any any-artwork.size docutils literal notranslate"><span class="pre">4k</span></code></a></p>
+</dd>
+<dt class="field-even">媒介<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"><code class="xref any any-artwork.medium docutils literal notranslate"><span class="pre">铅笔</span></code></a></p>
+</dd>
+<dt class="field-odd">画集<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-artwork.album.html#cap-unknown" title="artwork unknown"><code class="xref any any-artwork.album docutils literal notranslate"><span class="pre">unknown</span></code></a></p>
+</dd>
+</dl>
+<figure class="align-default" id="id13">
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/SilverRainZ/bullet/master/_images/IMG_20200710_140628.jpg"><img alt="../../_images/IMG_20200710_140628.jpg" src="../../_images/IMG_20200710_140628.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">单光源下的小卫</span><a class="headerlink" href="#id13" title="此图像的永久链接">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>也就是 <a class="reference external" href="https://zh.wikipedia.org/wiki/朱利亚诺·德·美第奇像">📖 朱利亚诺·德·美第奇像</a></p>
+</div>
+<a class="reference internal image-reference" href="../../_images/IMG_20200710_162544.jpg"><img alt="../../_images/IMG_20200710_162544.jpg" src="../../_images/IMG_20200710_162544.jpg" style="width: 40%;" /></a>
+</dd></dl>
+
+<dl class="any">
+<dt class="sig sig-object any" id="artwork-l-001">
+<span class="sig-name descname"><span class="pre">双光源下的巴特农女神像</span></span><a class="headerlink" href="#artwork-l-001" title="永久链接至目标">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">编号<span class="colon">:</span></dt>
+<dd class="field-odd"><p>l-001</p>
+</dd>
+<dt class="field-even">日期<span class="colon">:</span></dt>
+<dd class="field-even"><p>2020-07-17</p>
+</dd>
+<dt class="field-odd">尺幅<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-artwork.size.html#cap-4k" title="artwork 4k"><code class="xref any any-artwork.size docutils literal notranslate"><span class="pre">4k</span></code></a></p>
+</dd>
+<dt class="field-even">媒介<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"><code class="xref any any-artwork.medium docutils literal notranslate"><span class="pre">铅笔</span></code></a></p>
+</dd>
+<dt class="field-odd">画集<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-artwork.album.html#cap-unknown" title="artwork unknown"><code class="xref any any-artwork.album docutils literal notranslate"><span class="pre">unknown</span></code></a></p>
+</dd>
+</dl>
+<figure class="align-default" id="id14">
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/SilverRainZ/bullet/master/_images/IMG_20200717_205248.jpg"><img alt="../../_images/IMG_20200717_205248.jpg" src="../../_images/IMG_20200717_205248.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">双光源下的巴特农女神像</span><a class="headerlink" href="#id14" title="此图像的永久链接">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>也就是 <a class="reference external" href="https://zh.wikipedia.org/wiki/雅典娜·帕德嫩">📖 雅典娜·帕德嫩</a></p>
+</div>
+<a class="reference internal image-reference" href="../../_images/IMG_20200710_162535.jpg"><img alt="../../_images/IMG_20200710_162535.jpg" src="../../_images/IMG_20200710_162535.jpg" style="width: 40%;" /></a>
+</dd></dl>
+
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/notes/zxsys/light-and-shadow" data-title="光影分解训练" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prelude.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">暴露问题</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="indoor-sketching.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">室内场景训练</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">指导思想</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">阶段训练</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1. 只画亮暗面</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2. 增加中黑和浅灰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3. 增加重黑和深灰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4. 全因素素描</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">为什么光感空间感不够强？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">多光源的情况下如何区别亮暗面？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">作业</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+====
+三月
+====
+
+切换到 Wayland
+==============
+
+.. highlight:: bash
+
+GTK 很早就实现了能用的 Wayland 后端，在之后 Firefox 实验性地支持 Wayland ，
+就没有任何非运行在 X 下不可的软件了。:ghrepo:`fcitx/fcitx5` 在 Wayland 下更是达到了
+开箱即用的水平，是时候抛弃 X 了。
+
+XMonad →  Sway
+    Arch 源里为数不多的 Wayland compositor，再也不想写看不懂的 Haskell 配置文件了，
+    Sway 能 hot reloading 很香，比 `xmonad --recompile` 不知道高到哪里里去了
+
+dzen2 →  Waybar
+    Sway 自带的 Swaybar 不够好用，很多系统信息还有手动获取，
+    而 Waybar 有很多方便的模块，改改配置就非常好看
+
+xscreensaver →  Swaylock
+    Swaylock 应该和 i3lock 一样，曾经看 :ghuser:`cbmixx` 用过，总之比 xscreensaver
+    好太多
+
+xfce-notifyd →  Mako
+    Mako 比 xfce-notifyd 好定制，默认又比 dunst 好看
+
+Wob
+    之前没用过类似的东西，挺有意思
+
+使用启动管理器的用户自然不必忧心如何 Sway，WM 用户可以在 `.profile` 中加入以下代码，
+方便从 TTY1 登陆的时候自动进入 Sway::
+
+    # If running from tty1 start sway
+    if [ "$(tty)" = "/dev/tty1" ]; then
+        source ~/.config/sway/pre-startup
+        exec sway
+    fi
+
+.. note::
+
+   `.xprofile` 文件不会再被 source，其中的环境变量应当寻找合适的地方存放，
+   我将其放在了 `~/.config/sway/pre-startup` 中
+
+Firefox
+    设置 `MOZ_ENABLE_WAYLAND=1` 以启用 Wayland 支持
+
+Midi.js 的一个有趣应用
+======================
+
+https://lexcast.github.io/orchestra/
+
+修改 systemd service 的正确姿势
+===============================
+
+:date: 2021-03-10
+
+.. highlight:: ini
+
+Arch 上的 syncthing 包提供的 service 启用了 `-no-browser` 选项，
+因此没有网页管理界面可用，运行在我的 pi3 上的 syncthing 也因此不好管理。
+
+直接修改 service 文件是不可取的，会在下一次系统更新时被覆盖。systemd 提供了
+`systemctl edit` 命令来修改 service，但实际上并没有修改 service 本身，
+而是创建了 `/etc/systemd/system/xxx.service.d/override.conf` 来覆盖原 service
+的行为::
+
+    # /etc/systemd/system/syncthing@la.service.d/override.conf
+    [Service]
+    ExecStart=
+    ExecStart=/usr/bin/syncthing -gui-address="http://la-pi3:8384" -no-restart -logflags=0
+
+.. note:: 注意 `ExecStart=` 用来清空之前的值，
+          不然 systemd 会认为你指定了多个 `ExecStart` [#]_
+
+.. note:: 使用 `systemctl revert` 来取消你的 override [#]_
+
+.. [#] https://unix.stackexchange.com/a/468067
+.. [#] https://unix.stackexchange.com/a/449053
+
+为 silverrainz.me 申请 Let's Encrypt Wildcard 证书
+==================================================
+
+用 acme.sh 来自动化申请流程，Wildcard 证书目前只能通过 dns-01 验证的方式申请。 [#]_
+意味着需要 acme.sh 支持你的 DNS 提供商的 API。
+
+CloudFlare 当然是支持的，但是 CF 的 free domain 不支持用 API key 修改记录。 [#]_
+不得已将 DNS 解析从 CF 搬回 GoDaddy，好在迁移方便，导出 zone file 再导入即可。
+
+其他看文档即可。
+
+.. [#] https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates
+.. [#] https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option
+
+让 Sphinx 支持 Isso 评论
+========================
+
+一言以蔽之，用最近写的 `sphinxnotes-isso`_ 即可，在文档的任意位置插入 `.. isso::`
+既可有最下面的效果。
+
+.. _sphinxnotes-isso: https://sphinx-notes.github.io/isso/
+
+Isso 部署
+---------
+
+Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 openSUSE + 腾讯云，
+考虑到国内的加载速度还是使用了腾讯云。
+
+使用 Isso 官方提供的 Dockerfile build 出镜像，
+
+考虑多个实例，每个实例在单独目录下，必须有 :file:`comments.db` 和 :file:`isso.cfg`
+两个文件。用如下脚本实现多个实例的启动:
+
+.. code:: bash
+
+   #!/bin/bash
+
+   name=$1
+   port=$2
+
+   docker run \
+       --detach \
+       --name isso-$name \
+       --publish 127.0.0.1:$port:8080 \
+       --volume $PWD/$name:/config \
+       --volume $PWD/$name:/db \
+       isso
+
+SMTP 服务
+---------
+
+SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 `noreply@silverrainz.me`
+分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：
+
+.. code:: ini
+
+   [smtp]
+   username = noreply@silverrainz.me
+   password = **********
+   host = smtp.yandex.ru
+   port = 465
+   security = ssl
+   to = "Shengyu Zhang" <comments@silverrainz.me>
+   from = "Silver Bullet" <noreply@silverrainz.me>
+   timeout = 10
+
+被处死的君王
+============
+
+:date: 2021-03-31
+
+其实只是画 :artwork:`xfczk-043` 的时候联想到的，权当学点没用的：
+
+路易十六是法国历史上唯一一个被处死的君王。
+
+    路易十六是个好人，把他处死是件悲剧，但也是不可避免的。
+    ——法国总统密特朗 [#]_
+
+:del:`全世界` 欧洲范围内，被处死的君王还有两人： [#]_
+
+- :zhwiki:`查理一世 (英格兰)`
+- :zhwiki:`尼古拉二世 (俄罗斯)`
+
+.. [#] :zhwiki:`路易十六`
+.. [#] https://www.sohu.com/a/276828349_100161166

@@ -1,0 +1,1078 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="OverTheWire Bandit" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/overthewire-bandit.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="题目地址: OverTheWire: Bandit. 考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过, 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思… 有意思的意思是我不会做. WeChall 计分板: OverTheWire 使用 Wechall 的计分板来计分, 具体参见 WeChall Scoreborad 因为题目都在远程的 ssh 主..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="题目地址: OverTheWire: Bandit. 考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过, 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思… 有意思的意思是我不会做. WeChall 计分板: OverTheWire 使用 Wechall 的计分板来计分, 具体参见 WeChall Scoreborad 因为题目都在远程的 ssh 主..." />
+
+    <title>OverTheWire Bandit &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/overthewire-bandit';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/overthewire-bandit.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-07-26
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tag"></i>
+    
+    </span>
+  
+  
+  <a href="tag/ctf.html">CTF</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OverTheWire Bandit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wechall">WeChall 计分板</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">题目</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit17">bandit17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit21">bandit21</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit24">bandit24</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit25">bandit25</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit26">bandit26</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="overthewire-bandit">
+<h1>OverTheWire Bandit<a class="headerlink" href="#overthewire-bandit" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>题目地址: <a class="reference external" href="http://overthewire.org/wargames/bandit/">OverTheWire: Bandit</a>.</p>
+<p>考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
+所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
+<span class="sphinxnotes-strike" style="text-decoration: line-through;">有意思的意思是我不会做</span>.</p>
+<section id="wechall">
+<h2>WeChall 计分板<a class="headerlink" href="#wechall" title="此标题的永久链接">#</a></h2>
+<p>OverTheWire 使用 Wechall 的计分板来计分,
+具体参见 <a class="reference external" href="http://overthewire.org/about/wechall.html">WeChall Scoreborad</a></p>
+<p>因为题目都在远程的 ssh 主机上, 所以你需要让远程主机知道你是谁.
+在你的 <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> 里加上两个环境变量:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WECHALLUSER</span><span class="o">=</span><span class="s2">&quot;你在 WeChall 的用户名&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">WECHALLTOKEN</span><span class="o">=</span><span class="s2">&quot;你在 WeChall 的 WarToken&quot;</span>
+</pre></div>
+</div>
+<p>WarToken 可以在 WeChall 网站的
+<a class="reference external" href="http://www.wechall.net/warboxes">Account -&gt; WarBoxes -&gt; Your current WarToken</a>
+获得.</p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> 中添加:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="o">*.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span>
+<span class="n">SendEnv</span> <span class="n">WECHALLTOKEN</span>
+<span class="n">SendEnv</span> <span class="n">WECHALLUSER</span>
+</pre></div>
+</div>
+<p>在 ssh 连接的时候就会把你的帐号信息发送给远程主机.</p>
+<p>在登入一个新的关卡后, 执行 <code class="code docutils literal notranslate"><span class="pre">wechall</span></code> 便可获得该关卡的分数.</p>
+</section>
+<section id="id2">
+<h2>题目<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<section id="bandit17">
+<h3>bandit17<a class="headerlink" href="#bandit17" title="此标题的永久链接">#</a></h3>
+<blockquote>
+<div><p>The password for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
+</div></blockquote>
+<p>要从 31000-32000 之间的端口中找出有开放的并且只是 SSL 连接的端口,
+往该端口发送上一关的密码就会返回下一关的密码.</p>
+<p>找出所有有应答的端口:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc<span class="w"> </span>-v<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>localhost<span class="w"> </span><span class="m">31000</span>-32000<span class="w"> </span><span class="m">2</span>&gt;/tmp.tmpxxx/log
+cat<span class="w"> </span>/tmp.tmpxxx/log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Succ
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">-v</span></code> 用来给出连接的详细信息, <code class="code docutils literal notranslate"><span class="pre">-w</span> <span class="pre">2</span></code> 指定 timeout,
+不知道为什么 <code class="code docutils literal notranslate"><span class="pre">-v</span></code> 的信息是直接输出到 <code class="code docutils literal notranslate"><span class="pre">stderr</span></code> 的.
+<code class="code docutils literal notranslate"><span class="pre">tmp/tmp.xxx</span></code> 使用 <code class="code docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 产生的临时目录.</p>
+<p>最后有应答的只有五个端口, 挨个挨个试.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>localhost:31xxx<span class="w"> </span>-ssl3<span class="w"> </span>-quiet
+</pre></div>
+</div>
+<p>发现是 31790 端口, 返回一个 RSA 私钥, 所以:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>localhost:31790<span class="w"> </span>-ssl3<span class="w"> </span>-quiet<span class="w"> </span>&gt;<span class="w"> </span>bandit17.private
+chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span>bandit17.private
+ssh<span class="w"> </span>-i<span class="w"> </span>bandit17.key<span class="w"> </span>bandit17@bandit.labs.overthewire.org
+cat<span class="w"> </span>/etc/bandit_pass/bandit17
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit21">
+<h3>bandit21<a class="headerlink" href="#bandit21" title="此标题的永久链接">#</a></h3>
+<blockquote>
+<div><p>There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Try connecting to your own network daemon to see if it works as you think</p>
+</div>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">bandit20</span></code> 的家目录下提供了一个程序 <code class="code docutils literal notranslate"><span class="pre">suconnect</span></code>, 会从你指定的端口读取 <code class="code docutils literal notranslate"><span class="pre">bandit20</span></code> 的密码,
+如果正确的话返回本关卡的密码.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>GbKksEFF4yrVs6il55v6gwY5aVje5f0j<span class="w"> </span><span class="p">|</span><span class="w"> </span>nc<span class="w"> </span>-l<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>./suconnect<span class="w"> </span><span class="m">1234</span>
+</pre></div>
+</div>
+<p>这里主要是 <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> 的用法, 使两个命令同时执行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit24">
+<h3>bandit24<a class="headerlink" href="#bandit24" title="此标题的永久链接">#</a></h3>
+<blockquote>
+<div><p>A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…</p>
+</div>
+</div></blockquote>
+<p>这题我觉得有点意思.</p>
+<p>cron 是一个定时执行工具, 任务可以通过命令 <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> 设定,
+配置储存在 <code class="code docutils literal notranslate"><span class="pre">/etc/cron.d</span></code> 中, 每分钟 cron 会被触发一次,
+到该目录检测是否有任务要执行: <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/cron.d/cronjob_bandit24</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>bandit24<span class="w"> </span>/usr/bin/cronjob_bandit24.sh<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null
+</pre></div>
+</div>
+<p>所以说 <code class="code docutils literal notranslate"><span class="pre">/usr/bin/cronjob_bandit24.sh</span></code> 会每分钟执行一次, 看看这个脚本的内容是什么:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">myname</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span>
+
+<span class="nb">cd</span><span class="w"> </span>/var/spool/<span class="nv">$myname</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Executing and deleting all scripts in /var/spool/</span><span class="nv">$myname</span><span class="s2">:&quot;</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*<span class="w"> </span>.*<span class="p">;</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;..&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Handling </span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">        </span>timeout<span class="w"> </span>-s<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="s2">&quot;./</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">        </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;./</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>每次都执行 <code class="code docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 下的所有可执行文件, 之后删除.
+当然是以 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的身份执行这些操作.</p>
+<p>所以我们可以构造一个脚本让他执行.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+cp<span class="w"> </span>/etc/bandit_pass/bandit24<span class="w"> </span>/tmp/tmp.xxx/psw
+chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/tmp/tmp.xxx/
+</pre></div>
+</div>
+<p>这个脚本把密码文件复制到临时目录并且更改他的权限(至少让所有人可读).</p>
+<p>中间出了很多愚蠢的错误, 比如写错目录,搞错 <code class="code docutils literal notranslate"><span class="pre">sh</span></code> 的路径什么的,
+另外, 不能用重定向导出 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码, 因为没有权限(为什么没有权限我就不清楚了).</p>
+<p>脚本写完后, <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>, 再把它复制到 <code class="code docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 目录下, 记得备份,
+每隔一分钟该目录就会被清空.</p>
+<p>脚本执行后, 到 <code class="code docutils literal notranslate"><span class="pre">/tmp/tmp.xxx</span></code> 里就可以看到存有 key 的文件了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</span>
+</pre></div>
+</div>
+<section id="bandit25">
+<h4>bandit25<a class="headerlink" href="#bandit25" title="此标题的永久链接">#</a></h4>
+<blockquote>
+<div><p>A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.</p>
+</div></blockquote>
+<p>有一个守护进程在 <code class="code docutils literal notranslate"><span class="pre">30002</span></code> 端口监听, 把 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码和一个四位数字组成的 pincode 传给它,
+如果密码和 pincode 都正确的话会返回 <code class="code docutils literal notranslate"><span class="pre">bandit25</span></code> 的密码.</p>
+<p>所以自然是爆破了, 直接用 nc 链接该端口会提示:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">am</span> <span class="n">the</span> <span class="n">pincode</span> <span class="n">checker</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit25</span><span class="o">.</span> <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">password</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit24</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">secret</span> <span class="n">pincode</span> <span class="n">on</span> <span class="n">a</span> <span class="n">single</span> <span class="n">line</span><span class="p">,</span> <span class="n">separated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>所以按照格式来, 生成 10000 个 密码 + pincode 的序列传给该端口.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0000</span>..9999<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ </span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/pin<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+cat<span class="w"> </span>/tmp/pin<span class="w"> </span><span class="p">|</span><span class="w"> </span>nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">30002</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/log
+cat<span class="w"> </span>/tmp/log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Corr&quot;</span><span class="w"> </span>-n1
+</pre></div>
+</div>
+<p>其实答案就是最后一个端口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>5670-Wrong! Please enter the correct pincode. Try again.
+5671:Correct!
+5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+</pre></div>
+</div>
+<p>所以:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit26">
+<h4>bandit26<a class="headerlink" href="#bandit26" title="此标题的永久链接">#</a></h4>
+<blockquote>
+<div><p>Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.</p>
+</div></blockquote>
+<p>这是 26 个 level 里面最有意思的一道题的, 可惜我没能做出来…
+参考的答案是这个:
+<a class="reference external" href="http://codebluedev.blogspot.com/2015/07/overthewire-bandit-level-26.html">overthewire-bandit-level-26</a></p>
+<p>题干里说 <code class="code docutils literal notranslate"><span class="pre">bandit26</span></code> 的 shell 并不是普通的 <code class="code docutils literal notranslate"><span class="pre">/bin/bash</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">bandit25</span></code> 的家目录下给出了 <code class="code docutils literal notranslate"><span class="pre">bandit26</span></code> 的私钥,
+登录上去只是打印出了 bandit26 的 ASCII Art 就退出了.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> _                     _ _ _   ___   __
+| |                   | (_) | |__ / /
+| |__   __ _ _ __   __| |_| |_   ) / /_
+| &#39;_ / _` | &#39;_ / _` | | __| / / &#39;_
+| |_) | (_| | | | | (_| | | |_ / /| (_) |
+|_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
+</pre></div>
+</div>
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">bandit26</span></code> 得到:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">bandit26</span><span class="o">*</span>\ <span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="n">bandit</span> <span class="n">level</span> <span class="mi">26</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span>\ <span class="o">*</span><span class="n">bandit26</span><span class="o">*</span>\ <span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">showtext</span>
+</pre></div>
+</div>
+<p>(我到这里就卡住了)</p>
+<p>发现 <code class="code docutils literal notranslate"><span class="pre">showtext</span></code> 是一个 shell 脚本, 内容如下</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+more<span class="w"> </span>~/text.txt
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>即 ssh 连上去后执行默认 shell, 用 <code class="code docutils literal notranslate"><span class="pre">more</span></code> 打印出了 ~/text.txt 之后就退出了, 如图:</p>
+<img alt="../_images/overthewire-bandit26-1.png" src="../_images/overthewire-bandit26-1.png" />
+<p>一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 <code class="code docutils literal notranslate"><span class="pre">-t</span></code> + 命令 是不行的,
+这个命令不会被解释, 因为 <code class="code docutils literal notranslate"><span class="pre">bash</span></code> 没有执行.</p>
+<p>正确答案是通过 <code class="code docutils literal notranslate"><span class="pre">more</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">more</span></code> 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
+所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, <code class="code docutils literal notranslate"><span class="pre">more</span></code> 就停下来了. (好脑洞)</p>
+<img alt="../_images/overthewire-bandit26-2.png" src="../_images/overthewire-bandit26-2.png" />
+<p>在 <code class="code docutils literal notranslate"><span class="pre">more</span></code> 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 <code class="code docutils literal notranslate"><span class="pre">vi</span></code>,
+有了 <code class="code docutils literal notranslate"><span class="pre">vi</span></code>, 就相当于有了一个终端.</p>
+<p>在命令模式执行 <code class="code docutils literal notranslate"><span class="pre">:r</span> <span class="pre">/etc/bandit_pass/bandit26</span></code>, 密码的内容就会被读入.</p>
+<img alt="../_images/overthewire-bandit26-3.png" src="../_images/overthewire-bandit26-3.png" />
+<p>要打开 <code class="code docutils literal notranslate"><span class="pre">sh</span></code> 的话, 可以:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="k">set</span> <span class="k">shell</span> <span class="k">sh</span><span class="p">=</span><span class="sr">/bin/</span><span class="k">sh</span>
+<span class="p">:</span><span class="k">sh</span>
+</pre></div>
+</div>
+<p>这样就可以执行 <code class="code docutils literal notranslate"><span class="pre">wechall</span></code> 拿分了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="mi">5</span><span class="n">czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z</span>
+</pre></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="configure-of-archlinux.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Arch Linux 折腾小记</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="minix-v1-file-system.html">
+      <span>Minix v1 文件系统的实现</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wechall">WeChall 计分板</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">题目</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit17">bandit17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit21">bandit21</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit24">bandit24</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit25">bandit25</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit26">bandit26</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

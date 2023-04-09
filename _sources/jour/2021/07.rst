@@ -1,0 +1,129 @@
+====
+七月
+====
+
+.. contents::
+   :local:
+
+毛剑 - B站高可用架构实践
+========================
+
+:Date: 2021-07-18
+:URL: https://zhuanlan.zhihu.com/p/139258985
+
+负载均衡
+   - 前端负载均衡 以 DNS 为主
+
+     - 尽量选择最近节点
+     - 基于带宽策略调度选择 API 进入机房
+     - 基于 *可用服务容量* 平衡流量
+
+   - 数据中心内部负载均衡
+
+     - 均衡流量分发
+     - *可靠识别异常节点*
+     - scale-out，增加同质节点以扩容
+     - 减少错误，提高可用性
+
+   为客户端分配 backend 子集：:search:`Deterministic Subsetting`
+
+   JQS（最闲轮训）负载均衡算法
+
+限流
+   - 分布式限流： Quota Server
+   - 客户端限流
+
+   过载保护
+
+重试
+   - 要限制重试的次数，以及基于重试分布的策略
+   - 只应该在失败层进行重试，当重试仍然失败时，我们需要全局约定错误码，避免级联重试
+   - 使用随机化、指数型递增的充实周期，参考 Exponential Backoff 和 Jitter
+   - 设定重试速率指标（？），用于诊断故障
+
+   客户端限速
+
+超时
+   - 进程内超时控制
+   - 跨进程超时控制（依赖 RPC 框架）
+
+.. rubric:: 名词解释
+
+.. term:: BFE
+   :field: 计算机
+
+   这里说的是 Bilibili Front End，理解为边缘节点的 proxy 即可
+
+.. term:: SLE
+   :field: 计算机
+
+   Server Load Balancing
+
+.. term:: BFF
+   :field: 计算机
+
+   Backend for Frontend
+
+eBPF
+====
+
+:URL: https://blog.fleeto.us/post/what-is-ebpf/
+
+
+ZBS：SmartX 分布式块存储 - 元数据篇
+====================================
+
+:Date: 2021-07-28
+:URL: https://zhuanlan.zhihu.com/p/36138609
+
+分布式存储中通常需要解决的问题：
+   - 元数据服务
+
+      - 集群成员管理
+      - 数据寻址
+      - 副本分配
+      - 负载均衡
+      - 心跳
+      - 垃圾回收
+      - …
+
+   - 数据存储引擎
+
+      - 单机存储
+      - 本地磁盘的管理
+      - 磁盘故障处理
+      - …
+
+   - 一致性协议
+
+元数据服务
+   需求
+      - 可靠性
+
+         - 多副本
+         - 故障转移（Failover）
+
+      - 高性能
+
+         - 响应时间短
+         - 高吞吐
+
+      - 轻量级
+
+   解决方案
+      - LevelDB + ZooKeeper
+      - Log Replication
+
+      Meta Server Leader 将数据库 log 操作写入 Zk，写入成功后将修改提交到本地 LevelDB，Meta Server Standby 从 Zk 读取 log 提交到本地 LevelDB
+
+   故障转移
+      Leader 发生故障，其他 Meta Server 再次进行选主，新选的 Leader 会从 Zk 同步所有未消耗的 log，提交后则对外提供服务
+
+素描研究群 作业点评
+===================
+
+:Date: 2021-07-30
+
+有温度的画面。
+
+:artist:`霍克尼` 的人物写生

@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="Vim 插件折腾记录" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/install-vim-plugins.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 fctix) 从这..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 fctix) 从这..." />
+
+    <title>Vim 插件折腾记录 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/install-vim-plugins';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/install-vim-plugins.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-07-02
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tag"></i>
+    
+    </span>
+  
+  
+  <a href="tag/vim.html">Vim</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Vim 插件折腾记录</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fcitx-vim">fcitx.vim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vundle">Vundle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerline">PowerLine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nerdtree">Nerdtree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#youcompleteme">YouCompleteMe</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="vim">
+<h1>Vim 插件折腾记录<a class="headerlink" href="#vim" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:</p>
+<p>首先我把本来 <code class="code docutils literal notranslate"><span class="pre">.vimrc</span></code> 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
+同时维护兼容两个平台的配置文件实在是麻烦.</p>
+<section id="fcitx-vim">
+<h2>fcitx.vim<a class="headerlink" href="#fcitx-vim" title="此标题的永久链接">#</a></h2>
+<p>这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
+(当然你用的得是 fctix)</p>
+<p>从这里可以下载: <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3764">fcitx.vim</a>.</p>
+<p>这个插件的安装很容易, 最简单的方式是直接把 <code class="code docutils literal notranslate"><span class="pre">so/fctix.vim</span></code>
+放到 <code class="code docutils literal notranslate"><span class="pre">.vim/plugin</span></code> 目录下就好, 最好在 <code class="code docutils literal notranslate"><span class="pre">.vimrc</span></code> 里加上一句: <code class="code docutils literal notranslate"><span class="pre">set</span> <span class="pre">ttimeoutlen=100</span></code></p>
+<p>如果想要启用 Python 支持的话, 要加入一个环境变量:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FCITX_SOCKET</span><span class="o">=</span>/tmp/fcitx-remote.sock
+</pre></div>
+</div>
+<p>不过我试了试发现报错: socket connection error, 就不去用它了.</p>
+</section>
+<section id="vundle">
+<h2>Vundle<a class="headerlink" href="#vundle" title="此标题的永久链接">#</a></h2>
+<p>神器, 用来管理插件的插件, 可以从 GitHub, 其他 Git 服务器或者本地的 Git 目录获取并安装插件,
+把 <a class="reference external" href="https://github.com/gmarik/Vundle.vim">gmarik/Vundle.vim</a> clone 到 <code class="code docutils literal notranslate"><span class="pre">.vim</span></code> 下,
+在 <code class="code docutils literal notranslate"><span class="pre">.vimrc</span></code> 里添加如下内容:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">nocompatible</span>              <span class="c">&quot; be iMproved, required</span>
+<span class="k">filetype</span> off                  <span class="c">&quot; required</span>
+
+<span class="c">&quot; set the runtime path to include Vundle and initialize</span>
+<span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>bundle/Vundle.<span class="k">vim</span>
+<span class="k">call</span> vundle#begin<span class="p">()</span>
+<span class="c">&quot; alternatively, pass a path where Vundle should install plugins</span>
+<span class="c">&quot;call vundle#begin(&#39;~/some/path/here&#39;)</span>
+
+<span class="c">&quot; let Vundle manage Vundle, required</span>
+Plugin <span class="s1">&#39;gmarik/Vundle.vim&#39;</span>
+
+<span class="c">&quot; All of your Plugins must be added before the following line</span>
+<span class="k">call</span> vundle#<span class="k">end</span><span class="p">()</span>            <span class="c">&quot; required</span>
+<span class="k">filetype</span> plugin indent <span class="k">on</span>    <span class="c">&quot; required</span>
+<span class="c">&quot; To ignore plugin indent changes, instead use:</span>
+<span class="c">&quot;filetype plugin on</span>
+<span class="c">&quot;</span>
+<span class="c">&quot; Brief help</span>
+<span class="c">&quot; :PluginList       - lists configured plugins</span>
+<span class="c">&quot; :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate</span>
+<span class="c">&quot; :PluginSearch foo - searches for foo; append `!` to refresh local cache</span>
+<span class="c">&quot; :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal</span>
+<span class="c">&quot;</span>
+<span class="c">&quot; see :h vundle for more details or wiki for FAQ</span>
+<span class="c">&quot; Put your non-Plugin stuff after this line</span>
+</pre></div>
+</div>
+<p>然后重启 <code class="code docutils literal notranslate"><span class="pre">:PluginInstall</span></code>, 就安装好了, 如果想要添加新的插件, 在 <code class="code docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'...'</span></code>
+那一句之后添加 <code class="code docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'插件地址'</span></code> 再 <code class="code docutils literal notranslate"><span class="pre">:PluginInstall</span></code> 一下就好了.
+对于在 GitHub 上的插件地址, 可以直接写 <code class="code docutils literal notranslate"><span class="pre">owner/repo-name</span></code> 这样的形式.</p>
+</section>
+<section id="powerline">
+<h2>PowerLine<a class="headerlink" href="#powerline" title="此标题的永久链接">#</a></h2>
+<p>漂亮的状态栏插件</p>
+<p>在<code class="code docutils literal notranslate"><span class="pre">.vimrc</span></code> 相应位置里加一句 <code class="code docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'Lokaltog/vim-powerline'</span></code>,
+再 <code class="code docutils literal notranslate"><span class="pre">:PluginInstall</span></code>, 加上如下配置:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; powerline</span>
+<span class="k">set</span> <span class="nb">nocompatible</span>    <span class="c">&quot; 不兼容 vi</span>
+<span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>        <span class="c">&quot; 终端颜色</span>
+<span class="k">set</span> <span class="nb">laststatus</span><span class="p">=</span><span class="m">2</span>    <span class="c">&quot; 显示状态栏</span>
+<span class="k">set</span> <span class="nb">encoding</span><span class="p">=</span>utf8
+<span class="k">let</span> <span class="k">g</span>:Powerline_symbols <span class="p">=</span> <span class="s1">&#39;compatible&#39;</span>
+<span class="c">&quot; 值为&#39;fancy&#39;的话,状态栏会有好看的箭头, 但是要打过补丁的字体, 太麻烦了</span>
+</pre></div>
+</div>
+</section>
+<section id="nerdtree">
+<h2>Nerdtree<a class="headerlink" href="#nerdtree" title="此标题的永久链接">#</a></h2>
+<p>文件浏览插件, 还是用 Vundle 安装.</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; A tree explorer plugin for vim.</span>
+Plugin <span class="s1">&#39;scrooloose/nerdtree&#39;</span>
+<span class="c">&quot; nerdtree</span>
+map <span class="p">&lt;</span>C<span class="p">-</span><span class="k">n</span><span class="p">&gt;</span> :NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="youcompleteme">
+<h2>YouCompleteMe<a class="headerlink" href="#youcompleteme" title="此标题的永久链接">#</a></h2>
+<p>据说是最好的 C/C++ 补全插件? 这个安装略波折.
+首先用 Vundle 安装:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; A code-completion engine for Vim</span>
+Plugin <span class="s1">&#39;Valloric/YouCompleteMe&#39;</span>
+</pre></div>
+</div>
+<p>安装时提示 <code class="code docutils literal notranslate"><span class="pre">YouCompleteMe</span> <span class="pre">unavailable:</span> <span class="pre">requires</span> <span class="pre">Vim</span> <span class="pre">compiled</span> <span class="pre">with</span> <span class="pre">Python</span> <span class="pre">2.x</span> <span class="pre">support.</span></code></p>
+<p>即我这个版本的 vim 编译时没有 Python 2 的支持, 可以用 <code class="code docutils literal notranslate"><span class="pre">vim</span> <span class="pre">--version</span></code> 查看是否开启,
+没有开启的话会有 <code class="code docutils literal notranslate"><span class="pre">-python</span></code> 这一项.</p>
+<p>openSUSE 默认源里的 vim 是没有编译入 Python 2 支持的, 所以得手动编译.
+(后来知道在 <code class="code docutils literal notranslate"><span class="pre">editor</span></code> 源里有vim)</p>
+<p>首先从 <a class="reference external" href="ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2">vim-7.4.tar.bz2</a>
+下载 vim 7.4 的源码, 解压.</p>
+<p>删除原来的 vim</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span>rm<span class="w"> </span>gvim
+$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span>rm<span class="w"> </span>vim
+</pre></div>
+</div>
+<p>先安装各种依赖包:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>python-devel
+$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>ruby-devel
+$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>lua-devel
+$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>ncurses-devel
+$<span class="w"> </span>~<span class="w">  </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>libx11-devel
+</pre></div>
+</div>
+<p>编译:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>~<span class="w"> </span>./configure<span class="w"> </span>--with-features<span class="o">=</span>huge<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-rubyinterp<span class="w">  </span><span class="se">\</span>
+<span class="w">            </span>--enable-pythoninterp<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--with-python-config-dir<span class="o">=</span>/usr/lib64/python2.7/config<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-perlinterp<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--with-x<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-gui<span class="o">=</span>gtk2<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-cscope<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-luainterp<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-perlinterp<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-multibyte<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--prefix<span class="o">=</span>/usr<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>--enable-fail-if-missing
+$<span class="w"> </span>~<span class="w"> </span>make
+$<span class="w"> </span>~<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+<p>安装后就可以编译 YCM 了:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>~<span class="w"> </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>llvm-clang<span class="w"> </span>cmake
+$<span class="w"> </span>~<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>.vim/bundle/YouCompleteMe
+$<span class="w"> </span>~<span class="w"> </span>./install.sh
+</pre></div>
+</div>
+<p>安装完成.</p>
+<p>截图一张:</p>
+<img alt="../_images/vim-plugin-screenshot.png" src="../_images/vim-plugin-screenshot.png" />
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/install-vim-plugins" data-title="Vim 插件折腾记录" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="first-attempt-of-python.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Python 初试</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="configure-of-archlinux.html">
+      <span>Arch Linux 折腾小记</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fcitx-vim">fcitx.vim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vundle">Vundle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerline">PowerLine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nerdtree">Nerdtree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#youcompleteme">YouCompleteMe</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

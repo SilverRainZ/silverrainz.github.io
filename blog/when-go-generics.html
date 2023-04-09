@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="何时使用 Go 泛型" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/when-go-generics.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="介绍: Go 1.18 新增了一个重大的语言特性：泛型。本文不会描述泛型是什么以及如何使用它们。本文的重点是： 什么时候应该在代码中使用泛型，什么时候不使用它们 。 需要明确的是，这里提供的是通用的准则而非硬性的规定。请结合你自己的判断。但如果你拿不准，建议还是采用本文提供的准则。 编码: 让我们从 Go 编程的一般准则开始：通过编写代码编写 Go 程序，而不是通过定义类型编写 Go 程序。..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="介绍: Go 1.18 新增了一个重大的语言特性：泛型。本文不会描述泛型是什么以及如何使用它们。本文的重点是： 什么时候应该在代码中使用泛型，什么时候不使用它们 。 需要明确的是，这里提供的是通用的准则而非硬性的规定。请结合你自己的判断。但如果你拿不准，建议还是采用本文提供的准则。 编码: 让我们从 Go 编程的一般准则开始：通过编写代码编写 Go 程序，而不是通过定义类型编写 Go 程序。..." />
+
+    <title>何时使用 Go 泛型 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/when-go-generics';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/when-go-generics.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2022-06-03
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/ian-lance-taylor.html">Ian Lance Taylor</a>
+  
+  ,
+  
+  
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/golang.html">Golang</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-1.html">
+      24 May - 我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>何时使用 Go 泛型</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">编码</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-parameter">何时使用 type parameter</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">当使用内置容器类型时</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">当编写通用数据结构时</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-method">优先函数（function）而非方法（method）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method">当实现通用的 method 时</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">何时不使用 type parameter</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-parameter-interface">不要使用 type parameter 替代 interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-type-parameter">不要对不同的 method 实现使用 type parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">在适当的地方使用反射</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">一言以蔽之</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="go">
+<h1>何时使用 Go 泛型<a class="headerlink" href="#go" title="此标题的永久链接">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这篇文章是 <a class="reference external" href="https://go.dev/blog/when-generics">When To Use Generics</a> 的中文翻译，作者是 Go Team 的 <a class="reference external" href="https://github.com/ianlancetaylor">👤 ianlancetaylor</a>。</p>
+</div>
+<section id="id2">
+<h2>介绍<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>Go 1.18 新增了一个重大的语言特性：泛型。本文不会描述泛型是什么以及如何使用它们。本文的重点是：<em>什么时候应该在代码中使用泛型，什么时候不使用它们</em>。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">译者注</p>
+<p>关于泛型的简要介绍，可以看看 <a class="reference internal" href="funtional-programming-in-go-generics.html"><span class="doc">函数式编程在 Go 泛型下的实用性探索</span></a></p>
+</div>
+<p>需要明确的是，这里提供的是通用的准则而非硬性的规定。请结合你自己的判断。但如果你拿不准，建议还是采用本文提供的准则。</p>
+</section>
+<section id="id3">
+<h2>编码<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<p>让我们从 Go 编程的一般准则开始：通过编写代码编写 Go 程序，而不是通过定义类型编写 Go 程序。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">译者注</p>
+<p>这里的意思可能类似软件工程中的「避免过度设计」。
+对于一般的编程来讲，我们应优先选择通过编写代码来实现逻辑，而非设计符合该逻辑的类型。</p>
+</div>
+<p>涉及到泛型，如果你通过定义类型参数约束（type parameter constraints）来作为编程的第一步，那么你可能走在了错误的道路上。请从编写函数开始。当你写完之后，你就会清楚泛型对这个函数是否有用，此时再添加类型参数（type parameters）也是非常简单的。</p>
+</section>
+<section id="type-parameter">
+<h2>何时使用 type parameter<a class="headerlink" href="#type-parameter" title="此标题的永久链接">#</a></h2>
+<p>让我们看看在哪些情况下，类型参数是有用的。</p>
+<section id="id4">
+<h3>当使用内置容器类型时<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
+<p>一种情况是，当你编写对语言定义的器器类型进行操作的函数：slice、map 和 channel。 如果函数参数中存在对应的类型，并且函数代码没有对元素的类型做出任何特定假设，那么使用 type parameter 可能很有用。</p>
+<p>例如，这是一个返回任意类型 map 中所有 key 的函数:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// MapKeys returns a slice of all the keys in m.</span>
+<span class="c1">// The keys are not returned in any particular order.</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">MapKeys</span><span class="p">[</span><span class="nx">Key</span><span class="w"> </span><span class="kt">comparable</span><span class="p">,</span><span class="w"> </span><span class="nx">Val</span><span class="w"> </span><span class="kt">any</span><span class="p">](</span><span class="nx">m</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="nx">Key</span><span class="p">]</span><span class="nx">Val</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="nx">Key</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="nx">Key</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">))</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这段代码对 map 的 key 的类型没有任何的假设，它也根本不使用 map 的 value。所以它适用于任何 map 类型，这使它成为使用 type parameter 的好选择。</p>
+<p>在这里，类型参数的替代实现通常是使用反射，但这是一个更别扭的编程模型：没有静态类型检查，并且在运行时通常更慢。</p>
+</section>
+<section id="id5">
+<h3>当编写通用数据结构时<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+<p>类型参数可能有用的另一种情况是用于编写通用数据结构。 通用数据结构类似于 slice 或 map，但不是语言内置的，例如链表或二叉树。</p>
+<p>在之前，这样的数据结构通常会有两种实现方式：</p>
+<ol class="arabic simple">
+<li><p>硬编码，只支持特定的元素类型；</p></li>
+<li><p>使用 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code></p></li>
+</ol>
+<p>用 type parameter 替换特定元素类型可以生成更通用的数据结构，可以在程序的其他部分或其他程序中使用。用类型参数替换 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code> 则可以让数据更高效地存储数据，节省内存资源；它还可以允许代码避免类型断言（type assertion），并在编译时进行全面的类型检查。</p>
+<p>下面节选了用 type parameter 实现的二叉树作为例子:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Tree is a binary tree.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">]</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cmp</span><span class="w">  </span><span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// A node in a Tree.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">]</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="w">  </span><span class="o">*</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">val</span><span class="w">          </span><span class="nx">T</span>
+<span class="p">}</span>
+
+<span class="c1">// find returns a pointer to the node containing val,</span>
+<span class="c1">// or, if val is not present, a pointer to where it</span>
+<span class="c1">// would be placed if added.</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">bt</span><span class="w"> </span><span class="o">*</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span><span class="w"> </span><span class="nx">find</span><span class="p">(</span><span class="nx">val</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">bt</span><span class="p">.</span><span class="nx">root</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">*</span><span class="nx">pl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="nx">cmp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bt</span><span class="p">.</span><span class="nx">cmp</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">val</span><span class="p">);</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nx">cmp</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">            </span><span class="nx">pl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">left</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nx">cmp</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">            </span><span class="nx">pl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">right</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">pl</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">pl</span>
+<span class="p">}</span>
+
+<span class="c1">// Insert inserts val into bt if not already there,</span>
+<span class="c1">// and reports whether it was inserted.</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">bt</span><span class="w"> </span><span class="o">*</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span><span class="w"> </span><span class="nx">Insert</span><span class="p">(</span><span class="nx">val</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bt</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">*</span><span class="nx">pl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">pl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]{</span><span class="nx">val</span><span class="p">:</span><span class="w"> </span><span class="nx">val</span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>树中的每个节点都包含类型参数 <code class="code docutils literal notranslate"><span class="pre">T</span></code> 的值。当使用特定类型参数实例化 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 类型时，该类型的值将直接存储在节点中，它们不会被存储为 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code>。</p>
+<p>这是对 type parameter 的一种合理使用，因为 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 本身包括其方法的逻辑，在很大程度上是和元素类型 <code class="code docutils literal notranslate"><span class="pre">T</span></code> 无关的。</p>
+<p>Tree 确实需要知道如何比较元素类型 <code class="code docutils literal notranslate"><span class="pre">T</span></code> 的值，为此它使用了一个比较函数 <code class="code docutils literal notranslate"><span class="pre">func(T,</span> <span class="pre">T)</span> <span class="pre">int</span></code>。 您可以在 <code class="code docutils literal notranslate"><span class="pre">find</span></code> 方法的第 4 行调用 <code class="code docutils literal notranslate"><span class="pre">bt.cmp</span></code> 中看到这一点。除此之外，类型参数根本不重要。</p>
+</section>
+<section id="function-method">
+<h3>优先函数（function）而非方法（method）<a class="headerlink" href="#function-method" title="此标题的永久链接">#</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">译者注</p>
+<p>function 和 method 的区别在于 method 会关联一个对象（receiver）。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">func</span> <span class="pre">Name(){}</span></code> 是 function ，而 <code class="code docutils literal notranslate"><span class="pre">func</span> <span class="pre">(f</span> <span class="pre">Foo)</span> <span class="pre">Name(){}</span></code> 是 mehtod。</p>
+</div>
+<p>上面 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 的例子说明了另一个准则：当你需要比较之类的操作时，优先使用函数而非方法。</p>
+<p>我们可以定义这样的 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 类型，要求元素必须实现 <code class="code docutils literal notranslate"><span class="pre">Compare</span></code> 或 <code class="code docutils literal notranslate"><span class="pre">Less</span></code> 方法。这将通过编写带方法的的类型约束（type constraint that requires the method）完成，这意味着用于实例化 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 类型的任何类型都需要实现该方法。</p>
+<p>这样做的结果是，想要使用简单数据类型（如 <code class="code docutils literal notranslate"><span class="pre">int</span></code>）的人都必须定义自己的整数类型并编写对应的方法。如果我们定义还是和上面一样，让 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 接受一个比较函数，那一切还是那么简单。编写比较函数就像编写方法一样容易。</p>
+<p>如果 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 的元素类型恰好已经有一个 <code class="code docutils literal notranslate"><span class="pre">Compare</span></code> 方法，那么我们可以简单地使用 <code class="code docutils literal notranslate"><span class="pre">ElementType.Compare</span></code> 之类的表达式来实现比较函数。</p>
+<p><em>换句话说，将「方法转换为函数」比将「方法添加到类型」要简单得多。因此，对于通用数据类型，优先使用函数，而非带方法的类型约束</em>。</p>
+</section>
+<section id="method">
+<h3>当实现通用的 method 时<a class="headerlink" href="#method" title="此标题的永久链接">#</a></h3>
+<p>类型参数有用的另一种情况是：当不同类型需要实现一些共同的方法，并且它们的实现都看起来都一样时。</p>
+<p>例如，考虑标准库的 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code>。它要求一个类型实现三种方法：<code class="code docutils literal notranslate"><span class="pre">Len</span></code>、<code class="code docutils literal notranslate"><span class="pre">Swap</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">Less</span></code>。</p>
+<p>下面是一个泛型类型 <code class="code docutils literal notranslate"><span class="pre">SliceFn</span></code> 的示例，它为任意的 slice 类型实现了 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code>:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// SliceFn implements sort.Interface for a slice of T.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">]</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="w">    </span><span class="p">[]</span><span class="nx">T</span>
+<span class="w">    </span><span class="nx">less</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span><span class="w"> </span><span class="nx">Len</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span><span class="w"> </span><span class="nx">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span><span class="w"> </span><span class="nx">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">less</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>对于任何 slice 类型，<code class="code docutils literal notranslate"><span class="pre">Len</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">Swap</span></code> 方法都是完全相同的。 <code class="code docutils literal notranslate"><span class="pre">Less</span></code> 方法需要一个比较函数，也就是 <code class="code docutils literal notranslate"><span class="pre">SliceFn</span></code> 的 <code class="code docutils literal notranslate"><span class="pre">Fn</span></code> 部分（<em>F</em>u<em>n</em>ction 的缩写）。与前面的 <code class="code docutils literal notranslate"><span class="pre">Tree</span></code> 示例一样，我们将在创建 <code class="code docutils literal notranslate"><span class="pre">SliceFn</span></code> 时传入一个函数。</p>
+<p>下面展示了 <code class="code docutils literal notranslate"><span class="pre">SliceFn</span></code> 如何使用比较函数对 slice 进行排序:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// SortFn sorts s in place using a comparison function.</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">SortFn</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">](</span><span class="nx">s</span><span class="w"> </span><span class="p">[]</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">less</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Sort</span><span class="p">(</span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">]{</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="nx">cmp</span><span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这类似于标准库里的 <code class="code docutils literal notranslate"><span class="pre">sort.Slice</span></code>，但比较函数的参数是值本身而不是值在 slice 中的索引。</p>
+<p>对这种代码使用 type parameter 是合适的，因为所有 slice 类型的方法看起来完全相同。</p>
+<p>这里应该提一下，Go 1.19（而不是 1.18）的标准库很可能引入一个通用函数来使用比较函数对 slice 进行排序，并且该函数很可能不使用 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code>。参见提案 <a class="reference external" href="https://github.com/golang/go/issues/47619">#47619</a>。即使这个上面这个例子很可能不实用，但大体上的观点依然是正确的：<em>当你需要对所有相关类型实现看起来都相同的方法时，使用类型参数是合理的</em>。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这里插播一则新闻，Go 1.19 将会使用 pdqsort 作为默认的排序算法（包括 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">sort.Slice</span></code>），在所有的场景下相比原来的实现都快 2 到 60 倍（包括了算法本身和使用泛型带来的收益）这部分工作由我们组的同事 <a class="reference external" href="https://github.com/zhangyunhao116">👤 zhangyunhao116</a> 在 <a class="reference external" href="https://github.com/golang/go/issues/50154">#50154</a> 提出并实现。</p>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2>何时不使用 type parameter<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h2>
+<p>现在让我们来讨论一下问题的另一面：什么时候不应该使用类型参数。</p>
+<section id="type-parameter-interface">
+<h3>不要使用 type parameter 替代 interface<a class="headerlink" href="#type-parameter-interface" title="此标题的永久链接">#</a></h3>
+<p>众所周知，Go 支持接口（interface）类型。interface 在一定程度上允许你在实现泛型编程。</p>
+<p>例如，广泛使用的 <code class="code docutils literal notranslate"><span class="pre">io.Reader</span></code> 接口提供了一种通用机制，用于从包含信息（例如文件）的对象或产生信息（例如随机数生成器）的对象中读取数据。如果你对某个类型的的所有操作就是对其值调用方法，请使用 interface，而不是 type parameter。直接使用 <code class="code docutils literal notranslate"><span class="pre">io.Reader</span></code> 的代码更加易于阅读、高效且有效。这里没有必要使用 type parameter 通过调用 <code class="code docutils literal notranslate"><span class="pre">Read</span></code> 方法从值中读取数据。</p>
+<p>举个例子，这里将使用 interface 的第一个函数签名更改为使用 type parameter 的第二个版本，看起来也许很诱人:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">ReadSome</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span><span class="w"> </span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">ReadSome</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">](</span><span class="nx">r</span><span class="w"> </span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>但请不要这么做，第一个省略类型参数的版本其实更易于编写、阅读，并且 <em>它们的执行时间可能相同</em>。</p>
+<p>上面的最后一点值得强调：尽管泛型可以通过个好几种不同的方式实现，并且实现会随着时间的推移而改变和演进，但 Go 1.18 的实现在许多情况下会同等对待类型参数的值与接口类型的值。这意味着使用 type parameter 通常不会比使用 interface 快。所以不要仅仅为了速度而从 interface 更改为 type parameter，因为它可能不会运行得更快。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">译者注</p>
+<p>就是说在这种情况下，可以认为 type parameter 只是 interface 的语法糖。</p>
+</div>
+</section>
+<section id="method-type-parameter">
+<h3>不要对不同的 method 实现使用 type parameter<a class="headerlink" href="#method-type-parameter" title="此标题的永久链接">#</a></h3>
+<p>在决定是使用 type parameter 还是 interface 时，请考虑方法的实现是什么样的。前面我们说过，如果方法的实现对所有类型都相同，则使用 type parameter。反之，如果每种类型的实现都不一样，那就用 interface 写不同的方法实现。</p>
+<p>例如，从文件中读取的实现和从随机数生成器读取的实现完全不同，这意味着我们应该编写两个不同的 <code class="code docutils literal notranslate"><span class="pre">Read</span></code> 方法，并使用像 <code class="code docutils literal notranslate"><span class="pre">io.Reader</span></code> 这样的接口类型。</p>
+</section>
+<section id="id9">
+<h3>在适当的地方使用反射<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h3>
+<p>Go 支持 <a class="reference external" href="https://pkg.go.dev/reflect">运行时反射</a>。反射也能一定程度地实现泛型编程，因为它允许你编写适用于任何类型的代码。</p>
+<p>如果某些操作支持的类型连方法都没有（因此没有办法定义 interface），并且针对每种类型的操作都不同（因此不适合使用 type parameter）的时候，请使用反射。</p>
+<p>一个例子是 <a class="reference external" href="https://pkg.go.dev/encoding/json">encoding/json</a> 包。我们不想要求我们编码的每个类型都有一个 <code class="code docutils literal notranslate"><span class="pre">MarshalJSON</span> <span class="pre">方法</span></code>，所以我们不能使用接口类型。但是编码一个 interface 与编码一个 struct 的实现完全不同，所以我们不应该使用 type parameter。因此 encoding/json 使用了反射。使用反射实现的代码并不简单，但它确实能用。如果你想了解更多详情，请参阅其源代码。</p>
+</section>
+</section>
+<section id="id12">
+<h2>一言以蔽之<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h2>
+<p>最后，关于何时使用泛型的讨论可以简化为一个简单的指导方针。</p>
+<p>如果你发现自己多次编写完全相同的代码，而副本之间的唯一区别是代码使用了不同的类型，请考虑是否需要使用 type parameter。</p>
+<p>换句话说，你应该避免使用 type parameter，直到你注意到你需要多次编写完全相同的代码。</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/when-go-generics" data-title="何时使用 Go 泛型" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="funtional-programming-in-go-generics.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>函数式编程在 Go 泛型下的实用性探索</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="paper-size.html">
+      <span>纸张尺寸标准以及非标准纸张的收纳技巧</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">编码</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-parameter">何时使用 type parameter</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">当使用内置容器类型时</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">当编写通用数据结构时</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-method">优先函数（function）而非方法（method）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method">当实现通用的 method 时</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">何时不使用 type parameter</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-parameter-interface">不要使用 type parameter 替代 interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-type-parameter">不要对不同的 method 实现使用 type parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">在适当的地方使用反射</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">一言以蔽之</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

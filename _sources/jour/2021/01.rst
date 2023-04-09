@@ -1,0 +1,210 @@
+====
+一月
+====
+
+Migrating from GTK 3.x to GTK 4 [#]_
+=====================================
+
+列举 Srain 需要变更的部分：
+
+Preparation in GTK 3.x
+----------------------
+
+Do not use widget style properties
+
+Stop using GtkBox padding, fill and expand child properties
+    GtkBox child properties 被 GtkWidget 的 properties 替代
+
+Stop using `gdk_pixbuf_get_from_window()` and
+    `gdk_cairo_set_source_surface()`
+
+Stop using GtkWidget event signals
+    相关的 signal 被 event controllers key 和 gestures 替代
+
+    ======================== =========================
+    `key-release-event`      `GtkEventControllerKey`
+    `button-press-event`     `GtkGesture`
+    `button-release-event`   `GtkGesture`
+    ======================== =========================
+
+    *Custom widgets in GTK 4 – Input* [#]_ 给出了 event controller 的简单用法。
+
+Reduce the use of `gtk_widget_destroy()`
+    使用更安全的 `gtk_container_remove()` 或 `g_object_unref()`
+
+    .. note:: `gtk_container_remove()` 不是已经废弃了吗？？？
+
+Reduce the use of generic container APIs
+    `gtk_container_add()` 和 `gtk_container_remove()` 已被移除，
+    使用容器自带的 add 和 remove 函数
+
+Changes that need to be done at the time of the switch
+------------------------------------------------------
+
+Subclassing
+    Many widgets can no longer be subclassed. In most cases, 
+    you should look deriving your widget directly from GtkWidget
+    and use complex widgets as child widgets instead of deriving from them. 
+
+Life-cycle handling
+     The “destroy” signal can no longer be used to break reference cycles.
+
+Stop using `gtk_get_current_...` APIs
+     The function gtk_get_current_event() and its variants have been
+     replaced by equivalent event controller APIs:
+     `gtk_event_controller_get_current_event()`, etc. 
+
+Convert your ui files
+    The :file:`gtk4-builder-tool` simplify command can perform many of the
+    necessary changes automatically, when called with the `–3to4` option.
+
+Adapt to GtkBuilder API changes
+-------------------------------
+
+太长不看
+
+Changes to consider after the switch
+------------------------------------
+
+只有一个吗…… Orz
+
+Consider porting to the new list widgets
+    GTK 4 brings a new family of widgets for this purpose that uses list models
+    instead of tree models, and widgets instead of cell renderers.
+    See *List Widget Overview* [#]_
+
+
+.. [#] https://developer.gnome.org/gtk4/unstable/gtk-migrating-3-to-4.html
+.. [#] https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/
+.. [#] https://developer.gnome.org/gtk4/unstable/ListContainers.html#ListWidget
+
+Fzf Intro
+=========
+
+Fzf [#]_ 是一个命令行下通用模糊查找工具。通常搭配其他工具使用。
+
+UI key binding
+    - :kbd:`ctrl-j`, :kbd:`ctrl-k` 上下移动
+    - :kbd:`enter` 选中, :kbd:`ctrl-c` 放弃
+    - 多选模式(-m), 用 :kbd:`tab` 和 :kbd:`shift-tab` 多选
+    - 其他的键位基本是 Emacs 风格
+    - 支持鼠标
+
+Search syntax
+
+    ======= =========================== =======================================
+    Token   Match type                  Description
+    ------- --------------------------- ---------------------------------------
+    sbtrkt  fuzzy-match                 Items that match sbtrkt
+    'wild   exact-match (quoted)        Items that include wild
+    ^music  prefix-exact-match          Items that start with music
+    .mp3$   suffix-exact-match          Items that end with .mp3
+    !fire   inverse-exact-match         Items that do not include fire
+    !^music inverse-prefix-exact-match  Items that do not start with music
+    !.mp3$  inverse-suffix-exact-match  Items that do not end with .mp3
+    ======= =========================== =======================================
+
+Shell key binding
+
+    - :kbd:`**<tab>` 补全命令
+    - :kbd:`ctrl-t` 补全文件
+    - :kbd:`ctrl-r` 补全历史命令
+    - :kbd:`alt-c` 补全目录
+
+    .. note:: 根据配置可能会有所改变
+
+.. [#] https://github.com/junegunn/fzf
+
+
+Awesome List of Python, CN version [#]_
+=======================================
+
+不喜欢 awesome list programer，但列表本身是有价值的。随便看看：
+
+pyinstaller [#]_
+    将 Python 程序转换成独立的执行文件（跨平台）
+
+pangu.py [#]_
+    在中日韩语字符和数字字母之间添加空格。
+
+pypinyin [#]_
+    汉字拼音转换工具
+
+pycco [#]_
+    文学编程（literate-programming）风格的文档生成器。
+
+rich [#]_
+    一个在终端中支持富文本和格式美化的 Python 库，
+    同时提供了 RichHandler 日志处理程序。
+
+.. [#] https://github.com/jobbole/awesome-python-cn
+.. [#] https://github.com/pyinstaller/pyinstaller
+.. [#] https://github.com/vinta/pangu.py
+.. [#] https://github.com/mozillazg/python-pinyin
+.. [#] https://github.com/pycco-docs/pycco
+.. [#] https://github.com/willmcgugan/rich
+
+Plumbum: Shell Combinators and More [#]_
+========================================
+
+:date: 2021-01-16
+
+肉眼可见的香：
+
+>>> from plumbum.cmd import ls, grep, wc
+>>> chain = ls["-a"] | grep["-v", r"\.py"] | wc["-l"]
+>>> print(chain)
+/bin/ls -a | /bin/grep -v '\.py' | /usr/bin/wc -l
+>>> chain()
+'27\n'
+
+.. [#] https://github.com/tomerfiliba/plumbum
+
+乐利和爱克林的乳制品包装垄断
+============================
+
+:date: 2021-01-23
+
+TODO
+
+Python Typing Hint 引入大量 import 导致脚本启动慢
+=================================================
+
+:date: 2021-01-29
+
+写 khufu 的 cli 时候发现脚本启动很慢。
+使用 `python -X importtime ...` 统计脚本启动时 import 所占时间::
+
+    ... many line emitted ...
+    import time:       323 |     405157 | sphinxnote.khufu
+
+主要是因为 import 了 sphinx jinja 这类重量级的包导致的，而 import 的原因只是为了他
+写 typing annoaiton。
+
+尝试搜索了一下，看起来社区为了解决这个问题做了不少探索，不同版本有不同的解决方案：
+
+Python 3.5.2+ 可以使用 :py:const:`typing.TYPE_CHECKING`:
+
+.. code:: python
+
+   if TYPE_CHECKING:
+       import expensive_mod
+
+   def fun(arg: 'expensive_mod.SomeType') -> None:
+       local_var: expensive_mod.AnotherType = other_fun()
+
+.. note:: The first type annotation must be enclosed in quotes, making it a “forward reference”
+
+Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 `from __future__ import annotations`
+即可 [#]_ 。
+
+Python 3.10 后 `from __future__ import annotations` 会成为默认行为。
+
+`__import__('pkg_resources').declare_namespace(__name__)` [#]_ 耗了很长时间。
+
+最后::
+
+    import time:       405 |      32024 | sphinxnote.khufu
+
+.. [#] :pep:`0563`
+.. [#] https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do

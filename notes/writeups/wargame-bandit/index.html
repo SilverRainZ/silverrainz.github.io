@@ -1,0 +1,932 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="wargme-bandit" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/writeups/wargame-bandit/index.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="ssh addr: bandit.labs.overthewire.org, url: http://overthewire.org/wargames/bandit/. bandit0: flag: bandit0 bandit1: flag: boJ9jbbUNNfktd78OOpsqOltutMc3MY1 bandit2: flag: CV1DtqXWVFXTvM2F0k09SHz0Yw..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="ssh addr: bandit.labs.overthewire.org, url: http://overthewire.org/wargames/bandit/. bandit0: flag: bandit0 bandit1: flag: boJ9jbbUNNfktd78OOpsqOltutMc3MY1 bandit2: flag: CV1DtqXWVFXTvM2F0k09SHz0Yw..." />
+
+    <title>wargme-bandit &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/mirror-redirect.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/writeups/wargame-bandit/index';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/writeups/wargame-bandit/index.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="wargame-narnia" href="../wargame-narnia/index.html" />
+    <link rel="prev" title="Format String Vulnerability Lab" href="../seedlabs/format-string-vulnerability-lab/index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../zxsys/index.html">造型实验室</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/prelude.html">暴露问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/light-and-shadow.html">光影分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/indoor-sketching.html">室内场景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/outdoor-sketching.html">室外夜景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/modeling.html">形体分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/fast-modeling.html">快速形体分解</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../zxsys/way-to-artist/index.html">艺术创作方法</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/prepare.html">课前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/find-yourself.html">找自己</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/find-topic.html">找主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/find-language.html">找语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/stealing.html">偷师学艺</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../zxsys/way-to-artist/exhibition.html">参展须知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/learn-from-master.html">向大师学绘画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/string-modeling.html">线造型训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/tips.html">一些零碎知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zxsys/glossary.html">术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../artstory/index.html">增量艺术史</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../artstory/artistory.html">艺术家史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../artstory/gallery.html">画廊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../artstory/gossip.html">逸闻</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../books/index.html">读书笔记</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../books/code-complete-2.html">代码大全 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/codex-hammer.html">哈默手稿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/cpp-primer-plus.html">C++ Primer Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/drawing-course-of-charles-bargue-and-jean-leon-gerome.html">查尔斯巴尔格素描教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/drawing-lessons-from-the-great-masters.html">向大师学绘画·素描基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/teach-yourself-scheme-in-fixnum-days.html">Learning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/the-art-of-color.html">色彩艺术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/the-rust-programming-language.html">The Rust Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/the-story-of-art.html">艺术的故事</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../books/a-modern-method-for-guitar-vol1/index.html">伯克利现代吉他教程·卷一</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../books/linux-kernel-development/index.html">Linux Kernel Development</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../books/linux-kernel-development/chapter-1_2.html">Chapter 1 and 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../books/linux-kernel-development/compile-and-run-kernel-in-qemu.html">Compile and Run Kernel in Qemu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../books/linux-kernel-development/misc.html">一些零碎的东西</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../man/index.html">工具手册</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/curl.html">cURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/deb.html">Debian Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/grep.html">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/latex.html">LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/man.html">Man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/rsync.html">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/rust.html">Rust Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/sign.html">常用的符号和 Emoji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/systemd.html">SystemD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../music-theory/index.html">乐理笔记</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../music-theory/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../music-theory/interval-of-music.html">音程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../music-theory/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2021-interview/index.html">2021 面试记录</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../color/index.html">现代色彩理论</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../color/primary-color.html">原色</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../docutils/index.html">Docutils 文档阅读</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../docutils/doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../go/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../go/pprof.html">PProf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/coverage.html">覆盖率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/godoc.html">Godoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/dev.html">Develop Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/asm.html">Go’s Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/type-assertion.html">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/gc.html">GC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/ast.html">Abstract Syntax Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/ssa.html">Static Single-Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../go/generics.html">泛型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../nintendo-switch/index.html">任天堂交换机使用手册</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../wizard/index.html">配置向导</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Capture the Flag</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seedlabs/index.html">Seed Lab</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wargame-narnia/index.html">wargame-narnia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../abraxas.html">人造上帝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nju-static-program-analysis.html">静态程序分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/index.html">博客首页</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2023/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2023/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/07.html">七月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/06.html">六月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/05.html">五月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/03.html">三月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jour/2022/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/10.html">十月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/09.html">九月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/05.html">五月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/03.html">三月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/02.html">二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2021/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2020/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2020/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2020/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2020/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2020/06.html">六月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2017/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2017/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../jour/2017/01.html">一月</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">关于</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/resume.html">简历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">收集室</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../collections/github-halloween.html">Github 万圣节彩蛋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>wargme-bandit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit0">bandit0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit1">bandit1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit2">bandit2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit3">bandit3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit4">bandit4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit5">bandit5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit6">bandit6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit7">bandit7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit8">bandit8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit9">bandit9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit10">bandit10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit11">bandit11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit12">bandit12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit13">bandit13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit14">bandit14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit15">bandit15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit16">bandit16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit17">bandit17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit18">bandit18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit19">bandit19</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit20">bandit20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit21">bandit21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit22">bandit22</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit23">bandit23</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit24">bandit24</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit25">bandit25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit26">bandit26</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit27">bandit27</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="wargme-bandit">
+<h1>wargme-bandit<a class="headerlink" href="#wargme-bandit" title="此标题的永久链接">#</a></h1>
+<ul class="simple">
+<li><p>ssh addr: bandit.labs.overthewire.org</p></li>
+<li><p>url: <a class="reference external" href="http://overthewire.org/wargames/bandit/">http://overthewire.org/wargames/bandit/</a></p></li>
+</ul>
+<section id="bandit0">
+<h2>bandit0<a class="headerlink" href="#bandit0" title="此标题的永久链接">#</a></h2>
+<p>flag: bandit0</p>
+</section>
+<section id="bandit1">
+<h2>bandit1<a class="headerlink" href="#bandit1" title="此标题的永久链接">#</a></h2>
+<p>flag: boJ9jbbUNNfktd78OOpsqOltutMc3MY1</p>
+</section>
+<section id="bandit2">
+<h2>bandit2<a class="headerlink" href="#bandit2" title="此标题的永久链接">#</a></h2>
+<p>flag: CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</p>
+</section>
+<section id="bandit3">
+<h2>bandit3<a class="headerlink" href="#bandit3" title="此标题的永久链接">#</a></h2>
+<p>flag: UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</p>
+</section>
+<section id="bandit4">
+<h2>bandit4<a class="headerlink" href="#bandit4" title="此标题的永久链接">#</a></h2>
+<p>flag: pIwrPrtPN36QITSp3EQaw936yaFoFgAB</p>
+</section>
+<section id="bandit5">
+<h2>bandit5<a class="headerlink" href="#bandit5" title="此标题的永久链接">#</a></h2>
+<p>flag: koReBOKuIDDepwhWk7jZC0RTdopnAYKh</p>
+</section>
+<section id="bandit6">
+<h2>bandit6<a class="headerlink" href="#bandit6" title="此标题的永久链接">#</a></h2>
+<p>flag: DXjZPULLxYr17uwoI01bNLQbtFemEgo7</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">-</span><span class="n">size</span> <span class="mi">1033</span><span class="n">c</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit7">
+<h2>bandit7<a class="headerlink" href="#bandit7" title="此标题的永久链接">#</a></h2>
+<p>flag: HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="n">user</span> <span class="n">bandit7</span> <span class="o">-</span><span class="n">group</span> <span class="n">bandit6</span> <span class="o">-</span><span class="n">size</span> <span class="mi">33</span><span class="n">c</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit8">
+<h2>bandit8<a class="headerlink" href="#bandit8" title="此标题的永久链接">#</a></h2>
+<p>flag: cvX2JJa4CFALtqS87jk27qwqGhBM9plV</p>
+</section>
+<section id="bandit9">
+<h2>bandit9<a class="headerlink" href="#bandit9" title="此标题的永久链接">#</a></h2>
+<p>flag: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">data</span><span class="o">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">tr</span> <span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span> <span class="p">[</span><span class="n">A</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">u</span>
+<span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="n">USVVYFSFZZWBI6WGC7DAFYFUR6JQQUHR</span> <span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit10">
+<h2>bandit10<a class="headerlink" href="#bandit10" title="此标题的永久链接">#</a></h2>
+<p>flag: trukldjsbj5g7yyj2x2r0o3a5hqjfulk</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">a</span> <span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit11">
+<h2>bandit11<a class="headerlink" href="#bandit11" title="此标题的永久链接">#</a></h2>
+<p>flag: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base64</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit12">
+<h2>bandit12<a class="headerlink" href="#bandit12" title="此标题的永久链接">#</a></h2>
+<p>flag: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="s1">&#39;N-ZA-Mn-za-m&#39;</span> <span class="s1">&#39;A-Za-z&#39;</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit13">
+<h2>bandit13<a class="headerlink" href="#bandit13" title="此标题的永久链接">#</a></h2>
+<p>flag: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL</p>
+<p>经历了多少次的解压缩…</p>
+</section>
+<section id="bandit14">
+<h2>bandit14<a class="headerlink" href="#bandit14" title="此标题的永久链接">#</a></h2>
+<p>flag: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">bandit13</span><span class="nd">@bandit</span><span class="o">.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bandit13</span><span class="o">/</span><span class="n">sshkey</span><span class="o">.</span><span class="n">private</span> <span class="o">~</span>
+<span class="n">chmod</span> <span class="mi">0600</span> <span class="n">sshkey</span><span class="o">.</span><span class="n">private</span>
+<span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/</span><span class="n">sshkey</span><span class="o">.</span><span class="n">private</span> <span class="n">bandit14</span><span class="nd">@bandit</span><span class="o">.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit15">
+<h2>bandit15<a class="headerlink" href="#bandit15" title="此标题的永久链接">#</a></h2>
+<p>flag: BfMYroe26WYalil77FoDi9qh59eK5xNr</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span> <span class="n">localhost</span> <span class="mi">30000</span>
+</pre></div>
+</div>
+<p>输入 bandit14 的密码即可</p>
+</section>
+<section id="bandit16">
+<h2>bandit16<a class="headerlink" href="#bandit16" title="此标题的永久链接">#</a></h2>
+<p>flag: cluFn7wTiGryunymYOu4RcffSxQluehd</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ openssl s_client -connect localhost:30001 -ssl3 -quiet
+</pre></div>
+</div>
+<p>输入 bandit15 的密码即可</p>
+</section>
+<section id="bandit17">
+<h2>bandit17<a class="headerlink" href="#bandit17" title="此标题的永久链接">#</a></h2>
+<p>flag: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</p>
+<p>注意登入远程主机时的说明，这次我们对 <code class="code docutils literal notranslate"><span class="pre">/var/tmp/</span></code> 没有写权限， 用
+<code class="code docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 建立临时目录，对该目录我们就有写权限。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mktemp -d
+$ nc -v -w 2 localhost 31000-32000 2&gt;a
+# 为什么连接成功的提示也会在 `stderr` 里面？
+$ grep succeeded
+# 只有五个端口，一个一个试：
+$ openssl s_client -connect localhost:31xxx -ssl3 -quiet
+# 最后 `31790` 返回了一个 rsa 私钥，
+$ openssl s_client -connect localhost:31790 -ssl3 -quiet &gt; key
+$ chmod 0600 key
+$ ssh -i bandit17.key bandit17@bandit.labs.overthewire.org
+$ cat /etc/bandit_pass/bandit17
+# done.
+</pre></div>
+</div>
+</section>
+<section id="bandit18">
+<h2>bandit18<a class="headerlink" href="#bandit18" title="此标题的永久链接">#</a></h2>
+<p>flag: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">*.</span><span class="n">new</span> <span class="o">*.</span><span class="n">old</span> <span class="o">-</span><span class="n">c1</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit19">
+<h2>bandit19<a class="headerlink" href="#bandit19" title="此标题的永久链接">#</a></h2>
+<p>flag: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">t</span> <span class="n">bandit18</span><span class="nd">@bandit</span><span class="o">.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit20">
+<h2>bandit20<a class="headerlink" href="#bandit20" title="此标题的永久链接">#</a></h2>
+<p>flag: GbKksEFF4yrVs6il55v6gwY5aVje5f0j</p>
+<p>有关 setgid 和 setuid。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">bandit20</span><span class="o">-</span><span class="n">do</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bandit_pass</span><span class="o">/</span><span class="n">bandit20</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit21">
+<h2>bandit21<a class="headerlink" href="#bandit21" title="此标题的永久链接">#</a></h2>
+<p>flag: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">GbKksEFF4yrVs6il55v6gwY5aVje5f0j</span> <span class="o">|</span> <span class="n">nc</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">p</span> <span class="mi">1234</span> <span class="o">&amp;</span> <span class="o">./</span><span class="n">suconnect</span> <span class="mi">1234</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit22">
+<h2>bandit22<a class="headerlink" href="#bandit22" title="此标题的永久链接">#</a></h2>
+<p>flag: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">cronjob_bandit22</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cronjob_bandit22</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit23">
+<h2>bandit23<a class="headerlink" href="#bandit23" title="此标题的永久链接">#</a></h2>
+<p>flag: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cronjob_bandit23</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="n">I</span> <span class="n">am</span> <span class="n">user</span> <span class="n">bandit23</span><span class="o">|</span> <span class="n">md5sum</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span> <span class="s1">&#39; &#39;</span> <span class="o">-</span><span class="n">f</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="bandit24">
+<h2>bandit24<a class="headerlink" href="#bandit24" title="此标题的永久链接">#</a></h2>
+<p>flag: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</p>
+<p>这道题卡了…以为密码会藏在被删掉的脚本里. 第二天想起原来 cron
+执行的时候用的是 bandit24 的权限嘛… 所以写一个脚本, 属性最好 chmod
+777:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bandit_pass</span><span class="o">/</span><span class="n">bandit24</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">tmp</span><span class="o">.</span><span class="n">xxx</span><span class="o">/</span><span class="n">psw</span>
+<span class="n">chmod</span> <span class="mi">666</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">tmp</span><span class="o">.</span><span class="n">xxx</span><span class="o">/</span><span class="n">psw</span>
+</pre></div>
+</div>
+<p>即使是这么个小脚本也卡我半天…</p>
+<p><em>注意:</em></p>
+<ul class="simple">
+<li><p>别把 bandit24 写错…</p></li>
+<li><p>把 tmp 目录的读写权限全部开放(似乎不用)</p></li>
+<li><p>不能用重定向(权限不够)</p></li>
+<li><p>sh 不一定在 /usr/bin/sh</p></li>
+</ul>
+</section>
+<section id="bandit25">
+<h2>bandit25<a class="headerlink" href="#bandit25" title="此标题的永久链接">#</a></h2>
+<p>flag: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</p>
+<p>没看清题意就瞎做…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="mf">0000..9999</span><span class="p">};</span> <span class="n">do</span> <span class="n">echo</span> <span class="s2">&quot;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pin</span><span class="p">;</span> <span class="n">done</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pin</span> <span class="o">|</span> <span class="n">nc</span> <span class="n">localhost</span> <span class="mi">30002</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;Corr|Succ&quot;</span>
+</pre></div>
+</div>
+<p>答案果然在最后一个…</p>
+</section>
+<section id="bandit26">
+<h2>bandit26<a class="headerlink" href="#bandit26" title="此标题的永久链接">#</a></h2>
+<p>flag: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z</p>
+<p>这一题难倒我了…答案是从网上看的 在 bandit25 给出了 bandit26 的私钥,
+登录上去显示了 bandit26 的 ASCII art 之后退出:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">bindit26</span>
+</pre></div>
+</div>
+<p>发现 bandit26 的 shell 是奇怪的 /usr/bin/showtext (然后就卡这里不动了)
+答案：<a class="reference external" href="http://codebluedev.blogspot.com/2015/07/overthewire-bandit-level-26.html">Answer</a>
+根本没想到去看 showtext 是什么内容</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">showtext</span>
+</pre></div>
+</div>
+<p>发现是 more 了一个文档然后直接退出. 所以把虚拟终端的宽度调成 4,
+再连接上：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/</span><span class="n">bandit26</span><span class="o">.</span><span class="n">private</span> <span class="n">bandit14</span><span class="nd">@bandit</span><span class="o">.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span>
+</pre></div>
+</div>
+<p>more 会因为分页 停下来… 此时按 v
+键可以用默认编辑器(vi)编辑该文件，就可以读取密码了。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">r</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bandit_pass</span><span class="o">/</span><span class="n">bandit26</span>
+<span class="p">:</span><span class="nb">set</span> <span class="n">shell</span> <span class="n">sh</span><span class="o">=/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span>
+<span class="p">:</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>进入 shell 执行 wechall 拿分 (more 这一招好脑洞)</p>
+</section>
+<section id="bandit27">
+<h2>bandit27<a class="headerlink" href="#bandit27" title="此标题的永久链接">#</a></h2>
+<p>还没有 bandit27</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/notes/writeups/wargame-bandit/index" data-title="wargme-bandit" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../seedlabs/format-string-vulnerability-lab/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">Format String Vulnerability Lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../wargame-narnia/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">wargame-narnia</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit0">bandit0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit1">bandit1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit2">bandit2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit3">bandit3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit4">bandit4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit5">bandit5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit6">bandit6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit7">bandit7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit8">bandit8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit9">bandit9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit10">bandit10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit11">bandit11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit12">bandit12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit13">bandit13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit14">bandit14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit15">bandit15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit16">bandit16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit17">bandit17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit18">bandit18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit19">bandit19</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit20">bandit20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit21">bandit21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit22">bandit22</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit23">bandit23</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit24">bandit24</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit25">bandit25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit26">bandit26</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bandit27">bandit27</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

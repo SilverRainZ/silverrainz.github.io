@@ -1,0 +1,13 @@
+# Sphinx
+_build/
+_any
+_cache/
+
+# Syncthing
+.stignore
+
+# macOS
+.DS_Store
+
+# Private content
+ronin/

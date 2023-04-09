@@ -1,0 +1,1246 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="Learning Scheme" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/books/teach-yourself-scheme-in-fixnum-days.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="教程: Teach Yourself Scheme in Fixnum Days.zh-CN, Yet Another Scheme Tutorial.zh-CN, The Little Schemer. 编译器: guile 的自动补全. chicken (csi) 的自动补全. 正文: 以下代码使用 chicken 运行。 quote: quote 用来阻止符号（symbol）被求值，'..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="教程: Teach Yourself Scheme in Fixnum Days.zh-CN, Yet Another Scheme Tutorial.zh-CN, The Little Schemer. 编译器: guile 的自动补全. chicken (csi) 的自动补全. 正文: 以下代码使用 chicken 运行。 quote: quote 用来阻止符号（symbol）被求值，'..." />
+
+    <title>Learning Scheme &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/mirror-redirect.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/books/teach-yourself-scheme-in-fixnum-days';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/books/teach-yourself-scheme-in-fixnum-days.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="色彩艺术" href="the-art-of-color.html" />
+    <link rel="prev" title="向大师学绘画·素描基础" href="drawing-lessons-from-the-great-masters.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../zxsys/index.html">造型实验室</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/prelude.html">暴露问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/light-and-shadow.html">光影分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/indoor-sketching.html">室内场景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/outdoor-sketching.html">室外夜景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/modeling.html">形体分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/fast-modeling.html">快速形体分解</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../zxsys/way-to-artist/index.html">艺术创作方法</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/prepare.html">课前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-yourself.html">找自己</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-topic.html">找主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-language.html">找语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/stealing.html">偷师学艺</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/exhibition.html">参展须知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/learn-from-master.html">向大师学绘画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/string-modeling.html">线造型训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/tips.html">一些零碎知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/glossary.html">术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../artstory/index.html">增量艺术史</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/artistory.html">艺术家史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gallery.html">画廊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gossip.html">逸闻</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">读书笔记</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code-complete-2.html">代码大全 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codex-hammer.html">哈默手稿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-primer-plus.html">C++ Primer Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing-course-of-charles-bargue-and-jean-leon-gerome.html">查尔斯巴尔格素描教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing-lessons-from-the-great-masters.html">向大师学绘画·素描基础</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Learning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-art-of-color.html">色彩艺术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-rust-programming-language.html">The Rust Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-story-of-art.html">艺术的故事</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a-modern-method-for-guitar-vol1/index.html">伯克利现代吉他教程·卷一</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="linux-kernel-development/index.html">Linux Kernel Development</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux-kernel-development/chapter-1_2.html">Chapter 1 and 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux-kernel-development/compile-and-run-kernel-in-qemu.html">Compile and Run Kernel in Qemu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux-kernel-development/misc.html">一些零碎的东西</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gdb.html">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/grep.html">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/latex.html">LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/lily.html">LilyPond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/make.html">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html">Man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/pacman.html">Pacman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/py.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rsync.html">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rust.html">Rust Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../music-theory/index.html">乐理笔记</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/interval-of-music.html">音程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2021-interview/index.html">2021 面试记录</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docutils/index.html">Docutils 文档阅读</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../go/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../go/pprof.html">PProf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/coverage.html">覆盖率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/godoc.html">Godoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/dev.html">Develop Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/asm.html">Go’s Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/type-assertion.html">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/gc.html">GC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ast.html">Abstract Syntax Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ssa.html">Static Single-Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../wizard/index.html">配置向导</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writeups/index.html">Capture the Flag</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../writeups/seedlabs/index.html">Seed Lab</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../writeups/seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-bandit/index.html">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-narnia/index.html">wargame-narnia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/07.html">七月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/06.html">六月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/05.html">五月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/03.html">三月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/10.html">十月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/09.html">九月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/05.html">五月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/03.html">三月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/02.html">二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/06.html">六月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/01.html">一月</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">关于</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/resume.html">简历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">收集室</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../collections/github-halloween.html">Github 万圣节彩蛋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Learning Scheme</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">编译器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正文</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quote">quote</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊形式(?)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-list">pair &amp; list</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#car-cdr-list">car &amp; cdr &amp; list</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atom">atom</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">lambda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define">define</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">不使用 lambda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">分支</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#not-and-or">not &amp; and &amp; or</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cond">cond</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#equ">equ</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let">let</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">let*</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#named-let">named let</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#letrec">letrec</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do">do</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">递归</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">尾递归</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-function">Higher Order Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#map">map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-each">for-each</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fold">fold</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">apply</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">input</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#port">port</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#read">read</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">port</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#output-func">output func</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">赋值</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lexical-closure">词法闭包（lexical closure）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">副作用</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">表的赋值</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#list">用 list 实现一个队列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol">Symbol</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="learning-scheme">
+<h1>Learning Scheme<a class="headerlink" href="#learning-scheme" title="此标题的永久链接">#</a></h1>
+<section id="id1">
+<h2>教程<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://songjinghe.github.io/TYS-zh-translation/">Teach Yourself Scheme in Fixnum
+Days.zh-CN</a></p></li>
+<li><p><a class="reference external" href="http://deathking.github.io/yast-cn/index.html">Yet Another Scheme
+Tutorial.zh-CN</a></p></li>
+<li><p>The Little Schemer</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>编译器<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<ul class="simple">
+<li><p>guile 的自动补全</p></li>
+</ul>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; pcaman -S readline</span>
+<span class="c1">; ~/.guile</span>
+<span class="p">(</span><span class="k">use-modules</span><span class="w"> </span><span class="p">(</span><span class="nf">ice-9</span><span class="w"> </span><span class="nv">readline</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">activate-readline</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>chicken (csi) 的自动补全</p></li>
+</ul>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; chicken-install readline</span>
+<span class="c1">; ~/.csirc</span>
+<span class="p">(</span><span class="nf">use</span><span class="w"> </span><span class="nv">readline</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">current-input-port</span><span class="w"> </span><span class="p">(</span><span class="nf">make-readline-port</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">install-history-file</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="s">&quot;/.csi.history&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>正文<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<p>以下代码使用 chicken 运行。</p>
+<section id="quote">
+<h3>quote<a class="headerlink" href="#quote" title="此标题的永久链接">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">quote</span></code> 用来阻止符号（symbol）被求值，<code class="code docutils literal notranslate"><span class="pre">'</span></code> 是其缩略形式:</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">         </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">3</span>
+<span class="p">(</span><span class="k">quote</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&#39;</span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">        </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&#39;</span><span class="p">()</span><span class="w">             </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="id4">
+<h4>特殊形式(?)<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h4>
+<p>普通的 symbol 会对所以参数求值并返回值，特殊形式的 symbol
+不会对所有的参数求值： <code class="code docutils literal notranslate"><span class="pre">qutoe</span></code>（这是当然的） <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> <code class="code docutils literal notranslate"><span class="pre">define</span></code>
+<code class="code docutils literal notranslate"><span class="pre">if</span></code> <code class="code docutils literal notranslate"><span class="pre">set!</span></code></p>
+</section>
+</section>
+<section id="pair-list">
+<h3>pair &amp; list<a class="headerlink" href="#pair-list" title="此标题的永久链接">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">1</span> <span class="pre">2)</span></code> 生成一个 pair <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">.</span> <span class="pre">2)</span></code>，pair 的第一个元素被称为
+car， 第二个元素被称为 cdr.</p>
+<p>按照如下定义嵌套的 pair 被称为 list：</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">'()</span></code> 是 list</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">element</span> <span class="pre">list)</span></code> 是 list，element 可以是任意类型</p></li>
+</ul>
+<p>可以使用 <code class="code docutils literal notranslate"><span class="pre">(null?</span> <span class="pre">list)</span></code> 来判断表是否空（<code class="code docutils literal notranslate"><span class="pre">'()</span></code>）</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">                      </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())))</span><span class="w">  </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w">             </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="sc">#\a</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">))</span><span class="w">     </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="sc">#\a</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="car-cdr-list">
+<h4>car &amp; cdr &amp; list<a class="headerlink" href="#car-cdr-list" title="此标题的永久链接">#</a></h4>
+<p>函数 <code class="code docutils literal notranslate"><span class="pre">car</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">cdr</span></code> 分别取回一个 pair 的 car 部分和 cdr 部分，
+<code class="code docutils literal notranslate"><span class="pre">list</span></code> 用于构造一个表</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; pair</span>
+<span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">                          </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">                          </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="c1">; list</span>
+<span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="p">())))</span><span class="w">                   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()))))</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">                            </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">            </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="atom">
+<h4>atom<a class="headerlink" href="#atom" title="此标题的永久链接">#</a></h4>
+<p>以下数据类型是 atom：</p>
+<ul class="simple">
+<li><p>numbers</p></li>
+<li><p>strings</p></li>
+<li><p>symbols</p></li>
+<li><p>booleans</p></li>
+<li><p>characters</p></li>
+</ul>
+<p>以下是 The Little Schemer 中对 atom 的定义：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; All that not a pair or null is an atom.</span>
+<span class="c1">; define in The Little Schemer</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">atom?</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="nv">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">x</span><span class="p">)))))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="procedure">
+<h3>procedure<a class="headerlink" href="#procedure" title="此标题的永久链接">#</a></h3>
+<section id="lambda">
+<h4>lambda<a class="headerlink" href="#lambda" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">lambda</span></code>，接受两个参数，返回一个
+procedure，参数一是参数表，参数二是函数体：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="s">&quot;archlinuxcn&quot;</span><span class="p">))</span><span class="w">     </span><span class="k">=&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;procedure</span><span class="w"> </span><span class="p">(</span><span class="nf">?</span><span class="p">)</span><span class="nb">&gt;</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="s">&quot;archlinuxcn&quot;</span><span class="p">)))</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="nv">archlinuxcn</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">))</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">            </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</section>
+<section id="define">
+<h4>define<a class="headerlink" href="#define" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">define</span></code>
+声明并绑定一个全局变量，参数一为变量名，参数二为被绑定的对象，
+借此可以复用 <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> 所生成的 procedure。</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)))</span>
+<span class="nv">add</span><span class="w">         </span><span class="k">=&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;procedure</span><span class="w"> </span><span class="p">(</span><span class="nf">add</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="nb">&gt;</span>
+<span class="p">(</span><span class="nf">add</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">4</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="s">&quot;arch&quot;</span><span class="p">)</span>
+<span class="nv">str</span><span class="w">         </span><span class="k">=&gt;</span><span class="w"> </span><span class="s">&quot;arch&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4>不使用 lambda<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h4>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">add3</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">))</span>
+<span class="nv">add3</span><span class="w">            </span><span class="k">=&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;procedure</span><span class="w"> </span><span class="p">(</span><span class="nf">add3</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="nb">&gt;</span>
+<span class="p">(</span><span class="nf">add3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h3>分支<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
+<section id="if">
+<h4>if<a class="headerlink" href="#if" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">(if</span> <span class="pre">predicate</span> <span class="pre">then_value</span> <span class="pre">else_value)</span></code> 当 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 为真则对
+<code class="code docutils literal notranslate"><span class="pre">then_value</span></code> 求值， 反之则对 <code class="code docutils literal notranslate"><span class="pre">else_value</span></code> 求值，<code class="code docutils literal notranslate"><span class="pre">else_value</span></code>
+部分可以省略，求得的值会传出括号外。 对于 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code>，任意值（包括
+<code class="code docutils literal notranslate"><span class="pre">#t</span></code>）被认为 ture，<code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则是 false。</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span><span class="w">  </span><span class="nv">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="not-and-or">
+<h4>not &amp; and &amp; or<a class="headerlink" href="#not-and-or" title="此标题的永久链接">#</a></h4>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">not</span></code> 接受一个参数，取反</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，若出现 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回 <code class="code docutils literal notranslate"><span class="pre">#f</span></code>，
+若全不为 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，返回第一个不是 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 的参数，
+若全是 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
+</ul>
+</section>
+<section id="cond">
+<h4>cond<a class="headerlink" href="#cond" title="此标题的永久链接">#</a></h4>
+<p>类似 case：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">cond</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">predicate_1</span><span class="w"> </span><span class="nv">clauses_1</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">predicate_2</span><span class="w"> </span><span class="nv">clauses_2</span><span class="p">)</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">predicate_n</span><span class="w"> </span><span class="nv">clauses_n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">else</span><span class="w">        </span><span class="nv">clauses_else</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>遇到成立的 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 则执行对应的子句后返回，全部不成立则执行
+<code class="code docutils literal notranslate"><span class="pre">else</span></code> 的子句。</p>
+</section>
+<section id="equ">
+<h4>equ<a class="headerlink" href="#equ" title="此标题的永久链接">#</a></h4>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">=</span></code> 判断两个数字是否相等</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">eq?</span></code>
+比较两个参数的地址，不要使用它来比较数字：其结果取决于编译器实现</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">eqv?</span></code> 是 <code class="code docutils literal notranslate"><span class="pre">eq</span></code> 的超集，对于原子类型（atom？）会进行正确的比较</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">equal?</span></code> 比较 list 与 vector</p></li>
+</ul>
+<p>ref:
+<a class="reference external" href="http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme">http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme</a></p>
+</section>
+</section>
+<section id="let">
+<h3>let<a class="headerlink" href="#let" title="此标题的永久链接">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">(let</span> <span class="pre">bind</span> <span class="pre">body)</span></code> 为 <code class="code docutils literal notranslate"><span class="pre">body</span></code> 语句绑定局部变量，变量在 <code class="code docutils literal notranslate"><span class="pre">bind</span></code>
+中初始化， <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中的变量不可互相引用：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">i</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">let</span></code> 是 <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> 的语法糖：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">p</span><span class="w"> </span><span class="nv">v</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w">       </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="c1">; equal to</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">p</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nv">v</span><span class="p">)</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+</div>
+<section id="id7">
+<h4>let*<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h4>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">let*</span></code> 可以引用定义在同个绑定中的变量（<code class="code docutils literal notranslate"><span class="pre">let*</span></code> 事实上是嵌套的
+<code class="code docutils literal notranslate"><span class="pre">let</span></code> 的语法糖）：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let*</span><span class="w"> </span><span class="p">((</span><span class="nf">i</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">j</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">i</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">))</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="named-let">
+<h4>named let<a class="headerlink" href="#named-let" title="此标题的永久链接">#</a></h4>
+<p>可以为一个 <code class="code docutils literal notranslate"><span class="pre">let</span></code> 命名来实现循环：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">fact-let</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="nv">loop</span><span class="p">((</span><span class="nf">n1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">p</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nv">p</span>
+<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">m</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
+<span class="w">        </span><span class="p">(</span><span class="nf">loop</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n1</span><span class="p">)))))))</span>
+</pre></div>
+</div>
+</section>
+<section id="letrec">
+<h4>letrec<a class="headerlink" href="#letrec" title="此标题的永久链接">#</a></h4>
+<p>允许 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中的变量递归地调用自己：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">sum-letrec</span><span class="w"> </span><span class="nv">xs</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">letrec</span><span class="w"> </span><span class="p">((</span><span class="nf">sum1</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">xs1</span><span class="p">)</span>
+<span class="w">                  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">xs1</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">xs1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sum</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">xs1</span><span class="p">)))))))</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">sum1</span><span class="w"> </span><span class="nv">xs</span><span class="p">)))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="do">
+<h3>do<a class="headerlink" href="#do" title="此标题的永久链接">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">(do</span> <span class="pre">binds</span> <span class="pre">(predicate</span> <span class="pre">value)</span> <span class="pre">body)</span></code> 变量在 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中被绑定， 若
+<code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 为真， 则函数跳出 <code class="code docutils literal notranslate"><span class="pre">do</span></code> 语句，值 <code class="code docutils literal notranslate"><span class="pre">value</span></code> 被传递出来，
+否则循环继续。 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 的形式是 <code class="code docutils literal notranslate"><span class="pre">((p</span> <span class="pre">i</span> <span class="pre">j)</span> <span class="pre">...</span> <span class="pre">)</span></code> 变量 <code class="code docutils literal notranslate"><span class="pre">p</span></code>
+被初始化为 <code class="code docutils literal notranslate"><span class="pre">i</span></code>， 在循环后被更新为 <code class="code docutils literal notranslate"><span class="pre">j</span></code></p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">fact-do</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">do</span><span class="w"> </span><span class="p">((</span><span class="nf">n1</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">p</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span><span class="w"> </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nv">p</span><span class="p">)))</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>递归<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">define</span> <span class="p">(</span><span class="n">fact</span> <span class="n">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="o">=</span> <span class="n">n</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">1</span> <span class="p">(</span><span class="o">*</span> <span class="n">n</span> <span class="p">(</span><span class="n">fact</span> <span class="p">(</span><span class="o">-</span> <span class="n">n</span> <span class="mi">1</span><span class="p">)))))</span>
+</pre></div>
+</div>
+<section id="id9">
+<h4>尾递归<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h4>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">fact-tail</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">fact-rec</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">fact-rec</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nv">p</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">fact-rec</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)))))</span>
+<span class="c1">; 使用 named let 或者 letrec 的话可以不用两个函数</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="higher-order-function">
+<h3>Higher Order Function<a class="headerlink" href="#higher-order-function" title="此标题的永久链接">#</a></h3>
+<section id="map">
+<h4>map<a class="headerlink" href="#map" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">(map</span> <span class="pre">procedure</span> <span class="pre">list1</span> <span class="pre">list2</span> <span class="pre">...)</span></code> <code class="code docutils literal notranslate"><span class="pre">map</span></code> 把 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
+应用到列表上， 返回新的列表，表的个数由 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code> 决定</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nv">sub1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="for-each">
+<h4>for-each<a class="headerlink" href="#for-each" title="此标题的永久链接">#</a></h4>
+<p>格式与 <code class="code docutils literal notranslate"><span class="pre">map</span></code> 相同，不返回具体的值，用于副作用：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">for-each</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">set!</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+<span class="k">=&gt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">set!</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+<span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">#</span><span class="nv">&lt;unspecified&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;unspecified&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;unspecified&gt;</span><span class="w"> </span><span class="o">#</span><span class="nv">&lt;unspecified&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fold">
+<h4>fold<a class="headerlink" href="#fold" title="此标题的永久链接">#</a></h4>
+<p>有左折叠（<code class="code docutils literal notranslate"><span class="pre">foldl</span></code>）和右折叠（<code class="code docutils literal notranslate"><span class="pre">foldr</span></code>）:</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">foldl</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">6</span>
+<span class="p">(</span><span class="nf">foldr</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+<section id="apply">
+<h4>apply<a class="headerlink" href="#apply" title="此标题的永久链接">#</a></h4>
+<p>将一个表展开作为过程的参数，接受任意多的参数，
+第一个和最后一个参数分别应该是一个过程和一个列表（还不知道有什么用）：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<section id="io">
+<h5>IO<a class="headerlink" href="#io" title="此标题的永久链接">#</a></h5>
+</section>
+</section>
+</section>
+<section id="input">
+<h3>input<a class="headerlink" href="#input" title="此标题的永久链接">#</a></h3>
+<section id="port">
+<h4>port<a class="headerlink" href="#port" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-input-file</span> <span class="pre">file-name)</span></code> 用于打开一个文件返回一个端口，
+<code class="code docutils literal notranslate"><span class="pre">(read-char</span> <span class="pre">port)</span></code> 从端口读取一个字符，读取到 EOF 的时候返回一个
+<code class="code docutils literal notranslate"><span class="pre">eof-object</span></code>， 可用 <code class="code docutils literal notranslate"><span class="pre">eof-object?</span></code> 检查，使用
+<code class="code docutils literal notranslate"><span class="pre">(close-input-port</span> <span class="pre">port)</span></code> 关闭端口</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">kitten</span><span class="w"> </span><span class="nv">fname</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">fp</span><span class="w"> </span><span class="p">(</span><span class="nb">open-input-file</span><span class="w"> </span><span class="nv">fname</span><span class="p">)))</span>
+<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="nv">loop</span><span class="w"> </span><span class="p">((</span><span class="nf">chr</span><span class="w"> </span><span class="p">(</span><span class="nb">read-char</span><span class="w"> </span><span class="nv">fp</span><span class="p">)))</span>
+<span class="w">      </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">eof-object?</span><span class="w"> </span><span class="nv">chr</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="nb">close-input-port</span><span class="w"> </span><span class="nv">fp</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="k">begin</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="nv">chr</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="nf">loop</span><span class="w"> </span><span class="p">(</span><span class="nb">read-char</span><span class="w"> </span><span class="nv">fp</span><span class="p">)))))))</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">(call-with-input-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ： 函数将打开
+<code class="code docutils literal notranslate"><span class="pre">file-name</span></code> 得到的端口传递给 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>， <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
+结束后端口需要手动关闭</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(with-input-from-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ：
+将文件作为标准输入打开，因此 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code> 不需要参数， <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
+结束后文件会自动被关闭</p>
+</section>
+<section id="read">
+<h4>read<a class="headerlink" href="#read" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">(read</span> <span class="pre">port)</span></code> 从端口中读入一个 S-Expression（!）：</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">read-s</span><span class="w"> </span><span class="nv">fname</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">with-input-from-file</span><span class="w"> </span><span class="nv">fname</span>
+<span class="w">    </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">()</span>
+<span class="w">      </span><span class="p">(</span><span class="k">begin</span>
+<span class="w">        </span><span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="p">(</span><span class="nb">read</span><span class="p">))</span>
+<span class="w">        </span><span class="p">(</span><span class="nb">newline</span><span class="p">)))))</span>
+<span class="p">(</span><span class="nf">read-s</span><span class="w"> </span><span class="s">&quot;1.scm&quot;</span><span class="p">)</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">myabs</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="nv">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="output">
+<h3>output<a class="headerlink" href="#output" title="此标题的永久链接">#</a></h3>
+<section id="id10">
+<h4>port<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code>
+打开一个文件，返回一个用于输出到该文件的端口</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code> 关闭输出端口</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(call-with-output-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">(with-output-to-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
+</section>
+<section id="output-func">
+<h4>output func<a class="headerlink" href="#output-func" title="此标题的永久链接">#</a></h4>
+<p>以下函数的 <code class="code docutils literal notranslate"><span class="pre">port</span></code> 都是可选参数，省略则输出到 stdout</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(wirte</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="code docutils literal notranslate"><span class="pre">port</span></code>，</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">write</span><span class="w"> </span><span class="sc">#\c</span><span class="p">)</span><span class="w">         </span><span class="k">=&gt;</span><span class="w"> </span><span class="sc">#\c</span>
+<span class="p">(</span><span class="nb">write</span><span class="w"> </span><span class="s">&quot;string&quot;</span><span class="p">)</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="s">&quot;string&quot;</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">(display</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="code docutils literal notranslate"><span class="pre">port</span></code>，</p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="sc">#\c</span><span class="p">)</span><span class="w">         </span><span class="k">=&gt;</span><span class="w"> </span><span class="nv">c</span>
+<span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="s">&quot;string&quot;</span><span class="p">)</span><span class="w">    </span><span class="k">=&gt;</span><span class="w"> </span><span class="nb">string</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">(wirte-char</span> <span class="pre">char</span> <span class="pre">port)</span></code> 往 <code class="code docutils literal notranslate"><span class="pre">port</span></code> 写入一个字符</p>
+</section>
+</section>
+<section id="id11">
+<h3>赋值<a class="headerlink" href="#id11" title="此标题的永久链接">#</a></h3>
+<p>赋值具有破坏性（destructive）, Scheme 中具有破坏性的方法都以 <code class="code docutils literal notranslate"><span class="pre">!</span></code> 结尾</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(set!</span> <span class="pre">var</span> <span class="pre">val)</span></code> 为一个参数赋值，赋值前参数应该被定义</p>
+<section id="lexical-closure">
+<h4>词法闭包（lexical closure）<a class="headerlink" href="#lexical-closure" title="此标题的永久链接">#</a></h4>
+<blockquote>
+<div><p><em>WikiPedia:</em> 闭包又称词法闭包，是引用了自由变量的函数。
+这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。
+所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。
+闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例。</p>
+</div></blockquote>
+</section>
+<section id="id12">
+<h4>副作用<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h4>
+<p>赋值 <code class="code docutils literal notranslate"><span class="pre">set!</span></code> 和 IO 操作都是副作用，</p>
+</section>
+<section id="id13">
+<h4>表的赋值<a class="headerlink" href="#id13" title="此标题的永久链接">#</a></h4>
+<p><code class="code docutils literal notranslate"><span class="pre">set-car!</span></code> <code class="code docutils literal notranslate"><span class="pre">set-cdr!</span></code> 分别用于为表的 car 和 cdr 部分赋值，
+参数可以是 S-Expression</p>
+</section>
+<section id="list">
+<h4>用 list 实现一个队列<a class="headerlink" href="#list" title="此标题的永久链接">#</a></h4>
+<p>list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部的引用。</p>
+<figure class="align-default" id="id14">
+<img alt="structure of queue" src="../../_images/queue.png" />
+<figcaption>
+<p><span class="caption-text">structure of queue</span><a class="headerlink" href="#id14" title="此图像的永久链接">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference external" href="http://www.shido.info/lisp/scheme_asg_e.html">图片出处</a></p>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">make-queue</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">enqueue!</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="nv">obj</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">lobj</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())))</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">queue</span><span class="p">))</span>
+<span class="w">    </span><span class="p">(</span><span class="k">begin</span>
+<span class="w">        </span><span class="c1">; lobj :: (1 . ()) :: (1)</span>
+<span class="w">        </span><span class="c1">; queue :: (() . ()) :: (())</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">set-car!</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="nv">lobj</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">; queue :: ((1 . ()) . ()) :: ((1))</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">set-cdr!</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="nv">lobj</span><span class="p">))</span>
+<span class="w">        </span><span class="c1">; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)</span>
+<span class="w">        </span><span class="c1">; 此时队列的 car 和 cdr 部分都 *引用* 同一个对象 lobj</span>
+<span class="w">    </span><span class="p">(</span><span class="k">begin</span>
+<span class="w">        </span><span class="c1">; lobj :: (2 . ()) :: (2)</span>
+<span class="w">        </span><span class="c1">; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">set-cdr!</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">queue</span><span class="p">)</span><span class="w"> </span><span class="nv">lobj</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">; queue ::  ((1 . (2 . ())) . (1 . (2 .()))) :: ((1 2) 1 2)</span>
+<span class="w">        </span><span class="c1">; 借助 cdr 的引用将 lobj 入队</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">set-cdr!</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="nv">lobj</span><span class="p">)))</span>
+<span class="w">        </span><span class="c1">; queue ::  ((1 . (2 . ())) . (2 .())) :: ((1 2) 2)</span>
+<span class="w">        </span><span class="c1">; 把 cdr 更新为当前的队尾 lobj</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">queue</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">dequeue!</span><span class="w"> </span><span class="nv">queue</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">obj</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">queue</span><span class="p">))))</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">set-car!</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">queue</span><span class="p">)))</span>
+<span class="w">    </span><span class="nv">obj</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">q</span><span class="w"> </span><span class="p">(</span><span class="nf">make-queue</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">enqueue!</span><span class="w"> </span><span class="nv">q</span><span class="w"> </span><span class="ss">&#39;a</span><span class="p">)</span><span class="w">     </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">enqueue!</span><span class="w"> </span><span class="nv">q</span><span class="w"> </span><span class="ss">&#39;b</span><span class="p">)</span><span class="w">     </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">enqueue!</span><span class="w"> </span><span class="nv">q</span><span class="w"> </span><span class="ss">&#39;c</span><span class="p">)</span><span class="w">     </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">dequeue!</span><span class="w"> </span><span class="nv">q</span><span class="p">)</span><span class="w">        </span><span class="k">=&gt;</span><span class="w"> </span><span class="nv">a</span>
+<span class="nv">q</span><span class="w">                   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">((</span><span class="nf">b</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
+不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
+中储存了 pair 时，用的是引用， 注意 <code class="code docutils literal notranslate"><span class="pre">set!</span></code>
+更改的是这个变量名的指向， <code class="code docutils literal notranslate"><span class="pre">set-cdr!</span></code> 更改的是指向的对象内部的值
+:(</p>
+</div>
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; 普通类型</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">a</span><span class="p">))</span>
+<span class="nv">a</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">b</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">set!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="nv">a</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="nv">b</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">; pair</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">a</span><span class="p">))</span>
+<span class="nv">a</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="nv">b</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">set-cdr!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="nv">a</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="nv">b</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="k">set!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
+<span class="nv">b</span><span class="w">   </span><span class="k">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="symbol">
+<h2>Symbol<a class="headerlink" href="#symbol" title="此标题的永久链接">#</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">(symbol?</span> <span class="pre">x)</span></code> 判断 <code class="code docutils literal notranslate"><span class="pre">x</span></code> 是否为一个符号，<code class="code docutils literal notranslate"><span class="pre">(string-&gt;symbol</span> <span class="pre">str)</span></code> 将
+<code class="code docutils literal notranslate"><span class="pre">str</span></code> 转换为符号，<code class="code docutils literal notranslate"><span class="pre">(symbol-&gt;string</span> <span class="pre">sym)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">sym</span></code> 转化为字符串</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/notes/books/teach-yourself-scheme-in-fixnum-days" data-title="Learning Scheme" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="drawing-lessons-from-the-great-masters.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">向大师学绘画·素描基础</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="the-art-of-color.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">色彩艺术</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">编译器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正文</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quote">quote</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊形式(?)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-list">pair &amp; list</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#car-cdr-list">car &amp; cdr &amp; list</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atom">atom</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">lambda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define">define</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">不使用 lambda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">分支</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#not-and-or">not &amp; and &amp; or</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cond">cond</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#equ">equ</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let">let</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">let*</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#named-let">named let</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#letrec">letrec</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do">do</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">递归</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">尾递归</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-function">Higher Order Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#map">map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-each">for-each</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fold">fold</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">apply</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">input</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#port">port</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#read">read</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">port</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#output-func">output func</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">赋值</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lexical-closure">词法闭包（lexical closure）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">副作用</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">表的赋值</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#list">用 list 实现一个队列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol">Symbol</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

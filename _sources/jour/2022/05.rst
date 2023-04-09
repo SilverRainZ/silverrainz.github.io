@@ -1,0 +1,27 @@
+====
+五月
+====
+
+.. contents::
+   :local:
+
+分布式系统的两大难题
+====================
+
+.. jour:: _
+   :date: 2022-05-18
+   :category: joke
+
+
+.. figure:: /_images/火狐截图_2022-05-18T05-53-10.470Z.png
+   :target: https://twitter.com/mathiasverraes/status/632260618599403520
+
+   分布式系统有两大难题：一是消息的 excactly once delivery，二是息消的序顺保证，一是消息的 excactly once delivery。
+
+Vim 中比较两个 buffer
+=====================
+
+.. jour:: _
+   :date: 2022-05-18
+
+在待比较的 buffer 中分别执行 `:diffthis` 即可，对于未命名的 buffer 也同样有效。

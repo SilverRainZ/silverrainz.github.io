@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="日志" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/index.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 纸张尺寸标准以及非标准纸张的收纳技巧| 26 June 之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 album-32k-1 里。后来画了一点 素描 和 丙烯 ，分别用了阿诗的素描纸（310×230 mm）与哈内姆..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 纸张尺寸标准以及非标准纸张的收纳技巧| 26 June 之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 album-32k-1 里。后来画了一点 素描 和 丙烯 ，分别用了阿诗的素描纸（310×230 mm）与哈内姆..." />
+
+    <title>日志 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/index';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2023" href="../jour/2023/index.html" />
+    <link rel="prev" title="静态程序分析" href="../notes/nju-static-program-analysis.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>日志</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">最近更新</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="id1">
+<h1>日志<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<p>个体 <a class="reference internal" href="../about/me.html#friend-SilverRainZ" title="friend SilverRainZ"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤SilverRainZ</span></code></a> 的日志使用 Sphinx+ABlog 管理。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>journalctl<span class="w"> </span>-a<span class="w"> </span>-f<span class="w"> </span>-u<span class="w"> </span>SilverRainZ@sphinx.service
+</pre></div>
+</div>
+<hr class="docutils" />
+<p class="centered">
+<strong><a class="reference internal" href="tag.html" title="Tags"><span class="xref std std-ref">标签</span></a> | <a class="reference internal" href="archive.html" title="Archives"><span class="xref std std-ref">归档</span></a> | <a class="reference internal" href="drafts.html" title="Drafts"><span class="xref std std-ref">草稿</span></a> | <a class="reference external" href="https://silverrainz.gitee.io/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">订阅</span></a></strong></p><section id="id2">
+<h2>最近更新<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<ul class="postlist-style-none postlist">
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="paper-size.html">纸张尺寸标准以及非标准纸张的收纳技巧</a> | 26 June</p>
+<p class="ablog-post-excerpt">之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 <a class="reference internal" href="../any-artwork.album.html#cap-album-32k-1" title="artwork album-32k-1"><code class="xref any any-artwork.album docutils literal notranslate"><span class="pre">album-32k-1</span></code></a> 里。后来画了一点 <a class="reference internal" href="../any-artwork.html#cap-铅笔" title="artwork 铅笔"><code class="xref any any-artwork docutils literal notranslate"><span class="pre">素描</span></code></a> 和 <a class="reference internal" href="../any-artwork.medium.html#cap-丙烯" title="artwork 丙烯"><code class="xref any any-artwork.medium docutils literal notranslate"><span class="pre">丙烯</span></code></a>，分别用了阿诗的素描纸（310×230 mm）与哈内姆勒的水彩纸（300×240mm），他们的的尺寸比 A4（297×210 mm）大一点，又比 A3（420×297 mm）小不少，收纳起来很尴尬。</p>
+<a class="ablog-post-excerpt reference internal image-reference" href="../_images/791px-A_size_illustration2_with_letter_and_legal.svg.png"><img alt="../_images/791px-A_size_illustration2_with_letter_and_legal.svg.png" class="ablog-post-excerpt" src="../_images/791px-A_size_illustration2_with_letter_and_legal.svg.png" style="width: 60%;" /></a>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="when-go-generics.html">何时使用 Go 泛型</a> | 03 June</p>
+<p class="ablog-post-excerpt">这篇文章是 <a class="reference external" href="https://go.dev/blog/when-generics">When To Use Generics</a> 的中文翻译，作者是 Go Team 的 <a class="reference external" href="https://github.com/ianlancetaylor">👤 ianlancetaylor</a>。</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="funtional-programming-in-go-generics.html">函数式编程在 Go 泛型下的实用性探索</a> | 27 October</p>
+<p class="ablog-post-excerpt">函数式编程（Functional Programming / FP）作为一种编程范式，具有无状态、无副作用、并发友好、抽象程度高等优点。目前流行的编程语言（C++、Python、Rust）都或多或少地引入了函数式特性，但在同作为流行语言的 Golang 中却少有讨论。</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="xzzh-after-40-yrs.html">四十年后再看西藏组画</a> | 03 July</p>
+<p class="ablog-post-excerpt"><a class="reference internal" href="xzzh-after-40-yrs.html#event-c50a62a" title="event 2021-06-30"><code class="xref any any-event.date docutils literal notranslate"><span class="pre">2021-06-30</span></code></a></p>
+<img alt="../_images/IMG_20210627_144543.jpg" class="ablog-post-excerpt" src="../_images/IMG_20210627_144543.jpg" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="sphinx-as-note-taking-system-2.html">我如何用 Sphinx 建立笔记系统（二）系统架构</a> | 25 May</p>
+<p class="ablog-post-excerpt">这是 <a class="reference internal" href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"><em>我如何用 Sphinx 建立笔记系统</em></a> 系列的第 二 篇，你可以通过订阅 <a class="reference external" href="https://silverrainz.gitee.io/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">RSS</span></a> 来获取后续更新。</p>
+<img alt="../_images/rst-language-stat.png" class="ablog-post-excerpt" src="../_images/rst-language-stat.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="sphinx-as-note-taking-system-1.html">我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由</a> | 24 May</p>
+<p class="ablog-post-excerpt">这是 <a class="reference internal" href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"><em>我如何用 Sphinx 建立笔记系统</em></a> 系列的第 一 篇，你可以通过订阅 <a class="reference external" href="https://silverrainz.gitee.io/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">RSS</span></a> 来获取后续更新。</p>
+<a class="ablog-post-excerpt reference internal image-reference" href="../_images/rst.png"><img alt="rst-badge" class="ablog-post-excerpt" src="../_images/rst.png" style="height: 1em;" /></a>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="new-boy.html">嘿，我去 2010</a> | 21 March</p>
+<p class="ablog-post-excerpt">6 月我从长亭科技离职，去燕郊 <a class="reference external" href="https://weibo.com/lixiaofeiart">&#64;李晓飞</a> 老师处学画，
+课题是基础素描。</p>
+<a class="ablog-post-excerpt reference internal image-reference" href="../_images/IMG_20210204_145427__01__01.jpg"><img alt="../_images/IMG_20210204_145427__01__01.jpg" class="ablog-post-excerpt" src="../_images/IMG_20210204_145427__01__01.jpg" style="width: 60%;" /></a>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="migrate-to-sphinx.html">博客迁移到 Sphinx</a> | 26 December</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="srain-and-me.html">Srain 1.0 发布了</a> | 29 February</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="switch-from-duoshuo-to-isso.html">从多说迁移到 Isso</a> | 10 June</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="use-sphinx-and-rst-to-manage-your-notes.html">用 Sphinx + reStructuredText 构建笔记系统</a> | 29 March</p>
+<p class="ablog-post-excerpt">No directive entry for “attention” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “attention”.</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="gsoc-2016-sum-up.html">GSoC 2016 小记 - 误打误撞三个月</a> | 29 September</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="GSoC 2013 Project" class="ablog-post-excerpt" src="../_images/gsoc-2016-proj.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="practical-makefile-for-packaging.html">编写便于打包的 Makefile</a> | 25 June</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="gsoc-2016.html">GSoC 2016</a> | 23 April</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="" class="ablog-post-excerpt" src="../_images/gsoc-2016-mail.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="thinkpad-l450.html">入手 ThinkPad L450</a> | 11 March</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="" class="ablog-post-excerpt" src="../_images/thinkpad-l450.jpg" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="get-teeworlds-server-information.html">获取 teeworlds 服务器信息</a> | 12 February</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="overthewire-leviathan.html">OverTheWire Leviathan</a> | 01 January</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="gen-graph-from-c-code.html">从 C 源码生成 函数/模块 调用图</a> | 25 December</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="" class="ablog-post-excerpt" src="../_images/os67-func-call-graph.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="2015-huashangctf-re300.html">2015 华山杯 CTF Reverse 300</a> | 02 November</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="process-scheduler-1.html">用户态进程的简单实现及调度(一)</a> | 14 September</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="flag.html">立 Flag</a> | 09 September</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" class="ablog-post-excerpt" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="minix-v1-file-system.html">Minix v1 文件系统的实现</a> | 07 August</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="Inode structure" class="ablog-post-excerpt" src="../_images/inode-struct.gif" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="overthewire-bandit.html">OverTheWire Bandit</a> | 26 July</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="../_images/overthewire-bandit26-1.png" class="ablog-post-excerpt" src="../_images/overthewire-bandit26-1.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="configure-of-archlinux.html">Arch Linux 折腾小记</a> | 20 July</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="" class="ablog-post-excerpt" src="../_images/archlinux-screenshot.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="install-vim-plugins.html">Vim 插件折腾记录</a> | 02 July</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="../_images/vim-plugin-screenshot.png" class="ablog-post-excerpt" src="../_images/vim-plugin-screenshot.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="first-attempt-of-python.html">Python 初试</a> | 15 June</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="threee-way-of-anti-debug.html">几种简单的反调试方法</a> | 19 May</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="record-of-a-boring-hack.html">记一次毫无技术含量的 Hack</a> | 12 May</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="do-notation-and-bind-of-haskell.html">do 记法和 &gt;&gt;= 的等效表达</a> | 09 April</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="some-minds-about-linux.html">不求甚解者用不好 Linux</a> | 27 March</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="matrix-arithmetic-in-haskell.html">用 Haskell 实现的矩阵运算</a> | 17 March</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="windows-chinese-username.html">把 Windows 中文用户名改为英文</a> | 08 March</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="syntax-highlight-in-haskell.html">Syntax Highligh.hs</a> | 16 February</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="../_images/2021-02-12_14%3A56%3A46.png" class="ablog-post-excerpt" src="../_images/2021-02-12_14%3A56%3A46.png" />
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="haskell-beginning.html">Hello Haskell</a> | 30 January</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="idf-reverse-writeup.html">IDF 实验室逆向题部分题解</a> | 02 January</p>
+<p class="ablog-post-excerpt">这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<img alt="1" class="ablog-post-excerpt" src="../_images/idf-reverse-writeup-1.png" />
+</li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/index" data-title="日志" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notes/nju-static-program-analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">静态程序分析</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../jour/2023/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">2023</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">最近更新</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

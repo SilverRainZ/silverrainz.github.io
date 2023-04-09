@@ -1,0 +1,34 @@
+/* Center title */
+h1 {
+    text-align: center;
+}
+/* Hide headerlink of doctitle */
+h1 > a.headerlink {
+    display: none;
+}
+
+/* Show emphasis text in bold, non-italic style */
+em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Show bold text in normal, italic tyle */
+b, strong {
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* Object description margin */
+.sig-object {
+    margin-top: 1em;
+}
+.sig-object + dd {
+    margin-left: 0px;
+}
+
+/* Beautify text style of figure caption */
+figcaption, div.figure p.caption, div.figure div.legend {
+    color: #666;
+    font-size: smaller;
+}

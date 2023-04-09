@@ -1,0 +1,14 @@
+/* Stylesheet for _templates/nosidebar.html */
+
+div.bodywrapper {
+    margin: 0 0 0 0;
+}
+
+div.body {
+    max-width: none;
+    padding: 0 0 0 0;
+}
+
+div.sphinxsidebar {
+    display: none;
+}

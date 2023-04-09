@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    <meta property="og:title" content="Arch Linux 折腾小记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/configure-of-archlinux.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了. 先上张图: 以 XMonad 为 WM 的桌面: 没有用 DE, WM 用的是 XMonad. 关于 XMonad 的默认快捷键, XMonad Guide Tour 这篇官方的这篇文档很容易看懂. 需要安装的包如下: xmonad, xmonad-contrib, xmobar, dmenu, trayer tra..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了. 先上张图: 以 XMonad 为 WM 的桌面: 没有用 DE, WM 用的是 XMonad. 关于 XMonad 的默认快捷键, XMonad Guide Tour 这篇官方的这篇文档很容易看懂. 需要安装的包如下: xmonad, xmonad-contrib, xmobar, dmenu, trayer tra..." />
+
+    <title>Arch Linux 折腾小记 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/mirror-redirect.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/configure-of-archlinux';</script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/configure-of-archlinux.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2015-07-20
+  
+</h2>
+<ul>
+  
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tag"></i>
+    
+    </span>
+  
+  
+  <a href="tag/linux.html">Linux</a>
+  
+  
+  
+</li>
+
+
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinx-as-note-taking-system-2.html">
+      25 May - 我如何用 Sphinx 建立笔记系统（二）系统架构
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arch Linux 折腾小记</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xmonad-wm">以 XMonad 为 WM 的桌面</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">无线网络管理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#im">IM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq">QQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">其他</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gtk">GTK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">输入法:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">配置文件</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section id="arch-linux">
+<h1>Arch Linux 折腾小记<a class="headerlink" href="#arch-linux" title="此标题的永久链接">#</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+</div>
+<p>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
+先上张图:</p>
+<img alt="" src="../_images/archlinux-screenshot.png" />
+<section id="xmonad-wm">
+<h2>以 XMonad 为 WM 的桌面<a class="headerlink" href="#xmonad-wm" title="此标题的永久链接">#</a></h2>
+<p>没有用 DE, WM 用的是 XMonad.</p>
+<p>关于 XMonad 的默认快捷键, <a class="reference external" href="http://xmonad.org/tour.html">XMonad Guide Tour</a>
+这篇官方的这篇文档很容易看懂.</p>
+<p>需要安装的包如下:</p>
+<ul class="simple">
+<li><p>xmonad, xmonad-contrib</p></li>
+<li><p>xmobar</p></li>
+<li><p>dmenu</p></li>
+<li><p><span class="sphinxnotes-strike" style="text-decoration: line-through;">trayer</span> trayer-srg<sup>AUR</sup></p></li>
+<li><p>feh</p></li>
+<li><p>scrot</p></li>
+<li><p>compton</p></li>
+</ul>
+<p>xmobar, 配置文件在<code class="code docutils literal notranslate"><span class="pre">.xmobarrc</span></code>, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
+也可以自己获取系统信息, <span class="sphinxnotes-strike" style="text-decoration: line-through;">我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.</span></p>
+<blockquote>
+<div><p>2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
+<code class="code docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span> <span class="pre">&quot;xft:Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span> <span class="pre">Mono:size=9:bold:antialias=true&quot;</span></code></p>
+</div></blockquote>
+<p>dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按<code class="code docutils literal notranslate"><span class="pre">mod</span> <span class="pre">+</span> <span class="pre">q</span></code>触发.</p>
+<p>trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:</p>
+<blockquote>
+<div><p>2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg<sup>AUR</sup></p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>trayer<span class="w"> </span>--edge<span class="w"> </span>top<span class="w"> </span>--align<span class="w"> </span>right<span class="w"> </span>--widthtype<span class="w"> </span>percent<span class="w"> </span>--width<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--SetDockType<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--SetPartialStrut<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--transparent<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--alpha<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--tint<span class="w"> </span>0x000000<span class="w"> </span>--expand<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--heighttype<span class="w"> </span>pixel<span class="w"> </span>--height<span class="w"> </span><span class="m">17</span><span class="w"> </span>--monitor<span class="w"> </span>primary
+</pre></div>
+</div>
+<p>本来已经设置了 xmobar 占据屏幕的 90%, 而 trayer 占 10%,
+不过这样仍然会在屏幕上留下间隙, 所以这里设置成占据屏幕的 11%.</p>
+<p>feh 用来设置桌面背景, 设置背景很有必要, 如果不设置的话,
+关闭窗口的时候不会有明显的反馈, 浮动窗口也会留下难看的拖影.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>feh<span class="w"> </span>--bg-scale<span class="w"> </span>/home/la/Pictures/Wallpapers/blog-bg.jpg
+</pre></div>
+</div>
+<p>scrot 截图的快捷键在 XMonad 的配置文件<code class="code docutils literal notranslate"><span class="pre">~/.xmonad/xmonad.hs</span></code>里面绑定:</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">defaultConfig</span>
+<span class="p">`</span><span class="n">additionalKeys</span><span class="p">`</span>
+<span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">controlMask</span><span class="p">,</span><span class="w"> </span><span class="n">xK_Print</span><span class="p">)</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="w"> </span><span class="s">&quot;sleep 0.2; scrot -s -e </span><span class="se">\&#39;</span><span class="s">mv $f ~/Pictures/Screenshots/</span><span class="se">\&#39;</span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">,</span><span class="w"> </span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">xK_Print</span><span class="p">),</span><span class="w"> </span><span class="n">spawn</span><span class="w"> </span><span class="s">&quot;scrot -e </span><span class="se">\&#39;</span><span class="s">mv $f ~/Pictures/Screenshots/</span><span class="se">\&#39;</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">-s</span></code>参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
+只能在截图后用<code class="code docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
+<p>上面这些配置大多写在启动脚本<code class="code docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="code docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
+</section>
+<section id="id1">
+<h2>无线网络管理<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<p>为了更方便地连接无线网络, 安装如下包:</p>
+<ul class="simple">
+<li><p>networkmanager</p></li>
+<li><p>network-manager-applet</p></li>
+<li><p>gnome-keyring</p></li>
+</ul>
+<p>注意如果你之前连接无线网络用的是<code class="code docutils literal notranslate"><span class="pre">netctl</span></code>的话, 记得把有关的服务给 disable 了,
+因为 networkmanager 和他有冲突, 安装完后执行 NetworkManager 启动服务.</p>
+<p>network-manager-applet 是 networkmanager 的前端.</p>
+<p>似乎不安装 <code class="code docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
+</section>
+<section id="im">
+<h2>IM<a class="headerlink" href="#im" title="此标题的永久链接">#</a></h2>
+<section id="qq">
+<h3>QQ<a class="headerlink" href="#qq" title="此标题的永久链接">#</a></h3>
+<p>TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
+<a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773">邓攀打包的TM2013</a>,
+似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
+不过根据错误提示和 Arch Linux Wiki, 装了几个包就解决问题了.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>➜<span class="w">  </span>pacman<span class="w"> </span>-S<span class="w"> </span>lib32-ncurses<span class="w"> </span>lib32-mpg123
+➜<span class="w">  </span>winetrick<span class="w"> </span>riched20<span class="w"> </span>ie6<span class="w"> </span>mfc42<span class="w"> </span>cjkfonts<span class="w"> </span>wenquanyi
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>其他<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h3>
+<ul class="simple">
+<li><p>IRC 客户端用火狐的 ChatZilla</p></li>
+<li><p>Telegram 客户端用 Cutegram, 得装 <code class="code docutils literal notranslate"><span class="pre">fcitx-qt5</span></code> 才能正常输入,
+另 TG 似乎已经被墙(手机上却仍然可以登录), Cutegram 无法登录, 挂个代理就行.</p></li>
+<li><p>qTox 也还凑合, 主要是可以听歌.</p></li>
+</ul>
+</section>
+</section>
+<section id="gtk">
+<h2>GTK<a class="headerlink" href="#gtk" title="此标题的永久链接">#</a></h2>
+<p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="code docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
+<p>对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
+konsole 的界面却依然很丑…</p>
+<aside class="topic">
+<p class="topic-title">Update</p>
+<p>2015-7-24: 经过 IRC 里 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="friend farseerfc"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤farseerfc</span></code></a> 前辈和 <a class="reference internal" href="../about/friends.html#friend-quininer" title="friend quininer"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤quininer</span></code></a> 的 <span class="sphinxnotes-strike" style="text-decoration: line-through;">调教</span> ,
+发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.</p>
+<p>2015-8-30: 安装社区源<code class="code docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="code docutils literal notranslate"><span class="pre">breeze</span></code>主题,
+可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="code docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
+</aside>
+</section>
+<section id="id3">
+<h2>输入法:<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<p>在<code class="code docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nb">export</span><span class="w"> </span><span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nb">export</span><span class="w"> </span><span class="nv">XMODIFIERS</span><span class="o">=</span><span class="s2">&quot;@im=fcitx&quot;</span>
+</pre></div>
+</div>
+<p>并在启动脚本里启动 fcitx.</p>
+</section>
+<section id="id4">
+<h2>配置文件<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>上面有提到的全部配置文件参见:</p>
+<p><a class="reference external" href="https://github.com/SilverRainZ/dotfiles">SilverRainZ/dotfiles - Github</a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="install-vim-plugins.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Vim 插件折腾记录</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="overthewire-bandit.html">
+      <span>OverTheWire Bandit</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xmonad-wm">以 XMonad 为 WM 的桌面</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">无线网络管理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#im">IM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq">QQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">其他</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gtk">GTK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">输入法:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">配置文件</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2022, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2023-04-09.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
