@@ -145,6 +145,13 @@ html_static_path = ['_static']
 
 html_css_files = ['custom.css']
 
+# A list of JavaScript filename.
+# The entry must be a filename string or a tuple containing the filename string
+# and the attributes dictionary. The filename must be relative to the
+# html_static_path, or a full URI with scheme like https://example.org/script.js.
+# The attributes is used for attributes of <script> tag. It defaults to an empty list.
+html_js_files = []
+
 html_baseurl = D.url()
 
 html_title = project
@@ -166,7 +173,8 @@ html_theme_options = {
 if D.is_mirror():
     src = Deployment.Github
     html_theme_options['announcement'] = \
-        f'<p> 这是部署于 {D} 的镜像，源站位于 <a class="source-site" href="{src.url()}">{src.url()}</a></p>';
+        f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>';
+    html_js_files.append('mirror-redirect.js')
 
 html_css_files.append('sphinx-book-theme-custom.css')
 
@@ -452,7 +460,7 @@ if D.is_public():
     ogp_site_name = project
     ogp_image = D.url() + logo
 
-if D is Deployment.Local:
+if D is not Deployment.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
-    notfound_urls_prefix = None
+    notfound_urls_prefix = ''
