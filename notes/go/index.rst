@@ -22,7 +22,7 @@ Golang
          dev
          asm
          type-assertion
-         escape-analysis
+         gc
          ast
          ssa
          generics
