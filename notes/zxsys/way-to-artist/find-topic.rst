@@ -155,17 +155,18 @@ Self
 艺术家案例 - 刘小东
 --------------------------
 
-:doc:`/notes/artstory/artistory`
+:artist:`刘小东`
 
 艺术家案例 - 怀斯
 ------------------------
 
-:doc:`/notes/artstory/artistory`
+:artist:`怀斯`
+
 
 艺术家案例 - 霍伯
 ------------------------
 
-:doc:`/notes/artstory/artistory`
+:artist:`霍伯`
 
 第四讲 身份主题
 ---------------
