@@ -42,12 +42,12 @@ class Deployment(Enum):
 
     @classmethod
     def current(cls) -> Deployment:
+        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
+            return Deployment.Raspi
         if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
             return Deployment.Github
         if os.environ.get('GITHUB_WORKFLOW') == 'Publish Gitee Pages':
             return Deployment.Gitee
-        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
-            return Deployment.Raspi
         return Deployment.Local
 
     def is_private(self) -> bool:
@@ -388,7 +388,7 @@ if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if D.is_private():
+if D is Deployment.Local:
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -446,7 +446,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if D.is_public():
+if D is not Deployment.Local:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
