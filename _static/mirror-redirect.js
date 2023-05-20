@@ -1,4 +1,9 @@
-// By Awesome ChatGPT.
+/**
+ * 将镜像站点链接重定向到源站点链接 by Awesome ChatGPT.
+ *
+ * 将当前页面中 class 为 source-page 的链接元素的 href 属性中链接重定向到
+*  silverrainz.me 对应的链接，同时保留锚点。
+ */
 
 window.addEventListener("DOMContentLoaded", rewriteSourcePageURLs)
 

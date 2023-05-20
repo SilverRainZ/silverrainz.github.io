@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/man/systemd.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="systemctl: List all running services: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta property="og:description" content="systemctl: List all running services: journalctl: 查看本次开机内核错误日志:-p 3, priority err,,-x, provides extra message information,,-b, print logs since last boot,. 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="systemctl: List all running services: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta name="description" content="systemctl: List all running services: journalctl: 查看本次开机内核错误日志:-p 3, priority err,,-x, provides extra message information,,-b, print logs since last boot,. 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 
     <title>SystemD &#8212; 银色子弹</title>
   
@@ -498,6 +498,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemctl">systemctl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#journalctl">journalctl</a></li>
 </ul>
             </nav>
         </div>
@@ -517,6 +518,24 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service<span class="w"> </span>--state<span class="o">=</span>running
 </pre></div>
 </div>
+</section>
+<section id="journalctl">
+<h2>journalctl<a class="headerlink" href="#journalctl" title="此标题的永久链接">#</a></h2>
+<p>查看本次开机内核错误日志:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">journalctl -p 3 -xb</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd"><code class="code docutils literal notranslate"><span class="pre">-p</span> <span class="pre">3</span></code><span class="colon">:</span></dt>
+<dd class="field-odd"><p>priority err</p>
+</dd>
+<dt class="field-even"><code class="code docutils literal notranslate"><span class="pre">-x</span></code><span class="colon">:</span></dt>
+<dd class="field-even"><p>provides extra message information</p>
+</dd>
+<dt class="field-odd"><code class="code docutils literal notranslate"><span class="pre">-b</span></code><span class="colon">:</span></dt>
+<dd class="field-odd"><p>print logs since last boot</p>
+</dd>
+</dl>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
@@ -589,6 +608,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemctl">systemctl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#journalctl">journalctl</a></li>
 </ul>
   </nav></div>
 
@@ -621,7 +641,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-04-27.
+  最后更新于 2023-05-20.
   <br/>
 </p>
   </div>
