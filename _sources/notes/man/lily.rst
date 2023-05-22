@@ -85,6 +85,11 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
      >>
   }
 
+鼓谱
+----
+
+https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note
+
 指定调式
 ----------
 
