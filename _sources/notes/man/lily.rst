@@ -59,6 +59,11 @@ Variable
 
 用 `<>` 括住音名，后跟时值，如 `:lily:`{ <c' e' g'>2  }``  -> :lily:`{ <c' e' g'>2 }`
 
+\chordmode
+~~~~~~~~~~
+
+https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords
+
 反复记号
 --------
 
@@ -84,6 +89,13 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
        }
      >>
   }
+
+显示和弦指板图
+--------------
+
+https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams
+
+https://music.stackexchange.com/a/123077
 
 鼓谱
 ----

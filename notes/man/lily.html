@@ -500,26 +500,30 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">文件结构 </a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">记谱法</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">单个音符升降半音 </a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">双音/和弦</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">双音/和弦</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chordmode">chordmode</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反复记号</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">六线谱</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">五线谱六线谱混排</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">鼓谱</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">指定调式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">每行四小节</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">节奏</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">附点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">显示和弦指板图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">鼓谱</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">指定调式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">每行四小节</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">节奏</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">附点</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">输出</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">指定输出文件名称</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">输出</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">指定输出文件名称</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midi">MIDI</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">输出 MIDI 文件</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">指定乐器</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">输出 MIDI 文件</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">指定乐器</a></li>
 </ul>
 </li>
 </ul>
@@ -547,7 +551,7 @@ document.write(`
 <p>页面上的预览由 <a class="reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a> 生成</p>
 </div>
 <section id="id2">
-<h2>文件结构 <a class="footnote-reference brackets" href="#id24" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<h2>文件结构 <a class="footnote-reference brackets" href="#id25" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
 <p>可能出现在顶层的表达式如下：</p>
 <dl>
 <dt>Output definition,</dt><dd><p>例如 <code class="code docutils literal notranslate"><span class="pre">paper</span></code>, <code class="code docutils literal notranslate"><span class="pre">midi</span></code>, and <code class="code docutils literal notranslate"><span class="pre">layout</span></code>，重复的定义会被合并，若冲突后者优先</p>
@@ -577,7 +581,7 @@ document.write(`
 <section id="id4">
 <h2>记谱法<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <section id="id6">
-<h3>单个音符升降半音 <a class="footnote-reference brackets" href="#id25" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
+<h3>单个音符升降半音 <a class="footnote-reference brackets" href="#id26" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">升<span class="colon">:</span></dt>
 <dd class="field-odd"><p>音名 + <code class="code docutils literal notranslate"><span class="pre">is</span></code>，如 <code class="code docutils literal notranslate"><span class="pre">:lily:`{</span> <span class="pre">cis'</span> <span class="pre">}`</span></code> -&gt; <img class="lilypond-score" src="../.././_lilypond/7655900d565a99ded236c1c5d77b8a42b3f46d99/music.preview.png" alt="{ cis' }" style="height:2.5em;", align="absbottom"/></p>
@@ -590,6 +594,10 @@ document.write(`
 <section id="id7">
 <h3>双音/和弦<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h3>
 <p>用 <code class="code docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 括住音名，后跟时值，如 <code class="code docutils literal notranslate"><span class="pre">:lily:`{</span> <span class="pre">&lt;c'</span> <span class="pre">e'</span> <span class="pre">g'&gt;2</span>&#160; <span class="pre">}`</span></code>  -&gt; <img class="lilypond-score" src="../.././_lilypond/e55e99c69009a3add999ee1c430edd8adf2368ad/music.preview.png" alt="{ &lt;c' e' g'&gt;2 }" style="height:2.5em;", align="absbottom"/></p>
+<section id="chordmode">
+<h4>chordmode<a class="headerlink" href="#chordmode" title="此标题的永久链接">#</a></h4>
+<p><a class="reference external" href="https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords">https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords</a></p>
+</section>
 </section>
 <section id="id8">
 <h3>反复记号<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h3>
@@ -617,21 +625,26 @@ document.write(`
 </section>
 </section>
 <section id="id12">
-<h3>鼓谱<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h3>
-<p><a class="reference external" href="https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note">https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note</a></p>
+<h3>显示和弦指板图<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h3>
+<p><a class="reference external" href="https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams">https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams</a></p>
+<p><a class="reference external" href="https://music.stackexchange.com/a/123077">https://music.stackexchange.com/a/123077</a></p>
 </section>
 <section id="id13">
-<h3>指定调式<a class="headerlink" href="#id13" title="此标题的永久链接">#</a></h3>
-<p>以 G 大调为例，在任意一个 expression block 中：<code class="code docutils literal notranslate"><span class="pre">key</span> <span class="pre">g</span> <span class="pre">major</span></code>。</p>
+<h3>鼓谱<a class="headerlink" href="#id13" title="此标题的永久链接">#</a></h3>
+<p><a class="reference external" href="https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note">https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note</a></p>
 </section>
 <section id="id14">
-<h3>每行四小节<a class="headerlink" href="#id14" title="此标题的永久链接">#</a></h3>
-<p>每四个小节后面加个 <code class="code docutils literal notranslate"><span class="pre">break</span></code>。</p>
+<h3>指定调式<a class="headerlink" href="#id14" title="此标题的永久链接">#</a></h3>
+<p>以 G 大调为例，在任意一个 expression block 中：<code class="code docutils literal notranslate"><span class="pre">key</span> <span class="pre">g</span> <span class="pre">major</span></code>。</p>
 </section>
 <section id="id15">
-<h3>节奏<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h3>
+<h3>每行四小节<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h3>
+<p>每四个小节后面加个 <code class="code docutils literal notranslate"><span class="pre">break</span></code>。</p>
+</section>
 <section id="id16">
-<h4>附点<a class="headerlink" href="#id16" title="此标题的永久链接">#</a></h4>
+<h3>节奏<a class="headerlink" href="#id16" title="此标题的永久链接">#</a></h3>
+<section id="id17">
+<h4>附点<a class="headerlink" href="#id17" title="此标题的永久链接">#</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">附点<span class="colon">:</span></dt>
 <dd class="field-odd"><p>在时值数后加一个点：<code class="code docutils literal notranslate"><span class="pre">a8.</span></code></p>
@@ -643,11 +656,11 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="id17">
-<h2>输出<a class="headerlink" href="#id17" title="此标题的永久链接">#</a></h2>
 <section id="id18">
-<h3>指定输出文件名称<a class="headerlink" href="#id18" title="此标题的永久链接">#</a></h3>
-<p>在 <code class="code docutils literal notranslate"><span class="pre">score</span></code> block 显式地指定 <code class="code docutils literal notranslate"><span class="pre">book</span></code>， 再指定 <code class="code docutils literal notranslate"><span class="pre">bookOutputSuffix</span></code> 即可 <a class="footnote-reference brackets" href="#id26" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<h2>输出<a class="headerlink" href="#id18" title="此标题的永久链接">#</a></h2>
+<section id="id19">
+<h3>指定输出文件名称<a class="headerlink" href="#id19" title="此标题的永久链接">#</a></h3>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">score</span></code> block 显式地指定 <code class="code docutils literal notranslate"><span class="pre">book</span></code>， 再指定 <code class="code docutils literal notranslate"><span class="pre">bookOutputSuffix</span></code> 即可 <a class="footnote-reference brackets" href="#id27" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <div class="highlight-lilypond notranslate"><div class="highlight"><pre><span></span><span class="k">\book</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb nb-MusicFunction">\bookOutputSuffix</span><span class="w"> </span><span class="s">&quot;alice&quot;</span>
 <span class="w">  </span><span class="k">\score</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>…<span class="w"> </span><span class="p">}</span>
@@ -656,8 +669,8 @@ document.write(`
 </section>
 <section id="midi">
 <h3>MIDI<a class="headerlink" href="#midi" title="此标题的永久链接">#</a></h3>
-<section id="id20">
-<h4>输出 MIDI 文件<a class="headerlink" href="#id20" title="此标题的永久链接">#</a></h4>
+<section id="id21">
+<h4>输出 MIDI 文件<a class="headerlink" href="#id21" title="此标题的永久链接">#</a></h4>
 <div class="highlight-lilypond notranslate"><div class="highlight"><pre><span></span><span class="k">\score</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="c1">% ...</span>
 <span class="w">  </span><span class="k">\midi</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
@@ -665,9 +678,9 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="id21">
-<h4>指定乐器<a class="headerlink" href="#id21" title="此标题的永久链接">#</a></h4>
-<p>设置 Staff 的 <code class="code docutils literal notranslate"><span class="pre">midiInstrument</span></code> <a class="footnote-reference brackets" href="#id27" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 属性为乐器的名称 <a class="footnote-reference brackets" href="#id28" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
+<section id="id22">
+<h4>指定乐器<a class="headerlink" href="#id22" title="此标题的永久链接">#</a></h4>
+<p>设置 Staff 的 <code class="code docutils literal notranslate"><span class="pre">midiInstrument</span></code> <a class="footnote-reference brackets" href="#id28" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 属性为乐器的名称 <a class="footnote-reference brackets" href="#id29" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
 <div class="highlight-lilypond notranslate"><div class="highlight"><pre><span></span><span class="k">\new</span><span class="w"> </span><span class="nb nb-Context">Staff</span><span class="w"> </span><span class="k">\with</span><span class="w"> </span><span class="p">{</span><span class="nb nb-ContextProperty">midiInstrument</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;acoustic guitar (nylon)&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">% ...</span>
 <span class="p">}</span>
@@ -675,11 +688,11 @@ document.write(`
 </div>
 <p class="rubric">脚注</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id24" role="note">
+<aside class="footnote brackets" id="id25" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/file-structure">https://lilypond.org/doc/v2.20/Documentation/notation/file-structure</a></p>
 </aside>
-<aside class="footnote brackets" id="id25" role="note">
+<aside class="footnote brackets" id="id26" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names">https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names</a></p>
 </aside>
@@ -692,16 +705,16 @@ document.write(`
 </div>
 </div>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id26" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">3</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id27" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">3</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names">https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names</a></p>
 </aside>
-<aside class="footnote brackets" id="id27" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">4</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id28" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id23">4</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments</a></p>
 </aside>
-<aside class="footnote brackets" id="id28" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id23">5</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id29" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">5</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments</a></p>
 </aside>
 </aside>
@@ -781,26 +794,30 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">文件结构 </a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">记谱法</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">单个音符升降半音 </a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">双音/和弦</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">双音/和弦</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chordmode">chordmode</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反复记号</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">六线谱</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">五线谱六线谱混排</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">鼓谱</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">指定调式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">每行四小节</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">节奏</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">附点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">显示和弦指板图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">鼓谱</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">指定调式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">每行四小节</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">节奏</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">附点</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">输出</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">指定输出文件名称</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">输出</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">指定输出文件名称</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midi">MIDI</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">输出 MIDI 文件</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">指定乐器</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">输出 MIDI 文件</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">指定乐器</a></li>
 </ul>
 </li>
 </ul>
@@ -837,7 +854,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-05-22.
+  最后更新于 2023-05-28.
   <br/>
 </p>
   </div>

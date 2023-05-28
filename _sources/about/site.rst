@@ -21,7 +21,7 @@ Sphinx + Sphinx Notes
    :target: https://www.sphinx-doc.org
    :height: 4em
 
-.. |sphinx-notes-badge| image:: /_static/logo.png
+.. |sphinx-notes-badge| image:: /_static/sphinxnotes-logo.png
    :target: https://github.com/sphinx-notes/
    :height: 4em
 
