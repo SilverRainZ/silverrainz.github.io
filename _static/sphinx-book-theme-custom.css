@@ -4,3 +4,7 @@ code.code.literal {
 	border: 1px solid #e1e4e5;
 	padding: 0 5px;
 }
+
+.logo__image {
+    border-radius: 50%;
+}
