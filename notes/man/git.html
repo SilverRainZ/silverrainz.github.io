@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/man/git.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="永久忽略一个对已 commit 文件/目录 的修改: 中文路径乱码: 提交时使用无插件的 vim: Update fork from source: Create empty branch: Delete remote tag: 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计: Rebase 时保留 base 分支改动: GitHub:..." />
+<meta property="og:description" content="永久忽略一个对已 commit 文件/目录 的修改: 中文路径乱码: 提交时使用无插件的 vim: Update fork from source: Create empty branch: Delete remote tag: 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计: Rebase 时保留 base 分支改动: 重新提交时刷新..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="永久忽略一个对已 commit 文件/目录 的修改: 中文路径乱码: 提交时使用无插件的 vim: Update fork from source: Create empty branch: Delete remote tag: 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计: Rebase 时保留 base 分支改动: GitHub:..." />
+<meta name="description" content="永久忽略一个对已 commit 文件/目录 的修改: 中文路径乱码: 提交时使用无插件的 vim: Update fork from source: Create empty branch: Delete remote tag: 将被忽略的语言（如 Markdown、restructuredText）计入 Languages 统计: Rebase 时保留 base 分支改动: 重新提交时刷新..." />
 
     <title>Git &#8212; 银色子弹</title>
   
@@ -546,6 +546,10 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout --theirs &lt;FILE&gt;</span>
 </pre></div>
 </div>
+<p>重新提交时刷新日期:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git commit --amend --date=&quot;$(date -R)&quot;</span>
+</pre></div>
+</div>
 <section id="github">
 <h2>GitHub<a class="headerlink" href="#github" title="此标题的永久链接">#</a></h2>
 <p><a class="reference external" href="https://github.com/notifications/subscriptions">我订阅的所有 Issue</a></p>
@@ -653,7 +657,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-05-28.
+  最后更新于 2023-05-29.
   <br/>
 </p>
   </div>

@@ -39,6 +39,10 @@ Rebase 时保留 base 分支改动::
 
    git checkout --theirs <FILE>
 
+重新提交时刷新日期::
+
+   git commit --amend --date="$(date -R)"
+
 GitHub
 ======
 

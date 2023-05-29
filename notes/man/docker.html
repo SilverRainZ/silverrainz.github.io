@@ -507,7 +507,7 @@ document.write(`
 </div>
 <p>Get a clean Debian 10 shell with PWD mounted and 80 port exposed:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>pull<span class="w"> </span>debian:10
-<span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="nv">$PWD</span>:/app<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:80:8080/tcp<span class="w"> </span>debian:10<span class="w"> </span>bash
+<span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="nv">$PWD</span>:/app<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:80:8080/tcp<span class="w"> </span>--name<span class="w"> </span>debian<span class="w"> </span>debian:10<span class="w"> </span>bash
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -525,8 +525,17 @@ document.write(`
 <em>host</em> on 127.0.0 <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 </dd>
 </dl>
+<p>Re-attach to it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>debian<span class="w"> </span>bash
+</pre></div>
+</div>
 <p>开机启动:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>update<span class="w"> </span>--restart<span class="o">=</span>always<span class="w"> </span>name
+</pre></div>
+</div>
+<p>复制文件:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>cp<span class="w"> </span>src.txt<span class="w"> </span>container:/dst.txt
+<span class="gp">$ </span>docker<span class="w"> </span>cp<span class="w"> </span>container:/src.txt<span class="w"> </span>dst.txt
 </pre></div>
 </div>
 <aside class="footnote-list brackets">
@@ -628,7 +637,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-05-28.
+  最后更新于 2023-05-29.
   <br/>
 </p>
   </div>
