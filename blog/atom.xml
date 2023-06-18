@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2023-05-29T05:21:49.950574+00:00</updated>
+  <updated>2023-06-18T13:26:02.064860+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.4.post1">ABlog</generator>
@@ -1451,6 +1451,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
