@@ -406,6 +406,7 @@ if D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
 
+    from textwrap import dedent
     # Require extensions 'sphinx_design'
     rst_epilog += dedent("""
     .. card:: 评论
