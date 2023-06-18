@@ -13,7 +13,7 @@
 from __future__ import annotations
 import os
 import sys
-from textwrap import dedent
+from datetime import datetime
 from enum import Enum, auto
 
 sys.path.insert(0, os.path.abspath('.'))
@@ -24,7 +24,7 @@ project = '银色子弹'
 author = 'Shengyu Zhang'
 author_id = 'SilverRainZ'
 author_nick = 'LA'
-copyright = '2020-2022, ' + author
+copyright = '2020-%s, ' % datetime.now().year + author
 
 # -- Non-standard project information ----------------------------------------
 
@@ -386,7 +386,10 @@ html_css_files.append('ablog-custom.css')
 
 if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
-    gtagjs_ids = ['G-FYHS50G6DL']
+    if D is Deployment.Github:
+        gtagjs_ids = ['G-FYHS50G6DL']
+    elif D is Deployment.Gitee:
+        gtagjs_ids = ['G-5MZDR9VPYN']
 
 if D is Deployment.Local:
     extensions.append('sphinxnotes.snippet.ext')
