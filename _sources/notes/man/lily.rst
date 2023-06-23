@@ -2,8 +2,6 @@
 LilyPond
 ========
 
-:Online Editor: https://www.hacklily.org/
-
 .. highlight:: lilypond
 
 .. hint:: 页面上的预览由 :pypi:`sphinxnotes-lilypond` 生成
@@ -154,6 +152,74 @@ MIDI
     \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
       % ...
     }
+
+
+Frescobaldi MIDI Playback
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:archpkg:`frescobaldi` 是一个 LilyPond 的可视化编辑器。
+需要额外安装 :archpkg:`portmidi` 提供 MIDI 接口支持。
+
+还需要一个软件的 MIDI 合成器以及合适的 SoundFont，这里分别使用 :archpkg:`fluidsynth`
+和 :archpkg:`soundfont-fluid`。
+
+设置默认 Soundfont，后面会用上：
+
+.. code:: console
+
+   # ln -s /usr/share/soundfonts{FluidR3_GM,default}.sf2
+
+FluidSynth 需要和特定声音系统交互，默认是 ALSA。
+
+:ALSA: 会独占声卡（2023 年没人用裸用 ALSA 了吧）
+:PluseAudio: 可以正常工作
+:PipeWire: 驱动有问题，播放的声音像是慢放了许多倍
+
+我是 PipeWire 用户，安装 :archpkg:`pipewire-pulse` 兼容层即可。
+
+编辑 :file:`/etc/conf.d/fluidsynth`，其实就是命令行参数：
+
+.. code:: cfg
+
+   # Mandatory parameters (uncomment and edit)
+   SOUND_FONT=/usr/share/soundfonts/default.sf2
+
+   # Additional optional parameters (may be useful, see 'man fluidsynth' for further info)
+   OTHER_OPTS='--audio-driver pulseaudio'
+
+运行 `systemctl --user restart fluidsynth.service` 启动 FluidSynth Server。
+
+可通过 `aconnect`（由 :archpkg:`alas-utils` 提供）来检查 MIDI 端口是否启动：
+
+.. code:: console
+
+  $ aconnect --output
+  client 14: 'Midi Through' [type=kernel]
+      0 'Midi Through Port-0'
+  client 128: 'FLUID Synth (22710)' [type=user,pid=22710]
+      0 'Synth input port (22710:0)'
+
+那么 FluidSynth 的 MIDI 端口就是 `128:0`，可以使用 `aplaymidi` （由 :archpkg:`alas-utils` 提供）
+播放：
+
+.. code:: console
+
+   $ aplaymidi --port 128:0 music.midi
+
+在 Frescobaldi 的界面上，在 `Edit → Preferences → MIDI Settings → MIDI Port`
+（即 `编辑 → 首选项 → MIDI 设置 →  MIDI 端口 →  播放器输出`）
+将其设置为 "Synth inpurt port"。
+
+配套工具
+========
+
+- 可视化编辑器：
+
+  - Qt `Frescobaldi <https://www.frescobaldi.org/uguide#help_preferences_midi>`_
+  - 在线 `Hacklily <https://www.hacklily.org/>`_
+
+- Sphinx 插件：`sphinxnotes-lilypond <https://sphinx.silverrainz.me/lilypond/>`_
+
 
 .. rubric:: 脚注
 

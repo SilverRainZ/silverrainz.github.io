@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/man/lily.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="Online Editor, https://www.hacklily.org/,. 文件结构 1: 可能出现在顶层的表达式如下： Output definition,, 例如 paper, midi, and layout ，重复的定义会被合并，若冲突后者优先,, Direct scheme expression, 类似#(set-default-paper-size &quot;a7&quot; 'land..." />
+<meta property="og:description" content="文件结构 1: 可能出现在顶层的表达式如下： Output definition,, 例如 paper, midi, and layout ，重复的定义会被合并，若冲突后者优先,, Direct scheme expression, 类似#(set-default-paper-size &quot;a7&quot; 'landscape),, header, 定义谱面的头部，包含标题、作曲家等信息,, scor..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="Online Editor, https://www.hacklily.org/,. 文件结构 1: 可能出现在顶层的表达式如下： Output definition,, 例如 paper, midi, and layout ，重复的定义会被合并，若冲突后者优先,, Direct scheme expression, 类似#(set-default-paper-size &quot;a7&quot; 'land..." />
+<meta name="description" content="文件结构 1: 可能出现在顶层的表达式如下： Output definition,, 例如 paper, midi, and layout ，重复的定义会被合并，若冲突后者优先,, Direct scheme expression, 类似#(set-default-paper-size &quot;a7&quot; 'landscape),, header, 定义谱面的头部，包含标题、作曲家等信息,, scor..." />
 
     <title>LilyPond &#8212; 银色子弹</title>
   
@@ -524,10 +524,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midi">MIDI</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">输出 MIDI 文件</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">指定乐器</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#frescobaldi-midi-playback">Frescobaldi MIDI Playback</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">配套工具</a></li>
 </ul>
             </nav>
         </div>
@@ -541,17 +543,12 @@ document.write(`
                   
 <section id="lilypond">
 <h1>LilyPond<a class="headerlink" href="#lilypond" title="此标题的永久链接">#</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">Online Editor<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://www.hacklily.org/">https://www.hacklily.org/</a></p>
-</dd>
-</dl>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p>页面上的预览由 <a class="reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a> 生成</p>
 </div>
 <section id="id2">
-<h2>文件结构 <a class="footnote-reference brackets" href="#id25" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<h2>文件结构 <a class="footnote-reference brackets" href="#id26" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
 <p>可能出现在顶层的表达式如下：</p>
 <dl>
 <dt>Output definition,</dt><dd><p>例如 <code class="code docutils literal notranslate"><span class="pre">paper</span></code>, <code class="code docutils literal notranslate"><span class="pre">midi</span></code>, and <code class="code docutils literal notranslate"><span class="pre">layout</span></code>，重复的定义会被合并，若冲突后者优先</p>
@@ -581,7 +578,7 @@ document.write(`
 <section id="id4">
 <h2>记谱法<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <section id="id6">
-<h3>单个音符升降半音 <a class="footnote-reference brackets" href="#id26" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
+<h3>单个音符升降半音 <a class="footnote-reference brackets" href="#id27" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">升<span class="colon">:</span></dt>
 <dd class="field-odd"><p>音名 + <code class="code docutils literal notranslate"><span class="pre">is</span></code>，如 <code class="code docutils literal notranslate"><span class="pre">:lily:`{</span> <span class="pre">cis'</span> <span class="pre">}`</span></code> -&gt; <img class="lilypond-score" src="../.././_lilypond/7655900d565a99ded236c1c5d77b8a42b3f46d99/music.preview.png" alt="{ cis' }" style="height:2.5em;", align="absbottom"/></p>
@@ -660,7 +657,7 @@ document.write(`
 <h2>输出<a class="headerlink" href="#id18" title="此标题的永久链接">#</a></h2>
 <section id="id19">
 <h3>指定输出文件名称<a class="headerlink" href="#id19" title="此标题的永久链接">#</a></h3>
-<p>在 <code class="code docutils literal notranslate"><span class="pre">score</span></code> block 显式地指定 <code class="code docutils literal notranslate"><span class="pre">book</span></code>， 再指定 <code class="code docutils literal notranslate"><span class="pre">bookOutputSuffix</span></code> 即可 <a class="footnote-reference brackets" href="#id27" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">score</span></code> block 显式地指定 <code class="code docutils literal notranslate"><span class="pre">book</span></code>， 再指定 <code class="code docutils literal notranslate"><span class="pre">bookOutputSuffix</span></code> 即可 <a class="footnote-reference brackets" href="#id28" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <div class="highlight-lilypond notranslate"><div class="highlight"><pre><span></span><span class="k">\book</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb nb-MusicFunction">\bookOutputSuffix</span><span class="w"> </span><span class="s">&quot;alice&quot;</span>
 <span class="w">  </span><span class="k">\score</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>…<span class="w"> </span><span class="p">}</span>
@@ -680,19 +677,82 @@ document.write(`
 </section>
 <section id="id22">
 <h4>指定乐器<a class="headerlink" href="#id22" title="此标题的永久链接">#</a></h4>
-<p>设置 Staff 的 <code class="code docutils literal notranslate"><span class="pre">midiInstrument</span></code> <a class="footnote-reference brackets" href="#id28" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 属性为乐器的名称 <a class="footnote-reference brackets" href="#id29" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
+<p>设置 Staff 的 <code class="code docutils literal notranslate"><span class="pre">midiInstrument</span></code> <a class="footnote-reference brackets" href="#id29" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 属性为乐器的名称 <a class="footnote-reference brackets" href="#id30" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
 <div class="highlight-lilypond notranslate"><div class="highlight"><pre><span></span><span class="k">\new</span><span class="w"> </span><span class="nb nb-Context">Staff</span><span class="w"> </span><span class="k">\with</span><span class="w"> </span><span class="p">{</span><span class="nb nb-ContextProperty">midiInstrument</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;acoustic guitar (nylon)&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">% ...</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</section>
+<section id="frescobaldi-midi-playback">
+<h4>Frescobaldi MIDI Playback<a class="headerlink" href="#frescobaldi-midi-playback" title="此标题的永久链接">#</a></h4>
+<p><a class="reference external" href="https://archlinux.org/packages/frescobaldi">📦 frescobaldi</a> 是一个 LilyPond 的可视化编辑器。
+需要额外安装 <a class="reference external" href="https://archlinux.org/packages/portmidi">📦 portmidi</a> 提供 MIDI 接口支持。</p>
+<p>还需要一个软件的 MIDI 合成器以及合适的 SoundFont，这里分别使用 <a class="reference external" href="https://archlinux.org/packages/fluidsynth">📦 fluidsynth</a>
+和 <a class="reference external" href="https://archlinux.org/packages/soundfont-fluid">📦 soundfont-fluid</a>。</p>
+<p>设置默认 Soundfont，后面会用上：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/soundfonts<span class="o">{</span>FluidR3_GM,default<span class="o">}</span>.sf2
+</pre></div>
+</div>
+<p>FluidSynth 需要和特定声音系统交互，默认是 ALSA。</p>
+<dl class="field-list simple">
+<dt class="field-odd">ALSA<span class="colon">:</span></dt>
+<dd class="field-odd"><p>会独占声卡（2023 年没人用裸用 ALSA 了吧）</p>
+</dd>
+<dt class="field-even">PluseAudio<span class="colon">:</span></dt>
+<dd class="field-even"><p>可以正常工作</p>
+</dd>
+<dt class="field-odd">PipeWire<span class="colon">:</span></dt>
+<dd class="field-odd"><p>驱动有问题，播放的声音像是慢放了许多倍</p>
+</dd>
+</dl>
+<p>我是 PipeWire 用户，安装 <a class="reference external" href="https://archlinux.org/packages/pipewire-pulse">📦 pipewire-pulse</a> 兼容层即可。</p>
+<p>编辑 <code class="file docutils literal notranslate"><span class="pre">/etc/conf.d/fluidsynth</span></code>，其实就是命令行参数：</p>
+<div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mandatory parameters (uncomment and edit)</span>
+<span class="na">SOUND_FONT</span><span class="o">=</span><span class="s">/usr/share/soundfonts/default.sf2</span>
+
+<span class="c1"># Additional optional parameters (may be useful, see &#39;man fluidsynth&#39; for further info)</span>
+<span class="na">OTHER_OPTS</span><span class="o">=</span><span class="s">&#39;--audio-driver pulseaudio&#39;</span>
+</pre></div>
+</div>
+<p>运行 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">--user</span> <span class="pre">restart</span> <span class="pre">fluidsynth.service</span></code> 启动 FluidSynth Server。</p>
+<p>可通过 <code class="code docutils literal notranslate"><span class="pre">aconnect`（由</span> <span class="pre">:archpkg:`alas-utils</span></code> 提供）来检查 MIDI 端口是否启动：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aconnect<span class="w"> </span>--output
+<span class="go">client 14: &#39;Midi Through&#39; [type=kernel]</span>
+<span class="go">    0 &#39;Midi Through Port-0&#39;</span>
+<span class="go">client 128: &#39;FLUID Synth (22710)&#39; [type=user,pid=22710]</span>
+<span class="go">    0 &#39;Synth input port (22710:0)&#39;</span>
+</pre></div>
+</div>
+<p>那么 FluidSynth 的 MIDI 端口就是 <code class="code docutils literal notranslate"><span class="pre">128:0</span></code>，可以使用 <code class="code docutils literal notranslate"><span class="pre">aplaymidi</span></code> （由 <a class="reference external" href="https://archlinux.org/packages/alas-utils">📦 alas-utils</a> 提供）
+播放：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aplaymidi<span class="w"> </span>--port<span class="w"> </span><span class="m">128</span>:0<span class="w"> </span>music.midi
+</pre></div>
+</div>
+<p>在 Frescobaldi 的界面上，在 <code class="code docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">→</span> <span class="pre">Preferences</span> <span class="pre">→</span> <span class="pre">MIDI</span> <span class="pre">Settings</span> <span class="pre">→</span> <span class="pre">MIDI</span> <span class="pre">Port</span></code>
+（即 <code class="code docutils literal notranslate"><span class="pre">编辑</span> <span class="pre">→</span> <span class="pre">首选项</span> <span class="pre">→</span> <span class="pre">MIDI</span> <span class="pre">设置</span> <span class="pre">→</span>&#160; <span class="pre">MIDI</span> <span class="pre">端口</span> <span class="pre">→</span>&#160; <span class="pre">播放器输出</span></code>）
+将其设置为 “Synth inpurt port”。</p>
+</section>
+</section>
+</section>
+<section id="id25">
+<h2>配套工具<a class="headerlink" href="#id25" title="此标题的永久链接">#</a></h2>
+<ul class="simple">
+<li><p>可视化编辑器：</p>
+<ul>
+<li><p>Qt <a class="reference external" href="https://www.frescobaldi.org/uguide#help_preferences_midi">Frescobaldi</a></p></li>
+<li><p>在线 <a class="reference external" href="https://www.hacklily.org/">Hacklily</a></p></li>
+</ul>
+</li>
+<li><p>Sphinx 插件：<a class="reference external" href="https://sphinx.silverrainz.me/lilypond/">sphinxnotes-lilypond</a></p></li>
+</ul>
 <p class="rubric">脚注</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id25" role="note">
+<aside class="footnote brackets" id="id26" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/file-structure">https://lilypond.org/doc/v2.20/Documentation/notation/file-structure</a></p>
 </aside>
-<aside class="footnote brackets" id="id26" role="note">
+<aside class="footnote brackets" id="id27" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names">https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names</a></p>
 </aside>
@@ -705,15 +765,15 @@ document.write(`
 </div>
 </div>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id27" role="note">
+<aside class="footnote brackets" id="id28" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">3</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names">https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names</a></p>
 </aside>
-<aside class="footnote brackets" id="id28" role="note">
+<aside class="footnote brackets" id="id29" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id23">4</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments</a></p>
 </aside>
-<aside class="footnote brackets" id="id29" role="note">
+<aside class="footnote brackets" id="id30" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">5</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments</a></p>
 </aside>
@@ -734,8 +794,6 @@ document.write(`
 );</script> 回复你。</p>
 <section data-isso-id="/notes/man/lily" data-title="LilyPond" id="isso-thread"></section></div>
 </div>
-</section>
-</section>
 </section>
 </section>
 
@@ -818,10 +876,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midi">MIDI</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">输出 MIDI 文件</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">指定乐器</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#frescobaldi-midi-playback">Frescobaldi MIDI Playback</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">配套工具</a></li>
 </ul>
   </nav></div>
 
@@ -854,7 +914,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-06-22.
+  最后更新于 2023-06-23.
   <br/>
 </p>
   </div>
