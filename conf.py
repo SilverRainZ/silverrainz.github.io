@@ -182,8 +182,8 @@ nosidebar_page = ['nosidebar']
 blog_post_page = [ # Provided by sphinx_book_theme
                   'navbar-logo',
                   # Provided by ABlog
-                  'postcard', 'recentposts', 'tagcloud',
-                  'categories', 'archives']
+                  'ablog/postcard', 'ablog/recentposts', 'ablog/tagcloud',
+                  'ablog/categories', 'ablog/archives']
 # TODO...
 
 html_sidebars = {
