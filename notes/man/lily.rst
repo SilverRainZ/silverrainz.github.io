@@ -49,18 +49,63 @@ Variable
 单个音符升降半音 [#]_
 ---------------------
 
-:升: 音名 + `is`，如 `:lily:`{ cis' }`` -> :lily:`{ cis' }`
+:升: 音名 + `is`，如 `:lily:`{ cis' }`` ➡️  :lily:`{ cis' }`
 :降: 音名 + `es`
 
 双音/和弦
 ---------
 
-用 `<>` 括住音名，后跟时值，如 `:lily:`{ <c' e' g'>2  }``  -> :lily:`{ <c' e' g'>2 }`
+用 `<>` 括住音名，后跟时值，如 `:lily:`{ <c' e' g'>2  }``  ➡️  :lily:`{ <c' e' g'>2 }`
 
-\chordmode
-~~~~~~~~~~
+``\chordmode``
+~~~~~~~~~~~~~~
 
-https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords
+使用 `\\chordmode` 可以进入 和弦模式__ ，可以只书写和弦符号，如：
+
+`:lily:\`\\chordmode { c1 }``  ➡️  :lily:`\chordmode{ c1 }`
+
+:`c`: 是现代和弦的代号
+:`1`: 是时值，同音符模式，有时可省略
+
+常见的代号见 `十分鐘以內，一次搞懂所有的現代和弦代號！`__ ，在和弦模式中，在 `:`
+补充大三和弦以外的其他记号:
+
+.. list-table::
+   :align: center
+   :widths: auto
+
+   * - `c1`
+     -  大三和弦
+     - :lily:`\chordmode{ c1 }`
+   * - `c1:m`
+     -  小三和弦
+     - :lily:`\chordmode{ c1:m }`
+   * - `c1:dim`
+     -  减三和弦
+     - :lily:`\chordmode{ c1:dim }`
+   * - `c1:aug`
+     -  增三和弦
+     - :lily:`\chordmode{ c1:aug }`
+   * - `c1:maj7`
+     -  大七和弦
+     - :lily:`\chordmode{ c1:maj7 }`
+   * - `c1:m7`
+     -  小七和弦
+     - :lily:`\chordmode{ c1:m7 }`
+   * - `c1:7`
+     -  属七和弦
+     - :lily:`\chordmode{ c1:7 }`
+   * - `c1:dim7`
+     -  减七和弦
+     - :lily:`\chordmode{ c1:dim7 }`
+
+.. note:: 
+
+   ``\chordmode`` 始终使用绝对音高，即 ``\relative`` 不起作用。
+   另，和弦模式里的音高比普通的音符模式高一个八度。
+
+__ https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords
+__ https://wiki.nicechord.com/index.php/%E5%8D%81%E5%88%86%E9%90%98%E4%BB%A5%E5%85%A7%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E6%89%80%E6%9C%89%E7%9A%84%E7%8F%BE%E4%BB%A3%E5%92%8C%E5%BC%A6%E4%BB%A3%E8%99%9F%EF%BC%81
 
 反复记号
 --------
@@ -103,7 +148,7 @@ https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%
 指定调式
 ----------
 
-以 G 大调为例，在任意一个 expression block 中：`\key g \major`。
+以 G 大调为例，在任意一个 expression block 中：`\\key g \major`。
 
 每行四小节
 ----------
@@ -112,6 +157,20 @@ https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%
 
 节奏
 ----
+
+拍子
+~~~~
+
+4/4 拍::
+
+   \time 4/4
+
+时值
+~~~~
+
+::
+
+   \tempo "Allegro" 4 = 150
 
 附点
 ~~~~
