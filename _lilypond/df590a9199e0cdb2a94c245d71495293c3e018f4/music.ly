@@ -1,0 +1,1 @@
+\chordmode{ c1:aug }
