@@ -197,7 +197,7 @@ OUT[S] never shrinks
 ========================
 
 Live Variable Analysis
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Abstraction
    Use a bit vector, one bit for one variable assignment (`v = x`). 1 for alive and 0 for dead.
