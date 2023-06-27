@@ -136,6 +136,13 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 显示和弦指板图
 --------------
 
+对于常见的和弦，通过引入 :file:`predefined-guitar-fretboards.ly` 和使用 ChoreMode
+可以直接在显示和弦的指板图：
+
+.. lily::
+
+   \include "predefined-guitar-fretboards.ly"
+
 https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams
 
 https://music.stackexchange.com/a/123077
