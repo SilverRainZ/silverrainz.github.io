@@ -1,0 +1,1 @@
+\include "predefined-guitar-fretboards.ly" \new FretBoards{ \chordmode { d1:7 }}

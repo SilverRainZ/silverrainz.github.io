@@ -52,17 +52,25 @@ Variable
 :升: 音名 + `is`，如 `:lily:`{ cis' }`` ➡️  :lily:`{ cis' }`
 :降: 音名 + `es`
 
-双音/和弦
----------
+和弦
+----
+
+.. term:: _
 
 用 `<>` 括住音名，后跟时值，如 `:lily:`{ <c' e' g'>2  }``  ➡️  :lily:`{ <c' e' g'>2 }`
 
-``\chordmode``
-~~~~~~~~~~~~~~
+TODO: `ChoreNames` staff
+
+.. seealso:: :term:`和弦模式`
+
+和弦模式
+~~~~~~~~
+
+.. term:: _
 
 使用 `\\chordmode` 可以进入 和弦模式__ ，可以只书写和弦符号，如：
 
-`:lily:\`\\chordmode { c1 }``  ➡️  :lily:`\chordmode{ c1 }`
+`:lily:\`\\chordmode { c1 }`` ➡️  :lily:`\chordmode{ c1 }`
 
 :`c`: 是现代和弦的代号
 :`1`: 是时值，同音符模式，有时可省略
@@ -99,7 +107,7 @@ Variable
      -  减七和弦
      - :lily:`\chordmode{ c1:dim7 }`
 
-.. note:: 
+.. note::
 
    ``\chordmode`` 始终使用绝对音高，即 ``\relative`` 不起作用。
    另，和弦模式里的音高比普通的音符模式高一个八度。
@@ -137,15 +145,41 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 --------------
 
 对于常见的和弦，通过引入 :file:`predefined-guitar-fretboards.ly` 和使用 ChoreMode
-可以直接在显示和弦的指板图：
+可以直接在显示 一些常见和弦的指板图__ ，和弦记法参见 :term:`和弦模式`。
 
 .. lily::
+   :noedge:
+   :nofooter:
 
+   \version "2.24.1"
    \include "predefined-guitar-fretboards.ly"
 
-https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams
+   chordsline = \chordmode { c1 c:7 f:maj7 }
 
-https://music.stackexchange.com/a/123077
+   \score {
+      <<
+      \new ChordNames { \chordsline }
+      \new FretBoards { \chordsline }
+      >>
+
+      \layout {}
+   }
+
+当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：
+
+`Automatic fret diagrams`__
+   指定和弦的组成音，LilyPond 会根据上下文帮你推测当前 :term:`调弦` 下的指板图。
+
+   例如 D7 和弦的常见按法是： :lily:`\include "predefined-guitar-fretboards.ly" \new FretBoards{ \chordmode { d1:7 }}`，
+   但也可以用 C7 的指法下移两品：:lily:`\new FretBoards{ <d fis c' d'> }`。
+
+`\storePredefinedDiagram`__
+   也可以用 `storePredefinedDiagram` 命令自定义每一根弦的指法和音高，
+   目前用不上。有兴趣可以点链接自行阅读。
+
+__ https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams
+__ https://lilypond.org/doc/Documentation/notation/common-notation-for-fretted-strings#automatic-fret-diagrams
+__ https://music.stackexchange.com/a/123077
 
 鼓谱
 ----
@@ -285,7 +319,6 @@ FluidSynth 需要和特定声音系统交互，默认是 ALSA。
   - 在线 `Hacklily <https://www.hacklily.org/>`_
 
 - Sphinx 插件：`sphinxnotes-lilypond <https://sphinx.silverrainz.me/lilypond/>`_
-
 
 .. rubric:: 脚注
 
