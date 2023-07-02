@@ -684,8 +684,8 @@ document.write(`
 <h3>显示和弦指板图<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h3>
 <p>对于常见的和弦，通过引入 <code class="file docutils literal notranslate"><span class="pre">predefined-guitar-fretboards.ly</span></code> 和使用 ChoreMode
 可以直接在显示 <a class="reference external" href="https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams">一些常见和弦的指板图</a> ，和弦记法参见 <a class="reference internal" href="#term-dea39f7" title="term 和弦模式"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣和弦模式</span></code></a>。</p>
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\version &quot;2.24.1&quot;
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/231a745b070d1eb16d2dc98877a15f2554aaed65/music.png" alt="\version &quot;2.20.0&quot;
 \include &quot;predefined-guitar-fretboards.ly&quot;
 
 chordsline = \chordmode { c1 c:7 f:maj7 }
@@ -697,27 +697,8 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
    &gt;&gt;
 
    \layout {}
-}</span>)</p>
-<p>LilyPond exited with error:
-[stderr]
-Changing working directory to: `/tmp/sphinxnotes-lilypondlfou9s2j'
-Processing `/tmp/sphinxnotes-lilypondlfou9s2j/music.ly'
-Parsing...
-error: program too old: 2.20.0 (file requires: 2.24.1)
-Interpreting music...
-Preprocessing graphical objects...
-Finding the ideal number of pages...
-Fitting music on 1 page...
-Drawing systems...
-Layout output to `/tmp/lilypond-SBhofv'...
-Converting to PNG...
-Deleting `/tmp/lilypond-SBhofv'...
-fatal error: failed files: &quot;/tmp/sphinxnotes-lilypondlfou9s2j/music.ly&quot;
-
-[stdout]
-</p>
-</aside>
-<p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
+}" style="width:100%;"/>
+</p></div><p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
 <dl>
 <dt><a class="reference external" href="https://lilypond.org/doc/Documentation/notation/common-notation-for-fretted-strings#automatic-fret-diagrams">Automatic fret diagrams</a></dt><dd><p>指定和弦的组成音，LilyPond 会根据上下文帮你推测当前 <code class="xref any any-term docutils literal notranslate"><span class="pre">调弦</span></code> 下的指板图。</p>
 <p>例如 D7 和弦的常见按法是： <img class="lilypond-score" src="../.././_lilypond/a84545651820b4108433c20c07527d76fe7b90f2/music.preview.png" alt="\include &quot;predefined-guitar-fretboards.ly&quot; \new FretBoards{ \chordmode { d1:7 }}" style="height:2.5em;", align="absbottom"/>，
@@ -1031,7 +1012,7 @@ fatal error: failed files: &quot;/tmp/sphinxnotes-lilypondlfou9s2j/music.ly&quot
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-07-01.
+  最后更新于 2023-07-02.
   <br/>
 </p>
   </div>
