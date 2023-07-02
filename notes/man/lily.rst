@@ -151,7 +151,7 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
    :noedge:
    :nofooter:
 
-   \version "2.24.1"
+   \version "2.20.0"
    \include "predefined-guitar-fretboards.ly"
 
    chordsline = \chordmode { c1 c:7 f:maj7 }
