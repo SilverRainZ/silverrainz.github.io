@@ -1,17 +1,3 @@
-\header { tagline = ##f }\paper {
-
-scoreTitleMarkup = ##f
-
-bookTitleMarkup = ##f
-
-evenHeaderMarkup = ##f
-
-oddHeaderMarkup = ##f
-
-evenFooterMarkup = ##f
-
-oddFooterMarkup = ##f
-}
 \version "2.20.0"
 
 symbols =  {

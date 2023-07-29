@@ -1,8 +1,4 @@
 \paper {
-
-evenFooterMarkup = ##f
-
-oddFooterMarkup = ##f
 }
  \version "2.20.0"
  \header {
