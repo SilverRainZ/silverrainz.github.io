@@ -49,3 +49,10 @@ Alice 间奏
    :nofooter:
    :noedge:
    :audio:
+
+送别 简谱
+=========
+
+练 :doc:`/notes/music-theory/cadge-system` 用。
+
+.. jianpuinclude:: songbie.jianpu

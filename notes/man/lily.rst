@@ -186,10 +186,10 @@ __ https://music.stackexchange.com/a/123077
 
 https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note
 
-指定调式
-----------
+指定调号
+--------
 
-以 G 大调为例，在任意一个 expression block 中：`\\key g \major`。
+以 G 大调为例，在任意一个 expression block 中：`\\key g \\major`。
 
 每行四小节
 ----------
