@@ -56,3 +56,6 @@ Alice 间奏
 练 :doc:`/notes/music-theory/cadge-system` 用。
 
 .. jianpuinclude:: songbie.jianpu
+   :noedge:
+   :audio:
+
