@@ -519,234 +519,7 @@ document.write(`
 <span id="id2"></span><h2>Alice<a class="headerlink" href="#alice" title="此标题的永久链接">#</a></h2>
 <p>来源网络，用 LilyPond 重新打了。</p>
 <div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/c7776014af465e04eb4762b4b6ac1968400b49b7/music-page1.png" alt="\version &quot;2.20.0&quot;
-\header {
-  title = &quot;Alice&quot;
-  composer = &quot;古川本舖&quot;
-  arranger = &quot;Osamuraisan&quot;
-  copyright = &quot;SilverRainZ&quot;
-}
-
-prelude = \repeat unfold 2 {
-    e,4 c g d
-    f, c g d
-    g, c g d
-    g,8(a,8\6) c4 g d \break
-}
-
-interlude = \repeat unfold 2 {
-  &lt;e, g&gt;4 c' d' g'
-  &lt;f, g&gt;4 c' d' g'
-  &lt;g, g&gt;4 c' d' g'
-  &lt;f, g&gt;4 c' d' g' \break
-}
-
-pieceA = {
-  &lt;a, c'&gt;4 e' &lt;e, g'&gt; g
-}
-
-pieceAi = {
-  &lt;f, c'&gt;4 g' &lt;c g'&gt; g
-}
-
-pieceB = {
-  &lt;c a'&gt;4 g8 c'8 &lt;f, c'&gt;4 d
-}
-
-pieceBi = {
-  &lt;d g'&gt;4 (c'') &lt;a c''&gt; g
-}
-
-pieceBii = {
-  &lt;c c'&gt;4 d &lt;g, d'&gt; d'
-}
-
-pieceBiii = {
-  &lt;c c'&gt;4 d &lt;g, d'&gt; f'
-}
-
-pieceC = {
-  &lt;c a&gt;4 c' &lt;g, e'&gt; d
-}
-
-pieceCi = {
-  &lt;d c'&gt;4 g &lt;g, e'&gt; g
-}
-
-pieceCii = {
-  &lt;c c'&gt;4 d' &lt;a, e'&gt; g8 e'8
-}
-
-pieceCiii = {
-  &lt;d e'&gt;4 c' &lt;a, c'&gt; g8 e'8
-}
-
-pieceCiv = {
-  &lt;c c'&gt;4 d' &lt;a, e'&gt; g
-}
-
-pieceD = {
-  &lt;g, d'&gt;4 c' &lt;a, c'&gt; g
-}
-
-pieceDi = {
-  &lt;g, d'&gt;4 f' &lt;a, e'&gt; d
-}
-
-pieceDii = {
-  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;4 d8 e'8
-}
-
-pieceDiii = {
-  &lt;g, d'&gt;4 c' &lt;f, c'&gt; g
-}
-
-pieceDiv = {
-  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;2
-}
-
-symbols =  {
-  \time 4/4
-  \tempo  &quot;Allegro&quot; 4 = 150
-
-  % 1
-  \prelude
-
-  %9
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceD \break
-
-  %13
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceDi \break
-
-  %17
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceD \break
-
-  %21
-  \pieceA
-  \pieceBi
-  \pieceCi
-  \pieceD \break
-
-  %25
-  \pieceA
-  \pieceB
-  &lt;c a&gt;4 c' &lt;g, e'&gt; &lt;d f'&gt;
-  \pieceD \break
-
-  %29
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceDi \break
-
-  %33
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceD \break
-
-  %37
-  \pieceA
-  \pieceBi
-  \pieceCi
-  \pieceDii \break
-
-  \bar &quot;||&quot;
-
-  %41
-  \pieceDiii
-
-  %42
-  \pieceAi
-  \pieceBii
-  \pieceCii \break
-  \pieceDiii
-
-  %46
-  \pieceAi
-  \pieceBiii
-  \pieceCiii \break
-  \pieceDiii
-
-  %50
-  \pieceAi
-  \pieceBiii
-  \pieceCiv \break
-
-  %53
-  \pieceA
-  \pieceBi
-  \pieceCi
-  \pieceDii \break
-
-  \bar &quot;||&quot;
-
-  %57
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceD \break
-
-  %61
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceDi \break
-
-  %65
-  \pieceA
-  \pieceB
-  \pieceC
-  \pieceD \break
-
-  %69
-  \pieceA
-  \pieceBi
-  \pieceCi
-  \pieceDiv \break
-
-  \bar &quot;||&quot;
-
-  %73
-  \prelude
-
-  %81
-  \interlude
-
-  \bar &quot;||&quot;
-
-  %89
-  r1
-  r1
-
-  \bar &quot;|.&quot;
-}
-
-\score {
-  &lt;&lt;
-    \new Staff \with {midiInstrument = &quot;acoustic guitar (nylon)&quot;} {
-      \clef &quot;G_8&quot;
-      \symbols
-    }
-    % \new TabStaff {
-    %   \tabFullNotation
-    %   \symbols
-    % }
-  &gt;&gt;
-
-  \midi { }
-  \layout { }
-}" style="width:100%;"/>
-<img class="lilypond-score" src="../.././_lilypond/c7776014af465e04eb4762b4b6ac1968400b49b7/music-page2.png" alt="\version &quot;2.20.0&quot;
+<p><img class="lilypond-score" src="../.././_lilypond/c7776014af465e04eb4762b4b6ac1968400b49b7/music.cropped.png" alt="\version &quot;2.20.0&quot;
 \header {
   title = &quot;Alice&quot;
   composer = &quot;古川本舖&quot;
@@ -979,7 +752,7 @@ symbols =  {
 <h2>Witch Sprint I OP<a class="headerlink" href="#witch-sprint-i-op" title="此标题的永久链接">#</a></h2>
 <p>自己扒的。</p>
 <div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/3b1b725df13e314a2d4fa4241bea2c1d18ae1c56/music.png" alt="\version &quot;2.20.0&quot;
+<p><img class="lilypond-score" src="../.././_lilypond/3b1b725df13e314a2d4fa4241bea2c1d18ae1c56/music.cropped.png" alt="\version &quot;2.20.0&quot;
 \header {
   title = &quot;《魔女之泉 1》开场音乐&quot;
   composer = &quot;Kiwi Walks&quot;
@@ -1035,7 +808,7 @@ symbols =  {
 <p>还只有旋律，等我耳朵更好一点再来吧。</p>
 </div>
 <div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/5a0a3b8c4a5473a45a5bf6914e93b7c4ad0c4222/music.png" alt="\version &quot;2.20.0&quot;
+<p><img class="lilypond-score" src="../.././_lilypond/5a0a3b8c4a5473a45a5bf6914e93b7c4ad0c4222/music.cropped.png" alt="\version &quot;2.20.0&quot;
 \header {
   title = &quot;girlfriend&quot;
   composer = &quot;古川本舖&quot;
@@ -1087,7 +860,7 @@ symbols =  {
 <h2>Alice 间奏<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <p>之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题：</p>
 <div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/45b7c4882f4bd8ed940be148dc6bbf3e38860789/music.png" alt="\version &quot;2.20.0&quot;
+<p><img class="lilypond-score" src="../.././_lilypond/45b7c4882f4bd8ed940be148dc6bbf3e38860789/music.cropped.png" alt="\version &quot;2.20.0&quot;
 
 symbols =  {
   \time 4/4
@@ -1140,7 +913,7 @@ symbols =  {
 <h2>送别 简谱<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
 <p>练 <a class="reference internal" href="../../notes/music-theory/cadge-system.html"><span class="doc">CAGED 系统</span></a> 用。</p>
 <div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/a319170da93d94424f53c436d0c9243e428d95fc/music.png" alt="\version &quot;2.18.0&quot;
+<p><img class="lilypond-score" src="../.././_lilypond/70ae8e6ae7e7fdba4c8f24a9144bcf1c3b1d64b9/music.cropped.png" alt="\version &quot;2.18.0&quot;
 #(set-global-staff-size 20)
 
 % un-comment the next line to remove Lilypond tagline:
@@ -1149,7 +922,7 @@ symbols =  {
 \pointAndClickOff
 
 \paper {
-  print-all-headers = ##t % allow per-score headers
+  print-all-headers = ##t %% allow per-score headers
 
   % un-comment the next line for A5:
   % #(set-default-paper-size &quot;a5&quot; )
@@ -1167,7 +940,7 @@ symbols =  {
 }
 
 \score {
-&lt;&lt; \override Score.BarNumber #'break-visibility = #end-of-line-invisible
+&lt;&lt; \override Score.BarNumber #'break-visibility = #center-visible
 \override Score.BarNumber #'Y-offset = -1
 \set Score.barNumberVisibility = #(every-nth-bar-number-visible 5)
 
@@ -1175,10 +948,10 @@ symbols =  {
     \new RhythmicStaff \with {
     \consists &quot;Accidental_engraver&quot; 
     %% Get rid of the stave but not the barlines:
-    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2 and 2.20.0
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2, 2.20.0 and 2.22.2
     \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
     }
-    { \new Voice=&quot;jianpu&quot; {
+    { \new Voice=&quot;W&quot; {
 
     \override Beam #'transparent = ##f % (needed for LilyPond 2.18 or the above switch will also hide beams)
     \override Stem #'direction = #DOWN
@@ -1204,7 +977,7 @@ symbols =  {
         (grob-interpret-markup grob
           (make-lower-markup 0.5 (make-bold-markup &quot;5&quot;)))))))
   \applyOutput #'Voice #note-five g'4
-#(define (note-three grob grob-origin context)
+^&quot;I&quot; #(define (note-three grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
         (grob::has-interface grob 'rest-interface)))
@@ -1246,14 +1019,14 @@ symbols =  {
           (make-lower-markup 0.5 (make-bold-markup &quot;6&quot;)))))))
 | %{ bar 2: %}
   \applyOutput #'Voice #note-six a'4
-\set stemLeftBeamCount = #0
+^&quot;IV&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-one c''8[^.
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-six a'8]
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
- ~ #(define (note-dashfive grob grob-origin context)
+ ~ ^&quot;I&quot; #(define (note-dashfive grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
         (grob::has-interface grob 'rest-interface)))
@@ -1264,7 +1037,7 @@ symbols =  {
   \applyOutput #'Voice #note-dashfive g'4
 | %{ bar 3: %}
   \applyOutput #'Voice #note-five g'4
-\set stemLeftBeamCount = #0
+^&quot;I&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-one c'8[
 #(define (note-two grob grob-origin context)
@@ -1286,7 +1059,7 @@ symbols =  {
   \applyOutput #'Voice #note-one c'8]
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 4: %}
   \applyOutput #'Voice #note-two d'4
- ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-dashtwo grob grob-origin context)
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-dashtwo grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
         (grob::has-interface grob 'rest-interface)))
@@ -1304,9 +1077,9 @@ symbols =  {
         (grob-interpret-markup grob
           (make-lower-markup 0.5 (make-bold-markup &quot;0&quot;)))))))
   \applyOutput #'Voice #note-nought r4
-| %{ bar 5: %}
+\break | %{ bar 5: %}
   \applyOutput #'Voice #note-five g'4
-\set stemLeftBeamCount = #0
+^&quot;I&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-three e'8[
 \set stemLeftBeamCount = #1
@@ -1325,10 +1098,10 @@ symbols =  {
   \applyOutput #'Voice #note-seven b'8[]
 | %{ bar 6: %}
   \applyOutput #'Voice #note-six a'4
-  \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
- ~   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 7: %}
+^&quot;IV&quot;   \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ ^&quot;I&quot;   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 7: %}
   \applyOutput #'Voice #note-five g'4
-\set stemLeftBeamCount = #0
+^&quot;I&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-two d'8[
 \set stemLeftBeamCount = #1
@@ -1348,21 +1121,21 @@ symbols =  {
   \applyOutput #'Voice #note-seven b8[]-\tweak #'X-offset #0.6 _.
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 8: %}
   \applyOutput #'Voice #note-one c'4
- ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
- ~   \applyOutput #'Voice #note-dashone c'4   \applyOutput #'Voice #note-nought r4 | %{ bar 9: %}
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~   \applyOutput #'Voice #note-dashone c'4   \applyOutput #'Voice #note-nought r4 \break | %{ bar 9: %}
   \applyOutput #'Voice #note-six a'4
-  \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-nought r4 | %{ bar 10: %}
+^&quot;IV 低八度&quot;   \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-nought r4 | %{ bar 10: %}
   \applyOutput #'Voice #note-seven b'4
-\set stemLeftBeamCount = #0
+^&quot;V7&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-six a'8[
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-seven b'8]
-  \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-nought r4 | %{ bar 11: %} \set stemLeftBeamCount = #0
+  \applyOutput #'Voice #note-one c''4^. ^&quot;I&quot;   \applyOutput #'Voice #note-nought r4 | %{ bar 11: %} \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-six a'8[
-\set stemLeftBeamCount = #1
+^&quot;IV&quot; \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-seven b'8]
 \set stemLeftBeamCount = #0
@@ -1374,7 +1147,7 @@ symbols =  {
 \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-six a'8[
-\set stemLeftBeamCount = #1
+^&quot;I&quot; \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-five g'8]
 \set stemLeftBeamCount = #0
@@ -1385,10 +1158,10 @@ symbols =  {
   \applyOutput #'Voice #note-one c'8]
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 12: %}
   \applyOutput #'Voice #note-two d'4
- ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
- ~   \applyOutput #'Voice #note-dashtwo d'4   \applyOutput #'Voice #note-nought r4 | %{ bar 13: %}
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
+ ~   \applyOutput #'Voice #note-dashtwo d'4   \applyOutput #'Voice #note-nought r4 \break | %{ bar 13: %}
   \applyOutput #'Voice #note-five g'4
-\set stemLeftBeamCount = #0
+^&quot;I&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-three e'8[
 \set stemLeftBeamCount = #1
@@ -1399,10 +1172,10 @@ symbols =  {
   \applyOutput #'Voice #note-seven b'8[]
 | %{ bar 14: %}
   \applyOutput #'Voice #note-six a'4
-  \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
- ~   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 15: %}
+^&quot;IV&quot;   \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ ^&quot;I&quot;   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 15: %}
   \applyOutput #'Voice #note-five g'4
-\set stemLeftBeamCount = #0
+^&quot;V7&quot; \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-two d'8[
 \set stemLeftBeamCount = #1
@@ -1413,30 +1186,21 @@ symbols =  {
   \applyOutput #'Voice #note-seven b8[]-\tweak #'X-offset #0.6 _.
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 16: %}
   \applyOutput #'Voice #note-one c'4
- ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~ ^&quot;I&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
  ~   \applyOutput #'Voice #note-dashone c'4   \applyOutput #'Voice #note-nought r4 \bar &quot;|.&quot; } }
 % === END JIANPU STAFF ===
-
-
-% === BEGIN 5-LINE STAFF ===
-    \new Staff { \new Voice=&quot;5line&quot; {
-    #(set-accidental-style 'modern-cautionary)
-    \override Staff.TimeSignature #'style = #'numbered
-    \set Voice.chordChanges = ##f % for 2.19.82 bug workaround
- \tempo 4=80 \transpose c a { \key c \major  \time 4/4 g'4 e'8 g'8 c''2 | %{ bar 2: %} a'4 c''8 a'8 g'2 | %{ bar 3: %} g'4 c'8 d'8 e'4 d'8 c'8 | %{ bar 4: %} d'2. r4 | %{ bar 5: %} g'4 e'8 g'8 c''4. b'8 | %{ bar 6: %} a'4 c''4 g'2 | %{ bar 7: %} g'4 d'8 e'8 f'4. b8 | %{ bar 8: %} c'2. r4 | %{ bar 9: %} a'4 c''4 c''4 r4 | %{ bar 10: %} b'4 a'8 b'8 c''4 r4 | %{ bar 11: %} a'8 b'8 c''8 a'8 a'8 g'8 e'8 c'8 | %{ bar 12: %} d'2. r4 | %{ bar 13: %} g'4 e'8 g'8 c''4. b'8 | %{ bar 14: %} a'4 c''4 g'2 | %{ bar 15: %} g'4 d'8 e'8 f'4. b8 | %{ bar 16: %} c'2. r4 } \bar &quot;|.&quot; } }
-% === END 5-LINE STAFF ===
 
 &gt;&gt;
 \header{
 title=&quot;送别&quot;
 }
-\layout{} }
+\layout { \context { \Score \remove &quot;Bar_number_engraver&quot; } } }
 \score {
 \unfoldRepeats
 &lt;&lt; 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice=&quot;midi&quot; { \tempo 4=80 \transpose c a, { \key c \major  \time 4/4 g'4 e'8 g'8 c''4  ~ c''4 | %{ bar 2: %} a'4 c''8 a'8 g'4  ~ g'4 | %{ bar 3: %} g'4 c'8 d'8 e'4 d'8 c'8 | %{ bar 4: %} d'4  ~ d'4  ~ d'4 r4 | %{ bar 5: %} g'4 e'8 g'8 c''4. b'8 | %{ bar 6: %} a'4 c''4 g'4  ~ g'4 | %{ bar 7: %} g'4 d'8 e'8 f'4. b8 | %{ bar 8: %} c'4  ~ c'4  ~ c'4 r4 | %{ bar 9: %} a'4 c''4 c''4 r4 | %{ bar 10: %} b'4 a'8 b'8 c''4 r4 | %{ bar 11: %} a'8 b'8 c''8 a'8 a'8 g'8 e'8 c'8 | %{ bar 12: %} d'4  ~ d'4  ~ d'4 r4 | %{ bar 13: %} g'4 e'8 g'8 c''4. b'8 | %{ bar 14: %} a'4 c''4 g'4  ~ g'4 | %{ bar 15: %} g'4 d'8 e'8 f'4. b8 | %{ bar 16: %} c'4  ~ c'4  ~ c'4 r4 } } }
+    \new Staff { \new Voice=&quot;X&quot; { \tempo 4=80 \transpose c a, { \key c \major  \time 4/4 g'4 ^&quot;I&quot; e'8 g'8 c''2 | %{ bar 2: %} a'4 ^&quot;IV&quot; c''8 a'8 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 3: %} g'4 ^&quot;I&quot; c'8 d'8 e'4 d'8 c'8 | %{ bar 4: %} d'4  ~ ^&quot;V7&quot; d'2 r4 \break | %{ bar 5: %} g'4 ^&quot;I&quot; e'8 g'8 c''4. b'8 | %{ bar 6: %} a'4 ^&quot;IV&quot; c''4 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 7: %} g'4 ^&quot;I&quot; d'8 e'8 f'4. b8 | %{ bar 8: %} c'4  ~ ^&quot;V7&quot; c'2 r4 \break | %{ bar 9: %} a'4 ^&quot;IV 低八度&quot; c''4 c''4 r4 | %{ bar 10: %} b'4 ^&quot;V7&quot; a'8 b'8 c''4 ^&quot;I&quot; r4 | %{ bar 11: %} a'8 ^&quot;IV&quot; b'8 c''8 a'8 a'8 ^&quot;I&quot; g'8 e'8 c'8 | %{ bar 12: %} d'4  ~ ^&quot;V7&quot; d'2 r4 \break | %{ bar 13: %} g'4 ^&quot;I&quot; e'8 g'8 c''4. b'8 | %{ bar 14: %} a'4 ^&quot;IV&quot; c''4 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 15: %} g'4 ^&quot;V7&quot; d'8 e'8 f'4. b8 | %{ bar 16: %} c'4  ~ ^&quot;I&quot; c'2 r4 } } }
 % === END MIDI STAFF ===
 
 &gt;&gt;
@@ -1444,7 +1208,8 @@ title=&quot;送别&quot;
 title=&quot;送别&quot;
 }
 \midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }" style="width:100%;"/>
-</p></div><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/70ae8e6ae7e7fdba4c8f24a9144bcf1c3b1d64b9/music.mp3" >
+</audio></p></div><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 评论</div>
@@ -1543,7 +1308,7 @@ title=&quot;送别&quot;
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-07-29.
+  最后更新于 2023-08-01.
   <br/>
 </p>
   </div>
