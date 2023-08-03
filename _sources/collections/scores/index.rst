@@ -53,9 +53,17 @@ Alice 间奏
 送别 简谱
 =========
 
+.. todo:: https://github.com/sphinx-notes/lilypond/issues/30
+
 练 :doc:`/notes/music-theory/cadge-system` 用。
 
 .. jianpuinclude:: songbie.jianpu
    :noedge:
    :audio:
 
+自新大陆 第二乐章 节选 简谱
+===========================
+
+.. jianpuinclude:: from-the-new-world-ii.jianpu
+   :noedge:
+   :audio:
