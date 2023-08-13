@@ -684,21 +684,7 @@ document.write(`
 <h3>显示和弦指板图<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h3>
 <p>对于常见的和弦，通过引入 <code class="file docutils literal notranslate"><span class="pre">predefined-guitar-fretboards.ly</span></code> 和使用 ChoreMode
 可以直接在显示 <a class="reference external" href="https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams">一些常见和弦的指板图</a> ，和弦记法参见 <a class="reference internal" href="#term-dea39f7" title="term 和弦模式"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣和弦模式</span></code></a>。</p>
-<div class="lilypond">
-<p><img class="lilypond-score" src="../.././_lilypond/231a745b070d1eb16d2dc98877a15f2554aaed65/music.cropped.png" alt="\version &quot;2.20.0&quot;
-\include &quot;predefined-guitar-fretboards.ly&quot;
-
-chordsline = \chordmode { c1 c:7 f:maj7 }
-
-\score {
-   &lt;&lt;
-   \new ChordNames { \chordsline }
-   \new FretBoards { \chordsline }
-   &gt;&gt;
-
-   \layout {}
-}" style="width:100%;"/>
-</p></div><p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
+<p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
 <dl>
 <dt><a class="reference external" href="https://lilypond.org/doc/Documentation/notation/common-notation-for-fretted-strings#automatic-fret-diagrams">Automatic fret diagrams</a></dt><dd><p>指定和弦的组成音，LilyPond 会根据上下文帮你推测当前 <code class="xref any any-term docutils literal notranslate"><span class="pre">调弦</span></code> 下的指板图。</p>
 <p>例如 D7 和弦的常见按法是： <img class="lilypond-score" src="../.././_lilypond/a84545651820b4108433c20c07527d76fe7b90f2/music.preview.png" alt="\include &quot;predefined-guitar-fretboards.ly&quot; \new FretBoards{ \chordmode { d1:7 }}" style="height:2.5em;", align="absbottom"/>，
@@ -1012,7 +998,7 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-08-05.
+  最后更新于 2023-08-13.
   <br/>
 </p>
   </div>

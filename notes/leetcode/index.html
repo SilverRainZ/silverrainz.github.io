@@ -2215,7 +2215,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">res</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">func</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
 <span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2237,8 +2237,8 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">	</span><span class="p">}</span>
 <span class="w">	</span><span class="nx">L</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
 <span class="w">	</span><span class="nx">R</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
-<span class="w">	</span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">L</span><span class="o">+</span><span class="nx">R</span><span class="p">)</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">L</span><span class="p">,</span><span class="w"> </span><span class="nx">R</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">	</span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">L</span><span class="o">+</span><span class="nx">R</span><span class="p">)</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">L</span><span class="p">,</span><span class="w"> </span><span class="nx">R</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span>
 
 <span class="kd">type</span><span class="w"> </span><span class="nx">TreeNode</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
@@ -4578,7 +4578,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">	</span><span class="nx">Right</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">func</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
 <span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -4615,7 +4615,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">okR</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">abs</span><span class="p">(</span><span class="nx">depthR</span><span class="o">-</span><span class="nx">depthL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">depthL</span><span class="p">,</span><span class="w"> </span><span class="nx">depthR</span><span class="p">)</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">abs</span><span class="p">(</span><span class="nx">depthR</span><span class="o">-</span><span class="nx">depthL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">depthL</span><span class="p">,</span><span class="w"> </span><span class="nx">depthR</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">isBalanced</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
@@ -4812,7 +4812,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">count0</span><span class="p">,</span><span class="w"> </span><span class="nx">count1</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">func</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
 <span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -4838,7 +4838,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">		</span><span class="nx">c0</span><span class="p">,</span><span class="w"> </span><span class="nx">c1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">count01</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 <span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">m</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">c0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
 <span class="w">			</span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">c1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
-<span class="w">				</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">c0</span><span class="p">][</span><span class="nx">j</span><span class="o">-</span><span class="nx">c1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">				</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">c0</span><span class="p">][</span><span class="nx">j</span><span class="o">-</span><span class="nx">c1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">			</span><span class="p">}</span>
 <span class="w">		</span><span class="p">}</span>
 <span class="w">	</span><span class="p">}</span>
@@ -5023,7 +5023,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-08-05.
+  最后更新于 2023-08-13.
   <br/>
 </p>
   </div>
