@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/collections/scores/index.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="存放一些各处收集来的谱子。 Alice: 来源网络，用 LilyPond 重新打了。 Witch Sprint I OP: 自己扒的。 girlfriend: Alice 间奏: 之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题： 送别 简谱: 练 CAGED 系统 用。 自新大陆 第二乐章 节选 简谱: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通..." />
+<meta property="og:description" content="存放一些各处收集来的谱子。 Alice: 来源网络，用 LilyPond 重新打了。, Witch Sprint I OP: 自己扒的。, girlfriend:, Alice 间奏: 之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题：, 送别 简谱: 练 CAGED 系统 用。, 自新大陆 第二乐章 节选 简谱:, 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="存放一些各处收集来的谱子。 Alice: 来源网络，用 LilyPond 重新打了。 Witch Sprint I OP: 自己扒的。 girlfriend: Alice 间奏: 之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题： 送别 简谱: 练 CAGED 系统 用。 自新大陆 第二乐章 节选 简谱: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通..." />
+<meta name="description" content="存放一些各处收集来的谱子。 Alice: 来源网络，用 LilyPond 重新打了。, Witch Sprint I OP: 自己扒的。, girlfriend:, Alice 间奏: 之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题：, 送别 简谱: 练 CAGED 系统 用。, 自新大陆 第二乐章 节选 简谱:, 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱..." />
 
     <title>乐谱夹 &#8212; 银色子弹</title>
   
@@ -501,7 +501,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#girlfriend">girlfriend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Alice 间奏</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">送别 简谱</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">自新大陆 第二乐章 节选 简谱</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自新大陆 第二乐章 节选 简谱</a></li>
 </ul>
             </nav>
         </div>
@@ -519,33 +519,972 @@ document.write(`
 <section id="alice">
 <span id="id2"></span><h2>Alice<a class="headerlink" href="#alice" title="此标题的永久链接">#</a></h2>
 <p>来源网络，用 LilyPond 重新打了。</p>
-</section>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/b70f013d1c5fba603a0380e6761e5ba892e21a39/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;Alice&quot;
+  composer = &quot;古川本舖&quot;
+  arranger = &quot;Osamuraisan&quot;
+  copyright = &quot;SilverRainZ&quot;
+}
+
+prelude = \repeat unfold 2 {
+    e,4 c g d
+    f, c g d
+    g, c g d
+    g,8(a,8\6) c4 g d \break
+}
+
+interlude = \repeat unfold 2 {
+  &lt;e, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g'
+  &lt;g, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g' \break
+}
+
+pieceA = {
+  &lt;a, c'&gt;4 e' &lt;e, g'&gt; g
+}
+
+pieceAi = {
+  &lt;f, c'&gt;4 g' &lt;c g'&gt; g
+}
+
+pieceB = {
+  &lt;c a'&gt;4 g8 c'8 &lt;f, c'&gt;4 d
+}
+
+pieceBi = {
+  &lt;d g'&gt;4 (c'') &lt;a c''&gt; g
+}
+
+pieceBii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; d'
+}
+
+pieceBiii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; f'
+}
+
+pieceC = {
+  &lt;c a&gt;4 c' &lt;g, e'&gt; d
+}
+
+pieceCi = {
+  &lt;d c'&gt;4 g &lt;g, e'&gt; g
+}
+
+pieceCii = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g8 e'8
+}
+
+pieceCiii = {
+  &lt;d e'&gt;4 c' &lt;a, c'&gt; g8 e'8
+}
+
+pieceCiv = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g
+}
+
+pieceD = {
+  &lt;g, d'&gt;4 c' &lt;a, c'&gt; g
+}
+
+pieceDi = {
+  &lt;g, d'&gt;4 f' &lt;a, e'&gt; d
+}
+
+pieceDii = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;4 d8 e'8
+}
+
+pieceDiii = {
+  &lt;g, d'&gt;4 c' &lt;f, c'&gt; g
+}
+
+pieceDiv = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;2
+}
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegro&quot; 4 = 150
+
+  % 1
+  \prelude
+
+  %9
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD \break
+
+  %13
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi \break
+
+  %17
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD \break
+
+  %21
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceD \break
+
+  %25
+  \pieceA
+  \pieceB
+  &lt;c a&gt;4 c' &lt;g, e'&gt; &lt;d f'&gt;
+  \pieceD \break
+
+  %29
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi \break
+
+  %33
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD \break
+
+  %37
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii \break
+
+  \bar &quot;||&quot;
+
+  %41
+  \pieceDiii
+
+  %42
+  \pieceAi
+  \pieceBii
+  \pieceCii \break
+  \pieceDiii
+
+  %46
+  \pieceAi
+  \pieceBiii
+  \pieceCiii \break
+  \pieceDiii
+
+  %50
+  \pieceAi
+  \pieceBiii
+  \pieceCiv \break
+
+  %53
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii \break
+
+  \bar &quot;||&quot;
+
+  %57
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD \break
+
+  %61
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi \break
+
+  %65
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD \break
+
+  %69
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDiv \break
+
+  \bar &quot;||&quot;
+
+  %73
+  \prelude
+
+  %81
+  \interlude
+
+  \bar &quot;||&quot;
+
+  %89
+  r1
+  r1
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff \with {midiInstrument = &quot;acoustic guitar (nylon)&quot;} {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/b70f013d1c5fba603a0380e6761e5ba892e21a39/music.mp3" >
+</audio></p></div></section>
 <section id="witch-sprint-i-op">
 <h2>Witch Sprint I OP<a class="headerlink" href="#witch-sprint-i-op" title="此标题的永久链接">#</a></h2>
 <p>自己扒的。</p>
-</section>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/26937d4bc2c8eadf198773aebcaacf956970733b/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;《魔女之泉 1》开场音乐&quot;
+  composer = &quot;Kiwi Walks&quot;
+  arranger = &quot;SilverRainZ&quot;
+}
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegretto&quot; 4 = 110
+
+  % 1
+  c'4 c' c' c'8 b8
+  c'4 g' c' c'8 b8
+  c'4 g' (ais') c''8 b'8
+  c''2 r2 \break
+
+  %14
+  e'4 g c'2
+  a8 c'8 c'8 d'8 c'2
+
+  e'4 g' c'2
+  c'4 d'8 e'8 c'4 g \break
+
+  e'4 g c'2
+  a8 c'8 c'8 d'8 e'4 c'
+
+  g4 f e f8 g8
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff \with {midiInstrument = &quot;acoustic guitar (nylon)&quot;} {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/26937d4bc2c8eadf198773aebcaacf956970733b/music.mp3" >
+</audio></p></div></section>
 <section id="girlfriend">
 <h2>girlfriend<a class="headerlink" href="#girlfriend" title="此标题的永久链接">#</a></h2>
 <div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">待处理</p>
 <p>还只有旋律，等我耳朵更好一点再来吧。</p>
 </div>
-</section>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/95fbf03e067e3467852625e084ab8db26dead61c/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;girlfriend&quot;
+  composer = &quot;古川本舖&quot;
+  arranger = &quot;SilverRainZ&quot;
+  copyright = &quot;SilverRainZ&quot;
+}
+
+symbols =  {
+  \time 4/4
+  \tempo 4 = 70
+
+  % 1-4
+  c8 d e e      e4 d8 e8~
+  e4 d8 e       a,4 d8 e
+  d4 c8 c4      c4 d8 e4 
+  g4. e8 d c d4
+  \break
+
+  % 5-8
+  d8 c c d4. e8
+  c4 b,8 c2 e8
+  f g4 d d f4
+  e e8 d c d4 e8
+  \break
+
+  c4 b,8 c2
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff \with {midiInstrument = &quot;acoustic guitar (nylon)&quot;} {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/95fbf03e067e3467852625e084ab8db26dead61c/music.mp3" >
+</audio></p></div></section>
 <section id="id4">
 <h2>Alice 间奏<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <p>之前武士桑的谱里没有的部分，是用口琴吹的。扒出来的节奏好像有问题：</p>
-</section>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/a92181c265cf36ad573dcaf2cb52324afa292f58/music.cropped.png" alt="\version &quot;2.20.0&quot;
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegro&quot; 4 = 150
+
+  e8 d4 c4 c4.
+  c4 g g2
+  c2 d4 d
+  c4 d e2
+  \break
+
+  e8 d4 c4 c4.
+  c4 g g2
+  c2 d4 f
+  e4 c c2
+  \break
+
+  e8 d4 c4 c4.
+  c4 g g2
+  c2 d4 d
+  c4 d e2
+  \break
+
+  c4 e g2
+  g4 c' c'2
+  c2 e
+  d2 c
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff \with {midiInstrument = &quot;acoustic guitar (nylon)&quot;} {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/a92181c265cf36ad573dcaf2cb52324afa292f58/music.mp3" >
+</audio></p></div></section>
 <section id="id5">
 <h2>送别 简谱<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
-<div class="admonition-todo admonition" id="id6">
-<p class="admonition-title">待处理</p>
-<p><a class="github reference external" href="https://github.com/sphinx-notes/lilypond/issues/30">sphinx-notes/lilypond#30</a></p>
-</div>
 <p>练 <a class="reference internal" href="../../notes/music-theory/cadge-system.html"><span class="doc">CAGED 系统</span></a> 用。</p>
-</section>
-<section id="id7">
-<h2>自新大陆 第二乐章 节选 简谱<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h2>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/c122d0c495f1ecc7aed927b4c8754cb1745b5725/music.cropped.png" alt="\version &quot;2.18.0&quot;
+#(set-global-staff-size 20)
+
+% un-comment the next line to remove Lilypond tagline:
+% \header { tagline=&quot;&quot; }
+
+\pointAndClickOff
+
+\paper {
+  print-all-headers = ##t %% allow per-score headers
+
+  % un-comment the next line for A5:
+  % #(set-default-paper-size &quot;a5&quot; )
+
+  % un-comment the next line for no page numbers:
+  % print-page-number = ##f
+
+  % un-comment the next 3 lines for a binding edge:
+  % two-sided = ##t
+  % inner-margin = 20\mm
+  % outer-margin = 10\mm
+
+  % un-comment the next line for a more space-saving header layout:
+  % scoreTitleMarkup = \markup { \center-column { \fill-line { \magnify #1.5 { \bold { \fromproperty #'header:dedication } } \magnify #1.5 { \bold { \fromproperty #'header:title } } \fromproperty #'header:composer } \fill-line { \fromproperty #'header:instrument \fromproperty #'header:subtitle \smaller{\fromproperty #'header:subsubtitle } } } }
+}
+
+\score {
+&lt;&lt; \override Score.BarNumber #'break-visibility = #center-visible
+\override Score.BarNumber #'Y-offset = -1
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 5)
+
+%% === BEGIN JIANPU STAFF ===
+    \new RhythmicStaff \with {
+    \consists &quot;Accidental_engraver&quot; 
+    %% Get rid of the stave but not the barlines:
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2, 2.20.0 and 2.22.2
+    \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
+    }
+    { \new Voice=&quot;W&quot; {
+
+    \override Beam #'transparent = ##f % (needed for LilyPond 2.18 or the above switch will also hide beams)
+    \override Stem #'direction = #DOWN
+    \override Tie #'staff-position = #2.5
+    \tupletUp
+
+    \override Stem #'length-fraction = #0
+    \override Beam #'beam-thickness = #0.1
+    \override Beam #'length-fraction = #0.5
+    \override Voice.Rest #'style = #'neomensural % this size tends to line up better (we'll override the appearance anyway)
+    \override Accidental #'font-size = #-4
+    \override TupletBracket #'bracket-visibility = ##t
+\set Voice.chordChanges = ##t %% 2.19 bug workaround
+
+    \override Staff.TimeSignature #'style = #'numbered
+    \override Staff.Stem #'transparent = ##t
+     \tempo 4=80 \mark \markup{1=A} \time 4/4 #(define (note-five grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;5&quot;)))))))
+  \applyOutput #'Voice #note-five g'4
+^&quot;I&quot; #(define (note-three grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;3&quot;)))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-one grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;1&quot;)))))))
+  \applyOutput #'Voice #note-one c''4^.
+ ~ #(define (note-dashone grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashone c''4
+#(define (note-six grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;6&quot;)))))))
+| %{ bar 2: %}
+  \applyOutput #'Voice #note-six a'4
+^&quot;IV&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c''8[^.
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ ^&quot;I&quot; #(define (note-dashfive grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashfive g'4
+| %{ bar 3: %}
+  \applyOutput #'Voice #note-five g'4
+^&quot;I&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c'8[
+#(define (note-two grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;2&quot;)))))))
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8]
+  \applyOutput #'Voice #note-three e'4 \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c'8]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 4: %}
+  \applyOutput #'Voice #note-two d'4
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-dashtwo grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashtwo d'4
+ ~   \applyOutput #'Voice #note-dashtwo d'4 #(define (note-nought grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;0&quot;)))))))
+  \applyOutput #'Voice #note-nought r4
+\break | %{ bar 5: %}
+  \applyOutput #'Voice #note-five g'4
+^&quot;I&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8]
+  \applyOutput #'Voice #note-one c''4.^. #(define (note-seven grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;7&quot;)))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b'8[]
+| %{ bar 6: %}
+  \applyOutput #'Voice #note-six a'4
+^&quot;IV&quot;   \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ ^&quot;I&quot;   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 7: %}
+  \applyOutput #'Voice #note-five g'4
+^&quot;I&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8]
+#(define (note-four grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;4&quot;)))))))
+  \applyOutput #'Voice #note-four f'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b8[]-\tweak #'X-offset #0.6 _.
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 8: %}
+  \applyOutput #'Voice #note-one c'4
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~   \applyOutput #'Voice #note-dashone c'4   \applyOutput #'Voice #note-nought r4 \break | %{ bar 9: %}
+  \applyOutput #'Voice #note-six a'4
+^&quot;IV 低八度&quot;   \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-nought r4 | %{ bar 10: %}
+  \applyOutput #'Voice #note-seven b'4
+^&quot;V7&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b'8]
+  \applyOutput #'Voice #note-one c''4^. ^&quot;I&quot;   \applyOutput #'Voice #note-nought r4 | %{ bar 11: %} \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8[
+^&quot;IV&quot; \set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b'8]
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c''8[^.
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8]
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8[
+^&quot;I&quot; \set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8]
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c'8]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 12: %}
+  \applyOutput #'Voice #note-two d'4
+ ~ ^&quot;V7&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
+ ~   \applyOutput #'Voice #note-dashtwo d'4   \applyOutput #'Voice #note-nought r4 \break | %{ bar 13: %}
+  \applyOutput #'Voice #note-five g'4
+^&quot;I&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8]
+  \applyOutput #'Voice #note-one c''4.^. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b'8[]
+| %{ bar 14: %}
+  \applyOutput #'Voice #note-six a'4
+^&quot;IV&quot;   \applyOutput #'Voice #note-one c''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ ^&quot;I&quot;   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 15: %}
+  \applyOutput #'Voice #note-five g'4
+^&quot;V7&quot; \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8]
+  \applyOutput #'Voice #note-four f'4. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b8[]-\tweak #'X-offset #0.6 _.
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 16: %}
+  \applyOutput #'Voice #note-one c'4
+ ~ ^&quot;I&quot; \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~   \applyOutput #'Voice #note-dashone c'4   \applyOutput #'Voice #note-nought r4 \bar &quot;|.&quot; } }
+% === END JIANPU STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;送别&quot;
+}
+\layout { \context { \Score \remove &quot;Bar_number_engraver&quot; } } }
+\score {
+\unfoldRepeats
+&lt;&lt; 
+
+% === BEGIN MIDI STAFF ===
+    \new Staff { \new Voice=&quot;X&quot; { \tempo 4=80 \transpose c a, { \key c \major  \time 4/4 g'4 ^&quot;I&quot; e'8 g'8 c''2 | %{ bar 2: %} a'4 ^&quot;IV&quot; c''8 a'8 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 3: %} g'4 ^&quot;I&quot; c'8 d'8 e'4 d'8 c'8 | %{ bar 4: %} d'4  ~ ^&quot;V7&quot; d'2 r4 \break | %{ bar 5: %} g'4 ^&quot;I&quot; e'8 g'8 c''4. b'8 | %{ bar 6: %} a'4 ^&quot;IV&quot; c''4 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 7: %} g'4 ^&quot;I&quot; d'8 e'8 f'4. b8 | %{ bar 8: %} c'4  ~ ^&quot;V7&quot; c'2 r4 \break | %{ bar 9: %} a'4 ^&quot;IV 低八度&quot; c''4 c''4 r4 | %{ bar 10: %} b'4 ^&quot;V7&quot; a'8 b'8 c''4 ^&quot;I&quot; r4 | %{ bar 11: %} a'8 ^&quot;IV&quot; b'8 c''8 a'8 a'8 ^&quot;I&quot; g'8 e'8 c'8 | %{ bar 12: %} d'4  ~ ^&quot;V7&quot; d'2 r4 \break | %{ bar 13: %} g'4 ^&quot;I&quot; e'8 g'8 c''4. b'8 | %{ bar 14: %} a'4 ^&quot;IV&quot; c''4 g'4  ~ ^&quot;I&quot; g'4 | %{ bar 15: %} g'4 ^&quot;V7&quot; d'8 e'8 f'4. b8 | %{ bar 16: %} c'4  ~ ^&quot;I&quot; c'2 r4 } } }
+% === END MIDI STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;送别&quot;
+}
+\midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/c122d0c495f1ecc7aed927b4c8754cb1745b5725/music.mp3" >
+</audio></p></div></section>
+<section id="id6">
+<h2>自新大陆 第二乐章 节选 简谱<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/aafa5620cdb94095e82679ad069d928b365ca519/music.cropped.png" alt="\version &quot;2.18.0&quot;
+#(set-global-staff-size 20)
+
+% un-comment the next line to remove Lilypond tagline:
+% \header { tagline=&quot;&quot; }
+
+\pointAndClickOff
+
+\paper {
+  print-all-headers = ##t %% allow per-score headers
+
+  % un-comment the next line for A5:
+  % #(set-default-paper-size &quot;a5&quot; )
+
+  % un-comment the next line for no page numbers:
+  % print-page-number = ##f
+
+  % un-comment the next 3 lines for a binding edge:
+  % two-sided = ##t
+  % inner-margin = 20\mm
+  % outer-margin = 10\mm
+
+  % un-comment the next line for a more space-saving header layout:
+  % scoreTitleMarkup = \markup { \center-column { \fill-line { \magnify #1.5 { \bold { \fromproperty #'header:dedication } } \magnify #1.5 { \bold { \fromproperty #'header:title } } \fromproperty #'header:composer } \fill-line { \fromproperty #'header:instrument \fromproperty #'header:subtitle \smaller{\fromproperty #'header:subsubtitle } } } }
+}
+
+\score {
+&lt;&lt; \override Score.BarNumber #'break-visibility = #center-visible
+\override Score.BarNumber #'Y-offset = -1
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 5)
+
+%% === BEGIN JIANPU STAFF ===
+    \new RhythmicStaff \with {
+    \consists &quot;Accidental_engraver&quot; 
+    %% Get rid of the stave but not the barlines:
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2, 2.20.0 and 2.22.2
+    \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
+    }
+    { \new Voice=&quot;W&quot; {
+
+    \override Beam #'transparent = ##f % (needed for LilyPond 2.18 or the above switch will also hide beams)
+    \override Stem #'direction = #DOWN
+    \override Tie #'staff-position = #2.5
+    \tupletUp
+
+    \override Stem #'length-fraction = #0
+    \override Beam #'beam-thickness = #0.1
+    \override Beam #'length-fraction = #0.5
+    \override Voice.Rest #'style = #'neomensural % this size tends to line up better (we'll override the appearance anyway)
+    \override Accidental #'font-size = #-4
+    \override TupletBracket #'bracket-visibility = ##t
+\set Voice.chordChanges = ##t %% 2.19 bug workaround
+
+    \override Staff.TimeSignature #'style = #'numbered
+    \override Staff.Stem #'transparent = ##t
+     \tempo 4=60 \mark \markup{1=D\flat} \time 4/4 #(define (note-three grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;3&quot;)))))))
+  \applyOutput #'Voice #note-three e'4.
+#(define (note-five grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;5&quot;)))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~ #(define (note-dashfive grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashfive g'4
+| %{ bar 2: %}
+  \applyOutput #'Voice #note-three e'4.
+#(define (note-two grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;2&quot;)))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-one grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;1&quot;)))))))
+  \applyOutput #'Voice #note-one c'4
+ ~ #(define (note-dashone grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashone c'4
+| %{ bar 3: %}
+  \applyOutput #'Voice #note-two d'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+  \applyOutput #'Voice #note-five g'4. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 4: %}
+  \applyOutput #'Voice #note-two d'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-dashtwo grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashtwo d'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
+ ~   \applyOutput #'Voice #note-dashtwo d'4 | %{ bar 5: %}
+  \applyOutput #'Voice #note-three e'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 6: %}
+  \applyOutput #'Voice #note-three e'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-one c'4
+ ~   \applyOutput #'Voice #note-dashone c'4 | %{ bar 7: %}
+  \applyOutput #'Voice #note-two d'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+  \applyOutput #'Voice #note-two d'4. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 8: %}
+  \applyOutput #'Voice #note-one c'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c'4
+ ~   \applyOutput #'Voice #note-dashone c'4 #(define (note-six grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;6&quot;)))))))
+| %{ bar 9: %}
+  \applyOutput #'Voice #note-six a'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c''8[]^.
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-one c''4^.
+ ~   \applyOutput #'Voice #note-dashone c''4 #(define (note-seven grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;7&quot;)))))))
+| %{ bar 10: %}
+  \applyOutput #'Voice #note-seven b'4
+  \applyOutput #'Voice #note-five g'4 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-six a'4
+ ~ #(define (note-dashsix grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashsix a'4
+| %{ bar 11: %}
+  \applyOutput #'Voice #note-six a'4
+  \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-seven b'4   \applyOutput #'Voice #note-five g'4 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 12: %}
+  \applyOutput #'Voice #note-six a'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashsix a'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashsix a'4
+ ~   \applyOutput #'Voice #note-dashsix a'4 | %{ bar 13: %}
+  \applyOutput #'Voice #note-three e'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 14: %}
+  \applyOutput #'Voice #note-three e'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-one c'4
+ ~   \applyOutput #'Voice #note-dashone c'4 | %{ bar 15: %}
+  \applyOutput #'Voice #note-two d'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+  \applyOutput #'Voice #note-five g'4. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 16: %}
+  \applyOutput #'Voice #note-two d'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashtwo d'4
+ ~   \applyOutput #'Voice #note-dashtwo d'4 | %{ bar 17: %}
+  \applyOutput #'Voice #note-three e'4.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8[]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-five g'4
+ ~   \applyOutput #'Voice #note-dashfive g'4 | %{ bar 18: %}
+  \applyOutput #'Voice #note-one c''4^.
+  \applyOutput #'Voice #note-two d''4^. \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-three e''4^.
+ ~ #(define (note-dashthree grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;–&quot;)))))))
+  \applyOutput #'Voice #note-dashthree e''4
+| %{ bar 19: %}
+  \applyOutput #'Voice #note-two d''4^.
+  \applyOutput #'Voice #note-one c''4^.   \applyOutput #'Voice #note-two d''4^.   \applyOutput #'Voice #note-six a'4 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 20: %}
+  \applyOutput #'Voice #note-one c''4^.
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c''4
+ ~ \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c''4
+ ~   \applyOutput #'Voice #note-dashone c''4 \bar &quot;|.&quot; } }
+% === END JIANPU STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;E 小调第 9 号交响曲《自新大陆》第二乐章 节选&quot;
+}
+\layout{} }
+\score {
+\unfoldRepeats
+&lt;&lt; 
+
+% === BEGIN MIDI STAFF ===
+    \new Staff { \new Voice=&quot;X&quot; { \tempo 4=60 \transpose c des { \key c \major  \time 4/4 e'4. g'8 g'2 | %{ bar 2: %} e'4. d'8 c'2 | %{ bar 3: %} d'4. e'8 g'4. e'8 | %{ bar 4: %} d'1 | %{ bar 5: %} e'4. g'8 g'2 | %{ bar 6: %} e'4. d'8 c'2 | %{ bar 7: %} d'4. e'8 d'4. c'8 | %{ bar 8: %} c'1 | %{ bar 9: %} a'4. c''8 c''2 | %{ bar 10: %} b'4 g'4 a'2 | %{ bar 11: %} a'4 c''4 b'4 g'4 | %{ bar 12: %} a'1 | %{ bar 13: %} e'4. g'8 g'2 | %{ bar 14: %} e'4. d'8 c'2 | %{ bar 15: %} d'4. e'8 g'4. e'8 | %{ bar 16: %} d'1 | %{ bar 17: %} e'4. g'8 g'2 | %{ bar 18: %} c''4 d''4 e''2 | %{ bar 19: %} d''4 c''4 d''4 a'4 | %{ bar 20: %} c''1 } } }
+% === END MIDI STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;E 小调第 9 号交响曲《自新大陆》第二乐章 节选&quot;
+}
+\midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/aafa5620cdb94095e82679ad069d928b365ca519/music.mp3" >
+</audio></p></div><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 评论</div>
@@ -612,7 +1551,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#girlfriend">girlfriend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Alice 间奏</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">送别 简谱</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">自新大陆 第二乐章 节选 简谱</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自新大陆 第二乐章 节选 简谱</a></li>
 </ul>
   </nav></div>
 

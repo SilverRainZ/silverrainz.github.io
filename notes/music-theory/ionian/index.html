@@ -581,44 +581,751 @@ document.write(`
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 C 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/a6ea0e32dae7243685f4c46feed8414233539f6a/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/a6ea0e32dae7243685f4c46feed8414233539f6a/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/7b42f5c748eece344288eacd5867d296c469890e/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/7b42f5c748eece344288eacd5867d296c469890e/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 G 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/9413c4bbd96f1bae88a73e72d07544d0ce2c5978/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/9413c4bbd96f1bae88a73e72d07544d0ce2c5978/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/f7c0e86ce8bb36a6bffba4bf7f5dba97dcceeae2/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/f7c0e86ce8bb36a6bffba4bf7f5dba97dcceeae2/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-2">
 D 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/5f92f242d04f6beb2792fb6ea19a044579680156/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/5f92f242d04f6beb2792fb6ea19a044579680156/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/716ec25e466ee4aa3602f30b078a148e564cb3fb/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/716ec25e466ee4aa3602f30b078a148e564cb3fb/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
 A 调（原调）</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/cff08a8cb1703279706236c314dfce98bec07e85/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/cff08a8cb1703279706236c314dfce98bec07e85/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/4965e24c2d7e731105e8f66c46a6a2e7f5fa2cc7/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/4965e24c2d7e731105e8f66c46a6a2e7f5fa2cc7/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-4">
 bE 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/ee1b7c9c3d1c75e29ad8bad1b2dd0c252110c06f/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/ee1b7c9c3d1c75e29ad8bad1b2dd0c252110c06f/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/1d4913cc3b0a55351e8aaf989052eb464b7631a6/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/1d4913cc3b0a55351e8aaf989052eb464b7631a6/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-5" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-5">
 bB 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/d99056bd35d8c2c7e416ee8ecfee5cd43e2b4971/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/d99056bd35d8c2c7e416ee8ecfee5cd43e2b4971/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/87d087cfeff901d52e0bfecf3cdf833b3ad3a6a3/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/87d087cfeff901d52e0bfecf3cdf833b3ad3a6a3/music.mp3" >
+</audio></p></div></div>
 <input id="sd-tab-item-6" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-6">
 F 调</label><div class="sd-tab-content docutils">
 <p>旋律：</p>
-<p>伴奏：</p>
-</div>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/02099727bdbeab3ad6474b9c3b71f8579d267dfc/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    e'4 cis'8 e' a'2
+    fis'4 a'8 fis'8 e'2
+    e'4 a8 b cis'4 b8 a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+
+    fis'4 a' a' r
+    gis'4 fis'8 gis' a'4 r4
+    fis'8 gis' a' fis' fis' e' cis' a
+    b2. r4
+
+    e'4 cis'8 e' a'4. gis'8
+    fis'4 a' e'2
+    e'4 b8 cis'8 d'4. gis8
+    a2. r4
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    % \new TabStaff {
+    %   \tabFullNotation
+    %   \symbols
+    % }
+  &gt;&gt;
+
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/02099727bdbeab3ad6474b9c3b71f8579d267dfc/music.mp3" >
+</audio></p></div><p>伴奏：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../../.././_lilypond/e44a31bc674f5fa51ec99ebc9bc994a4e3059629/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;送别，伴奏&quot;
+  composer = &quot;John P. Ordway&quot;
+}
+
+symbols = {
+  \key a \major
+  \time 4/4
+  \tempo &quot;Andante&quot; 4 = 80
+
+  r1
+
+  \repeat volta 2 {
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;a cis' e'&gt;1
+    &lt;e gis b d'&gt;1
+
+    &lt;d fis a&gt;1
+    &lt;e gis b d'&gt;2 &lt;a cis' e'&gt;
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+
+    &lt;a cis' e'&gt;1
+    &lt;d' fis' a'&gt;2 &lt;a cis' e'&gt;
+    &lt;e gis b d'&gt;1
+    &lt;a cis' e'&gt;1
+  }
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src="../../.././_lilypond/e44a31bc674f5fa51ec99ebc9bc994a4e3059629/music.mp3" >
+</audio></p></div></div>
 </div>
 </section>
 <section id="johann-pachelbelcanon-in-d-major">
