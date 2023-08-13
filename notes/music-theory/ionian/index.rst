@@ -55,19 +55,11 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a c
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a c
 
    .. tab-item:: G 调
@@ -75,19 +67,11 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a g
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a g
 
    .. tab-item:: D 调
@@ -95,19 +79,11 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a d
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a d
 
    .. tab-item:: A 调（原调）
@@ -115,37 +91,21 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
 
    .. tab-item:: bE 调
 
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a ees
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a ees
 
    .. tab-item:: bB 调
@@ -153,19 +113,11 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a bes
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a bes
 
    .. tab-item:: F 调
@@ -173,19 +125,11 @@
        旋律：
 
        .. lilyinclude:: ./songbie.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a f
 
        伴奏：
 
        .. lilyinclude:: ./songbie-chord.ly
-          :noheader:
-          :nofooter:
-          :noedge:
-          :audio:
           :transpose: a f
 
 Johann Pachelbel《Canon in D Major》
