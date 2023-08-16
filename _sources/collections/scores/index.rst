@@ -51,6 +51,6 @@ Alice 间奏
 .. jianpuinclude:: from-the-new-world-ii.jianpu
 
 Canon in D Major 节选 简谱
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 .. jianpuinclude:: canon.jianpu
