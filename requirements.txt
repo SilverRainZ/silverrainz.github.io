@@ -21,3 +21,4 @@ sphinxnotes.extweb
 sphinx-copybutton
 sphinx-notfound-page
 sphinxcontrib-youtube
+sphinx-last-updated-by-git

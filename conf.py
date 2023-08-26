@@ -91,6 +91,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.youtube',
     'sphinxnotes.extweb',
+    'sphinx_last_updated_by_git',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
