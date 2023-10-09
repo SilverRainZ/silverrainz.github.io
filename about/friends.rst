@@ -99,8 +99,8 @@
    - 专治 troll
 
 .. friend:: zu1k
-            https://lgf.im/
-   :blog: https://lgf.im/
+            https://zu1k.com/
+   :blog: https://zu1k.com/
    :avatar: https://github.com/zu1k.png
 
    - :ghrepo:`zu1k/good-mitm` 和 :ghrepo:`zu1k/copy-translator` 作者
