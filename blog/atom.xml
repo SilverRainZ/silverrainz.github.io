@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2023-08-26T15:50:46.378110+00:00</updated>
+  <updated>2023-10-09T11:24:52.707584+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.4.post1">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.gitee.io/blog/paper-size.html</id>
@@ -156,7 +156,7 @@
     <title>何时使用 Go 泛型</title>
     <updated>2022-06-03T00:00:00+00:00</updated>
     <author>
-      <name>Ian Lance Taylor</name>
+      <name>Shengyu Zhang</name>
     </author>
     <content type="html">&lt;section id="go"&gt;
 
@@ -1451,6 +1451,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6609,7 +6612,7 @@ n
 &lt;/div&gt;
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleurer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;fleurer&lt;/span&gt;&lt;/code&gt; ，我曾经好几次发邮件询问他有关OS的事情，
 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;👤 MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
 &lt;aside class="topic"&gt;

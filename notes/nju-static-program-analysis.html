@@ -38,12 +38,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -60,8 +60,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -85,6 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
+    <meta name="docbuild:last-update" content="2023-07-29"/>
 
 <link
   rel="alternate"
@@ -103,6 +105,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -461,10 +472,10 @@
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -472,7 +483,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -608,8 +619,8 @@ document.write(`
 </figure>
 <p>常见的 IR 形式：</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#term-ba241da" title="term 3AC"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Three-Addrress</span> <span class="pre">Code</span></code></a> 最常用</p></li>
-<li><p><a class="reference internal" href="#term-7bbbd80" title="term SSA"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Static</span> <span class="pre">Single-Assignment</span></code></a></p></li>
+<li><p><code class="xref any any-term docutils literal notranslate"><span class="pre">3AC</span></code> 最常用</p></li>
+<li><p><code class="xref any any-term docutils literal notranslate"><span class="pre">SSA</span></code></p></li>
 </ul>
 <p>常见的 IR 语言：</p>
 <ul class="simple">
@@ -681,13 +692,13 @@ Exit of BB must be a JUMP instr.</p>
 <dl class="any">
 <dt class="sig sig-object any" id="term-f5e3665">
 <span class="sig-name descname"><span class="pre">Data</span> <span class="pre">Flow</span> <span class="pre">Analysis</span></span><a class="headerlink" href="#term-f5e3665" title="永久链接至目标">#</a></dt>
-<dd><p>How <em>Data</em> is <em>Flow</em> on <a class="reference internal" href="../any-term.html#cap-CFG" title="term CFG"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣CFG</span></code></a>?</p>
+<dd><p>How <em>Data</em> is <em>Flow</em> on <a class="reference internal" href="go/ssa.html#term-0c26078" title="term CFG"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Dominate</span></code></a>?</p>
 <dl class="field-list simple">
 <dt class="field-odd">Data<span class="colon">:</span></dt>
 <dd class="field-odd"><p>is application-specific data, an abstraction (such as <a class="reference internal" href="#term-ad0f857" title="term Top"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Top</span></code></a>, <a class="reference internal" href="#term-0f24ae8" title="term Bottom"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Bottom</span></code></a>)</p>
 </dd>
 <dt class="field-even">Flow<span class="colon">:</span></dt>
-<dd class="field-even"><p>through the nodes(<a class="reference internal" href="#term-f43022e" title="term BB"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Basic</span> <span class="pre">Block</span></code></a>s, statements) and edges (control flows)
+<dd class="field-even"><p>through the nodes(<code class="xref any any-term docutils literal notranslate"><span class="pre">BB</span></code>s, statements) and edges (control flows)
 of CFG (program). Safe-approximation?</p>
 </dd>
 </dl>
@@ -723,7 +734,7 @@ of CFG (program). Safe-approximation?</p>
 <figure class="align-default" id="id4">
 <img alt="../_images/screenshot-20220906-203643.png" src="../_images/screenshot-20220906-203643.png" />
 <figcaption>
-<p><span class="caption-text">Target of <a class="reference internal" href="#term-f5e3665" title="term DFA"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Data</span> <span class="pre">Flow</span> <span class="pre">Analysis</span></code></a>.</span><a class="headerlink" href="#id4" title="此图像的永久链接">#</a></p>
+<p><span class="caption-text">Target of <code class="xref any any-term docutils literal notranslate"><span class="pre">DFA</span></code>.</span><a class="headerlink" href="#id4" title="此图像的永久链接">#</a></p>
 </figcaption>
 </figure>
 </dd>
@@ -800,11 +811,10 @@ of CFG (program). Safe-approximation?</p>
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="abraxas.html"
@@ -824,10 +834,7 @@ of CFG (program). Safe-approximation?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -908,8 +915,8 @@ of CFG (program). Safe-approximation?</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
