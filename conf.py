@@ -171,10 +171,16 @@ html_theme_options = {
     "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
 
+html_theme_options['announcement'] = \
+'<p>因证书问题，评论系统暂时不可用，有评论可直接发至 i@silverrainz.me</p>'
+
 if D.is_mirror():
     src = Deployment.Github
-    html_theme_options['announcement'] = \
-        f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>';
+    msg = f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>'
+    if html_theme_options.get('announcement'):
+        html_theme_options['announcement'] += msg
+    else:
+        html_theme_options['announcement'] = msg
     html_js_files.append('mirror-redirect.js')
 
 html_css_files.append('sphinx-book-theme-custom.css')
