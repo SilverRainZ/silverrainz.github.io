@@ -1,11 +1,11 @@
+.. default-role:: artist
+
 ========
 艺术家史
 ========
 
    从来就没有艺术，只有艺术家 [1]_
    ——  :book:`艺术的故事`
-
-.. default-role:: artist
 
 .. note::
 
@@ -327,7 +327,7 @@ __ https://www.sohu.com/a/275289121_748541
 
 .. artist:: _
             贝克曼
-               Max Beckmann
+            Max Beckmann
             Beckmann
    :movement: 表现主义 德国表现主义 新即物主义
    :artwork: 出发 捉迷藏 阿尔戈英雄 带篷马车 鸟的地狱 带号角的自画像
@@ -803,8 +803,12 @@ __ https://www.thenewslens.com/article/156968
 朱德群
 ======
 
+.. artist:: _
+
 卡罗琳沃克
 ==========
+
+.. artist:: _
 
 居室生活目击者
 
@@ -814,17 +818,32 @@ __ https://www.thenewslens.com/article/156968
 
 `霍伯`
 
-贝基苏斯
-========
-
-朱里奥 里拉兹
+朱里奥·里拉兹
 =============
+
+.. artist:: _
 
 政治讽刺漫画。
 
 政治
 
 事物表层下的真实。
+
+康定斯基
+========
+
+.. artist:: _
+   :movement: 包豪斯 蓝骑士
+
+約翰尼斯·伊登
+=============
+
+.. artist:: _
+            伊顿
+            伊頓
+            Johannes Itten
+            Itten
+   :movement: 包豪斯
 
 等待翻牌子
 ==========
@@ -844,7 +863,6 @@ __ https://www.thenewslens.com/article/156968
 - 亨利·马蒂斯
 - 爱德华·马奈
 - 凯绥·柯勒惠支
-- 康定斯基
 - 让-巴蒂斯·卡米耶·柯洛（柯罗）
 - 米开朗基罗
 

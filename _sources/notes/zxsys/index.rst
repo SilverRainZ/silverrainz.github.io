@@ -17,6 +17,7 @@
    outdoor-sketching
    modeling
    fast-modeling
+   color
    way-to-artist/index
    learn-from-master
    string-modeling
