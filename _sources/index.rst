@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-========
-银色子弹
-========
+====
+首页
+====
 
 .. recentupdate:: 5
 
