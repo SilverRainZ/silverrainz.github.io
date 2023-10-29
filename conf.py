@@ -171,8 +171,8 @@ html_theme_options = {
     "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
 
-html_theme_options['announcement'] = \
-'<p>因证书问题，评论系统暂时不可用，有评论可直接发至 i@silverrainz.me</p>'
+# Setup announcement as your need
+# html_theme_options['announcement'] = '</p>blahblah… </p>
 
 if D.is_mirror():
     src = Deployment.Github
