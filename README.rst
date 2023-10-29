@@ -11,8 +11,9 @@ Sphinx_-powered note-taking system of SilverRainZ_.
 
 There is an article_ describes the architecture of this note-taking system from a technical level.
 
-.. |logo| image:: /_static/logo.png
+.. |logo| image:: ./_static/logo.png
    :target: https://silverrainz.me
+   :width: 64
 .. _Sphinx: https://sphinx-doc.org
 .. _SilverRainZ: https://github.com/SilverRainZ
 .. _article: https://silverrainz.me/blog/sphinx-as-note-taking-system-2.html
@@ -93,7 +94,7 @@ Root page of the HTML documentation can be found at ``_build/html/index.html``.
 LICENSE
 =======
 
-Copyright 2020-2021, Shengyu Zhang.
+Copyright 2020-2023, Shengyu Zhang.
 
 The contents of this repository/documentation are all published under |cc-badge| Attribution-ShareAlike (CC BY-SA) agreement. For more details, please refer to: LICENSE_. 
 
