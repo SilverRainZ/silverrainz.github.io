@@ -22,7 +22,9 @@
 
       .. people:: 蔓纯老师
 
-         我的高中美术老师。
+         我的恩师，高中美术老师，是我的美术启蒙。
+
+         http://www.artpollo.com/linmanchun
 
    .. grid-item-card::
 
