@@ -24,36 +24,20 @@
    .. tab-item:: A 调
 
       .. lilyinclude:: ./scale.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
          :transpose: c a,
 
    .. tab-item:: B 调
 
       .. lilyinclude:: ./scale.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
          :transpose: c b,
 
    .. tab-item:: C 调
 
       .. lilyinclude:: ./scale.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
 
    .. tab-item:: D 调
 
       .. lilyinclude:: ./scale.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
          :transpose: c d
 
 小红帽
@@ -64,27 +48,15 @@
    .. tab-item:: C 调
 
       .. lilyinclude:: ./little-red-riding-hood.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
 
    .. tab-item:: D 调
 
       .. lilyinclude:: ./little-red-riding-hood.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
          :transpose: c d
 
    .. tab-item:: A 调
 
       .. lilyinclude:: ./little-red-riding-hood.ly
-         :noheader:
-         :nofooter:
-         :noedge:
-         :audio:
          :transpose: c a
 
 大小三和弦
@@ -95,10 +67,6 @@
 小三还是不准。
 
 .. lilyinclude:: ./triad.ly
-   :noheader:
-   :nofooter:
-   :noedge:
-   :audio:
    :loop:
 
 大二度小二度
@@ -107,10 +75,6 @@
 大二已经耳熟能详，把一个音微妙地不唱准就是小二度 😂 。
 
 .. lilyinclude:: ./major2-minor2.ly
-   :noheader:
-   :nofooter:
-   :noedge:
-   :audio:
    :loop:
 
 旋律听辨 I
@@ -151,10 +115,6 @@ G 大调小步舞曲 高声部
    :archpkg:`extra/fluidsynth` 2.2.3-1 的尼龙吉他音源在高音区 :lily:`{ g' }` 附近的时值似乎不太对，转调后规避了这个问题，先记一下。
 
 .. lilyinclude:: ./minuet-in-g.ly
-   :noheader:
-   :nofooter:
-   :noedge:
-   :audio:
    :transpose: g c
 
 答疑
@@ -186,4 +146,3 @@ G 大调小步舞曲 高声部
 :大萝北: 嗯嗯是的
 :谷月轩: [苦涩]我居然搞错了这么久。
 :谷月轩: 懂了懂了，谢谢老师。
-
