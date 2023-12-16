@@ -368,6 +368,16 @@ any_schemas = [
            },
            description_template=open('_templates/people.rst', 'r').read(),
            reference_template='👤{{ title }}'),
+    Schema('rhythm',
+           name=F(referenceable=True),
+           attrs={
+               'time': F(referenceable=True, required=True),
+               'tempo': F(),
+               'grid': F(),
+           },
+           content=F(form=F.Form.LINES),
+           description_template=open('_templates/rhythm.rst', 'r').read(),
+           reference_template='🥁{{ title }}'),
 ]
 
 extensions.append('ablog')
