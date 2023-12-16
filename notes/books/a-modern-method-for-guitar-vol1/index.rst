@@ -18,14 +18,10 @@ Sea to Sea
 ==========
 
 .. lilyinclude:: ./sea-to-sea.ly
-   :noedge:
-   :nofooter:
    :loop:
 
 One, Two, Tree, Four
 ====================
 
 .. lilyinclude:: ./one-two-tree-four.ly
-   :noedge:
-   :nofooter:
    :loop:
