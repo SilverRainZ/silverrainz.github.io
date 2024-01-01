@@ -2,6 +2,7 @@
 :数拍: {{ grid }} [#]_
 
 .. lily::
+   :loop:
 
    \version "2.20.0"
 
