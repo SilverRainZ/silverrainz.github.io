@@ -485,3 +485,10 @@ if D is not Deployment.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = ''
+
+extensions.append('sphinxnotes.comboroles')
+comboroles_roles = {
+    'strong_literal': ['strong', 'literal'],
+    'parsed_literal': (['literal'], True),
+    'parsed_emphasis': (['emphasis'], True),
+}
