@@ -22,3 +22,4 @@ sphinx-copybutton
 sphinx-notfound-page
 sphinxcontrib-youtube
 sphinx-last-updated-by-git
+sphinxnotes-comboroles
