@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" data-content_root="" >
+<html lang="zh-CN" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta property="article:modified_time" content="2022-07-07T05:29:42+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
@@ -48,34 +47,32 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=ae7f79ac" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../../_static/mirror-redirect.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/go/asm';</script>
+    <script src="../../_static/mirror-redirect.js?v=20b68f28"></script>
     <link rel="canonical" href="https://silverrainz.gitee.io/notes/go/asm.html" />
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -191,7 +188,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
 <ul class="current nav bd-sidenav">
@@ -539,7 +547,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
 <section id="go-s-assembler">
-<h1>Go’s Assembler<a class="headerlink" href="#go-s-assembler" title="此标题的永久链接">#</a></h1>
+<h1>Go’s Assembler<a class="headerlink" href="#go-s-assembler" title="Link to this heading">#</a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参见</p>
 <ul class="simple">
@@ -551,7 +559,7 @@ document.write(`
 <li><p>Go’s assembler is that it is not a direct representation of the underlying machine: It is chosen to match what the compiler generates</p></li>
 </ul>
 <section id="tools">
-<h2>Tools<a class="headerlink" href="#tools" title="此标题的永久链接">#</a></h2>
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
 <p>View compiler asm (semi-abstract instruction set):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">GOOS</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">GOARCH</span><span class="o">=</span>amd64<span class="w"> </span>go<span class="w"> </span>tool<span class="w"> </span>compile<span class="w"> </span>-S<span class="w"> </span>x.go
 </pre></div>
@@ -563,9 +571,9 @@ document.write(`
 </div>
 </section>
 <section id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="此标题的永久链接">#</a></h2>
+<h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
 <section id="symbols">
-<h3>Symbols<a class="headerlink" href="#symbols" title="此标题的永久链接">#</a></h3>
+<h3>Symbols<a class="headerlink" href="#symbols" title="Link to this heading">#</a></h3>
 <dl>
 <dt>Registers</dt><dd><p>Like R1, LR, which depends on the architecture.</p>
 <p>All pre-defined symbols in the assembler are upper-case:</p>
@@ -640,16 +648,16 @@ document.write(`
 </dl>
 </section>
 <section id="directives">
-<h3>Directives<a class="headerlink" href="#directives" title="此标题的永久链接">#</a></h3>
+<h3>Directives<a class="headerlink" href="#directives" title="Link to this heading">#</a></h3>
 <dl>
 <dt>FUNCDATA, PCDATA</dt><dd><p>Contain information for use by the garbage collector; they are introduced by the compiler.</p>
 </dd>
 <dt>TEXT</dt><dd><p>Define function symbol:</p>
-<div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span>TEXT runtime·profileloop(SB),NOSPLIT,$8
-        MOVQ      $runtime·profileloop1(SB), CX         ; Body of the function
-        MOVQ      CX, 0(SP)
-        CALL      runtime·externalthreadhandler(SB)
-        RET                                        ; Last instruction
+<div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">TEXT</span><span class="w"> </span><span class="nv">runtime</span><span class="err">·</span><span class="nv">profileloop</span><span class="p">(</span><span class="nv">SB</span><span class="p">),</span><span class="nv">NOSPLIT</span><span class="p">,</span><span class="kc">$</span><span class="mi">8</span>
+<span class="w">        </span><span class="nf">MOVQ</span><span class="w">      </span><span class="kc">$</span><span class="nv">runtime</span><span class="err">·</span><span class="nv">profileloop1</span><span class="p">(</span><span class="nv">SB</span><span class="p">),</span><span class="w"> </span><span class="nb">CX</span><span class="w">         </span><span class="c1">; Body of the function</span>
+<span class="w">        </span><span class="nf">MOVQ</span><span class="w">      </span><span class="nb">CX</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="nb">SP</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">CALL</span><span class="w">      </span><span class="nv">runtime</span><span class="err">·</span><span class="nv">externalthreadhandler</span><span class="p">(</span><span class="nv">SB</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">RET</span><span class="w">                                        </span><span class="c1">; Last instruction</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -693,7 +701,7 @@ document.write(`
 </dl>
 </section>
 <section id="instructions">
-<h3>Instructions<a class="headerlink" href="#instructions" title="此标题的永久链接">#</a></h3>
+<h3>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h3>
 <p>Like GAS, Left-to-right assignment.</p>
 <dl class="simple">
 <dt>MOVE</dt><dd><p>Does not distinguish between the various forms of MOVE instruction: move quick, move address, etc</p>
@@ -703,7 +711,7 @@ document.write(`
 </dl>
 </section>
 <section id="interacting-with-go">
-<h3>Interacting with Go<a class="headerlink" href="#interacting-with-go" title="此标题的永久链接">#</a></h3>
+<h3>Interacting with Go<a class="headerlink" href="#interacting-with-go" title="Link to this heading">#</a></h3>
 <p>If a package has any <code class="code docutils literal notranslate"><span class="pre">.s</span></code> files, then go build will direct the compiler to emit a special header called <code class="code docutils literal notranslate"><span class="pre">go_asm.h</span></code>, which the <code class="code docutils literal notranslate"><span class="pre">.s</span></code> files can then <code class="code docutils literal notranslate"><span class="pre">#include</span></code>. The file contains symbolic <code class="code docutils literal notranslate"><span class="pre">#define</span></code> constants for the offsets of Go struct fields, the sizes of Go struct types, and most Go const declarations defined in the current package.</p>
 <ul class="simple">
 <li><p>Constants are of the form const_name: <code class="code docutils literal notranslate"><span class="pre">const</span> <span class="pre">bufSize</span> <span class="pre">=</span> <span class="pre">1024</span></code> -&gt; <code class="code docutils literal notranslate"><span class="pre">const_bufSize</span></code></p></li>
@@ -711,16 +719,16 @@ document.write(`
 </ul>
 </section>
 <section id="runtime-coordination">
-<h3>Runtime Coordination<a class="headerlink" href="#runtime-coordination" title="此标题的永久链接">#</a></h3>
+<h3>Runtime Coordination<a class="headerlink" href="#runtime-coordination" title="Link to this heading">#</a></h3>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">待处理</p>
 <p>TODO</p>
 </div>
 </section>
 <section id="architecture-specific-details">
-<h3>Architecture-specific Details<a class="headerlink" href="#architecture-specific-details" title="此标题的永久链接">#</a></h3>
+<h3>Architecture-specific Details<a class="headerlink" href="#architecture-specific-details" title="Link to this heading">#</a></h3>
 <section id="amd64">
-<h4>amd64<a class="headerlink" href="#amd64" title="此标题的永久链接">#</a></h4>
+<h4>amd64<a class="headerlink" href="#amd64" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Uses <code class="code docutils literal notranslate"><span class="pre">MOVQ</span></code> rather than <code class="code docutils literal notranslate"><span class="pre">MOVL</span></code></p></li>
 <li><p>Register <code class="code docutils literal notranslate"><span class="pre">BP</span></code> is callee-save. Using BP as a general purpose register is allowed, however it can interfere with sampling-based profiling.</p></li>
@@ -831,7 +839,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2020-2023, Shengyu Zhang.
+      © Copyright 2020-2024, Shengyu Zhang.
       <br/>
     
   </p>

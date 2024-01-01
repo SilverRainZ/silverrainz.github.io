@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" data-content_root="" >
+<html lang="zh-CN" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta property="article:modified_time" content="2022-01-30T15:43:27+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
@@ -48,34 +47,32 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ae7f79ac" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/mirror-redirect.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'blog/gen-graph-from-c-code';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
     <link rel="canonical" href="https://silverrainz.gitee.io/blog/gen-graph-from-c-code.html" />
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -719,7 +716,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
 <section id="c">
-<h1>从 C 源码生成 函数/模块 调用图<a class="headerlink" href="#c" title="此标题的永久链接">#</a></h1>
+<h1>从 C 源码生成 函数/模块 调用图<a class="headerlink" href="#c" title="Link to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
@@ -732,7 +729,7 @@ document.write(`
 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="friend farseerfc"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤farseerfc</span></code></a> 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
 然而 AUR 里面没有就作罢了。</p>
 <section id="id1">
-<h2>生成函数调用图<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<h2>生成函数调用图<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>安装 egypt 直接 <code class="code docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 <code class="code docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
 再 make 一次，gcc 会在 bulid 目录下生成 <code class="code docutils literal notranslate"><span class="pre">*.expand</span></code> 文件，
@@ -807,7 +804,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="id2">
-<h2>生成模块调用图<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<h2>生成模块调用图<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
 <a class="reference external" href="https://www.flourish.org/cinclude2dot/">flourish.org/cinclude2dot/</a>。</p>
@@ -984,7 +981,7 @@ dot<span class="w"> </span><span class="nv">$dotfile</span><span class="w"> </sp
 
   <p class="copyright">
     
-      © Copyright 2020-2023, Shengyu Zhang.
+      © Copyright 2020-2024, Shengyu Zhang.
       <br/>
     
   </p>

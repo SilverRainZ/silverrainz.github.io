@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" data-content_root="" >
+<html lang="zh-CN" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta property="article:modified_time" content="2022-01-30T15:43:27+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
@@ -48,34 +47,32 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ae7f79ac" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/mirror-redirect.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'blog/process-scheduler-1';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
     <link rel="canonical" href="https://silverrainz.gitee.io/blog/process-scheduler-1.html" />
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -734,7 +731,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
 <section id="id1">
-<h1>用户态进程的简单实现及调度(一)<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<h1>用户态进程的简单实现及调度(一)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
@@ -757,7 +754,7 @@ document.write(`
 不需要考虑由于多核导致的进程间的竞争和同步, 因此 xv6 中关于锁的代码都可以忽略.</p>
 </div></blockquote>
 <section id="id2">
-<h2>特权级转换<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<h2>特权级转换<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>几个关于特权级的概念:</p>
 <ul class="simple">
 <li><p>intel 8086 的特权级分为 0 1 2 3 四级, 这里只使用 0 和 3</p></li>
@@ -767,7 +764,7 @@ document.write(`
 </ul>
 </section>
 <section id="gdt">
-<h2>GDT<a class="headerlink" href="#gdt" title="此标题的永久链接">#</a></h2>
+<h2>GDT<a class="headerlink" href="#gdt" title="Link to this heading">#</a></h2>
 <p>这里使用的用户态的特权级为 3, 因此用户态的程序, 其所在的数据段代码段的 DPL,
 段寄存器低 2 位的 RPL 都得是 3, 因此设置的 全局段描述符表(GDT) 如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// OS67/kern/gdt.c</span>
@@ -790,7 +787,7 @@ document.write(`
 那如何让代码从特权级为 0 的段(内核态)转移到特权级为 3 的段(用户态)呢? 用中断.</p>
 </section>
 <section id="idt">
-<h2>IDT<a class="headerlink" href="#idt" title="此标题的永久链接">#</a></h2>
+<h2>IDT<a class="headerlink" href="#idt" title="Link to this heading">#</a></h2>
 <p>为了让用户空间的程序顺利进入内核态, 需要对 中断描述符表(IDT) 做一些设置.</p>
 <p>(以下内容摘自 xv6 中文文档, 有小改动)</p>
 <p>我们假设一个用户态程序执行<code class="code docutils literal notranslate"><span class="pre">int</span> <span class="pre">n</span></code>指令触发中断, 则 CPU 会取得中断号 n, 进行如下步骤:
@@ -827,7 +824,7 @@ document.write(`
 </div>
 </section>
 <section id="tss">
-<h2>TSS<a class="headerlink" href="#tss" title="此标题的永久链接">#</a></h2>
+<h2>TSS<a class="headerlink" href="#tss" title="Link to this heading">#</a></h2>
 <p>在特权级转换的时候, 需要从任务状态段取出<code class="code docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="code docutils literal notranslate"><span class="pre">esp0</span></code>, 因此在转换之前需要设置 TSS.</p>
 <p>CPU 会从寄存器<code class="code docutils literal notranslate"><span class="pre">tr</span></code>获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
 由描述符就可以获得 TSS 的基址了.</p>
@@ -852,9 +849,9 @@ document.write(`
 </div>
 </section>
 <section id="id3">
-<h2>两个上下文<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<h2>两个上下文<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <section id="id4">
-<h3>中断上下文<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
+<h3>中断上下文<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>从上面关于中断过程的解释可以看到, 从用户态执行中断转入内核态是可能的,
 重点在与设置一个 DPL = 3 的 IDT 和一个 TSS 段.</p>
 <p>那如何从内核态返回用户态呢? iret 指令会按 int 压栈的顺序逆序将寄存器们出栈,
@@ -906,7 +903,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 关于这些 ISR 的详情…太长了表示扯不下去了… :(</p>
 </section>
 <section id="id5">
-<h3>进程上下文<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+<h3>进程上下文<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>中断上下文已经让程序能够程序成功进入内核并从内核中返回,
 接下来通过切换进程上下文来实现进程的切换.</p>
 <p>进程上下文看起来比中断上下文简单许多, 不过更富技巧性.</p>
@@ -954,7 +951,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 </section>
 </section>
 <section id="id6">
-<h2>虚拟内存映射<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<h2>虚拟内存映射<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>由于之前的思路问题, 因此 OS67 的内存管理方式不得不和 xv6 不太一样.</p>
 <p>OS67 的内存分配实现在 <code class="code docutils literal notranslate"><span class="pre">OS67/mm/pmm.c</span></code>, 使用一个简单的栈来存放未分配的内存页,
 <code class="code docutils literal notranslate"><span class="pre">malloc</span></code> 就是 <code class="code docutils literal notranslate"><span class="pre">pop</span></code> 而 <code class="code docutils literal notranslate"><span class="pre">mfree</span></code> 就是 <code class="code docutils literal notranslate"><span class="pre">push</span></code>. 这么做简单明了,
@@ -969,9 +966,9 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 也许有更多的缺点还没发现.</p>
 </section>
 <section id="id7">
-<h2>第一个进程<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h2>
+<h2>第一个进程<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <section id="id8">
-<h3>构造<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h3>
+<h3>构造<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>结构体 proc 用来储存一个进程的信息, 内核中有一个数组<code class="code docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ptable[NPROC]</span></code>来管理所有的进程.
 结构体<code class="code docutils literal notranslate"><span class="pre">proc</span></code>定义如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">proc</span><span class="p">{</span>
@@ -1024,7 +1021,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <p>以上是比较关键的步骤, 现在可以准备运行第一个进程了.</p>
 </section>
 <section id="id9">
-<h3>运行<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h3>
+<h3>运行<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>执行了<code class="code docutils literal notranslate"><span class="pre">proc_init</span></code>之后, <code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>紧接其后,
 它在<code class="code docutils literal notranslate"><span class="pre">ptable</span></code>中寻找第一个<code class="code docutils literal notranslate"><span class="pre">state</span></code>为<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程,
 调用<code class="code docutils literal notranslate"><span class="pre">uvm_switch</span></code>切换到该进程的页表并设置好 TSS.</p>
@@ -1036,14 +1033,14 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 </section>
 </section>
 <section id="id10">
-<h2>调度<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h2>
+<h2>调度<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>这里使用非常简单的轮转法, 每次触发时钟中断都会执行<code class="code docutils literal notranslate"><span class="pre">sched</span></code>,
 <code class="code docutils literal notranslate"><span class="pre">sched</span></code>把当前进程状态由<code class="code docutils literal notranslate"><span class="pre">P_RUNNING</span></code>变更为<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>. 接着执行<code class="code docutils literal notranslate"><span class="pre">context_switch</span></code>.
 这样 CPU 执行流就回到了刚才<code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>中的循环,
 <code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>继续寻找一个<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程并切换到它.</p>
 </section>
 <section id="e-n-d">
-<h2>E.N.D.<a class="headerlink" href="#e-n-d" title="此标题的永久链接">#</a></h2>
+<h2>E.N.D.<a class="headerlink" href="#e-n-d" title="Link to this heading">#</a></h2>
 <p>至此, 用户级进程已经成功实现并且被调度. 但是没有有效的接口来启动更多的进程.
 我们需要实现一些系统调用比如<code class="code docutils literal notranslate"><span class="pre">fork</span></code>和<code class="code docutils literal notranslate"><span class="pre">exec</span></code>来做这些事情.
 :( 但是我已经写不下去了… 如果可以话下次再写吧.</p>
@@ -1168,7 +1165,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 
   <p class="copyright">
     
-      © Copyright 2020-2023, Shengyu Zhang.
+      © Copyright 2020-2024, Shengyu Zhang.
       <br/>
     
   </p>

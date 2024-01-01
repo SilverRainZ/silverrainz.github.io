@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" data-content_root="" >
+<html lang="zh-CN" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta property="article:modified_time" content="2022-01-30T15:43:27+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
@@ -48,34 +47,32 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ae7f79ac" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/mirror-redirect.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'blog/minix-v1-file-system';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
     <link rel="canonical" href="https://silverrainz.gitee.io/blog/minix-v1-file-system.html" />
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -746,20 +743,20 @@ document.write(`
                 <article class="bd-article" role="main">
                   
 <section id="minix-v1">
-<h1>Minix v1 文件系统的实现<a class="headerlink" href="#minix-v1" title="此标题的永久链接">#</a></h1>
+<h1>Minix v1 文件系统的实现<a class="headerlink" href="#minix-v1" title="Link to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
 </div>
 <section id="minix-fs">
-<h2>Minix FS<a class="headerlink" href="#minix-fs" title="此标题的永久链接">#</a></h2>
+<h2>Minix FS<a class="headerlink" href="#minix-fs" title="Link to this heading">#</a></h2>
 <p>Minix file system 是 Andrew S. Tanenbaum 在 198x 年发明的文件系统,
 并随着 Minix 1.0 版一起于 1987 年释出, Linus 编写 Linux 0.11时,
 使用的也是 Minix FS, Linux 至今依然提供了对 Minix FS 的支持.
 Minix FS 结构简单, 易于理解, 并且资料相当丰富.</p>
 </section>
 <section id="xv-6">
-<h2>xv 6<a class="headerlink" href="#xv-6" title="此标题的永久链接">#</a></h2>
+<h2>xv 6<a class="headerlink" href="#xv-6" title="Link to this heading">#</a></h2>
 <p>其实最开始并没有用 Minix FS 的想法, 在实现 Minix FS 之前,
 我先看了 xv6 中的文件系统部分, 在抄了一遍它的代码之后,
 才发现原来 xv6 实现的不是现有的任何一个文件系统, 虽然在原理上和 Minix 没有太大差别
@@ -772,7 +769,7 @@ Minix FS 结构简单, 易于理解, 并且资料相当丰富.</p>
 <a class="reference external" href="https://github.com/SilverRainZ/OS67">OS67</a> 上实现了一个精简版的 Minix FS.</p>
 </section>
 <section id="id1">
-<h2>建立磁盘<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<h2>建立磁盘<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>首先用<code class="code docutils literal notranslate"><span class="pre">bximage</span></code>建立一个硬盘镜像文件, 再用<code class="code docutils literal notranslate"><span class="pre">mkfs.minix</span></code>建立文件系统,
 如果需要复制文件进去的话, 用<code class="code docutils literal notranslate"><span class="pre">mount</span></code>挂载.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bximage<span class="w"> </span>bin/rootfs.img<span class="w"> </span>-hd<span class="o">=</span>10M<span class="w"> </span>-imgmode<span class="o">=</span>flat<span class="w"> </span>-mode<span class="o">=</span>create<span class="w"> </span>-q
@@ -811,7 +808,7 @@ Zone<span class="w"> </span><span class="m">115</span>:<span class="w"> </span>n
 </div>
 </section>
 <section id="minix">
-<h2>Minix 文件系统结构<a class="headerlink" href="#minix" title="此标题的永久链接">#</a></h2>
+<h2>Minix 文件系统结构<a class="headerlink" href="#minix" title="Link to this heading">#</a></h2>
 <p>Minix 文件系统的结构如下:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Minix</span> <span class="n">v1</span> <span class="n">file</span> <span class="n">system</span> <span class="n">structure</span>
 <span class="n">zone</span><span class="p">:</span>  <span class="mi">0</span>           <span class="mi">1</span>              <span class="mi">2</span>             <span class="mi">2</span> <span class="o">+</span> <span class="n">imap_blk</span>        <span class="o">...</span>         <span class="o">...</span>
@@ -826,7 +823,7 @@ Zone<span class="w"> </span><span class="m">115</span>:<span class="w"> </span>n
 一个虚拟块的大小是 1024 byte, 而磁盘的物理扇区大小常常是 512 byte.</p>
 </div></blockquote>
 <section id="i">
-<h3>i 节点<a class="headerlink" href="#i" title="此标题的永久链接">#</a></h3>
+<h3>i 节点<a class="headerlink" href="#i" title="Link to this heading">#</a></h3>
 <p>i 节点是 Minix FS 中最重要的结构体, 其定义如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// OS67/inc/minix.h</span>
 <span class="cm">/* in-disk minix inode */</span>
@@ -883,12 +880,12 @@ Zone<span class="w"> </span><span class="m">115</span>:<span class="w"> </span>n
 <p>OS67 并没有使用双重间接块, 因此支持的最大文件大小仅为 <code class="code docutils literal notranslate"><span class="pre">(7</span> <span class="pre">+</span> <span class="pre">1024/2)</span> <span class="pre">*</span> <span class="pre">1024</span> <span class="pre">byte</span> <span class="pre">=</span> <span class="pre">519</span> <span class="pre">KB</span></code>.</p>
 </section>
 <section id="boot-secotr">
-<h3>引导扇区(boot secotr):<a class="headerlink" href="#boot-secotr" title="此标题的永久链接">#</a></h3>
+<h3>引导扇区(boot secotr):<a class="headerlink" href="#boot-secotr" title="Link to this heading">#</a></h3>
 <p>磁盘的第一个虚拟块作是引导扇区, 这个通常和文件系统没有关系.</p>
 <p>OS67 的 bootsector 实现在 <code class="code docutils literal notranslate"><span class="pre">OS67/boot/bootsect.asm</span></code></p>
 </section>
 <section id="super-block">
-<h3>超级块(super block)<a class="headerlink" href="#super-block" title="此标题的永久链接">#</a></h3>
+<h3>超级块(super block)<a class="headerlink" href="#super-block" title="Link to this heading">#</a></h3>
 <p>超级块(superblock), 用来存放整个文件系统的元信息, 比如磁盘大小, i节点数目,
 虚拟块数目, Magic nubmer 等.  Minix FS 的超级块结构如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// OS67/inc/minix.h</span>
@@ -908,7 +905,7 @@ Zone<span class="w"> </span><span class="m">115</span>:<span class="w"> </span>n
 </div>
 </section>
 <section id="inode-zone-bitmap">
-<h3>位图(inode &amp; zone bitmap)<a class="headerlink" href="#inode-zone-bitmap" title="此标题的永久链接">#</a></h3>
+<h3>位图(inode &amp; zone bitmap)<a class="headerlink" href="#inode-zone-bitmap" title="Link to this heading">#</a></h3>
 <p>有关位图的实现在<code class="code docutils literal notranslate"><span class="pre">OS67/fs/bitmap.c</span></code>中.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">OS67/inc/minix.h</span></code>实现了两个宏来定位这些位图块.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* bit per block */</span>
@@ -933,23 +930,23 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </div></blockquote>
 </section>
 <section id="i-inode">
-<h3>i 节点块(inode)<a class="headerlink" href="#i-inode" title="此标题的永久链接">#</a></h3>
+<h3>i 节点块(inode)<a class="headerlink" href="#i-inode" title="Link to this heading">#</a></h3>
 <p>这些块用来储存 i 节点, 用宏<code class="code docutils literal notranslate"><span class="pre">IBLK</span></code>根据 i 节点号, 定位到块号, 同样注意 i 节点从 1 开始计数.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define IBLK(sb, i) (2 + ((sb).imap_blk) + ((sb).zmap_blk) + ((i) - 1)/IPB)</span>
 </pre></div>
 </div>
 </section>
 <section id="data">
-<h3>数据块(data)<a class="headerlink" href="#data" title="此标题的永久链接">#</a></h3>
+<h3>数据块(data)<a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
 <p>这些块被用来储存数据, 从<code class="code docutils literal notranslate"><span class="pre">superblock.fst_data_zone</span></code>开始.</p>
 </section>
 </section>
 <section id="id2">
-<h2>系统层次<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<h2>系统层次<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>整个文件系统的实现被分为五个层次, 代码基本上继承自 xv6, 在摸清楚代码的意思之后,
 把 xv6 文件系统代码改成 Minix FS 是很简单的事情, 甚至有些文件不需要改动…</p>
 <section id="os67-fs-ide-c">
-<h3>磁盘驱动层 OS67/fs/ide.c<a class="headerlink" href="#os67-fs-ide-c" title="此标题的永久链接">#</a></h3>
+<h3>磁盘驱动层 OS67/fs/ide.c<a class="headerlink" href="#os67-fs-ide-c" title="Link to this heading">#</a></h3>
 <p>这一层通过 ins outs 指令, 负责从磁盘读取扇区到高速缓冲区 <code class="code docutils literal notranslate"><span class="pre">buf</span></code>,
 并且限制在一个块只能被一个进程访问(通过 <code class="code docutils literal notranslate"><span class="pre">B_BUSY</span></code> 锁住).</p>
 <blockquote>
@@ -965,11 +962,11 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </div>
 </section>
 <section id="os67-fs-bcache-c">
-<h3>块缓冲层 OS67/fs/bcache.c<a class="headerlink" href="#os67-fs-bcache-c" title="此标题的永久链接">#</a></h3>
+<h3>块缓冲层 OS67/fs/bcache.c<a class="headerlink" href="#os67-fs-bcache-c" title="Link to this heading">#</a></h3>
 <p>维护了一个高速缓冲的链表(数组),  为上层提供了<code class="code docutils literal notranslate"><span class="pre">bread</span></code>和<code class="code docutils literal notranslate"><span class="pre">bwrite</span></code>函数,
 而<code class="code docutils literal notranslate"><span class="pre">bget</span></code>则用来分配缓冲区.</p>
 <section id="braed">
-<h4>braed<a class="headerlink" href="#braed" title="此标题的永久链接">#</a></h4>
+<h4>braed<a class="headerlink" href="#braed" title="Link to this heading">#</a></h4>
 <p>当请求一个块的数据的时候(<code class="code docutils literal notranslate"><span class="pre">bread</span></code>), 如果一个块已经被缓存, 并且这个块的内容是有效的(<code class="code docutils literal notranslate"><span class="pre">B_VAILD</span></code>),
 块缓存层可以直接返回当前缓冲区的内容, 而不用重新读取扇区.</p>
 <blockquote>
@@ -979,7 +976,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </div></blockquote>
 </section>
 <section id="bget">
-<h4>bget<a class="headerlink" href="#bget" title="此标题的永久链接">#</a></h4>
+<h4>bget<a class="headerlink" href="#bget" title="Link to this heading">#</a></h4>
 <p>当根据虚拟块的块号(<code class="code docutils literal notranslate"><span class="pre">buf-&gt;blkno</span></code>)请求一个缓冲区的时候(<code class="code docutils literal notranslate"><span class="pre">bget</span></code>),
 程序会沿着链表从头到尾寻找这个缓冲区是否被缓存,是的话直接返回, 如果没有被缓存,
 会从链表从尾到头搜索第一个可用的空缓冲区, 每次释放缓冲区的时候(<code class="code docutils literal notranslate"><span class="pre">brelse</span></code>),
@@ -1001,7 +998,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </section>
 </section>
 <section id="i-os67-fs-inode-c-os67-fs-bitmap-c">
-<h3>i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c<a class="headerlink" href="#i-os67-fs-inode-c-os67-fs-bitmap-c" title="此标题的永久链接">#</a></h3>
+<h3>i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c<a class="headerlink" href="#i-os67-fs-inode-c-os67-fs-bitmap-c" title="Link to this heading">#</a></h3>
 <p>这一层开始和文件系统密切相关, i 节点层为使用中的磁盘中的 i 节点(<code class="code docutils literal notranslate"><span class="pre">d_inode</span></code>)
 提供了内存中的拷贝(<code class="code docutils literal notranslate"><span class="pre">inode</span></code>), 可以类比块缓冲和虚拟块的关系.</p>
 <p>磁盘中的 i 节点结构上面已经讲过了, 内存中的 i 节点<code class="code docutils literal notranslate"><span class="pre">inode</span></code>结构如下:</p>
@@ -1030,7 +1027,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </div>
 <p>这一层提供了对 inode 的各种操作</p>
 <section id="id3">
-<h4>申请和分配:<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h4>
+<h4>申请和分配:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">_ialloc</span></code> <code class="code docutils literal notranslate"><span class="pre">_ifree</span></code> 在磁盘上分配和释放新的 <code class="code docutils literal notranslate"><span class="pre">d_inode</span></code>;</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">balloc</span></code> <code class="code docutils literal notranslate"><span class="pre">bfree</span></code> 在磁盘上分配和释放新的数据块, 供 i 节点使用.</p></li>
@@ -1040,7 +1037,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 把它和内存中的 <code class="code docutils literal notranslate"><span class="pre">inode</span></code>联系起来.</p>
 </section>
 <section id="id4">
-<h4>i 节点操作:<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h4>
+<h4>i 节点操作:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">iget</span></code> 从 i 节点缓冲中获得指定 i 节点号码的缓冲区, 类似<code class="code docutils literal notranslate"><span class="pre">bget</span></code>;</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">ilock</span></code> 将 i 节点锁住(<code class="code docutils literal notranslate"><span class="pre">I_BUSY</span></code>), 并从磁盘中将 i 节点内容读出,
@@ -1056,7 +1053,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </section>
 </section>
 <section id="os67-fs-dir-c-os-fs-p2i-c">
-<h3>目录层 OS67/fs/dir.c OS/fs/p2i.c<a class="headerlink" href="#os67-fs-dir-c-os-fs-p2i-c" title="此标题的永久链接">#</a></h3>
+<h3>目录层 OS67/fs/dir.c OS/fs/p2i.c<a class="headerlink" href="#os67-fs-dir-c-os-fs-p2i-c" title="Link to this heading">#</a></h3>
 <p>这一层开始有文件名和路径的出现, 为上层提供了一个将路径名转换为 对应 i 节点的函数.</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">dir_lookup</span></code> 在一个类型为目录的 i 节点中寻找指定名字的 <code class="code docutils literal notranslate"><span class="pre">dir_entry</span></code>
@@ -1066,14 +1063,14 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 </ul>
 </section>
 <section id="id5">
-<h3>文件和系统调用<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+<h3>文件和系统调用<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>这一层是最上一层, 文件是对 i 节点的简单封装, 提供了<code class="code docutils literal notranslate"><span class="pre">fread</span></code> <code class="code docutils literal notranslate"><span class="pre">fwrite</span></code> <code class="code docutils literal notranslate"><span class="pre">fclose</span></code>等函数.
 此处涉及到进程的文件表, 因此这一层暂时没有<span class="sphinxnotes-strike" style="text-decoration: line-through;">抄</span>写.</p>
 <p>不过在前面几层的基础上, 实现这一层应该没什么问题.</p>
 </section>
 </section>
 <section id="id6">
-<h2>参考<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<h2>参考<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://book.douban.com/subject/1231236/">《Linux 内核完全注释》</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Fleurer/fleurix">fleurix</a></p></li>
@@ -1213,7 +1210,7 @@ i 节点位图占据 <code class="code docutils literal notranslate"><span class
 
   <p class="copyright">
     
-      © Copyright 2020-2023, Shengyu Zhang.
+      © Copyright 2020-2024, Shengyu Zhang.
       <br/>
     
   </p>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" data-content_root="" >
+<html lang="zh-CN" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta property="article:modified_time" content="2023-07-29T15:51:50+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
@@ -48,35 +47,33 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ae7f79ac" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/mirror-redirect.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/nju-static-program-analysis';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
     <link rel="canonical" href="https://silverrainz.gitee.io/notes/nju-static-program-analysis.html" />
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -192,7 +189,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
 <ul class="current nav bd-sidenav">
@@ -543,7 +551,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
 <section id="id1">
-<h1>静态程序分析<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<h1>静态程序分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">StartAt<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2022-7-16</p>
@@ -555,10 +563,10 @@ document.write(`
 <li><p><a class="reference external" href="https://pascal-group.bitbucket.io/teaching.html">https://pascal-group.bitbucket.io/teaching.html</a></p></li>
 </ul>
 <section id="course-introduction">
-<h2>1. Course Introduction<a class="headerlink" href="#course-introduction" title="此标题的永久链接">#</a></h2>
+<h2>1. Course Introduction<a class="headerlink" href="#course-introduction" title="Link to this heading">#</a></h2>
 <dl class="any">
 <dt class="sig sig-object any" id="term-53cfdb1">
-<span class="sig-name descname"><span class="pre">莱斯定理</span></span><a class="headerlink" href="#term-53cfdb1" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">莱斯定理</span></span><a class="headerlink" href="#term-53cfdb1" title="Link to this definition">#</a></dt>
 <dd><p><a class="reference external" href="https://zh.wikipedia.org/wiki/递归可枚举语言">📖 递归可枚举语言</a> 的所有非平凡（nontrival）性质都是 <a class="reference external" href="https://zh.wikipedia.org/wiki/可判定性">不可判定</a> 的。 <a class="reference internal" href="#rice0" id="id2"><span>[rice0]</span></a></p>
 <p>无法断言一个图灵机是否具有一个可以被图灵机计算的功能函数。<a class="reference internal" href="#rice1" id="id3"><span>[rice1]</span></a></p>
 <figure class="align-default">
@@ -578,7 +586,7 @@ document.write(`
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-b84b8d9">
-<span class="sig-name descname"><span class="pre">Sound</span> <span class="pre">and</span> <span class="pre">Complete</span></span><a class="headerlink" href="#term-b84b8d9" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Sound</span> <span class="pre">and</span> <span class="pre">Complete</span></span><a class="headerlink" href="#term-b84b8d9" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>Sound by default</dt><dd><p>在静态分析中，几乎所有的分析方法都追求 Sound 而非 Complete。</p>
 </dd>
@@ -604,19 +612,19 @@ document.write(`
 </dl>
 <dl class="any">
 <dt class="sig sig-object any" id="term-ad0f857">
-<span class="sig-name descname"><span class="pre">Top</span></span><a class="headerlink" href="#term-ad0f857" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Top</span></span><a class="headerlink" href="#term-ad0f857" title="Link to this definition">#</a></dt>
 <dd><p><span class="math notranslate nohighlight">\(\top\)</span>，用来表示一个符号是未知的（Unknown）</p>
 </dd></dl>
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-0f24ae8">
-<span class="sig-name descname"><span class="pre">Bottom</span></span><a class="headerlink" href="#term-0f24ae8" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Bottom</span></span><a class="headerlink" href="#term-0f24ae8" title="Link to this definition">#</a></dt>
 <dd><p><span class="math notranslate nohighlight">\(\bot\)</span>, 用来表示一个符号是未定义的（Undefined ）</p>
 </dd></dl>
 
 </section>
 <section id="intermediate-representation">
-<h2>2. Intermediate Representation<a class="headerlink" href="#intermediate-representation" title="此标题的永久链接">#</a></h2>
+<h2>2. Intermediate Representation<a class="headerlink" href="#intermediate-representation" title="Link to this heading">#</a></h2>
 <p>Intermediate Representation (IR) 是介于高级编程语言和字节码之间的一种中间表现形式，通常是 语言无关 + 机器无关的。用于编译优化和程序分析。</p>
 <p>AST 和 IR 的异同：</p>
 <figure class="align-default">
@@ -636,7 +644,7 @@ document.write(`
 </ul>
 <dl class="any">
 <dt class="sig sig-object any" id="term-ba241da">
-<span class="sig-name descname"><span class="pre">Three-Addrress</span> <span class="pre">Code</span></span><a class="headerlink" href="#term-ba241da" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Three-Addrress</span> <span class="pre">Code</span></span><a class="headerlink" href="#term-ba241da" title="Link to this definition">#</a></dt>
 <dd><p><a class="reference external" href="https://wikipedia.org/wiki/Three-address_code">📖 Three-address_code</a></p>
 <figure class="align-default">
 <img alt="../_images/6e1456b0-5734-4083-8617-fb8676028fe3.png" src="../_images/6e1456b0-5734-4083-8617-fb8676028fe3.png" />
@@ -645,7 +653,7 @@ document.write(`
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-7bbbd80">
-<span class="sig-name descname"><span class="pre">Static</span> <span class="pre">Single-Assignment</span></span><a class="headerlink" href="#term-7bbbd80" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Static</span> <span class="pre">Single-Assignment</span></span><a class="headerlink" href="#term-7bbbd80" title="Link to this definition">#</a></dt>
 <dd><figure class="align-default">
 <img alt="../_images/00cce13d-de57-41ac-b41b-84455cc2d6d7.png" src="../_images/00cce13d-de57-41ac-b41b-84455cc2d6d7.png" />
 </figure>
@@ -653,7 +661,7 @@ document.write(`
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-5884c19">
-<span class="sig-name descname"><span class="pre">Control</span> <span class="pre">Flow</span> <span class="pre">Graph</span></span><a class="headerlink" href="#term-5884c19" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Control</span> <span class="pre">Flow</span> <span class="pre">Graph</span></span><a class="headerlink" href="#term-5884c19" title="Link to this definition">#</a></dt>
 <dd><figure class="align-default">
 <img alt="../_images/0bc9d1e2-3ea7-4c5f-b1ea-6f948c8684fb.png" src="../_images/0bc9d1e2-3ea7-4c5f-b1ea-6f948c8684fb.png" />
 </figure>
@@ -661,7 +669,7 @@ document.write(`
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-f43022e">
-<span class="sig-name descname"><span class="pre">Basic</span> <span class="pre">Block</span></span><a class="headerlink" href="#term-f43022e" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Basic</span> <span class="pre">Block</span></span><a class="headerlink" href="#term-f43022e" title="Link to this definition">#</a></dt>
 <dd><p>Entry of BB must be dest of a JUMP instr.
 Exit of BB must be a JUMP instr.</p>
 <figure class="align-default">
@@ -670,7 +678,7 @@ Exit of BB must be a JUMP instr.</p>
 </dd></dl>
 
 <section id="some-soot-stuffs">
-<h3>Some Soot Stuffs<a class="headerlink" href="#some-soot-stuffs" title="此标题的永久链接">#</a></h3>
+<h3>Some Soot Stuffs<a class="headerlink" href="#some-soot-stuffs" title="Link to this heading">#</a></h3>
 <p><code class="code docutils literal notranslate"><span class="pre">$x</span></code>: temp var of soot.</p>
 <p>Java invoke type:</p>
 <dl class="field-list simple">
@@ -693,10 +701,10 @@ Exit of BB must be a JUMP instr.</p>
 </section>
 </section>
 <section id="data-flow-analysis-i">
-<h2>3. Data Flow Analysis I<a class="headerlink" href="#data-flow-analysis-i" title="此标题的永久链接">#</a></h2>
+<h2>3. Data Flow Analysis I<a class="headerlink" href="#data-flow-analysis-i" title="Link to this heading">#</a></h2>
 <dl class="any">
 <dt class="sig sig-object any" id="term-f5e3665">
-<span class="sig-name descname"><span class="pre">Data</span> <span class="pre">Flow</span> <span class="pre">Analysis</span></span><a class="headerlink" href="#term-f5e3665" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Data</span> <span class="pre">Flow</span> <span class="pre">Analysis</span></span><a class="headerlink" href="#term-f5e3665" title="Link to this definition">#</a></dt>
 <dd><p>How <em>Data</em> is <em>Flow</em> on <a class="reference internal" href="go/ssa.html#term-0c26078" title="term CFG"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣Dominate</span></code></a>?</p>
 <dl class="field-list simple">
 <dt class="field-odd">Data<span class="colon">:</span></dt>
@@ -720,7 +728,7 @@ of CFG (program). Safe-approximation?</p>
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-d2cdf1f">
-<span class="sig-name descname"><span class="pre">May</span> <span class="pre">Analysis::</span></span><a class="headerlink" href="#term-d2cdf1f" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">May</span> <span class="pre">Analysis::</span></span><a class="headerlink" href="#term-d2cdf1f" title="Link to this definition">#</a></dt>
 <dd><p>Output information <em>may</em> be true (over-approximation, sound?).</p>
 <p>Most static analyses is <em>May Analysis</em>.</p>
 <p>一般情况下 state 初始化为空集。</p>
@@ -728,7 +736,7 @@ of CFG (program). Safe-approximation?</p>
 
 <dl class="any">
 <dt class="sig sig-object any" id="term-b99453c">
-<span class="sig-name descname"><span class="pre">Must</span> <span class="pre">Analysis::</span></span><a class="headerlink" href="#term-b99453c" title="永久链接至目标">#</a></dt>
+<span class="sig-name descname"><span class="pre">Must</span> <span class="pre">Analysis::</span></span><a class="headerlink" href="#term-b99453c" title="Link to this definition">#</a></dt>
 <dd><p>Output information <em>must</em> be must (under-approximation, complete?).</p>
 <p>一般情况下 state 初始化为全集。</p>
 </dd></dl>
@@ -739,7 +747,7 @@ of CFG (program). Safe-approximation?</p>
 <figure class="align-default" id="id4">
 <img alt="../_images/screenshot-20220906-203643.png" src="../_images/screenshot-20220906-203643.png" />
 <figcaption>
-<p><span class="caption-text">Target of <code class="xref any any-term docutils literal notranslate"><span class="pre">DFA</span></code>.</span><a class="headerlink" href="#id4" title="此图像的永久链接">#</a></p>
+<p><span class="caption-text">Target of <code class="xref any any-term docutils literal notranslate"><span class="pre">DFA</span></code>.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </dd>
@@ -747,9 +755,9 @@ of CFG (program). Safe-approximation?</p>
 </dd>
 </dl>
 <section id="application">
-<h3>Application<a class="headerlink" href="#application" title="此标题的永久链接">#</a></h3>
+<h3>Application<a class="headerlink" href="#application" title="Link to this heading">#</a></h3>
 <section id="reaching-definitions-analysis">
-<h4>Reaching Definitions Analysis<a class="headerlink" href="#reaching-definitions-analysis" title="此标题的永久链接">#</a></h4>
+<h4>Reaching Definitions Analysis<a class="headerlink" href="#reaching-definitions-analysis" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Intra-producedural CFG</p></li>
 <li><p>No alias (alias: Pointer Analysis)</p></li>
@@ -764,16 +772,16 @@ of CFG (program). Safe-approximation?</p>
 <figure class="align-default" id="id5">
 <img alt="../_images/screenshot-20220906-212807.png" src="../_images/screenshot-20220906-212807.png" />
 <figcaption>
-<p><span class="caption-text">Iteration Cycles</span><a class="headerlink" href="#id5" title="此图像的永久链接">#</a></p>
+<p><span class="caption-text">Iteration Cycles</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 </section>
 <section id="data-flow-analysis-ii">
-<h2>4. Data Flow Analysis II<a class="headerlink" href="#data-flow-analysis-ii" title="此标题的永久链接">#</a></h2>
+<h2>4. Data Flow Analysis II<a class="headerlink" href="#data-flow-analysis-ii" title="Link to this heading">#</a></h2>
 <section id="live-variable-analysis">
-<h3>Live Variable Analysis<a class="headerlink" href="#live-variable-analysis" title="此标题的永久链接">#</a></h3>
+<h3>Live Variable Analysis<a class="headerlink" href="#live-variable-analysis" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>Abstraction</dt><dd><p>Use a bit vector, one bit for one variable assignment (<code class="code docutils literal notranslate"><span class="pre">v</span> <span class="pre">=</span> <span class="pre">x</span></code>). 1 for alive and 0 for dead.</p>
 </dd>
@@ -894,7 +902,7 @@ of CFG (program). Safe-approximation?</p>
 
   <p class="copyright">
     
-      © Copyright 2020-2023, Shengyu Zhang.
+      © Copyright 2020-2024, Shengyu Zhang.
       <br/>
     
   </p>
