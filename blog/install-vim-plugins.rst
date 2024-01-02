@@ -17,7 +17,7 @@
 fcitx.vim
 ---------
 
-这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
+这个是 :friend:`lilydjwg` 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)
 
 从这里可以下载: `fcitx.vim <http://www.vim.org/scripts/script.php?script_id=3764>`_.
