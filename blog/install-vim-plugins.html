@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2022-01-30T15:43:27+00:00" />
+    <meta property="article:modified_time" content="2024-01-02T12:15:31+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/blog/install-vim-plugins.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 fctix) 从这..." />
+<meta property="og:description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是 👤lilydjwg 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 ..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 fctix) 从这..." />
+<meta name="description" content="今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下: 首先我把本来.vimrc 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows, 同时维护兼容两个平台的配置文件实在是麻烦. fcitx.vim: 这个是 👤lilydjwg 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态. (当然你用的得是 ..." />
 
     <title>Vim 插件折腾记录 &#8212; 银色子弹</title>
   
@@ -55,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ae7f79ac" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
-    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=a8fb7c6c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
@@ -80,7 +80,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2022-01-30"/>
+    <meta name="docbuild:last-update" content="2024-01-02"/>
 
 <link
   rel="alternate"
@@ -432,7 +432,7 @@
   
   
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="tag/%E5%8D%B0%E5%88%B7-%E7%94%BB%E7%94%BB.html">印刷 画画</a>
+    <a href="tag/%E5%8D%B0%E5%88%B7.html">印刷</a>
   </li>
   
   
@@ -461,14 +461,8 @@
   
   
   
-  <li class="ablog-cloud ablog-cloud-1">
+  <li class="ablog-cloud ablog-cloud-2">
     <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
-  </li>
-  
-  
-  
-  <li class="ablog-cloud ablog-cloud-1">
-    <a href="tag/%E7%94%9F%E6%B4%BB-%E7%94%BB.html">生活 画</a>
   </li>
   
   
@@ -485,7 +479,7 @@
   
   
   
-  <li class="ablog-cloud ablog-cloud-1">
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
   </li>
   
@@ -729,7 +723,7 @@ document.write(`
 同时维护兼容两个平台的配置文件实在是麻烦.</p>
 <section id="fcitx-vim">
 <h2>fcitx.vim<a class="headerlink" href="#fcitx-vim" title="Link to this heading">#</a></h2>
-<p>这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
+<p>这个是 <a class="reference internal" href="../about/friends.html#friend-lilydjwg" title="friend lilydjwg"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤lilydjwg</span></code></a> 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)</p>
 <p>从这里可以下载: <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3764">fcitx.vim</a>.</p>
 <p>这个插件的安装很容易, 最简单的方式是直接把 <code class="code docutils literal notranslate"><span class="pre">so/fctix.vim</span></code>
@@ -974,7 +968,7 @@ $<span class="w"> </span>~<span class="w"> </span>./install.sh
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2022-01-30.
+  最后更新于 2024-01-02.
   <br/>
 </p>
   </div>

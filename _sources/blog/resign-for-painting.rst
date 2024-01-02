@@ -3,7 +3,7 @@
 ================
 
 .. post:: 2023-12-10
-   :tags: 生活 画
+   :tags: 生活,绘画
    :author: LA
    :language: zh_CN
    :category: 辞职为学画

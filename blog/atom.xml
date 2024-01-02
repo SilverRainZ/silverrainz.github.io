@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-01-01T11:34:08.515831+00:00</updated>
+  <updated>2024-01-02T12:20:49.065187+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -194,7 +194,8 @@
     <summary>这是一篇搁了好几年的草稿，后半段迟迟无法下笔，近年的心境已与那时大不相同，
 现在写出来总觉得自己在说谎，只好把一部分摘出来，让它得以见天日。
 希望有机会把后面的内容补完吧。</summary>
-    <category term="生活画" label="生活 画"/>
+    <category term="生活" label="生活"/>
+    <category term="绘画" label="绘画"/>
     <published>2023-12-10T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -338,7 +339,8 @@
 </content>
     <link href="https://silverrainz.gitee.io/blog/paper-size.html"/>
     <summary>之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 album-32k-1 里。后来画了一点 素描 和 丙烯，分别用了阿诗的素描纸（310×230 mm）与哈内姆勒的水彩纸（300×240mm），他们的的尺寸比 A4（297×210 mm）大一点，又比 A3（420×297 mm）小不少，收纳起来很尴尬。</summary>
-    <category term="印刷画画" label="印刷 画画"/>
+    <category term="印刷" label="印刷"/>
+    <category term="绘画" label="绘画"/>
     <published>2022-06-26T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -1649,9 +1651,6 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
-&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
-Alice -&amp;gt; Bob
-}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5411,7 +5410,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 同时维护兼容两个平台的配置文件实在是麻烦.&lt;/p&gt;
 &lt;section id="fcitx-vim"&gt;
 &lt;h2&gt;fcitx.vim&lt;/h2&gt;
-&lt;p&gt;这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
+&lt;p&gt;这个是 &lt;a class="reference internal" href="about/friends.html#friend-lilydjwg" title="friend lilydjwg"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤lilydjwg&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)&lt;/p&gt;
 &lt;aside class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/install-vim-plugins.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
@@ -5622,7 +5621,7 @@ $&lt;span class="w"&gt; &lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;./inst
 &lt;/section&gt;
 &lt;section id="id3"&gt;
 &lt;h2&gt;函数式特性&lt;/h2&gt;
-&lt;p&gt;再跑一下题, 我在这学期看了F叔的「Haskell趣学指南」, 自觉 Haskell 这门语言难以入门,
+&lt;p&gt;再跑一下题, 我在这学期看了 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;, 自觉 Haskell 这门语言难以入门,
 至今写过的代码也不过寥寥数行, 只能算是大概了解了他的语法, 却因此沾染上了一些「恶习」,
 老想在其他语言里使用那些FP的语法特性, 或者是当用这些特定可以让代码更好的时候,
 抱怨 xxx 怎么没有这个语法. 我自己都觉得有点可笑, 不过, Python 一定程度上满足了我这奇怪的要求.&lt;/p&gt;
@@ -6814,7 +6813,7 @@ n
 &lt;/div&gt;
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;fleurer&lt;/span&gt;&lt;/code&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;👤 MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
 &lt;aside class="topic"&gt;

@@ -16,6 +16,8 @@
 
 .. friend:: lilydjwg
             百合
+            百合仙子
+            依云
    :blog: https://blog.lilydjwg.me/
    :avatar: https://blog.lilydjwg.me/user_files/lilydjwg/config/avatar.png?1375032417
 
