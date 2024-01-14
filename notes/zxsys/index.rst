@@ -11,6 +11,8 @@
 .. toctree::
    :titlesonly:
 
+
+   6-lectures-on-sketch
    prelude
    light-and-shadow
    indoor-sketching
@@ -23,7 +25,3 @@
    string-modeling
    tips
    glossary
-
-.. seealso::
-
-    在开始课程之前，建议看看 :doc:`/notes/6-lectures-on-sketch`

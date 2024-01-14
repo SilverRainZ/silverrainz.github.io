@@ -449,11 +449,12 @@ if D.is_public():
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
-if D.is_public():
+# if D.is_public():
+if True:
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
-        # '<docname>': '<html/url>'
+        'notes/6-lectures-on-sketch': 'notes/zxsys/6-lectures-on-sketch.html'
     }
 
 # extensions.append('sphinxcontrib.images')
@@ -488,7 +489,10 @@ if D is not Deployment.Local:
 
 extensions.append('sphinxnotes.comboroles')
 comboroles_roles = {
-    'strong_literal': ['strong', 'literal'],
     'parsed_literal': (['literal'], True),
-    'parsed_emphasis': (['emphasis'], True),
+
+     # for ./blog/sphinxnotes-comboroles.rst
+    'strong_literal': ['strong', 'literal'],
+    'literal_enwiki': ['literal', 'enwiki'],
+    'literal_strike': ['literal', 'strike'],
 }
