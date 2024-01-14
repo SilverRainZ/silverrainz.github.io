@@ -7,6 +7,7 @@
    :tags: Golang, 泛型, 函数式编程
    :author: LA
    :language: zh_CN
+   :location: 杭州
 
 .. highlight:: go
 

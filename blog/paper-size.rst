@@ -3,7 +3,10 @@
 ====================================
 
 .. post:: 2022-06-26
-   :tags: 印刷,绘画
+   :tags: 印刷, 绘画
+   :author: LA
+   :language: zh_CN
+   :location: 杭州
 
 .. default-role:: math
 
