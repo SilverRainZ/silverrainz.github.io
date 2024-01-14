@@ -14,10 +14,12 @@ em {
 }
 
 /* Show bold text in normal, italic tyle */
+/*
 b, strong {
     font-style: italic;
     font-weight: normal;
 }
+*/
 
 /* Object description margin */
 .sig-object {
