@@ -6,6 +6,7 @@
    :tags: Golang, 泛型, 翻译
    :author: Ian Lance Taylor, LA
    :language: zh_CN
+   :location: 杭州
 
 .. highlight:: go
 
