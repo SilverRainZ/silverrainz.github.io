@@ -1,0 +1,1381 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2024-01-14T17:46:14+00:00" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-5MZDR9VPYN');
+            
+        </script>
+    <meta property="og:title" content="Implementing “nested inline markup” in reStructuredText and Sphinx" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/sphinxnotes-comboroles.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText(hereafter referred to as rST) as markup language by default. Unlike Markdow..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText(hereafter referred to as rST) as markup language by default. Unlike Markdow..." />
+
+    <title>Implementing “nested inline markup” in reStructuredText and Sphinx &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3e51a541" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=a8fb7c6c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/sphinxnotes-comboroles';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/sphinxnotes-comboroles.html" />
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+    <meta name="docbuild:last-update" content="2024-01-14"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="银色子弹 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="银色子弹 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  2024-01-14
+  
+</h2>
+<ul>
+  <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    <i class="fa-fw fa fa-location-arrow"></i>
+    
+    </span>
+  
+  
+  <a href="location/%E6%9D%AD%E5%B7%9E.html">杭州</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    <i class="fa-fw fa fa-folder-open"></i>
+    
+    </span>
+  
+  
+  <a href="category/sphinx.html">Sphinx</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/restructuredtext.html">reStructuredText</a>
+  
+  
+  
+  
+  
+  <a href="tag/sphinx.html">Sphinx</a>
+  
+  
+  
+</li>
+
+
+</div>
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="resign-for-painting.html">
+      10 December - 辞职为学画（一）
+    </a>
+  </li>
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+  <li>
+    <a href="funtional-programming-in-go-generics.html">
+      27 October - 函数式编程在 Go 泛型下的实用性探索
+    </a>
+  </li>
+  
+  <li>
+    <a href="xzzh-after-40-yrs.html">
+      03 July - 四十年后再看西藏组画
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7.html">印刷</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/sphinx.html">Sphinx (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E8%BE%9E%E8%81%8C%E4%B8%BA%E5%AD%A6%E7%94%BB.html">辞职为学画 (1)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2024.html">2024 (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2023.html">2023 (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Implementing “nested inline markup” in reStructuredText and Sphinx</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinxnotes-comboroles-extension">The <code class="docutils literal notranslate"><span class="pre">sphinxnotes-comboroles</span></code> extension</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parse">Nested Parse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#works-with-other-extensions">Works with other Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-ext-extlink"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.extlink</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinxnotes-strike"><code class="docutils literal notranslate"><span class="pre">sphinxnotes.strike</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation">Limitation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-docutils-document-tree">The Docutils Document Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-compositing">Dynamic compositing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-implementation">The code implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section id="implementing-nested-inline-markup-in-restructuredtext-and-sphinx">
+<h1>Implementing “nested inline markup” in reStructuredText and Sphinx<a class="headerlink" href="#implementing-nested-inline-markup-in-restructuredtext-and-sphinx" title="Link to this heading">#</a></h1>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p>Sphinx is a famous documentation generator used by a lot of Open Source
+communities. It uses <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (hereafter referred to as rST) as markup
+language by default.</p>
+<p>Unlike Markdown, rST does not yet support <a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible">Nested Inline Markups</a>, so text
+like “bold code” or “italic link” doesn’t render as expected:</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**bold**</span></code></p></td>
+<td><p><strong>bold</strong></p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">``code``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">code</span></code></p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">``**bold</span> <span class="pre">code**``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**bold</span> <span class="pre">code**</span></code></p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">**``bold</span> <span class="pre">code``**</span></code></p></td>
+<td><p><strong>``bold code``</strong></p></td>
+<td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
+<p>In rST, all inline markups in rST are implemented by
+<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text">Interpreted Text Roles</a>. For example, markup <code class="code docutils literal notranslate"><span class="pre">**foo**</span></code> is equivalent to
+<code class="code docutils literal notranslate"><span class="pre">:strong:`foo`</span></code>, “foo” is the interpreted text, and “strong” is the name of
+roles, which tells the renderer that “foo” should be highlighted.
+The same goes for markup <code class="docutils literal notranslate"><span class="pre">`foo`</span></code> and <code class="code docutils literal notranslate"><span class="pre">:literal:`foo`</span></code>.</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong:`bold`</span></code></p></td>
+<td><p><strong>bold</strong></p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:literal:`code`</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">code</span></code></p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+<p>Interpreted text can only “be interpreted” once, so markups and roles inside
+interpreted text will be treated as plain text, which means the syntax of roles
+is not nestable either:</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong:```bold</span> <span class="pre">code```</span></code></p></td>
+<td><p>:strong:<code class="docutils literal notranslate"><span class="pre">`bold</span> <span class="pre">code`</span></code></p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:literal:`**bold</span> <span class="pre">code**`</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**bold</span> <span class="pre">code**</span></code></p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong:`:literal:`bold</span> <span class="pre">code``</span></code></p></td>
+<td><p><strong>:literal:`bold code`</strong></p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:literal:`:strong:`bold</span> <span class="pre">code``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">:strong:`bold</span> <span class="pre">code`</span></code></p></td>
+<td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
+<p>Fortunately, rST is extensible, it allows users to create custom roles.
+Suppose we can create a role that combines the effects of two existing roles,
+then creating “bold code” is possible and it is true:</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong_literal:`bold</span> <span class="pre">code`</span></code></p></td>
+<td><p><strong><code class="docutils literal notranslate"><span class="pre">bold</span> <span class="pre">code</span></code></strong></p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-sphinxnotes-comboroles-extension">
+<h2>The <code class="docutils literal notranslate"><span class="pre">sphinxnotes-comboroles</span></code> extension<a class="headerlink" href="#the-sphinxnotes-comboroles-extension" title="Link to this heading">#</a></h2>
+<p>I wrote a Sphinx extension <code class="docutils literal notranslate"><a class="reference external" href="https://sphinx.silverrainz.me/comboroles/"><span class="pre">sphinxnotes-comboroles</span></a></code>,
+which can dynamically create composite roles from existing roles.</p>
+<p>First, download the extension from PyPI:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>sphinxnotes-comboroles
+</pre></div>
+</div>
+<p>Then, add the extension name to <code class="docutils literal notranslate"><span class="pre">extensions</span></code> configuration item in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+          <span class="c1"># …</span>
+          <span class="s1">&#39;sphinxnotes.comboroles&#39;</span><span class="p">,</span>
+          <span class="c1"># …</span>
+          <span class="p">]</span>
+</pre></div>
+</div>
+<p>To create a <code class="code docutils literal notranslate"><span class="pre">strong_literal</span></code> role that same as described above, add the following
+configuration, which tells the extension to composite example roles
+<code class="docutils literal notranslate"><span class="pre">strong</span></code> and <code class="docutils literal notranslate"><span class="pre">literal</span></code> into a new role
+<code class="docutils literal notranslate"><span class="pre">strong_literal</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">comboroles_roles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;strong_literal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="s1">&#39;literal&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, you can use it:</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong_literal:`bold</span> <span class="pre">code`</span></code></p></td>
+<td><p><strong><code class="docutils literal notranslate"><span class="pre">bold</span> <span class="pre">code</span></code></strong></p></td>
+</tr>
+</tbody>
+</table>
+<section id="nested-parse">
+<h3>Nested Parse<a class="headerlink" href="#nested-parse" title="Link to this heading">#</a></h3>
+<p>We have said that markups in interpreted text will not be parsed,
+but the extension allows us to force parse the interpreted text, like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">comboroles_roles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;parsed_literal&#39;</span><span class="p">:</span> <span class="p">([</span><span class="s1">&#39;literal&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span> <span class="c1"># enable nested_parse</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above configuration creates a composite role <code class="code docutils literal notranslate"><span class="pre">parsed_literal</span></code> with
+<a class="reference external" href="https://sphinx.silverrainz.me/comboroles/usage.html#nested-parse">Nested Parse</a> enabled, so the text “**bold code**” can be parsed.</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">``**bold</span> <span class="pre">code**``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**bold</span> <span class="pre">code**</span></code></p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`**bold</span> <span class="pre">code**`</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><strong><span class="pre">bold</span> <span class="pre">code</span></strong></code></p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+<p>Further, hyperlinks, substitutions, and even roles inside interpreted text can
+be parsed too:</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`https://example.com``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><a class="reference external" href="https://example.com"><span class="pre">https://example.com</span></a></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`|today|``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">01</span> <span class="pre">月</span> <span class="pre">14</span> <span class="pre">日</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`RFC:</span> <span class="pre">:rfc:\`1459\``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RFC:</span> <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"><strong><span class="pre">RFC</span> <span class="pre">1459</span></strong></a></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For nested roles, the backquote <code class="docutils literal notranslate"><span class="pre">`</span></code> in interpreted text needs to be escaped.</p>
+</div>
+</section>
+<section id="works-with-other-extensions">
+<h3>Works with other Extensions<a class="headerlink" href="#works-with-other-extensions" title="Link to this heading">#</a></h3>
+<p>Not limited to <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/roles.html#standard-roles">Standard Roles</a>, The extensions can also work with roles provided
+by some other extensions.</p>
+<section id="sphinx-ext-extlink">
+<h4><code class="docutils literal notranslate"><span class="pre">sphinx.ext.extlink</span></code><a class="headerlink" href="#sphinx-ext-extlink" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><a class="reference internal" href="#sphinx-ext-extlink"><span class="pre">sphinx.ext.extlink</span></a></code> is a Sphinx builtin extension to create
+shortened external links.</p>
+<p>We have the following configuration, extlink creates the <code class="docutils literal notranslate"><span class="pre">issue</span></code> role,
+then comboroles creates a <code class="docutils literal notranslate"><span class="pre">literal_issue</span></code> role based on it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extlinks</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;enwiki&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;https://wikipedia.org/wiki/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;📖 </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">comboroles_roles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;literal_enwiki&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;literal&#39;</span><span class="p">,</span> <span class="s1">&#39;enwiki&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:enwiki:`Lo</span> <span class="pre">Ta-yu`</span></code></p></td>
+<td><p><a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu">📖 Lo Ta-yu</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:literal_enwiki:`Lo</span> <span class="pre">Ta-yu`</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu"><span class="pre">📖</span> <span class="pre">Lo</span> <span class="pre">Ta-yu</span></a></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p>Inspired by <a class="github reference external" href="https://github.com/sphinx-doc/sphinx/issues/11745">sphinx-doc/sphinx#11745</a></p>
+</div>
+</section>
+<section id="sphinxnotes-strike">
+<h4><code class="docutils literal notranslate"><span class="pre">sphinxnotes.strike</span></code><a class="headerlink" href="#sphinxnotes-strike" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><a class="reference internal" href="#sphinxnotes-strike"><span class="pre">sphinxnotes.strike</span></a></code> is another extension I wrote, which adds
+<span class="sphinxnotes-strike" style="text-decoration: line-through;">strikethrough text</span> support to Sphinx:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">comboroles_roles</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;literal_strike&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;literal&#39;</span><span class="p">,</span> <span class="s1">&#39;strike&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strike:`text`</span></code></p></td>
+<td><p><span class="sphinxnotes-strike" style="text-decoration: line-through;">text</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:literal_strike:`text``</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="sphinxnotes-strike" style="text-decoration: line-through;"><span class="pre">text</span></span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="limitation">
+<h3>Limitation<a class="headerlink" href="#limitation" title="Link to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Due to internal implementation, the extension can only used to composite
+simple roles and may CRASH Sphinx when compositing complex roles.
+DO NOT report to Sphinx first if it crashes, please report to
+<a class="github reference external" href="https://github.com/sphinx-notes/comboroles/issues/new">sphinx-notes/comboroles#new</a></p>
+</div>
+</section>
+</section>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
+<p>Someone may be curious how the extension is implemented.
+In fact, it is quite simple, about 30 lines of code.</p>
+<section id="the-docutils-document-tree">
+<h3>The Docutils Document Tree<a class="headerlink" href="#the-docutils-document-tree" title="Link to this heading">#</a></h3>
+<p>Before going further, we need to have some basic understanding of
+the <a class="reference external" href="doctree">Document Tree</a> of docutils <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (hereafter referred to as doctree).
+The doctree describes the data structure of a rST document (a <code class="code docutils literal notranslate"><span class="pre">*.rst</span></code> file) <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+Here is a simplified diagram of the hierarchy of elements in the doctree,
+we only focus on the highlighted lines:</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Element hierarchy of doctree <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+--------------------------------------------------------------------+
+| document  [may begin with a title, subtitle, decoration, docinfo]  |
+|                             +--------------------------------------+
+|                             | sections  [each begins with a title] |
++-----------------------------+-------------------------+------------+
+| [body elements:]                                      | (sections) |
+|         | - literal | - lists  |       | - hyperlink  +------------+
+|         |   blocks  | - tables |       |   targets    |
+| para-   | - doctest | - block  | foot- | - sub. defs  |
+| graphs  |   blocks  |   quotes | notes | - comments   |
+<span class="hll">+---------+-----------+----------+-------+--------------+
+</span><span class="hll">| [text]+ | [text]    | (body elements)  | [text]       |
+</span><span class="hll">| (inline +-----------+------------------+--------------+
+</span><span class="hll">| markup) |
+</span><span class="hll">+---------+
+</span></pre></div>
+</div>
+</div>
+<p>The highlight lines describe the content model of <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14">Inline Elements</a>.
+All inline markups and roles we just discussed belong to inline elements.</p>
+<blockquote>
+<div><p>Inline elements <em>directly contain text data, and may also contain further inline elements</em>. <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</div></blockquote>
+<p>We already know that roles can not contain further roles, so we conclude that:
+The limitation of inline nested markup is caused by rST’s syntax, rather than
+the rST’s content model.</p>
+<p>By using the <code class="docutils literal notranslate"><a class="reference external" href="https://docutils.sourceforge.io/docs/user/tools.html#rst2pseudoxml"><span class="pre">rst2pseudoxml</span></a></code> command line, we can convert
+rST source code to text representation of doctree:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>rST</p></th>
+<th class="head"><p>doctree</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gs">**bold**</span>  <span class="s">``code``</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;document</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;untitled.rst&quot;</span><span class="nt">&gt;</span>
+<span class="w"> </span><span class="nt">&lt;paragraph&gt;</span>
+<span class="w">     </span><span class="nt">&lt;strong&gt;</span>
+<span class="w">         </span>bold
+
+<span class="w">     </span><span class="nt">&lt;literal&gt;</span>
+<span class="w">         </span>code
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Words enclosed in angle brackets <code class="code docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&gt;</span></code> represent nodes of the doctree,
+You can see that role <code class="code docutils literal notranslate"><span class="pre">:strong:`bold`</span></code> is converted to a  <code class="code docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code> node in
+somehow (see next section) with interpreted text “bold” as its child.</p>
+<p>The doctree of “bold code” is a combination of <code class="code docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code> and <code class="code docutils literal notranslate"><span class="pre">literal</span></code> node,
+which looks like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;strong&gt;</span>
+<span class="w">   </span><span class="nt">&lt;literal&gt;</span>
+<span class="w">       </span>bold<span class="w"> </span>code
+</pre></div>
+</div>
+</section>
+<section id="dynamic-compositing">
+<h3>Dynamic compositing<a class="headerlink" href="#dynamic-compositing" title="Link to this heading">#</a></h3>
+<p>All roles of docutils are implemented in the same way <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>:</p>
+<ol class="arabic simple">
+<li><p>Define the Role Function, which receives the context of the parser,
+creates and returns inline elements (nodes),
+and does any additional processing required node.</p></li>
+<li><p>Register the Role, with a name, such as “strong”, then users can use it</p></li>
+</ol>
+<p>We can simply create a role function, that returns a fixed combination like
+<code class="code docutils literal notranslate"><span class="pre">&lt;strong&gt;</span> <span class="pre">&lt;literal&gt;</span> <span class="pre">text</span></code>, but it is not cool. There may are many combinations of
+various markups, I don’t want to implement them one by one. The better idea is:</p>
+<ol class="arabic simple">
+<li><p>In the function, we look up role functions from a set of role names
+and get the corresponding node by calling them</p></li>
+<li><p>Nesting these nodes together</p></li>
+</ol>
+<p>Note that not all node combinations make sense, it depends on the complexity
+role function and the implementation of <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/builders/index.html">builders</a>. Fortunately:</p>
+<ul class="simple">
+<li><p>Most of markups’s role function are very simple: They wrap
+<code class="code docutils literal notranslate"><span class="pre">docutils.nodes.TextElement</span></code> around the text <a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></li>
+<li><p>The most commonly used builder is HTML builder, in its view,
+the combinations of nodes are combinations of HTML tags, which makes sense
+in most cases</p></li>
+</ul>
+</section>
+<section id="the-code-implementation">
+<h3>The code implementation<a class="headerlink" href="#the-code-implementation" title="Link to this heading">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">sphinx.util.docutils.SphinxRole</span></code> provides helper methods for creating roles
+in Sphinx, we use it instead of defining role function directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CompositeRole</span><span class="p">(</span><span class="n">SphinxRole</span><span class="p">):</span>
+    <span class="c1">#: Rolenames to be composited</span>
+    <span class="n">rolenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rolenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rolenames</span> <span class="o">=</span> <span class="n">rolenames</span>
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">run</span></code> function is equivalent to the role function, but bounded with
+the <code class="code docutils literal notranslate"><span class="pre">SphinxRole</span></code> subclass we created:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">system_message</span><span class="p">]]:</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>Here we look up role functions. <code class="code docutils literal notranslate"><span class="pre">_roles</span></code> and <code class="code docutils literal notranslate"><span class="pre">_role_registr</span></code> are unexported
+variables of <code class="code docutils literal notranslate"><span class="pre">docutils.parsers.rst.roles</span></code> that store the mapping
+from role name to role function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">components</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rolenames</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roles</span><span class="o">.</span><span class="n">_roles</span><span class="p">:</span>
+        <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roles</span><span class="o">.</span><span class="n">_roles</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roles</span><span class="o">.</span><span class="n">_role_registry</span><span class="p">:</span>
+        <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roles</span><span class="o">.</span><span class="n">_role_registry</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="c1"># Error handling...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>We can not look up up during <code class="code docutils literal notranslate"><span class="pre">__init__</span></code>, some roles created by
+3rd-party extension do not exist yet at that time.</p>
+</div>
+<p>Run all role function, pass parameters as is, then collect the returning nodes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TextElement</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+    <span class="n">ns</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">comp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawtext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inliner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="c1"># Error handling...</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The returned nodes should be exactly one <code class="code docutils literal notranslate"><span class="pre">docutils.nodes.TextElement</span></code> and
+contains exactly one <code class="code docutils literal notranslate"><span class="pre">docutils.nodes.Text</span></code> as a child, like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TextElement&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Text&gt;</span>
+</pre></div>
+</div>
+<p>Nesting nodes together by replace the <code class="code docutils literal notranslate"><span class="pre">Text</span></code> node with the inner(<code class="code docutils literal notranslate"><span class="pre">i+1</span></code>)
+<code class="code docutils literal notranslate"><span class="pre">TextElement</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#</span>
+</pre></div>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>before</p></th>
+<th class="head"><p>replace</p></th>
+<th class="head"><p>after</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>i=0:<span class="w"> </span><span class="nt">&lt;strong&gt;</span>
+<span class="w">        </span><span class="nt">&lt;text&gt;</span>
+
+i=1:<span class="w"> </span><span class="nt">&lt;literal&gt;</span>
+<span class="w">        </span><span class="nt">&lt;text&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>i=0:<span class="w"> </span><span class="nt">&lt;strong&gt;</span>
+<span class="w">        </span><span class="nt">&lt;text&gt;</span><span class="w"> </span>◄─┐
+<span class="w">                 </span>│<span class="w"> </span>replace
+i=1:<span class="w"> </span><span class="nt">&lt;literal&gt;</span><span class="w">  </span>─┘
+<span class="w">        </span><span class="nt">&lt;text&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>i=0:<span class="w"> </span><span class="nt">&lt;strong&gt;</span>
+<span class="w">        </span><span class="nt">&lt;literal&gt;</span>
+<span class="w">           </span><span class="nt">&lt;text&gt;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now, <code class="code docutils literal notranslate"><span class="pre">nodes[0]</span></code> is the root of node combination, just return it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>The above code has been simplified for ease of explanation, for complete
+implementation, please refer to <a class="reference external" href="https://github.com/sphinxnotes/comboroles">⛺ sphinxnotes/comboroles</a>.</p>
+</section>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://docutils.sourceforge.io/">docutils</a> is the main implementation of reStructuredText</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
+<p>It should be easy to understand if you know <a class="reference external" href="https://wikipedia.org/wiki/Abstract Syntax Tree">📖 Abstract Syntax Tree</a></p>
+</aside>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="doctree">The Docutils Document Tree</a> - Element Hierarchy</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14">Inline Elements</a></p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="create-roles">Creating reStructuredText Interpreted Text Roles</a></p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="create-roles">Creating reStructuredText Interpreted Text Roles</a> - Generic Roles</p>
+</aside>
+</aside>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/sphinxnotes-comboroles" data-title="Implementing &quot;nested inline markup&quot; in reStructuredText and Sphinx" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="resign-for-painting.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>辞职为学画（一）</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinxnotes-comboroles-extension">The <code class="docutils literal notranslate"><span class="pre">sphinxnotes-comboroles</span></code> extension</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parse">Nested Parse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#works-with-other-extensions">Works with other Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-ext-extlink"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.extlink</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinxnotes-strike"><code class="docutils literal notranslate"><span class="pre">sphinxnotes.strike</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation">Limitation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-docutils-document-tree">The Docutils Document Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-compositing">Dynamic compositing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-implementation">The code implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2020-2024, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2024-01-14.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

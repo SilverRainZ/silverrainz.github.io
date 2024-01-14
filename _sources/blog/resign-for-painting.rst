@@ -7,6 +7,7 @@
    :author: LA
    :language: zh_CN
    :category: 辞职为学画
+   :location: 杭州
 
 .. hint::
 

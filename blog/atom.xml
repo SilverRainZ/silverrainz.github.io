@@ -2,11 +2,530 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-01-02T12:20:49.065187+00:00</updated>
+  <updated>2024-01-14T17:52:44.850006+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
+  <entry>
+    <id>https://silverrainz.gitee.io/blog/sphinxnotes-comboroles.html</id>
+    <title>Implementing “nested inline markup” in reStructuredText and Sphinx</title>
+    <updated>2024-01-14T00:00:00+00:00</updated>
+    <author>
+      <name>Shengyu Zhang</name>
+    </author>
+    <content type="html">&lt;section id="implementing-nested-inline-markup-in-restructuredtext-and-sphinx"&gt;
+
+&lt;section id="background"&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Sphinx is a famous documentation generator used by a lot of Open Source
+communities. It uses &lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;reStructuredText&lt;/a&gt; (hereafter referred to as rST) as markup
+language by default.&lt;/p&gt;
+&lt;p&gt;Unlike Markdown, rST does not yet support &lt;a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible"&gt;Nested Inline Markups&lt;/a&gt;, so text
+like “bold code” or “italic link” doesn’t render as expected:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;``code``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;``**bold&lt;/span&gt; &lt;span class="pre"&gt;code**``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold&lt;/span&gt; &lt;span class="pre"&gt;code**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**``bold&lt;/span&gt; &lt;span class="pre"&gt;code``**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;``bold code``&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In rST, all inline markups in rST are implemented by
+&lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text"&gt;Interpreted Text Roles&lt;/a&gt;. For example, markup &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;**foo**&lt;/span&gt;&lt;/code&gt; is equivalent to
+&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`foo`&lt;/span&gt;&lt;/code&gt;, “foo” is the interpreted text, and “strong” is the name of
+roles, which tells the renderer that “foo” should be highlighted.
+The same goes for markup &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`foo`&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal:`foo`&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`bold`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 39)&lt;/p&gt;
+&lt;p&gt;No role entry for “strong” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for role “strong”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal:`code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 40)&lt;/p&gt;
+&lt;p&gt;No role entry for “literal” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for role “literal”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Interpreted text can only “be interpreted” once, so markups and roles inside
+interpreted text will be treated as plain text, which means the syntax of roles
+is not nestable either:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:```bold&lt;/span&gt; &lt;span class="pre"&gt;code```&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;:strong:&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal:`**bold&lt;/span&gt; &lt;span class="pre"&gt;code**`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold&lt;/span&gt; &lt;span class="pre"&gt;code**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`:literal:`bold&lt;/span&gt; &lt;span class="pre"&gt;code``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;:literal:`bold code`&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal:`:strong:`bold&lt;/span&gt; &lt;span class="pre"&gt;code``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Fortunately, rST is extensible, it allows users to create custom roles.
+Suppose we can create a role that combines the effects of two existing roles,
+then creating “bold code” is possible and it is true:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong_literal:`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bold&lt;/span&gt; &lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="the-sphinxnotes-comboroles-extension"&gt;
+&lt;h2&gt;The &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinxnotes-comboroles&lt;/span&gt;&lt;/code&gt; extension&lt;/h2&gt;
+&lt;p&gt;I wrote a Sphinx extension &lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://sphinx.silverrainz.me/comboroles/"&gt;&lt;span class="pre"&gt;sphinxnotes-comboroles&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;,
+which can dynamically create composite roles from existing roles.&lt;/p&gt;
+&lt;p&gt;First, download the extension from PyPI:&lt;/p&gt;
+&lt;div class="highlight-console notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;sphinxnotes-comboroles
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Then, add the extension name to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;extensions&lt;/span&gt;&lt;/code&gt; configuration item in your &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conf.py&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+          &lt;span class="c1"&gt;# …&lt;/span&gt;
+          &lt;span class="s1"&gt;&amp;#39;sphinxnotes.comboroles&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="c1"&gt;# …&lt;/span&gt;
+          &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;To create a &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;strong_literal&lt;/span&gt;&lt;/code&gt; role that same as described above, add the following
+configuration, which tells the extension to composite example roles
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;strong&lt;/span&gt;&lt;/code&gt; and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;literal&lt;/span&gt;&lt;/code&gt; into a new role
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;strong_literal&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;comboroles_roles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;strong_literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;strong&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, you can use it:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong_literal:`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bold&lt;/span&gt; &lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;section id="nested-parse"&gt;
+&lt;h3&gt;Nested Parse&lt;/h3&gt;
+&lt;p&gt;We have said that markups in interpreted text will not be parsed,
+but the extension allows us to force parse the interpreted text, like this:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;comboroles_roles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;parsed_literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="c1"&gt;# enable nested_parse&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The above configuration creates a composite role &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;parsed_literal&lt;/span&gt;&lt;/code&gt; with
+&lt;a class="reference external" href="https://sphinx.silverrainz.me/comboroles/usage.html#nested-parse"&gt;Nested Parse&lt;/a&gt; enabled, so the text “**bold code**” can be parsed.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;``**bold&lt;/span&gt; &lt;span class="pre"&gt;code**``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold&lt;/span&gt; &lt;span class="pre"&gt;code**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;❌&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`**bold&lt;/span&gt; &lt;span class="pre"&gt;code**`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;strong&gt;&lt;span class="pre"&gt;bold&lt;/span&gt; &lt;span class="pre"&gt;code&lt;/span&gt;&lt;/strong&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;✔️&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Further, hyperlinks, substitutions, and even roles inside interpreted text can
+be parsed too:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`https://example.com``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;14&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;备注&lt;/p&gt;
+&lt;p&gt;For nested roles, the backquote &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`&lt;/span&gt;&lt;/code&gt; in interpreted text needs to be escaped.&lt;/p&gt;
+&lt;/div&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 132); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Duplicate implicit target name: “nested parse”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;/section&gt;
+&lt;section id="works-with-other-extensions"&gt;
+&lt;h3&gt;Works with other Extensions&lt;/h3&gt;
+&lt;p&gt;Not limited to &lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/roles.html#standard-roles"&gt;Standard Roles&lt;/a&gt;, The extensions can also work with roles provided
+by some other extensions.&lt;/p&gt;
+&lt;section id="sphinx-ext-extlink"&gt;
+&lt;h4&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinx.ext.extlink&lt;/span&gt;&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference internal" href="#sphinx-ext-extlink"&gt;&lt;span class="pre"&gt;sphinx.ext.extlink&lt;/span&gt;&lt;/a&gt;&lt;/code&gt; is a Sphinx builtin extension to create
+shortened external links.&lt;/p&gt;
+&lt;p&gt;We have the following configuration, extlink creates the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;issue&lt;/span&gt;&lt;/code&gt; role,
+then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;literal_issue&lt;/span&gt;&lt;/code&gt; role based on it:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;extlinks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;enwiki&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://wikipedia.org/wiki/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;📖 &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;comboroles_roles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;literal_enwiki&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;enwiki&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:enwiki:`Lo&lt;/span&gt; &lt;span class="pre"&gt;Ta-yu`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu"&gt;📖 Lo Ta-yu&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal_enwiki:`Lo&lt;/span&gt; &lt;span class="pre"&gt;Ta-yu`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu"&gt;&lt;span class="pre"&gt;📖&lt;/span&gt; &lt;span class="pre"&gt;Lo&lt;/span&gt; &lt;span class="pre"&gt;Ta-yu&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="admonition seealso"&gt;
+&lt;p class="admonition-title"&gt;参见&lt;/p&gt;
+&lt;p&gt;Inspired by &lt;a class="github reference external" href="https://github.com/sphinx-doc/sphinx/issues/11745"&gt;sphinx-doc/sphinx#11745&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section id="sphinxnotes-strike"&gt;
+&lt;h4&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinxnotes.strike&lt;/span&gt;&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference internal" href="#sphinxnotes-strike"&gt;&lt;span class="pre"&gt;sphinxnotes.strike&lt;/span&gt;&lt;/a&gt;&lt;/code&gt; is another extension I wrote, which adds
+&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;strikethrough text&lt;/span&gt; support to Sphinx:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;comboroles_roles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="s1"&gt;&amp;#39;literal_strike&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;literal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;strike&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strike:`text`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;text&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal_strike:`text``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;&lt;span class="pre"&gt;text&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="limitation"&gt;
+&lt;h3&gt;Limitation&lt;/h3&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 188)&lt;/p&gt;
+&lt;p&gt;No directive entry for “warning” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “warning”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;div class="admonition warning"&gt;
+&lt;p class="admonition-title"&gt;警告&lt;/p&gt;
+&lt;p&gt;Due to internal implementation, the extension can only used to composite
+simple roles and may CRASH Sphinx when compositing complex roles.
+DO NOT report to Sphinx first if it crashes, please report to
+&lt;a class="github reference external" href="https://github.com/sphinx-notes/comboroles/issues/new"&gt;sphinx-notes/comboroles#new&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="how-it-works"&gt;
+&lt;h2&gt;How it works&lt;/h2&gt;
+&lt;p&gt;Someone may be curious how the extension is implemented.
+In fact, it is quite simple, about 30 lines of code.&lt;/p&gt;
+&lt;section id="the-docutils-document-tree"&gt;
+&lt;h3&gt;The Docutils Document Tree&lt;/h3&gt;
+&lt;p&gt;Before going further, we need to have some basic understanding of
+the &lt;a class="reference external" href="doctree"&gt;Document Tree&lt;/a&gt; of docutils &lt;a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; (hereafter referred to as doctree).
+The doctree describes the data structure of a rST document (a &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.rst&lt;/span&gt;&lt;/code&gt; file) &lt;a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;.
+Here is a simplified diagram of the hierarchy of elements in the doctree,
+we only focus on the highlighted lines:&lt;/p&gt;
+&lt;div class="literal-block-wrapper docutils container" id="id17"&gt;
+&lt;div class="code-block-caption"&gt;&lt;span class="caption-text"&gt;Element hierarchy of doctree &lt;a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;3&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div class="highlight-text notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------------------------------------------------------------------+
+| document  [may begin with a title, subtitle, decoration, docinfo]  |
+|                             +--------------------------------------+
+|                             | sections  [each begins with a title] |
++-----------------------------+-------------------------+------------+
+| [body elements:]                                      | (sections) |
+|         | - literal | - lists  |       | - hyperlink  +------------+
+|         |   blocks  | - tables |       |   targets    |
+| para-   | - doctest | - block  | foot- | - sub. defs  |
+| graphs  |   blocks  |   quotes | notes | - comments   |
+&lt;span class="hll"&gt;+---------+-----------+----------+-------+--------------+
+&lt;/span&gt;&lt;span class="hll"&gt;| [text]+ | [text]    | (body elements)  | [text]       |
+&lt;/span&gt;&lt;span class="hll"&gt;| (inline +-----------+------------------+--------------+
+&lt;/span&gt;&lt;span class="hll"&gt;| markup) |
+&lt;/span&gt;&lt;span class="hll"&gt;+---------+
+&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The highlight lines describe the content model of &lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14"&gt;Inline Elements&lt;/a&gt;.
+All inline markups and roles we just discussed belong to inline elements.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div&gt;&lt;p&gt;Inline elements &lt;em&gt;directly contain text data, and may also contain further inline elements&lt;/em&gt;. &lt;a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;4&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;We already know that roles can not contain further roles, so we conclude that:
+The limitation of inline nested markup is caused by rST’s syntax, rather than
+the rST’s content model.&lt;/p&gt;
+&lt;p&gt;By using the &lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/docs/user/tools.html#rst2pseudoxml"&gt;&lt;span class="pre"&gt;rst2pseudoxml&lt;/span&gt;&lt;/a&gt;&lt;/code&gt; command line, we can convert
+rST source code to text representation of doctree:&lt;/p&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 242)&lt;/p&gt;
+&lt;p&gt;No directive entry for “list-table” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “list-table”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr class="row-odd"&gt;&lt;th class="head"&gt;&lt;p&gt;rST&lt;/p&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;doctree&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;div class="highlight-rst notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gs"&gt;**bold**&lt;/span&gt;  &lt;span class="s"&gt;``code``&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;document&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;source=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;untitled.rst&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;paragraph&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;bold
+
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;code
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Words enclosed in angle brackets &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; represent nodes of the doctree,
+You can see that role &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`bold`&lt;/span&gt;&lt;/code&gt; is converted to a  &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;&lt;/code&gt; node in
+somehow (see next section) with interpreted text “bold” as its child.&lt;/p&gt;
+&lt;p&gt;The doctree of “bold code” is a combination of &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;literal&lt;/span&gt;&lt;/code&gt; node,
+which looks like:&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;bold&lt;span class="w"&gt; &lt;/span&gt;code
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section id="dynamic-compositing"&gt;
+&lt;h3&gt;Dynamic compositing&lt;/h3&gt;
+&lt;p&gt;All roles of docutils are implemented in the same way &lt;a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;5&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;Define the Role Function, which receives the context of the parser,
+creates and returns inline elements (nodes),
+and does any additional processing required node.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Register the Role, with a name, such as “strong”, then users can use it&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We can simply create a role function, that returns a fixed combination like
+&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt; &lt;span class="pre"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt; &lt;span class="pre"&gt;text&lt;/span&gt;&lt;/code&gt;, but it is not cool. There may are many combinations of
+various markups, I don’t want to implement them one by one. The better idea is:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;In the function, we look up role functions from a set of role names
+and get the corresponding node by calling them&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Nesting these nodes together&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that not all node combinations make sense, it depends on the complexity
+role function and the implementation of &lt;a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/builders/index.html"&gt;builders&lt;/a&gt;. Fortunately:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Most of markups’s role function are very simple: They wrap
+&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;docutils.nodes.TextElement&lt;/span&gt;&lt;/code&gt; around the text &lt;a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;6&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The most commonly used builder is HTML builder, in its view,
+the combinations of nodes are combinations of HTML tags, which makes sense
+in most cases&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="the-code-implementation"&gt;
+&lt;h3&gt;The code implementation&lt;/h3&gt;
+&lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinx.util.docutils.SphinxRole&lt;/span&gt;&lt;/code&gt; provides helper methods for creating roles
+in Sphinx, we use it instead of defining role function directly:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CompositeRole&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SphinxRole&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;#: Rolenames to be composited&lt;/span&gt;
+    &lt;span class="n"&gt;rolenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rolenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rolenames&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rolenames&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;run&lt;/span&gt;&lt;/code&gt; function is equivalent to the role function, but bounded with
+the &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;SphinxRole&lt;/span&gt;&lt;/code&gt; subclass we created:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Node&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;system_message&lt;/span&gt;&lt;span class="p"&gt;]]:&lt;/span&gt;
+   &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here we look up role functions. &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;_roles&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;_role_registr&lt;/span&gt;&lt;/code&gt; are unexported
+variables of &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;docutils.parsers.rst.roles&lt;/span&gt;&lt;/code&gt; that store the mapping
+from role name to role function:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;components&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rolenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_roles&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;components&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_roles&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_role_registry&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;components&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_role_registry&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="c1"&gt;# Error handling...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;备注&lt;/p&gt;
+&lt;p&gt;We can not look up up during &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;__init__&lt;/span&gt;&lt;/code&gt;, some roles created by
+3rd-party extension do not exist yet at that time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Run all role function, pass parameters as is, then collect the returning nodes:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;TextElement&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;components&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rawtext&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lineno&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inliner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Error handling...&lt;/span&gt;
+    &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The returned nodes should be exactly one &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;docutils.nodes.TextElement&lt;/span&gt;&lt;/code&gt; and
+contains exactly one &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;docutils.nodes.Text&lt;/span&gt;&lt;/code&gt; as a child, like this:&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;TextElement&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;Text&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Nesting nodes together by replace the &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;Text&lt;/span&gt;&lt;/code&gt; node with the inner(&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;i+1&lt;/span&gt;&lt;/code&gt;)
+&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;TextElement&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr class="row-odd"&gt;&lt;th class="head"&gt;&lt;p&gt;before&lt;/p&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;replace&lt;/p&gt;&lt;/th&gt;
+&lt;th class="head"&gt;&lt;p&gt;after&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;i=0:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;text&amp;gt;&lt;/span&gt;
+
+i=1:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;text&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;i=0:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;text&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;◄─┐
+&lt;span class="w"&gt;                 &lt;/span&gt;│&lt;span class="w"&gt; &lt;/span&gt;replace
+i=1:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;─┘
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;text&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;i=0:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;text&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Now, &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;nodes[0]&lt;/span&gt;&lt;/code&gt; is the root of node combination, just return it:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The above code has been simplified for ease of explanation, for complete
+implementation, please refer to &lt;a class="reference external" href="https://github.com/sphinxnotes/comboroles"&gt;⛺ sphinxnotes/comboroles&lt;/a&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="footnotes"&gt;
+&lt;h2&gt;Footnotes&lt;/h2&gt;
+&lt;aside class="footnote-list brackets"&gt;
+&lt;aside class="footnote brackets" id="id9" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id3"&gt;1&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/"&gt;docutils&lt;/a&gt; is the main implementation of reStructuredText&lt;/p&gt;
+&lt;/aside&gt;
+&lt;aside class="footnote brackets" id="id10" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id4"&gt;2&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;It should be easy to understand if you know &lt;a class="reference external" href="https://wikipedia.org/wiki/Abstract Syntax Tree"&gt;📖 Abstract Syntax Tree&lt;/a&gt;&lt;/p&gt;
+&lt;/aside&gt;
+&lt;aside class="footnote brackets" id="id11" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id5"&gt;3&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Duplicate implicit target name: “the docutils document tree”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;p&gt;&lt;a class="reference external" href="doctree"&gt;The Docutils Document Tree&lt;/a&gt; - Element Hierarchy&lt;/p&gt;
+&lt;/aside&gt;
+&lt;aside class="footnote brackets" id="id13" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id6"&gt;4&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14"&gt;Inline Elements&lt;/a&gt;&lt;/p&gt;
+&lt;/aside&gt;
+&lt;aside class="footnote brackets" id="id14" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id7"&gt;5&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;p&gt;&lt;a class="reference external" href="create-roles"&gt;Creating reStructuredText Interpreted Text Roles&lt;/a&gt;&lt;/p&gt;
+&lt;/aside&gt;
+&lt;aside class="footnote brackets" id="id15" role="doc-footnote"&gt;
+&lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id8"&gt;6&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;aside class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Duplicate explicit target name: “creating restructuredtext interpreted text roles”.&lt;/p&gt;
+&lt;/aside&gt;
+&lt;p&gt;&lt;a class="reference external" href="create-roles"&gt;Creating reStructuredText Interpreted Text Roles&lt;/a&gt; - Generic Roles&lt;/p&gt;
+&lt;/aside&gt;
+&lt;/aside&gt;
+&lt;div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils"&gt;
+&lt;div class="sd-card-body docutils"&gt;
+&lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
+评论&lt;/div&gt;
+&lt;p class="sd-card-text"&gt;如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 &lt;script type="text/javascript"&gt;document.write(
+    "&lt;n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\"&gt;pbzzragf\100fvyireenvam\056zr&lt;\057n&gt;".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c&lt;="Z"?90:122)&gt;=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);&lt;/script&gt; 回复你。&lt;/p&gt;
+&lt;section data-isso-id="/blog/sphinxnotes-comboroles" data-title="Implementing &amp;quot;nested inline markup&amp;quot; in reStructuredText and Sphinx" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://silverrainz.gitee.io/blog/sphinxnotes-comboroles.html"/>
+    <summary>Sphinx is a famous documentation generator used by a lot of Open Source
+communities. It uses reStructuredText (hereafter referred to as rST) as markup
+language by default.</summary>
+    <category term="Sphinx" label="Sphinx"/>
+    <category term="reStructuredText" label="reStructuredText"/>
+    <published>2024-01-14T00:00:00+00:00</published>
+  </entry>
   <entry>
     <id>https://silverrainz.gitee.io/blog/resign-for-painting.html</id>
     <title>辞职为学画（一）</title>
@@ -348,7 +867,7 @@
     <title>何时使用 Go 泛型</title>
     <updated>2022-06-03T00:00:00+00:00</updated>
     <author>
-      <name>Shengyu Zhang</name>
+      <name>Ian Lance Taylor</name>
     </author>
     <content type="html">&lt;section id="go"&gt;
 
@@ -833,7 +1352,7 @@
 &lt;/div&gt;
 &lt;p&gt;计算过程中会产生 3 个新的长度为 5 的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;[]int&lt;/span&gt;&lt;/code&gt;，空间复杂度为 &lt;span class="math notranslate nohighlight"&gt;\(O(3 * N)\)&lt;/span&gt;，尽管常数在复杂度分析时经常被省略，但在程序实际运行的时候，这里的 3 就意味着 3 倍的内存占用。&lt;/p&gt;
 &lt;aside class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/funtional-programming-in-go-generics.rst&lt;/span&gt;, line 294)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/funtional-programming-in-go-generics.rst&lt;/span&gt;, line 295)&lt;/p&gt;
 &lt;p&gt;No role entry for “math” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for role “math”.&lt;/p&gt;
 &lt;/aside&gt;
@@ -1192,7 +1711,7 @@ Using English fallback for role “math”.&lt;/p&gt;
 &lt;sub&gt;追记：现在，创作的激情早就离开我了&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;div class="legend"&gt;
 &lt;aside class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/xzzh-after-40-yrs.rst&lt;/span&gt;, line 74)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/xzzh-after-40-yrs.rst&lt;/span&gt;, line 75)&lt;/p&gt;
 &lt;p&gt;No role entry for “sub” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/aside&gt;
@@ -1651,6 +2170,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
