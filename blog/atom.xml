@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-01-14T17:52:44.850006+00:00</updated>
+  <updated>2024-01-15T16:06:05.421336+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -43,7 +43,7 @@ like “bold code” or “italic link” doesn’t render as expected:&lt;/p&gt
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;In rST, all inline markups in rST are implemented by
+&lt;p&gt;In rST, all inline markups are implemented by
 &lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text"&gt;Interpreted Text Roles&lt;/a&gt;. For example, markup &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;**foo**&lt;/span&gt;&lt;/code&gt; is equivalent to
 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`foo`&lt;/span&gt;&lt;/code&gt;, “foo” is the interpreted text, and “strong” is the name of
 roles, which tells the renderer that “foo” should be highlighted.
@@ -73,7 +73,7 @@ Using English fallback for role “literal”.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Interpreted text can only “be interpreted” once, so markups and roles inside
-interpreted text will be treated as plain text, which means the syntax of roles
+interpreted text will be treated as plain text, which means the syntax of role
 is not nestable either:&lt;/p&gt;
 &lt;table class="table"&gt;
 &lt;tbody&gt;
@@ -171,7 +171,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;14&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;15&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -419,7 +419,7 @@ contains exactly one &lt;code class="code docutils literal notranslate"&gt;&lt;s
 &lt;p&gt;Nesting nodes together by replace the &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;Text&lt;/span&gt;&lt;/code&gt; node with the inner(&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;i+1&lt;/span&gt;&lt;/code&gt;)
 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;TextElement&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="c1"&gt;#&lt;/span&gt;
+    &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;table class="table"&gt;
@@ -2170,9 +2170,6 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
-&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
-Alice -&amp;gt; Bob
-}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

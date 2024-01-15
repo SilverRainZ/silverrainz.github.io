@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-01-14T17:46:14+00:00" />
+    <meta property="article:modified_time" content="2024-01-15T16:01:15+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -80,7 +80,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-01-14"/>
+    <meta name="docbuild:last-update" content="2024-01-15"/>
 
 <link
   rel="alternate"
@@ -280,13 +280,13 @@
     </span>
   
   
-  <a href="tag/restructuredtext.html">reStructuredText</a>
-  
-  
-  
-  
-  
   <a href="tag/sphinx.html">Sphinx</a>
+  
+  
+  
+  
+  
+  <a href="tag/restructuredtext.html">reStructuredText</a>
   
   
   
@@ -809,7 +809,7 @@ like “bold code” or “italic link” doesn’t render as expected:</p>
 </tr>
 </tbody>
 </table>
-<p>In rST, all inline markups in rST are implemented by
+<p>In rST, all inline markups are implemented by
 <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text">Interpreted Text Roles</a>. For example, markup <code class="code docutils literal notranslate"><span class="pre">**foo**</span></code> is equivalent to
 <code class="code docutils literal notranslate"><span class="pre">:strong:`foo`</span></code>, “foo” is the interpreted text, and “strong” is the name of
 roles, which tells the renderer that “foo” should be highlighted.
@@ -827,7 +827,7 @@ The same goes for markup <code class="docutils literal notranslate"><span class=
 </tbody>
 </table>
 <p>Interpreted text can only “be interpreted” once, so markups and roles inside
-interpreted text will be treated as plain text, which means the syntax of roles
+interpreted text will be treated as plain text, which means the syntax of role
 is not nestable either:</p>
 <table class="table">
 <tbody>
@@ -925,7 +925,7 @@ be parsed too:</p>
 <td><p><code class="docutils literal notranslate"><a class="reference external" href="https://example.com"><span class="pre">https://example.com</span></a></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`|today|``</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">01</span> <span class="pre">月</span> <span class="pre">14</span> <span class="pre">日</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">01</span> <span class="pre">月</span> <span class="pre">15</span> <span class="pre">日</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`RFC:</span> <span class="pre">:rfc:\`1459\``</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">RFC:</span> <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"><strong><span class="pre">RFC</span> <span class="pre">1459</span></strong></a></code></p></td>
@@ -1159,7 +1159,7 @@ contains exactly one <code class="code docutils literal notranslate"><span class
 <p>Nesting nodes together by replace the <code class="code docutils literal notranslate"><span class="pre">Text</span></code> node with the inner(<code class="code docutils literal notranslate"><span class="pre">i+1</span></code>)
 <code class="code docutils literal notranslate"><span class="pre">TextElement</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#</span>
+    <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <table class="table">
@@ -1354,7 +1354,7 @@ implementation, please refer to <a class="reference external" href="https://gith
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-01-14.
+  最后更新于 2024-01-15.
   <br/>
 </p>
   </div>
