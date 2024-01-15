@@ -28,7 +28,7 @@ like "bold code" or "italic link" doesn't render as expected:
 ``**``bold code``**`` **``bold code``** ❌
 ===================== ================= ===
 
-In rST, all inline markups in rST are implemented by 
+In rST, all inline markups are implemented by
 `Interpreted Text Roles`_. For example, markup `**foo**` is equivalent to
 `:strong:`foo``, "foo" is the interpreted text, and "strong" is the name of
 roles, which tells the renderer that "foo" should be highlighted.
@@ -40,7 +40,7 @@ The same goes for markup ```foo``` and `:literal:`foo``.
 =================================== ============================== ==
 
 Interpreted text can only "be interpreted" once, so markups and roles inside
-interpreted text will be treated as plain text, which means the syntax of roles
+interpreted text will be treated as plain text, which means the syntax of role
 is not nestable either:
 
 =================================== ============================== ==
@@ -189,7 +189,7 @@ Limitation
 
    Due to internal implementation, the extension can only used to composite
    simple roles and may CRASH Sphinx when compositing complex roles.
-   DO NOT report to Sphinx first if it crashes, please report to 
+   DO NOT report to Sphinx first if it crashes, please report to
    https://github.com/sphinx-notes/comboroles/issues/new
 
 How it works
@@ -198,7 +198,7 @@ How it works
 Someone may be curious how the extension is implemented.
 In fact, it is quite simple, about 30 lines of code.
 
-The Docutils Document Tree 
+The Docutils Document Tree
 --------------------------
 
 Before going further, we need to have some basic understanding of
@@ -297,7 +297,7 @@ various markups, I don’t want to implement them one by one. The better idea is
 Note that not all node combinations make sense, it depends on the complexity
 role function and the implementation of builders_. Fortunately:
 
-- Most of markups's role function are very simple: They wrap 
+- Most of markups's role function are very simple: They wrap
   `docutils.nodes.TextElement` around the text [#]_
 - The most commonly used builder is HTML builder, in its view,
   the combinations of nodes are combinations of HTML tags, which makes sense
@@ -325,9 +325,9 @@ the `SphinxRole` subclass we created::
        ...
 
 Here we look up role functions. `_roles` and `_role_registr` are unexported
-variables of `docutils.parsers.rst.roles` that store the mapping 
+variables of `docutils.parsers.rst.roles` that store the mapping
 from role name to role function::
-   
+
    components = []
    for r in self.rolenames:
        if r in roles._roles:
@@ -343,7 +343,7 @@ from role name to role function::
    3rd-party extension do not exist yet at that time.
 
 Run all role function, pass parameters as is, then collect the returning nodes::
-  
+
   nodes: list[TextElement] = []
   for comp in components:
       ns, _ = comp(self.name, self.rawtext, self.text, self.lineno, self.inliner, self.options, self.content)
@@ -362,7 +362,7 @@ Nesting nodes together by replace the `Text` node with the inner(`i+1`)
 `TextElement`::
 
   for i in range(0, len(nodes) -1):
-      nodes[i].replace(nodes[i][0], nodes[i+1]) # 
+      nodes[i].replace(nodes[i][0], nodes[i+1])
 
 .. list-table::
    :header-rows: 1
