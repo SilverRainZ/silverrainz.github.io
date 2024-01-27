@@ -544,3 +544,11 @@ extensions.append('sphinx_simplepdf')
 if D is Deployment.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
     extensions.append('sphinxnotes.fasthtml')
+
+extensions.append('sphinx_tippy')
+tippy_rtd_urls = [
+    'https://www.sphinx-doc.org/en/master/',
+]
+tippy_enable_wikitips = False
+tippy_enable_doitips = False
+html_css_files.append('tippy-custom.css')
