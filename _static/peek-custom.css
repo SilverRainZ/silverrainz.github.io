@@ -1,0 +1,11 @@
+/* https://sphinx-peek.readthedocs.io/en/latest/#usage */
+
+/* sphinx-book-themes: Hide sidebar, localtoc, header and footer */
+.sp-iframe-document .bd-sidebar-primary,
+.sp-iframe-document .bd-sidebar-secondary,
+.sp-iframe-document .bd-header-announcement,
+.sp-iframe-document .bd-header-article,
+.sp-iframe-document .bd-footer-article,
+.sp-iframe-document .bd-footer-content {
+    display: none;
+}
