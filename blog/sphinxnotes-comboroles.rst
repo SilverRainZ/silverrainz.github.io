@@ -15,7 +15,7 @@ Background
 ==========
 
 Sphinx is a famous documentation generator used by a lot of Open Source
-communities. It uses reStructuredText_ (hereafter referred to as rST) as markup
+communities. It uses reStructuredText (hereafter referred to as rST) as markup
 language by default.
 
 Unlike Markdown, rST does not yet support `Nested Inline Markups`_, so text
@@ -58,8 +58,6 @@ then creating "bold code" is possible and it is true:
 ``:strong_literal:`bold code``` :strong_literal:`bold code` ✔️
 =============================== =========================== ==
 
-.. _Sphinx: https://www.sphinx-doc.org
-.. _reStructuredText:  https://docutils.sourceforge.io/rst.html
 .. _Nested Inline Markups: https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible
 .. _Interpreted Text Roles: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text
 
