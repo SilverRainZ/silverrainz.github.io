@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-01-15T16:01:15+00:00" />
+    <meta property="article:modified_time" content="2024-01-28T17:44:23+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/blog/sphinxnotes-comboroles.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText(hereafter referred to as rST) as markup language by default. Unlike Markdow..." />
+<meta property="og:description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText (hereafter referred to as rST) as markup language by default. Unlike Markdo..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText(hereafter referred to as rST) as markup language by default. Unlike Markdow..." />
+<meta name="description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText (hereafter referred to as rST) as markup language by default. Unlike Markdo..." />
 
     <title>Implementing “nested inline markup” in reStructuredText and Sphinx &#8212; 银色子弹</title>
   
@@ -37,12 +37,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
@@ -58,9 +58,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=a8fb7c6c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=946197a6"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
@@ -80,7 +80,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-01-15"/>
+    <meta name="docbuild:last-update" content="2024-01-28"/>
 
 <link
   rel="alternate"
@@ -101,7 +101,6 @@
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -142,18 +141,15 @@
 </form></div>
   </div>
 
-  <header>
-
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
   </div>
 
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -498,6 +494,8 @@
   
   
   
+  
+  
   <li class="ablog-cloud ablog-cloud-2">
     <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
   </li>
@@ -785,7 +783,7 @@ document.write(`
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>Sphinx is a famous documentation generator used by a lot of Open Source
-communities. It uses <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (hereafter referred to as rST) as markup
+communities. It uses reStructuredText (hereafter referred to as rST) as markup
 language by default.</p>
 <p>Unlike Markdown, rST does not yet support <a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible">Nested Inline Markups</a>, so text
 like “bold code” or “italic link” doesn’t render as expected:</p>
@@ -925,7 +923,7 @@ be parsed too:</p>
 <td><p><code class="docutils literal notranslate"><a class="reference external" href="https://example.com"><span class="pre">https://example.com</span></a></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`|today|``</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">01</span> <span class="pre">月</span> <span class="pre">15</span> <span class="pre">日</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">01</span> <span class="pre">月</span> <span class="pre">28</span> <span class="pre">日</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`RFC:</span> <span class="pre">:rfc:\`1459\``</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">RFC:</span> <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"><strong><span class="pre">RFC</span> <span class="pre">1459</span></strong></a></code></p></td>
@@ -1354,7 +1352,7 @@ implementation, please refer to <a class="reference external" href="https://gith
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-01-15.
+  最后更新于 2024-01-28.
   <br/>
 </p>
   </div>
@@ -1372,8 +1370,8 @@ implementation, please refer to <a class="reference external" href="https://gith
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-01-15T16:06:05.421336+00:00</updated>
+  <updated>2024-01-28T17:50:22.279359+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -19,7 +19,7 @@
 &lt;section id="background"&gt;
 &lt;h2&gt;Background&lt;/h2&gt;
 &lt;p&gt;Sphinx is a famous documentation generator used by a lot of Open Source
-communities. It uses &lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;reStructuredText&lt;/a&gt; (hereafter referred to as rST) as markup
+communities. It uses reStructuredText (hereafter referred to as rST) as markup
 language by default.&lt;/p&gt;
 &lt;p&gt;Unlike Markdown, rST does not yet support &lt;a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible"&gt;Nested Inline Markups&lt;/a&gt;, so text
 like “bold code” or “italic link” doesn’t render as expected:&lt;/p&gt;
@@ -171,7 +171,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;15&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;28&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -183,7 +183,7 @@ be parsed too:&lt;/p&gt;
 &lt;p&gt;For nested roles, the backquote &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`&lt;/span&gt;&lt;/code&gt; in interpreted text needs to be escaped.&lt;/p&gt;
 &lt;/div&gt;
 &lt;aside class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 132); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 130); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Duplicate implicit target name: “nested parse”.&lt;/p&gt;
 &lt;/aside&gt;
 &lt;/section&gt;
@@ -245,7 +245,7 @@ then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;s
 &lt;section id="limitation"&gt;
 &lt;h3&gt;Limitation&lt;/h3&gt;
 &lt;aside class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 188)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 186)&lt;/p&gt;
 &lt;p&gt;No directive entry for “warning” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “warning”.&lt;/p&gt;
 &lt;/aside&gt;
@@ -300,7 +300,7 @@ the rST’s content model.&lt;/p&gt;
 &lt;p&gt;By using the &lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/docs/user/tools.html#rst2pseudoxml"&gt;&lt;span class="pre"&gt;rst2pseudoxml&lt;/span&gt;&lt;/a&gt;&lt;/code&gt; command line, we can convert
 rST source code to text representation of doctree:&lt;/p&gt;
 &lt;aside class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 242)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/sphinxnotes-comboroles.rst&lt;/span&gt;, line 240)&lt;/p&gt;
 &lt;p&gt;No directive entry for “list-table” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “list-table”.&lt;/p&gt;
 &lt;/aside&gt;
@@ -2170,6 +2170,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
