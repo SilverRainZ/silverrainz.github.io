@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-01-28T17:44:23+00:00" />
+    <meta property="article:modified_time" content="2024-01-29T17:16:53+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -80,7 +80,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-01-28"/>
+    <meta name="docbuild:last-update" content="2024-01-29"/>
 
 <link
   rel="alternate"
@@ -264,13 +264,13 @@
     </span>
   
   
-  年度总结
-  
-  
-  
-  
-  
   <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  
+  
+  
+  
+  
+  年度总结
   
   
   
@@ -737,10 +737,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">工作</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">技术</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">画画</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">生活</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">工作</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">受挫、从探索到计件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">摆烂、屎的制作与食用、报应、字节强度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">无法成为专家</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">迷茫的生活可以辞职吗？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">开源</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">第一笔开源捐赠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-notes-project">The Sphinx Notes Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">简单的粗暴的东西好流行</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">凯尔特歌集、简谱和剑桥的视障科学家</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">画画</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">生活</a></li>
 </ul>
             </nav>
         </div>
@@ -755,14 +769,15 @@ document.write(`
 <section id="id1">
 <h1>2023 更新日志<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候 <code class="xref any any-friend docutils literal notranslate"><span class="pre">soyking</span></code> 就在群里催大家写总结，
-现在 soyking 和 <a class="reference external" href="https://github.com/marryjianjian">小杰</a> 都已各自完成 <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> ，我也该动动笔了。</p>
+现在 soyking 和 <a class="reference external" href="https://github.com/marryjianjian">小杰</a> 都已各自完成 <a class="footnote-reference brackets" href="#id15" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id16" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> ，我也该动动笔了。</p>
 <p>麻</p>
 <section id="id4">
 <h2>工作<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>23 年是我工作的第 5 年，也是在字节工作的第 2 年。我的运气一直不错， 一直做着不太无聊压力也不太大的工作，
 所以工作是还蛮有意思的事情，但今年心态也开始有了一些转变。</p>
-<dl>
-<dt>受挫、从探索到计件</dt><dd><p>22 年中，整个团队的目标转向性能优化，自己发起的项目被要求减少投入，并且开源无望。项目在内部还算受欢迎，也有不少用户，
+<section id="id5">
+<h3>受挫、从探索到计件<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>22 年中，整个团队的目标转向性能优化，自己发起的项目被要求减少投入，并且开源无望。项目在内部还算受欢迎，也有不少用户，
 要继续开发就要在正常工作的基础上额外抽自己的时间，我不愿意，于是项目只好停滞，只保持最低程度的维护。</p>
 <p>后面我转而尝试一些静态分析的工作。折腾了大半年东西是做出来了，但效果一般，落地困难。
 有些灰心，转移目标去给其他成熟项目打下手去了，想着以后就做计件制的工作吧，就不会有这样的挫败感了。</p>
@@ -773,8 +788,10 @@ document.write(`
 不会空出时间让你歇着</p></li>
 </ul>
 <p>是啊，工作就是这样，这已经是很好的职场环境了，老板不会跟你说只许成功不许失败，也没有 PM 给你加需求说明天就要。</p>
-</dd>
-<dt>摆烂、屎的制作与食用、报应、字节强度</dt><dd><p>9 月老板让我做个项目，平心而论并不是什么复杂项目，但我搞砸了：</p>
+</section>
+<section id="id6">
+<h3>摆烂、屎的制作与食用、报应、字节强度<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>9 月老板让我做个项目，平心而论并不是什么复杂项目，但我搞砸了：</p>
 <ul>
 <li><p>我抱着计件制心态做这件事情：</p>
 <ul class="simple">
@@ -790,53 +807,227 @@ oncall</p>
 </ul>
 <p>结果就是项目到了 12 月也没能做好，被老板一直 push，还麻烦了同事来救火。最终在 24 年 1 月加了两周班才堪堪摆平，
 算是体验了一把字节的平均强度。</p>
-</dd>
-<dt>无法成为专家</dt><dd><p>如上，今年做的都是一些提不起劲的工作，我也开始发现自己好像没什么竞争力。
-感觉周围的朋友和同事好像已经成为了某个领域的专家，或者在成为专家的路上，
-而我好像一直没有一个深入研究的领域：</p>
+</section>
+<section id="id7">
+<h3>无法成为专家<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>如上所述，今年做的都是一些提不起劲的工作，我也开始发现自己好像没什么竞争力。
+周围的朋友和组里的同事已经成为了某个领域的专家，或者在成为专家的路上，
+而我好像一直在做不太难的事情，也一直没有一个聚焦的领域：</p>
 <ul class="simple">
 <li><p>大学时学操作系统，写了个小 demo 后，却没有迈向成为 Linux Contributor 的一步</p></li>
 <li><p>在长亭做的流处理只是不看论文搞出来的 Domain-Specifed 的 flink 子集，
 离开后也没有再关注</p></li>
-<li><p>到了字节做泛型库没有技术上的难度，有点意思的是在易用性和功能上的各种
-trade-off，但我似乎也说不出个所以然</p></li>
-<li><p>尝试工作之余，借着组内资源混个 Go Contributor，发现没有余力</p></li>
-<li><p>后面工作里，做静态分析其实一直做得很浮躁。尽管有博士学静态分析的同时
+<li><p>到了字节做泛型库只是一堆小工具的合集，有点意思的是易用性和功能上的各种
+trade-off，但我似乎也总结不出什么来</p></li>
+<li><p>工作之余，本来向向其他同事多学习，混个 Go Committer，发现没有余力</p></li>
+<li><p>后来的静态分析也一直做得很浮躁。尽管有专业就是静态分析的同事
 <a class="reference external" href="https://github.com/zhangruoxu">👤 zhangruoxu</a> 帮助，可论文还是只看了半篇，
 <a class="reference internal" href="../notes/nju-static-program-analysis.html"><span class="doc">课程</span></a> 也没有学完。
 最后项目也凉了</p></li>
-<li><p>在开源社区做的很多事情，打包、IRC 客户端、Sphinx，本质的出发点都是因为
-好玩。别人没有做只是因为无利可图，而不是做不了。对工作当然有一丝丝好处，
-累计了写代码的熟练度，但要靠这些形成技术壁垒，积累能盈利的领域知识，
-就是天方夜谭了</p></li>
+<li><p>在开源社区做的工作倒是持续了很长时间，可惜只是并没有什么难度，不配称
+为聚焦。小众社区的事情很多事情没人做只是因为它小众，做了能累积写了写代码的熟练度，
+但要靠这些形成技术壁垒，就是天方夜谭了</p></li>
 </ul>
-</dd>
-<dt>麻木、红利和</dt><dd><p>pass</p>
-</dd>
-</dl>
-<p>吃到了时代的红利</p>
-<p>第一年</p>
-<p>相对来 工作强度</p>
-<p>专家级</p>
 </section>
-<section id="id5">
-<h2>技术<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>迷茫的生活可以辞职吗？<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>现在的工作其实很好了，没有什么无法忍受的事情，无法忍受的是在迷茫中度日。
+辞职不一定能解决我的迷茫，我可能还会迎来降薪、找不到工作、不如之前的工作环境…
+于是现在的想法就是：当一日和尚撞一日钟，当然还是要尽量保持专业。</p>
 </section>
-<section id="id6">
-<h2>画画<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 </section>
-<section id="id7">
-<h2>生活<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>开源<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>今年依然花了很多时间在玩自己的开源过家家，我在这个舒适区里待很久了。
+即使如此也是有些新鲜事的。</p>
+<section id="id10">
+<h3>第一笔开源捐赠<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><a href="#id17"><span class="problematic" id="id18">Srain_</span></a> 已经不再积极维护，但今年五月的时候收到了 <a class="reference external" href="https://github.com/kennylevinsen">👤 kennylevinsen</a> 50$
+的捐赠，让我开心了好几天。只可惜我已经不再热衷 IRC，在失去热情之前没能让 Srain
+成为流行的 IRC 客户端，也确实是自己能力有限</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>kennylevinsen 看起来是 swaywm 的活跃开发者，看起来这种捐赠只在开发者
+之间流通啊 lol</p>
+</div>
+</section>
+<section id="the-sphinx-notes-project">
+<h3>The Sphinx Notes Project<a class="headerlink" href="#the-sphinx-notes-project" title="Link to this heading">#</a></h3>
+<p>我的笔记系统由 Sphinx 搭建， <a class="reference external" href="https://github.com/sphinx-notes">👥 sphinx-notes</a> 是我用来补充原生 Sphinx 能力的一系列项目，
+Sphinx 在编程文档编写领域（尤其是 Python）相当流行，但鲜有人用来记笔记，所以这些项目的 star 数也寥寥。</p>
+<section id="id11">
+<h4>简单的粗暴的东西好流行<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>在不同的项目上我花的力气不同，一些项目我觉得很酷，花了大力气，没有人用。
+一些项目很简单，我只是为了方便随手一写，就会有不知哪里来的引用者。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/sphinx-notes/pages">⛺ sphinx-notes/pages</a> 用来把 Sphinx 项目推到 GitHub Pages 上，现在有 <a href="#id19"><span class="problematic" id="id20">`1000+ 的用户`_</span></a> ，
+其中包括 <a class="reference external" href="https://github.com/microsoft/python-package-template">⛺ microsoft/python-package-template</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sphinx-notes/strike">⛺ sphinx-notes/strike</a> 用来给 reStructuredText 添加 <span class="sphinxnotes-strike" style="text-decoration: line-through;">删除线</span> （Markdown 用户可能觉得不可思议），
+仅有数十个用户，不过里面包括了 <a class="reference external" href="https://github.com/haskell/cabal">⛺ haskell/cabal</a></p></li>
+</ul>
+<p>_ <a class="github reference external" href="https://github.com/sphinx-notes/pages/network/dependents">sphinx-notes/pages</a></p>
+</section>
+<section id="id12">
+<h4>凯尔特歌集、简谱和剑桥的视障科学家<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<p>23 年最花力气的项目应该是 <a class="reference external" href="https://github.com/sphinx-notes/lilypond">⛺ sphinx-notes/lilypond</a> ，用来把纯文本打谱软件 LilyPond 的乐谱插入到 Sphinx 文档里</p>
+<p><a class="reference external" href="https://github.com/kjcole">👤 kjcole</a> 是我唯一认识的用户，他用 Sphinx + LilyPond 重新整理了 CELTIC SONG BOOK，看起来是凯尔特人之间流传的一些民歌，听起来都是有些悲伤的单旋律木管乐。我修掉了几个他汇报的 bug，有些他没有回应，2.0 有几个破坏性的改动，不知道他会不会更新。</p>
+<p>多年前看过 Tuna 的康哥 &#64;scateu 用 LilyPond 打二胡的简谱，为了练琴的仪式感，我尝试在插件里支持简谱。
+Silas S. Brown 自定义了一套简谱语法，写了一个 Python 脚本将其翻译为 LilyPond，这个脚本看着很复杂，只支持从命令行调用，于是我去提了 feature request： “Make jianpu-ly importable · Issue #15 · ssb22/jianpu-ly”。很有意思的是 Silas 是个会中文的英国人，我特地在 issue 里说了点中文期望能刷好感度，而他也快速的满足了我的请求。</p>
+<p>jianpu-ly 的集成工作并没有什么值得聊的，总之我们现在也能在 Sphinx 里面写简谱了：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src=".././_lilypond/87f28562480408a594c411863fdc4e8db4dd6d8f/music.cropped.png" alt="\version &quot;2.18.0&quot;
+#(set-global-staff-size 20)
+
+% un-comment the next line to remove Lilypond tagline:
+% \header { tagline=&quot;&quot; }
+
+\pointAndClickOff
+
+\paper {
+  print-all-headers = ##t %% allow per-score headers
+
+  % un-comment the next line for A5:
+  % #(set-default-paper-size &quot;a5&quot; )
+
+  % un-comment the next line for no page numbers:
+  % print-page-number = ##f
+
+  % un-comment the next 3 lines for a binding edge:
+  % two-sided = ##t
+  % inner-margin = 20\mm
+  % outer-margin = 10\mm
+
+  % un-comment the next line for a more space-saving header layout:
+  % scoreTitleMarkup = \markup { \center-column { \fill-line { \magnify #1.5 { \bold { \fromproperty #'header:dedication } } \magnify #1.5 { \bold { \fromproperty #'header:title } } \fromproperty #'header:composer } \fill-line { \fromproperty #'header:instrument \fromproperty #'header:subtitle \smaller{\fromproperty #'header:subsubtitle } } } }
+}
+
+\score {
+&lt;&lt; \override Score.BarNumber #'break-visibility = #center-visible
+\override Score.BarNumber #'Y-offset = -1
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 5)
+
+%% === BEGIN JIANPU STAFF ===
+    \new RhythmicStaff \with {
+    \consists &quot;Accidental_engraver&quot; 
+    %% Get rid of the stave but not the barlines:
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2, 2.20.0 and 2.22.2
+    \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
+    }
+    { \new Voice=&quot;W&quot; {
+
+    \override Beam #'transparent = ##f % (needed for LilyPond 2.18 or the above switch will also hide beams)
+    \override Stem #'direction = #DOWN
+    \override Tie #'staff-position = #2.5
+    \tupletUp
+
+    \override Stem #'length-fraction = #0
+    \override Beam #'beam-thickness = #0.1
+    \override Beam #'length-fraction = #0.5
+    \override Voice.Rest #'style = #'neomensural % this size tends to line up better (we'll override the appearance anyway)
+    \override Accidental #'font-size = #-4
+    \override TupletBracket #'bracket-visibility = ##t
+\set Voice.chordChanges = ##t %% 2.19 bug workaround
+
+    \override Staff.TimeSignature #'style = #'numbered
+    \override Staff.Stem #'transparent = ##t
+     \mark \markup{1=E} \time 6/8 \tempo 4=120 #(define (note-five grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;5&quot;)))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g8[-\tweak #'X-offset #0.6 _.
+#(define (note-seven grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;7&quot;)))))))
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b8-\tweak #'X-offset #0.6 _.
+#(define (note-two grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;2&quot;)))))))
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two dis'8]
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-five g'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-seven b'8
+#(define (note-four grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup &quot;4&quot;)))))))
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-four f''8]^.
+| %{ bar 2: %}
+  \applyOutput #'Voice #note-five g''4.^.
+~   \applyOutput #'Voice #note-five g''4.^. \bar &quot;|.&quot; } }
+% === END JIANPU STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;Baug7&quot;
+}
+\layout{} }
+\score {
+\unfoldRepeats
+&lt;&lt; 
+
+% === BEGIN MIDI STAFF ===
+    \new Staff { \new Voice=&quot;X&quot; { \transpose c e { \key c \major  \time 6/8 \tempo 4=120 g8 b8 dis'8 g'8 b'8 f''8 | %{ bar 2: %} g''2. } } }
+% === END MIDI STAFF ===
+
+&gt;&gt;
+\header{
+title=&quot;Baug7&quot;
+}
+\midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }" style="width:100%;"/>
+<audio controls class="lilypond-score" style="width:100%;" src=".././_lilypond/87f28562480408a594c411863fdc4e8db4dd6d8f/music.mp3" >
+</audio></p></div><p><a class="reference external" href="https://mail.gnu.org/archive/html/lilypond-user/2021-10/msg00410.html">https://mail.gnu.org/archive/html/lilypond-user/2021-10/msg00410.html</a>
+<a class="github reference external" href="https://github.com/ssb22/jianpu-ly/issues/15">ssb22/jianpu-ly#15</a>
+<a class="reference external" href="http://ssb22.user.srcf.net/index-zh.html">http://ssb22.user.srcf.net/index-zh.html</a></p>
+<p><a class="reference external" href="http://scateu.me/2014/03/07/gnu-lilypond-example.html">http://scateu.me/2014/03/07/gnu-lilypond-example.html</a>
+<a class="reference external" href="http://ssb22.user.srcf.net/">http://ssb22.user.srcf.net/</a></p>
+<p>TODO：截图</p>
+</section>
+</section>
+</section>
+<section id="id13">
+<h2>画画<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+</section>
+<section id="id14">
+<h2>生活<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><p>吉他：音乐：罗大佑 《未来的主人翁》古川本舖 赵雷《署前街少年》</p>
 </div></blockquote>
 <p>人生</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id8" role="doc-footnote">
+<aside class="footnote brackets" id="id15" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://blog.soyking.top/posts/20231225_2023s_changelog/">https://blog.soyking.top/posts/20231225_2023s_changelog/</a></p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id16" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://blog.fflush.me/2023changelog/">https://blog.fflush.me/2023changelog/</a></p>
 </aside>
@@ -895,10 +1086,24 @@ trade-off，但我似乎也说不出个所以然</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">工作</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">技术</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">画画</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">生活</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">工作</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">受挫、从探索到计件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">摆烂、屎的制作与食用、报应、字节强度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">无法成为专家</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">迷茫的生活可以辞职吗？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">开源</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">第一笔开源捐赠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-notes-project">The Sphinx Notes Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">简单的粗暴的东西好流行</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">凯尔特歌集、简谱和剑桥的视障科学家</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">画画</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">生活</a></li>
 </ul>
   </nav></div>
 
@@ -932,7 +1137,7 @@ trade-off，但我似乎也说不出个所以然</p></li>
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-01-28.
+  最后更新于 2024-01-29.
   <br/>
 </p>
   </div>
