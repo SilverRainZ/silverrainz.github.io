@@ -53,7 +53,7 @@
 
     \override Staff.TimeSignature #'style = #'numbered
     \override Staff.Stem #'transparent = ##t
-     \mark \markup{1=E} \time 6/8 \tempo 4=120 #(define (note-five grob grob-origin context)
+     \mark \markup{1=E} \time 6/8 \tempo 4=110 #(define (note-five grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
         (grob::has-interface grob 'rest-interface)))
@@ -118,7 +118,7 @@ title="Baug7"
 << 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice="X" { \transpose c e { \key c \major  \time 6/8 \tempo 4=120 g8 b8 dis'8 g'8 b'8 f''8 | %{ bar 2: %} g''2. } } }
+    \new Staff { \new Voice="X" { \transpose c e { \key c \major  \time 6/8 \tempo 4=110 g8 b8 dis'8 g'8 b'8 f''8 | %{ bar 2: %} g''2. } } }
 % === END MIDI STAFF ===
 
 >>
