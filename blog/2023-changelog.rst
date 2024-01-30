@@ -126,18 +126,17 @@ _ https://github.com/sphinx-notes/pages/network/dependents
 
 :ghuser:`kjcole` 是我唯一认识的用户，他用 Sphinx + LilyPond 重新整理了 CELTIC SONG BOOK，看起来是凯尔特人之间流传的一些民歌，听起来都是有些悲伤的单旋律木管乐。我修掉了几个他汇报的 bug，有些他没有回应，2.0 有几个破坏性的改动，不知道他会不会更新。
 
-
 多年前看过 Tuna 的康哥 @scateu 用 LilyPond 打二胡的简谱，为了练琴的仪式感，我尝试在插件里支持简谱。
-Silas S. Brown 自定义了一套简谱语法，写了一个 Python 脚本将其翻译为 LilyPond，这个脚本看着很复杂，只支持从命令行调用，于是我去提了 feature request： "Make jianpu-ly importable · Issue #15 · ssb22/jianpu-ly"。很有意思的是 Silas 是个会中文的英国人，我特地在 issue 里说了点中文期望能刷好感度，而他也快速的满足了我的请求。
+Silas S. Brown 定义了一套简谱语法，并提供了一个脚本 :file:`jianpu-ly.py` 将其翻译为 LilyPond。这个脚本看着很复杂，只支持从命令行调用，于是我去提了 feature request： "Make jianpu-ly importable · Issue #15 · ssb22/jianpu-ly"。很有意思的是 Silas 是个会中文的英国人，我特地在 issue 里说了点中文期望能刷好感度，而他也快速的满足了我的请求。
 
-jianpu-ly 的集成工作并没有什么值得聊的，总之我们现在也能在 Sphinx 里面写简谱了：
+`jianpu-ly.py` 的集成工作并没有什么值得聊的，总之我们现在也能在 Sphinx 里面写简谱了：
 
 .. jianpu::
 
    title=Baug7
    1=E
    6/8
-   4=120
+   4=110
 
    q5, q7, q#2 q5 q7 q4' 5'. ~ 5'.
 
@@ -148,10 +147,36 @@ http://ssb22.user.srcf.net/index-zh.html
 http://scateu.me/2014/03/07/gnu-lilypond-example.html
 http://ssb22.user.srcf.net/
 
-TODO：截图
-
 画画
 ====
+
+迷茫的生活不能画画吗？
+----------------------
+
+22 年中开始，我就 {:abbr:`不愿 (没有意义)`, :abbr:`不会 (技术生疏)`, :abbr:`不想 (缺乏冲动)`} 
+画画了。整个 23 年 365 天，我大概只画了 15、6 张小创作，这可能是「迷茫」在我生活里最直接的体现。
+
+:del:`删去了一堆自怨自艾的话，以前我如何如何，现在我如何如何，这毫无意义` ——  因为我知道自己为什么不画画。
+
+AI 的能力给我造成过冲击，
+我知道自己为什么不
+AI，处于对，
+
+短促的复苏
+----------
+
+重返燕郊
+~~~~~~~~
+
+尽管我已经能画一些东西了，但色彩上一直缺乏理论，全凭本能。
+:book:`色彩艺术` 是晓飞老师非常推崇的书，我屡次尝试读它都没能有收获，只好当面去求教。
+于是 8 月我开始筹划着去燕郊一趟，因为长时间没有画画怕面对心生愧疚，所谓 15、6 张的小创作，也大部分是这个时候完成的。
+9 月我动身去燕郊，用尽所有的年假搭上国庆假期共计两周，收获颇丰，只可惜时间还是短了，未能完整地完成训练。
+
+.. hint:: 笔记在此： :doc:`/notes/zxsys/colort` 至今未整理完，唉。
+
+厕所画室
+~~~~~~~~
 
 生活
 ====
