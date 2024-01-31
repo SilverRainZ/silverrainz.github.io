@@ -10,7 +10,7 @@ Dump SSA funtion::
 
 展示控制流程图::
 
-  GOSSAFUNC=XXX:*  go build
+   GOSSAFUNC=XXX:*  go build
 
 https://go-review.googlesource.com/c/go/+/142517/
 
