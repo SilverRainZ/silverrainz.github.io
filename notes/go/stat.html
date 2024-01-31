@@ -18,16 +18,16 @@
             gtag('config', 'G-5MZDR9VPYN');
             
         </script>
-    <meta property="og:title" content="Type Assertion" />
+    <meta property="og:title" content="<no title>" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://silverrainz.gitee.io/notes/go/type-assertion.html" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/go/stat.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="Assert to 具体类型: 比较目标类型和 eface 的_typ 字段，即可转换。 Assert to 带方法的 interface{}: 以 i.(fmt.Stringer) 为例，在 AMD64 平台生成的 指令 如下： runtime.assertE2I → runtime.getitab 尝试在 Go 里自己实现一个: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱..." />
+<meta property="og:description" content="粗略统计 Go Packages 的公开函数: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="Assert to 具体类型: 比较目标类型和 eface 的_typ 字段，即可转换。 Assert to 带方法的 interface{}: 以 i.(fmt.Stringer) 为例，在 AMD64 平台生成的 指令 如下： runtime.assertE2I → runtime.getitab 尝试在 Go 里自己实现一个: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱..." />
+<meta name="description" content="粗略统计 Go Packages 的公开函数: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 
-    <title>Type Assertion &#8212; 银色子弹</title>
+    <title>&lt;no title&gt; &#8212; 银色子弹</title>
   
   
   
@@ -71,14 +71,12 @@
     <script src="../../_static/translations.js?v=beaddf03"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/go/type-assertion';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/go/stat';</script>
     <script src="../../_static/mirror-redirect.js?v=20b68f28"></script>
-    <link rel="canonical" href="https://silverrainz.gitee.io/notes/go/type-assertion.html" />
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/go/stat.html" />
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="GC" href="gc.html" />
-    <link rel="prev" title="Go’s Assembler" href="asm.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
@@ -158,6 +156,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -204,7 +204,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../zxsys/index.html">造型实验室</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../zxsys/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../zxsys/prelude.html">暴露问题</a></li>
@@ -308,13 +308,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Golang</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="pprof.html">PProf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coverage.html">覆盖率</a></li>
 <li class="toctree-l2"><a class="reference internal" href="godoc.html">Godoc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev.html">Develop Go</a></li>
 <li class="toctree-l2"><a class="reference internal" href="asm.html">Go’s Assembler</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type-assertion.html">Type Assertion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gc.html">GC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ast.html">Abstract Syntax Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ssa.html">Static Single-Assignment</a></li>
@@ -514,7 +514,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Type Assertion</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -523,10 +523,9 @@ document.write(`
                 <h2> 目录 </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-to">Assert to 具体类型</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-to-interface">Assert to 带方法的 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code></a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
+
             </nav>
         </div>
     </div>
@@ -537,52 +536,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section id="type-assertion">
-<h1>Type Assertion<a class="headerlink" href="#type-assertion" title="Link to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>Based on Go 1.17</p>
-</div>
-<section id="assert-to">
-<h2>Assert to 具体类型<a class="headerlink" href="#assert-to" title="Link to this heading">#</a></h2>
-<p>比较目标类型和 eface 的 <code class="code docutils literal notranslate"><span class="pre">_typ</span></code> 字段，即可转换。</p>
-</section>
-<section id="assert-to-interface">
-<h2>Assert to 带方法的 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code><a class="headerlink" href="#assert-to-interface" title="Link to this heading">#</a></h2>
-<p>以 <code class="code docutils literal notranslate"><span class="pre">i.(fmt.Stringer)</span></code> 为例，在 AMD64 平台生成的 <a class="reference external" href="https://godbolt.org/z/aTo57oxza">指令</a> 如下：</p>
-<div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nf">LEAQ</span><span class="w">    </span><span class="nv">type.fmt.Stringer</span><span class="p">(</span><span class="nv">SB</span><span class="p">),</span><span class="w"> </span><span class="nb">AX</span>
-<span class="w">        </span><span class="nf">LEAQ</span><span class="w">    </span><span class="nv">type.int</span><span class="p">(</span><span class="nv">SB</span><span class="p">),</span><span class="w"> </span><span class="nb">BX</span>
-<span class="w">        </span><span class="nf">CALL</span><span class="w">    </span><span class="nv">runtime.assertE2I</span><span class="p">(</span><span class="nv">SB</span><span class="p">)</span>
-<span class="w">        </span><span class="nf">MOVUPS</span><span class="w">  </span><span class="nv">X15</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="nv">..autotmp_10</span><span class="o">+</span><span class="mi">40</span><span class="p">(</span><span class="nb">SP</span><span class="p">)</span>
-<span class="w">        </span><span class="nf">NOP</span>
-<span class="w">        </span><span class="nf">TESTQ</span><span class="w">   </span><span class="nb">AX</span><span class="p">,</span><span class="w"> </span><span class="nb">AX</span>
-<span class="w">        </span><span class="nf">JEQ</span><span class="w">     </span><span class="nv">main_pc73</span>
-<span class="w">        </span><span class="nf">MOVQ</span><span class="w">    </span><span class="mi">8</span><span class="p">(</span><span class="nb">AX</span><span class="p">),</span><span class="w"> </span><span class="nb">AX</span>
-<span class="nl">main_pc73:</span>
-<span class="w">        </span><span class="nf">MOVQ</span><span class="w">    </span><span class="nb">AX</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="nv">..autotmp_10</span><span class="o">+</span><span class="mi">40</span><span class="p">(</span><span class="nb">SP</span><span class="p">)</span>
-<span class="w">        </span><span class="nf">LEAQ</span><span class="w">    </span><span class="s">&quot;&quot;</span><span class="nv">..stmp_0</span><span class="p">(</span><span class="nv">SB</span><span class="p">),</span><span class="w"> </span><span class="nb">DX</span>
-<span class="w">        </span><span class="nf">MOVQ</span><span class="w">    </span><span class="nb">DX</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="nv">..autotmp_10</span><span class="o">+</span><span class="mi">48</span><span class="p">(</span><span class="nb">SP</span><span class="p">)</span>
-<span class="w">        </span><span class="nf">NOP</span>
-</pre></div>
-</div>
-<p><code class="code docutils literal notranslate"><span class="pre">runtime.assertE2I</span></code> →  <code class="code docutils literal notranslate"><span class="pre">runtime.getitab</span></code></p>
-<p>尝试在 Go 里自己实现一个:</p>
-<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">//go:linkname getitab runtime.getitab</span>
-<span class="kd">func</span><span class="w"> </span><span class="nx">getitab</span><span class="p">(</span><span class="nx">inter</span><span class="w"> </span><span class="kt">uintptr</span><span class="p">,</span><span class="w"> </span><span class="nx">typ</span><span class="w"> </span><span class="kt">uintptr</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="kt">uintptr</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">rtypeSize</span><span class="w"> </span><span class="kt">uintptr</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">rtypeSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">(</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">((</span><span class="mi">1</span><span class="p">))).</span><span class="nx">Elem</span><span class="p">().</span><span class="nx">Size</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nx">CastInterface</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">](</span><span class="nx">i</span><span class="w"> </span><span class="kd">interface</span><span class="p">{})</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">xi</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">xface</span><span class="p">)(</span><span class="nx">p</span><span class="p">)</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="kd">interface</span><span class="p">{}</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">T</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">xi</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">getitab</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="kt">uintptr</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">((</span><span class="o">*</span><span class="nx">xface</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">z</span><span class="p">)).</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">rtypeSize</span><span class="p">)),</span><span class="w"> </span><span class="nx">xi</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="nx">T</span><span class="p">)(</span><span class="nx">p</span><span class="p">)</span>
-<span class="p">}</span>
+<p>粗略统计 Go Packages 的公开函数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;^func [A-Z]&#39;</span> <span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="nb">dir</span> <span class="n">internal</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;*_test.go&#39;</span>
 </pre></div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -599,10 +554,8 @@ document.write(`
         }
     )
 );</script> 回复你。</p>
-<section data-isso-id="/notes/go/type-assertion" data-title="Type Assertion" id="isso-thread"></section></div>
+<section data-isso-id="/notes/go/stat" id="isso-thread"></section></div>
 </div>
-</section>
-</section>
 
 <div class="section ablog__blog_comments">
   
@@ -619,24 +572,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="asm.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">上一页</p>
-        <p class="prev-next-title">Go’s Assembler</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="gc.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">GC</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -652,10 +587,9 @@ document.write(`
     <i class="fa-solid fa-list"></i> 目录
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-to">Assert to 具体类型</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-to-interface">Assert to 带方法的 <code class="code docutils literal notranslate"><span class="pre">interface{}</span></code></a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
+
   </nav></div>
 
 </div></div>

@@ -32,7 +32,7 @@ Assert to 带方法的 `interface{}`
            MOVQ    DX, ""..autotmp_10+48(SP)
            NOP
 
-`runtime.assertE2I` -> `runtime.getitab`
+`runtime.assertE2I` →  `runtime.getitab`
 
 尝试在 Go 里自己实现一个::
 

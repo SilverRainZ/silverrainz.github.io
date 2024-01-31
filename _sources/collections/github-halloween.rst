@@ -6,8 +6,13 @@ Github 万圣节彩蛋
 
 每年存个档吧，我记得往年也截过，不知道能否找到。
 
-.. grid:: 1 1 1 1
+.. grid:: 1 1 2 2
    :gutter: 1
+
+   .. grid-item-card:: 2023
+      :img-bottom: /_images/火狐截图_2024-01-31T05-07-59.275Z.png
+
+      万圣节没截到，随便顶替吧。
 
    .. grid-item-card:: 2022
       :img-bottom: /_images/火狐截图_2022-10-30T16-45-17.748Z.png
