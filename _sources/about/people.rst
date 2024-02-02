@@ -100,3 +100,13 @@
          偶蹄目的鸟类。
 
          在 :artwork:`被抛弃的预感` 里出演一只猪。
+
+   .. grid-item-card::
+
+      .. people:: 胡林昊
+
+         :event:`造型实验室` 时期学画的同学。造型极好，学透了晓飞老师的形体知识。
+         当时在画室画的 拉奥孔__ 参加了不少展览。创作也很怪，前途无量。
+
+         __ https://mp.weixin.qq.com/s/045bMNUrPfiKnbqf89Y8UQ
+

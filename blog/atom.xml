@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-02-02T05:42:18.995770+00:00</updated>
+  <updated>2024-02-02T12:25:30.342094+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
@@ -867,7 +867,7 @@ language by default.</summary>
     <title>何时使用 Go 泛型</title>
     <updated>2022-06-03T00:00:00+00:00</updated>
     <author>
-      <name>Ian Lance Taylor</name>
+      <name>Shengyu Zhang</name>
     </author>
     <content type="html">&lt;section id="go"&gt;
 
