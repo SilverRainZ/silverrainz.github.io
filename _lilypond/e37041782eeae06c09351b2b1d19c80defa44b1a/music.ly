@@ -53,7 +53,35 @@
 
     \override Staff.TimeSignature #'style = #'numbered
     \override Staff.Stem #'transparent = ##t
-     \mark \markup{1=E} \time 6/8 \tempo 4=110 #(define (note-five grob grob-origin context)
+     \mark \markup{1=E} \time 6/8 \tempo 4=110 #(define (note-one grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup "1")))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c''8[^.
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-one c''8^.
+#(define (note-six grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup "6")))))))
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8]
+  \applyOutput #'Voice #note-one c''4^. \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-six a'8[]
+#(define (note-five grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
         (grob::has-interface grob 'rest-interface)))
@@ -61,7 +89,50 @@
       (ly:grob-set-property! grob 'stencil
         (grob-interpret-markup grob
           (make-lower-markup 0.5 (make-bold-markup "5")))))))
+| %{ bar 2: %}
+  \applyOutput #'Voice #note-five g'4
+#(define (note-three grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup "3")))))))
 \set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+  \applyOutput #'Voice #note-one c'4 #(define (note-four grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup "4")))))))
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-four f'8[]
+| %{ bar 3: %}
+  \applyOutput #'Voice #note-three e'4
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-three e'8[]
+#(define (note-two grob grob-origin context)
+  (if (and (eq? (ly:context-property context 'chordChanges) #t)
+      (or (grob::has-interface grob 'note-head-interface)
+        (grob::has-interface grob 'rest-interface)))
+    (begin
+      (ly:grob-set-property! grob 'stencil
+        (grob-interpret-markup grob
+          (make-lower-markup 0.5 (make-bold-markup "2")))))))
+  \applyOutput #'Voice #note-two d'4
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-two d'8[]
+| %{ bar 4: %}
+  \applyOutput #'Voice #note-one c'4.
+~   \applyOutput #'Voice #note-one c'4. | %{ bar 5: %} \set stemLeftBeamCount = #0
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-five g8[-\tweak #'X-offset #0.6 _.
 #(define (note-seven grob grob-origin context)
@@ -75,14 +146,6 @@
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-seven b8-\tweak #'X-offset #0.6 _.
-#(define (note-two grob grob-origin context)
-  (if (and (eq? (ly:context-property context 'chordChanges) #t)
-      (or (grob::has-interface grob 'note-head-interface)
-        (grob::has-interface grob 'rest-interface)))
-    (begin
-      (ly:grob-set-property! grob 'stencil
-        (grob-interpret-markup grob
-          (make-lower-markup 0.5 (make-bold-markup "2")))))))
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-two dis'8]
@@ -92,37 +155,23 @@
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-seven b'8
-#(define (note-four grob grob-origin context)
-  (if (and (eq? (ly:context-property context 'chordChanges) #t)
-      (or (grob::has-interface grob 'note-head-interface)
-        (grob::has-interface grob 'rest-interface)))
-    (begin
-      (ly:grob-set-property! grob 'stencil
-        (grob-interpret-markup grob
-          (make-lower-markup 0.5 (make-bold-markup "4")))))))
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
   \applyOutput #'Voice #note-four f''8]^.
-| %{ bar 2: %}
+| %{ bar 6: %}
   \applyOutput #'Voice #note-five g''4.^.
 ~   \applyOutput #'Voice #note-five g''4.^. \bar "|." } }
 % === END JIANPU STAFF ===
 
 >>
-\header{
-title="Baug7"
-}
 \layout{} }
 \score {
 \unfoldRepeats
 << 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice="X" { \transpose c e { \key c \major  \time 6/8 \tempo 4=110 g8 b8 dis'8 g'8 b'8 f''8 | %{ bar 2: %} g''2. } } }
+    \new Staff { \new Voice="X" { \transpose c e { \key c \major  \time 6/8 \tempo 4=110 c''8 c''8 a'8 c''4 a'8 | %{ bar 2: %} g'4 e'8 c'4 f'8 | %{ bar 3: %} e'4 e'8 d'4 d'8 | %{ bar 4: %} c'2. | %{ bar 5: %} g8 b8 dis'8 g'8 b'8 f''8 | %{ bar 6: %} g''2. } } }
 % === END MIDI STAFF ===
 
 >>
-\header{
-title="Baug7"
-}
 \midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }
