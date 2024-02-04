@@ -454,7 +454,7 @@ if True:
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
-        'notes/6-lectures-on-sketch': 'notes/zxsys/6-lectures-on-sketch.html'
+        'notes/6-lectures-on-sketch': '/notes/zxsys/6-lectures-on-sketch.html'
     }
 
 # extensions.append('sphinxcontrib.images')
