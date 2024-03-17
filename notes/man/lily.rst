@@ -148,8 +148,6 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 可以直接在显示 一些常见和弦的指板图__ ，和弦记法参见 :term:`和弦模式`。
 
 .. lily::
-   :noedge:
-   :nofooter:
 
    \version "2.20.0"
    \include "predefined-guitar-fretboards.ly"
