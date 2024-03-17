@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2023-07-29T15:51:50+00:00" />
+    <meta property="article:modified_time" content="2024-03-17T16:15:15+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -65,6 +65,7 @@
     <script src="../../_static/documentation_options.js?v=946197a6"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/asciinema-player_3.6.3.js"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
@@ -82,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2023-07-29"/>
+    <meta name="docbuild:last-update" content="2024-03-17"/>
 
 <link
   rel="alternate"
@@ -711,7 +712,21 @@ document.write(`
 <h3>显示和弦指板图<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <p>对于常见的和弦，通过引入 <code class="file docutils literal notranslate"><span class="pre">predefined-guitar-fretboards.ly</span></code> 和使用 ChoreMode
 可以直接在显示 <a class="reference external" href="https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams">一些常见和弦的指板图</a> ，和弦记法参见 <a class="reference internal" href="#term-dea39f7" title="term 和弦模式"><code class="xref any any-term docutils literal notranslate"><span class="pre">#️⃣和弦模式</span></code></a>。</p>
-<p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
+<div class="lilypond">
+<p><img class="lilypond-score" src="../.././_lilypond/0ff30f9928b8e2acdd5819afa988a5052c64a13a/music.cropped.png" alt="\version &quot;2.20.0&quot;
+\include &quot;predefined-guitar-fretboards.ly&quot;
+
+chordsline = \chordmode { c1 c:7 f:maj7 }
+
+\score {
+   &lt;&lt;
+   \new ChordNames { \chordsline }
+   \new FretBoards { \chordsline }
+   &gt;&gt;
+
+   \layout {}
+}" style="width:100%;"/>
+</p></div><p>当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：</p>
 <dl>
 <dt><a class="reference external" href="https://lilypond.org/doc/Documentation/notation/common-notation-for-fretted-strings#automatic-fret-diagrams">Automatic fret diagrams</a></dt><dd><p>指定和弦的组成音，LilyPond 会根据上下文帮你推测当前 <code class="xref any any-term docutils literal notranslate"><span class="pre">调弦</span></code> 下的指板图。</p>
 <p>例如 D7 和弦的常见按法是： <img class="lilypond-score" src="../.././_lilypond/a84545651820b4108433c20c07527d76fe7b90f2/music.preview.png" alt="\include &quot;predefined-guitar-fretboards.ly&quot; \new FretBoards{ \chordmode { d1:7 }}" style="height:2.5em;", align="absbottom"/>，
@@ -1023,7 +1038,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2023-07-29.
+  最后更新于 2024-03-17.
   <br/>
 </p>
   </div>
