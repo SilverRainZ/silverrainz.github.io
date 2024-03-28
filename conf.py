@@ -496,3 +496,11 @@ comboroles_roles = {
     'literal_enwiki': ['literal', 'enwiki'],
     'literal_strike': ['literal', 'strike'],
 }
+
+extensions.append('sphinx_peek')
+peek_selector = ','.join(['article a.reference.internal'])
+peek_unselector = ', '.join([
+    '.toctree-wrapper a', '.toc-tree a', # toctree
+    'a.image-reference', 'li.ablog-post a', # ablog's postlist
+])
+html_css_files.append('peek-custom.css')
