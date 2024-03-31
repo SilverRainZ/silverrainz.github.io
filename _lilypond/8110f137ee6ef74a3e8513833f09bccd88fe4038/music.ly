@@ -1,1 +1,0 @@
-\new FretBoards{ <d fis c' d'> }

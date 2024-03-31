@@ -1,1 +1,0 @@
-\chordmode{ c1:dim }

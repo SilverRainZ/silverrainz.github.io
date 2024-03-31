@@ -9,7 +9,7 @@
    :location: 杭州
 
 其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候
-:friend:`豆豆` 就在群里催大家写总结，现在豆豆和小杰 已各自完成 [1]_ [2]_ ，
+:friend:`豆豆` 就在群里催大家写总结，现在豆豆和小杰 已各自完成 [1]_ [2]_，
 我也该动动笔了。
 
 工作
@@ -38,7 +38,7 @@
 不会有这样的挫败感了。
 
 - 探索性的项目会有失败的风险，但有意思且可以自己预估
-  :abbr:`人天 (一个人一天做的工作量)` ，排期相对自由
+  :abbr:`人天 (一个人一天做的工作量)`，排期相对自由
 - 做常规的需求则不需要太动脑子，但无聊且排期紧凑：
   做一个活儿的平均时间是很明确的，干完这个就会有下一个，不会空出时间让你歇着
 
@@ -65,7 +65,7 @@
 
 结果就是项目到了 12 月也没能做好，被老板一直 push，还麻烦了同事来救火。
 最终在 24 年的 1 月加了两周班才堪堪摆平，算是体验了一把字节的平均强度。
-   
+
 无法成为专家
 ------------
 
@@ -108,7 +108,7 @@ Srain_ 在今年五月的时候收到了 50 美元的捐赠，让我开心了好
    https://opencollective.com/srain
 
 .. hint::
- 
+
    捐赠者 :ghuser:`kennylevinsen` 看起来是 Sway_ 的活跃开发者，
    看起来这种捐赠只在开发者之间流通啊 :D
 
@@ -129,13 +129,14 @@ The Sphinx Notes Project
 而一些项目很简单，我只是为了方便随手一写，就会有不知哪里来的用户：
 
 - :ghrepo:`sphinx-notes/pages` 用来把 Sphinx 项目推到 GitHub Pages 上，现在有
-  `1000+ 的用户`__ ，其中包括了 `微软的开源 Python 项目模板`__
-- :ghrepo:`sphinx-notes/strike` 用来给 reStructuredText 添加 :del:`删除线` 
+  `1000+ 的用户`__，其中包括了 `微软的开源 Python 项目模板`__ 和 PHP__
+- :ghrepo:`sphinx-notes/strike` 用来给 reStructuredText 添加 :del:`删除线`
   （Markdown 用户可能会觉得不可思议），仅有数十个用户，不过包括了 Haskell 的
   包管理器 cabal__
 
 __ https://github.com/sphinx-notes/pages/network/dependents
 __ https://github.com/microsoft/python-package-template
+__ https://github.com/php/php-src/commit/19d2b84788df500a62d7cb668d72419f70b73ca9
 __ https://github.com/haskell/cabal
 
 .. _2023-sphinxnotes-lilypond:
@@ -143,20 +144,20 @@ __ https://github.com/haskell/cabal
 凯尔特歌集、简谱和说中文的剑桥科学家 [3]_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-23 年最花力气的项目应该是 :ghrepo:`sphinx-notes/lilypond` ，用来把自由打谱软件
+23 年最花力气的项目应该是 :ghrepo:`sphinx-notes/lilypond`，用来把自由打谱软件
 LilyPond 的生成的乐谱插入到 Sphinx 文档里。
 
 :ghuser:`kjcole` 是我唯一认识的用户，他用 Sphinx + LilyPond 重新整理了
-`《Celtic Song Book》`__ [4]_ 。他向我汇报了不少 bug，有些比较难解，但在一轮轮
+`《Celtic Song Book》`__ [4]_。他向我汇报了不少 bug，有些比较难解，但在一轮轮
 迭代中还是都修掉了。2.0 有几个破坏性的改动，不知道他会不会更新。
 
 为了练琴的仪式感，我尝试在插件里支持简谱。
-多年前看过 Tuna 的康哥 @scateu 用 `LilyPond 打二胡的简谱`__ ，顺着博客找到了
-Silas S. Brown 写的 :parsed_literal:`\`jianpu-ly.py\`__` 。
+多年前看过 Tuna 的康哥 @scateu 用 `LilyPond 打二胡的简谱`__，顺着博客找到了
+Silas S. Brown 写的 :parsed_literal:`\`jianpu-ly.py\`__`。
 
 Silas 定义了一套简谱语法，并提供了一个脚本 `jianpu-ly.py` 将其翻译为 LilyPond
 源码。这个脚本只支持从命令行调用，并且有些复杂，不太好修改。于是我去提了
-`Feature Request`__ ，希望他能帮我把脚本变得可以被我的扩展复用。
+`Feature Request`__，希望他能帮我把脚本变得可以被我的扩展复用。
 Silas 懂一些中文，于是我特地在 issue 里说了点中文期望能刷好感度 ;-P
 而他也快速的满足了我的请求。
 
@@ -171,7 +172,7 @@ Silas 懂一些中文，于是我特地在 issue 里说了点中文期望能刷�
 
    q1' q1' q6 1' q6
    5 q3 1 q4
-   3 q3 2 q2 
+   3 q3 2 q2
    1. ~ 1.
    q5, q7, q#2 q5 q7 q4'
    5'. ~ 5'.
@@ -188,7 +189,7 @@ __ https://github.com/ssb22/jianpu-ly/issues/15
 ----------------------
 
 22 年中开始，我就
-{:abbr:`不愿 (没有意义)`, :abbr:`不会 (技术生疏)`, :abbr:`不想 (缺乏冲动)`} 
+{:abbr:`不愿 (没有意义)`, :abbr:`不会 (技术生疏)`, :abbr:`不想 (缺乏冲动)`}
 画画了。整个 23 年，我大概只画了 15、6 张小创作，这可能是「迷茫」在我生活
 里最直接的体现。
 
@@ -213,13 +214,13 @@ __ https://github.com/ssb22/jianpu-ly/issues/15
 .. grid:: 2
 
    .. grid-item::
-      
+
       .. figure:: ../_images/2023-changelog/hlh.jpg
 
          胡林昊的工作室
-      
+
    .. grid-item::
-      
+
       .. figure:: ../_images/2023-changelog/hlh2.jpg
 
          写在背面的小作文
@@ -283,7 +284,7 @@ __ https://github.com/ssb22/jianpu-ly/issues/15
    - 5 月查出了的 4mm 磨玻璃肺结节，可能是新冠后遗症
    - 7 月被银行经理游说买医疗保险，发现有肺结节不能买（非标准体）
    - 半年后复查无碍，改为年度复查
-:过敏: 
+:过敏:
    - 7 月眼睛痒、鼻子痒，发现 IgE 1000+，比较严重了。
      查了过敏原，屋尘过敏，太常见以至于好像知道了也没用
    - 9 月觉得有时呼吸不上来（其实好早之前也有，但忽略了），诊出过敏性哮喘，
@@ -339,7 +340,7 @@ __ https://zhuanlan.zhihu.com/p/31081939
 
    看了以下没什么特别的开销，颜料、羽毛球、羽毛球鞋（今年穿坏了一双）都是必要的。
    闲鱼买了旅行琴、音箱啥的基本也是地板价。
-   
+
    因为觉得东西太多了也在避免购物，实施了一段时间买一出一政策（每买入一件东西，
    卖出或者扔掉现有的一件），买了一些闲置的设备（路由器、Pico 啥的），今年还
    入账小三千 :D
@@ -454,7 +455,7 @@ __ https://space.bilibili.com/291333939/video
       - 有效弦长短 + 做工一般带来了严重的音准问题，12 品就能有一个半音的偏差
       - 品格太小，中高品位手指就放不太下了，能按的和弦有限
       - 琴体太小带来的盒子音，不算大问题
-         
+
    现在的功夫用这把琴弹得很难听，还是欣赏一下 YouTube 的大佬吧：
 
    .. youtube:: jl2hsp3AaRI

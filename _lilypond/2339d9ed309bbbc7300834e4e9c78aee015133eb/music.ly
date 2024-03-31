@@ -1,0 +1,1 @@
+\score{\chordmode{ c1:maj7 }}

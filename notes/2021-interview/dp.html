@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-03-17T16:13:48+00:00" />
+    <meta property="article:modified_time" content="2024-03-31T10:32:40+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/2021-interview/dp.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="date, 2021-05-18,. 排列组合问题 1: 顺序的有关与无关 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组合数 排列数 / 全排列.,. 概念 2: 抽象问题 - 清晰的可枚举的问题, 寻找可以利用的重复计算, 重复计算定义为子问题, 定义重复子问题之间的关系. 和贪..." />
+<meta property="og:description" content="date, 2021-05-18,. 排列组合问题: 参考： 5分钟彻底了解排列组合 - 知乎, https://www.zhihu.com/question/450108393/answer/1788658078. 顺序的有关与无关。 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="date, 2021-05-18,. 排列组合问题 1: 顺序的有关与无关 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组合数 排列数 / 全排列.,. 概念 2: 抽象问题 - 清晰的可枚举的问题, 寻找可以利用的重复计算, 重复计算定义为子问题, 定义重复子问题之间的关系. 和贪..." />
+<meta name="description" content="date, 2021-05-18,. 排列组合问题: 参考： 5分钟彻底了解排列组合 - 知乎, https://www.zhihu.com/question/450108393/answer/1788658078. 顺序的有关与无关。 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组..." />
 
     <title>动态规划 &#8212; 银色子弹</title>
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-17"/>
+    <meta name="docbuild:last-update" content="2024-03-31"/>
 
 <link
   rel="alternate"
@@ -350,12 +350,16 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2024/index.html">2024</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2024/03.html">三月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2023/02.html">二月</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2023/01.html">一月</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2022/07.html">七月</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2022/06.html">六月</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2022/05.html">五月</a></li>
@@ -365,8 +369,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../jour/2022/01.html">一月</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2021/12.html">十二月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2021/11.html">十一月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2021/10.html">十月</a></li>
@@ -381,7 +385,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2021/01.html">一月</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2020/12.html">十二月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2020/11.html">十一月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2020/08.html">八月</a></li>
@@ -389,7 +393,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2020/06.html">六月</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2017/06.html">六月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2017/04.html">四月</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../jour/2017/01.html">一月</a></li>
@@ -525,10 +529,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">排列组合问题 </a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">排列组合问题</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">概念 </a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">背包九讲 </a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">01 背包问题</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pack">01 背包问题</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">问题抽象</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">空间复杂度</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恰好放满背包</a></li>
@@ -556,9 +560,14 @@ document.write(`
 <dd class="field-odd"><p>2021-05-18</p>
 </dd>
 </dl>
-<section id="id3">
-<h2>排列组合问题 <a class="footnote-reference brackets" href="#id13" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>顺序的有关与无关</p>
+<section id="id2">
+<h2>排列组合问题<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>参考：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/41855459">5分钟彻底了解排列组合 - 知乎</a></p></li>
+<li><p><a class="reference external" href="https://www.zhihu.com/question/450108393/answer/1788658078">https://www.zhihu.com/question/450108393/answer/1788658078</a></p></li>
+</ul>
+<p>顺序的有关与无关。</p>
 <dl class="simple">
 <dt>排列</dt><dd><ul class="simple">
 <li><p>公式  <code class="code docutils literal notranslate"><span class="pre">m!/(m-n)!</span></code></p></li>
@@ -575,7 +584,7 @@ document.write(`
 </dl>
 </section>
 <section id="id5">
-<h2>概念 <a class="footnote-reference brackets" href="#id14" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>概念 <a class="footnote-reference brackets" href="#id13" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>抽象问题 - 清晰的可枚举的问题</p></li>
 <li><p>寻找可以利用的重复计算</p></li>
@@ -588,9 +597,9 @@ document.write(`
 </aside>
 </section>
 <section id="id7">
-<h2>背包九讲 <a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<section id="id8">
-<h3>01 背包问题<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h2>背包九讲 <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="pack">
+<span id="id8"></span><h3>01 背包问题<a class="headerlink" href="#pack" title="Link to this heading">#</a></h3>
 <section id="id9">
 <h4>问题抽象<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p><code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 为前 i 件物品放入容量为 v 的背包时的最大价值，即此时的 <code class="code docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">i]</span></code> 的物品都做出了 <em>未知但正确</em> 的选择，面对「放不放 i」这个问题，选择的方式是</p>
@@ -652,15 +661,11 @@ F[1..V] &lt;- -∞
 <h2>参考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id13" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://www.zhihu.com/question/450108393/answer/1788658078">https://www.zhihu.com/question/450108393/answer/1788658078</a></p>
-</aside>
-<aside class="footnote brackets" id="id14" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.zhihu.com/question/39948290/answer/612439961">https://www.zhihu.com/question/39948290/answer/612439961</a></p>
 </aside>
-<aside class="footnote brackets" id="id15" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://raw.githubusercontent.com/tianyicui/pack/master/V2.pdf">https://raw.githubusercontent.com/tianyicui/pack/master/V2.pdf</a></p>
 </aside>
 </aside>
@@ -732,10 +737,10 @@ F[1..V] &lt;- -∞
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">排列组合问题 </a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">排列组合问题</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">概念 </a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">背包九讲 </a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">01 背包问题</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pack">01 背包问题</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">问题抽象</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">空间复杂度</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恰好放满背包</a></li>
@@ -778,7 +783,7 @@ F[1..V] &lt;- -∞
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-17.
+  最后更新于 2024-03-31.
   <br/>
 </p>
   </div>
