@@ -7,10 +7,15 @@
 .. contents::
    :local:
 
-排列组合问题 [#]_
+排列组合问题
 =================
 
-顺序的有关与无关
+参考：
+
+- `5分钟彻底了解排列组合 - 知乎 <https://zhuanlan.zhihu.com/p/41855459>`_
+- https://www.zhihu.com/question/450108393/answer/1788658078
+
+顺序的有关与无关。
 
 排列
    - 公式  `m!/(m-n)!`
@@ -37,6 +42,8 @@
 
 背包九讲 [#]_
 =============
+
+.. _01-pack:
 
 01 背包问题
 ~~~~~~~~~~~
@@ -98,7 +105,6 @@
 参考
 ====
 
-.. [#] https://www.zhihu.com/question/450108393/answer/1788658078
 .. [#] https://www.zhihu.com/question/39948290/answer/612439961
 .. [#] https://raw.githubusercontent.com/tianyicui/pack/master/V2.pdf
 
