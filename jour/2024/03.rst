@@ -1,0 +1,31 @@
+====
+三月
+====
+
+Switch Pro
+==========
+
+.. jour:: _
+   :date: 2024-03-24
+
+5.16 以上的内核已默认支持 [#]_ ，长按 USB 口旁边的小按键，手柄的四个指示灯依次
+闪烁即可开启配对 [#]_ ，在 :archpkg:`blueman-applet` 中搜索可发现 "Pro Controller"
+设备，请先点击 *Pair/配对* ，等待弹出配对窗口确认即可（似乎还要在手柄上按任意键）。
+
+Steam 的 :menuselection:`设置 --> 控制器` 里可对其进行测试、配置。
+
+.. [#] https://wiki.archlinux.org/title/Gamepad#Nintendo_Switch_Pro_Controller_and_Joy-Cons
+.. [#] https://zhuanlan.zhihu.com/p/92653060
+
+Yamaha THR5a
+============
+
+.. jour:: _
+
+   :date: 2024-03-24
+
+:aur:`thr-editor` 居然正常安装，不过没办法连上音响。
+
+电吉他：
+   :MIC TYPE: EG GLN
+   :GAIN: 进入效果器之前的信号放大，大概一半以上才有声音
