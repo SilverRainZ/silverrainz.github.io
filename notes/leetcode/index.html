@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-03-31T10:32:40+00:00" />
+    <meta property="article:modified_time" content="2024-04-01T08:06:43+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-31"/>
+    <meta name="docbuild:last-update" content="2024-04-01"/>
 
 <link
   rel="alternate"
@@ -1154,7 +1154,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
 </dd>
 <dt class="field-odd">日期<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#leetcode-partition-equal-subset-sum" title="leetcode 2021-06-21"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-06-21</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#leetcode-partition-equal-subset-sum" title="leetcode 2021-06-21"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-06-21</span></code></a> <a class="reference internal" href="#leetcode-partition-equal-subset-sum" title="leetcode 2024-04-01"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2024-04-01</span></code></a></p>
 </dd>
 </dl>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -1213,8 +1213,29 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </pre></div>
 </div>
 </div>
-</details><p>把一个集合分成两个，使其 sum 分别相等。假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好为 S<sub>a</sub>/2 ，剩下的元素组成的子集的 sum 自然也为 S<sub>a</sub>/2。因此问题可以转化为：</p>
-<p>一个 <a class="reference internal" href="../2021-interview/dp.html#pack"><span class="std std-ref">01 背包问题</span></a> 问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
+</details><p>把一个集合分成两个，使其 sum 分别相等。假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好为 S<sub>a</sub>/2 ，剩下的元素组成的子集的 sum 自然也为 S<sub>a</sub>/2。因此问题可以转化为一个 <a class="reference internal" href="../2021-interview/dp.html#pack"><span class="std std-ref">01 背包问题</span></a> 问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
+<dl>
+<dt>2024-04-01</dt><dd><p>用 Go 重写了一次，舍弃了空间优化，定义了完整的状态数组 <code class="code docutils literal notranslate"><span class="pre">dp[0..N][0..Sa/2]</span></code>，当然原理上没有区别。</p>
+<p>需要手动处理化无物可放的情况，即初始化 <code class="code docutils literal notranslate"><span class="pre">dp[0]</span></code> 没有区别，要求恰好装满：</p>
+<ul class="simple">
+<li><p>容量为 0 的情况下什么都不放，即 <code class="code docutils literal notranslate"><span class="pre">dp[i][0]</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p>没有东西可放时，容量非 0 的情况无解，即 <code class="code docutils literal notranslate"><span class="pre">dp[i][j]</span> <span class="pre">=</span> <span class="pre">-Inf</span></code> where <code class="code docutils literal notranslate"><span class="pre">j</span> <span class="pre">!=</span> <span class="pre">0</span></code></p></li>
+</ul>
+<p>状态转移方程当然也不变:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1..N    →  i
+0..Sa/2 →  j
+Ci 是第 i 件物品的 cost
+
+if j-Ci &gt;= 0:
+   dp[i][j] = max(dp[i-1][j], dp[i-1][j-Ci]+1)
+else:
+   dp[i][j] = dp[i-1][j]
+</pre></div>
+</div>
+<p>但注意：<em>需要手动处理</em> <code class="code docutils literal notranslate"><span class="pre">j-Ci&lt;0</span></code> <em>的情况</em>：此时放不下第 i 件物品，只能不放了 <code class="code docutils literal notranslate"><span class="pre">dp[i-1][j]</span></code></p>
+<p>TODO: 显示多种语言的解法</p>
+</dd>
+</dl>
 </section>
 <section class="any" id="merge-two-sorted-lists">
 <h2 id="leetcode-merge-two-sorted-lists">Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="Link to this heading">#</a></h2>
@@ -5053,7 +5074,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-31.
+  最后更新于 2024-04-01.
   <br/>
 </p>
   </div>
