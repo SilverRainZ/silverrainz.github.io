@@ -28,18 +28,3 @@ ul.postlist-style-disc li + li {
 ul.postlist-style-disc > li > p:first-child {
    font-size: initial;
 }
-
-/* Fontsize of ABlog tag cloud.
- *
- * NOTE: The numbers 1~5 are relative size, not number of posts.
- *
- * See also:
- * - https://github.com/sunpy/ablog/issues/267
- * - https://github.com/sunpy/ablog/blob/6b867ad7355c6020f5c962b7e9f98efb7051964b/src/ablog/templates/ablog/tagcloud.html#L7
- * - https://github.com/sunpy/ablog/blob/6b867ad7355c6020f5c962b7e9f98efb7051964b/src/ablog/blog.py#L595
- */
-.ablog-cloud-1 { font-size: 0.8em; }
-.ablog-cloud-2 { font-size: 1.0em; }
-.ablog-cloud-3 { font-size: 1.2em; }
-.ablog-cloud-4 { font-size: 1.4em; }
-.ablog-cloud-5 { font-size: 1.6em; }

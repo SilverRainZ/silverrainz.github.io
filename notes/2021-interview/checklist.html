@@ -49,13 +49,13 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3e51a541" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=2995a14b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=a8fb7c6c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -63,7 +63,7 @@
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../../_static/documentation_options.js?v=946197a6"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/asciinema-player_3.6.3.js"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -655,7 +655,8 @@ document.write(`
 <section id="tcp-x">
 <h3>TCP 三次握手 ✔️<a class="headerlink" href="#tcp-x" title="Link to this heading">#</a></h3>
 <p>由 client 执行 <em class="manpage"><a class="manpage reference external" href="https://man7.org/linux/man-pages/man3/connect.3.html">connect(3)</a></em> 触发。</p>
-<a class="reference external image-reference" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html"><img alt="../../_images/tcp-connection-made-three-way-handshake.png" src="../../_images/tcp-connection-made-three-way-handshake.png" /></a>
+<a class="reference external image-reference" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html"><img alt="../../_images/tcp-connection-made-three-way-handshake.png" src="../../_images/tcp-connection-made-three-way-handshake.png" />
+</a>
 <p>作用：</p>
 <ul class="simple">
 <li><p>确认双方的接收和发送能力是否正常</p></li>
@@ -669,7 +670,8 @@ document.write(`
 <section id="id2">
 <h3>TCP 四次挥手 ✔️<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>由任意一方执行 <em class="manpage"><a class="manpage reference external" href="https://man7.org/linux/man-pages/man3/close.3.html">close(3)</a></em> 触发。</p>
-<a class="reference external image-reference" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html"><img alt="../../_images/tcp-connection-closed-four-way-handshake.png" src="../../_images/tcp-connection-closed-four-way-handshake.png" /></a>
+<a class="reference external image-reference" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html"><img alt="../../_images/tcp-connection-closed-four-way-handshake.png" src="../../_images/tcp-connection-closed-four-way-handshake.png" />
+</a>
 <dl>
 <dt>为什么是 4 次</dt><dd><p>被动端（被 close 那一端）要额外的准备才能关闭连接，主动端发的 FIN 相当于一次 notification。
 当被动端准备好了会发 FIN，这个 FIN 也需要 ACK</p>
@@ -748,7 +750,8 @@ document.write(`
 </li>
 </ol>
 <figure class="align-default" id="id47">
-<a class="reference external image-reference" href="https://segmentfault.com/a/1190000021494676"><img alt="../../_images/2641864607-5e11d65c74244_fix732.webp" src="../../_images/2641864607-5e11d65c74244_fix732.webp" /></a>
+<a class="reference external image-reference" href="https://segmentfault.com/a/1190000021494676"><img alt="../../_images/2641864607-5e11d65c74244_fix732.webp" src="../../_images/2641864607-5e11d65c74244_fix732.webp" />
+</a>
 <figcaption>
 <p><span class="caption-text">HTTPS 加密、解密、验证及数据传输过程</span><a class="headerlink" href="#id47" title="Link to this image">#</a></p>
 </figcaption>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-04-09T16:17:48.337868+00:00</updated>
+  <updated>2024-05-01T05:53:50.700185+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.6">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.8">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.gitee.io/blog/2023-changelog.html</id>
@@ -881,7 +881,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;04&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;09&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;05&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -2773,7 +2773,8 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;figure class="align-default" id="id9"&gt;
-&lt;a class="reference external image-reference" href="https://raw.githubusercontent.com/SilverRainZ/bullet/master/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg"&gt;&lt;img alt="https://silverrainz.gitee.io/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" src="https://silverrainz.gitee.io/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" /&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://raw.githubusercontent.com/SilverRainZ/bullet/master/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg"&gt;&lt;img alt="https://silverrainz.gitee.io/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" src="https://silverrainz.gitee.io/_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" /&gt;
+&lt;/a&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;Bell Rock Lighthouse&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
@@ -2880,6 +2881,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
