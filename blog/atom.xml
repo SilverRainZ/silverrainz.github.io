@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-05-01T05:53:50.700185+00:00</updated>
+  <updated>2024-05-03T04:14:26.656491+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.8">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.gitee.io/blog/2023-changelog.html</id>
@@ -17,7 +17,7 @@
     <content type="html">&lt;section id="id1"&gt;
 
 &lt;p&gt;其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候
-&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;豆豆&lt;/span&gt;&lt;/code&gt; 就在群里催大家写总结，现在豆豆和小杰 已各自完成 &lt;a class="footnote-reference brackets" href="#id52" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id53" id="id3" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;，
+&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;豆豆&lt;/span&gt;&lt;/code&gt; 就在群里催大家写总结，现在豆豆和小杰 已各自完成 &lt;a class="footnote-reference brackets" href="#id49" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id50" id="id3" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;，
 我也该动动笔了。&lt;/p&gt;
 &lt;section id="id4"&gt;
 &lt;h2&gt;工作&lt;/h2&gt;
@@ -25,7 +25,7 @@
 &lt;p&gt;23 年是我工作的第 5 年，也是在字节工作的第 2 年。我的运气不错，一直以来的工作内
 容还算有趣，压力也并不太大，所以一直觉得还蛮有意思的。但今年心态也开始有了一
 些转变：&lt;/p&gt;
-&lt;figure class="align-default" id="id61"&gt;
+&lt;figure class="align-default" id="id58"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/work.jpg" src="https://silverrainz.gitee.io/_images/work.jpg" style="width: 40%;" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;工作焦虑&lt;/span&gt;&lt;/p&gt;
@@ -101,7 +101,7 @@ trade-off，但我也总结不出什么来&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://srain.silverrainz.me/"&gt;Srain&lt;/a&gt; 在今年五月的时候收到了 50 美元的捐赠，让我开心了好几天。只可惜我已经不再
 积极地维护它，在失去热情之前没能让 Srain 成为流行的 IRC 客户端，也确实是自己能力
 有限。&lt;/p&gt;
-&lt;figure class="align-default" id="id62"&gt;
+&lt;figure class="align-default" id="id59"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/srain.png" src="https://silverrainz.gitee.io/_images/srain.png" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;&lt;a class="reference external" href="https://opencollective.com/srain"&gt;https://opencollective.com/srain&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
@@ -131,11 +131,11 @@ trade-off，但我也总结不出什么来&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/section&gt;
 &lt;section id="sphinxnotes-lilypond"&gt;
-&lt;span id="id17"&gt;&lt;/span&gt;&lt;h4&gt;凯尔特歌集、简谱和说中文的剑桥科学家 &lt;a class="footnote-reference brackets" href="#id54" id="id16" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;3&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;span id="id17"&gt;&lt;/span&gt;&lt;h4&gt;凯尔特歌集、简谱和说中文的剑桥科学家 &lt;a class="footnote-reference brackets" href="#id51" id="id16" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;3&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;23 年最花力气的项目应该是 &lt;a class="reference external" href="https://github.com/sphinx-notes/lilypond"&gt;⛺ sphinx-notes/lilypond&lt;/a&gt;，用来把自由打谱软件
 LilyPond 的生成的乐谱插入到 Sphinx 文档里。&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/kjcole"&gt;👤 kjcole&lt;/a&gt; 是我唯一认识的用户，他用 Sphinx + LilyPond 重新整理了
-&lt;a class="reference external" href="https://ubuntourist.codeberg.page/Celtic_Song_Book/"&gt;《Celtic Song Book》&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id55" id="id18" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;4&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;。他向我汇报了不少 bug，有些比较难解，但在一轮轮
+&lt;a class="reference external" href="https://ubuntourist.codeberg.page/Celtic_Song_Book/"&gt;《Celtic Song Book》&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id52" id="id18" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;4&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;。他向我汇报了不少 bug，有些比较难解，但在一轮轮
 迭代中还是都修掉了。2.0 有几个破坏性的改动，不知道他会不会更新。&lt;/p&gt;
 &lt;p&gt;为了练琴的仪式感，我尝试在插件里支持简谱。
 多年前看过 Tuna 的康哥 &amp;#64;scateu 用 &lt;a class="reference external" href="http://scateu.me/2014/03/07/gnu-lilypond-example.html"&gt;LilyPond 打二胡的简谱&lt;/a&gt;，顺着博客找到了
@@ -352,7 +352,7 @@ q5, q7, q#2 q5 q7 q4'
 不多的业余时间有大半沉浸在刷视频这种「报复性休息」上，余下的时间又用来写代码练琴
 打球，而画画总是被排到最后。我应该放弃一些事情吗，还是它们有共存的可能？
 嘴上总是不离画画，但为什么我总是抗拒它呢？&lt;/p&gt;
-&lt;figure class="align-default" id="id63"&gt;
+&lt;figure class="align-default" id="id60"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/ai.jpg" src="https://silverrainz.gitee.io/_images/ai.jpg" style="width: 40%;" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;AI 恐惧（未完成）&lt;/span&gt;&lt;/p&gt;
@@ -361,13 +361,13 @@ q5, q7, q#2 q5 q7 q4'
 &lt;p&gt;尽管如此，23 年还是发生了一些与画画有关的，甚至激励了我画画的事情：&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id26"&gt;
-&lt;h3&gt;怀柔的机器人 &lt;a class="footnote-reference brackets" href="#id56" id="id25" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;5&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;怀柔的机器人 &lt;a class="footnote-reference brackets" href="#id53" id="id25" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;5&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;3 月 &lt;a class="reference internal" href="about/people.html#people-6" title="people 胡林昊"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤胡林昊&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 和我说到他参加了羽呈会，在怀柔租了个工作空间，说有空过去玩
 玩。6 月出差去北京参加 GopherCon，便有机会去找他，过程都记录在纸上了。&lt;/p&gt;
 &lt;div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils"&gt;
 &lt;div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils"&gt;
 &lt;div class="sd-col sd-d-flex-column docutils"&gt;
-&lt;figure class="align-default" id="id64"&gt;
+&lt;figure class="align-default" id="id61"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/hlh.jpg" src="https://silverrainz.gitee.io/_images/hlh.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;胡林昊的工作室&lt;/span&gt;&lt;/p&gt;
@@ -375,7 +375,7 @@ q5, q7, q#2 q5 q7 q4'
 &lt;/figure&gt;
 &lt;/div&gt;
 &lt;div class="sd-col sd-d-flex-column docutils"&gt;
-&lt;figure class="align-default" id="id65"&gt;
+&lt;figure class="align-default" id="id62"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/hlh2.jpg" src="https://silverrainz.gitee.io/_images/hlh2.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;写在背面的小作文&lt;/span&gt;&lt;/p&gt;
@@ -394,7 +394,7 @@ q5, q7, q#2 q5 q7 q4'
 &lt;p&gt;9 月动身，用尽所有的年假搭上国庆假期，进行了为期两周的 &lt;a class="reference internal" href="notes/zxsys/color.html"&gt;&lt;span class="doc"&gt;色彩训练&lt;/span&gt;&lt;/a&gt;
 ，在一套相对融洽的理论下锻炼调色能力和感知能力，收获颇丰。只可惜时间不够，
 未能完整地完成训练。&lt;/p&gt;
-&lt;figure class="align-default" id="id66"&gt;
+&lt;figure class="align-default" id="id63"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/zxsys.jpg" src="https://silverrainz.gitee.io/_images/zxsys.jpg" style="width: 70%;" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;阔别两年的画室&lt;/span&gt;&lt;/p&gt;
@@ -409,7 +409,7 @@ q5, q7, q#2 q5 q7 q4'
 Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;/aside&gt;
 &lt;aside class="sidebar"&gt;
-&lt;figure class="align-default" id="id67"&gt;
+&lt;figure class="align-default" id="id64"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/tiolet.jpg" src="https://silverrainz.gitee.io/_images/tiolet.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;厕所画室&lt;/span&gt;&lt;/p&gt;
@@ -560,7 +560,7 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;p&gt;之前工作的时候会打开网易云日推，听着顺耳的加入每月歌单，基本是 JPop。近几年不太
 喜欢边坐牢边听了，于是能听到的新歌少很多。&lt;/p&gt;
 &lt;p&gt;前半年基本上听 别野加奈+古川本舖；后半年突然发现了罗大佑的好，《童年》、
-《滚滚红尘》这种国民级歌曲之前也听过；因为阿信采访里说《之乎者也》如何好 &lt;a class="footnote-reference brackets" href="#id57" id="id38" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;6&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;
+《滚滚红尘》这种国民级歌曲之前也听过；因为阿信采访里说《之乎者也》如何好 &lt;a class="footnote-reference brackets" href="#id54" id="id38" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;6&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;
 我也专门去找来听，但真正打动我的是《未来的主人翁》。&lt;/p&gt;
 &lt;p&gt;赵雷的《署前街少年》听着也很顺耳，并且惊讶于《我记得》真是火遍了大街小巷（以及
 各种煽情小视频）。&lt;/p&gt;
@@ -579,7 +579,7 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 《漠河舞厅》）已经能直接上手了，算是入门了吧。&lt;/p&gt;
 &lt;p&gt;另外慢慢开始用拨片了，买了一堆一一尝试后，发现 PickBoy 用着最顺手，于是又买了几个，
 其他的就打入冷宫了。&lt;/p&gt;
-&lt;figure class="align-default" id="id68"&gt;
+&lt;figure class="align-default" id="id65"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/pick.jpg" src="https://silverrainz.gitee.io/_images/pick.jpg" style="width: 40%;" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;离镜头最近的带孔的黑色拨片就是 PickBoy&lt;/span&gt;&lt;/p&gt;
@@ -587,7 +587,7 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;/figure&gt;
 &lt;p&gt;按一年的跨度来讲，进步不大，但至少我明确了进步的路径。&lt;/p&gt;
 &lt;aside class="sidebar"&gt;
-&lt;figure class="align-default" id="id69"&gt;
+&lt;figure class="align-default" id="id66"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/guitar.jpg" src="https://silverrainz.gitee.io/_images/guitar.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;左 Ibanez EWP14，右 Martinez MSCC-14RS&lt;/span&gt;&lt;/p&gt;
@@ -597,12 +597,12 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;设备&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;我平时很少买设备，毕竟都还没学好，但今年闲鱼上瘾了，还是小剁了一下。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://martinezguitars.cn/item/111"&gt;Yamaha THR5a&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.bilibili.com/video/BV13y4y1B7a7"&gt;Ibanez EWP14&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Yamaha-THR5a" title="dev Yamaha THR5a"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Yamaha&lt;/span&gt; &lt;span class="pre"&gt;THR5a&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Ibanez-EWP14" title="dev Ibanez EWP14"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Ibanez&lt;/span&gt; &lt;span class="pre"&gt;EWP14&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;音响没什么可说，后面的琴可以聊一聊，我平时用的是一把尼龙弦的
-&lt;a class="reference external" href="https://www.ibanez.com/usa/products/detail/ewp14_2y_08.html"&gt;Martinez MSCC-14RS&lt;/a&gt; ，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
-看了 &lt;a class="reference external" href="https://ca.yamaha.com/en/products/musical_instruments/guitars_basses/amps_accessories/thr/index.html"&gt;潘高峰老师的视频&lt;/a&gt; 讲到这把琴，看价格合适于是收了一把。&lt;/p&gt;
+&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Martinez-MSCC-14RS" title="dev Martinez MSCC-14RS"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Martinez&lt;/span&gt; &lt;span class="pre"&gt;MSCC-14RS&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
+看了 &lt;a class="reference external" href="https://www.bilibili.com/video/BV13y4y1B7a7"&gt;潘高峰老师的视频&lt;/a&gt; 讲到这把琴，看价格合适于是收了一把。&lt;/p&gt;
 &lt;dl class="simple"&gt;
 &lt;dt&gt;好处：&lt;/dt&gt;&lt;dd&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;便宜，虽然原价 1000+，但它闲置率太高了，咸鱼随随便便三五百收一把&lt;/p&gt;&lt;/li&gt;
@@ -639,7 +639,7 @@ Using English fallback for directive “warning”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;/section&gt;
-&lt;section id="id47"&gt;
+&lt;section id="id44"&gt;
 &lt;h3&gt;羽毛球&lt;/h3&gt;
 &lt;p&gt;今年羽毛球也有不小进步，在 &lt;a class="reference external" href="https://space.bilibili.com/1657588946"&gt;大柳羽球&lt;/a&gt; 陆陆续续上了 20+ 节课；在网上也看了很多
 &lt;a class="reference external" href="https://space.bilibili.com/695650470"&gt;刘辉教练&lt;/a&gt; 的视频，只是不知道有多少转化到了实战中。&lt;/p&gt;
@@ -656,35 +656,35 @@ Using English fallback for directive “warning”.&lt;/p&gt;
 老中医球友提醒可能是胫夹症，每日提踵恢复中。&lt;/p&gt;
 &lt;/section&gt;
 &lt;/section&gt;
-&lt;section id="id50"&gt;
+&lt;section id="id47"&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
 &lt;p&gt;写累了，不总结了。&lt;/p&gt;
 &lt;/section&gt;
-&lt;section id="id51"&gt;
+&lt;section id="id48"&gt;
 &lt;h2&gt;脚注&lt;/h2&gt;
 &lt;aside class="footnote-list brackets"&gt;
-&lt;aside class="footnote brackets" id="id52" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id49" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id2"&gt;1&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://blog.soyking.top/posts/20231225_2023s_changelog/"&gt;https://blog.soyking.top/posts/20231225_2023s_changelog/&lt;/a&gt;&lt;/p&gt;
 &lt;/aside&gt;
-&lt;aside class="footnote brackets" id="id53" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id50" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id3"&gt;2&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://blog.fflush.me/2023changelog/"&gt;https://blog.fflush.me/2023changelog/&lt;/a&gt;&lt;/p&gt;
 &lt;/aside&gt;
-&lt;aside class="footnote brackets" id="id54" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id51" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id16"&gt;3&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://ssb22.user.srcf.net/"&gt;Silas 的主页&lt;/a&gt; 说道他是一位在剑桥任教的计算机科学家，
 同时也是一位视障人士，他还有一个 &lt;a class="reference external" href="http://ssb22.user.srcf.net/index-zh.html"&gt;中文主页&lt;/a&gt;&lt;/p&gt;
 &lt;/aside&gt;
-&lt;aside class="footnote brackets" id="id55" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id52" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id18"&gt;4&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;凯尔特人之间流传的一些民歌，听起来都是有些悲伤的单旋律木管乐&lt;/p&gt;
 &lt;/aside&gt;
-&lt;aside class="footnote brackets" id="id56" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id53" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id25"&gt;5&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;胡林昊的微信昵称叫「机器人胡林昊」&lt;/p&gt;
 &lt;/aside&gt;
-&lt;aside class="footnote brackets" id="id57" role="doc-footnote"&gt;
+&lt;aside class="footnote brackets" id="id54" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id38"&gt;6&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
 &lt;p&gt;大概是在发《第一张创作专辑》的时候说：「罗大佑26岁的时候，就做出了
 《之乎者也》这样的专辑。我们呢？」实际出处不详，有 &lt;a class="reference external" href="https://weibo.com/1410364817/L4siFvD86"&gt;邹小樱的微博&lt;/a&gt; 可考&lt;/p&gt;
@@ -881,7 +881,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;05&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;01&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;05&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;03&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1572,7 +1572,7 @@ language by default.</summary>
     <title>何时使用 Go 泛型</title>
     <updated>2022-06-03T00:00:00+00:00</updated>
     <author>
-      <name>Ian Lance Taylor</name>
+      <name>Shengyu Zhang</name>
     </author>
     <content type="html">&lt;section id="go"&gt;
 
@@ -2881,9 +2881,6 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
-&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
-Alice -&amp;gt; Bob
-}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

@@ -21,11 +21,6 @@ Yamaha THR5a
 ============
 
 .. jour:: _
-
    :date: 2024-03-24
 
-:aur:`thr-editor` 居然正常安装，不过没办法连上音响。
-
-电吉他：
-   :MIC TYPE: EG GLN
-   :GAIN: 进入效果器之前的信号放大，大概一半以上才有声音
+.. note:: moved to :dev:`Yamaha THR5a`.

@@ -440,11 +440,11 @@ __ https://space.bilibili.com/291333939/video
 设备
    我平时很少买设备，毕竟都还没学好，但今年闲鱼上瘾了，还是小剁了一下。
 
-   - `Yamaha THR5a`__ 闲鱼 850 入手，偶尔连效果器用
-   - `Ibanez EWP14`__ 闲鱼 450 入手，当备用旅行琴
+   - :dev:`Yamaha THR5a` 闲鱼 850 入手，偶尔连效果器用
+   - :dev:`Ibanez EWP14` 闲鱼 450 入手，当备用旅行琴
 
    音响没什么可说，后面的琴可以聊一聊，我平时用的是一把尼龙弦的
-   `Martinez MSCC-14RS`__ ，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
+   :dev:`Martinez MSCC-14RS`，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
    看了 潘高峰老师的视频__ 讲到这把琴，看价格合适于是收了一把。
 
    好处：
@@ -474,10 +474,7 @@ __ https://space.bilibili.com/291333939/video
 __ https://zhuanlan.zhihu.com/p/476222589
 __ https://space.bilibili.com/285766656
 __ https://space.bilibili.com/88685018
-__ https://martinezguitars.cn/item/111
 __ https://www.bilibili.com/video/BV13y4y1B7a7
-__ https://www.ibanez.com/usa/products/detail/ewp14_2y_08.html
-__ https://ca.yamaha.com/en/products/musical_instruments/guitars_basses/amps_accessories/thr/index.html
 
 羽毛球
 ------
