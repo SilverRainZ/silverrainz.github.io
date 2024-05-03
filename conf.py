@@ -378,6 +378,17 @@ any_schemas = [
            content=F(form=F.Form.LINES),
            description_template=open('_templates/rhythm.rst', 'r').read(),
            reference_template='🥁{{ title }}'),
+    Schema('dev',
+           name=F(unique=True, required=True, referenceable=True),
+           attrs={
+               'type': F(referenceable=True, required=True),
+               'website': F(),
+               'man': F(),
+               'startat': F(referenceable=True),
+               'endat': F(referenceable=True),
+           },
+           description_template=open('_templates/dev.rst', 'r').read(),
+           reference_template='🎛️{{ title }}'),
 ]
 
 extensions.append('ablog')
