@@ -379,8 +379,9 @@ any_schemas = [
            description_template=open('_templates/rhythm.rst', 'r').read(),
            reference_template='🥁{{ title }}'),
     Schema('dev',
-           name=F(unique=True, required=True, referenceable=True),
+           name=F(referenceable=True),
            attrs={
+               'id': F(unique=True, referenceable=True, required=True),
                'type': F(referenceable=True, required=True),
                'website': F(),
                'man': F(),
