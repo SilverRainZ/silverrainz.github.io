@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-05-03T04:14:26.656491+00:00</updated>
+  <updated>2024-05-03T07:58:24.688521+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
@@ -597,11 +597,11 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;设备&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;我平时很少买设备，毕竟都还没学好，但今年闲鱼上瘾了，还是小剁了一下。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Yamaha-THR5a" title="dev Yamaha THR5a"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Yamaha&lt;/span&gt; &lt;span class="pre"&gt;THR5a&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Ibanez-EWP14" title="dev Ibanez EWP14"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Ibanez&lt;/span&gt; &lt;span class="pre"&gt;EWP14&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-thr5a" title="dev Yamaha THR5a"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Yamaha&lt;/span&gt; &lt;span class="pre"&gt;THR5a&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-ewp14" title="dev Ibanez EWP14"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Ibanez&lt;/span&gt; &lt;span class="pre"&gt;EWP14&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;音响没什么可说，后面的琴可以聊一聊，我平时用的是一把尼龙弦的
-&lt;a class="reference internal" href="collections/devices/instruments.html#dev-Martinez-MSCC-14RS" title="dev Martinez MSCC-14RS"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Martinez&lt;/span&gt; &lt;span class="pre"&gt;MSCC-14RS&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
+&lt;a class="reference internal" href="collections/devices/instruments.html#dev-mscc-14rs" title="dev Martinez MSCC-14RS"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Martinez&lt;/span&gt; &lt;span class="pre"&gt;MSCC-14RS&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
 看了 &lt;a class="reference external" href="https://www.bilibili.com/video/BV13y4y1B7a7"&gt;潘高峰老师的视频&lt;/a&gt; 讲到这把琴，看价格合适于是收了一把。&lt;/p&gt;
 &lt;dl class="simple"&gt;
 &lt;dt&gt;好处：&lt;/dt&gt;&lt;dd&gt;&lt;ul class="simple"&gt;

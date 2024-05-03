@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2024-05-03T07:53:18+00:00" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-5MZDR9VPYN');
+            
+        </script>
+    <meta property="og:title" content="在 Linux 环境下录音" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/music-making/linux-recording.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TR → 效果器 → 6.5mm TR → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TR → 效果器 → 6.5mm TR → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
+
+    <title>在 Linux 环境下录音 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3e51a541" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/asciinema-player_3.6.3.js"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/music-making/linux-recording';</script>
+    <script src="../../_static/mirror-redirect.js?v=20b68f28"></script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/music-making/linux-recording.html" />
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="任天堂交换机使用手册" href="../nintendo-switch/index.html" />
+    <link rel="prev" title="音乐制作" href="index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+    <meta name="docbuild:last-update" content="2024-05-03"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="银色子弹 - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="银色子弹 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">笔记</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../zxsys/index.html">造型实验室</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/prelude.html">暴露问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/light-and-shadow.html">光影分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/indoor-sketching.html">室内场景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/outdoor-sketching.html">室外夜景训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/modeling.html">形体分解训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/fast-modeling.html">快速形体分解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/color.html">色彩训练</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../zxsys/way-to-artist/index.html">艺术创作方法</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/prepare.html">课前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-yourself.html">找自己</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-topic.html">找主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/find-language.html">找语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/stealing.html">偷师学艺</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zxsys/way-to-artist/exhibition.html">参展须知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/learn-from-master.html">向大师学绘画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/string-modeling.html">线造型训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/tips.html">一些零碎知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zxsys/glossary.html">术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../artstory/index.html">增量艺术史</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/artistory.html">艺术家史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gallery.html">画廊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../artstory/gossip.html">逸闻</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../books/index.html">读书笔记</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../books/code-complete-2.html">代码大全 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/codex-hammer.html">哈默手稿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/cpp-primer-plus.html">C++ Primer Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-course-of-charles-bargue-and-jean-leon-gerome.html">查尔斯巴尔格素描教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/drawing-lessons-from-the-great-masters.html">向大师学绘画·素描基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/teach-yourself-scheme-in-fixnum-days.html">Learning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-art-of-color.html">色彩艺术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-rust-programming-language.html">The Rust Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/the-story-of-art.html">艺术的故事</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/a-modern-method-for-guitar-vol1/index.html">伯克利现代吉他教程·卷一</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../books/linux-kernel-development/index.html">Linux Kernel Development</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/chapter-1_2.html">Chapter 1 and 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/compile-and-run-kernel-in-qemu.html">Compile and Run Kernel in Qemu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../books/linux-kernel-development/misc.html">一些零碎的东西</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gdb.html">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/grep.html">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/latex.html">LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/lily.html">LilyPond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/make.html">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html">Man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/pacman.html">Pacman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/py.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rsync.html">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/rust.html">Rust Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../music-theory/index.html">乐理笔记</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/interval-of-music.html">音程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2021-interview/index.html">2021 面试记录</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docutils/index.html">Docutils 文档阅读</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docutils/docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../go/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../go/pprof.html">PProf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/coverage.html">覆盖率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/godoc.html">Godoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/dev.html">Develop Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/asm.html">Go’s Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/type-assertion.html">Type Assertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/gc.html">GC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ast.html">Abstract Syntax Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/ssa.html">Static Single-Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">音乐制作</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">在 Linux 环境下录音</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../wizard/index.html">配置向导</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writeups/index.html">Capture the Flag</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../writeups/seedlabs/index.html">Seed Lab</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../writeups/seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-bandit/index.html">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-narnia/index.html">wargame-narnia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">随记</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2024/index.html">2024</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2024/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2024/03.html">三月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2023/index.html">2023</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2023/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/2022/index.html">2022</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/07.html">七月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/06.html">六月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/05.html">五月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/04.html">四月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/03.html">三月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/02.html">二月</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jour/2022/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../jour/more.html">更早</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2021/index.html">2021</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/10.html">十月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/09.html">九月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/05.html">五月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/03.html">三月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/02.html">二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2021/01.html">一月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2020/index.html">2020</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/12.html">十二月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/11.html">十一月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/08.html">八月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/07.html">七月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2020/06.html">六月</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../jour/2017/index.html">2017</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/06.html">六月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/04.html">四月</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jour/2017/01.html">一月</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">关于</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/resume.html">简历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">收集室</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../collections/github-halloween.html">Github 万圣节彩蛋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../collections/devices/index.html">设备</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/devices/instruments.html">乐器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>在 Linux 环境下录音</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设备</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">独立声卡</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">录制</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unix-way">The Unix way: 直接录制</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pro-way-digital-audio-workstation-daw">The Pro way: Digital Audio Workstation (DAW)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section class="any" id="linux">
+<h1 id="jour-3bd5ede">在 Linux 环境下录音<a class="headerlink" href="#linux" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">日期<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2024-05-03</p>
+</dd>
+</dl>
+<p>通过运行 GNU/Linux 的个人电脑录制乐器和人声。
+环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章…
+目前的拓扑是这样的：</p>
+<blockquote>
+<div><p>吉他/麦克风 →  <sup>6.5mm TR</sup> →  效果器 →  <sup>6.5mm TR</sup> →
+声卡 →  <sup>USB</sup> →  电脑 →  DAW</p>
+</div></blockquote>
+<section id="id1">
+<h2>设备<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>独立声卡<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>之前一直不理解为什么录音需要声卡？主板上不是有声卡么？不是麦克风连电脑不就好了吗？</p>
+<ol class="arabic">
+<li><p>需要有音频接口：即使完全不考虑音质，我们也需要一个让电脑能够接收音频信号的接口，
+我的电脑有 3.5mm TRRS 的输入接口（能插有通话功能的耳机）。
+吉他及其周边输出用的是 6.5mm 的 TS 口 <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>，相对专业的麦克风用的则是卡农口，
+规格不一、用途不同。而独立声卡这些都会提供，再通过 USB 将数据传给电脑。</p></li>
+<li><p>需要及格的音频处理能力：（据说）板载声卡 <span class="sphinxnotes-strike" style="text-decoration: line-through;">采样率低</span>，抗干扰能力弱，
+得到的声音质量差。但对比参数：就采样率而言没啥区别，其他有区别但我看不懂：</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text"><code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--list-device</span></code> + <code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--dump-hw-params</span> <span class="pre">-D</span> <span class="pre">hw:&lt;CARD_NUM&gt;</span></code></span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /home/runner/work/silverrainz.github.io/silverrainz.github.io/notes/music-making/onboard.txt</span>
+<span class="gi">+++ /home/runner/work/silverrainz.github.io/silverrainz.github.io/notes/music-making/thr5a.txt</span>
+<span class="gu">@@ -1,22 +1,21 @@</span>
+<span class="gd">-HW Params of device &quot;hw:0&quot;:</span>
+<span class="gi">+HW Params of device &quot;hw:1&quot;:</span>
+<span class="w"> </span>--------------------
+<span class="w"> </span>ACCESS:  MMAP_INTERLEAVED RW_INTERLEAVED
+<span class="gd">-FORMAT:  S16_LE S24_LE</span>
+<span class="gi">+FORMAT:  S24_3LE</span>
+<span class="w"> </span>SUBFORMAT:  STD MSBITS_MAX
+<span class="gd">-SAMPLE_BITS: [16 32]</span>
+<span class="gd">-FRAME_BITS: [32 64]</span>
+<span class="gd">-CHANNELS: 2</span>
+<span class="gd">-RATE: 48000</span>
+<span class="gd">-PERIOD_TIME: [500 85334)</span>
+<span class="gd">-PERIOD_SIZE: [24 4096]</span>
+<span class="gd">-PERIOD_BYTES: [192 16384]</span>
+<span class="gd">-PERIODS: [2 16]</span>
+<span class="gd">-BUFFER_TIME: [1000 341334)</span>
+<span class="gd">-BUFFER_SIZE: [48 16384]</span>
+<span class="gd">-BUFFER_BYTES: [192 65536]</span>
+<span class="gi">+SAMPLE_BITS: 24</span>
+<span class="gi">+FRAME_BITS: 96</span>
+<span class="gi">+CHANNELS: 4</span>
+<span class="gi">+RATE: 44100</span>
+<span class="gi">+PERIOD_TIME: (136 1000000]</span>
+<span class="gi">+PERIOD_SIZE: [6 44100]</span>
+<span class="gi">+PERIOD_BYTES: [72 529200]</span>
+<span class="gi">+PERIODS: [2 1024]</span>
+<span class="gi">+BUFFER_TIME: (272 2000000]</span>
+<span class="gi">+BUFFER_SIZE: [12 88200]</span>
+<span class="gi">+BUFFER_BYTES: [144 1058400]</span>
+<span class="w"> </span>TICK_TIME: ALL
+<span class="w"> </span>--------------------
+<span class="w"> </span>arecord: set_params:1387: Sample format non available
+<span class="w"> </span>Available formats:
+<span class="gd">-- S16_LE</span>
+<span class="gd">-- S24_LE</span>
+<span class="gi">+- S24_3LE</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p>实际上，我的 <a class="reference internal" href="../../collections/devices/instruments.html#dev-thr5a" title="dev thr5a"><code class="xref any any-dev docutils literal notranslate"><span class="pre">🎛️Yamaha</span> <span class="pre">THR5a</span></code></a> 和 <a class="reference internal" href="../../collections/devices/instruments.html#dev-mg300" title="dev mg300"><code class="xref any any-dev docutils literal notranslate"><span class="pre">🎛️Nux</span> <span class="pre">MG300</span></code></a> 都自带了声卡，内核也能正常识别，但
+后者录音的时候总是捕捉不到，怀疑和 <a class="reference external" href="https://blog.nostatic.org/2021/01/nux-mg-300-guitar-processor-under-linux.html">这里</a> 遇到了同样的问题，折腾不动，
+故使用 thr5a 录音。</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">需要 <a class="reference external" href="https://archlinux.org/packages/wireplumber">📦 wireplumber</a></span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wpctl<span class="w"> </span>status
+<span class="go">…</span>
+
+<span class="go">Audio</span>
+<span class="go"> ├─ Devices:</span>
+<span class="go"> │     …</span>
+<span class="go"> │     101. NUX MG-300 AUDIO                    [alsa]</span>
+<span class="go"> │     148. THR5A                               [alsa]</span>
+<span class="go"> │</span>
+<span class="go"> ├─ Sinks:</span>
+<span class="go"> │  *  …</span>
+<span class="go"> │     122. NUX MG-300 AUDIO Analog Stereo      [vol: 0.40]</span>
+<span class="go"> │     166. THR5A Analog Stereo                 [vol: 0.40]</span>
+<span class="go"> │</span>
+<span class="go"> ├─ Sources:</span>
+<span class="go"> │     …</span>
+<span class="hll"><span class="go"> │  *   97. THR5A Analog Surround 4.0           [vol: 1.00]</span>
+</span><span class="hll"><span class="go"> │     127. NUX MG-300 AUDIO Analog Stereo      [vol: 1.00]</span>
+</span><span class="go"> │</span>
+
+<span class="go">…</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>录制<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="the-unix-way">
+<h3>The Unix way: 直接录制<a class="headerlink" href="#the-unix-way" title="Link to this heading">#</a></h3>
+<dl>
+<dt>GUI</dt><dd><p>对于最简单的录制音频场景，可以考虑用 <a class="reference external" href="https://archlinux.org/packages/gnome-sound-recorder">📦 gnome-sound-recorder</a>。</p>
+</dd>
+<dt>ALSA</dt><dd><p>需要 <a class="reference external" href="https://archlinux.org/packages/alsa-utils">📦 alsa-utils</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>arecord<span class="w"> </span>--list-device
+<span class="go">**** List of CAPTURE Hardware Devices ****</span>
+<span class="go">…</span>
+<span class="go">card 1: THR5A [THR5A], device 0: USB Audio [USB Audio]</span>
+<span class="go">  Subdevices: 1/1</span>
+<span class="go">  Subdevice #0: subdevice #0</span>
+</pre></div>
+</div>
+<p>设备号是 <code class="code docutils literal notranslate"><span class="pre">HW:&lt;CARD&gt;,&lt;DEV&gt;</span></code>，也就是 <code class="code docutils literal notranslate"><span class="pre">hw:1,0</span></code>，开始录音:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>arecord<span class="w"> </span>-f<span class="w"> </span>S24_3LE<span class="w"> </span>-r<span class="w"> </span><span class="m">44100</span><span class="w"> </span>-D<span class="w"> </span>hw:1,0<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>test.wav
+<span class="go">Recording WAVE &#39;test.wav&#39; : Signed 24 bit Little Endian in 3bytes, Rate 44100 Hz, Channels 4</span>
+<span class="go">^C</span>
+<span class="go">Aborted by signal 中断...</span>
+</pre></div>
+</div>
+<p>播放:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aplay<span class="w"> </span>test.wav
+<span class="go">Playing WAVE &#39;test.wav&#39; : Signed 24 bit Little Endian in 3bytes, Rate 44100 Hz, Channels 4</span>
+</pre></div>
+</div>
+</dd>
+<dt>Pipewire</dt><dd><p>Target ID 从 <code class="code docutils literal notranslate"><span class="pre">wpctl</span> <span class="pre">status</span></code> 获取:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pw-record<span class="w"> </span>--target<span class="w"> </span><span class="m">121</span><span class="w"> </span>test.wav
+<span class="go">^C</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="the-pro-way-digital-audio-workstation-daw">
+<h3>The Pro way: Digital Audio Workstation (DAW)<a class="headerlink" href="#the-pro-way-digital-audio-workstation-daw" title="Link to this heading">#</a></h3>
+<p>实际上，正经一点的录制工作都不会像上面一样用命令行工具或者简陋的 GUI，
+而是使用集成化的 DAW 软件，随便找了个视频扫盲一下：</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/UqOTEqAE9D8" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>当然在 Linux 上，DAW 软件选择比较有限 <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>：</p>
+<dl class="field-list simple">
+<dt class="field-odd">Reaper<span class="colon">:</span></dt>
+<dd class="field-odd"><p>跨三平台（wine on Linux），使用简单，但是收费</p>
+</dd>
+<dt class="field-even">Ardour<span class="colon">:</span></dt>
+<dd class="field-even"><p>老牌开源，一直在更新，看起来不错</p>
+</dd>
+<dt class="field-odd">LMMS<span class="colon">:</span></dt>
+<dd class="field-odd"><p>新潮漂亮，但看起来完全是给电子音乐用的，不支持录制功能</p>
+</dd>
+<dt class="field-even">Presonus Studio One<span class="colon">:</span></dt>
+<dd class="field-even"><p>商业软件但免费，原生 Wayland 和 Pipewire 支持，但 arch 没包</p>
+</dd>
+</dl>
+<p>简单试用了下选择了 Ardour，有 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B">中文教程</a>，对于本文来说，看 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour4_%E5%88%9D%E5%AD%A6%E8%80%85%E6%95%99%E7%A8%8B_02_%E5%BC%80%E5%A7%8B%E5%85%A5%E9%97%A8#.E5.BD.95.E5.88.B6.E9.9F.B3.E9.A2.91">录制音频</a> 一节即可。</p>
+</section>
+</section>
+<section id="id10">
+<h2>参考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a href="#id16"><span class="problematic" id="id17">`你真的了解“吉他线”吗？ | 街声 - StreetVoice &lt;https://dashi.streetvoice.cn/article/20221226/001/`_</span></a></p>
+</aside>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://wiki.archlinux.org/index.php/List_of_applications/Multimedia#Digital_audio_workstations">📖 List_of_applications/Multimedia#Digital_audio_workstations</a></p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://alternativeto.net/software/cubase/?platform=linux">https://alternativeto.net/software/cubase/?platform=linux</a></p>
+</aside>
+</aside>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/notes/music-making/linux-recording" data-title="在 Linux 环境下录音" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">音乐制作</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../nintendo-switch/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">任天堂交换机使用手册</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设备</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">独立声卡</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">录制</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unix-way">The Unix way: 直接录制</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pro-way-digital-audio-workstation-daw">The Pro way: Digital Audio Workstation (DAW)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2020-2024, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2024-05-03.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
