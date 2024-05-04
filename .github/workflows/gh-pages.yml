@@ -30,7 +30,7 @@ jobs:
       with:
         packages: lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg
     - id: deployment
-      uses: bmmtstb/pages@v3
+      uses: sphinx-notes/pages@use-offical-upload-pages-artifact
       with:
         documentation_path: .
         requirements_path: ./requirements.txt
