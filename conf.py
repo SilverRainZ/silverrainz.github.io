@@ -508,3 +508,10 @@ comboroles_roles = {
     'literal_enwiki': ['literal', 'enwiki'],
     'literal_strike': ['literal', 'strike'],
 }
+
+extensions.append('sphinx_tippy')
+tippy_tip_selector = 'article a.reference.internal.any'
+tippy_rtd_urls = []
+tippy_enable_wikitips = False
+tippy_enable_doitips = False
+html_css_files.append('tippy-custom.css')
