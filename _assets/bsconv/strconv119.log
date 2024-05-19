@@ -1,0 +1,9 @@
+# command-line-arguments [command-line-arguments.test]
+./strconv_test.go:8:23: b does not escape
+./strconv_test.go:9:13: []byte{...} does not escape
+./strconv_test.go:11:33: string(s) escapes to heap
+# command-line-arguments.test
+_testmain.go:37:6: can inline init.0
+_testmain.go:45:24: inlining call to testing.MainStart
+_testmain.go:45:42: testdeps.TestDeps{} escapes to heap
+_testmain.go:45:24: &testing.M{...} escapes to heap

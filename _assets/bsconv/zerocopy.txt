@@ -1,0 +1,14 @@
+// zerocopy=1
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkZeroCopy-8   	1000000000	         0.2157 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	command-line-arguments	0.241s
+// zerocopy=0
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkZeroCopy-8   	418946652	         3.056 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	command-line-arguments	1.573s
