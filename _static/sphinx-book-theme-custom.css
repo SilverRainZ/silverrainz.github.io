@@ -8,3 +8,25 @@ code.code.literal {
 .logo__image {
     border-radius: 50%;
 }
+
+/* Fixup pygment styles for DiffLexer in ligth/dark theme
+ * i: increase, d: delete
+ */
+html[data-theme="light"] .highlight .gi { 
+    color: #00A000;
+}
+html[data-theme="light"] .highlight .gd {
+    color: #A00000;
+}
+html[data-theme="dark"] .highlight .gi {
+    color: #A3BE8C; /* nord */
+}
+html[data-theme="dark"] .highlight .gd {
+    color: #BF616A; /* nord */
+}
+
+/* Fix literal style in dark them */ 
+html[data-theme="dark"] code.code.literal {
+    background-color: var(--pst-color-surface);
+    border: 1px solid var(--pst-color-border);
+}
