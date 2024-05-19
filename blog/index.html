@@ -22,10 +22,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/blog/index.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 2023 更新日志| 03 February 其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候 豆豆 就在群里催大家写总结，现在豆豆和小杰 已各自完成 1 2 ， 我也该动动笔了。, Implementing “nested inline mar..." />
+<meta property="og:description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 避免 []bytes ⇆ string 转换的正确方法| 19 May 本文写于 2024 年 5 月，基于 go version go1.22.3 linux/amd64 展开讨论。 一些事实（尤其是编译优化的条件）会随着时间发生改变。, 2023 更新日志| 03 F..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 2023 更新日志| 03 February 其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候 豆豆 就在群里催大家写总结，现在豆豆和小杰 已各自完成 1 2 ， 我也该动动笔了。, Implementing “nested inline mar..." />
+<meta name="description" content="个体 👤SilverRainZ 的日志使用 Sphinx+ABlog 管理。 标签| 归档| 草稿| 订阅, 最近更新: 避免 []bytes ⇆ string 转换的正确方法| 19 May 本文写于 2024 年 5 月，基于 go version go1.22.3 linux/amd64 展开讨论。 一些事实（尤其是编译优化的条件）会随着时间发生改变。, 2023 更新日志| 03 F..." />
 
     <title>日志 &#8212; 银色子弹</title>
   
@@ -54,7 +54,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3e51a541" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -200,6 +200,12 @@
   
   
   <li>
+    <a href="the-correct-to-prevent-bytes-string-conv.html">
+      19 May - 避免 []bytes ⇆  string 转换的正确方法
+    </a>
+  </li>
+  
+  <li>
     <a href="2023-changelog.html">
       03 February - 2023 更新日志
     </a>
@@ -220,12 +226,6 @@
   <li>
     <a href="paper-size.html">
       26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
-    </a>
-  </li>
-  
-  <li>
-    <a href="when-go-generics.html">
-      03 June - 何时使用 Go 泛型
     </a>
   </li>
   
@@ -271,7 +271,7 @@
   
   
   
-  <li class="ablog-cloud ablog-cloud-2">
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="tag/golang.html">Golang</a>
   </li>
   
@@ -399,6 +399,12 @@
   
   
   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">性能优化</a>
+  </li>
+  
+  
+  
   <li class="ablog-cloud ablog-cloud-2">
     <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
   </li>
@@ -492,7 +498,7 @@
   
   
   <li>
-    <a href="2024.html">2024 (2)</a>
+    <a href="2024.html">2024 (3)</a>
   </li>
   
   
@@ -675,6 +681,10 @@ document.write(`
 <strong><a class="reference internal" href="tag.html" title="Tags"><span class="xref std std-ref">标签</span></a> | <a class="reference internal" href="archive.html" title="Archives"><span class="xref std std-ref">归档</span></a> | <a class="reference internal" href="drafts.html" title="Drafts"><span class="xref std std-ref">草稿</span></a> | <a class="reference external" href="https://silverrainz.gitee.io/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">订阅</span></a></strong></p><section id="id2">
 <h2>最近更新<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ul class="postlist-style-none postlist">
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="the-correct-to-prevent-bytes-string-conv.html">避免 []bytes ⇆  string 转换的正确方法</a> | 19 May</p>
+<p class="ablog-post-excerpt">本文写于 2024 年 5 月，基于 <code class="code docutils literal notranslate"><span class="pre">go</span> <span class="pre">version</span> <span class="pre">go1.22.3</span> <span class="pre">linux/amd64</span></code> 展开讨论。
+一些事实（尤其是编译优化的条件）会随着时间发生改变。</p>
+</li>
 <li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="2023-changelog.html">2023 更新日志</a> | 03 February</p>
 <p class="ablog-post-excerpt">其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候
 <code class="xref any any-friend docutils literal notranslate"><span class="pre">豆豆</span></code> 就在群里催大家写总结，现在豆豆和小杰 已各自完成 <a class="footnote-reference brackets" href="#id49" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id50" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>，

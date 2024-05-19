@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3e51a541" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -188,6 +188,12 @@
   
   
   <li>
+    <a href="../the-correct-to-prevent-bytes-string-conv.html">
+      19 May - 避免 []bytes ⇆  string 转换的正确方法
+    </a>
+  </li>
+  
+  <li>
     <a href="../2023-changelog.html">
       03 February - 2023 更新日志
     </a>
@@ -208,12 +214,6 @@
   <li>
     <a href="../paper-size.html">
       26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
-    </a>
-  </li>
-  
-  <li>
-    <a href="../when-go-generics.html">
-      03 June - 何时使用 Go 泛型
     </a>
   </li>
   
@@ -259,7 +259,7 @@
   
   
   
-  <li class="ablog-cloud ablog-cloud-2">
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="../tag/golang.html">Golang</a>
   </li>
   
@@ -387,6 +387,12 @@
   
   
   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">性能优化</a>
+  </li>
+  
+  
+  
   <li class="ablog-cloud ablog-cloud-2">
     <a href="../tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
   </li>
@@ -480,7 +486,7 @@
   
   
   <li>
-    <a href="../2024.html">2024 (2)</a>
+    <a href="../2024.html">2024 (3)</a>
   </li>
   
   
@@ -653,6 +659,101 @@ document.write(`
   </span>
   </h1>
   
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../the-correct-to-prevent-bytes-string-conv.html">避免 []bytes ⇆  string 转换的正确方法</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <i class="fa fa-calendar"></i>
+        
+        <span>2024-05-19</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="../author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    <i class="fa-fw fa fa-location-arrow"></i>
+    
+    </span>
+  
+  
+  <a href="#">杭州</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="../language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="../tag/golang.html">Golang</a>
+  
+  
+  
+  
+  
+  <a href="../tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">性能优化</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p>本文写于 2024 年 5 月，基于 <code class="code docutils literal notranslate"><span class="pre">go</span> <span class="pre">version</span> <span class="pre">go1.22.3</span> <span class="pre">linux/amd64</span></code> 展开讨论。
+一些事实（尤其是编译优化的条件）会随着时间发生改变。</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../the-correct-to-prevent-bytes-string-conv.html"><em>更多 ...</em></a></p>
+    <hr/>
+  </div>
   
   <div class="section ablog-post">
     <h2 class="ablog-post-title">

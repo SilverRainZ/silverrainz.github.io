@@ -54,7 +54,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3e51a541" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=2995a14b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -627,7 +627,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <section id="ch5">
 <h2>ch5<a class="headerlink" href="#ch5" title="Link to this heading">#</a></h2>
 <p>Struct init:</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">email</span>: <span class="nb">String</span> <span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;i@example.com&quot;</span><span class="p">)</span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">email</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;i@example.com&quot;</span><span class="p">)</span>
 <span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">email</span><span class="p">,</span>
 <span class="p">}</span>
@@ -640,15 +640,15 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </pre></div>
 </div>
 <p>Tuple struct:</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Color</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>使用 <code class="code docutils literal notranslate"><span class="pre">#[derive(Debug)]</span></code> 自动实现 <code class="code docutils literal notranslate"><span class="pre">Debug</span></code> trait，便于被 <code class="code docutils literal notranslate"><span class="pre">println!(&quot;{:?}&quot;)</span></code>
 答应出来。</p>
 <p>Struct method:</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">foo</span><span class="p">;</span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="p">;</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">bar</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">u32</span> <span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="mi">1</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -669,7 +669,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <h2>ch6<a class="headerlink" href="#ch6" title="Link to this heading">#</a></h2>
 <p>Variant 翻译为「成员」似乎不妥？</p>
 <p>为枚举成员（ <span class="sphinxnotes-strike" style="text-decoration: line-through;">等等，我不是说不妥吗？</span> ）附加类型，表达能力很强:</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nc">IpAddr</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">IpAddr</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">V4</span><span class="p">(</span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">),</span>
 <span class="w">    </span><span class="n">V6</span><span class="p">(</span><span class="nb">String</span><span class="p">),</span>
 <span class="p">}</span>

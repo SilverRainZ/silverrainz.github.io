@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2024-05-19T08:33:05+00:00" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-5MZDR9VPYN');
+            
+        </script>
+    <meta property="og:title" content="避免 []bytes ⇆  string 转换的正确方法" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://silverrainz.gitee.io/blog/the-correct-to-prevent-bytes-string-conv.html" />
+<meta property="og:site_name" content="银色子弹" />
+<meta property="og:description" content="背景和现状: 在 Golang 中，绝大部分的 type conversion 的运行时开销较小，但[]byte ⇆ string 是一个 特例：由于 string 类型不可变（immutable），而[]byte 类型可变（mutable）， 两者转换时会导致内存的拷贝 1 ： string →[]byte 会导致运行时的 runtime.stringtoslicebyte 开销,[]by..." />
+<meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
+<meta property="og:image:alt" content="银色子弹" />
+<meta name="description" content="背景和现状: 在 Golang 中，绝大部分的 type conversion 的运行时开销较小，但[]byte ⇆ string 是一个 特例：由于 string 类型不可变（immutable），而[]byte 类型可变（mutable）， 两者转换时会导致内存的拷贝 1 ： string →[]byte 会导致运行时的 runtime.stringtoslicebyte 开销,[]by..." />
+
+    <title>避免 []bytes ⇆ string 转换的正确方法 &#8212; 银色子弹</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3e51a541" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=946197a6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/asciinema-player_3.6.3.js"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/the-correct-to-prevent-bytes-string-conv';</script>
+    <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
+    <link rel="canonical" href="https://silverrainz.gitee.io/blog/the-correct-to-prevent-bytes-string-conv.html" />
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+    <meta name="docbuild:last-update" content="2024-05-19"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="银色子弹 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="银色子弹 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  <span>2024-05-19</span>
+  
+</h2>
+<ul>
+  <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    <i class="fa-fw fa fa-location-arrow"></i>
+    
+    </span>
+  
+  
+  <a href="location/%E6%9D%AD%E5%B7%9E.html">杭州</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="tag/golang.html">Golang</a>
+  
+  
+  
+  
+  
+  <a href="tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">性能优化</a>
+  
+  
+  
+</li>
+
+
+</div>
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../blog.html">最近文章</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2023-changelog.html">
+      03 February - 2023 更新日志
+    </a>
+  </li>
+  
+  <li>
+    <a href="sphinxnotes-comboroles.html">
+      14 January - Implementing “nested inline markup” in reStructuredText and Sphinx
+    </a>
+  </li>
+  
+  <li>
+    <a href="resign-for-painting.html">
+      10 December - 辞职为学画（一）
+    </a>
+  </li>
+  
+  <li>
+    <a href="paper-size.html">
+      26 June - 纸张尺寸标准以及非标准纸张的收纳技巧
+    </a>
+  </li>
+  
+  <li>
+    <a href="when-go-generics.html">
+      03 June - 何时使用 Go 泛型
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tags">
+<link rel="stylesheet" href="../_static/ablog/tagcloud.css" type="text/css" />
+<h3><a href="tag.html">标签</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/arch-linux.html">Arch Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/golang.html">Golang</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/python.html">Python</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.html">函数式编程</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8D%B0%E5%88%B7.html">印刷</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%8F%98%E6%9B%B4.html">变更</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B1%95%E8%A7%88.html">展览</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html">年度总结</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">性能优化</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/%E6%B3%9B%E5%9E%8B.html">泛型</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">笔记系统</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/%E7%BB%98%E7%94%BB.html">绘画</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%BF%BB%E8%AF%91.html">翻译</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E9%99%88%E4%B8%B9%E9%9D%92.html">陈丹青</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="category.html">类别</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="category/gsoc-2016.html">GSoc 2016 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/sphinx.html">Sphinx (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="category/%E8%BE%9E%E8%81%8C%E4%B8%BA%E5%AD%A6%E7%94%BB.html">辞职为学画 (1)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="archive.html">归档</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="2024.html">2024 (3)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2023.html">2023 (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2022.html">2022 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2021.html">2021 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/SilverRainZ/bullet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>避免 []bytes ⇆  string 转换的正确方法</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">背景和现状</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsafe-is-not-safe">unsafe is not safe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">不完美的解决方案们</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编译优化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-22-zero-copy-s2b-conversions">Go1.22: zero-copy <code class="code docutils literal notranslate"><span class="pre">string</span></code> →  <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> conversions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-5-bytes-comparison">Go1.5: bytes comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-3-map-lookup">Go1.3: map lookup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">标准库使用姿势</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-bytes"><code class="code docutils literal notranslate"><span class="pre">strings</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">bytes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#io-writer-io-stringwriter"><code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">io.StringWriter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strconv-appendxxx"><code class="code docutils literal notranslate"><span class="pre">strconv.AppendXXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-20-strconv-parsexxx">Go1.20: <code class="code docutils literal notranslate"><span class="pre">strconv.ParseXXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-19-fmt-append-f-ln">Go1.19: <code class="code docutils literal notranslate"><span class="pre">fmt.Append{,f,ln}</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">脚注</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section id="bytes-string">
+<h1>避免 <code class="code docutils literal notranslate"><span class="pre">[]bytes</span></code> ⇆  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 转换的正确方法<a class="headerlink" href="#bytes-string" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>本文写于 2024 年 5 月，基于 <code class="code docutils literal notranslate"><span class="pre">go</span> <span class="pre">version</span> <span class="pre">go1.22.3</span> <span class="pre">linux/amd64</span></code> 展开讨论。
+一些事实（尤其是编译优化的条件）会随着时间发生改变。</p>
+<p>本文涉及的所有测试脚本与代码可在 <a class="reference external" href="https://github.com/SilverRainZ/silverrainz.github.io/tree/master/_assets/bsconv">此处</a> 获取。</p>
+</div>
+<section id="id2">
+<h2>背景和现状<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>在 Golang 中，绝大部分的 type conversion 的运行时开销较小，但 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> ⇆  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 是一个
+特例：由于 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 类型不可变（immutable），而 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 类型可变（mutable），
+两者转换时会导致内存的拷贝 <a class="footnote-reference brackets" href="#id24" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>：</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">string</span></code> →  <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 会导致运行时的 <code class="code docutils literal notranslate"><span class="pre">runtime.stringtoslicebyte</span></code> 开销</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> →  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 会导致运行时的 <code class="code docutils literal notranslate"><span class="pre">runtime.slicebytetostring</span></code> 开销</p></li>
+</ul>
+<p>不少开发人员对此类转换缺乏足够的敏感，导致编码中这样的开销随处可见。
+另一方面这也是 Go 语言本身的缺陷：无法对变量的可变性进行约束，无法做更精准的
+逃逸分析，导致 runtime 对此类转换的开销优化相当有限。</p>
+<section id="unsafe-is-not-safe">
+<h3>unsafe is not safe<a class="headerlink" href="#unsafe-is-not-safe" title="Link to this heading">#</a></h3>
+<p>而当开销逐渐累计为性能瓶颈时，开发人员又会开始寻求快速优化的途径，且往往会
+尝试简单粗暴的操作：通过 <code class="code docutils literal notranslate"><span class="pre">unsafe</span></code> 包强制将 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 指向 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 的底层数据，
+或反之，以避免内存的拷贝。</p>
+<p>unsafe 绝非理想的解决方案，首先它打破了类型上 immutable 和 mutable 的约定，
+可能导致程序的逻辑错误，在广泛使用并发的 Go 里就更容易出问题了；其次，使用
+unsafe 时稍有不当就会导致非预期的内存 BUG，即使是有经验的开发者也很难
+不踩坑：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/modern-go/reflect2/pull/13">modern-go/reflect2#12</a>: <code class="code docutils literal notranslate"><span class="pre">string</span></code> 转 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 的过程中，将构造好的
+<code class="code docutils literal notranslate"><span class="pre">reflect.SliceHeader</span></code> 转回 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 之前，GC 可能将 <code class="code docutils literal notranslate"><span class="pre">SliceHeader.Data</span></code> 指向的
+数据回收</p></li>
+<li><p><a class="reference external" href="https://github.com/DataDog/zstd/pull/91">DataDog/zstd#91</a>: 将栈上分配的 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 强转为 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 后，栈扩张导致 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 底层数据
+失效</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h2>不完美的解决方案们<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Go Team 在编译器和标准库层面提供了一些方案，但总的来说不够好：</p>
+<ul class="simple">
+<li><p>指标不治本：不够通用，不能覆盖所有场景</p></li>
+<li><p>手段不一致：有些是编译器优化，有些是标准库 API</p></li>
+</ul>
+<p>这些方案在不同的 Go 版本中被陆续加入，文档也散落在不同的地方，在我印象里似乎没有
+人好好地把他们收集起来捋一捋。比起在网上的哪个旮旯里随便找个博客抄一段易燃易爆炸
+的 unsafe 代码，我更希望使用官方推荐的解决方案，这对项目的稳定性和可维护性都
+是大有裨益的。</p>
+</section>
+<section id="id7">
+<h2>编译优化<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>在以下的情况，编译器已经能直接省略 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> ⇆  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 的开销了。如果你的应用对性能比较敏感，
+你需要了解如何编写代码才能让它享受到编译器的优化，必要时可借助编译器的日志和
+benchmark 做进一步的确认。</p>
+<section id="go1-22-zero-copy-s2b-conversions">
+<h3>Go1.22: zero-copy <code class="code docutils literal notranslate"><span class="pre">string</span></code> →  <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> conversions<a class="headerlink" href="#go1-22-zero-copy-s2b-conversions" title="Link to this heading">#</a></h3>
+<p>Go1.22 默认启用了一项叫 zerocopy 的优化 <a class="footnote-reference brackets" href="#id25" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>，如果一个由 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 转化
+而来的 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 没有逃逸到堆上（<a class="reference external" href="https://golang2.eddycjy.com/posts/ch6/08-stack-heap/">什么是逃逸？</a>），且在它所有代码路径上都是
+只读的（没有进行任何修改操作），那么转换的开销可以被省略。如下代码：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="kd">func</span><span class="w"> </span><span class="nx">BenchmarkZeroCopy</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;202405&quot;</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">		</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="linenos">11</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>我们通过分别设置 <code class="code docutils literal notranslate"><span class="pre">-gcflags='-d</span> <span class="pre">zerocopy=1'</span></code> <a class="footnote-reference brackets" href="#id26" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 和 <code class="code docutils literal notranslate"><span class="pre">-gcflags='-d</span> <span class="pre">zerocopy=0'</span></code>
+来开启和关闭优化，在此基础上进行测试：</p>
+<p>结果如下：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// zerocopy=1
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+<span class="hll">BenchmarkZeroCopy-8   	1000000000	         0.2157 ns/op	       0 B/op	       0 allocs/op
+</span>PASS
+ok  	command-line-arguments	0.241s
+// zerocopy=0
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+<span class="hll">BenchmarkZeroCopy-8   	418946652	         3.056 ns/op	       0 B/op	       0 allocs/op
+</span>PASS
+ok  	command-line-arguments	1.573s
+</pre></div>
+</div>
+<p>在测试的同时，我们还可以用 <code class="code docutils literal notranslate"><span class="pre">-gcflags</span> <span class="pre">'-m'</span></code> <a class="footnote-reference brackets" href="#id26" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 输出编译器的优化日志，
+通过对比可以发现，第 10 行的 <code class="code docutils literal notranslate"><span class="pre">string</span></code> →  <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 转换在 <code class="code docutils literal notranslate"><span class="pre">zerocopy=1</span></code> 的情况下被正确识别了：</p>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /home/runner/work/silverrainz.github.io/silverrainz.github.io/_assets/bsconv/zerocopy0.log</span>
+<span class="gi">+++ /home/runner/work/silverrainz.github.io/silverrainz.github.io/_assets/bsconv/zerocopy1.log</span>
+<span class="gu">@@ -2,6 +2,7 @@</span>
+<span class="w"> </span>./zerocopy_test.go:7:6: can inline BenchmarkZeroCopy
+<span class="w"> </span>./zerocopy_test.go:7:24: b does not escape
+<span class="w"> </span>./zerocopy_test.go:10:14: ([]byte)(s) does not escape
+<span class="gi">+./zerocopy_test.go:10:14: zero-copy string-&gt;[]byte conversion</span>
+<span class="w"> </span># command-line-arguments.test
+<span class="w"> </span>_testmain.go:37:6: can inline init.0
+<span class="w"> </span>_testmain.go:45:24: inlining call to testing.MainStart
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这个优化并不支持另一个方向 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> →  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 的 zero copy，<a class="reference external" href="https://github.com/golang/go/issues/2205#issuecomment-1067303496">&#64;randall77 说</a> 难以实现
+<code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> <em>在 conversions 之后是只读的</em> 这样的检查，并且多个 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 可以指向同一份
+数据，难以追踪。我其实没有完全理解，因为将优化的条件再收紧一些，
+感觉是可以做的？</p>
+<ul class="simple">
+<li><p>要求 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 完全地只读，而非在 conversions 之后只读</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 没有逃逸的话，完全跟踪所有指向底层存储的 slice 也非难事？</p></li>
+</ul>
+<p>这两点都已经在当前的 zerocopy 优化里实现了，好奇为什么不这么做。如果有熟悉
+编译器的朋友知道原因，希望不吝赐教。</p>
+<p>我纠结它为什么不实现的原因是，编译器在下面两种特殊情况下已经实现了 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> →  <code class="code docutils literal notranslate"><span class="pre">string</span></code>，
+但只允许转换出来的 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 用于特定的内置操作（map查找和字符串运算），不能赋值给
+变量也不能传递给其他函数，非常受限。</p>
+</div>
+</section>
+<section id="go1-5-bytes-comparison">
+<h3>Go1.5: bytes comparison<a class="headerlink" href="#go1-5-bytes-comparison" title="Link to this heading">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">[]bytes</span></code> 本质上是 slice 类型，无法直接判等，可以通过标准库 <code class="code docutils literal notranslate"><span class="pre">bytes.Equal</span></code> 实现。
+Go1.5 引入了一个优化 <a class="footnote-reference brackets" href="#id27" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>，将 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 临时转化为 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 用于判等时，不会产生额外的内存
+分配。例如：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos">12</span><span class="w">	</span><span class="nx">b</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;Optimized&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">			</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs2</span><span class="p">)</span>
+<span class="linenos">15</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">16</span><span class="w">	</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>但如果你用一个变量储存转换出来的 <code class="code docutils literal notranslate"><span class="pre">string</span></code>，哪怕逻辑上完全等价，优化会失效：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos">17</span><span class="w">	</span><span class="nx">b</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;NotOptimized&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">			</span><span class="nx">s1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs1</span><span class="p">)</span>
+<span class="linenos">20</span><span class="w">			</span><span class="nx">s2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs2</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">			</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">s2</span>
+<span class="linenos">22</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">23</span><span class="w">	</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>其他的字符串操作，例如比较大小 <code class="code docutils literal notranslate"><span class="pre">&gt;</span></code>、<code class="code docutils literal notranslate"><span class="pre">&lt;</span></code> 或者连接 <code class="code docutils literal notranslate"><span class="pre">+</span></code> 也同样支持该优化：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos">24</span><span class="w">	</span><span class="nx">b</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;Optimized2&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">26</span><span class="w">			</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">bs2</span><span class="p">)</span>
+<span class="linenos">27</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">28</span><span class="w">	</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Benchmark 结果如下：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkEqual/Optimized-8         	1000000000	         0.2547 ns/op	       0 B/op	       0 allocs/op
+<span class="hll">BenchmarkEqual/NotOptimized-8      	26003533	        46.33 ns/op	     160 B/op	       2 allocs/op
+</span>BenchmarkEqual/Optimized2-8        	382775796	         3.174 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEqual/bytes.Equal-8       	1000000000	         0.2310 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	command-line-arguments	3.328s
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">bytes.Equal</span></code> 的结果看起来也是优化过的，这是因为在 Go1.13 以后
+<code class="code docutils literal notranslate"><span class="pre">bytes.Equal</span></code> 就是简单地用 <code class="code docutils literal notranslate"><span class="pre">==</span></code> 实现了 <a class="footnote-reference brackets" href="#id28" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>：</p>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://pkg.go.dev/bytes#Equal">https://pkg.go.dev/bytes#Equal</a></span><a class="headerlink" href="#id32" title="Link to this code">#</a></div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Equal reports whether a and b</span>
+<span class="c1">// are the same length and contain the same bytes.</span>
+<span class="c1">// A nil argument is equivalent to an empty slice.</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Equal</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Neither cmd/compile nor gccgo allocates for these string conversions.</span>
+<span class="hll"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="go1-3-map-lookup">
+<h3>Go1.3: map lookup<a class="headerlink" href="#go1-3-map-lookup" title="Link to this heading">#</a></h3>
+<p>Go1.3 引入了一个优化 <a class="footnote-reference brackets" href="#id29" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>，当将 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 临时转化为 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 并用于查询 map 时，
+可以免去转换：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos">13</span><span class="w">	</span><span class="nx">b</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;Optimized&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">			</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="nb">string</span><span class="p">(</span><span class="nx">k</span><span class="p">)]</span>
+<span class="linenos">16</span><span class="w">		</span><span class="p">}</span>
+<span class="linenos">17</span><span class="w">	</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>和上面类似，如果你用一个变量储存转换出来的 <code class="code docutils literal notranslate"><span class="pre">string</span></code>，优化会失效：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos">18</span><span class="w">	</span><span class="nx">b</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;NotOptimized&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">20</span><span class="w">			</span><span class="nx">sk</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">			</span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="nx">sk</span><span class="p">]</span>
+<span class="linenos">22</span><span class="w">		</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Benchmark 结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">goos</span><span class="p">:</span> <span class="n">linux</span>
+<span class="n">goarch</span><span class="p">:</span> <span class="n">amd64</span>
+<span class="n">cpu</span><span class="p">:</span> <span class="mi">11</span><span class="n">th</span> <span class="n">Gen</span> <span class="n">Intel</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Core</span><span class="p">(</span><span class="n">TM</span><span class="p">)</span> <span class="n">i7</span><span class="o">-</span><span class="mi">1165</span><span class="n">G7</span> <span class="o">@</span> <span class="mf">2.80</span><span class="n">GHz</span>
+<span class="n">BenchmarkMapLookup</span><span class="o">/</span><span class="n">Optimized</span><span class="o">-</span><span class="mi">8</span>         	<span class="mi">222915559</span>	         <span class="mf">5.483</span> <span class="n">ns</span><span class="o">/</span><span class="n">op</span>	       <span class="mi">0</span> <span class="n">B</span><span class="o">/</span><span class="n">op</span>	       <span class="mi">0</span> <span class="n">allocs</span><span class="o">/</span><span class="n">op</span>
+<span class="n">BenchmarkMapLookup</span><span class="o">/</span><span class="n">NotOptimized</span><span class="o">-</span><span class="mi">8</span>      	<span class="mi">49391640</span>	        <span class="mf">33.78</span> <span class="n">ns</span><span class="o">/</span><span class="n">op</span>	      <span class="mi">48</span> <span class="n">B</span><span class="o">/</span><span class="n">op</span>	       <span class="mi">1</span> <span class="n">allocs</span><span class="o">/</span><span class="n">op</span>
+<span class="n">PASS</span>
+<span class="n">ok</span>  	<span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">arguments</span>	<span class="mf">3.465</span><span class="n">s</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id16">
+<h2>标准库使用姿势<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<p>Go1.18 之前不支持泛型，因此标准库中有关 <code class="code docutils literal notranslate"><span class="pre">string</span></code>/<code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 的接口如果需要另一种类型的支持，
+基本就要加一个新接口。</p>
+<p>当然，即使在已经有了泛型的 2024 年，标准库还是没有统一的方式来操作它们。
+具体可以看这里的讨论：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/golang/go/issues/48643">proposal: byteseq: add a generic byte string manipulation package · Issue #48643 · golang/go</a></p></li>
+<li><p><a class="reference external" href="https://github.com/golang/go/issues/5376">proposal: spec: byte view: type that can represent a []byte or string · Issue #5376 · golang/go</a></p></li>
+</ul>
+<section id="strings-bytes">
+<h3><code class="code docutils literal notranslate"><span class="pre">strings</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">bytes</span></code><a class="headerlink" href="#strings-bytes" title="Link to this heading">#</a></h3>
+<p>两个库提供了基本相同的功能，但分别针对 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 类型，
+合理挑选函数可以避免转换：</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> var s = []byte(&quot;hello world&quot;)
+<span class="gd">- strings.HasPrefix(string(s), &quot;hello&quot;)</span>
+<span class="gi">+ bytes.HasPrefix(s, []byte(&quot;hello&quot;))</span>
+</pre></div>
+</div>
+</section>
+<section id="io-writer-io-stringwriter">
+<h3><code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">io.StringWriter</span></code><a class="headerlink" href="#io-writer-io-stringwriter" title="Link to this heading">#</a></h3>
+<p>往 <code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 写入数据时，如果 writer 还同时实现了 <code class="code docutils literal notranslate"><span class="pre">io.StringWriter</span></code>，
+可以根据数据的类型选择调用 <code class="code docutils literal notranslate"><span class="pre">Write</span></code> 方法或者 <code class="code docutils literal notranslate"><span class="pre">WriteString</span></code> 方法以避免转换：</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> var s = &quot;hello world&quot;
+<span class="gd">- w.Write([]byte(s))</span>
+<span class="gi">+ w.(io.StringWriter).WriteString(s)</span>
+</pre></div>
+</div>
+<p>标准库的 <code class="code docutils literal notranslate"><span class="pre">io.WriteString</span></code> 就帮用户自动实现了这个逻辑：</p>
+<div class="literal-block-wrapper docutils container" id="id33">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://pkg.go.dev/io#WriteString">https://pkg.go.dev/io#WriteString</a></span><a class="headerlink" href="#id33" title="Link to this code">#</a></div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// WriteString writes the contents of the string s to w, which accepts a slice of bytes.</span>
+<span class="c1">// If w implements [StringWriter], [StringWriter.WriteString] is invoked directly.</span>
+<span class="c1">// Otherwise, [Writer.Write] is called exactly once.</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">WriteString</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">Writer</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">sw</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">w</span><span class="p">.(</span><span class="nx">StringWriter</span><span class="p">);</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">sw</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">w</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>于是刚刚的代码就可以简化为：</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> var s = &quot;hello world&quot;
+<span class="w"> </span> var w io.Writer
+<span class="gd">- w.Write([]byte(s))</span>
+<span class="gi">+ io.WriteString(w, s)</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>比较遗憾的是，要求每个 <code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 都实现 <code class="code docutils literal notranslate"><span class="pre">io.StringWriter</span></code> 是不现实的，
+很多情况下，我们持有一个 <code class="code docutils literal notranslate"><span class="pre">string</span></code>，要喂给 <code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 时还是只能乖乖地转换。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">io.Writer.Write</span></code> 的入参在约定上是只读的：</p>
+<div class="literal-block-wrapper docutils container" id="id34">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://pkg.go.dev/io#Writer">https://pkg.go.dev/io#Writer</a></span><a class="headerlink" href="#id34" title="Link to this code">#</a></div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// Writer is the interface that wraps the basic Write method.</span>
+<span class="c1">//</span>
+<span class="c1">// Write writes len(p) bytes from p to the underlying data stream.</span>
+<span class="c1">// It returns the number of bytes written from p (0 &lt;= n &lt;= len(p))</span>
+<span class="c1">// and any error encountered that caused the write to stop early.</span>
+<span class="c1">// Write must return a non-nil error if it returns n &lt; len(p).</span>
+<span class="hll"><span class="c1">// Write must not modify the slice data, even temporarily.</span>
+</span><span class="c1">//</span>
+<span class="c1">// Implementations must not retain p.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Writer</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">Write</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>我们可以畅想一下，编译器其实可以考虑直接省略该转换，但约定毕竟只是约定，
+没有强制力，如何识别修改 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 的边角 case 是个问题。社区对此有一些讨论：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/golang/go/issues/2205#issuecomment-726468940">cmd/compile: read-only escape analysis and avoiding string -&gt; []byte copies #2205</a>
+已经由刚才提到的 zerocopy <a class="footnote-reference brackets" href="#id25" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 优化部分实现了</p></li>
+<li><p><a class="reference external" href="https://github.com/golang/go/issues/18822">cmd/compile: optimize Write([]byte(stringVal)) to not copy the string #18822</a></p></li>
+</ul>
+</div>
+</section>
+<section id="strconv-appendxxx">
+<h3><code class="code docutils literal notranslate"><span class="pre">strconv.AppendXXX</span></code><a class="headerlink" href="#strconv-appendxxx" title="Link to this heading">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">strconv.FormatXXX</span></code> 系列函数将其他的基本类型（<code class="code docutils literal notranslate"><span class="pre">int</span></code>、<code class="code docutils literal notranslate"><span class="pre">float64</span></code> 等）转化为
+<code class="code docutils literal notranslate"><span class="pre">string</span></code>。某些情况下我们需要 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 形式的结果，可以使用 <code class="code docutils literal notranslate"><span class="pre">strconv.AppendXXX</span></code>：</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> var data []byte
+<span class="gd">- data = []byte(strconv.FormatInt(1234, 10))</span>
+<span class="gi">+ data = strconv.AppendInt(nil, 1234, 10)</span>
+</pre></div>
+</div>
+</section>
+<section id="go1-20-strconv-parsexxx">
+<h3>Go1.20: <code class="code docutils literal notranslate"><span class="pre">strconv.ParseXXX</span></code><a class="headerlink" href="#go1-20-strconv-parsexxx" title="Link to this heading">#</a></h3>
+<p>很遗憾，<code class="code docutils literal notranslate"><span class="pre">ParseXXX</span></code> 系列函数至今没有等价的 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> 版本实现，在 <a class="reference external" href="https://github.com/golang/go/issues/2632">strconv: add
+equivalents of Parsexxx() with []byte arguments</a> 有过讨论但最终没有下文。
+不过鉴于这类函数的合法入参总是比较短（不超过 <code class="code docutils literal notranslate"><span class="pre">math.Max{Uint,Float64}</span></code>），
+在栈上多复制一份也没什么大不了。</p>
+<p>但有一个问题：当 parse 发生错误时，为了方便调试，错误信息会包含输入参数，例如执行
+<code class="code docutils literal notranslate"><span class="pre">strconv.ParseInt(&quot;a&quot;)</span></code> 会返回错误 <code class="code docutils literal notranslate"><span class="pre">strconv.ParseInt:</span> <span class="pre">parsing</span> <span class="pre">&quot;a&quot;:</span> <span class="pre">invalid</span> <span class="pre">syntax</span></code>。
+在 Go1.20 前 <a class="footnote-reference brackets" href="#id30" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>，这会导致从而导致参数逃逸到堆上。</p>
+<p>以下代码：</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 8</span><span class="kd">func</span><span class="w"> </span><span class="nx">BenchmarkStrconv</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w"> </span><span class="mi">53</span><span class="p">}</span>
+<span class="linenos">10</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">		</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseInt</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">12</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>在 Go1.22 和 Go1.19 分别运行可以明显看到区别：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// go1.22
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+<span class="hll">BenchmarkStrconv-8   	86147509	        12.70 ns/op	       0 B/op	       0 allocs/op
+</span>PASS
+ok  	command-line-arguments	1.111s
+// go1.19
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+<span class="hll">BenchmarkStrconv-8   	51321450	        21.73 ns/op	       8 B/op	       1 allocs/op
+</span>PASS
+ok  	command-line-arguments	1.142s
+</pre></div>
+</div>
+<p>对比两个版本的编译器的优化日志，临时变量 <code class="code docutils literal notranslate"><span class="pre">string(s)</span></code> 在 1.22 是不会发生逃逸的：</p>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /home/runner/work/silverrainz.github.io/silverrainz.github.io/_assets/bsconv/strconv119.log</span>
+<span class="gi">+++ /home/runner/work/silverrainz.github.io/silverrainz.github.io/_assets/bsconv/strconv122.log</span>
+<span class="gu">@@ -1,7 +1,7 @@</span>
+<span class="w"> </span># command-line-arguments [command-line-arguments.test]
+<span class="w"> </span>./strconv_test.go:8:23: b does not escape
+<span class="w"> </span>./strconv_test.go:9:13: []byte{...} does not escape
+<span class="gd">-./strconv_test.go:11:33: string(s) escapes to heap</span>
+<span class="gi">+./strconv_test.go:11:34: string(s) does not escape</span>
+<span class="w"> </span># command-line-arguments.test
+<span class="w"> </span>_testmain.go:37:6: can inline init.0
+<span class="w"> </span>_testmain.go:45:24: inlining call to testing.MainStart
+</pre></div>
+</div>
+</section>
+<section id="go1-19-fmt-append-f-ln">
+<h3>Go1.19: <code class="code docutils literal notranslate"><span class="pre">fmt.Append{,f,ln}</span></code><a class="headerlink" href="#go1-19-fmt-append-f-ln" title="Link to this heading">#</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">fmt.Sprint{,f,ln}</span></code> 的返回值是 <code class="code docutils literal notranslate"><span class="pre">string</span></code>，Go1.19 引入 <a class="footnote-reference brackets" href="#id31" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> 的 <code class="code docutils literal notranslate"><span class="pre">fmt.Append{,f,ln}</span></code> 可以
+直接格式化地输出 <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code>：</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span> var data []byte
+<span class="gd">- data = []byte(fmt.Sprintf(&quot;hello %s&quot;, &quot;alice&quot;))</span>
+<span class="gi">+ data = fmt.Appendf(nil, (&quot;hello %s&quot;, &quot;alice&quot;))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id23">
+<h2>脚注<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id24" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://go.dev/src/runtime/string.go">Source file src/runtime/string.go</a></p>
+</aside>
+<aside class="footnote brackets" id="id25" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id8">1</a>,<a role="doc-backlink" href="#id17">2</a>)</span>
+<p><a class="reference external" href="https://go-review.googlesource.com/c/go/+/520600">cmd/compile: enable -d=zerocopy by default (520600) · Gerrit Code Review</a></p>
+</aside>
+<aside class="footnote brackets" id="id26" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id10">2</a>)</span>
+<p><a class="reference external" href="https://pkg.go.dev/cmd/compile">compile command - cmd/compile - Go Packages</a></p>
+</aside>
+<aside class="footnote brackets" id="id27" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://go-review.googlesource.com/c/go/+/3410">cmd/gc: don’t copy []byte during string comparison (3410) · Gerrit Code Review</a></p>
+</aside>
+<aside class="footnote brackets" id="id28" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/golang/go/issues/31587">bytes: Equal more expensive than string equality · Issue #31587 · golang/go</a></p>
+</aside>
+<aside class="footnote brackets" id="id29" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://codereview.appspot.com/83740044">Issue 83740044: code review 83740044: cmd/gc, runtime: optimize map[string] lookup from []byte key - Code Review</a></p>
+</aside>
+<aside class="footnote brackets" id="id30" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">7</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://go-review.googlesource.com/c/go/+/345488">strconv: optimize Parse for []byte arguments (345488) · Gerrit Code Review</a></p>
+</aside>
+<aside class="footnote brackets" id="id31" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">8</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://go-review.googlesource.com/c/go/+/406177">fmt: add Append, Appendln, Appendf (406177) · Gerrit Code Review</a></p>
+</aside>
+</aside>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+评论</div>
+<p class="sd-card-text">如果你有任何意见，请在此评论。
+如果你留下了电子邮箱，我可能会通过 <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:pbzzragf\100fvyireenvam\056zr\">pbzzragf\100fvyireenvam\056zr<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script> 回复你。</p>
+<section data-isso-id="/blog/the-correct-to-prevent-bytes-string-conv" data-title="避免 []bytes ⇆  string 转换的正确方法" id="isso-thread"></section></div>
+</div>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="2023-changelog.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>2023 更新日志</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">背景和现状</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsafe-is-not-safe">unsafe is not safe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">不完美的解决方案们</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编译优化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-22-zero-copy-s2b-conversions">Go1.22: zero-copy <code class="code docutils literal notranslate"><span class="pre">string</span></code> →  <code class="code docutils literal notranslate"><span class="pre">[]byte</span></code> conversions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-5-bytes-comparison">Go1.5: bytes comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-3-map-lookup">Go1.3: map lookup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">标准库使用姿势</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-bytes"><code class="code docutils literal notranslate"><span class="pre">strings</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">bytes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#io-writer-io-stringwriter"><code class="code docutils literal notranslate"><span class="pre">io.Writer</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">io.StringWriter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strconv-appendxxx"><code class="code docutils literal notranslate"><span class="pre">strconv.AppendXXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-20-strconv-parsexxx">Go1.20: <code class="code docutils literal notranslate"><span class="pre">strconv.ParseXXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go1-19-fmt-append-f-ln">Go1.19: <code class="code docutils literal notranslate"><span class="pre">fmt.Append{,f,ln}</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">脚注</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Shengyu Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2020-2024, Shengyu Zhang.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  最后更新于 2024-05-19.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
