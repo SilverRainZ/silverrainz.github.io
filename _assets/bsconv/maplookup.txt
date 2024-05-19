@@ -1,0 +1,7 @@
+goos: linux
+goarch: amd64
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkMapLookup/Optimized-8         	222915559	         5.483 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMapLookup/NotOptimized-8      	49391640	        33.78 ns/op	      48 B/op	       1 allocs/op
+PASS
+ok  	command-line-arguments	3.465s
