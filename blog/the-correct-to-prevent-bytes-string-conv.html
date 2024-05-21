@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-05-19T08:33:05+00:00" />
+    <meta property="article:modified_time" content="2024-05-21T13:37:10+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -18,7 +18,7 @@
             gtag('config', 'G-5MZDR9VPYN');
             
         </script>
-    <meta property="og:title" content="避免 []bytes ⇆  string 转换的正确方法" />
+    <meta property="og:title" content="Golang 中避免 []bytes 和 string 转换开销的正确方法" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/blog/the-correct-to-prevent-bytes-string-conv.html" />
 <meta property="og:site_name" content="银色子弹" />
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="银色子弹" />
 <meta name="description" content="背景和现状: 在 Golang 中，绝大部分的 type conversion 的运行时开销较小，但[]byte ⇆ string 是一个 特例：由于 string 类型不可变（immutable），而[]byte 类型可变（mutable）， 两者转换时会导致内存的拷贝 1 ： string →[]byte 会导致运行时的 runtime.stringtoslicebyte 开销,[]by..." />
 
-    <title>避免 []bytes ⇆ string 转换的正确方法 &#8212; 银色子弹</title>
+    <title>Golang 中避免 []bytes 和 string 转换开销的正确方法 &#8212; 银色子弹</title>
   
   
   
@@ -81,7 +81,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-05-19"/>
+    <meta name="docbuild:last-update" content="2024-05-21"/>
 
 <link
   rel="alternate"
@@ -737,7 +737,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>避免 []bytes ⇆  string 转换的正确方法</h1>
+    <h1>Golang 中避免 []bytes 和 string 转换开销的正确方法</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -778,8 +778,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section id="bytes-string">
-<h1>避免 <code class="code docutils literal notranslate"><span class="pre">[]bytes</span></code> ⇆  <code class="code docutils literal notranslate"><span class="pre">string</span></code> 转换的正确方法<a class="headerlink" href="#bytes-string" title="Link to this heading">#</a></h1>
+<section id="golang-bytes-string">
+<h1>Golang 中避免 <code class="code docutils literal notranslate"><span class="pre">[]bytes</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">string</span></code> 转换开销的正确方法<a class="headerlink" href="#golang-bytes-string" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>本文写于 2024 年 5 月，基于 <code class="code docutils literal notranslate"><span class="pre">go</span> <span class="pre">version</span> <span class="pre">go1.22.3</span> <span class="pre">linux/amd64</span></code> 展开讨论。
@@ -1189,7 +1189,7 @@ ok  	command-line-arguments	1.142s
         }
     )
 );</script> 回复你。</p>
-<section data-isso-id="/blog/the-correct-to-prevent-bytes-string-conv" data-title="避免 []bytes ⇆  string 转换的正确方法" id="isso-thread"></section></div>
+<section data-isso-id="/blog/the-correct-to-prevent-bytes-string-conv" data-title="Golang 中避免 []bytes 和 string 转换开销的正确方法" id="isso-thread"></section></div>
 </div>
 </section>
 </section>
@@ -1300,7 +1300,7 @@ ok  	command-line-arguments	1.142s
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-05-19.
+  最后更新于 2024-05-21.
   <br/>
 </p>
   </div>
