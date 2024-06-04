@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-05-21T13:42:39.206673+00:00</updated>
+  <updated>2024-06-04T05:26:48.304466+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
@@ -1163,7 +1163,7 @@ communities. It uses reStructuredText (hereafter referred to as rST) as markup
 language by default.&lt;/p&gt;
 &lt;p&gt;Unlike Markdown, rST does not yet support &lt;a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible"&gt;Nested Inline Markups&lt;/a&gt;, so text
 like “bold code” or “italic link” doesn’t render as expected:&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1183,12 +1183,13 @@ like “bold code” or “italic link” doesn’t render as expected:&lt;/p&gt
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;In rST, all inline markups are implemented by
 &lt;a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text"&gt;Interpreted Text Roles&lt;/a&gt;. For example, markup &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;**foo**&lt;/span&gt;&lt;/code&gt; is equivalent to
 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`foo`&lt;/span&gt;&lt;/code&gt;, “foo” is the interpreted text, and “strong” is the name of
 roles, which tells the renderer that “foo” should be highlighted.
 The same goes for markup &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`foo`&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:literal:`foo`&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`bold`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;
@@ -1212,10 +1213,11 @@ Using English fallback for role “literal”.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Interpreted text can only “be interpreted” once, so markups and roles inside
 interpreted text will be treated as plain text, which means the syntax of role
 is not nestable either:&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:```bold&lt;/span&gt; &lt;span class="pre"&gt;code```&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;:strong:&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1235,10 +1237,11 @@ is not nestable either:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Fortunately, rST is extensible, it allows users to create custom roles.
 Suppose we can create a role that combines the effects of two existing roles,
 then creating “bold code” is possible and it is true:&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong_literal:`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bold&lt;/span&gt; &lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1246,6 +1249,7 @@ then creating “bold code” is possible and it is true:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/section&gt;
 &lt;section id="the-sphinxnotes-comboroles-extension"&gt;
 &lt;h2&gt;The &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinxnotes-comboroles&lt;/span&gt;&lt;/code&gt; extension&lt;/h2&gt;
@@ -1273,13 +1277,14 @@ configuration, which tells the extension to composite example roles
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Finally, you can use it:&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong_literal:`bold&lt;/span&gt; &lt;span class="pre"&gt;code`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bold&lt;/span&gt; &lt;span class="pre"&gt;code&lt;/span&gt;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;section id="nested-parse"&gt;
 &lt;h3&gt;Nested Parse&lt;/h3&gt;
 &lt;p&gt;We have said that markups in interpreted text will not be parsed,
@@ -1291,7 +1296,7 @@ but the extension allows us to force parse the interpreted text, like this:&lt;/
 &lt;/div&gt;
 &lt;p&gt;The above configuration creates a composite role &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;parsed_literal&lt;/span&gt;&lt;/code&gt; with
 &lt;a class="reference external" href="https://sphinx.silverrainz.me/comboroles/usage.html#nested-parse"&gt;Nested Parse&lt;/a&gt; enabled, so the text “**bold code**” can be parsed.&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;``**bold&lt;/span&gt; &lt;span class="pre"&gt;code**``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;**bold&lt;/span&gt; &lt;span class="pre"&gt;code**&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1303,21 +1308,23 @@ but the extension allows us to force parse the interpreted text, like this:&lt;/
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Further, hyperlinks, substitutions, and even roles inside interpreted text can
 be parsed too:&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`https://example.com``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;05&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;21&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;06&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;04&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="admonition-title"&gt;备注&lt;/p&gt;
 &lt;p&gt;For nested roles, the backquote &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;`&lt;/span&gt;&lt;/code&gt; in interpreted text needs to be escaped.&lt;/p&gt;
@@ -1346,7 +1353,7 @@ then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;s
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:enwiki:`Lo&lt;/span&gt; &lt;span class="pre"&gt;Ta-yu`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu"&gt;📖 Lo Ta-yu&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1356,6 +1363,7 @@ then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;s
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;div class="admonition seealso"&gt;
 &lt;p class="admonition-title"&gt;参见&lt;/p&gt;
 &lt;p&gt;Inspired by &lt;a class="github reference external" href="https://github.com/sphinx-doc/sphinx/issues/11745"&gt;sphinx-doc/sphinx#11745&lt;/a&gt;&lt;/p&gt;
@@ -1370,7 +1378,7 @@ then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;s
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strike:`text`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;text&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1380,6 +1388,7 @@ then comboroles creates a &lt;code class="docutils literal notranslate"&gt;&lt;s
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/section&gt;
 &lt;/section&gt;
 &lt;section id="limitation"&gt;
@@ -1439,7 +1448,7 @@ rST source code to text representation of doctree:&lt;/p&gt;
 &lt;p&gt;No directive entry for “list-table” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “list-table”.&lt;/p&gt;
 &lt;/aside&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;thead&gt;
 &lt;tr class="row-odd"&gt;&lt;th class="head"&gt;&lt;p&gt;rST&lt;/p&gt;&lt;/th&gt;
 &lt;th class="head"&gt;&lt;p&gt;doctree&lt;/p&gt;&lt;/th&gt;
@@ -1463,6 +1472,7 @@ Using English fallback for directive “list-table”.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Words enclosed in angle brackets &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;&lt;/span&gt;&lt;/code&gt; and &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; represent nodes of the doctree,
 You can see that role &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:strong:`bold`&lt;/span&gt;&lt;/code&gt; is converted to a  &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;&lt;/code&gt; node in
 somehow (see next section) with interpreted text “bold” as its child.&lt;/p&gt;
@@ -1557,7 +1567,7 @@ contains exactly one &lt;code class="code docutils literal notranslate"&gt;&lt;s
     &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;thead&gt;
 &lt;tr class="row-odd"&gt;&lt;th class="head"&gt;&lt;p&gt;before&lt;/p&gt;&lt;/th&gt;
 &lt;th class="head"&gt;&lt;p&gt;replace&lt;/p&gt;&lt;/th&gt;
@@ -1590,6 +1600,7 @@ i=1:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;literal&a
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Now, &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;nodes[0]&lt;/span&gt;&lt;/code&gt; is the root of node combination, just return it:&lt;/p&gt;
 &lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -3217,7 +3228,7 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;p&gt;可以看到生成的内容比 directive 里写的携带了更多的信息，这其实是 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet/blob/master/_templates/artwork.rst"&gt;Jinja Template&lt;/a&gt; 带来的。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;现在你可以用 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;artwork&lt;/span&gt;&lt;/code&gt; 系列的 role 来索引这张画：&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;根据名字索引&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork:`Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -3241,6 +3252,7 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;我现在用这个扩展来管理我的 &lt;a class="reference internal" href="any-book.html"&gt;&lt;span class="std std-ref"&gt;读书笔记&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artwork.html"&gt;&lt;span class="std std-ref"&gt;习作&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artist.html"&gt;&lt;span class="std std-ref"&gt;艺术家记录&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-friend.html"&gt;&lt;span class="std std-ref"&gt;友情链接&lt;/span&gt;&lt;/a&gt;。关于它如何工作，它还能怎么玩，也会有单独的文章来说明。&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id4"&gt;
@@ -3271,22 +3283,24 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;img class="lilypond-score" src=".././_lilypond/9b7759da7ffa17e3ce15414f33fa03e3bc2e8ff1/music.cropped.png" alt="\score{\relative { c' }}" style="height: 2.5em;"/&gt;&lt;/span&gt;  和 &lt;a class="reference internal" href="collections/scores/index.html"&gt;&lt;span class="doc"&gt;带试听音频的乐谱&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a class="reference external" href="https://pypi.org/project/sphinxnotes-strike"&gt;📦 sphinxnotes-strike&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;提供了 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;del&lt;/span&gt;&lt;/code&gt; role 用来显示 reST 不支持的删除线&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:del:`Sphinx`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;Sphinx&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;内置扩展 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinx.ext.extlink&lt;/span&gt;&lt;/code&gt;&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;来方便地生成外部链接&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:ghuser:`SilverRainZ`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ"&gt;👤 SilverRainZ&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a class="reference external" href="https://github.com/executablebooks/sphinx-design"&gt;⛺ executablebooks/sphinx-design&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;提供了 reST 不支持的分栏功能（见下），顺便还享用了它内置的 &lt;span class="fa fa-font"&gt;&lt;/span&gt; Font Awesome 支持&lt;/p&gt;
 &lt;/dd&gt;
@@ -3311,6 +3325,9 @@ reST&lt;/div&gt;
 &lt;div class="sd-card-body docutils"&gt;
 &lt;div class="sd-card-title sd-font-weight-bold docutils"&gt;
 效果&lt;/div&gt;
+&lt;div class="graphviz"&gt;&lt;img src="https://silverrainz.gitee.io/_images/graphviz-b2b7db9f696a0fb7d43ba60c44e952704da3e867.png" alt="digraph dot {
+Alice -&amp;gt; Bob
+}" class="graphviz" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3348,7 +3365,7 @@ reST&lt;/div&gt;
 &lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a class="reference external" href="https://pypi.org/project/sphinxcontrib.email"&gt;📦 sphinxcontrib.email&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;生成难以被爬虫抓取的邮件地址，防止 SPAM&lt;/p&gt;
-&lt;table class="table"&gt;
+&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:email:`foo&amp;#64;example.com`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;script type="text/javascript"&gt;document.write(
@@ -3363,6 +3380,7 @@ reST&lt;/div&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a class="reference external" href="https://pypi.org/project/sphinxcontrib.asciinema"&gt;📦 sphinxcontrib.asciinema&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;在文档中嵌入 asciinema 录制的终端操作：&lt;/p&gt;
 &lt;div class="highlight-rst notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="ow"&gt;asciinema&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; 117813
@@ -8309,7 +8327,7 @@ n
 （本来可以将两个分组用后向引用省略了，试了一下发现错误，也不知道怎么解决）
 最后写出来是恶心的表达式：&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;(.|[^\](\\)*&amp;quot;)*?[^\](\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;，但是还是有问题:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;table class="table"&gt;
+&lt;div&gt;&lt;div class="pst-scrollable-table-container"&gt;&lt;table class="table"&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;“regexp”&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;匹配 “regexp”&lt;/p&gt;&lt;/td&gt;
@@ -8325,6 +8343,7 @@ n
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;就最后一个错了，因为”也是满足&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;[^\](\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;的，懒得再想了。&lt;/p&gt;
 &lt;/section&gt;

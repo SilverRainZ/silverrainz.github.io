@@ -33,34 +33,34 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3e51a541" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog-custom.css?v=e78ea701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=946197a6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -70,7 +70,7 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../_static/translations.js?v=beaddf03"></script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'blog/sphinxnotes-comboroles';</script>
     <script src="../_static/mirror-redirect.js?v=20b68f28"></script>
@@ -99,27 +99,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -142,13 +138,15 @@
 </form></div>
   </div>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><p> 这是部署于 Deployment.Gitee 的镜像，访问源站点：<a class="source-page" href="https://silverrainz.me/">Deployment.Github</a></p></div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -661,7 +659,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -670,7 +668,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -799,7 +797,7 @@ communities. It uses reStructuredText (hereafter referred to as rST) as markup
 language by default.</p>
 <p>Unlike Markdown, rST does not yet support <a class="reference external" href="https://docutils.sourceforge.io/FAQ.html#is-nested-inline-markup-possible">Nested Inline Markups</a>, so text
 like “bold code” or “italic link” doesn’t render as expected:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**bold**</span></code></p></td>
 <td><p><strong>bold</strong></p></td>
@@ -819,12 +817,13 @@ like “bold code” or “italic link” doesn’t render as expected:</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>In rST, all inline markups are implemented by
 <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#interpreted-text">Interpreted Text Roles</a>. For example, markup <code class="code docutils literal notranslate"><span class="pre">**foo**</span></code> is equivalent to
 <code class="code docutils literal notranslate"><span class="pre">:strong:`foo`</span></code>, “foo” is the interpreted text, and “strong” is the name of
 roles, which tells the renderer that “foo” should be highlighted.
 The same goes for markup <code class="docutils literal notranslate"><span class="pre">`foo`</span></code> and <code class="code docutils literal notranslate"><span class="pre">:literal:`foo`</span></code>.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong:`bold`</span></code></p></td>
 <td><p><strong>bold</strong></p></td>
@@ -836,10 +835,11 @@ The same goes for markup <code class="docutils literal notranslate"><span class=
 </tr>
 </tbody>
 </table>
+</div>
 <p>Interpreted text can only “be interpreted” once, so markups and roles inside
 interpreted text will be treated as plain text, which means the syntax of role
 is not nestable either:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong:```bold</span> <span class="pre">code```</span></code></p></td>
 <td><p>:strong:<code class="docutils literal notranslate"><span class="pre">`bold</span> <span class="pre">code`</span></code></p></td>
@@ -859,10 +859,11 @@ is not nestable either:</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Fortunately, rST is extensible, it allows users to create custom roles.
 Suppose we can create a role that combines the effects of two existing roles,
 then creating “bold code” is possible and it is true:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong_literal:`bold</span> <span class="pre">code`</span></code></p></td>
 <td><p><strong><code class="docutils literal notranslate"><span class="pre">bold</span> <span class="pre">code</span></code></strong></p></td>
@@ -870,6 +871,7 @@ then creating “bold code” is possible and it is true:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="the-sphinxnotes-comboroles-extension">
 <h2>The <code class="docutils literal notranslate"><span class="pre">sphinxnotes-comboroles</span></code> extension<a class="headerlink" href="#the-sphinxnotes-comboroles-extension" title="Link to this heading">#</a></h2>
@@ -897,13 +899,14 @@ configuration, which tells the extension to composite example roles
 </pre></div>
 </div>
 <p>Finally, you can use it:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strong_literal:`bold</span> <span class="pre">code`</span></code></p></td>
 <td><p><strong><code class="docutils literal notranslate"><span class="pre">bold</span> <span class="pre">code</span></code></strong></p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <section id="nested-parse">
 <h3>Nested Parse<a class="headerlink" href="#nested-parse" title="Link to this heading">#</a></h3>
 <p>We have said that markups in interpreted text will not be parsed,
@@ -915,7 +918,7 @@ but the extension allows us to force parse the interpreted text, like this:</p>
 </div>
 <p>The above configuration creates a composite role <code class="code docutils literal notranslate"><span class="pre">parsed_literal</span></code> with
 <a class="reference external" href="https://sphinx.silverrainz.me/comboroles/usage.html#nested-parse">Nested Parse</a> enabled, so the text “**bold code**” can be parsed.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">``**bold</span> <span class="pre">code**``</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">**bold</span> <span class="pre">code**</span></code></p></td>
@@ -927,21 +930,23 @@ but the extension allows us to force parse the interpreted text, like this:</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Further, hyperlinks, substitutions, and even roles inside interpreted text can
 be parsed too:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`https://example.com``</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><a class="reference external" href="https://example.com"><span class="pre">https://example.com</span></a></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`|today|``</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">05</span> <span class="pre">月</span> <span class="pre">21</span> <span class="pre">日</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2024</span> <span class="pre">年</span> <span class="pre">06</span> <span class="pre">月</span> <span class="pre">04</span> <span class="pre">日</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:parsed_literal:`RFC:</span> <span class="pre">:rfc:\`1459\``</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">RFC:</span> <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"><strong><span class="pre">RFC</span> <span class="pre">1459</span></strong></a></code></p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>For nested roles, the backquote <code class="docutils literal notranslate"><span class="pre">`</span></code> in interpreted text needs to be escaped.</p>
@@ -966,7 +971,7 @@ then comboroles creates a <code class="docutils literal notranslate"><span class
 <span class="p">}</span>
 </pre></div>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:enwiki:`Lo</span> <span class="pre">Ta-yu`</span></code></p></td>
 <td><p><a class="reference external" href="https://wikipedia.org/wiki/Lo Ta-yu">📖 Lo Ta-yu</a></p></td>
@@ -976,6 +981,7 @@ then comboroles creates a <code class="docutils literal notranslate"><span class
 </tr>
 </tbody>
 </table>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">参见</p>
 <p>Inspired by <a class="github reference external" href="https://github.com/sphinx-doc/sphinx/issues/11745">sphinx-doc/sphinx#11745</a></p>
@@ -990,7 +996,7 @@ then comboroles creates a <code class="docutils literal notranslate"><span class
 <span class="p">}</span>
 </pre></div>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:strike:`text`</span></code></p></td>
 <td><p><span class="sphinxnotes-strike" style="text-decoration: line-through;">text</span></p></td>
@@ -1000,6 +1006,7 @@ then comboroles creates a <code class="docutils literal notranslate"><span class
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="limitation">
@@ -1054,7 +1061,7 @@ The limitation of inline nested markup is caused by rST’s syntax, rather than
 the rST’s content model.</p>
 <p>By using the <code class="docutils literal notranslate"><a class="reference external" href="https://docutils.sourceforge.io/docs/user/tools.html#rst2pseudoxml"><span class="pre">rst2pseudoxml</span></a></code> command line, we can convert
 rST source code to text representation of doctree:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>rST</p></th>
 <th class="head"><p>doctree</p></th>
@@ -1078,6 +1085,7 @@ rST source code to text representation of doctree:</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Words enclosed in angle brackets <code class="code docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&gt;</span></code> represent nodes of the doctree,
 You can see that role <code class="code docutils literal notranslate"><span class="pre">:strong:`bold`</span></code> is converted to a  <code class="code docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code> node in
 somehow (see next section) with interpreted text “bold” as its child.</p>
@@ -1172,7 +1180,7 @@ contains exactly one <code class="code docutils literal notranslate"><span class
     <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>before</p></th>
 <th class="head"><p>replace</p></th>
@@ -1205,6 +1213,7 @@ i=1:<span class="w"> </span><span class="nt">&lt;literal&gt;</span><span class="
 </tr>
 </tbody>
 </table>
+</div>
 <p>Now, <code class="code docutils literal notranslate"><span class="pre">nodes[0]</span></code> is the root of node combination, just return it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[]</span>
 </pre></div>
@@ -1302,7 +1311,7 @@ implementation, please refer to <a class="reference external" href="https://gith
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -1390,8 +1399,8 @@ implementation, please refer to <a class="reference external" href="https://gith
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
