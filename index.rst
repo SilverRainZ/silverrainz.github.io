@@ -36,8 +36,8 @@
          :maxdepth: 1
 
          ronin/okr/index
-         ronin/endoscope/index
          ronin/inbox/index
+         ronin/ops/*
 
 .. centered:: :doc:`关于我 <about/me>`
    | :doc:`关于本站 <about/site>`
@@ -60,12 +60,11 @@
          notes/books/index
          notes/man/index
          notes/music-theory/index
-         notes/6-lectures-on-sketch
          notes/*/index
          notes/abraxas
          notes/nju-static-program-analysis
-         notes/color
-         notes/nintendo-switch
+         notes/color/index
+         notes/nintendo-switch/index
 
    .. grid-item-card::
 
