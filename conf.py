@@ -461,12 +461,13 @@ if D.is_public():
         'srain': ('https://srainapp.github.io/docs', None),
     }
 
-# if D.is_public():
-if True:
+if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     redirects = {
-        'notes/6-lectures-on-sketch': '/notes/zxsys/6-lectures-on-sketch.html'
+        'notes/6-lectures-on-sketch': '/notes/zxsys/6-lectures-on-sketch.html',
+        'notes/leetcode/index': '/notes/writeups/leetcode/index.html',
+        'notes/2021-interview/index': '/notes/writeups/2021-interview/index.html',
     }
 
 # extensions.append('sphinxcontrib.images')
