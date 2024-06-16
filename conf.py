@@ -358,7 +358,7 @@ any_schemas = [
            description_template=open('_templates/okr.rst', 'r').read(),
            reference_template='🥅{{ title }}'),
     Schema('people',
-           name=F(unique=True, referenceable=True, required=True),
+           name=F(unique=True, referenceable=True, required=True, form=F.Form.LINES),
            attrs={
                'github': F(),
                'blog': F(),

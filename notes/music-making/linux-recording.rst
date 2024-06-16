@@ -127,6 +127,6 @@ __ https://wiki.ubuntu.org.cn/Ardour4_%E5%88%9D%E5%AD%A6%E8%80%85%E6%95%99%E7%A8
 参考
 ====
 
-.. [#] `你真的了解“吉他线”吗？ | 街声 - StreetVoice <https://dashi.streetvoice.cn/article/20221226/001/`_
+.. [#] `你真的了解“吉他线”吗？ | 街声 - StreetVoice <https://dashi.streetvoice.cn/article/20221226/001/>`_
 .. [#] :archwiki:`List_of_applications/Multimedia#Digital_audio_workstations`
 .. [#] https://alternativeto.net/software/cubase/?platform=linux
