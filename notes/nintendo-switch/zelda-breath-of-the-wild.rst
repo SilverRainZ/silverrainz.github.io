@@ -184,6 +184,3 @@ __ https://zhuanlan.zhihu.com/p/54460830
 我的节奏烂掉了，以后再扒吧。
 
 .. lilyinclude:: mifa.ly
-   :nofooter:
-   :noedge:
-   :audio:

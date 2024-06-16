@@ -37,7 +37,7 @@
 
          ronin/okr/index
          ronin/inbox/index
-         ronin/ops/*
+         ronin/ops/index
 
 .. centered:: :doc:`关于我 <about/me>`
    | :doc:`关于本站 <about/site>`
