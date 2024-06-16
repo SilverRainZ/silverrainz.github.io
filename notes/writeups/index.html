@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-03-17T16:13:48+00:00" />
+    <meta property="article:modified_time" content="2024-06-16T09:26:28+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -18,16 +18,16 @@
             gtag('config', 'G-5MZDR9VPYN');
             
         </script>
-    <meta property="og:title" content="Capture the Flag" />
+    <meta property="og:title" content="题解" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/writeups/index.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="没有黑客精神，但是还是想成为黑客。 wargame-leviathan, Seed Lab- Format String Vulnerability Lab., wargme-bandit, wargame-narnia. 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta property="og:description" content="没有黑客精神，但是还是想成为黑客 。 各种题解，CTF、算法题，等等。 Hacker101 CTF, wargame-leviathan, 2021 面试记录- 知识点 Check List, Leetcode 刷题日记, 动态规划., Leetcode 刷题记录, Seed Lab- Format String Vulnerability Lab., wargme-bandit, warg..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="没有黑客精神，但是还是想成为黑客。 wargame-leviathan, Seed Lab- Format String Vulnerability Lab., wargme-bandit, wargame-narnia. 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta name="description" content="没有黑客精神，但是还是想成为黑客 。 各种题解，CTF、算法题，等等。 Hacker101 CTF, wargame-leviathan, 2021 面试记录- 知识点 Check List, Leetcode 刷题日记, 动态规划., Leetcode 刷题记录, Seed Lab- Format String Vulnerability Lab., wargme-bandit, warg..." />
 
-    <title>Capture the Flag &#8212; 银色子弹</title>
+    <title>题解 &#8212; 银色子弹</title>
   
   
   
@@ -48,7 +48,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -68,9 +68,10 @@
     <script src="../../_static/asciinema-player_3.6.3.js"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/translations.js?v=beaddf03"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/writeups/index';</script>
     <script src="../../_static/mirror-redirect.js?v=20b68f28"></script>
@@ -78,12 +79,12 @@
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="wargame-leviathan" href="wargame-leviathan.html" />
+    <link rel="next" title="Hacker101 CTF" href="hack101-ctf.html" />
     <link rel="prev" title="家用树莓派 3B+ 配置" href="../wizard/pi.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-17"/>
+    <meta name="docbuild:last-update" content="2024-06-16"/>
 
 <link
   rel="alternate"
@@ -292,12 +293,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../2021-interview/index.html">2021 面试记录</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../2021-interview/checklist.html">知识点 Check List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2021-interview/dp.html">动态规划</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
 </ul>
@@ -320,7 +315,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../music-making/index.html">音乐制作</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../music-making/linux-recording.html">在 Linux 环境下录音</a></li>
 </ul>
@@ -333,8 +327,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Capture the Flag</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">题解</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="hack101-ctf.html">Hacker101 CTF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="2021-interview/index.html">2021 面试记录</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/dp.html">动态规划</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="seedlabs/index.html">Seed Lab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
 </ul>
@@ -345,6 +347,14 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
 <ul class="nav bd-sidenav">
@@ -450,9 +460,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -524,7 +534,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Capture the Flag</h1>
+    <h1>题解</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -538,12 +548,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section id="capture-the-flag">
-<h1>Capture the Flag<a class="headerlink" href="#capture-the-flag" title="Link to this heading">#</a></h1>
-<p>没有黑客精神，但是还是想成为黑客。</p>
+<section id="id1">
+<h1>题解<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p><span class="sphinxnotes-strike" style="text-decoration: line-through;">没有黑客精神，但是还是想成为黑客</span>。
+各种题解，CTF、算法题，等等。</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="hack101-ctf.html">Hacker101 CTF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2021-interview/index.html">2021 面试记录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2021-interview/dp.html">动态规划</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="seedlabs/index.html">Seed Lab</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
 </ul>
@@ -566,7 +585,7 @@ document.write(`
         }
     )
 );</script> 回复你。</p>
-<section data-isso-id="/notes/writeups/index" data-title="Capture the Flag" id="isso-thread"></section></div>
+<section data-isso-id="/notes/writeups/index" data-title="题解" id="isso-thread"></section></div>
 </div>
 </section>
 
@@ -595,11 +614,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="wargame-leviathan.html"
+       href="hack101-ctf.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">wargame-leviathan</p>
+        <p class="prev-next-title">Hacker101 CTF</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,7 +657,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-17.
+  最后更新于 2024-06-16.
   <br/>
 </p>
   </div>

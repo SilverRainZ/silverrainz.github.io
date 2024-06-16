@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-03-31T10:32:40+00:00" />
+    <meta property="article:modified_time" content="2024-06-16T09:34:53+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -18,16 +18,16 @@
             gtag('config', 'G-5MZDR9VPYN');
             
         </script>
-    <meta property="og:title" content="动态规划" />
+    <meta property="og:title" content="Hacker101 CTF" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://silverrainz.gitee.io/notes/2021-interview/dp.html" />
+<meta property="og:url" content="https://silverrainz.gitee.io/notes/writeups/hack101-ctf.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="date, 2021-05-18,. 排列组合问题: 参考： 5分钟彻底了解排列组合 - 知乎, https://www.zhihu.com/question/450108393/answer/1788658078. 顺序的有关与无关。 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组..." />
+<meta property="og:description" content="URL, https://ctf.hacker101.com/ctf,, Date, 2024-06,. Micro-CMS v1: Micro-CMS v2: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="date, 2021-05-18,. 排列组合问题: 参考： 5分钟彻底了解排列组合 - 知乎, https://www.zhihu.com/question/450108393/answer/1788658078. 顺序的有关与无关。 排列,- 公式 m!/(m-n)!, 全排列 = n!, 排列数 组合数 * 全排列.,, 组合,- 公式 m!/n!(m-n)!, 「全组合」= 1, 组..." />
+<meta name="description" content="URL, https://ctf.hacker101.com/ctf,, Date, 2024-06,. Micro-CMS v1: Micro-CMS v2: 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
 
-    <title>动态规划 &#8212; 银色子弹</title>
+    <title>Hacker101 CTF &#8212; 银色子弹</title>
   
   
   
@@ -48,7 +48,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -68,22 +68,22 @@
     <script src="../../_static/asciinema-player_3.6.3.js"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/translations.js?v=beaddf03"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2021-interview/dp';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/writeups/hack101-ctf';</script>
     <script src="../../_static/mirror-redirect.js?v=20b68f28"></script>
-    <link rel="canonical" href="https://silverrainz.gitee.io/notes/2021-interview/dp.html" />
+    <link rel="canonical" href="https://silverrainz.gitee.io/notes/writeups/hack101-ctf.html" />
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="现代色彩理论" href="../color/index.html" />
-    <link rel="prev" title="Leetcode 刷题日记" href="leetcode.html" />
+    <link rel="next" title="wargame-leviathan" href="wargame-leviathan.html" />
+    <link rel="prev" title="题解" href="index.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-31"/>
+    <meta name="docbuild:last-update" content="2024-06-16"/>
 
 <link
   rel="alternate"
@@ -292,12 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../music-theory/solfeggio-lesson-of-daluobei/index.html">大萝北的视唱课</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">2021 面试记录</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="checklist.html">知识点 Check List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="leetcode.html">Leetcode 刷题日记</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">动态规划</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
 </ul>
@@ -320,7 +314,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../go/generics.html">泛型</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../music-making/index.html">音乐制作</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../music-making/linux-recording.html">在 Linux 环境下录音</a></li>
 </ul>
@@ -333,18 +326,34 @@
 <li class="toctree-l2"><a class="reference internal" href="../wizard/pi.html">家用树莓派 3B+ 配置</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../writeups/index.html">Capture the Flag</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-leviathan.html">wargame-leviathan</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../writeups/seedlabs/index.html">Seed Lab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../writeups/seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">题解</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hacker101 CTF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wargame-leviathan.html">wargame-leviathan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="2021-interview/index.html">2021 面试记录</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/checklist.html">知识点 Check List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/leetcode.html">Leetcode 刷题日记</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-interview/dp.html">动态规划</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-bandit/index.html">wargme-bandit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../writeups/wargame-narnia/index.html">wargame-narnia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="seedlabs/index.html">Seed Lab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="seedlabs/format-string-vulnerability-lab/index.html">Format String Vulnerability Lab</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="wargame-bandit/index.html">wargme-bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wargame-narnia/index.html">wargame-narnia</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../abraxas.html">人造上帝</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nju-static-program-analysis.html">静态程序分析</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../color/index.html">现代色彩理论</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../color/primary-color.html">原色</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nintendo-switch/index.html">任天堂交换机使用手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nintendo-switch/zelda-breath-of-the-wild.html">塞尔达传说 旷野之息</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">博客</span></p>
 <ul class="nav bd-sidenav">
@@ -450,9 +459,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -513,9 +522,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -526,7 +535,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>动态规划</h1>
+    <h1>Hacker101 CTF</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -536,19 +545,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">排列组合问题</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">概念 </a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">背包九讲 </a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pack">01 背包问题</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">问题抽象</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">空间复杂度</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恰好放满背包</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-v"><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">参考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-cms-v1">Micro-CMS v1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-cms-v2">Micro-CMS v2</a></li>
 </ul>
             </nav>
         </div>
@@ -560,122 +558,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section id="id1">
-<h1>动态规划<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="hacker101-ctf">
+<h1>Hacker101 CTF<a class="headerlink" href="#hacker101-ctf" title="Link to this heading">#</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2021-05-18</p>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://ctf.hacker101.com/ctf">https://ctf.hacker101.com/ctf</a></p>
+</dd>
+<dt class="field-even">Date<span class="colon">:</span></dt>
+<dd class="field-even"><p>2024-06</p>
 </dd>
 </dl>
-<section id="id2">
-<h2>排列组合问题<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>参考：</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/41855459">5分钟彻底了解排列组合 - 知乎</a></p></li>
-<li><p><a class="reference external" href="https://www.zhihu.com/question/450108393/answer/1788658078">https://www.zhihu.com/question/450108393/answer/1788658078</a></p></li>
-</ul>
-<p>顺序的有关与无关。</p>
-<dl class="simple">
-<dt>排列</dt><dd><ul class="simple">
-<li><p>公式  <code class="code docutils literal notranslate"><span class="pre">m!/(m-n)!</span></code></p></li>
-<li><p>全排列 = <code class="code docutils literal notranslate"><span class="pre">n!</span></code></p></li>
-<li><p>排列数 <code class="code docutils literal notranslate"><span class="pre">组合数</span> <span class="pre">*</span> <span class="pre">全排列</span></code></p></li>
-</ul>
-</dd>
-<dt>组合</dt><dd><ul class="simple">
-<li><p>公式 <code class="code docutils literal notranslate"><span class="pre">m!/n!(m-n)!</span></code></p></li>
-<li><p>「全组合」= 1</p></li>
-<li><p>组合数 <code class="code docutils literal notranslate"><span class="pre">排列数</span> <span class="pre">/</span> <span class="pre">全排列</span></code></p></li>
-</ul>
-</dd>
-</dl>
+<section id="micro-cms-v1">
+<h2>Micro-CMS v1<a class="headerlink" href="#micro-cms-v1" title="Link to this heading">#</a></h2>
 </section>
-<section id="id5">
-<h2>概念 <a class="footnote-reference brackets" href="#id13" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>抽象问题 - 清晰的可枚举的问题</p></li>
-<li><p>寻找可以利用的重复计算</p></li>
-<li><p>重复计算定义为子问题</p></li>
-<li><p>定义重复子问题之间的关系</p></li>
-</ol>
-<aside class="topic">
-<p class="topic-title">和贪心的区别？</p>
-<p>贪心的子问题是独立的，可不带 context 求解的</p>
-</aside>
-</section>
-<section id="id7">
-<h2>背包九讲 <a class="footnote-reference brackets" href="#id14" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<section id="pack">
-<span id="id8"></span><h3>01 背包问题<a class="headerlink" href="#pack" title="Link to this heading">#</a></h3>
-<section id="id9">
-<h4>问题抽象<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
-<p><code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 为前 i 件物品放入容量为 v 的背包时的最大价值，即此时的 <code class="code docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">i]</span></code> 的物品都做出了 <em>未知但正确</em> 的选择，面对「放不放 i」这个问题，选择的方式是</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="o">-</span><span class="n">Ci</span><span class="p">]</span> <span class="o">+</span> <span class="n">Wi</span><span class="p">,</span> <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>第一眼会有 「明显是放 i 价值更大啊，放了总是多出 <code class="code docutils literal notranslate"><span class="pre">Wi</span></code> 来」的错觉 ，注意： <em>问题不是线性求解的</em> ，<code class="code docutils literal notranslate"><span class="pre">F</span></code> 是个矩阵而不是数组， <em>`F[i, v]` 和 `F[i-1, v]` 都是把背包放满了的最优解，并且选择方式可能完全不一致</em></p>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>比较感慨的是大学时期理解得很费劲的东西，现在看上去并不可怕</p>
-</div>
-<p>从思路到伪代码:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>F[0, 0..V ] &lt;- 0
-for i &lt;- 1 to N
-   for v &lt;- Ci to V
-      // 从「刚好放满」膨胀到题设的容量 V
-      F[i, v] &lt;- max(F[i-1, v], F[i-1, v-Ci] + Wi)
-</pre></div>
-</div>
-</section>
-<section id="id10">
-<h4>空间复杂度<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
-<p>在 1 to N 的循环里，<code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span> <span class="pre">&lt;-</span> <span class="pre">max(F[i-1,</span> <span class="pre">v],</span> <span class="pre">F[i-1,</span> <span class="pre">v-Ci]</span> <span class="pre">+</span> <span class="pre">Wi)</span></code> 说明 <code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 只依赖上一次循环（<code class="code docutils literal notranslate"><span class="pre">i-1</span></code>）的结果，所以只需要存 <code class="code docutils literal notranslate"><span class="pre">F[i-1,</span> <span class="pre">Ci-1..V]</span></code> 而不是矩阵 <code class="code docutils literal notranslate"><span class="pre">F[0..N,</span> <span class="pre">0..V]</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">WARNING</span><span class="p">::</span> <span class="n">错误的伪代码</span>
-<span class="n">F</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
-   <span class="k">for</span> <span class="n">v</span> <span class="o">&lt;-</span> <span class="n">Ci</span> <span class="n">to</span> <span class="n">V</span>
-      <span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nb">max</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="o">-</span><span class="n">Ci</span><span class="p">]</span> <span class="o">+</span> <span class="n">Wi</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>但这么写会发现原来是 <code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 的值会在计算中覆盖 <code class="code docutils literal notranslate"><span class="pre">F[i-1,</span> <span class="pre">v]</span></code> 的值（合并成一个数组了），<code class="code docutils literal notranslate"><span class="pre">V..0</span></code> 倒着算就不会有问题了:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
-   <span class="k">for</span> <span class="n">v</span> <span class="o">&lt;-</span> <span class="n">V</span> <span class="n">to</span> <span class="n">Ci</span>
-      <span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nb">max</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">F</span><span class="p">[</span><span class="n">v</span><span class="o">-</span><span class="n">Ci</span><span class="p">]</span> <span class="o">+</span> <span class="n">Wi</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id11">
-<h4>恰好放满背包<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
-<p>原始问题仅要求了「价值最大」， 当挑选第一个物品时 <code class="code docutils literal notranslate"><span class="pre">F[1,</span> <span class="pre">v]</span> <span class="pre">=</span> <span class="pre">max(F[0,</span> <span class="pre">v-Ci]</span> <span class="pre">+</span> <span class="pre">Wi,</span> <span class="pre">F[0,</span> <span class="pre">v])</span></code> 是可以选择 <code class="code docutils literal notranslate"><span class="pre">F[0,</span> <span class="pre">v]</span></code> 且 <code class="code docutils literal notranslate"><span class="pre">v!=0</span></code> 的，此时背包出现了空隙。</p>
-<p>若要求恰好把背包放满，让其无法选 F[0,v] 即可:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>F[0] &lt;- 0
-F[1..V] &lt;- -∞
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p>当然这样的话可能出现无解的情况</p>
-</div>
-</section>
-<section id="ci-v">
-<h4><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化<a class="headerlink" href="#ci-v" title="Link to this heading">#</a></h4>
-<p>:’( 不想看算了吧。</p>
-</section>
-</section>
-</section>
-<section id="id12">
-<h2>参考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id13" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://www.zhihu.com/question/39948290/answer/612439961">https://www.zhihu.com/question/39948290/answer/612439961</a></p>
-</aside>
-<aside class="footnote brackets" id="id14" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://raw.githubusercontent.com/tianyicui/pack/master/V2.pdf">https://raw.githubusercontent.com/tianyicui/pack/master/V2.pdf</a></p>
-</aside>
-</aside>
+<section id="micro-cms-v2">
+<h2>Micro-CMS v2<a class="headerlink" href="#micro-cms-v2" title="Link to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
@@ -690,7 +587,7 @@ F[1..V] &lt;- -∞
         }
     )
 );</script> 回复你。</p>
-<section data-isso-id="/notes/2021-interview/dp" data-title="动态规划" id="isso-thread"></section></div>
+<section data-isso-id="/notes/writeups/hack101-ctf" data-title="Hacker101 CTF" id="isso-thread"></section></div>
 </div>
 </section>
 </section>
@@ -711,20 +608,20 @@ F[1..V] &lt;- -∞
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="leetcode.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">上一页</p>
-        <p class="prev-next-title">Leetcode 刷题日记</p>
+        <p class="prev-next-title">题解</p>
       </div>
     </a>
     <a class="right-next"
-       href="../color/index.html"
+       href="wargame-leviathan.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">现代色彩理论</p>
+        <p class="prev-next-title">wargame-leviathan</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -744,19 +641,8 @@ F[1..V] &lt;- -∞
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">排列组合问题</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">概念 </a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">背包九讲 </a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pack">01 背包问题</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">问题抽象</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">空间复杂度</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恰好放满背包</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-v"><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">参考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-cms-v1">Micro-CMS v1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-cms-v2">Micro-CMS v2</a></li>
 </ul>
   </nav></div>
 
@@ -790,7 +676,7 @@ F[1..V] &lt;- -∞
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-31.
+  最后更新于 2024-06-16.
   <br/>
 </p>
   </div>

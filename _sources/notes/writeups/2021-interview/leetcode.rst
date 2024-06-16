@@ -5,7 +5,7 @@ Leetcode 刷题日记
 借鉴了 :ghrepo:`iosmanthus/leetcode-rust` 的做法，主要用 Rust 来刷题。
 先从 🔥 `Top 100 Liked Questions`_ 开始看看？
 
-.. seealso:: 题解见 :doc:`/notes/leetcode/index`
+.. seealso:: 题解见 :doc:`/notes/writeups/leetcode/index`
 
 .. _Top 100 Liked Questions: https://leetcode.com/problemset/all/?listId=79h8rn6
 

@@ -7,6 +7,11 @@
    :status: Reading
    :startat: 2021-05-15
 
+
+`合集·贡布里希《艺术的故事》视频解说版`__
+
+__ https://space.bilibili.com/477533700/channel/collectiondetail?sid=1737877
+
 .. contents::
    :local:
 

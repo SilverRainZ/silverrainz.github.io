@@ -14,6 +14,7 @@
    .. grid-item-card::
 
       .. people:: 李晓飞
+                  晓飞老师
          :weibo: lixiaofeiart
 
          当代艺术家，教育家。19~20 年，我在燕郊 :event:`造型实验室` 学画时的老师。
@@ -74,6 +75,7 @@
    .. grid-item-card::
 
       .. people:: soyking
+                  豆豆
          :github: soyking
          :blog: https://soyking.top/
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-06-04T05:26:48.304466+00:00</updated>
+  <updated>2024-06-16T11:54:28.388878+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
@@ -1317,7 +1317,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;06&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;04&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;06&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;16&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1688,7 +1688,7 @@ language by default.</summary>
 希望有机会把后面的内容补完吧。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p class="centered"&gt;
-&lt;strong&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;如果有哪一天我获得了幸福，我就再也不画画了。&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;今年&lt;/span&gt; &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;去年&lt;/span&gt; 前年 6 月的时候，我结束了在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;燕郊的课程&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，回家准备 &lt;a class="reference internal" href="notes/2021-interview/index.html"&gt;&lt;span class="doc"&gt;面试&lt;/span&gt;&lt;/a&gt;；9 月，入职杭州字节，还是写代码。这一年间有不少朋友听说了我的事情，问为什么突然辞了职去学画画；面试的时候也会被问，你为什么选择这么做，现在怎么又回来了云云，我也一遍又一遍地重复着准备好的说辞。&lt;/p&gt;
+&lt;strong&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;如果有哪一天我获得了幸福，我就再也不画画了。&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;今年&lt;/span&gt; &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;去年&lt;/span&gt; 前年 6 月的时候，我结束了在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;燕郊的课程&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，回家准备 &lt;a class="reference internal" href="notes/writeups/2021-interview/index.html"&gt;&lt;span class="doc"&gt;面试&lt;/span&gt;&lt;/a&gt;；9 月，入职杭州字节，还是写代码。这一年间有不少朋友听说了我的事情，问为什么突然辞了职去学画画；面试的时候也会被问，你为什么选择这么做，现在怎么又回来了云云，我也一遍又一遍地重复着准备好的说辞。&lt;/p&gt;
 &lt;p&gt;我有个坏毛病，在人前时总想着说些漂亮话，羞于暴露自己「和别人不一样」的一面：&lt;/p&gt;
 &lt;dl class="field-list simple"&gt;
 &lt;dt class="field-odd"&gt;某&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
