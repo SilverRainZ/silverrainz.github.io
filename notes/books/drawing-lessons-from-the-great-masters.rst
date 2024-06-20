@@ -10,3 +10,10 @@
 
    `豆油 <https://book.douban.com/review/7707590/>`_ 提供的视频教程：
      https://list.youku.com/albumlist/show/id_15458524.html
+
+     24.06 链接失效，短命的互联网 :'(
+
+学画素描
+========
+
+:dfd:`sss`
