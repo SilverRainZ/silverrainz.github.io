@@ -124,6 +124,12 @@ The Pro way: Digital Audio Workstation (DAW)
 __ https://wiki.ubuntu.org.cn/Ardour%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B
 __ https://wiki.ubuntu.org.cn/Ardour4_%E5%88%9D%E5%AD%A6%E8%80%85%E6%95%99%E7%A8%8B_02_%E5%BC%80%E5%A7%8B%E5%85%A5%E9%97%A8#.E5.BD.95.E5.88.B6.E9.9F.B3.E9.A2.91
 
+音量
+----
+
+吉他
+   拾音器和音响都有 MIC/BLEND 的选项，往 MIC 选看起来能增大音量。
+
 参考
 ====
 

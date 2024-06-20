@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2024-06-16T09:34:53+00:00" />
+    <meta property="article:modified_time" content="2024-06-20T17:24:58+00:00" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MZDR9VPYN"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-06-16"/>
+    <meta name="docbuild:last-update" content="2024-06-20"/>
 
 <link
   rel="alternate"
@@ -552,9 +552,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">录制</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unix-way">The Unix way: 直接录制</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pro-way-digital-audio-workstation-daw">The Pro way: Digital Audio Workstation (DAW)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">音量</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考</a></li>
 </ul>
             </nav>
         </div>
@@ -588,12 +589,12 @@ document.write(`
 <ol class="arabic">
 <li><p>需要有音频接口：即使完全不考虑音质，我们也需要一个让电脑能够接收音频信号的接口，
 我的电脑有 3.5mm TRRS 的输入接口（能插有通话功能的耳机）。
-吉他及其周边输出用的是 6.5mm 的 TS 口 <a class="footnote-reference brackets" href="#id11" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>，相对专业的麦克风用的则是卡农口，
+吉他及其周边输出用的是 6.5mm 的 TS 口 <a class="footnote-reference brackets" href="#id12" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>，相对专业的麦克风用的则是卡农口，
 规格不一、用途不同。而独立声卡这些都会提供，再通过 USB 将数据传给电脑。</p></li>
 <li><p>需要及格的音频处理能力：（据说）板载声卡 <span class="sphinxnotes-strike" style="text-decoration: line-through;">采样率低</span>，抗干扰能力弱，
 得到的声音质量差。但对比参数：就采样率而言没啥区别，其他有区别但我看不懂：</p>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--list-device</span></code> + <code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--dump-hw-params</span> <span class="pre">-D</span> <span class="pre">hw:&lt;CARD_NUM&gt;</span></code></span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text"><code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--list-device</span></code> + <code class="code docutils literal notranslate"><span class="pre">arecord</span> <span class="pre">--dump-hw-params</span> <span class="pre">-D</span> <span class="pre">hw:&lt;CARD_NUM&gt;</span></code></span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
 <div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /home/runner/work/silverrainz.github.io/silverrainz.github.io/notes/music-making/onboard.txt</span>
 <span class="gi">+++ /home/runner/work/silverrainz.github.io/silverrainz.github.io/notes/music-making/thr5a.txt</span>
 <span class="gu">@@ -1,22 +1,21 @@</span>
@@ -641,8 +642,8 @@ document.write(`
 <p>实际上，我的 <a class="reference internal" href="../../collections/devices/instruments.html#dev-thr5a" title="dev thr5a"><code class="xref any any-dev docutils literal notranslate"><span class="pre">🎛️Yamaha</span> <span class="pre">THR5a</span></code></a> 和 <a class="reference internal" href="../../collections/devices/instruments.html#dev-mg300" title="dev mg300"><code class="xref any any-dev docutils literal notranslate"><span class="pre">🎛️Nux</span> <span class="pre">MG300</span></code></a> 都自带了声卡，内核也能正常识别，但
 后者录音的时候总是捕捉不到，怀疑和 <a class="reference external" href="https://blog.nostatic.org/2021/01/nux-mg-300-guitar-processor-under-linux.html">这里</a> 遇到了同样的问题，折腾不动，
 故使用 thr5a 录音。</p>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">需要 <a class="reference external" href="https://archlinux.org/packages/wireplumber">📦 wireplumber</a></span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">需要 <a class="reference external" href="https://archlinux.org/packages/wireplumber">📦 wireplumber</a></span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wpctl<span class="w"> </span>status
 <span class="go">…</span>
 
@@ -712,7 +713,7 @@ document.write(`
 而是使用集成化的 DAW 软件，随便找了个视频扫盲一下：</p>
 <div class="video_wrapper" style="">
 <iframe allowfullscreen="true" src="https://www.youtube.com/embed/UqOTEqAE9D8" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>当然在 Linux 上，DAW 软件选择比较有限 <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>：</p>
+</iframe></div><p>当然在 Linux 上，DAW 软件选择比较有限 <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>：</p>
 <dl class="field-list simple">
 <dt class="field-odd">Reaper<span class="colon">:</span></dt>
 <dd class="field-odd"><p>跨三平台（wine on Linux），使用简单，但是收费</p>
@@ -729,19 +730,26 @@ document.write(`
 </dl>
 <p>简单试用了下选择了 Ardour，有 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B">中文教程</a>，对于本文来说，看 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour4_%E5%88%9D%E5%AD%A6%E8%80%85%E6%95%99%E7%A8%8B_02_%E5%BC%80%E5%A7%8B%E5%85%A5%E9%97%A8#.E5.BD.95.E5.88.B6.E9.9F.B3.E9.A2.91">录制音频</a> 一节即可。</p>
 </section>
-</section>
 <section id="id10">
-<h2>参考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h3>音量<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>吉他</dt><dd><p>拾音器和音响都有 MIC/BLEND 的选项，往 MIC 选看起来能增大音量。</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="id11">
+<h2>参考<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id11" role="doc-footnote">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://dashi.streetvoice.cn/article/20221226/001/">你真的了解“吉他线”吗？ | 街声 - StreetVoice</a></p>
 </aside>
-<aside class="footnote brackets" id="id12" role="doc-footnote">
+<aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://wiki.archlinux.org/index.php/List_of_applications/Multimedia#Digital_audio_workstations">📖 List_of_applications/Multimedia#Digital_audio_workstations</a></p>
 </aside>
-<aside class="footnote brackets" id="id13" role="doc-footnote">
+<aside class="footnote brackets" id="id14" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">3</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://alternativeto.net/software/cubase/?platform=linux">https://alternativeto.net/software/cubase/?platform=linux</a></p>
 </aside>
@@ -821,9 +829,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">录制</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unix-way">The Unix way: 直接录制</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pro-way-digital-audio-workstation-daw">The Pro way: Digital Audio Workstation (DAW)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">音量</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考</a></li>
 </ul>
   </nav></div>
 
@@ -857,7 +866,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-06-16.
+  最后更新于 2024-06-20.
   <br/>
 </p>
   </div>
