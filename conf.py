@@ -91,7 +91,6 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.youtube',
     'sphinxnotes.extweb',
-    'sphinx_last_updated_by_git',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -503,9 +502,29 @@ if D is not Deployment.Local:
 extensions.append('sphinxnotes.comboroles')
 comboroles_roles = {
     'parsed_literal': (['literal'], True),
+    'sup_abbr': ['sup', 'abbr'],
 
      # for ./blog/sphinxnotes-comboroles.rst
     'strong_literal': ['strong', 'literal'],
     'literal_enwiki': ['literal', 'enwiki'],
     'literal_strike': ['literal', 'strike'],
 }
+
+extensions.append('sphinxcontrib.globalsubs')
+global_substitutions = {
+    '?': ':sup_abbr:`存疑 (笔者对此断言存有疑惑，请谨慎参考)`',
+    'noref': ':sup_abbr:`来源请求 (笔者确信在此断言有特定的出处，但暂时无法找到)`', # citation needed
+
+    # Marks for TODO list.
+    # Role octicon: https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html
+    'o': ':octicon:`issue-closed;1em;sd-text-success`', # done
+    '.': ':octicon:`issue-opened;1em;sd-text-warning`', # wip
+    '_': ':octicon:`issue-draft`',                      # todo
+    'p0': ':bdg-danger:`P0`',  # priv high
+    'p1': ':bdg-warning:`P1`', # priv medium
+    'p2': ':bdg-info:`P2`',    # priv low
+}
+
+if D is not Deployment.Local:
+    # Speed up local build (prevent read git timestamp).
+    extensions.append('sphinx_last_updated_by_git')
