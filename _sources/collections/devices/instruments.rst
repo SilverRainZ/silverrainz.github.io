@@ -87,3 +87,25 @@ QuickTone
    2024.05，在 Arch Linux, kernel 6.8.8, pipewire 1.0.5 上录音不可用。
 
    https://blog.nostatic.org/2021/01/nux-mg-300-guitar-processor-under-linux.html
+
+舒尔 SM58
+---------
+
+.. dev:: _
+   :id: shure-sm58
+   :type: mic
+   :startat: 2024.05
+
+铁三角 M20X
+-----------
+
+.. dev:: _
+   :id: ath-m20x
+   :startat: 2024.06
+
+百灵达 MIC200
+-------------
+
+.. dev:: _
+   :id: mic200
+   :startat: 2024.06
