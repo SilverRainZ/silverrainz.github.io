@@ -51,7 +51,7 @@ Directives
    - `Sphinx Directive Helper`__
 
 __ https://www.sphinx-doc.org/en/master/extdev/appapi.html
-__ https://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx-core-events
+__ https://www.sphinx-doc.org/en/master/extdev/event_callbacks.html#events
 __ https://www.sphinx-doc.org/en/master/_modules/sphinx/config.html#Config
 __ https://www.sphinx-doc.org/en/master/extdev/envapi.html
 __ http://code.nabla.net/doc/docutils/api/docutils/docutils.nodes.html#module-docutils.nodes
