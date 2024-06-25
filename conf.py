@@ -529,3 +529,6 @@ global_substitutions = {
 if D is not Deployment.Local:
     # Speed up local build (prevent read git timestamp).
     extensions.append('sphinx_last_updated_by_git')
+
+# For .. pdf-include:: directive.
+extensions.append('sphinx_simplepdf')
