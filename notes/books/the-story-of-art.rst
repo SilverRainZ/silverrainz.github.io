@@ -7,8 +7,7 @@
    :status: Reading
    :startat: 2021-05-15
 
-
-`合集·贡布里希《艺术的故事》视频解说版`__
+Bilibili 的 UP 主 @feiyaya99 正在更新对此书的解说：`合集·贡布里希《艺术的故事》视频解说版`__
 
 __ https://space.bilibili.com/477533700/channel/collectiondetail?sid=1737877
 
@@ -72,6 +71,19 @@ __ https://space.bilibili.com/477533700/channel/collectiondetail?sid=1737877
 
 主要讲了原始民族、古代美洲的一些艺术。
 
+制像（image making）和建筑同等重要。
+
+原始艺术家的技艺未必原始。
+
+良渚玉雕
+
+最著名的三个原始洞穴壁画：
+   茶维特洞穴壁画
+   法国拉斯科洞穴
+   阿尔塔米拉洞穴壁画
+
+大型动物的侧面像
+
 .. _purpose-of-art:
 
 艺术必须服务的目的
@@ -84,7 +96,6 @@ __ https://space.bilibili.com/477533700/channel/collectiondetail?sid=1737877
 「艺术必须服务的目的」也就是它们被「创作」出来的原因。在 :event:`造型实验室` 的学习中，作画目的也作为重点被一直强调。
 
 所以我想对于所有艺术品的解读，「艺术所服务的目的」也都同样的重要。只是在过去的艺术里，可供解读的维度有限，以至于这个目的几乎是解读它们的唯一法门，也就显得无比重要。
-
 
 .. _concept-of-art:
 

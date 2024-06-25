@@ -190,7 +190,7 @@
    :size: 16k
    :date: 2022-05-01
    :medium: 炭精粉
-   :image: _images/artwork-anf/IMG_20220504_122811__01.jpg
+   :image: /_images/artwork-anf/IMG_20220504_122811__01.jpg
 
    :people:`YY` 画的第二张碳粉，第一张（还）没有放进来。
 
