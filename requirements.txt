@@ -24,3 +24,4 @@ sphinxcontrib-youtube
 sphinx-last-updated-by-git
 sphinxnotes-comboroles
 sphinxcontrib-globalsubs
+sphinx_simplepdf
