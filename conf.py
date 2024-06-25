@@ -382,8 +382,9 @@ any_schemas = [
            attrs={
                'id': F(unique=True, referenceable=True, required=True),
                'type': F(referenceable=True),
-               'website': F(),
+               'web': F(),
                'man': F(),
+               'price': F(),
                'startat': F(referenceable=True),
                'endat': F(referenceable=True),
            },
