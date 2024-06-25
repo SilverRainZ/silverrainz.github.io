@@ -1,6 +1,5 @@
 # Sphinx
 _build/
-_any
 _cache/
 
 # Syncthing
@@ -11,3 +10,6 @@ _cache/
 
 # Private content
 ronin
+
+# sphinxnotes-any
+.any*/
