@@ -11,7 +11,7 @@ LANG          = en_US.UTF-8
 SPHINXSERV    ?= sphinx-autobuild
 MAKE          = make
 
-default: html
+default: fast
 
 view:
 	xdg-open "$(BUILDDIR)/html/index.html"
@@ -35,20 +35,27 @@ pull:
 	git fetch origin master
 	git merge origin/master
 
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+.PHONY: default view help serve commit Makefile snip fast live full
 
-.PHONY: default view help serve commit Makefile snip fhtml lhtml
+# Standard HTML builder.
+full: html
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-# Snippet builder: https://sphinx.silverrainz.me/snippet/, for shell completion.
+# Snippet builder: https://sphinx.silverrainz.me/snippet/
 snip: snippet
 
-# Live HTML builder: https://sphinx.silverrainz.me/livehtml/, for shell completion.
-fhtml: fasthtml
-lhtml: livehtml
+# Live HTML builder: https://sphinx.silverrainz.me/livehtml/
+fast: fasthtml
+live: livehtml
+
+# Catch-all target: route all unknown targets to Sphinx builder.
+# $(O) is meant as a shortcut for $(SPHINXOPTS).
+#
+# NOTE: We want the html, fasthtml and livehtml builders share same outdir.
+#
+# 	1. Don't use the make mode (-M) because it force use $(BUILDDIR)/$(BUILDERNAME)
+# 		as outdir
+# 	2. The $(if $(findstring ...)) expr returns correct outdir for us
+# 		if "html" found in builder name, return "html", otherwise return the
+# 		builder name
+%: Makefile
+	@$(SPHINXBUILD) -b $@ "$(SOURCEDIR)" "$(BUILDDIR)/$(if $(findstring html,$@),html,$@)" $(SPHINXOPTS) $(O) 
