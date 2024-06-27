@@ -200,7 +200,7 @@ The Docutils Document Tree
 --------------------------
 
 Before going further, we need to have some basic understanding of
-the `Document Tree <doctree>`_ of docutils [#]_ (hereafter referred to as doctree).
+the `Document Tree`_ of docutils [#]_ (hereafter referred to as doctree).
 The doctree describes the data structure of a rST document (a `*.rst` file) [#]_.
 Here is a simplified diagram of the hierarchy of elements in the doctree,
 we only focus on the highlighted lines:
@@ -271,7 +271,7 @@ which looks like:
           bold code
 
 .. _Inline Elements: https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14
-.. _doctree: https://docutils.sourceforge.io/docs/ref/doctree.html
+.. _Document Tree: https://docutils.sourceforge.io/docs/ref/doctree.html
 .. _rst2pseudoxml: https://docutils.sourceforge.io/docs/user/tools.html#rst2pseudoxml
 
 Dynamic compositing
@@ -344,7 +344,8 @@ Run all role function, pass parameters as is, then collect the returning nodes::
 
   nodes: list[TextElement] = []
   for comp in components:
-      ns, _ = comp(self.name, self.rawtext, self.text, self.lineno, self.inliner, self.options, self.content)
+      ns, _ = comp(self.name, self.rawtext, self.text, self.lineno,
+                   self.inliner, self.options, self.content)
       # Error handling...
       nodes.append(ns[0][0])
 
@@ -393,15 +394,47 @@ Now, `nodes[0]` is the root of node combination, just return it::
 
    return [nodes[0]], []
 
+So the complete code looks like this::
+
+   class CompositeRole(SphinxRole):
+       #: Rolenames to be composited
+       rolenames: list[str]
+
+       def __init__(self, rolenames: list[str]):
+           self.rolenames = rolenames
+
+       def run(self) -> tuple[list[Node], list[system_message]]:
+           components = []
+           for r in self.rolenames:
+               if r in roles._roles:
+                   components.append(roles._roles[r])
+               elif r in roles._role_registry:
+                   components.append(roles._role_registry[r])
+               else:
+                  # Error handling...
+                  pass
+
+           nodes: list[TextElement] = []
+           for comp in components:
+               ns, _ = comp(self.name, self.rawtext, self.text, self.lineno,
+                            self.inliner, self.options, self.content)
+               # Error handling...
+               nodes.append(ns[0][0])
+
+           for i in range(0, len(nodes) -1):
+               nodes[i].replace(nodes[i][0], nodes[i+1])
+
+           return [nodes[0]], []
+
 The above code has been simplified for ease of explanation, for complete
-implementation, please refer to :ghrepo:`sphinxnotes/comboroles`.
+implementation, please refer to :ghrepo:`sphinx-notes/comboroles`.
 
 Footnotes
 =========
 
 .. [#] docutils_ is the main implementation of reStructuredText
 .. [#] It should be easy to understand if you know :enwiki:`Abstract Syntax Tree`
-.. [#] `The Docutils Document Tree <doctree>`_ - Element Hierarchy
+.. [#] The Docutils `Document Tree`_ - Element Hierarchy
 .. [#] `Inline Elements`_
 .. [#] `Creating reStructuredText Interpreted Text Roles <create-roles>`_
 .. [#] `Creating reStructuredText Interpreted Text Roles <create-roles>`_ - Generic Roles

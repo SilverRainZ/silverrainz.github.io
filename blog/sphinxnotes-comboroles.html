@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="银色子弹" />
 <meta name="description" content="Background: Sphinx is a famous documentation generator used by a lot of Open Source communities. It uses reStructuredText (hereafter referred to as rST) as markup language by default. Unlike Markdo..." />
 
-    <meta property="article:modified_time" content="2024-03-17T16:13:48+00:00" />
+    <meta property="article:modified_time" content="2024-06-27T16:49:35+00:00" />
     <title>Implementing “nested inline markup” in reStructuredText and Sphinx &#8212; 银色子弹</title>
   
   
@@ -81,7 +81,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-17"/>
+    <meta name="docbuild:last-update" content="2024-06-27"/>
 
 <link
   rel="alternate"
@@ -1029,12 +1029,12 @@ In fact, it is quite simple, about 30 lines of code.</p>
 <section id="the-docutils-document-tree">
 <h3>The Docutils Document Tree<a class="headerlink" href="#the-docutils-document-tree" title="Link to this heading">#</a></h3>
 <p>Before going further, we need to have some basic understanding of
-the <a class="reference external" href="doctree">Document Tree</a> of docutils <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (hereafter referred to as doctree).
+the <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html">Document Tree</a> of docutils <a class="footnote-reference brackets" href="#id9" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (hereafter referred to as doctree).
 The doctree describes the data structure of a rST document (a <code class="code docutils literal notranslate"><span class="pre">*.rst</span></code> file) <a class="footnote-reference brackets" href="#id10" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
 Here is a simplified diagram of the hierarchy of elements in the doctree,
 we only focus on the highlighted lines:</p>
-<div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text">Element hierarchy of doctree <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Element hierarchy of doctree <a class="footnote-reference brackets" href="#id11" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+--------------------------------------------------------------------+
 | document  [may begin with a title, subtitle, decoration, docinfo]  |
 |                             +--------------------------------------+
@@ -1056,7 +1056,7 @@ we only focus on the highlighted lines:</p>
 <p>The highlight lines describe the content model of <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14">Inline Elements</a>.
 All inline markups and roles we just discussed belong to inline elements.</p>
 <blockquote>
-<div><p>Inline elements <em>directly contain text data, and may also contain further inline elements</em>. <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<div><p>Inline elements <em>directly contain text data, and may also contain further inline elements</em>. <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 </div></blockquote>
 <p>We already know that roles can not contain further roles, so we conclude that:
 The limitation of inline nested markup is caused by rST’s syntax, rather than
@@ -1101,7 +1101,7 @@ which looks like:</p>
 </section>
 <section id="dynamic-compositing">
 <h3>Dynamic compositing<a class="headerlink" href="#dynamic-compositing" title="Link to this heading">#</a></h3>
-<p>All roles of docutils are implemented in the same way <a class="footnote-reference brackets" href="#id14" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>:</p>
+<p>All roles of docutils are implemented in the same way <a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>:</p>
 <ol class="arabic simple">
 <li><p>Define the Role Function, which receives the context of the parser,
 creates and returns inline elements (nodes),
@@ -1120,7 +1120,7 @@ and get the corresponding node by calling them</p></li>
 role function and the implementation of <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/builders/index.html">builders</a>. Fortunately:</p>
 <ul class="simple">
 <li><p>Most of markups’s role function are very simple: They wrap
-<code class="code docutils literal notranslate"><span class="pre">docutils.nodes.TextElement</span></code> around the text <a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></li>
+<code class="code docutils literal notranslate"><span class="pre">docutils.nodes.TextElement</span></code> around the text <a class="footnote-reference brackets" href="#id14" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></li>
 <li><p>The most commonly used builder is HTML builder, in its view,
 the combinations of nodes are combinations of HTML tags, which makes sense
 in most cases</p></li>
@@ -1165,7 +1165,8 @@ from role name to role function:</p>
 <p>Run all role function, pass parameters as is, then collect the returning nodes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TextElement</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
-    <span class="n">ns</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">comp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawtext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inliner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">ns</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">comp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawtext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span>
+                 <span class="bp">self</span><span class="o">.</span><span class="n">inliner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
     <span class="c1"># Error handling...</span>
     <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
@@ -1220,8 +1221,40 @@ i=1:<span class="w"> </span><span class="nt">&lt;literal&gt;</span><span class="
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[]</span>
 </pre></div>
 </div>
+<p>So the complete code looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CompositeRole</span><span class="p">(</span><span class="n">SphinxRole</span><span class="p">):</span>
+    <span class="c1">#: Rolenames to be composited</span>
+    <span class="n">rolenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rolenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rolenames</span> <span class="o">=</span> <span class="n">rolenames</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">system_message</span><span class="p">]]:</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rolenames</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roles</span><span class="o">.</span><span class="n">_roles</span><span class="p">:</span>
+                <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roles</span><span class="o">.</span><span class="n">_roles</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roles</span><span class="o">.</span><span class="n">_role_registry</span><span class="p">:</span>
+                <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roles</span><span class="o">.</span><span class="n">_role_registry</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+               <span class="c1"># Error handling...</span>
+               <span class="k">pass</span>
+
+        <span class="n">nodes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TextElement</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+            <span class="n">ns</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">comp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawtext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">inliner</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+            <span class="c1"># Error handling...</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[]</span>
+</pre></div>
+</div>
 <p>The above code has been simplified for ease of explanation, for complete
-implementation, please refer to <a class="reference external" href="https://github.com/sphinxnotes/comboroles">⛺ sphinxnotes/comboroles</a>.</p>
+implementation, please refer to <a class="reference external" href="https://github.com/sphinx-notes/comboroles">⛺ sphinx-notes/comboroles</a>.</p>
 </section>
 </section>
 <section id="footnotes">
@@ -1237,17 +1270,17 @@ implementation, please refer to <a class="reference external" href="https://gith
 </aside>
 <aside class="footnote brackets" id="id11" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="doctree">The Docutils Document Tree</a> - Element Hierarchy</p>
+<p>The Docutils <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html">Document Tree</a> - Element Hierarchy</p>
 </aside>
-<aside class="footnote brackets" id="id13" role="doc-footnote">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">4</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html#toc-entry-14">Inline Elements</a></p>
 </aside>
-<aside class="footnote brackets" id="id14" role="doc-footnote">
+<aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">5</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="create-roles">Creating reStructuredText Interpreted Text Roles</a></p>
 </aside>
-<aside class="footnote brackets" id="id15" role="doc-footnote">
+<aside class="footnote brackets" id="id14" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">6</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="create-roles">Creating reStructuredText Interpreted Text Roles</a> - Generic Roles</p>
 </aside>
@@ -1383,7 +1416,7 @@ implementation, please refer to <a class="reference external" href="https://gith
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-17.
+  最后更新于 2024-06-27.
   <br/>
 </p>
   </div>
