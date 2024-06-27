@@ -21,12 +21,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/docutils/how-sphinx-builder-works.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="Sphinx Version, sphinx-doc/sphinx,.-M -b env.get_outdated_files builder.get_outdated_docs buildinfo use_index use_index 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta property="og:description" content="Sphinx Version, sphinx-doc/sphinx,. Entry point: Tow options of sphinx-build can specific builder: In sphinx.cmd mods:-M BUILDER_NAME, make mode, used in Makefile build.main → build.make_main → mak..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="Sphinx Version, sphinx-doc/sphinx,.-M -b env.get_outdated_files builder.get_outdated_docs buildinfo use_index use_index 评论 如果你有任何意见，请在此评论。 如果你留下了电子邮箱，我可能会通过 回复你。" />
+<meta name="description" content="Sphinx Version, sphinx-doc/sphinx,. Entry point: Tow options of sphinx-build can specific builder: In sphinx.cmd mods:-M BUILDER_NAME, make mode, used in Makefile build.main → build.make_main → mak..." />
 
-    <meta property="article:modified_time" content="2024-06-26T16:22:26+00:00" />
+    <meta property="article:modified_time" content="2024-06-27T06:00:25+00:00" />
     <title>How Sphinx Builder Works &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-06-26"/>
+    <meta name="docbuild:last-update" content="2024-06-27"/>
 
 <link
   rel="alternate"
@@ -525,7 +525,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -541,6 +543,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entry-point">Entry point</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-application">The Sphinx Application</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -557,7 +568,85 @@ document.write(`
 <dd class="field-odd"><p><a class="github reference external" href="https://github.com/sphinx-doc/sphinx/tree/v7.3.7/sphinx">sphinx-doc/sphinx</a></p>
 </dd>
 </dl>
-<p>-M -b</p>
+<section id="entry-point">
+<h2>Entry point<a class="headerlink" href="#entry-point" title="Link to this heading">#</a></h2>
+<p>Tow <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html#options">options of sphinx-build</a> can specific builder:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sphinx.cmd</span></code> mods:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">-M</span> <span class="pre">BUILDER_NAME</span></code></dt><dd><p>make mode, used in Makefile</p>
+<p><code class="docutils literal notranslate"><span class="pre">build.main</span></code> →   <code class="docutils literal notranslate"><span class="pre">build.make_main</span></code> →  <code class="docutils literal notranslate"><span class="pre">make_mode.run_make_mode</span></code>
+→  <code class="docutils literal notranslate"><span class="pre">make_model.Make.run_generic_build</span></code> →  <code class="docutils literal notranslate"><span class="pre">build.build_main</span></code></p>
+<p>In <code class="code docutils literal notranslate"><span class="pre">run_generic_build</span></code>, outdir is hardcoded to <code class="docutils literal notranslate"><span class="pre">&lt;BUILDDIR&gt;/&lt;BUILDER&gt;</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">builder</span><span class="p">,</span>
+        <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="n">doctreedir</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srcdir</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">builddir_join</span><span class="p">(</span><span class="n">builder</span><span class="p">)]</span> <span class="o">//</span> <span class="n">HERE</span>
+<span class="k">return</span> <span class="n">build_main</span><span class="p">(</span><span class="n">args</span> <span class="o">+</span> <span class="n">opts</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-b</span> <span class="pre">BUILDER_NAME</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">build.main</span></code> →  <code class="docutils literal notranslate"><span class="pre">build.build_main</span></code></p>
+<p>outdir is <code class="docutils literal notranslate"><span class="pre">&lt;BUILDDIR&gt;</span></code>.</p>
+</dd>
+</dl>
+<p>In <code class="code docutils literal notranslate"><span class="pre">build_main</span></code>, the important <code class="code docutils literal notranslate"><span class="pre">application.Sphinx</span></code> object are created.</p>
+</section>
+<section id="the-sphinx-application">
+<h2>The Sphinx Application<a class="headerlink" href="#the-sphinx-application" title="Link to this heading">#</a></h2>
+<p>In <code class="code docutils literal notranslate"><span class="pre">application.Sphinx.__init__</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+
+<span class="c1"># load all user-given extension modules</span>
+<span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">extensions</span><span class="p">:</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">setup_extension</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+
+<span class="c1"># preload builder module (before init config values)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">preload_builder</span><span class="p">(</span><span class="n">buildername</span><span class="p">)</span>
+
+<span class="c1"># call possible config.setup() ...</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;config-inited&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># set up the build environment</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_env</span><span class="p">(</span><span class="n">freshenv</span><span class="p">)</span>
+   <span class="c1"># create fresh env</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">_create_fresh_env</span><span class="p">()</span>
+   <span class="c1"># or load env from pickle files</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">_load_existing_env</span><span class="p">(</span><span class="n">outdir</span><span class="o">/.</span><span class="n">doctree</span><span class="o">/</span><span class="n">environment</span><span class="o">.</span><span class="n">pickle</span><span class="p">)</span>
+      <span class="n">env</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="c1"># create the builder</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">builder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_builder</span><span class="p">(</span><span class="n">buildername</span><span class="p">)</span>
+
+
+<span class="c1"># build environment post-initialisation, after creating the builder</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_post_init_env</span><span class="p">()</span>
+
+<span class="c1"># set up the builder</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_init_builder</span><span class="p">()</span>
+   <span class="c1"># call events.emit(&#39;builder-inited&#39;, ...)</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">BuildEnvironment.setup</span></code> calls <code class="docutils literal notranslate"><span class="pre">BuildEnvironment._update_config</span></code> to detect
+config changes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_update_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># ...</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_status</span> <span class="o">=</span> <span class="n">CONFIG_NEW</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">extensions</span> <span class="o">!=</span> <span class="n">config</span><span class="o">.</span><span class="n">extensions</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_status</span> <span class="o">=</span> <span class="n">CONFIG_EXTENSIONS_CHANGED</span>
+        <span class="c1"># ...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># check if a config value was changed that affects how</span>
+        <span class="c1"># doctrees are read</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">({</span><span class="s1">&#39;env&#39;</span><span class="p">})):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">!=</span> <span class="n">item</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config_status</span> <span class="o">=</span> <span class="n">CONFIG_CHANGED</span>
+                <span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">Builder.build</span></code>, env are dump back to file:</p>
 <p>env.get_outdated_files
 builder.get_outdated_docs
 buildinfo
@@ -579,6 +668,7 @@ use_index</p>
 );</script> 回复你。</p>
 <section data-isso-id="/notes/docutils/how-sphinx-builder-works" data-title="How Sphinx Builder Works" id="isso-thread"></section></div>
 </div>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -621,6 +711,22 @@ use_index</p>
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entry-point">Entry point</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-application">The Sphinx Application</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -649,7 +755,7 @@ use_index</p>
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-06-26.
+  最后更新于 2024-06-27.
   <br/>
 </p>
   </div>
