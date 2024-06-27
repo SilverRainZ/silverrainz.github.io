@@ -370,9 +370,9 @@ __ https://zhuanlan.zhihu.com/p/58675411
             Marlene Dumas
             Dumas
    :movement: 当代艺术
+   :artwork: 邪恶是凡常之事
 
 :topic: 个人身份 种族身份 女性身份
-:artwork: 邪恶是凡常之事
 
 南非白人女性艺术家。
 
