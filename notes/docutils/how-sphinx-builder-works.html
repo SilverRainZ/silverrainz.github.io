@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="银色子弹" />
 <meta name="description" content="Sphinx Version, sphinx-doc/sphinx,. Entry point: Tow options of sphinx-build can specific builder: In sphinx.cmd mods:-M BUILDER_NAME, make mode, used in Makefile build.main → build.make_main → mak..." />
 
-    <meta property="article:modified_time" content="2024-06-27T06:00:25+00:00" />
+    <meta property="article:modified_time" content="2024-06-28T05:57:52+00:00" />
     <title>How Sphinx Builder Works &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-06-27"/>
+    <meta name="docbuild:last-update" content="2024-06-28"/>
 
 <link
   rel="alternate"
@@ -549,7 +549,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entry-point">Entry point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-application">The Sphinx Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-sphinx-application">Create Sphinx Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build">Build</a></li>
 </ul>
             </nav>
         </div>
@@ -592,8 +593,8 @@ document.write(`
 </dl>
 <p>In <code class="code docutils literal notranslate"><span class="pre">build_main</span></code>, the important <code class="code docutils literal notranslate"><span class="pre">application.Sphinx</span></code> object are created.</p>
 </section>
-<section id="the-sphinx-application">
-<h2>The Sphinx Application<a class="headerlink" href="#the-sphinx-application" title="Link to this heading">#</a></h2>
+<section id="create-sphinx-application">
+<h2>Create Sphinx Application<a class="headerlink" href="#create-sphinx-application" title="Link to this heading">#</a></h2>
 <p>In <code class="code docutils literal notranslate"><span class="pre">application.Sphinx.__init__</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
 
@@ -625,7 +626,8 @@ document.write(`
 
 <span class="c1"># set up the builder</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">_init_builder</span><span class="p">()</span>
-   <span class="c1"># call events.emit(&#39;builder-inited&#39;, ...)</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;builder-inited&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">BuildEnvironment.setup</span></code> calls <code class="docutils literal notranslate"><span class="pre">BuildEnvironment._update_config</span></code> to detect
@@ -646,12 +648,136 @@ config changes:</p>
                 <span class="c1"># ...</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Builder.init</span></code> does nothing, <code class="docutils literal notranslate"><span class="pre">StandaloneHTMLBuilder.init</span></code> creates BuildInfo and read config (html_xxx):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">build_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_build_info</span><span class="p">()</span>
+    <span class="c1"># ...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">use_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_builder_config</span><span class="p">(</span><span class="s1">&#39;use_index&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="build">
+<h2>Build<a class="headerlink" href="#build" title="Link to this heading">#</a></h2>
+<p>return to <code class="docutils literal notranslate"><span class="pre">build_main</span></code>, after creating Sphinx obj, call <code class="docutils literal notranslate"><span class="pre">Sphinx.build</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sphinx.build</span></code> calls three <code class="docutils literal notranslate"><span class="pre">Builder.build_xxx</span></code> variant:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">filenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">BuildPhase</span><span class="o">.</span><span class="n">READING</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">force_all</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_all</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">filenames</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_specific</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_update</span><span class="p">()</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;build-finished&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+     <span class="c1"># ....</span>
+</pre></div>
+</div>
+<p>Both <code class="docutils literal notranslate"><span class="pre">force_all</span></code> and <code class="docutils literal notranslate"><span class="pre">filenames</span></code> comes from command line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;filenames&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;(optional) a list of specific files to rebuild. &#39;</span>
+                            <span class="s1">&#39;Ignored if --write-all is specified&#39;</span><span class="p">))</span>
+<span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--write-all&#39;</span><span class="p">,</span> <span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;force_all&#39;</span><span class="p">,</span>
+                 <span class="n">help</span><span class="o">=</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;write all files (default: only write new and &#39;</span>
+                         <span class="s1">&#39;changed files)&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The most usage one is <code class="docutils literal notranslate"><span class="pre">Builder.build_update</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Only rebuild what was changed or added since last build.&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">compile_update_catalogs</span><span class="p">()</span>
+
+    <span class="n">to_build</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_outdated_docs</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">to_build</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">([</span><span class="s1">&#39;__all__&#39;</span><span class="p">],</span> <span class="n">to_build</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">to_build</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">to_build</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">to_build</span><span class="p">,</span>
+                   <span class="n">summary</span><span class="o">=</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;targets for </span><span class="si">%d</span><span class="s1"> source files that are out of date&#39;</span><span class="p">)</span> <span class="o">%</span>
+</pre></div>
+</div>
+<p>The information about increatement build is mostly provides by <code class="docutils literal notranslate"><span class="pre">StandaloneHTMLBuilder.get_outdated_docs</span></code>.
+The</p>
+<p>Every build_xxx eventlly calls <code class="docutils literal notranslate"><span class="pre">Builder.build</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">docnames</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;update&#39;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main build method.</span>
+
+<span class="sd">    First updates the environment, and then calls</span>
+<span class="sd">    :meth:`!write`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># while reading, collect all warnings from docutils</span>
+    <span class="k">with</span> <span class="n">logging</span><span class="o">.</span><span class="n">pending_warnings</span><span class="p">():</span>
+        <span class="n">updated_docnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="n">doccount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">updated_docnames</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">bold</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;looking for now-outdated files... &#39;</span><span class="p">)),</span> <span class="n">nonl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated_docnames</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">check_dependents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">,</span> <span class="n">updated_docnames</span><span class="p">))</span>
+    <span class="n">outdated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">updated_docnames</span><span class="p">)</span> <span class="o">-</span> <span class="n">doccount</span>
+    <span class="k">if</span> <span class="n">outdated</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> found&#39;</span><span class="p">),</span> <span class="n">outdated</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;none found&#39;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">updated_docnames</span><span class="p">:</span>
+        <span class="c1"># save the environment</span>
+        <span class="kn">from</span> <span class="nn">sphinx.application</span> <span class="kn">import</span> <span class="n">ENV_PICKLE_FILENAME</span>
+        <span class="k">with</span> <span class="n">progress_message</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;pickling environment&#39;</span><span class="p">)),</span> \
+                <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doctreedir</span><span class="p">,</span> <span class="n">ENV_PICKLE_FILENAME</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+
+        <span class="c1"># global actions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">BuildPhase</span><span class="o">.</span><span class="n">CONSISTENCY_CHECK</span>
+        <span class="k">with</span> <span class="n">progress_message</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;checking consistency&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">check_consistency</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;update&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">docnames</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">bold</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;no targets are out of date.&#39;</span><span class="p">)))</span>
+            <span class="k">return</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">BuildPhase</span><span class="o">.</span><span class="n">RESOLVING</span>
+
+    <span class="c1"># filter &quot;docnames&quot; (list of outdated files) by the updated</span>
+    <span class="c1"># found_docs of the environment; this will remove docs that</span>
+    <span class="c1"># have since been removed</span>
+    <span class="k">if</span> <span class="n">docnames</span> <span class="ow">and</span> <span class="n">docnames</span> <span class="o">!=</span> <span class="p">[</span><span class="s1">&#39;__all__&#39;</span><span class="p">]:</span>
+        <span class="n">docnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">docnames</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">found_docs</span>
+
+    <span class="c1"># determine if we can write in parallel</span>
+    <span class="k">if</span> <span class="n">parallel_available</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">parallel</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">allow_parallel</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallel_ok</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">is_parallel_allowed</span><span class="p">(</span><span class="s1">&#39;write&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallel_ok</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1">#  create a task executor to use for misc. &quot;finish-up&quot; tasks</span>
+    <span class="c1"># if self.parallel_ok:</span>
+    <span class="c1">#     self.finish_tasks = ParallelTasks(self.app.parallel)</span>
+    <span class="c1"># else:</span>
+    <span class="c1"># for now, just execute them serially</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">finish_tasks</span> <span class="o">=</span> <span class="n">SerialTasks</span><span class="p">()</span>
+
+    <span class="c1"># write all &quot;normal&quot; documents (or everything for some builders)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">docnames</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">updated_docnames</span><span class="p">),</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="c1"># finish (write static files etc.)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+    <span class="c1"># wait for all tasks</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">finish_tasks</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>In <code class="docutils literal notranslate"><span class="pre">Builder.build</span></code>, env are dump back to file:</p>
-<p>env.get_outdated_files
-builder.get_outdated_docs
-buildinfo
-use_index
-use_index</p>
+<p>e nv.get_outdated_files
+b uilder.get_outdated_docs
+b uildinfo
+u se_index
+u se_index</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
@@ -721,7 +847,8 @@ use_index</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entry-point">Entry point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-application">The Sphinx Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-sphinx-application">Create Sphinx Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build">Build</a></li>
 </ul>
   </nav></div>
 
@@ -755,7 +882,7 @@ use_index</p>
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-06-27.
+  最后更新于 2024-06-28.
   <br/>
 </p>
   </div>
