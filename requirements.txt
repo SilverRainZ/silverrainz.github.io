@@ -17,7 +17,7 @@ sphinxnotes-recentupdate
 sphinx-book-theme>=1.0.0
 sphinxnotes-mock
 sphinxext-opengraph
-sphinxnotes.extweb
+sphinxnotes-extweb
 sphinx-copybutton
 sphinx-notfound-page
 sphinxcontrib-youtube
@@ -25,3 +25,4 @@ sphinx-last-updated-by-git
 sphinxnotes-comboroles
 sphinxcontrib-globalsubs
 sphinx_simplepdf
+sphinxnotes-fasthtml

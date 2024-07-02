@@ -532,3 +532,7 @@ if D is not Deployment.Local:
 
 # For .. pdf-include:: directive.
 extensions.append('sphinx_simplepdf')
+
+if D is Deployment.Local:
+    # Speed up local incremental HTML build (may cause document inconsistencies).
+    extensions.append('sphinxnotes.fasthtml')
