@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="银色子弹" />
 <meta name="description" content="Sphinx Version, sphinx-doc/sphinx,. Entry point: Tow options of sphinx-build can specific builder: In sphinx.cmd mods:-M BUILDER_NAME, make mode, used in Makefile build.main → build.make_main → mak..." />
 
-    <meta property="article:modified_time" content="2024-06-28T05:57:52+00:00" />
+    <meta property="article:modified_time" content="2024-07-01T10:58:48+00:00" />
     <title>How Sphinx Builder Works &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-06-28"/>
+    <meta name="docbuild:last-update" content="2024-07-01"/>
 
 <link
   rel="alternate"
@@ -282,6 +282,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ssrf.html">Server-Side Request Forgery (SSRF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
@@ -772,6 +773,72 @@ The</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">finish_tasks</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Call read:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;(Re-)read all files new or changed since last update.</span>
+
+<span class="sd">    Store all environment docnames in the canonical format (ie using SEP as</span>
+<span class="sd">    a separator in place of os.path.sep).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">bold</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;updating environment: &#39;</span><span class="p">)),</span> <span class="n">nonl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config_status</span> <span class="o">!=</span> <span class="n">CONFIG_OK</span><span class="p">)</span>
+    <span class="n">added</span><span class="p">,</span> <span class="n">changed</span><span class="p">,</span> <span class="n">removed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get_outdated_files</span><span class="p">(</span><span class="n">updated</span><span class="p">)</span>
+
+    <span class="c1"># allow user intervention as well</span>
+    <span class="k">for</span> <span class="n">docs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-get-outdated&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">added</span><span class="p">,</span> <span class="n">changed</span><span class="p">,</span> <span class="n">removed</span><span class="p">):</span>
+        <span class="n">changed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">found_docs</span><span class="p">)</span>
+
+    <span class="c1"># if files were added or removed, all documents with globbed toctrees</span>
+    <span class="c1"># must be reread</span>
+    <span class="k">if</span> <span class="n">added</span> <span class="ow">or</span> <span class="n">removed</span><span class="p">:</span>
+        <span class="c1"># ... but not those that already were removed</span>
+        <span class="n">changed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">glob_toctrees</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">found_docs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">updated</span><span class="p">:</span>  <span class="c1"># explain the change iff build config status was not ok</span>
+        <span class="n">reason</span> <span class="o">=</span> <span class="p">(</span><span class="n">CONFIG_CHANGED_REASON</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config_status</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config_status_extra</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">] &#39;</span><span class="p">,</span> <span class="n">reason</span><span class="p">,</span> <span class="n">nonl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> added, </span><span class="si">%s</span><span class="s1"> changed, </span><span class="si">%s</span><span class="s1"> removed&#39;</span><span class="p">),</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">added</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">changed</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">removed</span><span class="p">))</span>
+
+    <span class="c1"># clear all files no longer present</span>
+    <span class="k">for</span> <span class="n">docname</span> <span class="ow">in</span> <span class="n">removed</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-purge-doc&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">docname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">clear_doc</span><span class="p">(</span><span class="n">docname</span><span class="p">)</span>
+
+    <span class="c1"># read all new and changed files</span>
+    <span class="n">docnames</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">added</span> <span class="o">|</span> <span class="n">changed</span><span class="p">)</span>
+    <span class="c1"># allow changing and reordering the list of docs to read</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-before-read-docs&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">docnames</span><span class="p">)</span>
+
+    <span class="c1"># check if we should do parallel or serial read</span>
+    <span class="k">if</span> <span class="n">parallel_available</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">docnames</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">parallel</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">par_ok</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">is_parallel_allowed</span><span class="p">(</span><span class="s1">&#39;read&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">par_ok</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">par_ok</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_read_parallel</span><span class="p">(</span><span class="n">docnames</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">parallel</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_read_serial</span><span class="p">(</span><span class="n">docnames</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_doc</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">all_docs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SphinxError</span><span class="p">(</span><span class="s1">&#39;root file </span><span class="si">%s</span><span class="s1"> not found&#39;</span> <span class="o">%</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">doc2path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_doc</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">retval</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-updated&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">retval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">docnames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">retval</span><span class="p">)</span>
+
+    <span class="c1"># workaround: marked as okay to call builder.read() twice in same process</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config_status</span> <span class="o">=</span> <span class="n">CONFIG_OK</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">docnames</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>In <code class="docutils literal notranslate"><span class="pre">Builder.build</span></code>, env are dump back to file:</p>
 <p>e nv.get_outdated_files
 b uilder.get_outdated_docs
@@ -882,7 +949,7 @@ u se_index</p>
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-06-28.
+  最后更新于 2024-07-01.
   <br/>
 </p>
   </div>

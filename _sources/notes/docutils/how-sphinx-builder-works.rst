@@ -219,6 +219,71 @@ Every build_xxx eventlly calls ``Builder.build``::
        # wait for all tasks
        self.finish_tasks.join()
 
+Call read::
+
+    def read(self) -> list[str]:
+        """(Re-)read all files new or changed since last update.
+
+        Store all environment docnames in the canonical format (ie using SEP as
+        a separator in place of os.path.sep).
+        """
+        logger.info(bold(__('updating environment: ')), nonl=True)
+
+        self.env.find_files(self.config, self)
+        updated = (self.env.config_status != CONFIG_OK)
+        added, changed, removed = self.env.get_outdated_files(updated)
+
+        # allow user intervention as well
+        for docs in self.events.emit('env-get-outdated', self.env, added, changed, removed):
+            changed.update(set(docs) & self.env.found_docs)
+
+        # if files were added or removed, all documents with globbed toctrees
+        # must be reread
+        if added or removed:
+            # ... but not those that already were removed
+            changed.update(self.env.glob_toctrees & self.env.found_docs)
+
+        if updated:  # explain the change iff build config status was not ok
+            reason = (CONFIG_CHANGED_REASON.get(self.env.config_status, '') +
+                      (self.env.config_status_extra or ''))
+            logger.info('[%s] ', reason, nonl=True)
+
+        logger.info(__('%s added, %s changed, %s removed'),
+                    len(added), len(changed), len(removed))
+
+        # clear all files no longer present
+        for docname in removed:
+            self.events.emit('env-purge-doc', self.env, docname)
+            self.env.clear_doc(docname)
+
+        # read all new and changed files
+        docnames = sorted(added | changed)
+        # allow changing and reordering the list of docs to read
+        self.events.emit('env-before-read-docs', self.env, docnames)
+
+        # check if we should do parallel or serial read
+        if parallel_available and len(docnames) > 5 and self.app.parallel > 1:
+            par_ok = self.app.is_parallel_allowed('read')
+        else:
+            par_ok = False
+
+        if par_ok:
+            self._read_parallel(docnames, nproc=self.app.parallel)
+        else:
+            self._read_serial(docnames)
+
+        if self.config.root_doc not in self.env.all_docs:
+            raise SphinxError('root file %s not found' %
+                              self.env.doc2path(self.config.root_doc))
+
+        for retval in self.events.emit('env-updated', self.env):
+            if retval is not None:
+                docnames.extend(retval)
+
+        # workaround: marked as okay to call builder.read() twice in same process
+        self.env.config_status = CONFIG_OK
+
+        return sorted(docnames)
 
 In ``Builder.build``, env are dump back to file:
   
