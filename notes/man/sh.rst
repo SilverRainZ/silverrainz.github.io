@@ -39,6 +39,12 @@ Avoid shell expanding variables::
    ... Heredoc ${content}
    EOF
 
+Write to file::
+
+   cat << EOF > /tmp/foo
+   ... Heredoc content
+   EOF
+
 Command Line Arguments
 ======================
 
