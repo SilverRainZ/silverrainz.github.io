@@ -23,6 +23,6 @@ sphinx-notfound-page
 sphinxcontrib-youtube
 sphinx-last-updated-by-git
 sphinxnotes-comboroles
-sphinxcontrib-globalsubs
+sphinxcontrib-globalsubs @ git+https://github.com/SilverRainZ/sphinxcontrib-globalsubs.git
 sphinx_simplepdf
 sphinxnotes-fasthtml
