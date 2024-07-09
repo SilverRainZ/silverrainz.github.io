@@ -21,12 +21,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/man/sh.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Command Line Arguments: Number of pass-in arguments: The “pass-in a..." />
+<meta property="og:description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Command Line Arguments: Number of pass-in arguments:..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Command Line Arguments: Number of pass-in arguments: The “pass-in a..." />
+<meta name="description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Command Line Arguments: Number of pass-in arguments:..." />
 
-    <meta property="article:modified_time" content="2024-03-17T16:13:48+00:00" />
+    <meta property="article:modified_time" content="2024-07-09T12:41:38+00:00" />
     <title>Shell Script &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-03-17"/>
+    <meta name="docbuild:last-update" content="2024-07-09"/>
 
 <link
   rel="alternate"
@@ -611,6 +611,12 @@ document.write(`
 <span class="s">EOF</span>
 </pre></div>
 </div>
+<p>Write to file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; /tmp/foo</span>
+<span class="s">... Heredoc content</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="command-line-arguments">
@@ -771,7 +777,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-03-17.
+  最后更新于 2024-07-09.
   <br/>
 </p>
   </div>
