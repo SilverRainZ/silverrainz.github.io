@@ -28,6 +28,15 @@ Martinez MSCC-14RS
 
    __ https://www.washburn.com/wp-content/uploads/2018/08/Fishman-presys_blend_user_guide.pdf
 
+
+Tagima TG530
+============
+
+.. dev:: _
+   :id: tg530
+   :type: guitar
+   :startat: 2024
+
 退役
 ----
 
@@ -87,6 +96,11 @@ QuickTone
    https://blog.nostatic.org/2021/01/nux-mg-300-guitar-processor-under-linux.html
 
 舒尔 SM58
+
+NoneType' object is not subscriptable
+/home/la/documents/bullet/collections/devices/instruments.rst:1: ERROR: no such role: sup
+
+p
 ---------
 
 .. dev:: _
