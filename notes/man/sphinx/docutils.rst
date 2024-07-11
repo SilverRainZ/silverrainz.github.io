@@ -7,8 +7,7 @@ Docutils 文档阅读
 为了写 :ghorg:`sphinx-notes` 系列插件的前期准备。
 
 .. toctree::
-   :caption: 目录
-   :glob:
    :titlesonly:
 
-   *
+   doctree
+   docutils-hacker-guide
