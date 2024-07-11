@@ -6,7 +6,6 @@ How Sphinx Builder Works
 
 .. highlight:: python
 
-
 Entry point
 ===========
 
@@ -288,11 +287,10 @@ Call read::
 In ``Builder.build``, env are dump back to file:
   
 
-e nv.get_outdated_files
-b uilder.get_outdated_docs
-b uildinfo
-u se_index
-u se_index
+- env.get_outdated_files
+- builder.get_outdated_docs
+- buildinfo
+- use_index
+- use_index
   
-
 .. _options of sphinx-build: https://www.sphinx-doc.org/en/master/man/sphinx-build.html#options

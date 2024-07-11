@@ -2,6 +2,12 @@
 Sphinx
 ======
 
+.. toctree::
+   :titlesonly:
+
+   docutils
+   how-sphinx-builder-works
+
 .. highlight:: console
 
 构建
@@ -28,6 +34,13 @@ __ https://bugs.archlinux.org/task/67856
 
 扩展
 ====
+
+intersphinx
+===========
+
+查看 Sphindx 文档中可供 intersphinx 索引的 ref
+   - https://github.com/webknjaz/intersphinx-untangled
+   - https://webknjaz.github.io/intersphinx-untangled/
 
 开发
 ----
@@ -59,3 +72,24 @@ __ http://code.nabla.net/doc/docutils/api/docutils/nodes/docutils.nodes.Element.
 __ https://docutils.sourceforge.io/docs/howto/rst-directives.html#toc-entry-2
 __ https://github.com/docutils-mirror/docutils/blob/master/docutils/parsers/rst/directives/__init__.py#L141-L400
 __ https://www.sphinx-doc.org/en/master/extdev/utils.html?highlight=SphinxDirective#sphinx.util.docutils.
+
+测试
+~~~~
+
+Test Fixtures
+   :py:meth:`sphinx.testing.fixture.app` 实现了一个 `pytest fixture`__
+   能够返回一个测试用的 application 对象 :py:class:`sphinx.testing.utilSphinxTestApp`。
+
+   在 sphinx/tests 目录下直接使用名为 ``app`` 的参数即可使用这个 fixture，例如：
+
+   .. code-block:: python
+      :caption: https://github.com/sphinx-doc/sphinx/pull/12514/files
+
+      def test_intersphinx_cache_limit(app):
+          url = 'https://example.org/'
+          app.config.intersphinx_mapping = {
+              'inv': (url, None),
+          }
+          # ...
+
+__ https://docs.pytest.org/en/latest/explanation/fixtures.html
