@@ -521,6 +521,7 @@ global_substitutions = {
     'o': ':octicon:`issue-closed;1em;sd-text-success`', # done
     '.': ':octicon:`issue-opened;1em;sd-text-warning`', # wip
     '_': ':octicon:`issue-draft`',                      # todo
+    'x': ':octicon:`issue-closed;1em;sd-text-danger`',  # fail/wontdo/cancel
     'p0': ':bdg-danger:`P0`',  # priv high
     'p1': ':bdg-warning:`P1`', # priv medium
     'p2': ':bdg-info:`P2`',    # priv low
