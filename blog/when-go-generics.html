@@ -791,7 +791,7 @@ document.write(`
 <h1>何时使用 Go 泛型<a class="headerlink" href="#go" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>这篇文章是 <a class="reference external" href="https://go.dev/blog/when-generics">When To Use Generics</a> 的中文翻译，作者是 Go Team 的 <a class="reference external" href="https://github.com/ianlancetaylor">👤 ianlancetaylor</a>。</p>
+<p>这篇文章是 <a class="reference external" href="https://go.dev/blog/when-generics">When To Use Generics</a> 的中文翻译，作者是 Go Team 的 <a class="extlink-ghuser reference external" href="https://github.com/ianlancetaylor">👤 ianlancetaylor</a>。</p>
 </div>
 <section id="id2">
 <h2>介绍<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -937,7 +937,7 @@ document.write(`
 <p>这里应该提一下，Go 1.19（而不是 1.18）的标准库很可能引入一个通用函数来使用比较函数对 slice 进行排序，并且该函数很可能不使用 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code>。参见提案 <a class="reference external" href="https://github.com/golang/go/issues/47619">#47619</a>。即使这个上面这个例子很可能不实用，但大体上的观点依然是正确的：<em>当你需要对所有相关类型实现看起来都相同的方法时，使用类型参数是合理的</em>。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>这里插播一则新闻，Go 1.19 将会使用 pdqsort 作为默认的排序算法（包括 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">sort.Slice</span></code>），在所有的场景下相比原来的实现都快 2 到 60 倍（包括了算法本身和使用泛型带来的收益）这部分工作由我们组的同事 <a class="reference external" href="https://github.com/zhangyunhao116">👤 zhangyunhao116</a> 在 <a class="reference external" href="https://github.com/golang/go/issues/50154">#50154</a> 提出并实现。</p>
+<p>这里插播一则新闻，Go 1.19 将会使用 pdqsort 作为默认的排序算法（包括 <code class="code docutils literal notranslate"><span class="pre">sort.Interface</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">sort.Slice</span></code>），在所有的场景下相比原来的实现都快 2 到 60 倍（包括了算法本身和使用泛型带来的收益）这部分工作由我们组的同事 <a class="extlink-ghuser reference external" href="https://github.com/zhangyunhao116">👤 zhangyunhao116</a> 在 <a class="reference external" href="https://github.com/golang/go/issues/50154">#50154</a> 提出并实现。</p>
 </div>
 </section>
 </section>

@@ -793,12 +793,12 @@ document.write(`
 <ul class="simple">
 <li><p>太慢了</p></li>
 <li><p>Markdown 表达力太孱弱，索引靠手写，引用靠 HTML 链接</p></li>
-<li><p>打包非常恶心：我曾在 AUR 维护过 <a class="reference external" href="https://aur.archlinux.org/packages/nodejs-gitbook">📦 nodejs-gitbook</a>，gitbook 提供了一个只许全局安装（Root 下而非 Home 下）的 gitbook-cli 作为安装器，而不允许用户单独安装 gitbook 本身：这让发行版的打包非常困难。</p></li>
+<li><p>打包非常恶心：我曾在 AUR 维护过 <a class="extlink-aur reference external" href="https://aur.archlinux.org/packages/nodejs-gitbook">📦 nodejs-gitbook</a>，gitbook 提供了一个只许全局安装（Root 下而非 Home 下）的 gitbook-cli 作为安装器，而不允许用户单独安装 gitbook 本身：这让发行版的打包非常困难。</p></li>
 </ul>
 <p>2017 年我开始用 <a class="reference internal" href="use-sphinx-and-rst-to-manage-your-notes.html"><span class="doc">Sphinx 管理我的笔记</span></a> ，reStructuredText 已经很接近我心中理想的 markup language 的样子，结果刚建起一个框架便开始荒废。从那时到现在已经过去了四年，我记录下了些什么呢？——什么都没有</p>
 <p>2020 年，3、4 月的时候我尝试用 Golang 从零开始写一个笔记软件，后来发现无论是设计和工作量都不是我单枪匹马能胜任的，最后只留下只有零星几个 commit 的仓库。</p>
-<p>5 月，我建立了 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 仓库准备再试试 Sphinx，之后学画需要记 <a class="reference internal" href="../notes/zxsys/index.html"><span class="doc">大量的笔记</span></a>，将他们电子化也是一个强大的驱动力。</p>
-<p>9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 <a class="reference external" href="https://github.com/sphinx-contrib">各种扩展</a> 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 <a class="reference external" href="https://github.com/sphinx-notes">👥 sphinx-notes</a>。</p>
+<p>5 月，我建立了 <a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 仓库准备再试试 Sphinx，之后学画需要记 <a class="reference internal" href="../notes/zxsys/index.html"><span class="doc">大量的笔记</span></a>，将他们电子化也是一个强大的驱动力。</p>
+<p>9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 <a class="extlink-ghorg reference external" href="https://github.com/sphinx-contrib">各种扩展</a> 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 <a class="extlink-ghorg reference external" href="https://github.com/sphinx-notes">👥 sphinx-notes</a>。</p>
 <p>2021 年，在陆续完善一些关键的 Sphinx 扩展之后，我的笔记系统 <span class="sphinxnotes-strike" style="text-decoration: line-through;">发出了响亮的第一声啼哭</span> 开始慢慢形成了。</p>
 </section>
 <section id="id3">
@@ -861,7 +861,7 @@ document.write(`
 </section>
 <section id="restructuredtext-sphinx">
 <h2>reStructuredText + Sphinx<a class="headerlink" href="#restructuredtext-sphinx" title="Link to this heading">#</a></h2>
-<p>其实上面写一堆有些 <a class="reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶">📖 先射箭再画靶</a> 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。</p>
+<p>其实上面写一堆有些 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶">📖 先射箭再画靶</a> 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。</p>
 <p>现在介绍会不会太晚？</p>
 <blockquote>
 <div><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html"><img alt="rst-badge" src="../_images/rst.png" style="height: 1em;" /></a> is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  <a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>

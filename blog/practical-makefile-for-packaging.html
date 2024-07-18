@@ -761,7 +761,7 @@ document.write(`
 <h1>编写便于打包的 Makefile<a class="headerlink" href="#makefile" title="Link to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 反馈</p>
 </div>
 <blockquote>
 <div><p>Note: 这篇文章假设你已经知道基本的 Makefile 编写规则</p>
@@ -922,7 +922,7 @@ Arch Linux 的包的 prefix 通常是 <code class="code docutils literal notrans
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
 得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
 安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
-（这里感谢青蛙老师 <a class="reference external" href="https://github.com/hexchain">👤 hexchain</a> 的指导）</p>
+（这里感谢青蛙老师 <a class="extlink-ghuser reference external" href="https://github.com/hexchain">👤 hexchain</a> 的指导）</p>
 <p>变量 <code class="code docutils literal notranslate"><span class="pre">DESTDIR</span></code><a class="footnote-reference brackets" href="#fn-destdir" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 就是用来实现 Staged Install 的，把之前的 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 改成这样：</p>
 <div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">PREFIX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/usr/local
 <span class="nf">install</span><span class="o">:</span>

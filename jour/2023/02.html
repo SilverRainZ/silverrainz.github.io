@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../notes/man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/deb.html">Debian Packing</a></li>
@@ -567,9 +568,9 @@ document.write(`
 <blockquote>
 <div><p>The subject of Python packaging, installation and publication is a bit complicated for mainly historic reasons – the original distutils module was created over 20 years ago.</p>
 </div></blockquote>
-<p>An example python project: <a class="reference external" href="https://github.com/IanHopkinson/mypackage">⛺ IanHopkinson/mypackage</a>, another one: <a class="reference external" href="https://github.com/pyscaffold/pyscaffold-demo">⛺ pyscaffold/pyscaffold-demo</a> (from pyscaffold).</p>
+<p>An example python project: <a class="extlink-ghrepo reference external" href="https://github.com/IanHopkinson/mypackage">⛺ IanHopkinson/mypackage</a>, another one: <a class="extlink-ghrepo reference external" href="https://github.com/pyscaffold/pyscaffold-demo">⛺ pyscaffold/pyscaffold-demo</a> (from pyscaffold).</p>
 <ul class="simple">
-<li><p><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>: required by <a class="reference external" href="https://pypi.org/project/setuptool">📦 setuptool</a>, to help with the packaging process</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>: required by <a class="extlink-pypi reference external" href="https://pypi.org/project/setuptool">📦 setuptool</a>, to help with the packaging process</p></li>
 <li><p><code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>: let us not need to be executed (setup.py) to be read packaging configuration</p></li>
 <li><p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>: intorduced in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0518/"><strong>PEP 518</strong></a>, provides a way of separating configuration of the build system from a specific, optional library (setuptools) and also enabling setuptools to install itself without already being installed (bootstrap)</p></li>
 <li><p><code class="file docutils literal notranslate"><span class="pre">src/</span></code>: a fxied source directory ensures that you must install a package to test it, so as your users would do. Also it prevents tools like pytest incidently importing it.</p></li>

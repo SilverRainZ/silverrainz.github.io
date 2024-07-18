@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
@@ -618,7 +619,7 @@ document.write(`
 <span class="gp">$ </span>sudo<span class="w"> </span>id
 </pre></div>
 </div>
-<p>配置 wheel 用户组免密码使用 sudo：<a class="reference external" href="https://wiki.archlinux.org/index.php/Sudo_(简体中文)#设置示例">📖 Sudo_(简体中文)#设置示例</a></p>
+<p>配置 wheel 用户组免密码使用 sudo：<a class="extlink-archwiki reference external" href="https://wiki.archlinux.org/index.php/Sudo_(简体中文)#设置示例">📖 Sudo_(简体中文)#设置示例</a></p>
 </li>
 <li><p>管理登陆和 SSH 配置</p>
 <ol class="arabic">
@@ -633,7 +634,7 @@ document.write(`
 用 <code class="code docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> 代替手动复制</p>
 </div>
 </li>
-<li><p>禁用 root 登陆 <a class="reference external" href="https://wiki.archlinux.org/index.php/OpenSSH_(简体中文)#禁用或限制_root_账户登录">📖 OpenSSH_(简体中文)#禁用或限制_root_账户登录</a>:</p>
+<li><p>禁用 root 登陆 <a class="extlink-archwiki reference external" href="https://wiki.archlinux.org/index.php/OpenSSH_(简体中文)#禁用或限制_root_账户登录">📖 OpenSSH_(简体中文)#禁用或限制_root_账户登录</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>vim<span class="w"> </span>/etc/ssh/sshd_config
 <span class="gp"># </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
 </pre></div>
@@ -761,8 +762,8 @@ document.write(`
 <p class="admonition-title">警告</p>
 <p>权限问题很多，很难受</p>
 </div>
-<p>使用 <a class="reference external" href="https://archlinux.org/packages/nginx-mainline">📦 nginx-mainline</a> + <a class="reference external" href="https://aur.archlinux.org/packages/nginx-mainline-mod-dav-ext">📦 nginx-mainline-mod-dav-ext</a>
-后者需要自己 build。根据 <a class="reference external" href="https://wiki.archlinux.org/index.php/WebDAV#Nginx">📖 WebDAV#Nginx</a> 做如下配置：</p>
+<p>使用 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/nginx-mainline">📦 nginx-mainline</a> + <a class="extlink-aur reference external" href="https://aur.archlinux.org/packages/nginx-mainline-mod-dav-ext">📦 nginx-mainline-mod-dav-ext</a>
+后者需要自己 build。根据 <a class="extlink-archwiki reference external" href="https://wiki.archlinux.org/index.php/WebDAV#Nginx">📖 WebDAV#Nginx</a> 做如下配置：</p>
 <p>以下配置加入 <code class="file docutils literal notranslate"><span class="pre">/etc/nginx/nginx.conf</span></code>:</p>
 <div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">load_module</span><span class="w"> </span><span class="s">/usr/lib/nginx/modules/ngx_http_dav_ext_module.so</span><span class="p">;</span>
 
@@ -811,7 +812,7 @@ mnt 的地址 <code class="code docutils literal notranslate"><span class="pre">
 </section>
 <section id="nfs">
 <h4>NFS<a class="headerlink" href="#nfs" title="Link to this heading">#</a></h4>
-<p>根据 <a class="reference external" href="https://wiki.archlinux.org/index.php/NFS">📖 NFS</a> 来。</p>
+<p>根据 <a class="extlink-archwiki reference external" href="https://wiki.archlinux.org/index.php/NFS">📖 NFS</a> 来。</p>
 <section id="id9">
 <h5>服务端<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
 <p>安装并启动服务:</p>
@@ -869,7 +870,7 @@ mnt 的地址 <code class="code docutils literal notranslate"><span class="pre">
 <span class="gp"># </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>syncthing@la.service
 </pre></div>
 </div>
-<p><a class="reference external" href="https://archlinux.org/packages/syncthing">📦 syncthing</a> 提供的 systemd service 没有开启网页管理界面，通过
+<p><a class="extlink-archpkg reference external" href="https://archlinux.org/packages/syncthing">📦 syncthing</a> 提供的 systemd service 没有开启网页管理界面，通过
 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span></code> 启用它:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>systemctl<span class="w"> </span>edit<span class="w"> </span>--now<span class="w"> </span>syncthing@la.service
 </pre></div>

@@ -258,6 +258,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
@@ -569,7 +570,8 @@ document.write(`
 <iframe allowfullscreen="true" src="https://www.youtube.com/embed/Ob_ytLkqIuM" style="border: 0; height: 345px; width: 560px">
 </iframe></div><section class="any" id="id2">
 <h2 id="term-10da012">色光三原色<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg" class="align-right" src="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg" width="10%" /></a>
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg" class="align-right" src="https://upload.wikimedia.org/wikipedia/commons/0/05/AdditiveColorMixing.svg" style="width: 10%;" />
+</a>
 <p>红、绿、蓝。用于屏幕，投影仪。</p>
 </section>
 <section class="any" id="id3">
@@ -588,7 +590,7 @@ document.write(`
 <div><p>The human eye is sensitive to broad bands of light wavelengths, and thus the eye is <em>NOT a spectrometer</em>: <em>it interpolates colors depending which of the three cones are receiving light</em>. For example, there are two ways to make “yellow” light. 1) use equal amounts of red and green light. These stimulate the red and green cones, and the brain sees “yellow”. 2) use a wavelength of light that is between red and green (about 565nm). Because the response of the red and green cones overlaps, this single color also stimulates both the red and green cones. The brain sees “yellow in both cases. <a class="footnote-reference brackets" href="#id7" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </div></blockquote>
 <p>如上述，人眼不是光谱仪，颜色是人根据三种视锥细胞收到的光线（而产生的信号）插值而来，三种细胞产生的离散值拟合了线性的色彩空间。</p>
-<p>经验法则 <a class="reference external" href="https://zh.wikipedia.org/wiki/格拉斯曼定律">📖 格拉斯曼定律</a> 更广泛地印证了上述的假说，可以认为上述假说是该定律的一个生物学猜测。</p>
+<p>经验法则 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/格拉斯曼定律">📖 格拉斯曼定律</a> 更广泛地印证了上述的假说，可以认为上述假说是该定律的一个生物学猜测。</p>
 <p>参见 <code class="xref any any-term docutils literal notranslate"><span class="pre">三色刺激值</span></code>。</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id7" role="doc-footnote">
@@ -599,9 +601,10 @@ document.write(`
 </section>
 <section id="id8">
 <h3>原色为什么常是三种？<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>一种观点是，人眼中有三种 <a class="reference external" href="https://zh.wikipedia.org/wiki/视锥细胞">📖 视锥细胞</a>，其识别范围构成了 <a class="reference external" href="https://zh.wikipedia.org/wiki/可见光光谱">📖 可见光光谱</a>，在可见光谱中，分别对黄绿（L 型）、绿（M 型）、蓝紫光（S 型）最敏感。</p>
+<p>一种观点是，人眼中有三种 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/视锥细胞">📖 视锥细胞</a>，其识别范围构成了 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/可见光光谱">📖 可见光光谱</a>，在可见光谱中，分别对黄绿（L 型）、绿（M 型）、蓝紫光（S 型）最敏感。</p>
 <figure class="align-default" id="id11">
-<img alt="https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg" src="https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg" /><figcaption>
+<img alt="https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg" src="https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg" />
+<figcaption>
 <p><span class="caption-text"><a class="reference external" href="https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg">https://commons.wikimedia.org/wiki/File:Cone-fundamentals-with-srgb-spectrum.svg#/media/File:Cone-fundamentals-with-srgb-spectrum.svg</a></span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
 </figcaption>
 </figure>

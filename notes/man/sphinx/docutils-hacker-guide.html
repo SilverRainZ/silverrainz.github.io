@@ -255,6 +255,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deb.html">Debian Packing</a></li>
@@ -588,7 +589,7 @@ parser ( <code class="file docutils literal notranslate"><span class="pre">docut
 <p>树上的文本譬如 “My”、”language is”、”.” 同样是节点，
 对应的实现为 <code class="code docutils literal notranslate"><span class="pre">docutils.nodes.Text</span></code></p>
 </div>
-<p>Transform 阶段利用 <a class="reference external" href="https://zh.wikipedia.org/wiki/访问者模式">📖 访问者模式</a> 对语法树进行各种变换，
+<p>Transform 阶段利用 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/访问者模式">📖 访问者模式</a> 对语法树进行各种变换，
 本例中 <code class="code docutils literal notranslate"><span class="pre">ExternalTargets</span></code> transform ( <code class="file docutils literal notranslate"><span class="pre">docutils/transforms/references.py</span></code> )
 会解析 <code class="code docutils literal notranslate"><span class="pre">reference</span></code> 节点，寻找 ID 为 “python” 的 target 节点，
 并设置 <code class="code docutils literal notranslate"><span class="pre">reference</span></code> 节点的 <code class="code docutils literal notranslate"><span class="pre">refuri</span></code> 属性。 使用 <code class="code docutils literal notranslate"><span class="pre">rst2pseudoxml</span></code> 可以看到

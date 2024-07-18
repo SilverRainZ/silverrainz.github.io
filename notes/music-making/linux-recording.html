@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="银色子弹" />
 <meta name="description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TR → 效果器 → 6.5mm TR → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
 
-    <meta property="article:modified_time" content="2024-06-22T16:24:10+00:00" />
+    <meta property="article:modified_time" content="2024-07-18T15:50:39+00:00" />
     <title>在 Linux 环境下录音 &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-06-22"/>
+    <meta name="docbuild:last-update" content="2024-07-18"/>
 
 <link
   rel="alternate"
@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/deb.html">Debian Packing</a></li>
@@ -639,7 +640,7 @@ document.write(`
 后者录音的时候总是捕捉不到，怀疑和 <a class="reference external" href="https://blog.nostatic.org/2021/01/nux-mg-300-guitar-processor-under-linux.html">这里</a> 遇到了同样的问题，折腾不动，
 故使用 thr5a 录音。</p>
 <div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">需要 <a class="reference external" href="https://archlinux.org/packages/wireplumber">📦 wireplumber</a></span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">需要 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/wireplumber">📦 wireplumber</a></span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wpctl<span class="w"> </span>status
 <span class="go">…</span>
 
@@ -671,9 +672,9 @@ document.write(`
 <section id="the-unix-way">
 <h3>The Unix way: 直接录制<a class="headerlink" href="#the-unix-way" title="Link to this heading">#</a></h3>
 <dl>
-<dt>GUI</dt><dd><p>对于最简单的录制音频场景，可以考虑用 <a class="reference external" href="https://archlinux.org/packages/gnome-sound-recorder">📦 gnome-sound-recorder</a>。</p>
+<dt>GUI</dt><dd><p>对于最简单的录制音频场景，可以考虑用 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/gnome-sound-recorder">📦 gnome-sound-recorder</a>。</p>
 </dd>
-<dt>ALSA</dt><dd><p>需要 <a class="reference external" href="https://archlinux.org/packages/alsa-utils">📦 alsa-utils</a>:</p>
+<dt>ALSA</dt><dd><p>需要 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/alsa-utils">📦 alsa-utils</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>arecord<span class="w"> </span>--list-device
 <span class="go">**** List of CAPTURE Hardware Devices ****</span>
 <span class="go">…</span>
@@ -725,15 +726,7 @@ document.write(`
 </dd>
 </dl>
 <p>简单试用了下选择了 Ardour，有 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B">中文教程</a>，对于本文来说，看 <a class="reference external" href="https://wiki.ubuntu.org.cn/Ardour4_%E5%88%9D%E5%AD%A6%E8%80%85%E6%95%99%E7%A8%8B_02_%E5%BC%80%E5%A7%8B%E5%85%A5%E9%97%A8#.E5.BD.95.E5.88.B6.E9.9F.B3.E9.A2.91">录制音频</a> 一节即可。</p>
-<dl>
-<dt>Audio System</dt><dd><p>ALSA 看起来会独占音频设备。</p>
-</dd>
-<dt>输入电平/音量</dt><dd><p>亮绿色区间为宜（-18dB~-10dB）。</p>
-<p>目前观察看来，<code class="docutils literal notranslate"><span class="pre">吉他</span> <span class="pre">→</span>&#160; <span class="pre">效果器</span> <span class="pre">→</span>&#160; <span class="pre">声卡</span> <span class="pre">→</span>&#160; <span class="pre">DAW</span></code> 经效果器会显著减少录入的电平/音量 <a href="#id16"><span class="problematic" id="id17">|why|</span></a>。
-对于木吉他，效果器是没必要的，去掉了。</p>
-</dd>
-</dl>
-<p>录音听起来难听怎么办？ <a href="#id18"><span class="problematic" id="id19">|todo|</span></a></p>
+<p>更多内容参看 <a class="reference internal" href="../man/ardour.html"><span class="doc">Ardour</span></a>。</p>
 </section>
 </section>
 <section id="id10">
@@ -745,7 +738,7 @@ document.write(`
 </aside>
 <aside class="footnote brackets" id="id12" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://wiki.archlinux.org/index.php/List_of_applications/Multimedia#Digital_audio_workstations">📖 List_of_applications/Multimedia#Digital_audio_workstations</a></p>
+<p><a class="extlink-archwiki reference external" href="https://wiki.archlinux.org/index.php/List_of_applications/Multimedia#Digital_audio_workstations">📖 List_of_applications/Multimedia#Digital_audio_workstations</a></p>
 </aside>
 <aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">3</a><span class="fn-bracket">]</span></span>
@@ -863,7 +856,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-06-22.
+  最后更新于 2024-07-18.
   <br/>
 </p>
   </div>

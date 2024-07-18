@@ -776,7 +776,7 @@ document.write(`
 <p class="admonition-title">提示</p>
 <p>这是 <a class="reference internal" href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"><em>我如何用 Sphinx 建立笔记系统</em></a> 系列的第 二 篇，你可以通过订阅 <a class="reference external" href="https://silverrainz.gitee.io/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">RSS</span></a> 来获取后续更新。</p>
 </div>
-<p>截至目前，我的笔记系统看起来是这样子的（使用 <a class="reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦 sphinxcontrib-plantuml</a> 生成）：</p>
+<p>截至目前，我的笔记系统看起来是这样子的（使用 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦 sphinxcontrib-plantuml</a> 生成）：</p>
 <figure class="align-default" id="id7">
 <p class="plantuml">
 <img src="../_images/plantuml-5c74529f9be50374765238d71047a84182c63b58.png" alt="folder &quot;Git 仓库&quot;  as repo {
@@ -814,8 +814,8 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 </figure>
 <section id="git">
 <h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
-<p>我用 Git 仓库来管理整个 Sphinx 项目的版本，用 GitLFS 管理图片资源（后来因为 gitee 不支持又去掉了），仓库沿用之前建立的 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a>。</p>
-<p>一般来说 Sphinx 文档都会托管到 <a class="reference external" href="https://readthedocs.io">ReadTheDocs</a>，但出于部署和访问的方便，我基于 GitHub Action 写了 <a class="reference external" href="https://github.com/sphinxnotes/pages">⛺ sphinxnotes/pages</a>，用来自动部署到 GitHub Pages，并使用 <a class="reference external" href="https://github.com/spyoungtech/mirror-action">⛺ spyoungtech/mirror-action</a> 和 <a class="reference external" href="https://github.com/yanglbme/gitee-pages-action">⛺ yanglbme/gitee-pages-action</a> 建立了国内的 Gitee 镜像。</p>
+<p>我用 Git 仓库来管理整个 Sphinx 项目的版本，用 GitLFS 管理图片资源（后来因为 gitee 不支持又去掉了），仓库沿用之前建立的 <a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a>。</p>
+<p>一般来说 Sphinx 文档都会托管到 <a class="reference external" href="https://readthedocs.io">ReadTheDocs</a>，但出于部署和访问的方便，我基于 GitHub Action 写了 <a class="extlink-ghrepo reference external" href="https://github.com/sphinxnotes/pages">⛺ sphinxnotes/pages</a>，用来自动部署到 GitHub Pages，并使用 <a class="extlink-ghrepo reference external" href="https://github.com/spyoungtech/mirror-action">⛺ spyoungtech/mirror-action</a> 和 <a class="extlink-ghrepo reference external" href="https://github.com/yanglbme/gitee-pages-action">⛺ yanglbme/gitee-pages-action</a> 建立了国内的 Gitee 镜像。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>Github 和其他托管平台会在 Languages 统计时忽略常见的 Markup Languages（如 Markdown、restructuredText），为了让它能被统计 ，可以建立 <code class="file docutils literal notranslate"><span class="pre">.gitattributes</span></code> 文件加入以下内容 <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
@@ -826,7 +826,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <figure class="align-default" id="id8">
 <img alt="../_images/rst-language-stat.png" src="../_images/rst-language-stat.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 的 Languages 统计</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+<p><span class="caption-text"><a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet">⛺ SilverRainZ/bullet</a> 的 Languages 统计</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -837,7 +837,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 </section>
 <section id="vim">
 <h2>从终端和 Vim 快速访问<a class="headerlink" href="#vim" title="Link to this heading">#</a></h2>
-<p>浏览器、Vim 和终端模拟器是我最常待的 Workspaces，前者当然可以方便的访问 Sphinx 生成的 HTML 文档，为了满足从后两者操作文档的需求，我写了 <a class="reference external" href="https://pypi.org/project/sphinxnotes-snippet">📦 sphinxnotes-snippet</a> ，包含一个 Sphinx 的扩展和一个命令行工具，你可以在刚才的架构图上看到它的角色。</p>
+<p>浏览器、Vim 和终端模拟器是我最常待的 Workspaces，前者当然可以方便的访问 Sphinx 生成的 HTML 文档，为了满足从后两者操作文档的需求，我写了 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-snippet">📦 sphinxnotes-snippet</a> ，包含一个 Sphinx 的扩展和一个命令行工具，你可以在刚才的架构图上看到它的角色。</p>
 <dl>
 <dt>Snippet 扩展</dt><dd><p>会在构建文档的时候：</p>
 <ol class="arabic simple">
@@ -855,7 +855,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <ul class="simple">
 <li><p>（在 Zsh 或者 Neovim 里）按下快捷键 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">C</kbd>-<kbd class="kbd docutils literal notranslate">k</kbd></kbd>，后续一个按键给出操作方式，目前支持：
 <kbd class="kbd docutils literal notranslate">v</kbd> 浏览、<kbd class="kbd docutils literal notranslate">e</kbd> 编辑、<kbd class="kbd docutils literal notranslate">u</kbd> 打开 URL</p></li>
-<li><p>在 <a class="reference external" href="https://github.com/junegunn/fzf">Fzf</a> 中输入关键词以筛选文档片段，支持拼音</p></li>
+<li><p>在 <a class="extlink-ghrepo reference external" href="https://github.com/junegunn/fzf">Fzf</a> 中输入关键词以筛选文档片段，支持拼音</p></li>
 <li><p>对你选中的文档片段执行指定操作</p></li>
 </ul>
 </dd>
@@ -886,7 +886,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <dl>
 <dt>在浏览器</dt><dd><p>切换到 Vim 或者终端</p>
 </dd>
-<dt>在 Vim</dt><dd><p>唤醒 Snippet，输入关键词（使用 <a class="reference external" href="https://pypi.org/project/sphinxcontrib.asciinema">📦 sphinxcontrib.asciinema</a> 生成）</p>
+<dt>在 Vim</dt><dd><p>唤醒 Snippet，输入关键词（使用 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib.asciinema">📦 sphinxcontrib.asciinema</a> 生成）</p>
 <div id="asciicast-/_assets/snippet-with-vim.cast"></div>
             <script>
                 AsciinemaPlayer.create(
@@ -928,7 +928,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 </pre></div>
 </div>
 <p>但 Sphinx 其实并不存在这样的 directive ，它无法被正常地渲染成文档。
-而 <a class="reference external" href="https://pypi.org/project/sphinxnotes-any">📦 sphinxnotes-any</a> 就是用来做这种事情的：它根据你的配置生成 directives 来描述任意对象，所有的对象都会被保存在一个叫 “any” 的 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">Domain</a> （理解为命名空间）中，对应的交叉索引用的 role 也会生成，这么说可能有些抽象，我拿用来描述一张画的 <code class="code docutils literal notranslate"><span class="pre">artwork</span></code> directive 来举个例子:</p>
+而 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-any">📦 sphinxnotes-any</a> 就是用来做这种事情的：它根据你的配置生成 directives 来描述任意对象，所有的对象都会被保存在一个叫 “any” 的 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">Domain</a> （理解为命名空间）中，对应的交叉索引用的 role 也会生成，这么说可能有些抽象，我拿用来描述一张画的 <code class="code docutils literal notranslate"><span class="pre">artwork</span></code> directive 来举个例子:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">artwork</span><span class="p">::</span> Bell Rock Lighthouse
    <span class="nc">:id:</span> test-1
    <span class="nc">:medium:</span> 水彩 铅笔
@@ -964,7 +964,7 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <p><span class="caption-text">Bell Rock Lighthouse</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>随便找的一张 <a class="reference external" href="https://zh.wikipedia.org/wiki/透纳">📖 透纳</a> 的画。</p>
+<p>随便找的一张 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/透纳">📖 透纳</a> 的画。</p>
 </dd></dl>
 
 <div class="admonition note">
@@ -1002,8 +1002,8 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <section id="id4">
 <h2>博客<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>博客是最难办的一件事情，单纯靠安排笔记的排版确实可以让它看起来像一个博客，但关键的目录、标签、归档、评论功能统统都没有。好在这件事情已经有人做了，并且非常符合 Sphinx 的哲学。</p>
-<p><a class="reference external" href="https://github.com/sunpy">👥 sunpy</a> 社区写了一个叫 <a class="reference external" href="https://pypi.org/project/ablog">📦 ablog</a> 的扩展，用来在 Sphinx 里建立博客，保持兼容最新版的 Sphinx 为目标，开发也非常活跃。你可以看看 ABlog 在我的笔记系统上的效果：<a class="reference internal" href="../blog.html" title="Posts"><em>Posts</em></a></p>
-<p>ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 <a class="reference external" href="https://posativ.org/isso/">Isso</a> 的话，可以试试我写的 <a class="reference external" href="https://pypi.org/project/sphinxnotes-isso">📦 sphinxnotes-isso</a>，文章底部可以看到 Isso 的评论框。</p>
+<p><a class="extlink-ghorg reference external" href="https://github.com/sunpy">👥 sunpy</a> 社区写了一个叫 <a class="extlink-pypi reference external" href="https://pypi.org/project/ablog">📦 ablog</a> 的扩展，用来在 Sphinx 里建立博客，保持兼容最新版的 Sphinx 为目标，开发也非常活跃。你可以看看 ABlog 在我的笔记系统上的效果：<a class="reference internal" href="../blog.html" title="Posts"><em>Posts</em></a></p>
+<p>ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 <a class="reference external" href="https://posativ.org/isso/">Isso</a> 的话，可以试试我写的 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-isso">📦 sphinxnotes-isso</a>，文章底部可以看到 Isso 的评论框。</p>
 <p>值得一提的是，Sphinx 生成的 HTML 文档里的侧边栏不是全局的，可以让不同的页面采用不同的侧边栏，因此 ABlog 引入的博客侧边栏不会影响现有的其他的文档：</p>
 <figure class="align-default" id="id10">
 <img alt="../_images/sphinx-sidebar-with-without-ablog.png" src="../_images/sphinx-sidebar-with-without-ablog.png" />
@@ -1023,10 +1023,10 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <p>这里仅列出我正在使用的扩展及其效果，想了解它们的具体配置，请看 <a class="reference external" href="https://github.com/SilverRainZ/bullet/blob/master/conf.py">conf.py</a> ，也许我会写一篇文章里来它们的使用技巧。</p>
 </div>
 <dl>
-<dt><a class="reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a></dt><dd><p>用来显示音符 <span class="lilypond" style="display: inline-flex; vertical-align: middle;">
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a></dt><dd><p>用来显示音符 <span class="lilypond" style="display: inline-flex; vertical-align: middle;">
 <img class="lilypond-score" src=".././_lilypond/9b7759da7ffa17e3ce15414f33fa03e3bc2e8ff1/music.cropped.png" alt="\score{\relative { c' }}" style="height: 2.5em;"/></span>  和 <a class="reference internal" href="../collections/scores/index.html"><span class="doc">带试听音频的乐谱</span></a></p>
 </dd>
-<dt><a class="reference external" href="https://pypi.org/project/sphinxnotes-strike">📦 sphinxnotes-strike</a></dt><dd><p>提供了 <code class="code docutils literal notranslate"><span class="pre">del</span></code> role 用来显示 reST 不支持的删除线</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-strike">📦 sphinxnotes-strike</a></dt><dd><p>提供了 <code class="code docutils literal notranslate"><span class="pre">del</span></code> role 用来显示 reST 不支持的删除线</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:del:`Sphinx`</span></code></p></td>
@@ -1040,13 +1040,13 @@ editor -u-&gt; snippet.cli: 浏览，编辑"/>
 <div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:ghuser:`SilverRainZ`</span></code></p></td>
-<td><p><a class="reference external" href="https://github.com/SilverRainZ">👤 SilverRainZ</a></p></td>
+<td><p><a class="extlink-ghuser reference external" href="https://github.com/SilverRainZ">👤 SilverRainZ</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </dd>
-<dt><a class="reference external" href="https://github.com/executablebooks/sphinx-design">⛺ executablebooks/sphinx-design</a></dt><dd><p>提供了 reST 不支持的分栏功能（见下），顺便还享用了它内置的 <span class="fa fa-font"></span> Font Awesome 支持</p>
+<dt><a class="extlink-ghrepo reference external" href="https://github.com/executablebooks/sphinx-design">⛺ executablebooks/sphinx-design</a></dt><dd><p>提供了 reST 不支持的分栏功能（见下），顺便还享用了它内置的 <span class="fa fa-font"></span> Font Awesome 支持</p>
 </dd>
 <dt>内置扩展 <code class="code docutils literal notranslate"><span class="pre">sphinx.ext.graphviz</span></code></dt><dd><p>用 Dot Language 绘制简单的流程图：</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -1075,7 +1075,7 @@ reST</div>
 </div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦 sphinxcontrib-plantuml</a></dt><dd><p>用 Plant UML 绘制各种图表：</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦 sphinxcontrib-plantuml</a></dt><dd><p>用 Plant UML 绘制各种图表：</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1105,7 +1105,7 @@ reST</div>
 </div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://pypi.org/project/sphinxcontrib.email">📦 sphinxcontrib.email</a></dt><dd><p>生成难以被爬虫抓取的邮件地址，防止 SPAM</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib.email">📦 sphinxcontrib.email</a></dt><dd><p>生成难以被爬虫抓取的邮件地址，防止 SPAM</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:email:`foo&#64;example.com`</span></code></p></td>
@@ -1123,7 +1123,7 @@ reST</div>
 </table>
 </div>
 </dd>
-<dt><a class="reference external" href="https://pypi.org/project/sphinxcontrib.asciinema">📦 sphinxcontrib.asciinema</a></dt><dd><p>在文档中嵌入 asciinema 录制的终端操作：</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib.asciinema">📦 sphinxcontrib.asciinema</a></dt><dd><p>在文档中嵌入 asciinema 录制的终端操作：</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">asciinema</span><span class="p">::</span> 117813
 </pre></div>
 </div>
@@ -1136,9 +1136,9 @@ reST</div>
 </dd>
 </dl>
 <dl class="simple">
-<dt><a class="reference external" href="https://pypi.org/project/sphinxcontrib.gtagjs">📦 sphinxcontrib.gtagjs</a></dt><dd><p>在页面中嵌入 Google Analytics 代码</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxcontrib.gtagjs">📦 sphinxcontrib.gtagjs</a></dt><dd><p>在页面中嵌入 Google Analytics 代码</p>
 </dd>
-<dt><a class="reference external" href="https://pypi.org/project/sphinx_sitemap">📦 sphinx_sitemap</a></dt><dd><p>生成 <a class="reference external" href="https://zh.wikipedia.org/wiki/站点地图">📖 站点地图</a> 以优化搜索引擎排名</p>
+<dt><a class="extlink-pypi reference external" href="https://pypi.org/project/sphinx_sitemap">📦 sphinx_sitemap</a></dt><dd><p>生成 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/站点地图">📖 站点地图</a> 以优化搜索引擎排名</p>
 </dd>
 </dl>
 <p class="rubric">脚注</p>

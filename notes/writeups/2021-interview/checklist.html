@@ -258,6 +258,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../man/deb.html">Debian Packing</a></li>
@@ -711,13 +712,13 @@ document.write(`
 <section id="select-epoll-x">
 <h3>select，epoll ✔️<a class="headerlink" href="#select-epoll-x" title="Link to this heading">#</a></h3>
 <dl class="simple">
-<dt><a class="reference external" href="https://zh.wikipedia.org/wiki/Select_(Unix)">📖 Select_(Unix)</a></dt><dd><ul class="simple">
+<dt><a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/Select_(Unix)">📖 Select_(Unix)</a></dt><dd><ul class="simple">
 <li><p>是个单独的系统调用</p></li>
 <li><p>复杂度 <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
 <li><p>连接数：<code class="code docutils literal notranslate"><span class="pre">FD_SETSIZE</span> <span class="pre">=</span> <span class="pre">8</span></code></p></li>
 </ul>
 </dd>
-<dt><a class="reference external" href="https://zh.wikipedia.org/wiki/Epoll">📖 Epoll</a></dt><dd><ul class="simple">
+<dt><a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/Epoll">📖 Epoll</a></dt><dd><ul class="simple">
 <li><p>是个模块，由三个系统调用组成</p></li>
 <li><p>底层为红黑树，复杂度 <span class="math notranslate nohighlight">\(O(log_n)\)</span></p></li>
 <li><p>连接数：API 上无限制</p></li>
@@ -899,7 +900,7 @@ document.write(`
 <li><p>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）</p></li>
 <li><p>分区容错性（Partition tolerance）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择）</p></li>
 </ul>
-<p class="attribution">—— <a class="reference external" href="https://zh.wikipedia.org/wiki/CAP定理">📖 CAP定理</a></p>
+<p class="attribution">—— <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/CAP定理">📖 CAP定理</a></p>
 </div></blockquote>
 <p>P（分区容错性）是说这个系统要允许分区？</p>
 </section>
@@ -973,7 +974,7 @@ document.write(`
 <h3>Paxos<a class="headerlink" href="#paxos" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>一种基于消息传递且具有高度容错特性的共识（consensus）算法。</p>
-<p class="attribution">——  <a class="reference external" href="https://zh.wikipedia.org/wiki/Paxos算法">📖 Paxos算法</a></p>
+<p class="attribution">——  <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/Paxos算法">📖 Paxos算法</a></p>
 </div></blockquote>
 <dl class="simple">
 <dt>分布式系统通信模型</dt><dd><ul class="simple">
@@ -990,7 +991,7 @@ document.write(`
 <div><p>Raft能为在计算机集群之间部署有限状态机提供一种通用方法，并确保集群内的任意节点在某种状态转换上保持一致。</p>
 <p>…</p>
 <p>集群内的节点都对选举出的领袖采取信任，因此Raft不是一种拜占庭容错算法。</p>
-<p class="attribution">——  <a class="reference external" href="https://zh.wikipedia.org/wiki/Raft">📖 Raft</a></p>
+<p class="attribution">——  <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/Raft">📖 Raft</a></p>
 </div></blockquote>
 <dl class="simple">
 <dt>子问题</dt><dd><ul class="simple">
@@ -1100,14 +1101,14 @@ document.write(`
 <blockquote>
 <div><p>乐观锁假设多用户并发的事务在处理时不会彼此互相影响，各事务能够在不产生锁的情况下处理各自影响的那部分数据。在提交数据更新之前，每个事务会先检查在该事务读取数据后，有没有其他事务又修改了该数据。如果其他事务有更新的话，正在提交的事务会进行回滚。</p>
 <p>乐观并发控制多数用于数据争用不大、冲突较少的环境中，这种环境中，偶尔回滚事务的成本会低于读取数据时锁定数据的成本，因此可以获得比其他并发控制方法更高的吞吐量。</p>
-<p class="attribution">—— <a class="reference external" href="https://zh.wikipedia.org/wiki/乐观并发控制">📖 乐观并发控制</a></p>
+<p class="attribution">—— <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/乐观并发控制">📖 乐观并发控制</a></p>
 </div></blockquote>
 </dd>
 <dt>悲观锁</dt><dd><p>串行的事务控制：</p>
 <blockquote>
 <div><p>悲观锁可以阻止一个事务以影响其他用户的方式来修改数据。如果一个事务执行的操作读某行数据应用了锁，那只有当这个事务把锁释放，其他事务才能够执行与该锁冲突的操作。</p>
 <p>悲观并发控制主要用于数据争用激烈的环境，以及发生并发冲突时使用锁保护数据的成本要低于回滚事务的成本的环境中。</p>
-<p class="attribution">—— <a class="reference external" href="https://zh.wikipedia.org/wiki/悲观并发控制">📖 悲观并发控制</a></p>
+<p class="attribution">—— <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/悲观并发控制">📖 悲观并发控制</a></p>
 </div></blockquote>
 </dd>
 <dt>公平锁</dt><dd><p>多个线程按照申请锁的顺序去获得锁</p>
@@ -1137,7 +1138,7 @@ document.write(`
 <p>事务Ti读取对象(P)时，只有比事务Ti的时间戳早，但是时间上最接近事务Ti的对象版本可见，且该版本应该没有被废止。</p>
 <p>事务Ti写入对象P时，如果还有事务Tk要写入同一对象，则(Ti)必须早于(Tk)，即 (Ti) &lt; (Tk)，才能成功。[2]</p>
 <p>MVCC可以无锁实现。</p>
-<p class="attribution">——  <a class="reference external" href="https://zh.wikipedia.org/wiki/多版本并发控制">📖 多版本并发控制</a></p>
+<p class="attribution">——  <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/多版本并发控制">📖 多版本并发控制</a></p>
 </div></blockquote>
 </dd>
 </dl>
@@ -1654,7 +1655,7 @@ document.write(`
 <h3>死锁检测 ✔️<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁</p>
-<p class="attribution">——  <a class="reference external" href="https://zh.wikipedia.org/wiki/死锁">📖 死锁</a></p>
+<p class="attribution">——  <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/死锁">📖 死锁</a></p>
 </div></blockquote>
 <dl class="simple">
 <dt>死锁的条件：</dt><dd><dl class="field-list simple">
@@ -1679,7 +1680,7 @@ document.write(`
 </ol>
 <div class="admonition seealso">
 <p class="admonition-title">参见</p>
-<p><a class="reference external" href="https://zh.wikipedia.org/wiki/哲学家就餐问题">📖 哲学家就餐问题</a></p>
+<p><a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/哲学家就餐问题">📖 哲学家就餐问题</a></p>
 </div>
 <p>避免死锁：</p>
 <ul class="simple">

@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../notes/man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/deb.html">Debian Packing</a></li>
@@ -560,7 +561,7 @@ document.write(`
 <section id="arch-linux-wayland-steam">
 <h2>在 Arch Linux + Wayland 运行 steam 上的《文明六》<a class="headerlink" href="#arch-linux-wayland-steam" title="Link to this heading">#</a></h2>
 <ul>
-<li><p>安装 <a class="reference external" href="https://archlinux.org/packages/steam-native-runtime">📦 steam-native-runtime</a> 并使用 <strong class="command">steam-native</strong> 启动 steam 客户端</p></li>
+<li><p>安装 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/steam-native-runtime">📦 steam-native-runtime</a> 并使用 <strong class="command">steam-native</strong> 启动 steam 客户端</p></li>
 <li><p>在 steam 「库」中右键文明，「属性」→ 「通用」→ 「高级选项」，修改启动选项为:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QT_QPA_PLATFORM</span><span class="o">=</span><span class="n">xcb</span> <span class="n">LD_PRELOAD</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libfreetype</span><span class="o">.</span><span class="n">so</span> <span class="o">%</span><span class="n">command</span><span class="o">%</span>
 </pre></div>

@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">工具手册</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deb.html">Debian Packing</a></li>
@@ -592,7 +593,7 @@ document.write(`
 <h1>LilyPond<a class="headerlink" href="#lilypond" title="Link to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>页面上的预览由 <a class="reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a> 生成</p>
+<p>页面上的预览由 <a class="extlink-pypi reference external" href="https://pypi.org/project/sphinxnotes-lilypond">📦 sphinxnotes-lilypond</a> 生成</p>
 </div>
 <section id="id2">
 <h2>文件结构 <a class="footnote-reference brackets" href="#id34" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -603,7 +604,7 @@ document.write(`
 <dt>Direct scheme expression</dt><dd><p>类似 <code class="code docutils literal notranslate"><span class="pre">#(set-default-paper-size</span> <span class="pre">&quot;a7&quot;</span> <span class="pre">'landscape)</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>这里的 scheme 是指 <a class="reference external" href="https://wikipedia.org/wiki/Scheme_(programming_language)">📖 Scheme_(programming_language)</a></p>
+<p>这里的 scheme 是指 <a class="extlink-enwiki reference external" href="https://wikipedia.org/wiki/Scheme_(programming_language)">📖 Scheme_(programming_language)</a></p>
 </div>
 </dd>
 <dt><code class="code docutils literal notranslate"><span class="pre">header</span></code></dt><dd><p>定义谱面的头部，包含标题、作曲家等信息</p>
@@ -840,10 +841,10 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
 </section>
 <section id="frescobaldi-midi-playback">
 <h4>Frescobaldi MIDI Playback<a class="headerlink" href="#frescobaldi-midi-playback" title="Link to this heading">#</a></h4>
-<p><a class="reference external" href="https://archlinux.org/packages/frescobaldi">📦 frescobaldi</a> 是一个 LilyPond 的可视化编辑器。
-需要额外安装 <a class="reference external" href="https://archlinux.org/packages/portmidi">📦 portmidi</a> 提供 MIDI 接口支持。</p>
-<p>还需要一个软件的 MIDI 合成器以及合适的 SoundFont，这里分别使用 <a class="reference external" href="https://archlinux.org/packages/fluidsynth">📦 fluidsynth</a>
-和 <a class="reference external" href="https://archlinux.org/packages/soundfont-fluid">📦 soundfont-fluid</a>。</p>
+<p><a class="extlink-archpkg reference external" href="https://archlinux.org/packages/frescobaldi">📦 frescobaldi</a> 是一个 LilyPond 的可视化编辑器。
+需要额外安装 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/portmidi">📦 portmidi</a> 提供 MIDI 接口支持。</p>
+<p>还需要一个软件的 MIDI 合成器以及合适的 SoundFont，这里分别使用 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/fluidsynth">📦 fluidsynth</a>
+和 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/soundfont-fluid">📦 soundfont-fluid</a>。</p>
 <p>设置默认 Soundfont，后面会用上：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/soundfonts<span class="o">{</span>FluidR3_GM,default<span class="o">}</span>.sf2
 </pre></div>
@@ -860,7 +861,7 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
 <dd class="field-odd"><p>驱动有问题，播放的声音像是慢放了许多倍</p>
 </dd>
 </dl>
-<p>我是 PipeWire 用户，安装 <a class="reference external" href="https://archlinux.org/packages/pipewire-pulse">📦 pipewire-pulse</a> 兼容层即可。</p>
+<p>我是 PipeWire 用户，安装 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/pipewire-pulse">📦 pipewire-pulse</a> 兼容层即可。</p>
 <p>编辑 <code class="file docutils literal notranslate"><span class="pre">/etc/conf.d/fluidsynth</span></code>，其实就是命令行参数：</p>
 <div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mandatory parameters (uncomment and edit)</span>
 <span class="na">SOUND_FONT</span><span class="o">=</span><span class="s">/usr/share/soundfonts/default.sf2</span>
@@ -878,7 +879,7 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
 <span class="go">    0 &#39;Synth input port (22710:0)&#39;</span>
 </pre></div>
 </div>
-<p>那么 FluidSynth 的 MIDI 端口就是 <code class="code docutils literal notranslate"><span class="pre">128:0</span></code>，可以使用 <code class="code docutils literal notranslate"><span class="pre">aplaymidi</span></code> （由 <a class="reference external" href="https://archlinux.org/packages/alas-utils">📦 alas-utils</a> 提供）
+<p>那么 FluidSynth 的 MIDI 端口就是 <code class="code docutils literal notranslate"><span class="pre">128:0</span></code>，可以使用 <code class="code docutils literal notranslate"><span class="pre">aplaymidi</span></code> （由 <a class="extlink-archpkg reference external" href="https://archlinux.org/packages/alas-utils">📦 alas-utils</a> 提供）
 播放：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aplaymidi<span class="w"> </span>--port<span class="w"> </span><span class="m">128</span>:0<span class="w"> </span>music.midi
 </pre></div>
@@ -904,18 +905,18 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id34" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/file-structure">https://lilypond.org/doc/v2.20/Documentation/notation/file-structure</a></p>
+<p><a class="extlink-lilydoc reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/file-structure">https://lilypond.org/doc/v2.20/Documentation/notation/file-structure</a></p>
 </aside>
 <aside class="footnote brackets" id="id35" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names">https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names</a></p>
+<p><a class="extlink-lilydoc reference external" href="https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names">https://lilypond.org/doc/v2.20/Documentation/music-glossary/pitch-names</a></p>
 </aside>
 </aside>
 <div role="list" class="citation-list">
 <div class="citation" id="music-expr" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>music-expr<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id14">2</a>)</span>
-<p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained">https://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained</a></p>
+<p><a class="extlink-lilydoc reference external" href="https://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained">https://lilypond.org/doc/v2.20/Documentation/learning/music-expressions-explained</a></p>
 </div>
 </div>
 <aside class="footnote-list brackets">
@@ -925,11 +926,11 @@ chordsline = \chordmode { c1 c:7 f:maj7 }
 </aside>
 <aside class="footnote brackets" id="id37" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id31">4</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments</a></p>
+<p><a class="extlink-lilydoc reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/using-midi-instruments</a></p>
 </aside>
 <aside class="footnote brackets" id="id38" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id32">5</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments</a></p>
+<p><a class="extlink-lilydoc reference external" href="https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments">https://lilypond.org/doc/v2.20/Documentation/notation/midi-instruments</a></p>
 </aside>
 </aside>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">

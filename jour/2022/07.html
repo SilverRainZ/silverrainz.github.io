@@ -257,6 +257,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../notes/man/index.html">工具手册</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/adb.html">ADB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/man/ardour.html">Ardour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/awk.html">Awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/curl.html">cURL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notes/man/deb.html">Debian Packing</a></li>
@@ -565,7 +566,7 @@ document.write(`
 <dd class="field-odd"><p><a class="reference internal" href="#term-a047f03" title="term Linux"><code class="xref any any-term.field docutils literal notranslate"><span class="pre">Linux</span></code></a></p>
 </dd>
 <dt class="field-even">维基<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://wikipedia.org/wiki/VDSO">📖 VDSO</a></p>
+<dd class="field-even"><p><a class="extlink-enwiki reference external" href="https://wikipedia.org/wiki/VDSO">📖 VDSO</a></p>
 </dd>
 </dl>
 <p><em class="manpage"><a class="manpage reference external" href="https://man7.org/linux/man-pages/man7/vdso.7.html">vdso(7)</a></em>，即 virtual ELF dynamic shared object，是一个很小的动态链接库（Shared library），在用户进程启动时会被 linux kernel 自动映射到进程的地址空间里。</p>
@@ -623,12 +624,12 @@ document.write(`
 <p><span class="caption-text">万幸，我现在只油了三分之一。</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>好同事 <a class="reference internal" href="../../about/people.html#people-WangLeonard" title="people WangLeonard"><code class="xref any any-people docutils literal notranslate"><span class="pre">👤WangLeonard</span></code></a> 把他退役的一台群晖 <a class="reference external" href="https://zh.wikipedia.org/wiki/网络附接存储">NAS</a> 借我玩了两周，型号是 <a class="reference external" href="https://www.synology.com/zh-tw/products/DS218play">ds218+</a> ，双盘位，双核 2GHz，内存 6 GB。
+<p>好同事 <a class="reference internal" href="../../about/people.html#people-WangLeonard" title="people WangLeonard"><code class="xref any any-people docutils literal notranslate"><span class="pre">👤WangLeonard</span></code></a> 把他退役的一台群晖 <a class="extlink-zhwiki reference external" href="https://zh.wikipedia.org/wiki/网络附接存储">NAS</a> 借我玩了两周，型号是 <a class="reference external" href="https://www.synology.com/zh-tw/products/DS218play">ds218+</a> ，双盘位，双核 2GHz，内存 6 GB。
 虽然我没有很强的存储需求，可这是一台性能还不错的 x86 Linux 主机诶！而且 <a class="reference external" href="https://www.synology.com/zh-tw/dsm/packages">群晖的套件</a> 用起来比 <a class="reference internal" href="../../notes/wizard/pi.html"><span class="doc">折腾树莓派</span></a> 轻松多了。
 遂以一个很优惠的价格淘了下来，感觉占人家便宜了 Q_Q。</p>
 <dl>
 <dt>装系统</dt><dd><p>将 NAS 插上网线连上路由器，接通电源，NAS 会自动通过 DHCP 获取 IP。</p>
-<p><a class="reference external" href="https://aur.archlinux.org/packages/synology-assistant">📦 synology-assistant</a> 提供了一个 GUI 程序用来探测局域网中群晖 NAS 的地址 ，方便我们连上管理界面。Wayland 用户如果遇到发现程序 crash 了（<code class="code docutils literal notranslate"><span class="pre">qt.qpa.plugin:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">the</span> <span class="pre">Qt</span> <span class="pre">platform</span> <span class="pre">plugin</span> <span class="pre">&quot;wayland&quot;</span> <span class="pre">in</span> <span class="pre">&quot;&quot;</span></code>）可以试试 <code class="code docutils literal notranslate"><span class="pre">unset</span> <span class="pre">QT_QPA_PLATFORM</span></code> 再执行程序。</p>
+<p><a class="extlink-aur reference external" href="https://aur.archlinux.org/packages/synology-assistant">📦 synology-assistant</a> 提供了一个 GUI 程序用来探测局域网中群晖 NAS 的地址 ，方便我们连上管理界面。Wayland 用户如果遇到发现程序 crash 了（<code class="code docutils literal notranslate"><span class="pre">qt.qpa.plugin:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">the</span> <span class="pre">Qt</span> <span class="pre">platform</span> <span class="pre">plugin</span> <span class="pre">&quot;wayland&quot;</span> <span class="pre">in</span> <span class="pre">&quot;&quot;</span></code>）可以试试 <code class="code docutils literal notranslate"><span class="pre">unset</span> <span class="pre">QT_QPA_PLATFORM</span></code> 再执行程序。</p>
 </dd>
 <dt>组内网</dt><dd><p>用 <a class="reference external" href="https://tailscale.com/">tailscale</a> 一步到位，基于 user-space 的 WireGuard 实现，操作简单，节点之间能直连。
 单用户 20 台设备以下免费。</p>
