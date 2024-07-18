@@ -514,7 +514,8 @@ comboroles_roles = {
 extensions.append('sphinxcontrib.globalsubs')
 global_substitutions = {
     '?': ':sup_abbr:`存疑 (笔者对此断言存有疑惑，请谨慎参考)`',
-    'noref': ':sup_abbr:`来源请求 (笔者确信在此断言有特定的出处，但暂时无法找到)`', # citation needed
+    'todo': ':sup_abbr:`待补充（但什么时候呢？）`',
+    'noref': ':sup_abbr:`来源请求 (此断言也许有出处可考，但暂时无法找到)`', # citation needed
 
     # Marks for TODO list.
     # Role octicon: https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html
