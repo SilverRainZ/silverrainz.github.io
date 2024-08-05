@@ -21,12 +21,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/man/sh.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Command Line Arguments: Number of pass-in arguments:..." />
+<meta property="og:description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Output to variable: Command Line Arguments: Number o..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Command Line Arguments: Number of pass-in arguments:..." />
+<meta name="description" content="date, 2020-12-26,, version, 1,. String: Get length: Substring / Slice: Replace: Heredoc: Syntax: Avoid shell expanding variables: Write to file: Output to variable: Command Line Arguments: Number o..." />
 
-    <meta property="article:modified_time" content="2024-07-09T12:41:38+00:00" />
+    <meta property="article:modified_time" content="2024-08-05T16:43:38+00:00" />
     <title>Shell Script &#8212; 银色子弹</title>
   
   
@@ -52,7 +52,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3e51a541" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme-custom.css?v=d04c9ee9" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog-custom.css?v=e78ea701" />
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-07-09"/>
+    <meta name="docbuild:last-update" content="2024-08-05"/>
 
 <link
   rel="alternate"
@@ -611,6 +611,12 @@ document.write(`
 <span class="s">EOF</span>
 </pre></div>
 </div>
+<p>Output to variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>VAR<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">... Heredoc content</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="command-line-arguments">
@@ -771,7 +777,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-07-09.
+  最后更新于 2024-08-05.
   <br/>
 </p>
   </div>
