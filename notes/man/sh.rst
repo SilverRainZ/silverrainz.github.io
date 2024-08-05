@@ -45,6 +45,12 @@ Write to file::
    ... Heredoc content
    EOF
 
+Output to variable::
+
+   read -r -d '' VAR << EOF
+   ... Heredoc content
+   EOF
+
 Command Line Arguments
 ======================
 
