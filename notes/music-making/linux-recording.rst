@@ -12,7 +12,7 @@
 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章…
 目前的拓扑是这样的：
 
-   吉他/麦克风 →  :sup:`6.5mm TR` →  效果器 →  :sup:`6.5mm TR` → 
+   吉他/麦克风 →  :sup:`6.5mm TS` →  效果器 →  :sup:`6.5mm TS` → 
    声卡 →  :sup:`USB` →  电脑 →  DAW
 
 设备
