@@ -282,7 +282,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/rust.html">Rust Cheatsheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/sh.html">Shell Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/sign.html">常用的符号和 Emoji</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notes/man/ssrf.html">Server-Side Request Forgery (SSRF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/systemd.html">SystemD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/man/vim.html">Vim</a></li>
@@ -620,84 +619,6 @@ document.write(`
 <section id="timeline">
 <h2>Timeline<a class="headerlink" href="#timeline" title="Link to this heading">#</a></h2>
 <p>Events worth recording:</p>
-<div class="graphviz"><img src="../_images/graphviz-fb0559ceae020abda1a4df34a39785c872087c72.png" alt="digraph events {
-rankdir=BT
-splines=ortho
-node [shape=plaintext];
-
- past
- -&gt; 2014.10
- -&gt; 2015.10
- -&gt; 2016.01
- -&gt; 2016.04
- -&gt; 2016.08
- -&gt; 2016.10
- -&gt; 2017.01
- -&gt; 2017.06
- -&gt; 2017.00
- -&gt; 2018.09
- -&gt; 2019.03
- -&gt; 2019.04
- -&gt; 2019.08
- -&gt; 2019.10
- -&gt; 2020.02
- -&gt; 2020.06
- -&gt; 2020.07
- -&gt; 2021.06
- -&gt; 2021.09
- -&gt; future [style=invis];
-
- {rank=same past}
-
- {rank=same 2014.10 start_os67[label=&quot;Start writing OS67&quot;]}
-
- {rank=same 2015.10 end_os67[label=&quot;OS67 0.01 released&quot;]}
- start_os67 -&gt; end_os67;
-
- {rank=same 2016.01 start_srain[label=&quot;Start writing Srain&quot;]}
-
- {rank=same 2016.04 start_gsoc2016[label=&quot;Get selected for GSoC&quot;]}
-
- {rank=same 2016.08 end_gsoc2016[label=&quot;Finish my summer of code&quot;]}
- start_gsoc2016 -&gt; end_gsoc2016;
-
- {rank=same 2016.10 intern_chaitin[label=&quot;Internship at Chaitin Tech, Inc.&quot;]}
-
- {rank=same 2017.01 learn_watercolor_jgr[label=&quot;Learn classical watercolor from 纪盖荣&quot;]}
-
- {rank=same 2017.06 graduate_scau[label=&quot;Graduated from SCAU&quot;]}
-
- {rank=same 2017.06 join_chaitin [label=&quot;Join Chaitin Tech as FTE&quot;]}
- intern_chaitin -&gt; join_chaitin;
-
- {rank=same 2017.00 learn_swimming[label=&quot;Learn breaststroke&quot;]}
-
- {rank=same 2018.09 learn_badminton[label=&quot;Learn badminton!&quot;]}
- learn_swimming -&gt; learn_badminton;
-
- {rank=same 2019.03 injure_knee[label=&quot;My knee injured because of badminton :'(&quot;]}
- learn_badminton -&gt; injure_knee;
-
- {rank=same 2019.04 sketch_beidaihe[label=&quot;Go to 北戴河 alone for sketching&quot;]}
-
- {rank=same 2019.08 learn_watercolor_taylor[label=&quot;Learn landscape watercolor from David Taylor&quot;]}
-
- {rank=same 2019.10 learn_guitar[label=&quot;Start learning guitar&quot;]}
-
- {rank=same 2020.02 announce_srain[label=&quot;Announcing Srain 1.0&quot;]}
- start_srain -&gt; announce_srain;
-
- {rank=same 2020.06 quit_chaitin[label=&quot;Quit from Chaitin Tech&quot;]}
- join_chaitin -&gt; quit_chaitin;
-
- {rank=same 2020.07 start_learn_sketch[label=&quot;Learn classical sketch from 李晓飞&quot;]}
- {rank=same 2021.06 end_learn_sketch[label=&quot;End classical sketch course&quot;]}
- start_learn_sketch -&gt; end_learn_sketch;
-
- {rank=same 2021.09 join_bytedance[label=&quot;Join ByteDance as FTE&quot;]}
-
- {rank=same future}
-}" class="graphviz" /></div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">

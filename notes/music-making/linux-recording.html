@@ -21,12 +21,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silverrainz.gitee.io/notes/music-making/linux-recording.html" />
 <meta property="og:site_name" content="银色子弹" />
-<meta property="og:description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TR → 效果器 → 6.5mm TR → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
+<meta property="og:description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TS → 效果器 → 6.5mm TS → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
 <meta property="og:image" content="https://silverrainz.gitee.io/_static/logo.png" />
 <meta property="og:image:alt" content="银色子弹" />
-<meta name="description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TR → 效果器 → 6.5mm TR → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
+<meta name="description" content="日期, 2024-05-03,. 通过运行 GNU/Linux 的个人电脑录制乐器和人声。 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章… 目前的拓扑是这样的： 吉他/麦克风 → 6.5mm TS → 效果器 → 6.5mm TS → 声卡 → USB → 电脑 → DAW 设备: 独立声卡: 之前一直不理解为什么录音需要声卡..." />
 
-    <meta property="article:modified_time" content="2024-07-18T15:50:39+00:00" />
+    <meta property="article:modified_time" content="2024-08-06T10:32:12+00:00" />
     <title>在 Linux 环境下录音 &#8212; 银色子弹</title>
   
   
@@ -83,7 +83,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="zh-CN"/>
-    <meta name="docbuild:last-update" content="2024-07-18"/>
+    <meta name="docbuild:last-update" content="2024-08-06"/>
 
 <link
   rel="alternate"
@@ -282,7 +282,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../man/rust.html">Rust Cheatsheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/sh.html">Shell Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/sign.html">常用的符号和 Emoji</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../man/ssrf.html">Server-Side Request Forgery (SSRF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/systemd.html">SystemD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/vim.html">Vim</a></li>
@@ -575,7 +574,7 @@ document.write(`
 环境：Arch Linux, kernel 6.8.8, pipewire 1.0.5，所以才需要写这么篇文章…
 目前的拓扑是这样的：</p>
 <blockquote>
-<div><p>吉他/麦克风 →  <sup>6.5mm TR</sup> →  效果器 →  <sup>6.5mm TR</sup> →
+<div><p>吉他/麦克风 →  <sup>6.5mm TS</sup> →  效果器 →  <sup>6.5mm TS</sup> →
 声卡 →  <sup>USB</sup> →  电脑 →  DAW</p>
 </div></blockquote>
 <section id="id1">
@@ -856,7 +855,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  最后更新于 2024-07-18.
+  最后更新于 2024-08-06.
   <br/>
 </p>
   </div>
