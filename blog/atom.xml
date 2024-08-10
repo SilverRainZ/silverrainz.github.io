@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.gitee.io/</id>
   <title>银色子弹</title>
-  <updated>2024-08-06T10:38:44.995854+00:00</updated>
+  <updated>2024-08-10T14:46:18.029936+00:00</updated>
   <link href="https://silverrainz.gitee.io/"/>
   <link href="https://silverrainz.gitee.io/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.11">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.gitee.io/blog/the-correct-to-prevent-bytes-string-conv.html</id>
@@ -447,7 +447,7 @@ ok  	command-line-arguments	1.142s
     <content type="html">&lt;section id="id1"&gt;
 
 &lt;p&gt;其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候
-&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;豆豆&lt;/span&gt;&lt;/code&gt; 就在群里催大家写总结，现在豆豆和小杰 已各自完成 &lt;a class="footnote-reference brackets" href="#id49" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id50" id="id3" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;，
+&lt;a class="any any-people reference internal" href="about/people.html#people-soyking" title="people 豆豆"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤soyking&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就在群里催大家写总结，现在豆豆和小杰 已各自完成 &lt;a class="footnote-reference brackets" href="#id49" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt; &lt;a class="footnote-reference brackets" href="#id50" id="id3" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;，
 我也该动动笔了。&lt;/p&gt;
 &lt;section id="id4"&gt;
 &lt;h2&gt;工作&lt;/h2&gt;
@@ -792,7 +792,7 @@ q5, q7, q#2 q5 q7 q4'
 &lt;/section&gt;
 &lt;section id="id26"&gt;
 &lt;h3&gt;怀柔的机器人 &lt;a class="footnote-reference brackets" href="#id53" id="id25" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;5&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;3 月 &lt;a class="reference internal" href="about/people.html#people-6" title="people 胡林昊"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤胡林昊&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 和我说到他参加了羽呈会，在怀柔租了个工作空间，说有空过去玩
+&lt;p&gt;3 月 &lt;a class="any any-people reference internal" href="about/people.html#people-6" title="people 胡林昊"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤胡林昊&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 和我说到他参加了羽呈会，在怀柔租了个工作空间，说有空过去玩
 玩。6 月出差去北京参加 GopherCon，便有机会去找他，过程都记录在纸上了。&lt;/p&gt;
 &lt;div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils"&gt;
 &lt;div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils"&gt;
@@ -817,8 +817,8 @@ q5, q7, q#2 q5 q7 q4'
 &lt;/section&gt;
 &lt;section id="id27"&gt;
 &lt;h3&gt;重返燕郊&lt;/h3&gt;
-&lt;p&gt;尽管我已经能画一些东西了，但色彩上一直缺乏理论，全凭本能。&lt;a class="reference internal" href="notes/books/the-art-of-color.html#book-9787571414672" title="book 色彩艺术"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《色彩艺术》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;
-是 &lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;晓飞老师&lt;/span&gt;&lt;/code&gt; 非常推崇的书，我屡次尝试读它都没能有收获，只好当面去求教。
+&lt;p&gt;尽管我已经能画一些东西了，但色彩上一直缺乏理论，全凭本能。&lt;a class="any any-book reference internal" href="notes/books/the-art-of-color.html#book-9787571414672" title="book 色彩艺术"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《色彩艺术》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;
+是 &lt;a class="any any-people reference internal" href="about/people.html#people-0" title="people 晓飞老师"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤李晓飞&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 非常推崇的书，我屡次尝试读它都没能有收获，只好当面去求教。
 8 月我开始做准备，因为长时间没有画画怕面对老师心生愧疚，于是开始画小创作，
 今年的大部分小创作都是这个时候完成的。&lt;/p&gt;
 &lt;p&gt;9 月动身，用尽所有的年假搭上国庆假期，进行了为期两周的 &lt;a class="reference internal" href="notes/zxsys/color.html"&gt;&lt;span class="doc"&gt;色彩训练&lt;/span&gt;&lt;/a&gt;
@@ -920,11 +920,11 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 冬天还是要忍受楼上楼下近十度的温差，最近起居已经完全在楼上了。&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt&gt;行&lt;/dt&gt;&lt;dd&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;5 月份和 &lt;a class="reference internal" href="about/people.html#people-YY" title="people YY"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤YY&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 去了趟广州，吃了四天，见了根兴和他老婆，一起逛了华农&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;5 月份和 &lt;a class="any any-people reference internal" href="about/people.html#people-YY" title="people YY"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤YY&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 去了趟广州，吃了四天，见了根兴和他老婆，一起逛了华农&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;6 月份去北京参加 GopherCon，借此参加春宇的全羊局，长亭老同事们都见了一遍，
 要回了押金，而后去怀柔看胡林昊的工作室&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;9 月底去燕郊，国庆后 &lt;a class="extlink-ghuser reference external" href="https://github.com/jinzhu"&gt;👤 jinzhu&lt;/a&gt; 问我要不要顺路去北京出差，于是得以和
-网友同事面基；和另一拨长亭同事吃了饭；和老朋友 &lt;a class="reference internal" href="about/friends.html#friend-VOID001" title="friend VOID001"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤VOID001&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 吃了饭；
+网友同事面基；和另一拨长亭同事吃了饭；和老朋友 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-VOID001" title="friend VOID001"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤VOID001&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 吃了饭；
 和 GPY 吃了饭；还和群友 ysgg、收工小酌了一番&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;11 月组里团建，去了阳澄湖，第一次吃大闸蟹&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1027,11 +1027,11 @@ Using English fallback for directive “sidebar”.&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;设备&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;我平时很少买设备，毕竟都还没学好，但今年闲鱼上瘾了，还是小剁了一下。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-thr5a" title="dev Yamaha THR5a"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Yamaha&lt;/span&gt; &lt;span class="pre"&gt;THR5a&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="collections/devices/instruments.html#dev-ewp14" title="dev Ibanez EWP14"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Ibanez&lt;/span&gt; &lt;span class="pre"&gt;EWP14&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="any any-dev reference internal" href="collections/devices/instruments.html#dev-thr5a" title="dev Yamaha THR5a"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Yamaha&lt;/span&gt; &lt;span class="pre"&gt;THR5a&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 850 入手，偶尔连效果器用&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="any any-dev reference internal" href="collections/devices/instruments.html#dev-ewp14" title="dev Ibanez EWP14"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Ibanez&lt;/span&gt; &lt;span class="pre"&gt;EWP14&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 闲鱼 450 入手，当备用旅行琴&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;音响没什么可说，后面的琴可以聊一聊，我平时用的是一把尼龙弦的
-&lt;a class="reference internal" href="collections/devices/instruments.html#dev-mscc-14rs" title="dev Martinez MSCC-14RS"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Martinez&lt;/span&gt; &lt;span class="pre"&gt;MSCC-14RS&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
+&lt;a class="any any-dev reference internal" href="collections/devices/instruments.html#dev-mscc-14rs" title="dev Martinez MSCC-14RS"&gt;&lt;code class="xref any any-dev docutils literal notranslate"&gt;&lt;span class="pre"&gt;🎛️Martinez&lt;/span&gt; &lt;span class="pre"&gt;MSCC-14RS&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，有一段时间很想要钢弦的音色，又不想要多一把琴占地方。
 看了 &lt;a class="reference external" href="https://www.bilibili.com/video/BV13y4y1B7a7"&gt;潘高峰老师的视频&lt;/a&gt; 讲到这把琴，看价格合适于是收了一把。&lt;/p&gt;
 &lt;dl class="simple"&gt;
 &lt;dt&gt;好处：&lt;/dt&gt;&lt;dd&gt;&lt;ul class="simple"&gt;
@@ -1317,7 +1317,7 @@ be parsed too:&lt;/p&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;a class="reference external" href="https://example.com"&gt;&lt;span class="pre"&gt;https://example.com&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`|today|``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;08&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;06&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;2024&lt;/span&gt; &lt;span class="pre"&gt;年&lt;/span&gt; &lt;span class="pre"&gt;08&lt;/span&gt; &lt;span class="pre"&gt;月&lt;/span&gt; &lt;span class="pre"&gt;10&lt;/span&gt; &lt;span class="pre"&gt;日&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:parsed_literal:`RFC:&lt;/span&gt; &lt;span class="pre"&gt;:rfc:\`1459\``&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;RFC:&lt;/span&gt; &lt;span class="target" id="index-0"&gt;&lt;/span&gt;&lt;a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc1459.html"&gt;&lt;strong&gt;&lt;span class="pre"&gt;RFC&lt;/span&gt; &lt;span class="pre"&gt;1459&lt;/span&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -1717,7 +1717,7 @@ language by default.</summary>
 希望有机会把后面的内容补完吧。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p class="centered"&gt;
-&lt;strong&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;如果有哪一天我获得了幸福，我就再也不画画了。&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;今年&lt;/span&gt; &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;去年&lt;/span&gt; 前年 6 月的时候，我结束了在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;燕郊的课程&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，回家准备 &lt;a class="reference internal" href="notes/writeups/2021-interview/index.html"&gt;&lt;span class="doc"&gt;面试&lt;/span&gt;&lt;/a&gt;；9 月，入职杭州字节，还是写代码。这一年间有不少朋友听说了我的事情，问为什么突然辞了职去学画画；面试的时候也会被问，你为什么选择这么做，现在怎么又回来了云云，我也一遍又一遍地重复着准备好的说辞。&lt;/p&gt;
+&lt;strong&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;如果有哪一天我获得了幸福，我就再也不画画了。&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;今年&lt;/span&gt; &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;去年&lt;/span&gt; 前年 6 月的时候，我结束了在 &lt;a class="any any-event reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;燕郊的课程&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，回家准备 &lt;a class="reference internal" href="notes/writeups/2021-interview/index.html"&gt;&lt;span class="doc"&gt;面试&lt;/span&gt;&lt;/a&gt;；9 月，入职杭州字节，还是写代码。这一年间有不少朋友听说了我的事情，问为什么突然辞了职去学画画；面试的时候也会被问，你为什么选择这么做，现在怎么又回来了云云，我也一遍又一遍地重复着准备好的说辞。&lt;/p&gt;
 &lt;p&gt;我有个坏毛病，在人前时总想着说些漂亮话，羞于暴露自己「和别人不一样」的一面：&lt;/p&gt;
 &lt;dl class="field-list simple"&gt;
 &lt;dt class="field-odd"&gt;某&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
@@ -1764,7 +1764,7 @@ language by default.</summary>
 &lt;/div&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;老师让大家把纸贴在「砧板」上，竖着放上架子 —— 铅笔削尖 —— 手伸直 —— 练习「拉线」。我硬着头皮把从本子上小小的纸撕下，贴在了大大的板子上，拿起红黑相间的中华铅笔，僵硬地伸直手，左一下，右一下，拉起线来。&lt;/p&gt;
-&lt;p&gt;不一会儿我就知道了，这是素描纸，这是画架，这是 &lt;a class="reference internal" href="any-artwork.size.html#cap-4k" title="artwork 4k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;四开&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 大的画板，我要画的是 &lt;a class="reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;素描&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;。我当然听过「素描」，难堪里不由得又冒出几分激动，于是更认真地在小小的一方纸上来回拉线，满心想让老师快点注意到我，以后教我更多的东西。&lt;/p&gt;
+&lt;p&gt;不一会儿我就知道了，这是素描纸，这是画架，这是 &lt;a class="any any-artwork reference internal" href="any-artwork.size.html#cap-4k" title="artwork 4k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;四开&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 大的画板，我要画的是 &lt;a class="any any-artwork reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;素描&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;。我当然听过「素描」，难堪里不由得又冒出几分激动，于是更认真地在小小的一方纸上来回拉线，满心想让老师快点注意到我，以后教我更多的东西。&lt;/p&gt;
 &lt;p&gt;拉几条线当然不能让老师注意到我，但不久后这个愿望还是实现了：每上一堂课，周围的人就少一大半，也许是觉得整天画线很无聊吧，到了画几何体结构的时候，人员基本上稳定在了十来人。某天老师在衬布上摆了一个石膏罐和几个水果，说你们几个可以不用画几何体了，来画静物，带光影的。&lt;/p&gt;
 &lt;p&gt;于是我们几个人围了过去，换纸，削笔，一开始大家的画板都是横着放的，在下一张画的时候也没想过有什么改变。可我总觉得面对的这样一组静物，取景框是横的总显得奇怪，于是我把画板竖了起来。老师看见一堆画板里只有我的构图是竖着的，便过来夸奖了我一番，也许是从那个时候记住了我的名字？这就无从得知了。&lt;/p&gt;
 &lt;figure class="align-default" id="id12"&gt;
@@ -1834,7 +1834,7 @@ language by default.</summary>
 &lt;li&gt;&lt;p&gt;在家里人看来，画画是文化课不好的孩子的选择，我的成绩还不赖，没有冒险换赛道的必要&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我委婉地，旁敲侧击地跟父母表达了我的想法，自然没有得到支持。我也不争不吵，生了几天闷气后，一头扎进在时间的河里顺流而下。等再浮出水面的时候，我已经是高二的理科生了。&lt;/p&gt;
-&lt;p&gt;高一带我兴趣班的 &lt;a class="reference internal" href="about/people.html#people-1" title="people 蔓纯老师"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤蔓纯老师&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，送走了带了三年的专业生，现在开始带高一的专业班，一直持续到他们高三出去集训。
+&lt;p&gt;高一带我兴趣班的 &lt;a class="any any-people reference internal" href="about/people.html#people-1" title="people 蔓纯老师"&gt;&lt;code class="xref any any-people docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤蔓纯老师&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，送走了带了三年的专业生，现在开始带高一的专业班，一直持续到他们高三出去集训。
 其实我在之前就和蔓纯老师表达过我的忧虑，她说没关系，到时候你可以来高一的画室画。&lt;/p&gt;
 &lt;p&gt;尽管得到了这样的许诺，开学后我也没有马上回到画室。每天下课后就和同学一样排队洗澡，去食堂吃热腾腾的饭菜，多出来的时间就四处游荡。可能是觉得回去搞特殊很害羞，也可能是心生了退意，毕竟我 ——「并不是真的热爱画画」。&lt;/p&gt;
 &lt;p&gt;但学期近半的时候我还是回去了，那一天好像安排了大扫除，下午放学比平时早些。蔓纯老师看到我的时候挺惊讶，以为我不会再来了，怪我为什么没有一开学就过来，本来要交的材料费也帮我免掉了，瞒着父母回画室的我，连一百块钱的材料费都拿不出。就这样，我回归了画室生活。&lt;/p&gt;
@@ -1901,7 +1901,7 @@ language by default.</summary>
     </author>
     <content type="html">&lt;section id="id1"&gt;
 
-&lt;p&gt;之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 &lt;a class="reference internal" href="any-artwork.album.html#cap-album-32k-1" title="artwork album-32k-1"&gt;&lt;code class="xref any any-artwork.album docutils literal notranslate"&gt;&lt;span class="pre"&gt;album-32k-1&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 里。后来画了一点 &lt;a class="reference internal" href="any-artwork.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;素描&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 和 &lt;a class="reference internal" href="any-artwork.medium.html#cap-丙烯" title="artwork 丙烯"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;丙烯&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，分别用了阿诗的素描纸（310×230 mm）与哈内姆勒的水彩纸（300×240mm），他们的的尺寸比 A4（297×210 mm）大一点，又比 A3（420×297 mm）小不少，收纳起来很尴尬。&lt;/p&gt;
+&lt;p&gt;之前画的大量小创作基本都是在 32K 的小张水彩纸上画的，然后装在蔓纯老师送我的正好 32K 的小画册 &lt;a class="any any-artwork reference internal" href="any-artwork.album.html#cap-album-32k-1" title="artwork album-32k-1"&gt;&lt;code class="xref any any-artwork.album docutils literal notranslate"&gt;&lt;span class="pre"&gt;album-32k-1&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 里。后来画了一点 &lt;a class="any any-artwork reference internal" href="any-artwork.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;素描&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 和 &lt;a class="any any-artwork reference internal" href="any-artwork.medium.html#cap-丙烯" title="artwork 丙烯"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;丙烯&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，分别用了阿诗的素描纸（310×230 mm）与哈内姆勒的水彩纸（300×240mm），他们的的尺寸比 A4（297×210 mm）大一点，又比 A3（420×297 mm）小不少，收纳起来很尴尬。&lt;/p&gt;
 &lt;p&gt;我开始在网上寻找合适的收纳册，发现只有办公用的 A2 A3 A4 系列最好找，连老师送我的这种 32 开本都不是那么常见，更不用说上面这种国内不流行的尺寸了。&lt;/p&gt;
 &lt;section id="id2"&gt;
 &lt;h2&gt;纸张尺寸标准&lt;/h2&gt;
@@ -1983,7 +1983,7 @@ language by default.</summary>
 &lt;figure class="align-default"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/1869452119.jpg" src="https://silverrainz.gitee.io/_images/1869452119.jpg" style="width: 60%;" /&gt;
 &lt;/figure&gt;
-&lt;p&gt;想要放入 260×180 mm 的 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-topic.html#artwork-xfczk2-042" title="artwork 强盗的造访"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《强盗的造访》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 我们可以用用 &lt;em&gt;A4 印刷纸作为内衬&lt;/em&gt; ，把画放在印刷纸中间，用笔标出沿着四个角的位置（不要画到画上）：&lt;/p&gt;
+&lt;p&gt;想要放入 260×180 mm 的 &lt;a class="any any-artwork reference internal" href="notes/zxsys/way-to-artist/find-topic.html#artwork-xfczk2-042" title="artwork 强盗的造访"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《强盗的造访》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 我们可以用用 &lt;em&gt;A4 印刷纸作为内衬&lt;/em&gt; ，把画放在印刷纸中间，用笔标出沿着四个角的位置（不要画到画上）：&lt;/p&gt;
 &lt;figure class="align-default"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/2080164623.jpg" src="https://silverrainz.gitee.io/_images/2080164623.jpg" style="width: 60%;" /&gt;
 &lt;/figure&gt;
@@ -2816,16 +2816,16 @@ Using English fallback for role “math”.&lt;/p&gt;
 &lt;h1 id="event-c50a62a"&gt;四十年后再看西藏组画&lt;/h1&gt;
 &lt;dl class="field-list simple"&gt;
 &lt;dt class="field-odd"&gt;日期&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
-&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-c50a62a" title="event 2021-06-30"&gt;&lt;code class="xref any any-event.date docutils literal notranslate"&gt;&lt;span class="pre"&gt;2021-06-30&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="any any-event reference internal" href="blog/xzzh-after-40-yrs.html#event-c50a62a" title="event 2021-06-30"&gt;&lt;code class="xref any any-event.date docutils literal notranslate"&gt;&lt;span class="pre"&gt;2021-06-30&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-even"&gt;位置&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
-&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-c50a62a" title="event 北京 中国油画院"&gt;&lt;code class="xref any any-event.location docutils literal notranslate"&gt;&lt;span class="pre"&gt;北京&lt;/span&gt; &lt;span class="pre"&gt;中国油画院&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="any any-event reference internal" href="blog/xzzh-after-40-yrs.html#event-c50a62a" title="event 北京 中国油画院"&gt;&lt;code class="xref any any-event.location docutils literal notranslate"&gt;&lt;span class="pre"&gt;北京&lt;/span&gt; &lt;span class="pre"&gt;中国油画院&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;p&gt;从油画院公众号上看到 &lt;a class="reference internal" href="notes/artstory/artistory.html#artist-13" title="artist 陈丹青"&gt;&lt;code class="xref any any-artist docutils literal notranslate"&gt;&lt;span class="pre"&gt;🧑‍🎨陈丹青&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的西藏组画要再展 &lt;a class="footnote-reference brackets" href="#id12" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;。刚好我从燕郊回广东要在北京中转几天，有机会看看陈老师最负盛名的这组作品到底是什么样子的。&lt;/p&gt;
+&lt;p&gt;从油画院公众号上看到 &lt;a class="any any-artist reference internal" href="notes/artstory/artistory.html#artist-13" title="artist 陈丹青"&gt;&lt;code class="xref any any-artist docutils literal notranslate"&gt;&lt;span class="pre"&gt;🧑‍🎨陈丹青&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的西藏组画要再展 &lt;a class="footnote-reference brackets" href="#id12" id="id2" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;。刚好我从燕郊回广东要在北京中转几天，有机会看看陈老师最负盛名的这组作品到底是什么样子的。&lt;/p&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="admonition-title"&gt;备注&lt;/p&gt;
-&lt;p&gt;这也是我在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;📅造型实验室&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 学习一年之后的首次看展，我很期待这个不一样的我是否能看到不一样的东西。&lt;/p&gt;
+&lt;p&gt;这也是我在 &lt;a class="any any-event reference internal" href="notes/zxsys/index.html#event-44dcf85" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;📅造型实验室&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 学习一年之后的首次看展，我很期待这个不一样的我是否能看到不一样的东西。&lt;/p&gt;
 &lt;/div&gt;
 &lt;section id="id3"&gt;
 &lt;h2&gt;最佳习作&lt;/h2&gt;
@@ -3236,10 +3236,10 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;dd class="field-even"&gt;&lt;p&gt;1819年&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-odd"&gt;尺幅&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
-&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.size.html#cap-8k" title="artwork 8k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;8k&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="any-artwork.size.html#cap-8k" title="artwork 8k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;8k&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-even"&gt;媒介&lt;span class="colon"&gt;:&lt;/span&gt;&lt;/dt&gt;
-&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="any any-artwork reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;figure class="align-default" id="id9"&gt;
@@ -3261,19 +3261,19 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;根据名字索引&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork:`Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork Bell Rock Lighthouse"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork Bell Rock Lighthouse"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;根据 ID 索引&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork:`test-1`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork test-1"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork test-1"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;更精确一点&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork.id:`test-1`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork test-1"&gt;&lt;code class="xref any any-artwork.id docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="blog/sphinx-as-note-taking-system-2.html#artwork-test-1" title="artwork test-1"&gt;&lt;code class="xref any any-artwork.id docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;所有水彩画&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork.medium:`水彩`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="any any-artwork reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;所有媒介&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:ref:`any-artwork.medium`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
@@ -3486,7 +3486,7 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;p&gt;这篇文章作为系列的开场白，非常切题地只讲了我选择 Sphinx 的理由，不感兴趣也可以直接看 &lt;a class="reference internal" href="blog/sphinx-as-note-taking-system-2.html"&gt;&lt;span class="doc"&gt;下一篇文章&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;a class="reference internal" href="about/me.html#friend-SilverRainZ" title="friend SilverRainZ"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤SilverRainZ&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 &lt;a class="footnote-reference brackets" href="#id10" id="id1" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&lt;p&gt;&lt;a class="any any-friend reference internal" href="about/me.html#friend-SilverRainZ" title="friend SilverRainZ"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤SilverRainZ&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 &lt;a class="footnote-reference brackets" href="#id10" id="id1" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;1&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，文章里有一些交叉引用，不想用粗暴的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="pre"&gt;href=xxx&amp;gt;&lt;/span&gt;&lt;/code&gt; ，所以不写。因噎废食大概就是这样吧。&lt;/p&gt;
 &lt;section id="id2"&gt;
@@ -3518,7 +3518,7 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="notes/zxsys/index.html"&gt;&lt;span class="doc"&gt;绘画训练计划&lt;/span&gt;&lt;/a&gt; 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：&lt;a class="reference internal" href="any-artwork.medium.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：&lt;a class="reference internal" href="any-artist.html"&gt;&lt;span class="std std-ref"&gt;Artist Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="any-friend.html"&gt;&lt;span class="std std-ref"&gt;朋友们&lt;/span&gt;&lt;/a&gt; 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，其实也是避免冗余的一个方式&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="any-friend.html"&gt;&lt;span class="std std-ref"&gt;朋友们&lt;/span&gt;&lt;/a&gt; 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，其实也是避免冗余的一个方式&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;我是 Linux 用户（B.T.W. Arch Linux &lt;a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;2&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/a&gt;），我在终端下工作，&lt;em&gt;我希望我的笔记在终端能被良好地检索和浏览&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
@@ -3588,7 +3588,7 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;aside class="footnote-list brackets"&gt;
 &lt;aside class="footnote brackets" id="id10" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id1"&gt;1&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
-&lt;p&gt;和 &lt;a class="reference internal" href="about/friends.html#friend-VOID001" title="friend VOID001"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤VOID001&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530"&gt;对话节选&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;和 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-VOID001" title="friend VOID001"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤VOID001&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530"&gt;对话节选&lt;/a&gt;&lt;/p&gt;
 &lt;/aside&gt;
 &lt;aside class="footnote brackets" id="id12" role="doc-footnote"&gt;
 &lt;span class="label"&gt;&lt;span class="fn-bracket"&gt;[&lt;/span&gt;&lt;a role="doc-backlink" href="#id5"&gt;2&lt;/a&gt;&lt;span class="fn-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;
@@ -3657,7 +3657,7 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 然后爱上，最后也伤害她。事情的收尾是不体面的，我从来不是一个完美受害者，
 甚至我才是真正的加害者，我只是因为过分软弱，被宽容，被同情罢了。我什么都不能再做了，
 再动弹一下都会让事情更坏。事件的余波到现在还在发挥着影响，但未来总是会落定吧。
-时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-xfczk-010" title="artwork xfczk-010"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《下雪的&lt;/span&gt; &lt;span class="pre"&gt;768》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
+时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="any any-artwork reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-xfczk-010" title="artwork xfczk-010"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《下雪的&lt;/span&gt; &lt;span class="pre"&gt;768》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
 &lt;figure class="align-default" id="id2"&gt;
 &lt;img alt="https://silverrainz.gitee.io/_images/IMG_20210204_145427__01__01.jpg" src="https://silverrainz.gitee.io/_images/IMG_20210204_145427__01__01.jpg" style="width: 60%;" /&gt;
 &lt;figcaption&gt;
@@ -4479,7 +4479,7 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
 在此记录。&lt;/p&gt;
 &lt;section id="proposal"&gt;
 &lt;h2&gt;从写 Proposal 到放弃&lt;/h2&gt;
-&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
+&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
 社区要参加 GSoC 并开始招人的事情， &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;当然也提及了 Tox 去年闹出的一桩事：&lt;/span&gt;
 &lt;a class="reference external" href="https://github.com/irungentoo/toxcore/issues/1379"&gt;Current situation of Tox #1379&lt;/a&gt;
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
@@ -5497,7 +5497,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 报告应该可以随便水过去，据说连答辩都可以省掉了……&lt;/p&gt;
 &lt;p&gt;前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。&lt;/p&gt;
 &lt;p&gt;用到的软件有 graphviz，egypt&lt;sup&gt;AUR&lt;/sup&gt;，cinclude2dot&lt;sup&gt;AUR&lt;/sup&gt;，
-&lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
+&lt;a class="any any-friend reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
 然而 AUR 里面没有就作罢了。&lt;/p&gt;
 &lt;section id="id1"&gt;
 &lt;h2&gt;生成函数调用图&lt;/h2&gt;
@@ -7044,7 +7044,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/aside&gt;
 &lt;aside class="topic"&gt;
 &lt;p class="topic-title"&gt;Update&lt;/p&gt;
-&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;调教&lt;/span&gt; ,
+&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike" style="text-decoration: line-through;"&gt;调教&lt;/span&gt; ,
 发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.&lt;/p&gt;
 &lt;p&gt;2015-8-30: 安装社区源&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-breeze-git&lt;/span&gt;&lt;/code&gt;主题, 以及 plasma5 的&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;breeze&lt;/span&gt;&lt;/code&gt;主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;QT_STYLE_OVERRIDE=breeze&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
@@ -7106,7 +7106,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 同时维护兼容两个平台的配置文件实在是麻烦.&lt;/p&gt;
 &lt;section id="fcitx-vim"&gt;
 &lt;h2&gt;fcitx.vim&lt;/h2&gt;
-&lt;p&gt;这个是 &lt;a class="reference internal" href="about/friends.html#friend-lilydjwg" title="friend lilydjwg"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤lilydjwg&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
+&lt;p&gt;这个是 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-lilydjwg" title="friend lilydjwg"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤lilydjwg&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)&lt;/p&gt;
 &lt;aside class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/silverrainz.github.io/silverrainz.github.io/blog/install-vim-plugins.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
@@ -7317,7 +7317,7 @@ $&lt;span class="w"&gt; &lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;./inst
 &lt;/section&gt;
 &lt;section id="id3"&gt;
 &lt;h2&gt;函数式特性&lt;/h2&gt;
-&lt;p&gt;再跑一下题, 我在这学期看了 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;, 自觉 Haskell 这门语言难以入门,
+&lt;p&gt;再跑一下题, 我在这学期看了 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="any any-book reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;, 自觉 Haskell 这门语言难以入门,
 至今写过的代码也不过寥寥数行, 只能算是大概了解了他的语法, 却因此沾染上了一些「恶习」,
 老想在其他语言里使用那些FP的语法特性, 或者是当用这些特定可以让代码更好的时候,
 抱怨 xxx 怎么没有这个语法. 我自己都觉得有点可笑, 不过, Python 一定程度上满足了我这奇怪的要求.&lt;/p&gt;
@@ -7931,7 +7931,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;p class="admonition-title"&gt;提示&lt;/p&gt;
 &lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺ SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
+&lt;p&gt;明明在开学的时候，&lt;a class="any any-book reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
 &lt;p&gt;当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
@@ -8509,8 +8509,8 @@ n
 &lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="extlink-ghrepo reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺ SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-&lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+&lt;a class="any any-book reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="any any-friend reference internal" href="about/friends.html#friend-fleuria" title="friend fleuria"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="extlink-ghuser reference external" href="https://github.com/MaskRay"&gt;👤 MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
 &lt;aside class="topic"&gt;
