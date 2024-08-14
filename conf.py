@@ -243,6 +243,7 @@ extlinks = {
     'so.q': ('https://stackoverflow.com/a/%s', '🤔 %s'),
     'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
     'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
+    'musicca-drum': ('https://www.musicca.com/zh/drum-machine?data=%s', '🥁 %s'),
 }
 
 extensions.append('sphinxnotes.any')
@@ -373,6 +374,7 @@ any_schemas = [
                'time': F(referenceable=True, required=True),
                'tempo': F(),
                'grid': F(),
+               'musicca': F(),
            },
            content=F(form=F.Form.LINES),
            description_template=open('_templates/rhythm.rst', 'r').read(),
