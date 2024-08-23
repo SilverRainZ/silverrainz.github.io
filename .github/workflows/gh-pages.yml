@@ -35,3 +35,4 @@ jobs:
         documentation_path: .
         requirements_path: ./requirements.txt
         cache: true
+        python_version: 3.12
