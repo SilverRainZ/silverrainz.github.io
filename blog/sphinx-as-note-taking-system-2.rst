@@ -176,7 +176,7 @@ Snippet 命令行工具
 .. any:artwork:: Bell Rock Lighthouse
    :id: test-1
    :medium: 水彩 铅笔
-   :date: 1819年
+   :date: 1819
    :size: 8k
    :image: /_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg
 
