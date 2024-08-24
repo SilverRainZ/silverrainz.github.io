@@ -24,9 +24,11 @@ Browse
 
 Visit https://silverrainz.me/ (hosted by Github Pages).
 
-For visitors in China, there is a Gitee Pages mirror: https://silverrainz.gitee.io/
+.. warning:: 另有中国镜像 silverrainz.gitee.io，但因 `Gitee Pages 下线 <https://gitee.com/oschina/git-osc/issues/I9L5FJ>`_ ，暂不可用，恢复时间未知。
 
-位于中国的访客可以访问 Gitee 镜像： https://silverrainz.gitee.io/
+.. For visitors in China, there is a Gitee Pages mirror: https://silverrainz.gitee.io/
+.. 
+.. 位于中国的访客可以访问 Gitee 镜像： https://
 
 Dependencies
 ============
