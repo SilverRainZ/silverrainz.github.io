@@ -41,6 +41,7 @@ intersphinx
 查看 Sphindx 文档中可供 intersphinx 索引的 ref
    - https://github.com/webknjaz/intersphinx-untangled
    - https://webknjaz.github.io/intersphinx-untangled/
+   - https://webknjaz.github.io/intersphinx-untangled/www.sphinx-doc.org/
 
 开发
 ----
