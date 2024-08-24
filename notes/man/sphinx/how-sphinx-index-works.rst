@@ -2,13 +2,182 @@
 How Sphinx Index Works
 ======================
 
-3 level: 
+.. highlight:: python
 
-Index/Category/SubEnry
+Sphinx's Domain_ provides custom indices support by implementing :py:class:`sphinx.domains.Index` abstract class:
 
-``genindex``
-============
+    An Index is the description for a domain-specific index.  To add an index to
+    a domain, subclass Index, overriding the three name attributes:
 
-domain __init__.py index role and direcitve
+    * ``name`` is an identifier used for generating file names.
+      It is also used for a hyperlink target for the index. Therefore, users can
+      refer the index page using ``ref`` role and a string which is combined
+      domain name and ``name`` attribute (ex. ``:ref:`py-modindex```).
+    * ``localname`` is the section title for the index.
+    * ``shortname`` is a short name for the index, for use in the relation bar in
+      HTML output.  Can be empty to disable entries in the relation bar.
 
-addnodes.index →  index domain process_doc
+    and providing a :py:meth:`sphinx.domains.Index.generate()` method.Then,
+    add the index class to
+    your domain's ``indices`` list.  Extensions can add indices to existing
+    domains using :py:meth:`~sphinx.application.Sphinx.add_index_to_domain()`.
+
+.. _Domain: https://www.sphinx-doc.org/en/master/usage/domains/index.html
+
+Index Entry Generation
+======================
+
+Every Index instance should implementation the generarte function, and returns
+groups of :parsed_literal:`IndexEntry_`::
+
+    @abstractmethod
+    def generate(self, docnames: Iterable[str] | None = None,
+                 ) -> tuple[list[tuple[str, list[IndexEntry]]], bool]:
+
+The function is well documented:
+
+   Get entries for the index.
+
+   If ``docnames`` is given, restrict to entries referring to these
+   docnames.
+
+   The return value is a tuple of ``(content, collapse)``:
+
+   ``collapse``
+    A boolean that determines if sub-entries should start collapsed (for
+    output formats that support collapsing sub-entries).
+
+   ``content``:
+    A sequence of ``(letter, entries)`` tuples, where ``letter`` is the
+    "heading" for the given ``entries``, usually the starting letter, and
+    ``entries`` is a sequence of single entries. Each entry is a sequence
+    ``[name, subtype, docname, anchor, extra, qualifier, descr]``.
+
+.. _IndexEntry:
+
+Here is definition of IndexEntry::
+
+   class IndexEntry(NamedTuple):
+       name: str
+       subtype: int
+       docname: str
+       anchor: str
+       extra: str
+       qualifier: str
+       descr: str
+
+..
+
+   ``name``
+     The name of the index entry to be displayed.
+
+   ``subtype``
+     The sub-entry related type. One of:
+
+     ``0``
+       A normal entry.
+     ``1``
+       An entry with sub-entries.
+     ``2``
+       A sub-entry.
+
+   ``docname``
+     *docname* where the entry is located.
+
+   ``anchor``
+     Anchor for the entry within ``docname``
+
+   ``extra``
+     Extra info for the entry.
+
+   ``qualifier``
+     Qualifier for the description.
+
+   ``descr``
+     Description for the entry.
+
+   Qualifier and description are not rendered for some output formats such as
+   LaTeX.
+
+
+The text alone may not be intuitive enough, so let's create an example, the following code implements an Index (code for adding Index to Domain is omitted):
+
+.. code-block:: python
+   :caption: https://github.com/SilverRainZ/sphinx-index-example/blob/master/conf.py
+
+   from typing import Iterable
+   from sphinx.domains import Index, IndexEntry
+
+   class MyIndex(Index):
+       name = 'metavar'
+       localname = 'Meta Variable Reference Index'
+       shortname = 'references'
+
+       def generate(
+           self, docnames: Iterable[str] | None = None
+       ) -> tuple[list[tuple[str, list[IndexEntry]]], bool]:
+           idx1 = IndexEntry('foo', 0, 'docname', 'anchor', 'extra', 'qualifier', 'desc')
+           idx2 = IndexEntry('bar', 0, 'docname', 'anchor', 'extra', 'qualifier', 'desc')
+           idx3 = IndexEntry('baz', 1, 'docname', 'anchor', 'extra', 'qualifier', 'desc')
+           idx4 = IndexEntry('qux', 2, 'docname', 'anchor', 'extra', 'qualifier', 'desc')
+           idx5 = IndexEntry('quux', 1, 'docname', 'anchor', 'extra', 'qualifier', 'desc')
+
+           return (
+               # entry list
+               [
+                   ("letter1", [idx1, idx2]),
+                   ("letter2", [idx3, idx4, idx5]),
+               ],
+               # collapse
+               False,
+           )
+
+Then index page is generated:
+
+.. figure:: /_images/火狐截图_2024-08-24T02-36-40.835Z.png
+   :width: 80%
+
+   http://silverrainz.me/sphinx-index-example/std-metavar.html
+
+#. The hyperlink of name targets to document whose docname is "docname"
+#. ``IndexEntry`` are grouped by ``letter``, A.K.A category
+
+   .. hint:: In :ref:`genindex`, the category is usually a single first letter, this is why category is called "letter" here.
+
+#. Entry with sub-entries (``subtype=1``) is collapsible (``baz``, ``quux``)
+#. Sub-entry (``subtype=2``) follow after with its entry with ``subtype=1`` in the ``list[IndexEntry]`` (``baz`` has 1 sub-entry while ``quxx`` has not)
+
+.. _genindex:
+
+General Index (genindex)
+========================
+
+Sphinx also provides :rst:role:`index` role and :rst:dir:`index` directive to create index entries from |rst|, which are hard to understand for me :'(and I personally don't use them.
+
+Index generated by these markups are quite special: It does not *logically* belong to any Domain (such as ``py``, ``std``, and so on...), so it is called `General Index`_ (genindex), and can be referenced by ``:ref:`genindex```.
+
+.. _General Index: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#special-names
+
+These markups generate node :py:class:`sphinx.addnodes.index`, which carries a list of 5-tuples:
+
+   Node for index entries.
+
+   This node is created by the ``index`` directive and has one attribute,
+   ``entries``.  Its value is a list of 5-tuples of ``(entrytype, entryname,
+   target, ignored, key)``.
+
+   *entrytype* is one of "single", "pair", "double", "triple".
+
+   *key* is categorization characters (usually a single character) for
+   general index page. For the details of this, please see also:
+   :rst:dir:`glossary` and issue https://github.com/sphinx-doc/sphinx/pull/2302
+
+Nodes are collected by :py:meth:`sphinx.domains.index.IndexDomain.process_doc`'  (yes, genindex actually belongs to a domain called "index") ` and stored in domain's data storage :py:attr:`sphinx.domains.Domain.data`, so builders can access it by :py:class:`sphinx.environment.BuildEnvironment`\ ``.domains['index']``.
+
+For :py:class:`sphinx.builders.html.StandaloneHTMLBuilder`, the ``write_genindex`` method loads 5-tuple list from buildenv, it is quite complex and I don't fully understand its
+
+.. note::
+
+   We found that there is not any call to :py:meth:`sphinx.domains.Index.generate`. This shows that genindex is another independent implementation. I don’t know why this is done, maybe for historical reasons.
+
+   B.T.W the wirting of non-genindex is done in ``write_domain_indices``.

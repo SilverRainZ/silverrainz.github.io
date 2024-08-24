@@ -456,13 +456,12 @@ if D.is_public():
 
 # NOTE: required by ablog
 extensions.append('sphinx.ext.intersphinx')
-if D.is_public():
-    # Fetech intersphinx info too slow.
-    intersphinx_mapping = {
-        'python': ('https://docs.python.org/3', None),
-        'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
-        'srain': ('https://srainapp.github.io/docs', None),
-    }
+# Although fetching intersphinx info is slow, but we have fasthtml now.
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
+    'srain': ('https://srainapp.github.io/docs', None),
+}
 
 if D.is_public():
     extensions.append('sphinx_reredirects')
@@ -530,6 +529,9 @@ global_substitutions = {
     'p0': ':bdg-danger:`P0`',  # priv high
     'p1': ':bdg-warning:`P1`', # priv medium
     'p2': ':bdg-info:`P2`',    # priv low
+
+    # Abbrs.
+    'rst': 'reStructuredText',
 }
 
 if D is not Deployment.Local:
