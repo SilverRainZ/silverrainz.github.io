@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -x
+
+root=$(git rev-parse --show-toplevel)
+cd $root
+
+eval "$(snippet integration --sh)"
+id=$(snippet_list d) # TODO: list only inbox
+file=$(snippet get $id --file)
+
+mv $file $root/p/$(basename $file)
