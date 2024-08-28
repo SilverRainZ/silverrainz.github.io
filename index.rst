@@ -62,9 +62,7 @@
          notes/music-theory/index
          notes/*/index
          notes/abraxas
-         notes/nju-static-program-analysis
          notes/color/index
-         notes/nintendo-switch/index
 
    .. grid-item-card::
 
