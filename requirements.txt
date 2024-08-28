@@ -26,3 +26,4 @@ sphinxnotes-comboroles
 sphinxcontrib-globalsubs @ git+https://github.com/SilverRainZ/sphinxcontrib-globalsubs.git
 sphinx_simplepdf
 sphinxnotes-fasthtml
+pyyaml
