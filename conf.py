@@ -12,12 +12,16 @@
 #
 from __future__ import annotations
 import os
-import sys
 from datetime import datetime
 from enum import Enum, auto
 import yaml
 
-sys.path.insert(0, os.path.abspath('.'))
+# -- Split configurations ----------------------------------------------------
+
+from _conf.schemas import _schemas
+
+with open('./_conf/redirect.yml') as data:
+    _redirects = yaml.safe_load(data)
 
 # -- Project information -----------------------------------------------------
 
@@ -248,153 +252,7 @@ extlinks = {
 }
 
 extensions.append('sphinxnotes.any')
-from sphinxnotes.any import Schema, Field as F, DateClassifier
-by_date = DateClassifier([datefmt, '%Y-%m', '%Y'])
-any_schemas = [
-    Schema('friend',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'avatar': F(), 'blog': F()},
-           content=F(form=F.Forms.LINES),
-           description_template=open('_templates/friend.rst', 'r').read(),
-           reference_template='👤{{ title }}',
-           missing_reference_template='👤{{ title }}',
-           ambiguous_reference_template='👥{{ title }}'),
-    Schema('book',
-           name=F(required=True, ref=True, form=F.Forms.LINES),
-           attrs={
-               'isbn': F(uniq=True, ref=True),
-               'status': F(ref=True),
-               'startat': F(ref=True, form=F.Forms.WORDS),
-               'endat': F(ref=True, form=F.Forms.WORDS),
-           },
-           description_template=open('_templates/book.rst', 'r').read(),
-           reference_template='《{{ title }}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='《{{ title }}》'),
-    Schema('artwork',
-           name=F(ref=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'date': F(ref=True, classifiers=[by_date]),
-               'medium': F(ref=True, form=F.Forms.WORDS),
-               'size': F(ref=True),
-               'image': F(),
-               'album': F(ref=True),
-           },
-           description_template=open('_templates/artwork.rst', 'r').read(),
-           reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='{{ title }}'),
-    Schema('artist',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'movement': F(ref=True, form=F.Forms.WORDS),
-               'gallery': F(ref=True, form=F.Forms.WORDS),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'artwork': F(form=F.Forms.WORDS),
-           },
-           description_template=open('_templates/artist.rst', 'r').read(),
-           reference_template='🧑‍🎨{{ title }}',
-           missing_reference_template='🧑‍🎨{{ title }}',
-           ambiguous_reference_template='🧑‍🎨{{ title }}'),
-    Schema('gallery',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'website': F()},
-           description_template=open('_templates/gallery.rst', 'r').read(),
-           reference_template='🖼️{{ title }}',
-           missing_reference_template='🖼️{{ title }}'),
-    Schema('event',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
-               'location': F(ref=True),
-           },
-           description_template=open('_templates/event.rst', 'r').read(),
-           reference_template='📅{{ title }}',
-           missing_reference_template='📅{{ title }}',
-           ambiguous_reference_template='📅{{ title }}'),
-    Schema('leetcode',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True),
-               'diffculty': F(ref=True),
-               'language': F(ref=True, form=F.Forms.WORDS),
-               'key': F(ref=True, form=F.Forms.WORDS),
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
-               'reference': F(ref=True),
-           },
-           description_template=open('_templates/leetcode.rst', 'r').read(),
-           reference_template='🧮{{ title }}',
-           missing_reference_template='🧮{{ title }}',
-           ambiguous_reference_template='🧮{{ title }}'),
-    Schema('term',
-           name=F(ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'field': F(ref=True),
-               'enwiki': F(),
-               'zhwiki': F(),
-           },
-           description_template=open('_templates/term.rst', 'r').read(),
-           reference_template='#️⃣{{ title }}',
-           missing_reference_template='#️⃣{{ title }}',
-           ambiguous_reference_template='#️⃣{{ title }}'),
-    Schema('jour',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, classifiers=[by_date]),
-               'category': F(),
-           },
-           description_template=open('_templates/jour.rst', 'r').read(),
-           reference_template='📰{{ title }}',
-           missing_reference_template='📰{{ title }}',
-           ambiguous_reference_template='📰{{ title }}'),
-    Schema('okr',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'krs': F(form=F.Forms.LINES),
-               'scores': F(form=F.Forms.WORDS),
-               'parent': F(),
-           },
-           description_template=open('_templates/okr.rst', 'r').read(),
-           reference_template='🥅{{ title }}'),
-    Schema('people',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'github': F(),
-               'blog': F(),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'weibo': F(),
-           },
-           description_template=open('_templates/people.rst', 'r').read(),
-           reference_template='👤{{ title }}'),
-    Schema('rhythm',
-           name=F(ref=True),
-           attrs={
-               'time': F(ref=True, required=True),
-               'tempo': F(),
-               'grid': F(),
-               'musicca': F(),
-           },
-           content=F(form=F.Forms.LINES),
-           description_template=open('_templates/rhythm.rst', 'r').read(),
-           reference_template='🥁{{ title }}'),
-    Schema('dev',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'type': F(ref=True),
-               'web': F(),
-               'man': F(),
-               'price': F(),
-               'startat': F(ref=True),
-               'endat': F(ref=True),
-           },
-           description_template=open('_templates/dev.rst', 'r').read(),
-           reference_template='🎛️{{ title }}'),
-]
+any_schemas = _schemas
 
 extensions.append('ablog')
 blog_path = 'blog'
@@ -468,7 +326,7 @@ if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     with open('./_conf/redirect.yml') as data:
-        redirects = yaml.safe_load(data)
+        redirects = _redirects
 
 # extensions.append('sphinxcontrib.images')
 # images_config = {
