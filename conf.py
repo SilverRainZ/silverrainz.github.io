@@ -15,6 +15,7 @@ import os
 import sys
 from datetime import datetime
 from enum import Enum, auto
+import yaml
 
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -466,11 +467,8 @@ intersphinx_mapping = {
 if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
-    redirects = {
-        'notes/6-lectures-on-sketch': '/notes/zxsys/6-lectures-on-sketch.html',
-        'notes/leetcode/index': '/notes/writeups/leetcode/index.html',
-        'notes/2021-interview/index': '/notes/writeups/2021-interview/index.html',
-    }
+    with open('./_conf/redirect.yml') as data:
+        redirects = yaml.safe_load(data)
 
 # extensions.append('sphinxcontrib.images')
 # images_config = {
