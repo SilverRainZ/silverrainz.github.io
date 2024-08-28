@@ -6,19 +6,18 @@
 
 # -- Path setup --------------------------------------------------------------
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
 from __future__ import annotations
-import os
 from datetime import datetime
-from enum import Enum, auto
 import yaml
 
 # -- Split configurations ----------------------------------------------------
 
 from _conf.schemas import _schemas
+from _conf.deploy import D
+
+# For `.. only::` directive.
+if D.is_private():
+    tags.add('private') # type: ignore
 
 with open('./_conf/redirect.yml') as data:
     _redirects = yaml.safe_load(data)
@@ -38,48 +37,6 @@ description = 'Yes silver bullet here.'
 datefmt = '%Y-%m-%d'
 
 # -- Enviroment information -----------------------------------------------------
-
-class Deployment(Enum):
-    Github = auto()
-    Gitee = auto()
-    Raspi = auto() # Raspberry Pi
-    Local = auto()
-
-    @classmethod
-    def current(cls) -> Deployment:
-        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
-            return Deployment.Raspi
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
-            return Deployment.Github
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Gitee Pages':
-            return Deployment.Gitee
-        return Deployment.Local
-
-    def is_private(self) -> bool:
-        return not self.is_public()
-
-    def is_public(self) -> bool:
-        return self in [Deployment.Github, Deployment.Gitee]
-
-    def is_mirror(self) -> bool:
-        return self is not Deployment.Github
-
-    def url(self) -> str:
-        if self == Deployment.Github:
-            return 'https://silverrainz.me/'
-        elif self == Deployment.Gitee:
-            return 'https://silverrainz.gitee.io/'
-        elif self == Deployment.Raspi:
-            return 'https://rpi3/bullet'
-        else:
-            # file:///build_dir/html/index.html
-            return 'TODO'
-
-D = Deployment.current()
-print('Deployment:', D)
-# For `.. only::` directive.
-if D.is_private():
-    tags.add('private') # type: ignore
 
 # -- General configuration ---------------------------------------------------
 
@@ -179,7 +136,7 @@ html_theme_options = {
 # html_theme_options['announcement'] = '</p>blahblah… </p>
 
 if D.is_mirror():
-    src = Deployment.Github
+    src = D.Github
     msg = f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>'
     if html_theme_options.get('announcement'):
         html_theme_options['announcement'] += msg
@@ -277,12 +234,12 @@ html_css_files.append('ablog-custom.css')
 
 if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
-    if D is Deployment.Github:
+    if D is D.Github:
         gtagjs_ids = ['G-FYHS50G6DL']
-    elif D is Deployment.Gitee:
+    elif D is D.Gitee:
         gtagjs_ids = ['G-5MZDR9VPYN']
 
-if D is Deployment.Local:
+if D is D.Local:
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -339,7 +296,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if D is not Deployment.Local:
+if D is not D.Local:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
@@ -353,7 +310,7 @@ if D.is_public():
     ogp_site_name = project
     ogp_image = D.url() + logo
 
-if D is not Deployment.Local:
+if D is not D.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = ''
@@ -390,13 +347,13 @@ global_substitutions = {
     'rst': 'reStructuredText',
 }
 
-if D is not Deployment.Local:
+if D is not D.Local:
     # Speed up local build (prevent read git timestamp).
     extensions.append('sphinx_last_updated_by_git')
 
 # For .. pdf-include:: directive.
 extensions.append('sphinx_simplepdf')
 
-if D is Deployment.Local:
+if D is D.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
     extensions.append('sphinxnotes.fasthtml')
