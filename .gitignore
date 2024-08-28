@@ -13,3 +13,6 @@ ronin
 
 # sphinxnotes-any
 .any*
+
+# Python
+__pycache__
