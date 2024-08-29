@@ -53,6 +53,8 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.youtube',
     'sphinxnotes.extweb',
+    'sphinx_design',
+    'sphinx_simplepdf', # .. pdf-include::
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -175,7 +177,7 @@ html_last_updated_fmt = datefmt
 # documentation.
 html_extra_path = ['robots.txt', 'LICENSE']
 
-# -- Pre extension configuration ---------------------------------------------------
+# -- Per-extension configuration ---------------------------------------------------
 
 extensions.append('sphinxnotes.mock')
 mock_directives = []
@@ -247,8 +249,6 @@ if D is D.Local:
         's': ['man/.*', 'notes/.*', 'jour/.*', 'collections/.*', 'about/.*'],
         'c': ['man/.*'],
     }
-
-extensions.append('sphinx_design')
 
 if D.is_public():
     extensions.append('sphinxnotes.isso')
@@ -350,9 +350,6 @@ global_substitutions = {
 if D is not D.Local:
     # Speed up local build (prevent read git timestamp).
     extensions.append('sphinx_last_updated_by_git')
-
-# For .. pdf-include:: directive.
-extensions.append('sphinx_simplepdf')
 
 if D is D.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
