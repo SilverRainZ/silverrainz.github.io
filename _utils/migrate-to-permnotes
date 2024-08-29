@@ -1,11 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 # set -x
 
 root=$(git rev-parse --show-toplevel)
 cd $root
 
 eval "$(snippet integration --sh)"
-id=$(snippet_list --tags d --docname 'ronin/inbox/**')
+id=$(snippet_list --tags d)
 file=$(snippet get $id --file)
+docname=$(snippet get $id --docname)
 
-mv $file $root/p/$(basename $file)
+new_file="$root/p/$(basename $file)"
+new_docname="p/$(basename $docname)"
+
+mv $file $new_file
+if [[ "$docname" != "ronin"* ]]; then
+    echo "$docname: /$new_docname.html" >> ./_conf/redirect.yml
+fi
+
+git add $file $new_file ./_conf/redirect.yml
+git diff HEAD

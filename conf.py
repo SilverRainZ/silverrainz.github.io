@@ -6,17 +6,21 @@
 
 # -- Path setup --------------------------------------------------------------
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
 from __future__ import annotations
-import os
-import sys
 from datetime import datetime
-from enum import Enum, auto
+import yaml
 
-sys.path.insert(0, os.path.abspath('.'))
+# -- Split configurations ----------------------------------------------------
+
+from _conf.schemas import _schemas
+from _conf.deploy import D
+
+# For `.. only::` directive.
+if D.is_private():
+    tags.add('private') # type: ignore
+
+with open('./_conf/redirect.yml') as data:
+    _redirects = yaml.safe_load(data)
 
 # -- Project information -----------------------------------------------------
 
@@ -34,48 +38,6 @@ datefmt = '%Y-%m-%d'
 
 # -- Enviroment information -----------------------------------------------------
 
-class Deployment(Enum):
-    Github = auto()
-    Gitee = auto()
-    Raspi = auto() # Raspberry Pi
-    Local = auto()
-
-    @classmethod
-    def current(cls) -> Deployment:
-        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
-            return Deployment.Raspi
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
-            return Deployment.Github
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Gitee Pages':
-            return Deployment.Gitee
-        return Deployment.Local
-
-    def is_private(self) -> bool:
-        return not self.is_public()
-
-    def is_public(self) -> bool:
-        return self in [Deployment.Github, Deployment.Gitee]
-
-    def is_mirror(self) -> bool:
-        return self is not Deployment.Github
-
-    def url(self) -> str:
-        if self == Deployment.Github:
-            return 'https://silverrainz.me/'
-        elif self == Deployment.Gitee:
-            return 'https://silverrainz.gitee.io/'
-        elif self == Deployment.Raspi:
-            return 'https://rpi3/bullet'
-        else:
-            # file:///build_dir/html/index.html
-            return 'TODO'
-
-D = Deployment.current()
-print('Deployment:', D)
-# For `.. only::` directive.
-if D.is_private():
-    tags.add('private') # type: ignore
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -91,6 +53,8 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.youtube',
     'sphinxnotes.extweb',
+    'sphinx_design',
+    'sphinx_simplepdf', # .. pdf-include::
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -174,7 +138,7 @@ html_theme_options = {
 # html_theme_options['announcement'] = '</p>blahblah… </p>
 
 if D.is_mirror():
-    src = Deployment.Github
+    src = D.Github
     msg = f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>'
     if html_theme_options.get('announcement'):
         html_theme_options['announcement'] += msg
@@ -213,7 +177,7 @@ html_last_updated_fmt = datefmt
 # documentation.
 html_extra_path = ['robots.txt', 'LICENSE']
 
-# -- Pre extension configuration ---------------------------------------------------
+# -- Per-extension configuration ---------------------------------------------------
 
 extensions.append('sphinxnotes.mock')
 mock_directives = []
@@ -247,153 +211,7 @@ extlinks = {
 }
 
 extensions.append('sphinxnotes.any')
-from sphinxnotes.any import Schema, Field as F, DateClassifier
-by_date = DateClassifier([datefmt, '%Y-%m', '%Y'])
-any_schemas = [
-    Schema('friend',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'avatar': F(), 'blog': F()},
-           content=F(form=F.Forms.LINES),
-           description_template=open('_templates/friend.rst', 'r').read(),
-           reference_template='👤{{ title }}',
-           missing_reference_template='👤{{ title }}',
-           ambiguous_reference_template='👥{{ title }}'),
-    Schema('book',
-           name=F(required=True, ref=True, form=F.Forms.LINES),
-           attrs={
-               'isbn': F(uniq=True, ref=True),
-               'status': F(ref=True),
-               'startat': F(ref=True, form=F.Forms.WORDS),
-               'endat': F(ref=True, form=F.Forms.WORDS),
-           },
-           description_template=open('_templates/book.rst', 'r').read(),
-           reference_template='《{{ title }}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='《{{ title }}》'),
-    Schema('artwork',
-           name=F(ref=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'date': F(ref=True, classifiers=[by_date]),
-               'medium': F(ref=True, form=F.Forms.WORDS),
-               'size': F(ref=True),
-               'image': F(),
-               'album': F(ref=True),
-           },
-           description_template=open('_templates/artwork.rst', 'r').read(),
-           reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='{{ title }}'),
-    Schema('artist',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'movement': F(ref=True, form=F.Forms.WORDS),
-               'gallery': F(ref=True, form=F.Forms.WORDS),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'artwork': F(form=F.Forms.WORDS),
-           },
-           description_template=open('_templates/artist.rst', 'r').read(),
-           reference_template='🧑‍🎨{{ title }}',
-           missing_reference_template='🧑‍🎨{{ title }}',
-           ambiguous_reference_template='🧑‍🎨{{ title }}'),
-    Schema('gallery',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'website': F()},
-           description_template=open('_templates/gallery.rst', 'r').read(),
-           reference_template='🖼️{{ title }}',
-           missing_reference_template='🖼️{{ title }}'),
-    Schema('event',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
-               'location': F(ref=True),
-           },
-           description_template=open('_templates/event.rst', 'r').read(),
-           reference_template='📅{{ title }}',
-           missing_reference_template='📅{{ title }}',
-           ambiguous_reference_template='📅{{ title }}'),
-    Schema('leetcode',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True),
-               'diffculty': F(ref=True),
-               'language': F(ref=True, form=F.Forms.WORDS),
-               'key': F(ref=True, form=F.Forms.WORDS),
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
-               'reference': F(ref=True),
-           },
-           description_template=open('_templates/leetcode.rst', 'r').read(),
-           reference_template='🧮{{ title }}',
-           missing_reference_template='🧮{{ title }}',
-           ambiguous_reference_template='🧮{{ title }}'),
-    Schema('term',
-           name=F(ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'field': F(ref=True),
-               'enwiki': F(),
-               'zhwiki': F(),
-           },
-           description_template=open('_templates/term.rst', 'r').read(),
-           reference_template='#️⃣{{ title }}',
-           missing_reference_template='#️⃣{{ title }}',
-           ambiguous_reference_template='#️⃣{{ title }}'),
-    Schema('jour',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, classifiers=[by_date]),
-               'category': F(),
-           },
-           description_template=open('_templates/jour.rst', 'r').read(),
-           reference_template='📰{{ title }}',
-           missing_reference_template='📰{{ title }}',
-           ambiguous_reference_template='📰{{ title }}'),
-    Schema('okr',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'krs': F(form=F.Forms.LINES),
-               'scores': F(form=F.Forms.WORDS),
-               'parent': F(),
-           },
-           description_template=open('_templates/okr.rst', 'r').read(),
-           reference_template='🥅{{ title }}'),
-    Schema('people',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'github': F(),
-               'blog': F(),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'weibo': F(),
-           },
-           description_template=open('_templates/people.rst', 'r').read(),
-           reference_template='👤{{ title }}'),
-    Schema('rhythm',
-           name=F(ref=True),
-           attrs={
-               'time': F(ref=True, required=True),
-               'tempo': F(),
-               'grid': F(),
-               'musicca': F(),
-           },
-           content=F(form=F.Forms.LINES),
-           description_template=open('_templates/rhythm.rst', 'r').read(),
-           reference_template='🥁{{ title }}'),
-    Schema('dev',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True),
-               'type': F(ref=True),
-               'web': F(),
-               'man': F(),
-               'price': F(),
-               'startat': F(ref=True),
-               'endat': F(ref=True),
-           },
-           description_template=open('_templates/dev.rst', 'r').read(),
-           reference_template='🎛️{{ title }}'),
-]
+any_schemas = _schemas
 
 extensions.append('ablog')
 blog_path = 'blog'
@@ -418,12 +236,12 @@ html_css_files.append('ablog-custom.css')
 
 if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
-    if D is Deployment.Github:
+    if D is D.Github:
         gtagjs_ids = ['G-FYHS50G6DL']
-    elif D is Deployment.Gitee:
+    elif D is D.Gitee:
         gtagjs_ids = ['G-5MZDR9VPYN']
 
-if D is Deployment.Local:
+if D is D.Local:
     extensions.append('sphinxnotes.snippet.ext')
     snippet_config = {}
     snippet_patterns = {
@@ -431,8 +249,6 @@ if D is Deployment.Local:
         's': ['man/.*', 'notes/.*', 'jour/.*', 'collections/.*', 'about/.*'],
         'c': ['man/.*'],
     }
-
-extensions.append('sphinx_design')
 
 if D.is_public():
     extensions.append('sphinxnotes.isso')
@@ -466,11 +282,8 @@ intersphinx_mapping = {
 if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
-    redirects = {
-        'notes/6-lectures-on-sketch': '/notes/zxsys/6-lectures-on-sketch.html',
-        'notes/leetcode/index': '/notes/writeups/leetcode/index.html',
-        'notes/2021-interview/index': '/notes/writeups/2021-interview/index.html',
-    }
+    with open('./_conf/redirect.yml') as data:
+        redirects = _redirects
 
 # extensions.append('sphinxcontrib.images')
 # images_config = {
@@ -483,7 +296,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if D is not Deployment.Local:
+if D is not D.Local:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
@@ -497,7 +310,7 @@ if D.is_public():
     ogp_site_name = project
     ogp_image = D.url() + logo
 
-if D is not Deployment.Local:
+if D is not D.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = ''
@@ -534,13 +347,10 @@ global_substitutions = {
     'rst': 'reStructuredText',
 }
 
-if D is not Deployment.Local:
+if D is not D.Local:
     # Speed up local build (prevent read git timestamp).
     extensions.append('sphinx_last_updated_by_git')
 
-# For .. pdf-include:: directive.
-extensions.append('sphinx_simplepdf')
-
-if D is Deployment.Local:
+if D is D.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
     extensions.append('sphinxnotes.fasthtml')
