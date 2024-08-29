@@ -72,7 +72,7 @@
 
          博客首页 <blog/index>
 
-      .. postlist:: 10
+      .. postlist:: 8
          :format: {title}
          :list-style: disc
 
@@ -87,7 +87,6 @@
 
          jour/2024/index
          jour/2023/index
-         jour/2022/index
          jour/more
 
 
