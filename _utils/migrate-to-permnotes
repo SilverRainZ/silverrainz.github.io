@@ -15,7 +15,9 @@ new_docname="p/$(basename $docname)"
 mv $file $new_file
 if [[ "$docname" != "ronin"* ]]; then
     echo "$docname: /$new_docname.html" >> ./_conf/redirect.yml
+    git add $file $new_file ./_conf/redirect.yml
+else
+    git add $new_file
 fi
 
-git add $file $new_file ./_conf/redirect.yml
 git diff HEAD
