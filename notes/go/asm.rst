@@ -95,7 +95,7 @@ TEXT
    Define function symbol::
 
       TEXT runtime·profileloop(SB),NOSPLIT,$8
-              MOVQ	$runtime·profileloop1(SB), CX         ; Body of the function
+              MOVQ	$runtime·profileloop1(SB), CX    ; Body of the function
               MOVQ	CX, 0(SP)
               CALL	runtime·externalthreadhandler(SB)
               RET                                        ; Last instruction
