@@ -32,13 +32,13 @@ Martinez MSCC-14RS
 
 
 Tagima TG530
-============
+------------
 
 .. dev:: _
    :id: tg530
    :type: guitar
-   :startat: 2024.02
-   :endat: 2024.08
+   :startat: 2024-02
+   :endat: 2024-08
 
 退役
 ----
@@ -136,14 +136,14 @@ QuickTone
 .. dev:: _
    :id: sm58
    :type: mic
-   :startat: 2024.05
+   :startat: 2024-05
 
 铁三角 M20X
 -----------
 
 .. dev:: _
    :id: ath-m20x
-   :startat: 2024.06
+   :startat: 2024-06
    :price: 329CNY
 
 百灵达 MIC200
@@ -151,7 +151,7 @@ QuickTone
 
 .. dev:: _
    :id: mic200
-   :startat: 2024.06
+   :startat: 2024-06
    :man: https://mediadl.musictribe.com/media/sys_master/hba/h89/8849972363294.pdf
    :price: 180CNY
 
@@ -159,7 +159,7 @@ QuickTone
 
 几个要注意的：
 
-- 录人声的时候可以把 `LOW CUT` 打开以去除低频噪音（人声高频居多）
+- 录人声的时候可以把 ``LOW CUT`` 打开以去除低频噪音（人声高频居多）
 - 尽管提供了 6.3TS 口和卡农两个输入，但两个输入端不能被同时使用
   （实测可以，但说不能用我们就不用吧）
 
