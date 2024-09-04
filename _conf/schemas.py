@@ -1,9 +1,11 @@
 # Definition of any domain's object schemas.
 # See also https://sphinx.silverrainz.me/any/.
 
-from sphinxnotes.any import Schema, Field as F, DateClassifier
+from sphinxnotes.any import Schema, Field as F
+from sphinxnotes.any.schema import YearIndexer, MonthIndexer
 
-by_date = DateClassifier(['%Y-%m-%d', '%Y-%m', '%Y'])
+by_year = YearIndexer()
+by_month = MonthIndexer()
 
 _schemas = [
     Schema('friend',
@@ -19,8 +21,8 @@ _schemas = [
            attrs={
                'isbn': F(uniq=True, ref=True),
                'status': F(ref=True),
-               'startat': F(ref=True, form=F.Forms.WORDS),
-               'endat': F(ref=True, form=F.Forms.WORDS),
+               'startat': F(ref=True, form=F.Forms.WORDS, indexers=[by_month]),
+               'endat': F(ref=True, form=F.Forms.WORDS, indexers=[by_month]),
            },
            description_template=open('_templates/book.rst', 'r').read(),
            reference_template='《{{ title }}》',
@@ -30,7 +32,7 @@ _schemas = [
            name=F(ref=True),
            attrs={
                'id': F(uniq=True, ref=True, required=True),
-               'date': F(ref=True, classifiers=[by_date]),
+               'date': F(ref=True, indexers=[by_year, by_month]),
                'medium': F(ref=True, form=F.Forms.WORDS),
                'size': F(ref=True),
                'image': F(),
@@ -62,7 +64,7 @@ _schemas = [
     Schema('event',
            name=F(ref=True, required=True),
            attrs={
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
+               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year, by_month]),
                'location': F(ref=True),
            },
            description_template=open('_templates/event.rst', 'r').read(),
@@ -76,7 +78,7 @@ _schemas = [
                'diffculty': F(ref=True),
                'language': F(ref=True, form=F.Forms.WORDS),
                'key': F(ref=True, form=F.Forms.WORDS),
-               'date': F(ref=True, form=F.Forms.WORDS, classifiers=[by_date]),
+               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year, by_month]),
                'reference': F(ref=True),
            },
            description_template=open('_templates/leetcode.rst', 'r').read(),
@@ -97,7 +99,7 @@ _schemas = [
     Schema('jour',
            name=F(ref=True, required=True),
            attrs={
-               'date': F(ref=True, classifiers=[by_date]),
+               'date': F(ref=True, indexers=[by_year, by_month]),
                'category': F(),
            },
            description_template=open('_templates/jour.rst', 'r').read(),
@@ -144,8 +146,8 @@ Schema('dev',
            'web': F(),
            'man': F(),
            'price': F(),
-           'startat': F(ref=True),
-           'endat': F(ref=True),
+           'startat': F(ref=True, indexers=[by_year]),
+           'endat': F(ref=True, indexers=[by_year]),
        },
        description_template=open('_templates/dev.rst', 'r').read(),
        reference_template='🎛️{{ title }}'),
