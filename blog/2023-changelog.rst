@@ -77,7 +77,7 @@
   trade-off，但我也总结不出什么来
 - 想向资深同事多学习，混个 Go Committer，发现没有余力
 - 静态分析一直做得很浮躁。即使有搞过静态分析的同事 :ghuser:`zhangruoxu` 帮助，
-  论文还是只看了半篇，:doc:`课程 </notes/nju-static-program-analysis>`
+  论文还是只看了半篇，:doc:`课程 </p/nju-static-program-analysis>`
   也没有学完，最后项目也凉了
 - 在开源社区做的工作倒是持续了很长时间，可惜只是并没有什么难度，不配称为聚焦。
   小众社区的事情很多事情没人做只是因为它小众，做了能累积写了写代码的熟练度，
