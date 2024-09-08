@@ -94,8 +94,13 @@ default_role = 'code'
 # Keep warnings as “system message” paragraphs in the built documents.
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
+# See also suppress_
 if D.is_private():
     keep_warnings = True
+
+# A list of warning codes to suppress arbitrary warning messages.
+if D is D.Local:
+    suppress_warnings = ['ref.' + x.objtype for x in _schemas]
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
