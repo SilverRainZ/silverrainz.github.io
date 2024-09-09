@@ -1,11 +1,10 @@
 # Definition of any domain's object schemas.
 # See also https://sphinx.silverrainz.me/any/.
 
-from sphinxnotes.any import Schema, Field as F
-from sphinxnotes.any.schema import YearIndexer, MonthIndexer
+from sphinxnotes.any.api import Schema, Field as F, by_year, by_month, PathIndexer
 
-by_year = YearIndexer()
-by_month = MonthIndexer()
+by_hyphen = PathIndexer('-', 1)
+by_slash = PathIndexer('/', 1)
 
 _schemas = [
     Schema('friend',
@@ -31,7 +30,7 @@ _schemas = [
     Schema('artwork',
            name=F(ref=True),
            attrs={
-               'id': F(uniq=True, ref=True, required=True),
+               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
                'date': F(ref=True, indexers=[by_year, by_month]),
                'medium': F(ref=True, form=F.Forms.WORDS),
                'size': F(ref=True),
@@ -88,7 +87,7 @@ _schemas = [
     Schema('term',
            name=F(ref=True, required=True, form=F.Forms.LINES),
            attrs={
-               'field': F(ref=True),
+               'field': F(ref=True, indexers=[by_slash]),
                'enwiki': F(),
                'zhwiki': F(),
            },
@@ -141,7 +140,7 @@ Schema('rhythm',
 Schema('dev',
        name=F(ref=True, required=True),
        attrs={
-           'id': F(uniq=True, ref=True, required=True),
+           'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
            'type': F(ref=True),
            'web': F(),
            'man': F(),

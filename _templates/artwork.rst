@@ -1,4 +1,5 @@
-:编号: {{ id }}
+:编号: :artwork.id+by-path:`{{ id }} <{{ id }}>`
+
 :日期: :artwork.date+by-month:`{{ date }} <{{ date }}>`
 {% if size %}:尺幅: :artwork.size:`{{ size }} <{{ size }}>`{% endif %}
 :媒介: {% for m in medium %}:artwork.medium:`{{ m }} <{{ m }}>` {% endfor %}
