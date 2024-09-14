@@ -2,6 +2,10 @@
 柯达伊节奏唱法
 ==============
 
+- 2024-08-29 40min
+- 2024-09-01 20min
+- 2024-09-14 20min
+
 教程
 ====
 
@@ -41,7 +45,7 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
    
    - |o| 1__
    - |o| 2__
-   - |.| 慢速全曲__
+   - |o| 慢速全曲__
    - |.| 快速全曲__
 
    __ https://youtube.com/clip/Ugkx_6uclDJIwqmCljQwKQ401uofI4bjc7k9?si=29SCFJVe0THuWmzy
@@ -51,3 +55,9 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
 
 9
    不同位置的切分音 + 唱旋律，不太熟练
+
+   - |o| 纯节奏__
+   - |.| 节奏+音高__
+
+   __ https://youtu.be/vRSJijhRIOs?si=lC9vvpmJCGxpZ0yp&t=11
+   __ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=95
