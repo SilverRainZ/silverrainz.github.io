@@ -5,6 +5,7 @@
 - 2024-08-29 40min
 - 2024-09-01 20min
 - 2024-09-14 20min
+- 2024-09-16 20min
 
 教程
 ====
@@ -30,6 +31,8 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
 7
    `3/4 拍四分附点`__
 
+   __ https://youtube.com/clip/UgkxEnyn2kNtL0qD5lJp5tqPvluQGKX9f-5z?si=BQhDd7uL2YFg5keC
+
    .. rhythm:: 3/4 拍里的四分附点
       :time: 3/4
       :grid: ❎🟩 🟩❎ ❎🟩
@@ -37,9 +40,6 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
       :musicca: n-34-a--5aei6agi-
 
       sn4. sn8 sn4
-
-   __ https://youtube.com/clip/UgkxEnyn2kNtL0qD5lJp5tqPvluQGKX9f-5z?si=BQhDd7uL2YFg5keC
-
 8
    G 大调小步舞曲 - 双手协调，图示右手在上，左手在下，片段：
    
@@ -61,3 +61,11 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
 
    __ https://youtu.be/vRSJijhRIOs?si=lC9vvpmJCGxpZ0yp&t=11
    __ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=95
+
+   .. rhythm:: 切分音
+      :time: 4/4
+      :tempo: 80
+
+      sn8 sn4 sn8 sn4 sn4
+      sn4 sn8 sn4 sn8 sn4
+      sn4 sn4 sn8 sn4 sn8

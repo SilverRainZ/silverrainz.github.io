@@ -42,6 +42,4 @@
          \unfoldRepeats { \main } \midi{}
       }
 
-.. [#] 数拍子的方法参见好和弦 NiceChord 的 `不管什麼節奏，都能彈對的練習秘訣！`__
-
-__ https://www.youtube.com/watch?v=NkYhAmIGSOw
+.. [#] 数拍子的方法参见好和弦 NiceChord 的 `不管什麼節奏，都能彈對的練習秘訣！ <https://www.youtube.com/watch?v=NkYhAmIGSOw>`_
