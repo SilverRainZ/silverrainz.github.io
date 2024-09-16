@@ -1,3 +1,6 @@
+# Use patched requirement::
+#
+#   name @ git+https://example.com/foo/bar.git
 sphinxcontrib-email
 sphinxcontrib-images>=0.9.3
 sphinxnotes-lilypond>=2.0.0
@@ -23,7 +26,7 @@ sphinx-notfound-page
 sphinxcontrib-youtube
 sphinx-last-updated-by-git
 sphinxnotes-comboroles
-sphinxcontrib-globalsubs @ git+https://github.com/SilverRainZ/sphinxcontrib-globalsubs.git
+sphinxcontrib-globalsubs>=0.1.2
 sphinx_simplepdf
 sphinxnotes-fasthtml
 pyyaml
