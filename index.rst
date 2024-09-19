@@ -61,7 +61,6 @@
          notes/man/index
          notes/music-theory/index
          notes/*/index
-         notes/abraxas
          notes/color/index
 
    .. grid-item-card::
