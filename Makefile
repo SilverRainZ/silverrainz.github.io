@@ -35,6 +35,9 @@ pull:
 	git fetch origin master
 	git merge origin/master
 
+migrate-to-permnotes:
+	./_utils/migrate-to-permnotes
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
