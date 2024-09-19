@@ -1,3 +1,5 @@
+:isso-id: /p/permanent-notes
+
 ========
 永固笔记
 ========
