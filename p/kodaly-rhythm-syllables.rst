@@ -19,6 +19,11 @@ https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 `03. Pre-Grade Lesson 3_哔哩哔哩_bilibili <https://www.bilibili.com/video/BV1zE411L7oy?p=3>`_
    小朋友的课程，提供一些练习方式，例如：唱节奏+击掌、唱节奏、默念+击掌
 
+自用音节表
+==========
+
+.. todo::
+
 训练
 ====
 
@@ -55,11 +60,14 @@ G 大调小步舞曲 - 双手协调，图示右手在上，左手在下，片段
 - |o| 慢速全曲__
 - |.| 快速全曲__
 
+  - |o| 右手配合__
+
 __ https://www.youtube.com/watch?v=W9LtzY42ctI
 __ https://youtube.com/clip/Ugkx_6uclDJIwqmCljQwKQ401uofI4bjc7k9?si=29SCFJVe0THuWmzy
 __ https://youtube.com/clip/UgkxYIj4ode0Pq2eMatg6WcYEk7YkOC60Vsm?si=rN1duZNDsrnVSCim
 __ https://youtu.be/W9LtzY42ctI?si=tPLeWe-caXT2RYdI&t=201
 __ https://www.youtube.com/watch?v=W9LtzY42ctI&t=316s
+__ https://youtube.com/clip/UgkxPW-VfspLiwAS7jP8UZQ6lxnspLCwgQMU?si=_U27zhSh0Ejnc0C7
 
 9. `A Guide to Rhythm Reading: Syncopation ~Papaya Edition~`__
 --------------------------------------------------------------
@@ -67,7 +75,13 @@ __ https://www.youtube.com/watch?v=W9LtzY42ctI&t=316s
 不同位置的切分音 + 唱旋律，不太熟练
 
 - |o| 纯节奏__
-- |.| 节奏+音高__
+
+  - |o| +手打拍子
+
+- |o| 节奏+音高__ 最后 :lily:`\drums { sn4 sn4 sn8 sn4 sn8}` 唱不好是因为气太短了……
+
+  - |.| +手打拍子
+
 
 .. rhythm:: 切分音
    :time: 4/4
@@ -75,11 +89,11 @@ __ https://www.youtube.com/watch?v=W9LtzY42ctI&t=316s
 
    sn8 sn4 sn8 sn4 sn4
    sn4 sn8 sn4 sn8 sn4
-   sn4 sn4 sn8 sn4 sn8
+   sn4 sn4 sn8 sn4 sn8 \break
 
 __ https://www.youtube.com/watch?v=vRSJijhRIOs
 __ https://youtu.be/vRSJijhRIOs?si=lC9vvpmJCGxpZ0yp&t=11
-__ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=95
+__ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=94
 
 10. `A Guide to Rhythm Reading: Intermediate Rhythms Part 1: Doted Quarter/Single Eighth Notes`__
 -------------------------------------------------------------------------------------------------
@@ -95,3 +109,15 @@ __ https://www.youtube.com/watch?v=YVeh0oVrKOk
 __ https://youtube.com/clip/UgkxK_7yk2T2m21OMzEfJk1FRGekGtVT8XsB?si=PFEjDdvEYAuSqPng
 __ https://youtube.com/clip/UgkxncXId5YrJmizbmRdYb9R1O4XKHHTPP0F?si=91L-LTBwaPBhDa6i
 __ https://youtube.com/clip/Ugkx-KxEZEfk54swdtsY-J_c8Zy4CA5Md48T?si=oj8YAIWowJ_Sl6l5
+
+11. `A Guide to Rhythm Reading: Intermediate Rhythms Part 2: Sixteenth Notes`__
+-------------------------------------------------------------------------------
+
+Ti-ki-ti-ki 来了。
+
+- |.| `四分附点+八分+十六分`__
+- |.| `Ta Ti- Ti-ki`__
+
+__ https://www.youtube.com/watch?v=KogDq0c7EG0
+__ https://youtube.com/clip/UgkxS5fb161DQj6ztMCpLXjEykeS8Tfp_UT4?si=TPTOosj-A4UbMtEE
+__ https://youtube.com/clip/UgkxGHBZH-Nrm6jpMBhNLE8rf0BoaloXpiDl?si=6I6BaDMnfyP9tDMj
