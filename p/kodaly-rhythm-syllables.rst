@@ -59,7 +59,7 @@ G 大调小步舞曲 - 双手协调，图示右手在上，左手在下，片段
 - |o| 1__
 - |o| 2__
 - |o| 慢速全曲__
-- |.| 快速全曲__
+- |o| 快速全曲__
 
   - |o| 右手配合__
 
@@ -101,10 +101,9 @@ __ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=94
 
 中级节奏的第一部分，开始复杂起来了。
 
-- |.| 切分附点__
-- |.| 反拍八分__
-- |.| 前后附点__
-
+- |o| 切分附点__
+- |o| 反拍八分__
+- |o| 前后附点__
 
 __ https://www.youtube.com/watch?v=YVeh0oVrKOk
 __ https://youtube.com/clip/UgkxK_7yk2T2m21OMzEfJk1FRGekGtVT8XsB?si=PFEjDdvEYAuSqPng
