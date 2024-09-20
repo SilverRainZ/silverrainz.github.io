@@ -2,15 +2,24 @@
 CAGED 系统
 ==========
 
-`如何用「CAGED系统」解锁所有【和弦、琶音、音阶】 <https://zhuanlan.zhihu.com/p/476222589>`_
+- `如何用「CAGED系统」解锁所有【和弦、琶音、音阶】 <https://zhuanlan.zhihu.com/p/476222589>`_
 
-和弦指型连接方法
-================
+`《吉他新思维》CAGED 单元`__
+============================
 
-:Date: 2024-07-10
-:URL: `和弦指型连接方法_哔哩哔哩_bilibili <https://www.bilibili.com/video/BV15H4y1M7to/>`_
+__ https://space.bilibili.com/285766656/channel/collectiondetail?sid=2689751
+
+和弦指型连接方法__
+------------------
 
 同一个和弦通过 CAGED 的上下连接变换把位。
+
+__ https://www.bilibili.com/video/BV15H4y1M7to/
+
+CAGED小三和弦__
+===============
+
+__ https://www.bilibili.com/video/BV1Dm411z7yc/
 
 --------------------------------------------------------------------------------
 
