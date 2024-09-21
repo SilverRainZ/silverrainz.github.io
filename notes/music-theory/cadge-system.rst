@@ -14,6 +14,10 @@ __ https://space.bilibili.com/285766656/channel/collectiondetail?sid=2689751
 
 同一个和弦通过 CAGED 的上下连接变换把位。
 
+D 指型 →  C 指型
+   03:13，D 指型时，食指在四弦根音处，记为 do，无名指往下移两个全音（四品）则为 mi，就是 C 指型里 3 度音的位置。
+   反之，C 指型时，无名指为指点，食指往上移两个全音则为 D 指型的根音。
+
 __ https://www.bilibili.com/video/BV15H4y1M7to/
 
 CAGED小三和弦__
