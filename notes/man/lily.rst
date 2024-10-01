@@ -287,7 +287,7 @@ FluidSynth 需要和特定声音系统交互，默认是 ALSA。
 
 运行 `systemctl --user restart fluidsynth.service` 启动 FluidSynth Server。
 
-可通过 `aconnect`（由 :archpkg:`alas-utils` 提供）来检查 MIDI 端口是否启动：
+可通过 ``aconnect``（由 :archpkg:`alas-utils` 提供）来检查 MIDI 端口是否启动：
 
 .. code:: console
 
