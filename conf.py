@@ -220,6 +220,8 @@ extlinks = {
     'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
     'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
     'musicca-drum': ('https://www.musicca.com/zh/drum-machine?data=%s', '🥁 %s'),
+    'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/directives.html#%s', '%s'),
+    'durole': ('https://docutils.sourceforge.io/docs/ref/rst/roles.html#%s', '%s'),
 }
 
 extensions.append('sphinxnotes.any')

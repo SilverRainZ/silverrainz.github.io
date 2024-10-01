@@ -121,3 +121,12 @@ Ti-ki-ti-ki 来了。
 __ https://www.youtube.com/watch?v=KogDq0c7EG0
 __ https://youtube.com/clip/UgkxS5fb161DQj6ztMCpLXjEykeS8Tfp_UT4?si=TPTOosj-A4UbMtEE
 __ https://youtube.com/clip/UgkxGHBZH-Nrm6jpMBhNLE8rf0BoaloXpiDl?si=6I6BaDMnfyP9tDMj
+
+
+
+2 分钟学会超准扫这个节奏__
+==========================
+
+搭配吉他扫弦练习。
+
+__ https://space.bilibili.com/1722633423/channel/collectiondetail?sid=1551542
