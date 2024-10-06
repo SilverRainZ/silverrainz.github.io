@@ -15,7 +15,7 @@ Background
 ==========
 
 Sphinx is a famous documentation generator used by a lot of Open Source
-communities. It uses reStructuredText (hereafter referred to as rST) as markup
+communities. It uses reStructuredText (hereafter referred to rST) as markup
 language by default.
 
 Unlike Markdown, rST does not yet support `Nested Inline Markups`_, so text
@@ -337,7 +337,7 @@ from role name to role function::
 
 .. note::
 
-   We can not look up up during `__init__`, some roles created by
+   We can not look up during `__init__`, some roles created by
    3rd-party extension do not exist yet at that time.
 
 Run all role function, pass parameters as is, then collect the returning nodes::
