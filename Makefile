@@ -17,7 +17,9 @@ view:
 	xdg-open "$(BUILDDIR)/html/index.html"
 
 serve:
-	$(SPHINXSERV) --no-initial $(SOURCEDIR) $(BUILDDIR)/html
+	$(SPHINXSERV) $(SOURCEDIR) $(BUILDDIR)/html \
+		--builder fasthtml --doctree-dir $(BUILDDIR)/doctrees \
+		--port 30500 --open-browser
 
 commit:
 	git commit -m "$(shell date +'%Y-%m-%d %H:%M')"

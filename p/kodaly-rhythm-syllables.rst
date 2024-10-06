@@ -9,10 +9,11 @@
 - 2024-09-17 20min
 - 2024-09-19 30min
 
-教程
+唱法
 ====
 
-https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
+
+.. pdf-include:: https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 
 `Kodaly Rhythm Syllables - YouTube <https://www.youtube.com/watch?v=Vc2RlRvYCcY>`_
    靠谱的大叔，介绍了一种我感觉比较好的唱名变体。
@@ -20,23 +21,20 @@ https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 `03. Pre-Grade Lesson 3_哔哩哔哩_bilibili <https://www.bilibili.com/video/BV1zE411L7oy?p=3>`_
    小朋友的课程，提供一些练习方式，例如：唱节奏+击掌、唱节奏、默念+击掌
 
-自用音节表
-==========
-
-.. todo::
+.. todo:: 自用音节表
 
 训练
 ====
 
 `Rhythm Reading Videos - YouTube`__
-===================================
+-----------------------------------
 
 由 https://visualmusicmind.com/ 提供，共 17 节。
 
 __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
 
 7. `Rhythm Reading in 3/4 Time`__
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - |o| `3/4 拍四分附点`__
 
@@ -52,7 +50,7 @@ __ https://www.youtube.com/watch?v=MtEkC454tJI
 __ https://youtube.com/clip/UgkxEnyn2kNtL0qD5lJp5tqPvluQGKX9f-5z?si=BQhDd7uL2YFg5keC
 
 8. `Rhythm Reading: Minuet in G by JS Bach`__
----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 G 大调小步舞曲 - 双手协调，图示右手在上，左手在下，片段：
 
@@ -71,7 +69,7 @@ __ https://www.youtube.com/watch?v=W9LtzY42ctI&t=316s
 __ https://youtube.com/clip/UgkxPW-VfspLiwAS7jP8UZQ6lxnspLCwgQMU?si=_U27zhSh0Ejnc0C7
 
 9. `A Guide to Rhythm Reading: Syncopation ~Papaya Edition~`__
---------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 不同位置的切分音 + 唱旋律，不太熟练
 
@@ -97,7 +95,7 @@ __ https://youtu.be/vRSJijhRIOs?si=lC9vvpmJCGxpZ0yp&t=11
 __ https://youtu.be/vRSJijhRIOs?si=Dj6KMS3h4cMhVAE7&t=94
 
 10. `A Guide to Rhythm Reading: Intermediate Rhythms Part 1: Doted Quarter/Single Eighth Notes`__
--------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 中级节奏的第一部分，开始复杂起来了。
 
@@ -111,7 +109,7 @@ __ https://youtube.com/clip/UgkxncXId5YrJmizbmRdYb9R1O4XKHHTPP0F?si=91L-LTBwaPBh
 __ https://youtube.com/clip/Ugkx-KxEZEfk54swdtsY-J_c8Zy4CA5Md48T?si=oj8YAIWowJ_Sl6l5
 
 11. `A Guide to Rhythm Reading: Intermediate Rhythms Part 2: Sixteenth Notes`__
--------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ti-ki-ti-ki 来了。
 
@@ -122,10 +120,8 @@ __ https://www.youtube.com/watch?v=KogDq0c7EG0
 __ https://youtube.com/clip/UgkxS5fb161DQj6ztMCpLXjEykeS8Tfp_UT4?si=TPTOosj-A4UbMtEE
 __ https://youtube.com/clip/UgkxGHBZH-Nrm6jpMBhNLE8rf0BoaloXpiDl?si=6I6BaDMnfyP9tDMj
 
-
-
-2 分钟学会超准扫这个节奏__
-==========================
+`2 分钟学会超准扫这个节奏`__
+----------------------------
 
 搭配吉他扫弦练习。
 
