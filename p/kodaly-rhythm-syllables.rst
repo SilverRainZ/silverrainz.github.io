@@ -113,12 +113,14 @@ __ https://youtube.com/clip/Ugkx-KxEZEfk54swdtsY-J_c8Zy4CA5Md48T?si=oj8YAIWowJ_S
 
 Ti-ki-ti-ki 来了。
 
-- |.| `四分附点+八分+十六分`__
-- |.| `Ta Ti- Ti-ki`__
+- |o| `四分附点+八分+十六分`__
+- |o| `Ta Ti- Ti-ki`__
+- |.| `Ti-ki + 休止符`__
 
 __ https://www.youtube.com/watch?v=KogDq0c7EG0
 __ https://youtube.com/clip/UgkxS5fb161DQj6ztMCpLXjEykeS8Tfp_UT4?si=TPTOosj-A4UbMtEE
 __ https://youtube.com/clip/UgkxGHBZH-Nrm6jpMBhNLE8rf0BoaloXpiDl?si=6I6BaDMnfyP9tDMj
+__ https://youtube.com/clip/Ugkxxc7fcfpfISjCJpwbZr1AUxB9jEbYiI57?si=3EUVI4I2TfCkk-8m
 
 `2 分钟学会超准扫这个节奏`__
 ----------------------------

@@ -4,12 +4,13 @@ How Sphinx Builder Works
 
 :Sphinx Version: https://github.com/sphinx-doc/sphinx/tree/v7.3.7/sphinx
 
+.. default-domain:: py
 .. highlight:: python
 
 Entry point
 ===========
 
-Tow `options of sphinx-build`_ can specific builder:
+Two `options of sphinx-build`_  ``-M`` and ``-b`` can specific builder:
 
 In ``sphinx.cmd`` mods:
 
@@ -34,12 +35,12 @@ In ``sphinx.cmd`` mods:
 
    outdir is ``<BUILDDIR>``.
 
-In `build_main`, the important `application.Sphinx` object are created.
+In `build_main`, the important :class:`sphinx.application.Sphinx` object are created.
 
 Create Sphinx Application
 =========================
 
-In `application.Sphinx.__init__`::
+In `Sphinx.__init__`::
 
    # ...
 
