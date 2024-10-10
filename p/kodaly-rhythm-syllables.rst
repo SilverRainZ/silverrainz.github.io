@@ -8,10 +8,10 @@
 - 2024-09-16 20min
 - 2024-09-17 20min
 - 2024-09-19 30min
+- 2024-10-10 25min
 
 唱法
 ====
-
 
 .. pdf-include:: https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 
@@ -79,7 +79,7 @@ __ https://youtube.com/clip/UgkxPW-VfspLiwAS7jP8UZQ6lxnspLCwgQMU?si=_U27zhSh0Ejn
 
 - |o| 节奏+音高__ 最后 :lily:`\drums { sn4 sn4 sn8 sn4 sn8}` 唱不好是因为气太短了……
 
-  - |.| +手打拍子
+  - |o| +手打拍子
 
 
 .. rhythm:: 切分音
@@ -115,12 +115,24 @@ Ti-ki-ti-ki 来了。
 
 - |o| `四分附点+八分+十六分`__
 - |o| `Ta Ti- Ti-ki`__
-- |.| `Ti-ki + 休止符`__
+- |o| `Ti-ki + 休止符`__
 
 __ https://www.youtube.com/watch?v=KogDq0c7EG0
 __ https://youtube.com/clip/UgkxS5fb161DQj6ztMCpLXjEykeS8Tfp_UT4?si=TPTOosj-A4UbMtEE
 __ https://youtube.com/clip/UgkxGHBZH-Nrm6jpMBhNLE8rf0BoaloXpiDl?si=6I6BaDMnfyP9tDMj
 __ https://youtube.com/clip/Ugkxxc7fcfpfISjCJpwbZr1AUxB9jEbYiI57?si=3EUVI4I2TfCkk-8m
+
+12. `A Guide to Rhythm Reading: Intermediate Rhythms Part 3: The Beethoven Challenge`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+太难了，第一遍基本没能跟上。
+
+- |.| `二分休止+十六分音符`__
+- |.| `八分休止+十六分音符`__
+
+__ https://www.youtube.com/watch?v=K27IJcOXZs0
+__ https://youtube.com/clip/Ugkxo-uqvExysRXDqJRdFHzHoq3mxDPSanM9?si=BmExsyMlboougI_i
+__ https://youtube.com/clip/UgkxsDIlVBJKu64p5j4nVNyanm5DpmxNi998?si=1E4LG-mVRf-DUZfH
 
 `2 分钟学会超准扫这个节奏`__
 ----------------------------
