@@ -9,8 +9,8 @@ CAGED 系统
 
 __ https://space.bilibili.com/285766656/channel/collectiondetail?sid=2689751
 
-和弦指型连接方法__
-------------------
+4. 和弦指型连接方法__
+---------------------
 
 同一个和弦通过 CAGED 的上下连接变换把位。
 
@@ -20,8 +20,17 @@ D 指型 →  C 指型
 
 __ https://www.bilibili.com/video/BV15H4y1M7to/
 
-CAGED小三和弦__
-===============
+5. 同把位找145__
+----------------
+
+五个把位按 4/4 拍 1451 进行，一小节换一次，速度又慢到快。
+
+- 2024-10-10 80bpm
+
+__ https://www.bilibili.com/video/BV19q421F74m/
+
+7. CAGED小三和弦__
+------------------
 
 __ https://www.bilibili.com/video/BV1Dm411z7yc/
 
