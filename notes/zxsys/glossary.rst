@@ -2,11 +2,6 @@
 术语
 ====
 
-.. term:: 原点思维
-   :field: 绘画
-
-   TODO
-
 .. term:: 亮暗面
    :field: 绘画
 
