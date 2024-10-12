@@ -90,6 +90,7 @@ _schemas = [
                'field': F(ref=True, indexers=[by_slash]),
                'enwiki': F(),
                'zhwiki': F(),
+               'hide': F(),
            },
            description_template=open('_templates/term.rst', 'r').read(),
            reference_template='#️⃣{{ title }}',

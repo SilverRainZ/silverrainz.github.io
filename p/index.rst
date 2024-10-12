@@ -12,6 +12,9 @@ Pros
 
      - 归类后期可变，且变更不影响可访问性
      - 允许暂时不归类，一些内容可以提前发布
+     - 允许一个文档有多个分类
+
+       - 悲报：文档 `实际上不允许被多个 toctree 包含`__
 
 Cons
    - docname/URL 级别丧失目录结构，可读性变差
@@ -22,6 +25,7 @@ Cons
 
 .. [#] 「永固」一词取自颜料名，通常耐久性较好，例如 永固玫红__
 
+__ https://github.com/orgs/sphinx-doc/discussions/12999#discussioncomment-10909269
 __ http://www.winsornewton.com.cn/artisist-oil-forever-rose.htm
 
 迁移
