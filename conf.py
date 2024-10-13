@@ -263,7 +263,7 @@ if D.is_public():
         gtagjs_ids = ['G-5MZDR9VPYN']
 
 if D is D.Local:
-    extensions.append('sphinxnotes.snippet.ext')
+    extensions.append('sphinxnotes.snippet')
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
