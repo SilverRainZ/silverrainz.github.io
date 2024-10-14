@@ -158,3 +158,8 @@ Check source and wheel content:
 
    $ tar tf dist/*.tar.gz
    $ unzip -l dist/*.whl
+
+Get package version (commonly used for ``--version``)::
+
+    from importlib.metadata import version
+    version('sphinxnotes.any')

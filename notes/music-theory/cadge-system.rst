@@ -23,9 +23,9 @@ __ https://www.bilibili.com/video/BV15H4y1M7to/
 5. 同把位找145__
 ----------------
 
-五个把位按 4/4 拍 1451 进行，一小节换一次，速度又慢到快。
+五个把位按 4/4 拍 1451 进行，一小节换一次，速度由慢到快。
 
-- 2024-10-10 80bpm
+F 指型的 4(A shape)→ 5(C shape) 时，无名指上移一格作为指点。
 
 __ https://www.bilibili.com/video/BV19q421F74m/
 

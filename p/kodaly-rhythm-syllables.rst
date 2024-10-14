@@ -9,6 +9,7 @@
 - 2024-09-17 20min
 - 2024-09-19 30min
 - 2024-10-10 25min
+- 2024-10-14 15min 几天不练就不熟了 Orz
 
 唱法
 ====
@@ -32,7 +33,7 @@
 由 https://visualmusicmind.com/ 提供，共 17 节。
 
 __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
-
+G
 7. `Rhythm Reading in 3/4 Time`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -133,6 +134,13 @@ __ https://youtube.com/clip/Ugkxxc7fcfpfISjCJpwbZr1AUxB9jEbYiI57?si=3EUVI4I2TfCk
 __ https://www.youtube.com/watch?v=K27IJcOXZs0
 __ https://youtube.com/clip/Ugkxo-uqvExysRXDqJRdFHzHoq3mxDPSanM9?si=BmExsyMlboougI_i
 __ https://youtube.com/clip/UgkxsDIlVBJKu64p5j4nVNyanm5DpmxNi998?si=1E4LG-mVRf-DUZfH
+
+13. `Rhythm Reading in Six-Eight`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+有点懵……下次再继续吧。
+
+__ https://www.youtube.com/watch?v=zQ8R7j44uvY
 
 `2 分钟学会超准扫这个节奏`__
 ----------------------------
