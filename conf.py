@@ -158,13 +158,6 @@ if D.is_mirror():
         html_theme_options['announcement'] = msg
     html_js_files.append('mirror-redirect.js')
 
-if D.is_public():
-    msg = f'站长病，住院中，评论系统证书未能及时更新，国庆后恢复'
-    if html_theme_options.get('announcement'):
-        html_theme_options['announcement'] += msg
-    else:
-        html_theme_options['announcement'] = msg
-
 html_css_files.append('sphinx-book-theme-custom.css')
 
 nosidebar_page = ['nosidebar']
