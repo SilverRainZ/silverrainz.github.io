@@ -273,9 +273,10 @@ if D.is_public():
     rst_epilog += dedent("""
     .. card:: 评论
 
-       :del:`如果你有任何意见，请在此评论。`
+        如果你有任何意见，请在此评论。
+        如果你留下了电子邮箱，我可能会通过 :email:`comments@silverrainz.me` 回复你。
 
-       评论系统故障，修复中，预计 24.11 前可用。如果你有任何意见，请邮件至 :email:`i@silverrainz.me`。
+        .. isso::
     """)
 
 if D.is_public():
