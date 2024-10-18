@@ -289,8 +289,8 @@ extensions.append('sphinx.ext.intersphinx')
 # Although fetching intersphinx info is slow, but we have fasthtml now.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
-    'srain': ('https://srainapp.github.io/docs', None),
+    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
+    'srain': ('https://srain.silverrainz.me/', None),
 }
 
 if D.is_public():
