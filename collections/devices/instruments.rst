@@ -16,6 +16,8 @@ Ibanez EWP14
    :web: https://www.ibanez.com/usa/products/detail/ewp14_2y_08.html
    :startat: 2023
 
+琴弦尽量用软的，目前 EJ15 感觉不错。
+
 Martinez MSCC-14RS
 ------------------
 
