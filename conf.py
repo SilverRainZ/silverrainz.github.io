@@ -4,7 +4,6 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-from __future__ import annotations
 import os
 import sys
 from datetime import datetime
@@ -140,10 +139,13 @@ html_favicon = '_static/favicon.png'
 html_theme = 'sphinx_book_theme'
 html_theme_options = {
     'repository_url': f'https://github.com/{author_id}/bullet',
-    "use_repository_button": True,
-    "use_download_button": False,
-    "show_toc_level": 2,
-    "navigation_with_keys": False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
+    'use_repository_button': True,
+    'use_download_button': False,
+    'use_edit_page_button': False,
+    'use_source_button': True,
+    'use_issues_button': True,
+    'show_toc_level': 2,
+    'navigation_with_keys': False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
 
 # Setup announcement as your need
@@ -260,8 +262,8 @@ if D is D.Local:
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
-        's': ['man/.*', 'notes/.*', 'jour/.*', 'collections/.*', 'about/.*'],
-        'c': ['man/.*'],
+        's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*'],
+        'c': ['p/.*', 'notes/man/.*'],
     }
 
 if D.is_public():
