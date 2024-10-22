@@ -845,6 +845,14 @@ __ https://www.thenewslens.com/article/156968
             Itten
    :movement: 包豪斯
 
+达芬奇
+======
+
+.. artist:: _
+   :movement: 文艺复兴
+
+.. seealso:: :book:`哈默手稿`
+
 等待翻牌子
 ==========
 
