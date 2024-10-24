@@ -58,6 +58,23 @@ t: tab::
 
     let t:foo = 'bar'
 
-.. seealso::
+.. seealso:: `Vim scripting cheatsheet <https://devhints.io/vimscript>`_
 
-   - `Vim scripting cheatsheet <https://devhints.io/vimscript>`_
+Closure
+=======
+
+``:h :func-closure``::
+
+   function! s:my_function(dict_arg)
+       let darg = copy(a:dict_arg)
+
+       func! s:my_inner_func(cond) closure
+         return darg[a:cond]
+       endfunc
+
+       return function('s:my_inner_func')
+   endfunc
+
+   let g:F = s:my_function({'a': 42, 'b': 5, 'c': 'str'})
+
+.. seealso:: https://vi.stackexchange.com/a/21807
