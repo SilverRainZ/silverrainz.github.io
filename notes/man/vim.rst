@@ -1,16 +1,15 @@
-===
-Vim
-===
-
----------------------------
-By the way I use NeoVim :-)
----------------------------
+==========
+Vim/NeoVim
+==========
 
 :date: 2021-02-08
 
 .. highlight:: vim
 
-Execute script in comment(mode line)::
+Mode line
+=========
+
+Execute script in comment::
 
     /* vim: set filetype=rst: */
 
@@ -31,8 +30,13 @@ Execute script in comment(mode line)::
 - `update` 表示文件发生改动后存盘, 不用 `update` 的话处理完一个文件会提示文件未保存
   (意思大概是处理完一个文件随即退出, 要手动存盘)
 
+Vim Script
+==========
+
+.. seealso:: `Vim scripting cheatsheet <https://devhints.io/vimscript>`_
+
 Variable Prefix
-===============
+---------------
 
 g: global::
 
@@ -58,10 +62,8 @@ t: tab::
 
     let t:foo = 'bar'
 
-.. seealso:: `Vim scripting cheatsheet <https://devhints.io/vimscript>`_
-
-Closure
-=======
+Function Closure
+----------------
 
 ``:h :func-closure``::
 
@@ -78,3 +80,10 @@ Closure
    let g:F = s:my_function({'a': 42, 'b': 5, 'c': 'str'})
 
 .. seealso:: https://vi.stackexchange.com/a/21807
+
+Tree Sitter
+===========
+
+ :``:Inspect``: to show the highlight groups under the cursor
+ :``:InspectTree`` to show the parsed syntax tree ("TSPlayground")
+ :``:EditQuery``: to open the Live Query Editor (Nvim 0.10+)
