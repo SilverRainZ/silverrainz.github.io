@@ -101,3 +101,11 @@
    序列之内。当然了，也看语境。
 
    -- `手刀@知乎 <https://www.zhihu.com/question/631650267/answer/3303967990>`_
+
+吉他上的延伸概念
+================
+
+- 开放和弦
+- 封闭和弦
+- 强力和弦/五和弦
+- `贝壳和弦 <https://zheguitar.com/%E4%BB%80%E9%BA%BC%E6%98%AF-shell-chord-%E8%B2%9D%E6%AE%BC%E5%92%8C%E5%BC%A6%EF%BC%9F/>`_
