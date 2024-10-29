@@ -46,14 +46,29 @@ Variable
 记谱法
 ======
 
+调号、拍号、时值
+----------------
+
+以 G 大调为例，在任意一个 expression block 中::
+
+   \key g \major
+
+4/4 拍::
+
+   \time 4/4
+
+时值::
+
+   \tempo "Allegro" 4 = 150
+
 单个音符升降半音 [#]_
 ---------------------
 
 :升: 音名 + `is`，如 `:lily:`{ cis' }`` ➡️  :lily:`{ cis' }`
 :降: 音名 + `es`
 
-和弦
-----
+双音、和弦
+----------
 
 .. term:: _
 
@@ -61,12 +76,8 @@ Variable
 
 TODO: `ChoreNames` staff
 
-.. seealso:: :term:`和弦模式`
-
 和弦模式
-~~~~~~~~
-
-.. term:: _
+--------
 
 使用 `\\chordmode` 可以进入 和弦模式__ ，可以只书写和弦符号，如：
 
@@ -75,8 +86,7 @@ TODO: `ChoreNames` staff
 :`c`: 是现代和弦的代号
 :`1`: 是时值，同音符模式，有时可省略
 
-常见的代号见 `十分鐘以內，一次搞懂所有的現代和弦代號！`__ ，在和弦模式中，在 `:`
-补充大三和弦以外的其他记号:
+常见的代号见 :doc:`/p/chord`，在和弦模式中，在 `:` 后补充大三和弦以外的其他记号:
 
 .. list-table::
    :align: center
@@ -141,11 +151,11 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
      >>
   }
 
-显示和弦指板图
+和弦吉他指板图
 --------------
 
 对于常见的和弦，通过引入 :file:`predefined-guitar-fretboards.ly` 和使用 ChoreMode
-可以直接在显示 一些常见和弦的指板图__ ，和弦记法参见 :term:`和弦模式`。
+可以直接在显示 一些常见和弦的指板图__ ，和弦记法参见 `和弦模式`_。
 
 .. lily::
 
@@ -184,35 +194,13 @@ __ https://music.stackexchange.com/a/123077
 
 https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%BC%E9%9F%B3ghost-note
 
-指定调号
---------
-
-以 G 大调为例，在任意一个 expression block 中：`\\key g \\major`。
-
 每行四小节
 ----------
 
 每四个小节后面加个 `\break`。
 
-节奏
-----
-
-拍子
-~~~~
-
-4/4 拍::
-
-   \time 4/4
-
-时值
-~~~~
-
-::
-
-   \tempo "Allegro" 4 = 150
-
 附点
-~~~~
+----
 
 :附点: 在时值数后加一个点：`a8.`
 :双附点: 加俩点了
@@ -317,6 +305,7 @@ FluidSynth 需要和特定声音系统交互，默认是 ALSA。
   - 在线 `Hacklily <https://www.hacklily.org/>`_
 
 - Sphinx 插件：`sphinxnotes-lilypond <https://sphinx.silverrainz.me/lilypond/>`_
+- 简谱：https://github.com/ssb22/jianpu-ly
 
 .. rubric:: 脚注
 

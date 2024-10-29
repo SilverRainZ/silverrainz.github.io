@@ -4,6 +4,8 @@ Docker
 
 .. highlight:: console
 
+`DockerPull 镜像加速 <https://dockerproxy.cn/>`_ 2024-10-26 可用。
+
 Build image::
 
    $ docker build .
