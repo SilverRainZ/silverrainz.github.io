@@ -10,6 +10,7 @@
 - 2024-09-19 30min
 - 2024-10-10 25min
 - 2024-10-14 15min 几天不练就不熟了 Orz
+- 2024-10-31
 
 唱法
 ====
@@ -33,7 +34,7 @@
 由 https://visualmusicmind.com/ 提供，共 17 节。
 
 __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
-G
+
 7. `Rhythm Reading in 3/4 Time`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -127,9 +128,10 @@ __ https://youtube.com/clip/Ugkxxc7fcfpfISjCJpwbZr1AUxB9jEbYiI57?si=3EUVI4I2TfCk
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 太难了，第一遍基本没能跟上。
+现在好多了。
 
 - |.| `二分休止+十六分音符`__
-- |.| `八分休止+十六分音符`__
+- |o| `八分休止+十六分音符`__
 
 __ https://www.youtube.com/watch?v=K27IJcOXZs0
 __ https://youtube.com/clip/Ugkxo-uqvExysRXDqJRdFHzHoq3mxDPSanM9?si=BmExsyMlboougI_i
@@ -140,7 +142,17 @@ __ https://youtube.com/clip/UgkxsDIlVBJKu64p5j4nVNyanm5DpmxNi998?si=1E4LG-mVRf-D
 
 有点懵……下次再继续吧。
 
+- |.| `八六拍下的 TaTaTa`__
+
+  .. rhythm:: 八六拍下的 TaTaTa
+     :time: 6/8
+     :grid: ❎🟩❎❎🟩❎ ❎🟩❎🟩❎🟩
+     :tempo: 80
+
+     sn4 sn8 sn4 sn8 sn4 sn4 sn4 
+
 __ https://www.youtube.com/watch?v=zQ8R7j44uvY
+__ https://youtube.com/clip/Ugkxu3rA1_9YmPhZqK5LxVlkQJtGYuTw7PBv?si=jyJ4IMJnTlyPHrf-
 
 `2 分钟学会超准扫这个节奏`__
 ----------------------------
