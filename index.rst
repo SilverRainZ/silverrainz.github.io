@@ -59,9 +59,8 @@
          notes/artstory/index
          notes/books/index
          notes/man/index
-         notes/music-theory/index
-         notes/*/index
          notes/color/index
+         notes/*/index
 
    .. grid-item-card::
 
