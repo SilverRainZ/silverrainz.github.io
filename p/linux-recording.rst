@@ -1,3 +1,5 @@
+:isso-id: /notes/music-making/linux-recording
+
 ===================
 在 Linux 环境下录音
 ===================
