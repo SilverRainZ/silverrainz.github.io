@@ -37,3 +37,8 @@ Timeline
 Events worth recording:
 
 .. include:: ./events.txt
+
+Resume
+------
+
+:doc:`./resume`。
