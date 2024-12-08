@@ -90,10 +90,9 @@
             :caption: 关于
             :maxdepth: 1
 
-            我 <about/me>
             about/site
+            我 <about/me>
             about/friends
-            简历 <about/resume>
 
       .. card::
 
