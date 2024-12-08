@@ -39,10 +39,6 @@
          ronin/inbox/index
          ronin/ops/index
 
-.. centered:: :doc:`关于我 <about/me>`
-   | :doc:`关于本站 <about/site>`
-   | :doc:`友人帐 <about/friends>`
-
 --------------------------------------------------------------------------------
 
 .. grid:: 1 2 2 2
@@ -68,13 +64,11 @@
          :caption: 博客
          :maxdepth: 1
 
-         博客首页 <blog/index>
+         所有博客 <blog/index>
 
       .. postlist:: 8
          :format: {title}
          :list-style: disc
-
-      :ref:`所有日志…  <blog-posts>`
 
    .. grid-item-card::
 
