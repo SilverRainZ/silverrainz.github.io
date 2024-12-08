@@ -2,7 +2,7 @@
 形体分解训练
 ============
 
-:startat: 2020-07-22
+:startat: 2020-07-22 2024-11
 :endat: 2021-05-06
 :status: Finished
 :revise: 2024-10-22
