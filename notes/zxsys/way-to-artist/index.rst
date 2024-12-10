@@ -16,6 +16,7 @@
    find-language
    stealing
    exhibition
+   find-yourself2
 
 找自己
 ======

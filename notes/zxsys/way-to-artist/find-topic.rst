@@ -1086,6 +1086,7 @@ Anti-Recommendation
 是我每天睡前都会做的，一个含糊又浪漫的梦。
 
 :2023-04-06: 现在不做了。
+:2024-12: See also :people:`Swan`。
 
 点评
 ====
