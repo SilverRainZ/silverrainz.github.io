@@ -32,15 +32,23 @@ Martinez MSCC-14RS
 
    __ https://www.washburn.com/wp-content/uploads/2018/08/Fishman-presys_blend_user_guide.pdf
 
-
-Tagima TG530
+Chillman ERA
 ------------
 
 .. dev:: _
-   :id: tg530
+   :id: chillman
    :type: guitar
-   :startat: 2024-02
-   :endat: 2024-08
+   :startat: 2024-11
+
+最近很火的无头小琴，半空心。
+
+- 很轻很小，3kg 左右，相当便携
+- 可以用古典姿势持琴
+- 琴头可以夹调音表，不过太厚了实际不容易夹上
+- 不容易跑音，好几天调一次也没问题，调音也不麻烦
+- 扇品很好适应，就…和直品没啥区别
+- 尾钉不在琴尾的中心而在上方，一些背带可能会有点短
+- 需要一个专用的琴架，目前网上 99 且没有平替
 
 退役
 ----
@@ -49,6 +57,12 @@ Tagima TG530
    :id: fg730
    :type: guitar
    :endat: 2020
+
+.. dev:: Tagima TG530
+   :id: tg530
+   :type: guitar
+   :startat: 2024-02
+   :endat: 2024-08
 
 周边设备
 ========
