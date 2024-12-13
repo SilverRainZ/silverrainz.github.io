@@ -16,6 +16,7 @@
    :id: xfczk4-001
    :date: 2024-11-12
    :medium: 水粉
+   :image: /_images/2024-12-13_134639.png
 
 和 :artwork:`xfczk-017` 没有任何关系。只是晓飞老师的命题作业，以喜欢的古诗为题目进行创作：
 
@@ -54,6 +55,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-003
    :date: 2024-11-21
    :medium: 水粉
+   :image: /_images/2024-12-13_134122.png
+   :album: album-a5-2
 
 红蓝和谐试作三
 --------------
@@ -62,7 +65,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-004
    :date: 2024-11
    :medium: 水粉
-
+   :image: /_images/2024-12-13_134151.png
+   :album: album-a5-2
 
 红蓝和谐试作四
 --------------
@@ -71,6 +75,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-005
    :date: 2024-11
    :medium: 水粉
+   :image: /_images/2024-12-13_134209.png
+   :album: album-a5-2
 
 这张似乎达到了一些意外的和谐。
 
@@ -81,7 +87,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-006
    :date: 2024-11
    :medium: 水粉
-
+   :image: /_images/2024-12-13_134719.png
+   :album: album-a5-2
 
 我认为困倦是永恒的
 ------------------
@@ -137,7 +144,9 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-012
    :date: 2024-12-02
    :medium: 水粉
-
+   :image: /_images/2024-12-13_134007.png
+   :album: album-a5-2
+   
 同 :artwork:`淤结`。
 
 第一天
@@ -147,6 +156,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-013
    :date: 2024-12-05
    :medium: 水粉 水彩
+   :image: /_images/2024-12-13_133552.png
+   :album: 送出
 
 对 :people:`司文` 的了解更多后，也更开始在意她说的每一句话，会去揣测文字里其实没有那么清晰的预期，也会愁于怎么积极有趣地做出回应。
 
@@ -181,7 +192,19 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-016
    :date: 2024-12-08
    :medium: 水彩
+   :image: /_images/2024-12-13_133919.png
+   :album: album-a5-2
 
 胸口上的大石头好像可以用一张跨洋机票带走，我在一秒钟的侥幸后却还是开心不起来，`亲爱的机长先生，能载我一程吗？`__
 
 __ https://www.youtube.com/watch?v=PQXMU1A8CjI
+
+TODO
+----
+
+.. artwork:: _
+   :id: xfczk4-017
+   :date: 2024-12-13
+   :medium: 水粉 水彩
+   :image: /_images/2024-12-13_133355.png
+   :album: album-a5-2
