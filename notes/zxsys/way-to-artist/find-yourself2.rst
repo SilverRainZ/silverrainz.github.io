@@ -45,6 +45,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-002
    :date: 2024-11-13
    :medium: 水粉
+   :image: /_images/2024-12-13_141105.png
+   :album: album-a5-2
 
 希望达成红蓝色彩和谐的试作一。希望红蓝的纯度各从一个点开始逐渐下降。
 
@@ -96,7 +98,9 @@ __ https://www.sohu.com/a/561991177_619150
 .. artwork:: _
    :id: xfczk4-007
    :date: 2024-11-26
-   :medium: 水粉
+   :medium: 色粉笔
+   :image: /_images/2024-12-13_141137.png
+   :album: album-a5-2
 
 每天晚上下课后都非常困倦，没有办法坐下来画些什么。
 
@@ -109,6 +113,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-008
    :date: 2024-11-27
    :medium: 水粉
+   :image: /_images/2024-12-13_141321.png
+   :album: album-a5-2
 
 阅读顺序：从左到右，从上到下。
 
@@ -121,9 +127,21 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-009
    :date: 2024-11-29
    :medium: 水粉
+   :image: /_images/2024-12-13_141357.png
+   :album: album-a5-2
 
 :第二周: 还是没有征服。
 :第六周: 这很有趣吧.jpg
+
+单向可用的半双工通信
+--------------------
+
+.. artwork:: _
+   :id: xfczk4-010
+   :date: 2024-11-30
+   :medium: 水粉
+   :image: /_images/2024-12-13_141544.png
+   :album: album-a5-2
 
 瘀结
 ----
@@ -132,6 +150,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-011
    :date: 2024-12-01
    :medium: 水粉
+   :image: /_images/2024-12-13_142344.png
+   :album: album-a5-2
 
 有一些瘀结的情绪，但我不能表露出来。这种感觉并不是好事，但好久没体会到这种感觉了，意外地还有点怀念。
 
@@ -170,6 +190,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-014
    :date: 2024-12-06
    :medium: 水粉
+   :image: /_images/2024-12-13_141442.png
+   :album: album-a5-2
 
 一段感情会破碎，四散的水珠会再凝聚成另一段，对我来说它们有什么区别吗？
 
@@ -180,6 +202,8 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-015
    :date: 2024-12-07
    :medium: 水彩
+   :image: /_images/2024-12-13_142922.png
+   :album: album-a5-2
 
 爱情这东西我不明白，永远又是什么？
 
