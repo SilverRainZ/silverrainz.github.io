@@ -4,7 +4,7 @@
 sphinxcontrib-email
 sphinxcontrib-images>=0.9.3
 sphinxnotes-lilypond>=2.0.0
-sphinxnotes-any>=3.0a3
+sphinxnotes-any>=3.0a4
 sphinx-design
 ablog
 sphinx-autobuild
