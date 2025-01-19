@@ -162,231 +162,198 @@
 
 以 `fm-%d%d%d` (Fast Modeling) 为 ID，不需要特别给习作命名。
 
-.. grid:: 1 2 2 2
-   :gutter: 1
+.. artwork::
+   :id: fm-000
+   :date: 2020-04-27
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210427_170518.jpg
+   :album: album-a2-1
 
-   .. grid-item-card::
+   第一次画模特，是个要退休的老大爷，形各种不准，但因为当时比较自信 +
+   阳光比较好，画出了有意思的氛围。
 
-      .. artwork::
-         :id: fm-000
-         :date: 2020-04-27
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210427_170518.jpg
-         :album: album-a2-1
+.. artwork::
+   :id: fm-001
+   :date: 2020-05-08
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210523_175148__01.jpg
+   :album: album-a2-1
 
-         第一次画模特，是个要退休的老大爷，形各种不准，但因为当时比较自信 +
-         阳光比较好，画出了有意思的氛围。
+   模特没了，画照片，是一个少数民族老太太，有意模仿天宇的画法，
+   同样有不错的氛围。
 
-   .. grid-item-card::
+   意识到自己无法挑战复杂度：不想画眼球和衣服
 
-      .. artwork::
-         :id: fm-001
-         :date: 2020-05-08
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210523_175148__01.jpg
-         :album: album-a2-1
+.. artwork::
+   :id: fm-002
+   :date: 2020-05-10
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210510_174355.jpg
+   :album: album-a2-1
 
-         模特没了，画照片，是一个少数民族老太太，有意模仿天宇的画法，
-         同样有不错的氛围。
+   意识到自己：
 
-         意识到自己无法挑战复杂度：不想画眼球和衣服
+   - 不会画正脸 —— 正脸的体积感光感都弱
+   - 对大形体不了解，不知道哪里是纵深处，哪里是面的转折
 
-   .. grid-item-card::
+.. artwork::
+   :id: fm-003
+   :date: 2020-05-12
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210512_205836.jpg
+   :album: album-a2-1
 
-      .. artwork::
-         :id: fm-002
-         :date: 2020-05-10
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210510_174355.jpg
-         :album: album-a2-1
+   和 :artwork:`fm-001` 是同一个老太太，失败的尝试，感觉自己只会画鼻子。
 
-         意识到自己：
+.. artwork::
+   :id: fm-004
+   :date: 2020-05-18
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210518_122030.jpg
+   :album: album-a2-1
 
-         - 不会画正脸 —— 正脸的体积感光感都弱
-         - 对大形体不了解，不知道哪里是纵深处，哪里是面的转折
+   挑战大正脸的另一张。
 
-   .. grid-item-card::
+   .. note:: 老师改过，并强调了大形体的重要性
 
-      .. artwork::
-         :id: fm-003
-         :date: 2020-05-12
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210512_205836.jpg
-         :album: album-a2-1
+.. artwork::
+   :id: fm-005
+   :date: 2020-05-24
+   :medium: 炭精粉
+   :size: 8k
+   :image: /_images/artwork-fm/IMG_20210531_180824__01.jpg
+   :album: album-a2-1
 
-         和 :artwork:`fm-001` 是同一个老太太，失败的尝试，感觉自己只会画鼻子。
+   继续挑战大正脸，开始用一些笔法（头发上的面）。
 
-   .. grid-item-card::
+   尽力在画形体了，但颜色控制不佳，不得已使劲加深。
 
-      .. artwork::
-         :id: fm-004
-         :date: 2020-05-18
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210518_122030.jpg
-         :album: album-a2-1
+.. artwork::
+   :id: fm-006
+   :date: 2020-05-26
+   :medium: 炭精粉
+   :size: 4k
+   :image: /_images/artwork-fm/IMG_20210531_180900__01.jpg
+   :album: album-a2-1
 
-         挑战大正脸的另一张。
+   画不安分的老大爷，老乱动所以重点只能放在半身的完整性和氛围上。
 
-         .. note:: 老师改过，并强调了大形体的重要性
+   眉弓和嘴的形体有点意思。
 
-   .. grid-item-card::
+.. artwork::
+   :id: fm-007
+   :date: 2020-05-28
+   :medium: 炭精粉
+   :size: 4k
+   :image: /_images/artwork-fm/IMG_20210531_180918__01.jpg
+   :album: album-a2-1
 
-      .. artwork::
-         :id: fm-005
-         :date: 2020-05-24
-         :medium: 炭精粉
-         :size: 8k
-         :image: /_images/artwork-fm/IMG_20210531_180824__01.jpg
-         :album: album-a2-1
+   即使老大爷不安分也要画形体……
 
-         继续挑战大正脸，开始用一些笔法（头发上的面）。
+   这张是把精力完全放在形体上的尝试，一边参考 :book:`伯里曼` 一边看模特。
 
-         尽力在画形体了，但颜色控制不佳，不得已使劲加深。
+   - 对眉弓的穿插可及其在空间上的位置有了比较清晰的理解
+   - 颧骨和口轮匝肌在空间上区分开来了，虽然颧骨到耳朵的空间还没有很好
+   - 鼻子一如既往地很容易画出体积 :del:`大概是晓飞老师一脉相承`
+   - 耳朵画得很干脆，问题不大
 
-   .. grid-item-card::
+   整体的完成度挺好，衣服糊弄过去了……
 
-      .. artwork::
-         :id: fm-006
-         :date: 2020-05-26
-         :medium: 炭精粉
-         :size: 4k
-         :image: /_images/artwork-fm/IMG_20210531_180900__01.jpg
-         :album: album-a2-1
+   材料上也做了改变，用羊毫笔起稿，在起稿阶段避免伤纸很重要。
 
-         画不安分的老大爷，老乱动所以重点只能放在半身的完整性和氛围上。
+.. artwork::
+   :id: fm-008
+   :date: 2020-05-28
+   :medium: 炭精粉
+   :size: 4k
+   :image: /_images/artwork-fm/IMG_20210531_180935__01.jpg
+   :album: album-a2-1
 
-         眉弓和嘴的形体有点意思。
+   老大爷 +3
 
-   .. grid-item-card::
+   只剩一个周五的下午，只能画到这种程度，心里确实也是不太想画这个大爷了。
 
-      .. artwork::
-         :id: fm-007
-         :date: 2020-05-28
-         :medium: 炭精粉
-         :size: 4k
-         :image: /_images/artwork-fm/IMG_20210531_180918__01.jpg
-         :album: album-a2-1
+   可以看到这张的眉弓就正确了许多。
 
-         即使老大爷不安分也要画形体……
+.. artwork::
+   :id: fm-009
+   :medium: 炭精粉
+   :date: 2020-05-30 2020-06-09
+   :size: 4k
+   :image: /_images/artwork-fm/IMG_20210609_172807__01__01.jpg
+   :album: album-a2-1
 
-         这张是把精力完全放在形体上的尝试，一边参考 :book:`伯里曼` 一边看模特。
+   趁周末的时候，尝试一下画石膏，验证一些想法：
 
-         - 对眉弓的穿插可及其在空间上的位置有了比较清晰的理解
-         - 颧骨和口轮匝肌在空间上区分开来了，虽然颧骨到耳朵的空间还没有很好
-         - 鼻子一如既往地很容易画出体积 :del:`大概是晓飞老师一脉相承`
-         - 耳朵画得很干脆，问题不大
+   目前的观察方式是对的吗，在石膏上是不是确实更容易观察？
+      是的，是的
 
-         整体的完成度挺好，衣服糊弄过去了……
+   6386 虽然好控制，但笔毛偏硬，伤纸，目前换回狼毫是不是更有利于梳理形体？
+      是的
 
-         材料上也做了改变，用羊毫笔起稿，在起稿阶段避免伤纸很重要。
+   凭感觉，配合对称对应的的观察方法起大轮廓作为起稿的第一步如何？
+      效果非常好，请凭感觉！
 
-   .. grid-item-card::
+      起大轮廓的目的在于：在纸上建立起对象的边界，方便你注入你的空间想象力。一直以来总是抗拒「不确定性的起稿方式」，但想来在空白的纸上，单靠想象力画出亮暗面实在是不容易，因此，先要有以不确定的方式确定一些东西，作画才能顺利继续。
 
-      .. artwork::
-         :id: fm-008
-         :date: 2020-05-28
-         :medium: 炭精粉
-         :size: 4k
-         :image: /_images/artwork-fm/IMG_20210531_180935__01.jpg
-         :album: album-a2-1
+      目前探索到的可靠起稿方式：
 
-         老大爷 +3
+      - 不在乎形准：从有光感、空间感强烈的地方直接画，局部推进
+      - 有点在乎形准：画大轮廓，在大轮廓中画最大的形体，对内部构造的知识有一定要求
+      - 非常在乎形准：不可能，我画不准，学 :artist:`洛必兹` 打格子吧
 
-         只剩一个周五的下午，只能画到这种程度，心里确实也是不太想画这个大爷了。
+.. artwork::
+   :id: fm-010
+   :medium: 炭精粉
+   :size: 4k
+   :date: 2020-05-31
+   :image: /_images/artwork-fm/IMG_20210531_172106.jpg
+   :album: album-a2-1
 
-         可以看到这张的眉弓就正确了许多。
+   新的模特是个阿姨，比较敬业。
 
-   .. grid-item-card::
-      :columns: auto
+   阿姨偏胖，用横构图并且把整个人拉满画面显得不那么无聊。
 
-      .. artwork::
-         :id: fm-009
-         :medium: 炭精粉
-         :date: 2020-05-30 2020-06-09
-         :size: 4k
-         :image: /_images/artwork-fm/IMG_20210609_172807__01__01.jpg
-         :album: album-a2-1
+   通过 :artwork:`fm-009` 求证到的东西在这一张也非常奏效。中间的感觉非常好，甚至超过了最终的画面效果，故保留几张步骤图：
 
-         趁周末的时候，尝试一下画石膏，验证一些想法：
+   .. image:: /_images/artwork-fm/IMG_20210531_093829.jpg
+      :width: 30%
+   .. image:: /_images/artwork-fm/IMG_20210531_102428.jpg
+      :width: 30%
+   .. image:: /_images/artwork-fm/IMG_20210531_114934.jpg
+      :width: 30%
 
-         目前的观察方式是对的吗，在石膏上是不是确实更容易观察？
-            是的，是的
+.. artwork::
+   :id: fm-011
+   :medium: 炭精粉
+   :size: 4k
+   :date: 2020-06-01
+   :image: /_images/artwork-fm/IMG_20210601_171046.jpg
+   :album: album-a2-1
 
-         6386 虽然好控制，但笔毛偏硬，伤纸，目前换回狼毫是不是更有利于梳理形体？
-            是的
+   画躯体的一个尝试。
 
-         凭感觉，配合对称对应的的观察方法起大轮廓作为起稿的第一步如何？
-            效果非常好，请凭感觉！
+.. artwork::
+   :id: fm-012
+   :medium: 炭精粉
+   :size: 4k
+   :date: 2020-06-02
+   :image: /_images/artwork-fm/IMG_20210602_165645.jpg
+   :album: album-a2-1
 
-            起大轮廓的目的在于：在纸上建立起对象的边界，方便你注入你的空间想象力。一直以来总是抗拒「不确定性的起稿方式」，但想来在空白的纸上，单靠想象力画出亮暗面实在是不容易，因此，先要有以不确定的方式确定一些东西，作画才能顺利继续。
+   研究脸侧面的形体，经晓飞老师提醒，在亮部研究的画表现起来会容易许多。
 
-            目前探索到的可靠起稿方式：
+.. artwork::
+   :id: fm-013
+   :medium: 炭精粉 色粉笔
+   :size: 4k
+   :date: 2020-06-16
+   :image: /_images/artwork-fm/IMG_20210616_172121.jpg
+   :album: album-a2-1
 
-            - 不在乎形准：从有光感、空间感强烈的地方直接画，局部推进
-            - 有点在乎形准：画大轮廓，在大轮廓中画最大的形体，对内部构造的知识有一定要求
-            - 非常在乎形准：不可能，我画不准，学 :artist:`洛必兹` 打格子吧
-
-   .. grid-item-card::
-      :columns: auto
-
-      .. artwork::
-         :id: fm-010
-         :medium: 炭精粉
-         :size: 4k
-         :date: 2020-05-31
-         :image: /_images/artwork-fm/IMG_20210531_172106.jpg
-         :album: album-a2-1
-
-         新的模特是个阿姨，比较敬业。
-
-         阿姨偏胖，用横构图并且把整个人拉满画面显得不那么无聊。
-
-         通过 :artwork:`fm-009` 求证到的东西在这一张也非常奏效。中间的感觉非常好，甚至超过了最终的画面效果，故保留几张步骤图：
-
-         .. image:: /_images/artwork-fm/IMG_20210531_093829.jpg
-            :width: 30%
-         .. image:: /_images/artwork-fm/IMG_20210531_102428.jpg
-            :width: 30%
-         .. image:: /_images/artwork-fm/IMG_20210531_114934.jpg
-            :width: 30%
-
-   .. grid-item-card::
-
-      .. artwork::
-         :id: fm-011
-         :medium: 炭精粉
-         :size: 4k
-         :date: 2020-06-01
-         :image: /_images/artwork-fm/IMG_20210601_171046.jpg
-         :album: album-a2-1
-
-         画躯体的一个尝试。
-
-   .. grid-item-card::
-
-      .. artwork::
-         :id: fm-012
-         :medium: 炭精粉
-         :size: 4k
-         :date: 2020-06-02
-         :image: /_images/artwork-fm/IMG_20210602_165645.jpg
-         :album: album-a2-1
-
-         研究脸侧面的形体，经晓飞老师提醒，在亮部研究的画表现起来会容易许多。
-
-   .. grid-item-card::
-
-      .. artwork::
-         :id: fm-013
-         :medium: 炭精粉 色粉笔
-         :size: 4k
-         :date: 2020-06-16
-         :image: /_images/artwork-fm/IMG_20210616_172121.jpg
-         :album: album-a2-1
-
-         没什么心思的应付之作。
+   没什么心思的应付之作。
