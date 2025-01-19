@@ -63,10 +63,10 @@
    .. grid-item-card::
 
       .. toctree::
-         :caption: 博客
+         :caption: 文章
          :maxdepth: 1
 
-         所有博客 <blog/index>
+         所有文章 <blog/index>
 
       .. postlist:: 8
          :format: {title}

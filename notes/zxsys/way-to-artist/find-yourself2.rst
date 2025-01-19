@@ -2,6 +2,8 @@
 找自己 2
 ========
 
+.. seealso:: :doc:`find-yourself`
+
 作业
 ====
 

@@ -14,6 +14,10 @@ Switch Pro
 
 Steam 的 :menuselection:`设置 --> 控制器` 里可对其进行测试、配置。
 
+.. note:: 2025-01-17
+
+   发现我的手柄有三个 MAC，用 bluetoothctl 只有 ``A4:38:CC:24:B4:EF`` 能连上。
+
 .. [#] https://wiki.archlinux.org/title/Gamepad#Nintendo_Switch_Pro_Controller_and_Joy-Cons
 .. [#] https://zhuanlan.zhihu.com/p/92653060
 
