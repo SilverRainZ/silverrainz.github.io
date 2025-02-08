@@ -43,10 +43,11 @@
 
 --------------------------------------------------------------------------------
 
-.. grid:: 1 2 2 2
+.. grid::
    :gutter: 2
 
    .. grid-item-card::
+      :columns: 12 4 4 4
 
       .. toctree::
          :caption: 笔记
@@ -61,6 +62,7 @@
          notes/*/index
 
    .. grid-item-card::
+      :columns: 12 8 8 8
 
       .. toctree::
          :caption: 文章
@@ -73,6 +75,7 @@
          :list-style: disc
 
    .. grid-item-card::
+      :columns: 12 4 4 4
 
       .. toctree::
          :caption: 随记
@@ -84,24 +87,24 @@
          jour/more
 
 
-   .. grid-item::
+   .. grid-item-card::
+      :columns: 12 4 4 4
 
-      .. card::
+      .. toctree::
+         :caption: 关于
+         :maxdepth: 1
 
-         .. toctree::
-            :caption: 关于
-            :maxdepth: 1
+         about/site
+         我 <about/me>
+         about/friends
 
-            about/site
-            我 <about/me>
-            about/friends
+   .. grid-item-card::
+      :columns: 12 4 4 4
 
-      .. card::
+      .. toctree::
+         :caption: 收集室
+         :maxdepth: 1
+         :glob:
 
-         .. toctree::
-            :caption: 收集室
-            :maxdepth: 1
-            :glob:
-
-            collections/*
-            collections/*/index
+         collections/*
+         collections/*/index

@@ -72,7 +72,7 @@ The :py:func:`sphinx.docutils.rst.default_role` is a :py:class:`contextlib.conte
 Doc-level registration
 ======================
 
-Sphinx overrides docutils' :dudir:`default-role`` implementation, use :py:class:`sphinx.directives.DefaultRole` instead.
+Sphinx overrides docutils' :dudir:`default-role` implementation, use :py:class:`sphinx.directives.DefaultRole` instead.
 
 In the ``run`` method, directivees add default role name to :py:attr:`sphinx.environment.BuildEnvironment.temp_data`. ``temp_data`` is a document-independent storage.
 
