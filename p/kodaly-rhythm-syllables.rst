@@ -15,7 +15,7 @@
 唱法
 ====
 
-.. pdf-include:: https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
+https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 
 `Kodaly Rhythm Syllables - YouTube <https://www.youtube.com/watch?v=Vc2RlRvYCcY>`_
    靠谱的大叔，介绍了一种我感觉比较好的唱名变体。
