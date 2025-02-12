@@ -20,6 +20,10 @@ https://kodaly.org.au/wp-content/uploads/2015/12/rhythmguide.pdf
 `Kodaly Rhythm Syllables - YouTube <https://www.youtube.com/watch?v=Vc2RlRvYCcY>`_
    靠谱的大叔，介绍了一种我感觉比较好的唱名变体。
 
+   |.| 八分附点__
+
+   __ https://youtube.com/clip/UgkxtT34xp3q7ZwVCguPJO2dztyLlbVj3ca6?si=Jk5FuJobf3ZBNcho
+
 `03. Pre-Grade Lesson 3_哔哩哔哩_bilibili <https://www.bilibili.com/video/BV1zE411L7oy?p=3>`_
    小朋友的课程，提供一些练习方式，例如：唱节奏+击掌、唱节奏、默念+击掌
 
