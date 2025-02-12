@@ -48,7 +48,13 @@ __ https://www.zhihu.com/question/661001252/answer/44227329247
 
 __ https://arthurchiao.art/blog/gpt-as-a-finite-state-markov-chain-zh/
 
+02-11: 马尔可夫链__
+-------------------
+
+__ https://www.bilibili.com/video/BV19b4y127oZ/
+
 02-06: `What’s new in GTK, winter 2025 edition`__
 =================================================
 
 __ https://blog.gtk.org/2025/02/01/whats-new-in-gtk-winter-2025-edition
+
