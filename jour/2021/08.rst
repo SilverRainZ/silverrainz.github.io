@@ -302,6 +302,10 @@ ThinkPad Carbon X1C Gen9
 
 :date: 2021-08
 
+键盘背光::
+
+   brightnessctl -d tpacpi::kbd_backlight set 1
+
 素描群作业点评
 ==============
 
