@@ -269,17 +269,8 @@ if D is D.Local:
 if D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
-
-    from textwrap import dedent
-    # Require extensions 'sphinx_design'
-    rst_epilog += dedent("""
-    .. card:: 评论
-
-        如果你有任何意见，请在此评论。
-        如果你留下了电子邮箱，我可能会通过 :email:`comments@silverrainz.me` 回复你。
-
-        .. isso::
-    """)
+    isso_include_patterns = ['**',]
+    isso_exclude_patterns = ['index', 'ronin/**']
 
 if D.is_public():
     extensions.append('sphinx_sitemap')
