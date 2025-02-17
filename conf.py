@@ -262,7 +262,7 @@ if D is D.Local:
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
-        's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*'],
+        's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'ronin/.*'],
         'c': ['p/.*', 'notes/man/.*'],
     }
 
