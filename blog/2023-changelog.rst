@@ -185,6 +185,8 @@ __ http://scateu.me/2014/03/07/gnu-lilypond-example.html
 __ http://ssb22.user.srcf.net/mwrhome/jianpu-ly.html
 __ https://github.com/ssb22/jianpu-ly/issues/15
 
+.. _2023-art-sumup:
+
 画画
 ====
 
