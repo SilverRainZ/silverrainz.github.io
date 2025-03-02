@@ -156,7 +156,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 
    .. artwork:: 四季色卡 2
       :id: taoc-000 taoc-001 taoc-002 taoc-003
-      :size: 32
+      :size: 32k
       :medium: 水彩
       :date: 2022-04-25
       :image: /_images/artwork-taoc/IMG_20220426_091620__01__01.jpg
@@ -196,7 +196,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 
       .. artwork:: DYY 的印象试纸
          :id: taoc-006
-         :size: 32
+         :size: 32k
          :medium: 水彩
          :date: 2022-04-28
          :image: /_images/artwork-taoc/IMG_20220430_172812__01.jpg
