@@ -96,12 +96,12 @@ Then index page is generated:
 #. The hyperlink of name targets to document whose docname is "docname"
 #. ``IndexEntry`` are grouped by ``letter``, A.K.A category
 
-   .. hint:: In :ref:`genindex`, the category is usually a single first letter, this is why category is called "letter" here.
+   .. hint:: In :ref:`general-index`, the category is usually a single first letter, this is why category is called "letter" here.
 
 #. Entry with sub-entries (``subtype=1``) is collapsible (``baz``, ``quux``)
 #. Sub-entry (``subtype=2``) follow after with its entry with ``subtype=1`` in the ``list[IndexEntry]`` (``baz`` has 1 sub-entry while ``quxx`` has not)
 
-.. _genindex:
+.. _general-index:
 
 General Index (genindex)
 ========================

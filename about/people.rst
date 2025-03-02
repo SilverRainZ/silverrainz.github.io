@@ -13,8 +13,8 @@
 
    .. grid-item-card::
 
-      .. people:: 李晓飞
-                  晓飞老师
+      .. people:: 晓飞老师
+                  李晓飞
          :weibo: lixiaofeiart
 
          当代艺术家，教育家。19~20 年，我在燕郊 :event:`造型实验室` 学画时的老师。

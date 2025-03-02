@@ -4,7 +4,7 @@
 
 .. post:: 2025-01-27
    :language: zh_CN
-   :tags: 运维
+   :tags: 运维 域名
    :author: LA
    :location: 汕头
 

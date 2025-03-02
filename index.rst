@@ -58,7 +58,6 @@
          notes/artstory/index
          notes/books/index
          notes/man/index
-         notes/color/index
          notes/*/index
 
    .. grid-item-card::
