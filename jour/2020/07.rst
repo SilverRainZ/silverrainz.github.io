@@ -28,6 +28,4 @@
 Arch 安装 nextcloud
 ===================
 
-按着 Wiki 来就好了。
-
-.. [#] https://wiki.archlinux.org/index.php/Nextcloud
+按着 :archwiki:`Nextcloud` 来就好了。

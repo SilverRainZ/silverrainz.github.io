@@ -3,14 +3,17 @@
 =============
 
 .. post:: 2024-02-03
-   :tags: 年度总结, 生活
+   :tags: 生活
    :author: LA
+   :category: 年度总结
    :language: zh_CN
    :location: 杭州
 
 其实每个年初都有写年度总结的冲动，但每年都因为拖延而不了了之。快元旦的时候
 :people:`豆豆` 就在群里催大家写总结，现在豆豆和小杰 已各自完成 [1]_ [2]_，
 我也该动动笔了。
+
+.. _2023-work-sumup:
 
 工作
 ====
@@ -181,6 +184,8 @@ __ https://ubuntourist.codeberg.page/Celtic_Song_Book/
 __ http://scateu.me/2014/03/07/gnu-lilypond-example.html
 __ http://ssb22.user.srcf.net/mwrhome/jianpu-ly.html
 __ https://github.com/ssb22/jianpu-ly/issues/15
+
+.. _2023-art-sumup:
 
 画画
 ====

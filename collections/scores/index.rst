@@ -38,6 +38,8 @@ Alice 间奏
 
 .. lilyinclude:: alice2.ly
 
+.. _songbie:
+
 送别 简谱
 =========
 
