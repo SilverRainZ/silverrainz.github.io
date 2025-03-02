@@ -1,0 +1,94 @@
+.. default-role:: sup
+
+是一个有星星的夜晚，窗户敞开着，窗帘在微风下轻轻摆动。A 蜷缩在被子里 `1`，手机里的网易云对面的那个人是谁呢？`2` 她的善意是真实存在的吗？1853 公里外发来的文本还有余温，仔细闻闻还有淡淡的香气。
+
+| 「
+|    我想不太可能吧，
+|    怎么会有人对这样的我投以善意呢？
+|    …
+|    …
+|    …
+|    要是真的就好了…
+|  」
+
+.. raw:: html
+
+  <p>眼泪偷偷从 A 的眼角里滑落，<span class="distance-number">1853</span> 公里这个数字好像开始闪烁，A 耳边传来呼呼的风声，窗户也开始摇晃，他起身来跪坐在床上。</p>
+
+  <button id="dreamBtn">梦！</button>
+
+  <p class="typewriter"></p>
+
+  <p class="hide-content" style="display: none">于是 A 张开了双手…  <sup>3</sup> 抱住了从天而降的少女。<sup>4</sup></p>
+
+  <script>
+  const btn = document.querySelector('#dreamBtn');
+  btn.addEventListener('click', () => {
+    // 获取目标数字元素
+    const numberElement = document.querySelector('.distance-number');
+    const hiddenContent = document.querySelector('.hide-content');
+    const typewriter = document.querySelector('.typewriter');
+    const cutsceneText = "数字越来越小，越来越小…窗外不远处的似乎有什么动静…";
+
+    let currentNumber = parseInt(numberElement.textContent);
+    const duration = 10000; // 10秒
+    const startTime = Date.now();
+    let isTypingStarted = false; // 防止重复触发
+
+    // 数字递减动画
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const remaining = duration - elapsed;
+
+      // 计算当前数值并更新
+      const targetNumber = Math.max(0, Math.floor(1853 - (1853 * progress)));
+      numberElement.textContent = targetNumber;
+
+      // 触发逐字动画（剩余3秒时启动）
+      if (remaining <= 3000 && !isTypingStarted) {
+        startTypewriter();
+        isTypingStarted = true;
+      }
+
+      // 保持动画直到结束
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        numberElement.textContent = '0'; // 确保最终归零
+        hiddenContent.style.display = 'block';
+      }
+    };
+
+  const startTypewriter = () => {
+      // 动态创建字符节点实现更精准控制
+      let index = 0;
+      typewriter.style.display = 'block';
+
+      const typeInterval = setInterval(() => {
+        if (index >= cutsceneText.length) {
+          clearInterval(typeInterval);
+          typewriter.classList.add('typing'); // 启动CSS动画收尾
+          return;
+        }
+        typewriter.textContent += cutsceneText[index];
+        index++;
+      }, 80); // 通过调整间隔(ms)控制打字速度
+
+      // 同步剩余时间自动加速
+      const speedBoost = remaining => {
+        if (remaining < 1000) {
+          clearInterval(typeInterval);
+          typewriter.textContent = cutsceneText; // 强制完成
+        } else if (remaining < 1853) {
+          clearInterval(typeInterval);
+          typeInterval = setInterval(/* 更快的间隔 */);
+        }
+      }
+    };
+
+    requestAnimationFrame(animate);
+  });
+  </script>
+
+.. vim: set filetype=rst: ..
