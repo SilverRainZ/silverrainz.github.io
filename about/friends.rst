@@ -101,7 +101,6 @@
    - 专治 troll
 
 .. friend:: zu1k
-            https://zu1k.com/
    :blog: https://zu1k.com/
    :avatar: https://github.com/zu1k.png
 
@@ -109,3 +108,16 @@
    - `破解过贵司的 XRay`__
 
    __ https://github.com/zu1k/xray-crack-rm
+
+.. friend:: Tomacat
+            托马猫
+            脱毛猫
+   :blog: https://tomcat.one/blog/
+   :avatar: https://tomcat.one/blog/tomacat.png
+
+   - 神秘的但居然能面基过的脱毛猫
+   - Srain__ 的重要贡献者！
+
+   __ https://srain.silverrainz.me
+
+
