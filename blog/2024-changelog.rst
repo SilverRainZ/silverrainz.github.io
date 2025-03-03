@@ -350,7 +350,7 @@ The day after last day
 
 .. raw:: html
 
-   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1823210550&auto=1&height=66" style="display:block;  margin: auto;"></iframe>
+   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1823210550&auto=0&height=66" style="display:block;  margin: auto;"></iframe>
 
 .. grid:: 3 3 3 3
 
