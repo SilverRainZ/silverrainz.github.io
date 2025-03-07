@@ -16,8 +16,8 @@
 
      .. seealso:: `开源大模型的本地部署,本地大语言模型部署工具对比：Ollama vs LM Studio 如何选择适合自己的 AI 助手 - 开发调优 - LINUX DO <https://linux.do/t/topic/414577>`_
 
-   - :ghrepo:`XuehaiPan/nvitop`：顾名思义
-   - 模型跨机器导入导出：https://gist.github.com/nahushrk/5d980e676c4f2762ca385bd6fb9498a9
+   - 查看显卡状态：:archpkg:`nvidia-utils` 的 ``nvidia-smi``、:ghrepo:`XuehaiPan/nvitop`
+   - 模型导入导出：https://gist.github.com/nahushrk/5d980e676c4f2762ca385bd6fb9498a9
 
 .. term:: 蒸馏
    模型蒸馏（Model Distillation）是一种用于模型压缩、加速的通用方法。用一个容量较大的预训练模型作为教师模型，利用其输出来进一步训练学生模型（往往是参数规模更小的模型）。学生模型的规模上往往是更易部署的，同时在泛化能力上要远优于使用原始数据集训练的同等规模模型，但与满血版本的教师模型显然是存在差异的。
@@ -31,11 +31,12 @@
 
    其他的参数可以理解为参数取整的策略？参看？`llama.cpp里面的Q8_0,Q6_K_M,Q4_K_M量化原理是什么？ - 知乎 <https://www.zhihu.com/question/633365088>`_
 
-Ollama 不使用 GPU
-   安装 :archpkg:`ollama-cuda`，参见 `ollama-cuda <https://wiki.archlinux.org/title/Ollama>`_。
+Troubleshooting
+   Ollama 不使用 GPU
+      安装 :archpkg:`ollama-cuda`，参见 `ollama-cuda <https://wiki.archlinux.org/title/Ollama>`_。
 
-Prompt 编写
-   也可以让 AI 写……闭环了。
+   Prompt 编写
+      也可以让 AI 写……闭环了。
 
-爆显存
-   `GPU System Requirements for Running DeepSeek-R1 <https://apxml.com/posts/gpu-requirements-deepseek-r1>`_
+   爆显存
+      `GPU System Requirements for Running DeepSeek-R1 <https://apxml.com/posts/gpu-requirements-deepseek-r1>`_
