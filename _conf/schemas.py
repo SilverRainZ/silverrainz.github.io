@@ -132,7 +132,6 @@ Schema('rhythm',
        attrs={
            'time': F(ref=True, required=True),
            'tempo': F(),
-           'grid': F(),
            'musicca': F(),
        },
        content=F(form=F.Forms.LINES),

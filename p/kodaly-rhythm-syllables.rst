@@ -46,7 +46,6 @@ __ https://www.youtube.com/playlist?list=PLzPP1Evz0WkRAkDUUT-KvVs1CbRbgtdyu
 
 .. rhythm:: 3/4 拍里的四分附点
    :time: 3/4
-   :grid: ❎🟩 🟩❎ ❎🟩
    :tempo: 80
    :musicca: n-34-a--5aei6agi-
 
@@ -150,7 +149,6 @@ __ https://youtube.com/clip/UgkxsDIlVBJKu64p5j4nVNyanm5DpmxNi998?si=1E4LG-mVRf-D
 
   .. rhythm:: 八六拍下的 TaTaTa
      :time: 6/8
-     :grid: ❎🟩❎❎🟩❎ ❎🟩❎🟩❎🟩
      :tempo: 80
 
      sn4 sn8 sn4 sn8 sn4 sn4 sn4 
