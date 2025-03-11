@@ -1,5 +1,4 @@
 :拍号: :rhythm.time:`{{ time }} <{{ time }}>`
-:数拍: {{ grid }} [#]_
 {% if musicca %}:鼓机: :musicca-drum:`{{ tempo if tempo else 60 }}-{{ musicca }}`{% endif %}
 :鼓谱:
 
@@ -41,5 +40,3 @@
          % https://lilypond.org/doc/v2.24/Documentation/notation/using-repeats-with-midi
          \unfoldRepeats { \main } \midi{}
       }
-
-.. [#] 数拍子的方法参见好和弦 NiceChord 的 `不管什麼節奏，都能彈對的練習秘訣！ <https://www.youtube.com/watch?v=NkYhAmIGSOw>`_
