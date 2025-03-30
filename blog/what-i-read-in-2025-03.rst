@@ -2,7 +2,7 @@
 2025 年 3 月我读了什么
 ======================
 
-.. post::
+.. post:: 2025-03-30
    :tags: 阅读
    :author: LA
    :category: 阅读记录
@@ -10,6 +10,8 @@
 
 03-06: `DeepSeek 新手上路 (二) 模型自部署`__
 ============================================
+
+__ https://linux.do/t/topic/422823
 
 相关工具
    - 部署：Ollama
@@ -40,3 +42,8 @@ Troubleshooting
 
    爆显存
       `GPU System Requirements for Running DeepSeek-R1 <https://apxml.com/posts/gpu-requirements-deepseek-r1>`_
+
+03-30: 精力管理：管理精力，而非时间
+===================================
+
+.. seealso:: :doc:`/notes/books/the-power-of-full-engagement`
