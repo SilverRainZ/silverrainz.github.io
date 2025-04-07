@@ -4,6 +4,7 @@
 from sphinxnotes.any.api import Schema, Field as F, by_year, by_month, PathIndexer
 
 by_hyphen = PathIndexer('-', 1)
+by_hyphen2 = PathIndexer('-', 2)
 by_slash = PathIndexer('/', 1)
 
 _schemas = [
@@ -109,16 +110,15 @@ _schemas = [
     Schema('okr',
            name=F(ref=True, required=True),
            attrs={
-               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
+               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen2]),
                'krs': F(form=F.Forms.LINES),
-               'hrs': F(uniq=True, ref=True, indexers=[by_hyphen]),
+               'hrs': F(form=F.Forms.WORDS),
                'progs': F(form=F.Forms.WORDS),
                'scores': F(form=F.Forms.WORDS),
 
+               'p0': F(ref=True),
                'p1': F(ref=True),
                'p2': F(ref=True),
-               'p3': F(ref=True),
-               'p4': F(ref=True),
            },
            description_template=open('_templates/okr.rst', 'r').read(),
            reference_template='🎯{{ title }}'),
