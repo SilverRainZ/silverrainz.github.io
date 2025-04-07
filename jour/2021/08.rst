@@ -297,11 +297,6 @@ Abstract Classes
 
 Interfaces
 
-ThinkPad Carbon X1C Gen9
-========================
-
-:date: 2021-08
-
 素描群作业点评
 ==============
 
