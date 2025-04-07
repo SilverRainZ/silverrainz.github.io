@@ -20,8 +20,8 @@ _schemas = [
            attrs={
                'isbn': F(uniq=True, ref=True),
                'status': F(ref=True),
-               'startat': F(ref=True, form=F.Forms.WORDS, indexers=[by_month]),
-               'endat': F(ref=True, form=F.Forms.WORDS, indexers=[by_month]),
+               'startat': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
+               'endat': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
            },
            description_template=open('_templates/book.rst', 'r').read(),
            reference_template='《{{ title }}》',
@@ -63,7 +63,7 @@ _schemas = [
     Schema('event',
            name=F(ref=True, required=True),
            attrs={
-               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year, by_month]),
+               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
                'location': F(ref=True),
            },
            description_template=open('_templates/event.rst', 'r').read(),
@@ -109,13 +109,19 @@ _schemas = [
     Schema('okr',
            name=F(ref=True, required=True),
            attrs={
-               'id': F(uniq=True, ref=True, required=True),
+               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
                'krs': F(form=F.Forms.LINES),
+               'hrs': F(uniq=True, ref=True, indexers=[by_hyphen]),
+               'progs': F(form=F.Forms.WORDS),
                'scores': F(form=F.Forms.WORDS),
-               'parent': F(),
+
+               'p1': F(ref=True),
+               'p2': F(ref=True),
+               'p3': F(ref=True),
+               'p4': F(ref=True),
            },
            description_template=open('_templates/okr.rst', 'r').read(),
-           reference_template='🥅{{ title }}'),
+           reference_template='🎯{{ title }}'),
 Schema('people',
        name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
        attrs={
@@ -150,5 +156,15 @@ Schema('dev',
        },
        description_template=open('_templates/dev.rst', 'r').read(),
        reference_template='🎛️{{ title }}'),
+Schema('loveletter',
+       name=F(ref=True, required=True),
+       attrs={
+           'date': F(ref=True, required=True, indexers=[by_year]),
+           'author': F(ref=True),
+           'createdat': F(indexers=[by_year]),
+           'updatedat': F(indexers=[by_year]),
+       },
+       description_template=open('_templates/loveletter.rst', 'r').read(),
+       reference_template='💌{{ title }}'),
 ]
 

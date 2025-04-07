@@ -336,20 +336,39 @@ comboroles_roles = {
 
 extensions.append('sphinxcontrib.globalsubs')
 global_substitutions = {
-    '?': ':sup_abbr:`存疑 (笔者对此断言存有疑惑，请谨慎参考)`',
-    'i': ':sup_abbr:`个人观点 (这是笔者的个人观点，并无权威出处，请谨慎参考)`',
-    'todo': ':sup_abbr:`待补充 (但什么时候呢？)`',
-    'noref': ':sup_abbr:`来源请求 (此断言也许有出处可考，但暂时无法找到)`', # citation needed
+    '?':        ':sup_abbr:`存疑 (笔者对此断言存有疑惑，请谨慎参考)`',
+    'i':        ':sup_abbr:`个人观点 (这是笔者的个人观点，并无权威出处，请谨慎参考)`',
+    'todo':     ':sup_abbr:`待补充 (但什么时候呢？)`',
+    'noref':    ':sup_abbr:`来源请求 (此断言也许有出处可考，但暂时无法找到)`', # citation needed
 
-    # Marks for TODO list.
+    # Marks for todo list.
     # Role octicon: https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html
-    'o': ':octicon:`issue-closed;1em;sd-text-success`', # done
-    '.': ':octicon:`issue-opened;1em;sd-text-warning`', # wip
-    '_': ':octicon:`issue-draft`',                      # todo
-    'x': ':octicon:`issue-closed;1em;sd-text-danger`',  # fail/wontdo/cancel
-    'p0': ':bdg-danger:`P0`',  # priv high
-    'p1': ':bdg-warning:`P1`', # priv medium
-    'p2': ':bdg-info:`P2`',    # priv low
+    'o':    ':octicon:`issue-closed;1em;sd-text-success`', # done
+    '.':    ':octicon:`issue-opened;1em;sd-text-warning`', # wip
+    '_':    ':octicon:`issue-draft`',                      # todo
+    'x':    ':octicon:`issue-closed;1em;sd-text-danger`',  # fail/wontdo/cancel
+
+    # Marks for priority.
+    'p0':   ':bdg-danger:`P0`',  # priv high
+    'p1':   ':bdg-warning:`P1`', # priv medium
+    'p2':   ':bdg-info:`P2`',    # priv low
+
+    # Marks for progress.
+    '0%':   '🌑',
+    '25%':  '🌘',
+    '50%':  '🌗',
+    '75%':  '🌖',
+    '100%': '🌕',
+    '0/4':  '🌑',
+    '1/4':  '🌘',
+    '2/4':  '🌗',
+    '3/4':  '🌖',
+    '4/4':  '🌕',
+
+    # Marks for ranking.
+    '1st': '🥇',
+    '2nd': '🥈',
+    '3rd': '🥉',
 
     # Abbrs.
     'rst': 'reStructuredText',
