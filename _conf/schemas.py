@@ -162,6 +162,7 @@ Schema('loveletter',
        name=F(ref=True, required=True),
        attrs={
            'date': F(ref=True, required=True, indexers=[by_year]),
+           'nick': F(),
            'author': F(ref=True),
            'createdat': F(indexers=[by_year]),
            'updatedat': F(indexers=[by_year]),
