@@ -121,7 +121,9 @@ _schemas = [
                'p2': F(ref=True),
            },
            description_template=open('_templates/okr.rst', 'r').read(),
-           reference_template='🎯{{ title }}'),
+           reference_template='🎯{{ title }}',
+           missing_reference_template='🎯{{ title }}',
+           ambiguous_reference_template='🎯{{ title }}'),
 Schema('people',
        name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
        attrs={
@@ -165,6 +167,8 @@ Schema('loveletter',
            'updatedat': F(indexers=[by_year]),
        },
        description_template=open('_templates/loveletter.rst', 'r').read(),
-       reference_template='💌{{ title }}'),
+       reference_template='💌{{ title }}',
+       missing_reference_template='💌{{ title }}',
+       ambiguous_reference_template='💌{{ title }}'),
 ]
 
