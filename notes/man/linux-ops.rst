@@ -12,14 +12,20 @@ Linux 运维 Cheat Sheet
 :GUI: `Baobab <https://apps.gnome.org/zh-CN/Baobab/>`_
 :TUI: `ncdu <https://dev.yorhel.nl/ncdu>`_
 
-节约磁盘空间
-============
+节约空间
+--------
 
 清理 pacman cache
 
 清理 Systemd 日志
 
+S.M.A.R.T
+---------
+
+https://wiki.archlinux.org/title/S.M.A.R.T
+
 透明计算
 ========
 
 .. seealso:: :doc:`/ronin/ops/`
+ 
