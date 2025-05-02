@@ -11,34 +11,53 @@ SilverRainZ
    :blog: https://silverrainz.me/
    :avatar: https://github.com/SilverRainZ.png
 
-   - I am Shengyu Zhang, a.k.a *SilverRainZ*, *谷月轩*
-   - Programmer: :ghuser:`SilverRainZ`
-   - Part-time artist: :ref:`any-artwork.id`
-   - Arch Linux user, active member of `Arch Linux CN Community`_
-   - Author of `Srain IRC Client`_
-   - :doc:`enemy` of SilverRainZ
+   I am Shengyu Zhang (张盛宇), AKA ``SilverRainZ``, ``LA``.
+   I was born in 1995, from Guangdong, China, and now live in Hebei, China.
 
-   .. _Free Software: https://www.gnu.org/philosophy/free-sw.html
-   .. _Srain IRC Client: https://srain.silverrainz.me/
-   .. _Arch Linux CN Community: http://archlinuxcn.org
-   .. _LOFTER: http://silverrainz.lofter.com
+   I used to work for Chaitin Tech Inc. (2017~2020), ByteDance Inc. (2021~2024).
+
+I am...
+
+:a programmer: I am SilverRainZ__ on GitHub, checkout my :doc:`resume <resume>` if you are interested
+:an artist on the road: my :ref:`works <any-artwork.id>` are listed here, TODO: portfolio
+:a |linux| user: also a member of `Arch Linux CN Community`__
+:an |oss| author: I created `Srain IRC Client`__, `Sphinx Notes`__ and `more...`__
+
+__ https://github.com/SilverRainZ
+__ http://archlinuxcn.org
+__ https://srain.silverrainz.me/
+__ https://sphinx.silverrainz.me/
+__ https://github.com/SilverRainZ?tab=repositories&q=&type=source&language=&sort=stargazers
+
+.. |linux| replace:: :abbr:`Linux (I use Arch, btw)` 
+.. |oss| replace:: :abbr:`OSS (Open Source Software)` 
+.. |love| replace:: :abbr:`love (❤️)` 
+
+I am passionate about (in no particular order):
+
+- ceating interesting images (in other words: painting)
+- programming (what a typical programmer!)
+- building `structured note taking system`__, which is the website you're visiting now (+2!)
+- building self-hosted services (+3!)
+- saving money (what a typical Chinese!)
+- :people:`Swan`, a lovely girl
+
+__ https://github.com/SilverRainZ/bullet
 
 Contact
 -------
 
 You can contact me in the following ways:
 
-:Email:     :email:`i@silverrainz.me`
-:IRC:       SilverRainZ @ Libera Chat
+:Email:                    :email:`i@silverrainz.me`
+:Email (for job issue):    :email:`job@silverrainz.me`
+:Email (for arch issue):   :email:`la@archlinuxcn.org`
+:IRC:                      :literal_strike:`SilverRainZ@LiberaChat`, 2025: no longer active
+:Matrix:                   ``@la:mozilla.org``
 
 Timeline
 --------
 
 Events worth recording:
 
-.. include:: ./events.txt
-
-Resume
-------
-
-:doc:`./resume`。
+.. include:: ./events.dot

@@ -111,15 +111,3 @@
          当时在画室画的 拉奥孔__ 参加了不少展览。创作也很怪，前途无量。
 
          __ https://mp.weixin.qq.com/s/045bMNUrPfiKnbqf89Y8UQ
-
-
-   .. grid-item-card::
-
-      .. people:: Swan
-                  S
-                  司文
-                  妹妹
-
-         是 :artwork:`有星星和微风的夜晚` 的预言之子。
-
-         是几个亮晶晶的问号，是一撮毛茸茸的阳光，是局促又绵长的 :artwork:`第一天`。
