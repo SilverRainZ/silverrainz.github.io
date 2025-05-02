@@ -1,6 +1,6 @@
-============
-Shell Script
-============
+==========
+Bash Shell
+==========
 
 :date: 2020-12-26
 :version: 1
@@ -96,3 +96,14 @@ Get help::
 :-e: Exit immediately if a command exits with a non-zero status.
 :-x: Print commands and their arguments as they are executed.
 :-u: Treat unset variables as an error when substituting.
+
+
+Array
+=====
+
+Access by index::
+
+   arr=("one" "tow" "three")
+   for i in ${!arr[@]}; do
+       echo $i ${arr[i]}
+   done

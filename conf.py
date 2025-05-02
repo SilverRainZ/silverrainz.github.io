@@ -50,7 +50,6 @@ datefmt = '%Y-%m-%d'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.graphviz',
     'sphinxcontrib.email',
     'sphinx.ext.githubpages',
     'sphinxnotes.strike',
@@ -382,3 +381,6 @@ if D is not D.Local:
 if D is D.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
     extensions.append('sphinxnotes.fasthtml')
+
+extensions.append('sphinx.ext.graphviz')
+graphviz_output_format = 'svg'

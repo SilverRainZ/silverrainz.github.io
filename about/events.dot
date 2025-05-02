@@ -5,6 +5,7 @@
    node [shape=plaintext];
 
     past
+    -> 2013.09
     -> 2014.10
     -> 2015.10
     -> 2016.01
@@ -15,8 +16,6 @@
     -> 2017.06
     -> 2017.00
     -> 2018.09
-    -> 2019.03
-    -> 2019.04
     -> 2019.08
     -> 2019.10
     -> 2020.02
@@ -24,9 +23,14 @@
     -> 2020.07
     -> 2021.06
     -> 2021.09
+    -> 2024.09
+    -> 2024.11
+    -> 2025.05
     -> future [style=invis];
 
     {rank=same past}
+
+    {rank=same 2013.09 enroll_scau[label="Enrolled in SCAU"]}
 
     {rank=same 2014.10 start_os67[label="Start writing OS67"]}
 
@@ -35,7 +39,7 @@
 
     {rank=same 2016.01 start_srain[label="Start writing Srain"]}
 
-    {rank=same 2016.04 start_gsoc2016[label="Get selected for GSoC"]}
+    {rank=same 2016.04 start_gsoc2016[label="Accepted by GSoC"]}
 
     {rank=same 2016.08 end_gsoc2016[label="Finish my summer of code"]}
     start_gsoc2016 -> end_gsoc2016;
@@ -45,23 +49,22 @@
     {rank=same 2017.01 learn_watercolor_jgr[label="Learn classical watercolor from 纪盖荣"]}
 
     {rank=same 2017.06 graduate_scau[label="Graduated from SCAU"]}
+    enroll_scau ->  graduate_scau
 
     {rank=same 2017.06 join_chaitin [label="Join Chaitin Tech as FTE"]}
     intern_chaitin -> join_chaitin;
 
     {rank=same 2017.00 learn_swimming[label="Learn breaststroke"]}
+    learn_watercolor_jgr -> learn_swimming
 
     {rank=same 2018.09 learn_badminton[label="Learn badminton!"]}
     learn_swimming -> learn_badminton;
 
-    {rank=same 2019.03 injure_knee[label="My knee injured because of badminton :'("]}
-    learn_badminton -> injure_knee;
-
-    {rank=same 2019.04 sketch_beidaihe[label="Go to 北戴河 alone for sketching"]}
-
     {rank=same 2019.08 learn_watercolor_taylor[label="Learn landscape watercolor from David Taylor"]}
+    learn_badminton -> learn_watercolor_taylor;
 
-    {rank=same 2019.10 learn_guitar[label="Start learning guitar"]}
+    {rank=same 2019.10 learn_guitar[label="Learning guitar"]}
+    learn_watercolor_taylor -> learn_guitar;
 
     {rank=same 2020.02 announce_srain[label="Announcing Srain 1.0"]}
     start_srain -> announce_srain;
@@ -74,5 +77,11 @@
     start_learn_sketch -> end_learn_sketch;
 
     {rank=same 2021.09 join_bytedance[label="Join ByteDance as FTE"]}
+    {rank=same 2024.09 quit_bytedance[label="Quit from ByteDance"]}
+    join_bytedance -> quit_bytedance;
+
+    {rank=same 2024.11 start_learn_sketch2[label="Learn classical sketch AGAIN from 李晓飞"]}
+    {rank=same 2025.05 end_learn_sketch2[label="End classical sketch course AGAIN"]}
+    start_learn_sketch2 -> end_learn_sketch2;
 
     {rank=same future}
