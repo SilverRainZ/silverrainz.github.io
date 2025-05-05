@@ -2,7 +2,7 @@
 张盛宇
 ======
 
-.. centered:: job@silverrainz.me | (+86)1761089270 | `silverrainz.me`__
+.. centered:: job@silverrainz.me | (+86)176******** | `silverrainz.me`__
 
 __ https://silverrainz.me
 
@@ -26,8 +26,8 @@ __ https://silverrainz.me
 
 基础技能
    :编程语言:  熟练使用 C、Golang、Python，Rust，能阅读和调试 i386/x86_64 汇编
-   :开发工具:  熟悉 Shell、Git、(Neo)Vim、SysteD、Docker；能使用常见的 build System
-   :线上运维:  能熟练使用各大 Linux 发行版，并进行简单的维护和监控
+   :开发工具:  熟练使用 Shell、Git、(Neo)Vim、Makefile、SystemD、Docker
+   :线上运维:  熟练使用各大 Linux 发行版，能进行简单的维护和监控
    :文书处理:  重视文档建设，能熟练阅读、编写英文技术文档，熟悉 Sphinx、Office 等文档工具
    :社区建设:  熟悉开源社区工作流程，拥有较丰富的中小型项目立项、发布、推广、维护经验
 
