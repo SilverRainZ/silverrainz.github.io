@@ -40,6 +40,9 @@ pull:
 migrate-to-permnotes:
 	./_utils/migrate-to-permnotes
 
+resume:
+	./_utils/build-singlepdf ./about/resume.rst
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
