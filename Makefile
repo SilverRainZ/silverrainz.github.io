@@ -38,6 +38,9 @@ pull:
 migrate-to-permnotes:
 	./_utils/migrate-to-permnotes
 
+resume:
+	./_utils/build-singlepdf ./about/resume.rst
+
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 

@@ -369,3 +369,27 @@ extensions.append('sphinx.ext.graphviz')
 graphviz_output_format = 'svg'
 
 extensions.append('sphinxnotes.poc')
+
+latex_toplevel_sectioning = 'section'
+latex_theme = 'howto'
+latex_elements = {
+    'papersize': 'a4paper',
+
+    'preamble': r'''
+        \setcounter{secnumdepth}{0}
+        \date{}
+    ''',
+
+    'maketitle': r'''
+            \title{
+                \textbf{张盛宇}
+                \vspace{-1em}
+            }
+            \author{\vspace{-2em}}
+            \date{\vspace{-2em}}
+            \maketitle
+    ''',
+    'makeindex' : r'',
+    'printindex' : r'',
+    'tableofcontents': r''
+}
