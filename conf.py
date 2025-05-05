@@ -397,7 +397,7 @@ latex_elements = {
 
     'maketitle': r'''
             \title{
-                \textbf{张盛宇}
+                \textbf{Shengyu Zhang}
                 \vspace{-1em}
             }
             \author{\vspace{-2em}}
@@ -408,3 +408,6 @@ latex_elements = {
     'printindex' : r'',
     'tableofcontents': r''
 }
+
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False

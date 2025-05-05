@@ -9,6 +9,9 @@ builddir=$root/_build/singlepdf
 
 mkdir -p $builddir
 cp $root/$doc $srcdir/index.rst
-sphinx-build -M latexpdf $srcdir $builddir --conf-dir $root
+mkdir -p $srcdir/locale/en/LC_MESSAGES
+cp $root/locale/en/LC_MESSAGES/about/resume.mo $srcdir/locale/en/LC_MESSAGES/index.mo
+
+sphinx-build -M latexpdf $srcdir $builddir -Dlanguage=en --conf-dir $root
 
 echo $builddir/latex/sphinx.pdf
