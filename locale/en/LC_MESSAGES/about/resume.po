@@ -1,0 +1,443 @@
+# Translation of resume.pot - English
+# Copyright (C) 2020-2025, Shengyu Zhang
+# This file is distributed under the same license as the Silver Bullet
+# package.
+# Translator: Shengyu Zhang <job@silverrainz.me>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Silver Bullet \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-05 20:25+0800\n"
+"PO-Revision-Date: 2024-05-05 19:21+0800\n"
+"Last-Translator: Shengyu Zhang <job@silverrainz.me>\n"
+"Language: en\n"
+"Language-Team: Shengyu Zhang <job@silverrainz.me>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: ../../about/resume.rst:3
+msgid "张盛宇"
+msgstr "Shengyu Zhang"
+
+#: ../../about/resume.rst:6
+msgid "job@silverrainz.me | (+86)176******** | silverrainz.me"
+msgstr "job@silverrainz.me | (+86)176******** | silverrainz.me"
+
+#: ../../about/resume.rst:10
+msgid "从业经历"
+msgstr "Work Experience"
+
+#: ../../about/resume.rst
+msgid "字节跳动"
+msgstr "ByteDance"
+
+#: ../../about/resume.rst:12
+msgid "基础库研发工程师，2021 ~ 2024"
+msgstr "Library R&D Engineer, 2021 - 2024"
+
+#: ../../about/resume.rst
+msgid "长亭科技"
+msgstr "Chaitin Tech"
+
+#: ../../about/resume.rst:13
+msgid "系统研发工程师，2017 ~ 2020"
+msgstr "System R&D Engineer, 2017 - 2020"
+
+#: ../../about/resume.rst:14
+msgid "实习研发工程师，2016"
+msgstr "R&D Engineering Intern, 2016"
+
+#: ../../about/resume.rst
+msgid "Google Summer of Code"
+msgstr "Google Summer of Code"
+
+#: ../../about/resume.rst:15
+msgid "GNU Hurd developer，2016"
+msgstr "GNU Hurd Developer, 2016"
+
+#: ../../about/resume.rst:18
+msgid "教育经历"
+msgstr "Education Experience"
+
+#: ../../about/resume.rst
+msgid "造型实验室"
+msgstr "XiaoFei Li's Studio"
+
+#: ../../about/resume.rst:20
+msgid "古典素描、当代艺术创作，2024 ~ 2025"
+msgstr "Classical Sketching & Contemporary Art Creation, 2024 - 2025"
+
+#: ../../about/resume.rst:21
+msgid "古典素描，2020 ~ 2021"
+msgstr "Classical Sketching, 2020 - 2021"
+
+#: ../../about/resume.rst
+msgid "华南农业大学"
+msgstr "South China Agricultural University"
+
+#: ../../about/resume.rst:22
+msgid "软件工程，2013 ~ 2017"
+msgstr "Software Engineering, 2013 - 2017"
+
+#: ../../about/resume.rst:25
+msgid "专业技能"
+msgstr "Technical Skills"
+
+#: ../../about/resume.rst:27
+msgid "基础技能"
+msgstr "Basic Skills"
+
+#: ../../about/resume.rst
+msgid "编程语言"
+msgstr "Programming Languages"
+
+#: ../../about/resume.rst:28
+msgid "熟练使用 C、Golang、Python，Rust，能阅读和调试 i386/x86_64 汇编"
+msgstr ""
+"Proficient in C, Golang, Python, Rust; Capable of reading and debugging "
+"i386/x86_64 assembly"
+
+#: ../../about/resume.rst
+msgid "开发工具"
+msgstr "Development Tools"
+
+#: ../../about/resume.rst:29
+msgid "熟练使用 Shell、Git、(Neo)Vim、Makefile、SystemD、Docker"
+msgstr "Experienced with Shell, Git, (Neo)Vim, Makefile, SystemD, Docker"
+
+#: ../../about/resume.rst
+msgid "线上运维"
+msgstr "DevOps"
+
+#: ../../about/resume.rst:30
+msgid "熟练使用各大 Linux 发行版，能进行简单的维护和监控"
+msgstr ""
+"Proficient in major Linux distributions. Capable of basic maintenance "
+"and monitoring"
+
+#: ../../about/resume.rst
+msgid "文书处理"
+msgstr "Documentation"
+
+#: ../../about/resume.rst:31
+msgid "重视文档建设，能熟练阅读、编写英文技术文档，熟悉 Sphinx、Office 等文档工具"
+msgstr ""
+"Strong documentation skills; Fluent in technical English writing; "
+"Experienced with Sphinx and Office suites"
+
+#: ../../about/resume.rst
+msgid "社区建设"
+msgstr "Community Building"
+
+#: ../../about/resume.rst:32
+msgid "熟悉开源社区工作流程，拥有较丰富的中小型项目立项、发布、推广、维护经验"
+msgstr ""
+"Experienced in open-source workflows with comprehensive experience in "
+"initiating, releasing, promoting, and maintaining small/medium projects"
+
+#: ../../about/resume.rst:34
+msgid "细分领域"
+msgstr "Specialized Domains"
+
+#: ../../about/resume.rst
+msgid "操作系统"
+msgstr "Operating Systems"
+
+#: ../../about/resume.rst:35
+msgid "了解操作系统内核基础知识，有小型操作系统内核开发经验"
+msgstr ""
+"Fundamental OS kernel knowledge with experience in small-scale kernel "
+"development"
+
+#: ../../about/resume.rst
+msgid "分布式流处理"
+msgstr "Distributed Stream Processing"
+
+#: ../../about/resume.rst:36
+msgid "熟悉流处理基础知识，主导开发过轻量级的流处理框架并投产"
+msgstr ""
+"Proficient in stream processing fundamentals; Led development of "
+"lightweight stream processing framework for production"
+
+#: ../../about/resume.rst
+msgid "性能优化"
+msgstr "Performance Optimization"
+
+#: ../../about/resume.rst:37
+msgid "熟悉 Golang 程序性能的基准测试和优化手段"
+msgstr "Experienced in Golang performance benchmarking and optimization techniques"
+
+#: ../../about/resume.rst
+msgid "Linux Desktop"
+msgstr "Linux Desktop"
+
+#: ../../about/resume.rst:38
+msgid "能熟练使用 GTK 框架开发原生 Linux 桌面应用程序"
+msgstr ""
+"Proficient in developing native Linux desktop applications using GTK "
+"framework"
+
+#: ../../about/resume.rst:41
+msgid "项目经历"
+msgstr "Project Experience"
+
+#: ../../about/resume.rst:43
+msgid "Go 性能平台 - 字节跳动 / 协作开发 / 2022 ~ 2024"
+msgstr "Go Performance Platform - ByteDance / Collaborator / 2022 - 2024"
+
+#: ../../about/resume.rst:44
+msgid "服务内部数万微服务的一站式性能优化平台，基于线上采样火焰图的火焰图衍生出各种功能。"
+msgstr ""
+"Unified performance optimization platform serving tens of thousands of "
+"microservices, extending flame graph functionality based on on-the-fly "
+"sampling."
+
+#: ../../about/resume.rst:46
+msgid "我的工作："
+msgstr "My contributions:"
+
+#: ../../about/resume.rst
+msgid "代码性能分析"
+msgstr "Code Performance Analysis"
+
+#: ../../about/resume.rst:48
+msgid ""
+"主导开发；动态采样的火焰图 + AST/SSA 级别的静态分析， 能诊断出一个服务中有哪些可以优化的代码片段， "
+"估算其在生产环境中的开销，并给出改写建议"
+msgstr ""
+"Owner; Use dynamic flame graphs + static AST/SSA-level analysis to "
+"identify optimizable code snippets, estimate cost in pord, and provide "
+"refactoring suggestions"
+
+#: ../../about/resume.rst
+msgid "服务稳定性观测"
+msgstr "Service Stability Monitoring"
+
+#: ../../about/resume.rst:51
+msgid "主导开发；针对内部 Go Runtime 的上线各阶段进行稳定性检测"
+msgstr ""
+"Owner; Conduct stability testing for each stage of the internal Go "
+"Runtime publishing"
+
+#: ../../about/resume.rst
+msgid "离线计算"
+msgstr "Offline Computing"
+
+#: ../../about/resume.rst:52
+msgid "参与开发；数万微服务线上采集的火焰图的拆分、存储、计算和重组"
+msgstr ""
+"Collaborator; Splitting, storage, calculation and reorganization of flame"
+" graphs collected on-the-fly from tens of thousands of microservices"
+
+#: ../../about/resume.rst:54
+msgid "Go 泛型基础库 - 字节跳动 / 主导开发 / 2022 ~ 2023"
+msgstr "Go Generics Library - ByteDance / Owner / 2022 - 2023"
+
+#: ../../about/resume.rst:55
+msgid "基于泛型的工具型 Golang 基础库。"
+msgstr "A utility library based on Go generics."
+
+#: ../../about/resume.rst:57
+msgid "设计良好，功能、文档齐全，测试完善，在内部广受好评。在 Go 1.18+ 的内部服务中广泛使用（70%+）。"
+msgstr ""
+"Well-designed with comprehensive features, documentation, and testing. "
+"Well received internally. Widely adopted (70%+) in internal Go 1.18+ "
+"services."
+
+#: ../../about/resume.rst:59
+msgid "github.com/bytedance/gopkg - 字节跳动 / 协作开发 / 2021"
+msgstr "github.com/bytedance/gopkg - ByteDance / Collaborator / 2021"
+
+#: ../../about/resume.rst:60
+msgid "字节开源的 Golang 高性能基础库。"
+msgstr "An open-source high-performance Golang library from ByteDance."
+
+#: ../../about/resume.rst:62
+msgid "我的工作：新增了一个和 redis zset 行为相同的数据结构，在 Tiktok 部分业务中使用。"
+msgstr ""
+"My contribution: Developed a Redis zset-compatible data structure which "
+"is adopted in some of TikTok services"
+
+#: ../../about/resume.rst:64
+msgid "github.com/sphinx-notes - 开源项目 / 独立开发 / 2020 ~ now"
+msgstr "github.com/sphinx-notes - Open Source / Owner / 2020 - Present"
+
+#: ../../about/resume.rst:65
+msgid "用 Python 编写的系列 Sphinx 插件和周边工具。"
+msgstr "Python-based Sphinx plugins and ecosystem tools."
+
+#: ../../about/resume.rst:67
+msgid ""
+"包括：GitHub Action、命令行 Fuzzy Finder、LilyPond 乐谱支持、构建加速、类 Obsidian Dataview "
+"的结构化数据定义等。"
+msgstr ""
+"Features include: GitHub Action integration, CLI fuzzy finder, LilyPond "
+"music notation support, build acceleration, Obsidian Dataview-like "
+"structured data definitions."
+
+#: ../../about/resume.rst:69
+msgid "分布式流处理框架 - 长亭科技 / 主导开发 / 2018 ~ 2020"
+msgstr ""
+"Distributed Stream Processing Framework - Chaitin Tech / Owner / 2018 - "
+"2020"
+
+#: ../../about/resume.rst:70
+msgid "一个轻量的分布式实时流处理框架，可以方便地嵌入各种 Golang 程序中。 参考了 Flink 和 TiDB，根据客户的场景做了针对性的优化。"
+msgstr ""
+"A lightweight distributed real-time stream processing framework in "
+"Golang,  inspired by Flink and TiDB, optimized for our customer's "
+"scenarios."
+
+#: ../../about/resume.rst:73
+msgid "支持集群化部署；支持服务发现；支持动态伸缩"
+msgstr "Supports cluster deployment, service discovery, and dynamic scaling"
+
+#: ../../about/resume.rst:74
+msgid "支持滑动、滚动时间窗口；支持超大滑动时间窗口"
+msgstr "Supports sliding/tumbling windows with large-scale"
+
+#: ../../about/resume.rst:75
+msgid "支持 Streaming SQL；支持 JSON path；实验性支持 JOIN 和子查询"
+msgstr "Supports streaming SQL with JSON path, JOIN query and subquery capability"
+
+#: ../../about/resume.rst:77
+msgid "github.com/SrainApp/srain - 开源项目 / 独立开发 / 2016.01 ~ now"
+msgstr "github.com/SrainApp/srain - Open Source / Owner / 2016.01 - Present"
+
+#: ../../about/resume.rst:78
+msgid "使用 C 语言 + GTK 框架开发的现代化 IRC 聊天客户端。"
+msgstr "Modern IRC client developed in C with GTK framework."
+
+#: ../../about/resume.rst:80
+msgid ""
+"支持 Linux/BSD/macOS/Windows 多系统；全键盘操作；针对 IRC 的若干缺陷做了改良：支持图片预览、支持 Bridge "
+"Bot 优化显示。"
+msgstr ""
+"Cross-platform support (Linux/BSD/macOS/Windows); Keyboard-driven "
+"interface; Enhanced IRC experience with image preview and bridge bot "
+"optimizations."
+
+#: ../../about/resume.rst:82
+msgid "github.com/SilverRainZ/OS67 - 开源项目 / 独立开发 / 2014.10 ~ 2015.10"
+msgstr "github.com/SilverRainZ/OS67 - Open Source / Owner / 2014.10 - 2015.10"
+
+#: ../../about/resume.rst:83
+msgid "使用 C 语言开发的 Unix-like 玩具操作系统内核，参考了 OSASK、Orange's 和 MIT6.628。"
+msgstr "Unix-like toy OS kernel in C, inspired by OSASK, Orange's, and MIT 6.828."
+
+#: ../../about/resume.rst:85
+msgid "支持虚拟内存管理、Minix 文件系统、基于 fork/exec 的多线程、用户级系统调用、支持 Shell 和简单的管道。"
+msgstr ""
+"Implements virtual memory management, Minix filesystem, fork/exec-based "
+"multithreading, user-level syscalls, shell with basic piping."
+
+#: ../../about/resume.rst:88
+msgid "开源活动"
+msgstr "Open Source Contributions"
+
+#: ../../about/resume.rst:90
+msgid "Arch Linux"
+msgstr "Arch Linux"
+
+#: ../../about/resume.rst:91
+msgid "2016 年至今，为 Arch Linux CN Repository 维护软件包 100 余个，提交数量排名 #12"
+msgstr ""
+"Maintained 100+ packages for Arch Linux CN Repository since 2016 (Ranked "
+"#12 by commit count)"
+
+#: ../../about/resume.rst:92
+msgid "编写并维护 Arch User Repository 软件包 20 余个，其中包括 Jekyll、GTK4 等尚未被官方收录的流行软件"
+msgstr ""
+"Authored and maintain 20+ AUR packages including Jekyll and GTK4 before "
+"official adoption"
+
+#: ../../about/resume.rst:94
+msgid "The Go Language"
+msgstr "The Go Language"
+
+#: ../../about/resume.rst:95
+msgid "为 Golang 提交过 7+ commits。"
+msgstr "Contributed 7+ commits to Golang core"
+
+#: ../../about/resume.rst:97
+msgid "Sphinx Documentation Generator"
+msgstr "Sphinx Documentation Generator"
+
+#: ../../about/resume.rst:98
+msgid "为 Sphinx 提交过 6+ commits。"
+msgstr "Submitted 6+ commits to Sphinx project"
+
+#: ../../about/resume.rst:100
+msgid "SphinxNotes 其下的项目被 Microsoft、PHP、Haskell 等知名公司和组织使用。"
+msgstr ""
+"Some of SphinxNotes projects are adopted by Microsoft, PHP, Haskell, and "
+"other notable organizations"
+
+#: ../../about/resume.rst:102
+msgid "IRC"
+msgstr "IRC"
+
+#: ../../about/resume.rst:103
+msgid "IRC 客户端 Srain 被 Debian、Ubuntu、Fedora 等 10+ Linux 发行版收录。"
+msgstr ""
+"Srain IRC client officially included in 10+ Linux distributions including"
+" Debian, Ubuntu, Fedora"
+
+#: ../../about/resume.rst:105
+msgid "为流行客户端 HexChat、Issi 均贡献过代码。"
+msgstr "Contributed to popular clients like HexChat and Issi"
+
+#: ../../about/resume.rst:107
+msgid "其他"
+msgstr "Additional Activities"
+
+#: ../../about/resume.rst:108
+msgid "在 GitHub 上获得 1300+ 星标（SilverRainZ 800+、SrainApp 300+、SphinxNotes 100+）"
+msgstr ""
+"Earned 1,300+ stars on GitHub (SilverRainZ 800+, SrainApp 300+, "
+"SphinxNotes 100+)"
+
+#: ../../about/resume.rst:109
+msgid "为中科大 Linux 用户协会（USTCLUG）设计社团 LOGO"
+msgstr ""
+"Designed official logo for USTC Linux User Group of National Taichung "
+"University of Science and Technology (USTCLUG)"
+
+#: ../../about/resume.rst:110
+msgid "维护 PNMixer 的中文翻译"
+msgstr "Maintained Chinese localization for PNMixer"
+
+#: ../../about/resume.rst:113
+msgid "专利"
+msgstr "Patents"
+
+#: ../../about/resume.rst
+msgid "CN109889530B"
+msgstr "CN109889530B"
+
+#: ../../about/resume.rst:115
+msgid "Web 应用防火墙系统及计算机存储介质"
+msgstr "Web Application Firewall System and Computer Storage Medium"
+
+#: ../../about/resume.rst
+msgid "CN111158683A"
+msgstr "CN111158683A"
+
+#: ../../about/resume.rst:116
+msgid "一种 Web 应用防火墙自定义扩展功能的方法、装置、系统及电子设备"
+msgstr ""
+"A Method, Apparatus, System, and Electronic Device for Extending "
+"Functionality of Web Application Firewalls"
+
+#: ../../about/resume.rst
+msgid "CN110334117A"
+msgstr "CN110334117A"
+
+#: ../../about/resume.rst:117
+msgid "一种实时数据处理方法及装置"
+msgstr "A Real-Time Data Processing Method and Apparatus"
+

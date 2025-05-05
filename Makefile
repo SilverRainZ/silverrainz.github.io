@@ -5,10 +5,12 @@
 # from the environment for the first two.
 SPHINXOPTS    ?= -j auto
 SPHINXBUILD   ?= python3 -msphinx
+SPHINXSERV    ?= sphinx-autobuild
+SPHINXINTL    ?= sphinx-intl
 SOURCEDIR     = .
 BUILDDIR      = _build
+LOCALEDIR     = locale
 LANG          = en_US.UTF-8
-SPHINXSERV    ?= sphinx-autobuild
 MAKE          = make
 
 default: fast
@@ -39,7 +41,15 @@ migrate-to-permnotes:
 	./_utils/migrate-to-permnotes
 
 resume:
-	./_utils/build-singlepdf ./about/resume.rst
+	cd _utils && ./singlepdf about/resume.rst
+
+en:
+	$(MAKE) gettext
+	$(SPHINXINTL) update --pot-dir $(BUILDDIR)/gettext \
+						 --locale-dir $(LOCALEDIR) \
+						 --language $@ \
+						 --jobs 1 # job=1 to prevent panic
+	$(MAKE) html SPHINXOPTS=-Dlanguage=$@
 
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
