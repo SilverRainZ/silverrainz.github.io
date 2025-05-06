@@ -1,51 +1,43 @@
-:编号: :okr.id+by-path:`{{ id.split('-')[0] }} <{{ id }}>`\ ``-{{ id.split('-', maxsplit=1)[1]}}``
+:编号: :okr.id+by-path:`{{ id.split('-') | first }} <{{ id }}>`\ ``-{{ id.split('-', maxsplit=1) | first }}``
 :优先级: {% if p0 is defined %}|p0|{% elif p1 is defined %}|p1|{% else %}|p2|{% endif %} 
 {% if id.count('-') == 2 %}:对齐: :okr:`{{ id.rsplit('-', maxsplit=1)[0] }}`{% endif %}
 
+{% if krs %}
+.. note:: 2025 前的 OKR 使用旧格式，已归档，请勿用此格式创建新 OKR
+.. code:: python
+   
+   {{ krs }}
+
+{% else %}
 .. list-table::
    :header-rows: 1
    :align: center
    :widths: auto
 
-   * - Key Result
+   * - KR
      - 进度
-     - 分数
 
-   {# TODO: 2025-04-27: compat for old schema #}
-   {% for n in range(krs | length) %}
-   * - {{ krs[n] }}
-     - {% if hrs and hrs | length > n and hrs[n] != '_' %} {{ hrs[n] }} 小时 {% else %} ⁿ̷ₐ {% endif %}
-     - {% if progs and progs | length > n and progs[n] != '_' %} |{{ progs[n]}}| {% else %} ⁿ̷ₐ {% endif %}
-     - {% if scores and scores | length > n and scores[n] != '_' %} |{{ scores[n] }}| {% else %} ⁿ̷ₐ {% endif %}
-   {% endfor %}
-
-   {% if kr1 %}
-   * - {% for line in kr1 %}
-       {{ line }}
+{% for i in range(1, 10) %}
+   {% set kr = _['kr%d' % i] %}
+   {%- if not kr %}{% continue %}{% endif %}
+   {% set ns = namespace(progress = 'ⁿ̷ₐ', priority = 'p2') %}
+   * - {% for line in kr %}
+       {% if loop.first %}
+          {% for v in line.split(' | ') %}
+             {% if loop.last %}{% break%}{% endif %}
+             {% if v.startswith('p') %}
+               {% set ns.priority = v | trim %}
+             {% elif '/' in v %}
+               {% set ns.progress = v | trim %}
+             {% endif %}
+          {% endfor %}
+       |{{ ns.priority }}| {{ line.split(' | ') | last | trim }}
+       {% else %}
+       {{ line | trim }}
+       {% endif %}
        {% endfor %}
-     - {{ done1 or 'ⁿ̷ₐ' }}
-     - {{ score1 or 'ⁿ̷ₐ' }}
-   {% endif %}
-   {% if kr2 %}
-   * - {% for line in kr2 %}
-       {{ line }}
-       {% endfor %}
-     - {{ done2 or 'ⁿ̷ₐ' }}
-     - {{ score2 or 'ⁿ̷ₐ' }}
-   {% endif %}
-   {% if kr3 %}
-   * - {% for line in kr3 %}
-       {{ line }}
-       {% endfor %}
-     - {{ done3 or  }}
-     - {{ score3 or 'ⁿ̷ₐ' }}
-   {% endif %}
-   {% if kr4 %}
-   * - {% for line in kr4 %}
-       {{ line }}
-       {% endfor %}
-     - {{ done4 or 'ⁿ̷ₐ' }}
-     - {{ score4 or 'ⁿ̷ₐ' }}
-   {% endif %}
+     - {{ ns.progress }}
+{% endfor %}
+{% endif %}
 
 {{ content }}
