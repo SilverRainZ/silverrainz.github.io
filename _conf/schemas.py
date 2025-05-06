@@ -111,27 +111,19 @@ _schemas = [
            name=F(ref=True, required=True),
            attrs={
                'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen2]),
-               'krs': F(form=F.Forms.LINES),
-               'hrs': F(form=F.Forms.WORDS),
-               'progs': F(form=F.Forms.WORDS),
-               'scores': F(form=F.Forms.WORDS),
 
                'kr1': F(form=F.Forms.LINES),
                'kr2': F(form=F.Forms.LINES),
                'kr3': F(form=F.Forms.LINES),
                'kr4': F(form=F.Forms.LINES),
-               'done1': F(),
-               'done2': F(),
-               'done3': F(),
-               'done4': F(),
-               'score1': F(),
-               'score2': F(),
-               'score3': F(),
-               'score4': F(),
+               'kr5': F(form=F.Forms.LINES),
+               'kr6': F(form=F.Forms.LINES),
 
                'p0': F(ref=True),
                'p1': F(ref=True),
                'p2': F(ref=True),
+
+               'krs': F(form=F.Forms.LINES), # deprecated
            },
            description_template=open('_templates/okr.rst', 'r').read(),
            reference_template='🎯{{ title }}',
