@@ -163,3 +163,9 @@ Get package version (commonly used for ``--version``)::
 
     from importlib.metadata import version
     version('sphinxnotes.any')
+
+Install package from GitHub::
+
+   git+https://github.com/python/mypy.git@master
+
+.. seealso:: `VCS Support - pip documentation <https://pip.pypa.io/en/stable/topics/vcs-support/>`_

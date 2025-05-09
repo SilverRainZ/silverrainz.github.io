@@ -28,7 +28,7 @@
              {% if v.startswith('p') %}
                {% set ns.priority = v | trim %}
              {% elif '/' in v %}
-               {% set ns.progress = v | trim %}
+               {% set ns.progress = ':progress:`%s`' % v | trim %}
              {% endif %}
           {% endfor %}
        |{{ ns.priority }}| {{ line.split(' | ') | last | trim }}
