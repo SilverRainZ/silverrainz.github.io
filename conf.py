@@ -353,23 +353,6 @@ global_substitutions = {
     'p1':   ':bdg-warning:`P1`', # priv medium
     'p2':   ':bdg-info:`P2`',    # priv low
 
-    # Marks for progress.
-    '0%':   '🌑',
-    '25%':  '🌘',
-    '50%':  '🌗',
-    '75%':  '🌖',
-    '100%': '🌕',
-    '0/4':  '🌑',
-    '1/4':  '🌘',
-    '2/4':  '🌗',
-    '3/4':  '🌖',
-    '4/4':  '🌕',
-
-    # Marks for ranking.
-    '1st': '🥇',
-    '2nd': '🥈',
-    '3rd': '🥉',
-
     # Abbrs.
     'rst': 'reStructuredText',
 }
@@ -384,3 +367,5 @@ if D is D.Local:
 
 extensions.append('sphinx.ext.graphviz')
 graphviz_output_format = 'svg'
+
+extensions.append('sphinxnotes.poc')
