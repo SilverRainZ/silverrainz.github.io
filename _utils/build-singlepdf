@@ -1,0 +1,17 @@
+#!/bin/bash
+
+doc=$1
+[ -f $doc ] || exit 1
+
+root=$(git rev-parse --show-toplevel)
+srcdir=$(mktemp -d)
+builddir=$root/_build/singlepdf
+
+mkdir -p $builddir
+cp $root/$doc $srcdir/index.rst
+mkdir -p $srcdir/locale/en/LC_MESSAGES
+cp $root/locale/en/LC_MESSAGES/about/resume.mo $srcdir/locale/en/LC_MESSAGES/index.mo
+
+sphinx-build -M latexpdf $srcdir $builddir -Dlanguage=en --conf-dir $root
+
+echo $builddir/latex/sphinx.pdf

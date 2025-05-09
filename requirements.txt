@@ -1,10 +1,12 @@
-# Use patched requirement::
+# TIP: Use patched requirement::
 #
-#   name @ git+https://example.com/foo/bar.git
+#   name @ git+https://example.com/foo/bar.git#
+#
+# See: https://pip.pypa.io/en/stable/topics/vcs-support/
 sphinxcontrib-email
 sphinxcontrib-images>=0.9.3
 sphinxnotes-lilypond>=2.0.0
-sphinxnotes-any>=3.0a4
+sphinxnotes-any@git+https://github.com/sphinx-notes/any.git@master
 sphinx-design
 ablog
 sphinx-autobuild
@@ -35,3 +37,4 @@ sphinxcontrib-globalsubs>=0.1.2
 sphinx_simplepdf
 sphinxnotes-fasthtml
 pyyaml
+sphinxnotes-poc@git+https://github.com/sphinx-notes/poc.git@master

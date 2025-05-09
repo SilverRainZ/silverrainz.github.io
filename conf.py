@@ -353,23 +353,6 @@ global_substitutions = {
     'p1':   ':bdg-warning:`P1`', # priv medium
     'p2':   ':bdg-info:`P2`',    # priv low
 
-    # Marks for progress.
-    '0%':   '🌑',
-    '25%':  '🌘',
-    '50%':  '🌗',
-    '75%':  '🌖',
-    '100%': '🌕',
-    '0/4':  '🌑',
-    '1/4':  '🌘',
-    '2/4':  '🌗',
-    '3/4':  '🌖',
-    '4/4':  '🌕',
-
-    # Marks for ranking.
-    '1st': '🥇',
-    '2nd': '🥈',
-    '3rd': '🥉',
-
     # Abbrs.
     'rst': 'reStructuredText',
 }
@@ -384,3 +367,30 @@ if D is D.Local:
 
 extensions.append('sphinx.ext.graphviz')
 graphviz_output_format = 'svg'
+
+latex_toplevel_sectioning = 'section'
+latex_theme = 'howto'
+latex_elements = {
+    'papersize': 'a4paper',
+
+    'preamble': r'''
+        \setcounter{secnumdepth}{0}
+        \date{}
+    ''',
+
+    'maketitle': r'''
+            \title{
+                \textbf{Shengyu Zhang}
+                \vspace{-1em}
+            }
+            \author{\vspace{-2em}}
+            \date{\vspace{-2em}}
+            \maketitle
+    ''',
+    'makeindex' : r'',
+    'printindex' : r'',
+    'tableofcontents': r''
+}
+
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False
