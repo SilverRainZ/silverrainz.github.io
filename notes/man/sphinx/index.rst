@@ -77,6 +77,10 @@ __ https://www.sphinx-doc.org/en/master/extdev/utils.html?highlight=SphinxDirect
 测试
 ~~~~
 
+运行单个测试::
+
+   $ make test TEST=./tests/test_domains/test_domain_py.py::test_deco
+
 Test Fixtures
    :py:meth:`sphinx.testing.fixture.app` 实现了一个 `pytest fixture`__
    能够返回一个测试用的 application 对象 :py:class:`sphinx.testing.utilSphinxTestApp`。
