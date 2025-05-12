@@ -1,6 +1,6 @@
-==========
-Bash Shell
-==========
+=====
+Shell
+=====
 
 :date: 2020-12-26
 :version: 1
@@ -98,8 +98,8 @@ Get help::
 :-u: Treat unset variables as an error when substituting.
 
 
-Array
-=====
+数组
+====
 
 Access by index::
 
@@ -107,3 +107,12 @@ Access by index::
    for i in ${!arr[@]}; do
        echo $i ${arr[i]}
    done
+
+交互式数组
+==========
+
+.. highlight:: console
+
+查看行编辑快捷键::
+
+   $ bindkey -M
