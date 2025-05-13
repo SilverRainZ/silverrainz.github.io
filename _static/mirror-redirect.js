@@ -12,10 +12,10 @@ function rewriteSourcePageURLs() {
     var currentPath = window.location.pathname;
     const currentHash = window.location.hash;
 
-    // 如果当前路径中包含 _build/html，说明这是在本地构建的
-    const buildIndex = currentPath.indexOf("_build/html/");
+    // 移除 Homelab 部署的前缀，see also _conf/deploy.py
+    const buildIndex = currentPath.indexOf("bullet/");
     if (buildIndex !== -1) {
-        currentPath = currentPath.substring(buildIndex + "_build/html/".length);
+        currentPath = currentPath.substring(buildIndex + "bullet/".length);
     }
 
     // 获取所有 class 为 source-page 的链接元素
@@ -23,8 +23,9 @@ function rewriteSourcePageURLs() {
 
     // 循环遍历所有链接元素
     for (let i = 0; i < links.length; i++) {
+        console.log()
         const url = new URL(links[i].href);
-        url.pathname = currentPath;
+        url.pathname += currentPath;
         links[i].href = url.toString() + currentHash;
     }
 }
