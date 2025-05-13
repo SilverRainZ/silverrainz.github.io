@@ -1,3 +1,4 @@
 #!/bin/sh
 
-cp _static/* _build/html/_static/
+source .common.sh
+cp $srcdir/_static/* $builddir/html/_static/
