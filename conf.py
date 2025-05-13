@@ -162,12 +162,19 @@ html_theme_options = {
 # html_theme_options['announcement'] = '</p>blahblah… </p>
 
 if D.is_mirror():
-    src = D.Github
-    msg = f'<p> 这是部署于 {D} 的镜像，访问源站点：<a class="source-page" href="{src.url()}">{src}</a></p>'
-    if html_theme_options.get('announcement'):
-        html_theme_options['announcement'] += msg
+    if not D.is_private():
+        msg = f'''<p>
+            这是部署于 {D} 的镜像，访问源站点：
+            <a class="source-page" href="{D.Github.url()}">{D.Github}</a>
+        </p>'''
     else:
-        html_theme_options['announcement'] = msg
+        msg = f'''<p>
+            当前：{D}，访问：
+            <a class="source-page" href="{D.Github.url()}">{D.Github}</a> |
+            <a class="source-page" href="{D.Homelab.url()}">{D.Homelab}</a> |
+            <a class="source-page" href="{D.Local.url()}">{D.Local}</a>
+        </p>'''
+    html_theme_options['announcement'] = html_theme_options.get('announcement', '') + msg
     html_js_files.append('mirror-redirect.js')
 
 html_css_files.append('sphinx-book-theme-custom.css')
