@@ -16,3 +16,7 @@ ronin
 
 # Python
 __pycache__
+
+# Sphinx-intl
+locale/
+*.mo
