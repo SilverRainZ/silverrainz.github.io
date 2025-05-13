@@ -9,7 +9,8 @@ sphinxnotes-lilypond>=2.0.0
 sphinxnotes-any@git+https://github.com/sphinx-notes/any.git@master
 sphinx-design
 ablog
-sphinx-autobuild
+# https://github.com/sphinx-doc/sphinx-autobuild/pull/143
+sphinx-autobuild @ git+https://github.com/SilverRainZ/sphinx-autobuild.git
 sphinxcontrib.gtagjs
 sphinxnotes-snippet
 sphinxnotes-strike

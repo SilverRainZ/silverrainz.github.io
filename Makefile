@@ -17,9 +17,7 @@ view:
 	xdg-open "$(BUILDDIR)/html/index.html"
 
 serve:
-	$(SPHINXSERV) $(SOURCEDIR) $(BUILDDIR)/html \
-		--builder fasthtml --doctree-dir $(BUILDDIR)/doctrees \
-		--port 30500 --open-browser
+	cd _utils && ./autobuild
 
 commit:
 	git commit -m "$(shell date +'%Y-%m-%d %H:%M')"
@@ -40,7 +38,6 @@ pull:
 migrate-to-permnotes:
 	./_utils/migrate-to-permnotes
 
-# Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 

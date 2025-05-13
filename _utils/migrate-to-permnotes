@@ -1,15 +1,15 @@
 #!/bin/bash
 # set -x
 
-root=$(git rev-parse --show-toplevel)
-cd $root
+source .common.sh
+cd $srcdir
 
 eval "$(snippet integration --sh)"
 id=$(snippet_list --tags d)
 file=$(snippet get $id --file)
 docname=$(snippet get $id --docname)
 
-new_file="$root/p/$(basename $file)"
+new_file="$srcdir/p/$(basename $file)"
 new_docname="p/$(basename $docname)"
 
 mv $file $new_file
