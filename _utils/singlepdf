@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# set -x
+
+source .common.sh
+tmpsrcdir=$(mktmpdir)
+builddir=$builddir/singlepdf
+
+doc=$1
+[ -f "$srcdir/$doc" ] || exit 1
+
+mkdir -p $builddir
+cp $srcdir/$doc $tmpsrcdir/index.rst
+mkdir -p $tmpsrcdir/locale/en/LC_MESSAGES
+cp $srcdir/locale/en/LC_MESSAGES/about/resume.mo $tmpsrcdir/locale/en/LC_MESSAGES/index.mo
+
+sphinx-build -M latexpdf $tmpsrcdir $builddir -Dlanguage=en --conf-dir $srcdir
+
+echo $builddir/latex/sphinx.pdf
