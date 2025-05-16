@@ -8,7 +8,6 @@
 ====
 
 重返燕郊，跟着新一期创作班，以 ``xfczk4`` 为 ID，继续开始小创作。材料以水粉为主，随心画画，攒满 50 张。
-
 大部分会以记录心境为主，这件事情我已经轻车熟路了，痛苦可以滋生出让人沉醉的画面，但是痛苦也会吸食我的脑浆，我不知道怎么摆脱它们，也许 :book:`艺术的故事` 能够帮到我吗？
 
 闲敲棋子落灯花
@@ -225,12 +224,144 @@ __ https://www.sohu.com/a/561991177_619150
 
 __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 
-TODO
-----
+带有巨大延迟的拒绝
+------------------
 
 .. artwork:: _
    :id: xfczk4-017
-   :date: 2024-12-13
+   :date: 2024-12-12
    :medium: 水粉 水彩
    :image: /_images/2024-12-13_133355.png
    :album: album-a5-2
+
+红蓝和谐试作五
+--------------
+
+.. artwork:: _
+   :id: xfczk4-018
+   :date: 2024-12-13
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+红蓝和谐试作六
+--------------
+
+.. artwork:: _
+   :id: xfczk4-019
+   :date: 2024-12-17
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+老朋友
+------
+
+.. artwork:: _
+   :id: xfczk4-020
+   :date: 2024-12-18
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+指过呼吸。
+
+平安夜（一）
+------------
+
+.. artwork:: _
+   :id: xfczk4-021
+   :date: 2024-12-25
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+平安夜（二）
+------------
+
+.. artwork:: _
+   :id: xfczk4-022
+   :date: 2024-12-26
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+轻微的纯度游戏
+--------------
+
+.. artwork:: _
+   :id: xfczk4-023
+   :date: 2024-12-28
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+于是妹妹尝试修正错位
+--------------------
+
+.. artwork:: _
+   :id: xfczk4-024
+   :date: 2024-12-29
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+本来是一张表达错位的画，在妹妹的鼓舞下改成了合家欢。
+
+失去的前一瞬间
+--------------
+
+.. artwork:: _
+   :id: xfczk4-025
+   :date: 2025-01-09
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+..
+
+   失去的前一瞬间像是你沿着楼梯的扶手摸索，像往常一样伸手却摸了个空。
+
+.. seealso:: :artwork:`一种玫瑰标本及其制备工艺` 
+
+
+启动
+====
+
+.. artwork:: _
+   :id: xfczk4-026
+   :date: 2025-01-12
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+烂。
+
+鳗鱼、树、生命的线索
+====================
+
+.. artwork:: _
+   :id: xfczk4-028
+   :date: 2025-01-12
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+| 妹妹说要画一张关于��的画。
+| 
+| 妹妹又说：「希望我是一颗大树」。
+| 我是什么呢？
+| 我是快不起来的执着。
+| 我是害怕游到岸上的鱼。
+
+盲人摸象
+========
+
+.. artwork:: _
+   :id: xfczk4-0??
+   :date: 2025-05-15
+   :medium: 水粉
+   :image:
+   :album: album-a5-2
+
+被赋予的太多，感受到的太少。
