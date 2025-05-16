@@ -45,11 +45,13 @@ Write to file::
    ... Heredoc content
    EOF
 
-Output to variable::
+Output to variable, 使用时需要 quote 以保持原格式 ``"$VAR"``::
 
    read -r -d '' VAR << EOF
    ... Heredoc content
    EOF
+
+.. seealso:: `How can I assign a heredoc value to a variable in Bash? - Stack Overflow <https://stackoverflow.com/questions/1167746/how-can-i-assign-a-heredoc-value-to-a-variable-in-bash>`_
 
 Command Line Arguments
 ======================
