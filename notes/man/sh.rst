@@ -53,6 +53,8 @@ Output to variable, 使用时需要 quote 以保持原格式 ``"$VAR"``::
 
 .. seealso:: `How can I assign a heredoc value to a variable in Bash? - Stack Overflow <https://stackoverflow.com/questions/1167746/how-can-i-assign-a-heredoc-value-to-a-variable-in-bash>`_
 
+``<<-EOF`` will ignore leading tabs in your heredoc, while ``<<EOF`` will not.
+
 Command Line Arguments
 ======================
 
@@ -62,8 +64,8 @@ Number of pass-in arguments::
 
 The "pass-in argument list::
 
-    $* # Default, an *array*
-    $@ # Default, a *string*
+    $* # Default, an *string*
+    $@ # Default, a *array*
 
 The arguments of previous command::
 
