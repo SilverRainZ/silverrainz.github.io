@@ -51,7 +51,7 @@ Go 性能平台 - 字节跳动 / 协作开发 / 2022 ~ 2024
    :服务稳定性观测:  主导开发；针对内部 Go Runtime 的上线各阶段进行稳定性检测
    :离线计算:        参与开发；数万微服务线上采集的火焰图的拆分、存储、计算和重组
 
-Go 泛型基础库 - 字节跳动 / 主导开发 / 2022 ~ 2023
+github.com/bytedance/gg - 字节跳动 / 主导开发 / 2022 ~ 2024, 2025 ~ now
    基于泛型的工具型 Golang 基础库。
 
    设计良好，功能、文档齐全，测试完善，在内部广受好评。在 Go 1.18+ 的内部服务中广泛使用（70%+）。
@@ -95,7 +95,7 @@ The Go Language
    为 Golang 提交过 7+ commits。
 
 Sphinx Documentation Generator
-   为 Sphinx 提交过 6+ commits。
+   为 Sphinx 提交过 10+ commits。
 
    SphinxNotes 其下的项目被 Microsoft、PHP、Haskell 等知名公司和组织使用。
 
