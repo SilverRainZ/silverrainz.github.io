@@ -3,7 +3,6 @@ from enum import Enum, auto
 
 class Deployment(Enum):
     Github = auto()
-    Gitee = auto()
     Homelab = auto()
     Local = auto()
 
@@ -13,15 +12,13 @@ class Deployment(Enum):
             return Deployment.Homelab
         if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
             return Deployment.Github
-        if os.environ.get('GITHUB_WORKFLOW') == 'Publish Gitee Pages':
-            return Deployment.Gitee
         return Deployment.Local
 
     def is_private(self) -> bool:
         return not self.is_public()
 
     def is_public(self) -> bool:
-        return self in [Deployment.Github, Deployment.Gitee]
+        return self in [Deployment.Github]
 
     def is_mirror(self) -> bool:
         return self is not Deployment.Github
@@ -29,8 +26,6 @@ class Deployment(Enum):
     def url(self) -> str:
         if self == Deployment.Github:
             return 'https://silverrainz.me/'
-        elif self == Deployment.Gitee:
-            return 'https://silverrainz.gitee.io/'
         elif self == Deployment.Homelab:
             return 'https://rpi3.tailnet-ecdc.ts.net/bullet'
         elif self == Deployment.Local:
