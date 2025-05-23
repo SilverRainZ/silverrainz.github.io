@@ -48,7 +48,9 @@ Sphinx + Sphinx Notes
       :width: 50%
       :margin: 0 2 auto 0 
 
-      为方便国内访问，建立 Gitee 镜像，地址为： https://silverrainz.gitee.io
+      :del:`为方便国内访问，建立 Gitee 镜像，地址为： https://silverrainz.gitee.io`
+
+      .. seealso:: Gitee Pages 因不可抗力潦草下线：`关于GiteePages无法启动和更新的看过来！ · Issue #I9L5FJ · 开源中国/Gitee Feedback - Gitee.com <https://gitee.com/oschina/git-osc/issues/I9L5FJ>`_
 
    .. card:: 2020-12
       :width: 50%

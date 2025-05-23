@@ -296,10 +296,7 @@ html_css_files.append('ablog-custom.css')
 
 if D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
-    if D is D.Github:
-        gtagjs_ids = ['G-FYHS50G6DL']
-    elif D is D.Gitee:
-        gtagjs_ids = ['G-5MZDR9VPYN']
+    gtagjs_ids = ['G-FYHS50G6DL']
 
 if D is D.Local:
     extensions.append('sphinxnotes.snippet')
