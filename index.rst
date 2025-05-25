@@ -37,10 +37,10 @@
          :caption: 浪人泊处
          :maxdepth: 1
 
-         ronin/inbox/index
-         ronin/okr/index
-         ronin/ops/index
-         ronin/loveletters/index
+         in/inbox/index
+         in/okr/index
+         in/ops/index
+         in/loveletters/index
 
 --------------------------------------------------------------------------------
 
