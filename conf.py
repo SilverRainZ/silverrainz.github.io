@@ -303,7 +303,7 @@ if D is D.Local:
     snippet_config = {}
     snippet_patterns = {
         'd': ['.*'],
-        's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'ronin/.*'],
+        's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'in/.*'],
         'c': ['p/.*', 'notes/man/.*'],
     }
 
@@ -311,7 +311,7 @@ if D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
     isso_include_patterns = ['**',]
-    isso_exclude_patterns = ['index', 'ronin/**']
+    isso_exclude_patterns = ['index', 'in/**']
 
 if D.is_public():
     extensions.append('sphinx_sitemap')

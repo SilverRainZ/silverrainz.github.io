@@ -34,7 +34,6 @@ case $action in
             --doctree-dir $builddir/doctrees \
             --builder fasthtml \
             --re-ignore ".git/*" \
-            --watch "$srcdir/../ronin" \
             --host $host \
             --port $port \
             --pre-build "$PWD/$0 pre" \

@@ -2,7 +2,7 @@
 Linux 运维 Cheat Sheet
 ======================
 
-.. seealso:: 特定机器上的运维手册参见 :doc:`/ronin/ops/`
+.. seealso:: 特定机器上的运维手册参见 :doc:`/in/ops/`
 
 磁盘管理
 ========
@@ -27,5 +27,5 @@ https://wiki.archlinux.org/title/S.M.A.R.T
 透明计算
 ========
 
-.. seealso:: :doc:`/ronin/ops/`
+.. seealso:: :doc:`/in/ops/`
  
