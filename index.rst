@@ -38,7 +38,7 @@
          :maxdepth: 1
 
          in/inbox/index
-         in/okr/index
+         in/gtd/okr/index
          in/ops/index
          in/loveletters/index
 
