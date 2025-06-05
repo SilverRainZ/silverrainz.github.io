@@ -12,15 +12,20 @@ String
 
 Get length::
 
-    ${#str}
+   ${#str}
 
 Substring / Slice::
 
-    ${str:1:4}
+   ${str:1:4}
 
 Replace::
 
-    ${v%.md}.rst
+   ${v%.md}.rst
+
+Prefix & Subfix::
+
+   ${foo#"$prefix"}
+   ${foo%"$suffix"}
 
 Heredoc
 -------
@@ -120,3 +125,26 @@ Access by index::
 查看行编辑快捷键::
 
    $ bindkey -M
+
+
+Switch Case
+===========
+
+.. highlight:: shell
+
+::
+
+   case word in
+      pattern1)
+         Statement(s) to be executed if pattern1 matches
+         ;;
+      pattern2)
+         Statement(s) to be executed if pattern2 matches
+         ;;
+      pattern3)
+         Statement(s) to be executed if pattern3 matches
+         ;;
+      *)
+        Default condition to be executed
+        ;;
+   esac
