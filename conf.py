@@ -159,7 +159,7 @@ html_theme_options = {
 }
 
 # Setup announcement as your need
-# html_theme_options['announcement'] = '</p>blahblah… </p>
+html_theme_options['announcement'] = '</p>因服务器系统升级，评论功能暂时下线，预计 2025-06-12 前可用 </p>'
 
 if D.is_mirror():
     if not D.is_private():
