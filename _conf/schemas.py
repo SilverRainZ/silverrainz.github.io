@@ -32,7 +32,7 @@ _schemas = [
            name=F(ref=True),
            attrs={
                'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
-               'date': F(ref=True, indexers=[by_year, by_month]),
+               'date': F(ref=True, indexers=[by_year]),
                'medium': F(ref=True, form=F.Forms.WORDS),
                'size': F(ref=True),
                'image': F(),
