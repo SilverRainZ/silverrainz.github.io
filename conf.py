@@ -379,7 +379,9 @@ global_substitutions = {
     '?':        ':sup_abbr:`存疑 (笔者对此断言存有疑惑，请谨慎参考)`',
     'i':        ':sup_abbr:`个人观点 (这是笔者的个人观点，并无权威出处，请谨慎参考)`',
     'todo':     ':sup_abbr:`待补充 (但什么时候呢？)`',
-    'noref':    ':sup_abbr:`来源请求 (此断言也许有出处可考，但暂时无法找到)`', # citation needed
+    'how':      ':sup_abbr:`怎么做`',
+    'why':      ':sup_abbr:`为什么`',
+    'ref':      ':sup_abbr:`来源请求`',
     'n/a':      'ⁿ̷ₐ', # https://en.wikipedia.org/wiki/N/A
 
     # Marks for todo list.
