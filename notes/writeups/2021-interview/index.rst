@@ -12,7 +12,7 @@
    leetcode
    dp
 
-以及 :doc:`简历 </about/resume>`。
+以及 `简历 <https://silverrainz.me/resume>`_。
 
 概览
 ====
