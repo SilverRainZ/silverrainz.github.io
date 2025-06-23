@@ -18,12 +18,13 @@ SilverRainZ
 
 I am...
 
-:a programmer: I am SilverRainZ__ on GitHub, checkout my :doc:`resume <resume>` if you are interested
+:a programmer: I am SilverRainZ__ on GitHub, checkout my resume__ if you are interested
 :an artist on the road: my :ref:`works <any-artwork.id+by-path>` are listed here, todo: portfolio
 :a |linux| user: also a member of `Arch Linux CN Community`__
 :an |oss| author: I created `Srain IRC Client`__, `Sphinx Notes`__ and `more...`__
 
 __ https://github.com/SilverRainZ
+__ https://silverrainz.me/resume/
 __ http://archlinuxcn.org
 __ https://srain.silverrainz.me/
 __ https://sphinx.silverrainz.me/
