@@ -378,3 +378,9 @@ extensions.append('sphinx.ext.graphviz')
 graphviz_output_format = 'svg'
 
 extensions.append('sphinxnotes.poc')
+
+def setup(app):
+    # Dump any domain data:
+    # from _conf.dump_any_domain import setup
+    # setup(app)
+    ...
