@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+# NOTE: Run from sphinx srcdir.
+
+import json
+import shutil
+from os import path
+from sphinx.util.osutil import ensuredir
+
+srcdir = '.'
+objs_file = srcdir + '/_build/doctrees/any-objects.json'
+dstdir = '/home/la/latree/pictures/artworks'
+
+with open(objs_file, 'r') as f:
+    objs_data = f.read()
+
+artworks = []
+objs = json.loads(objs_data)
+for k, v in objs.items():
+    if not k.startswith('artwork-'):
+        continue
+    artworks.append(v['obj'])
+
+for a in artworks:
+    id_: str = a['attrs']['id']
+    series = id_.split('-', maxsplit=1)[0]
+    if series == 'test':
+        continue
+    if (img := a['attrs'].get('image')) is None:
+        continue # no uploaded yet
+    if img == '':
+        continue # no uploaded yet
+    if '?' in img:
+        continue # no uploaded yet (special case)
+    img = srcdir + img
+    _, imgext = path.splitext(img)
+    src = img 
+    dst = f'{dstdir}/{series}/{id_}{imgext}'
+    ensuredir(path.dirname(dst))
+    print(f'{src} -> {dst}')
+    shutil.copy(src, dst)
