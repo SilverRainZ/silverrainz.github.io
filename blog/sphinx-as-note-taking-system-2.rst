@@ -173,6 +173,8 @@ Snippet 命令行工具
 
 会在文档中产生如下内容：
 
+.. todo:: 待修复，see https://github.com/SilverRainZ/silverrainz.github.io/pull/30
+
 .. any:artwork:: Bell Rock Lighthouse
    :id: test-1
    :medium: 水彩 铅笔

@@ -22,7 +22,6 @@
    :date: 2020-12-28
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0069.jpg
    :album: album-32k-1
 
 用水彩画色层的尝试，结果上看没有很成功。
@@ -47,7 +46,6 @@
    :date: 2021-01-03
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0070.jpg
    :album: album-32k-1
 
 用水彩画色层的另一个小尝试。原画是在蔓纯老师画室的画的 :artwork:`lns-026`。
@@ -78,7 +76,6 @@
    :date: 2021-01-12
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0071.jpg
    :album: album-32k-1
 
 | 我的记忆是污染过的，像浸满了脏水的破布
@@ -96,7 +93,6 @@
    :date: 2021-01-13
    :size: 32k
    :medium: 色粉笔
-   :image: /_images/IMG_0072.jpg
    :album: album-32k-1
 
 她在卧室里睡觉。家里灯是安静的。我也想去睡觉，可是还没有画完。
@@ -109,7 +105,6 @@
    :date: 2021-01-13
    :size: 32k
    :medium: 色粉笔
-   :image: /_images/IMG_0073.jpg
    :album: album-32k-1
 
 还是画小石膏，不过这次用了色粉笔，效果依然不好。
@@ -122,7 +117,6 @@
    :date: 2021-01-21
    :size: 32k
    :medium: 色粉笔
-   :image: /_images/IMG_0074.jpg
    :album: album-32k-1
 
 我对云，尤其是积雨云的喜爱，可能超过了所有其他的自然景观。
@@ -144,7 +138,6 @@
    :date: 2021-01-24
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0075.jpg
    :album: album-32k-1
 
 小区的墙外能看见电厂的烟囱，最近都是大风的夜晚，蒸汽被压成了九十度。
@@ -158,7 +151,6 @@ I Should
    :date: 2021-01-30
    :size: 32k
    :medium: 马克笔 水彩
-   :image: /_images/IMG_0076.jpg
    :album: album-32k-1
 
 可能是因为药物，也可能是因为应激反应太严重。
@@ -178,7 +170,6 @@ I Should
    :date: 2021-01-31
    :size: 32k
    :medium: 炭精粉
-   :image: /_images/IMG_0077.jpg
    :album: album-32k-1
 
 :book:`小王子` 里讲了蛇吞大象的故事，我没有任何想法，只是想画出来。
@@ -196,7 +187,6 @@ I Should
    :date: 2021-02-01
    :size: 32k
    :medium: 马克笔
-   :image: /_images/IMG_0099.jpg
    :album: album-32k-1
 
 本意上这张画是作为马克笔的试作。但到了画的时候我充满了愤怒。
@@ -215,7 +205,6 @@ I Should
    :date: 2021-02-04
    :size: 32k
    :medium: 炭精粉 色粉笔
-   :image: /_images/IMG_0078.jpg
    :album: album-32k-1
 
 这应该是第一张用碳粉画的完整夜景。
@@ -239,7 +228,6 @@ I Should
    :date: 2021-02-10
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0100.jpg
    :album: album-32k-1
 
 失恋了，因为我的错。
@@ -259,7 +247,6 @@ I Should
    :date: 2021-02-14
    :size: 32k
    :medium: 色粉笔
-   :image: /_images/IMG_0079.jpg
    :album: album-32k-1
 
 我不知道我要画什么，我只觉得自己该画画了。画的时候正好在放 King Gnu 的《白日》，
@@ -283,7 +270,6 @@ I Should
    :date: 2021-02-17
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0101.jpg
    :album: album-32k-1
 
    | D:「天气好冷，我们把不用的围巾送给拾荒的老婆婆吧。」
@@ -305,7 +291,6 @@ I Should
    :date: 2021-02-19
    :size: 32k
    :medium: 铅笔
-   :image: /_images/IMG_0102.jpg
    :album: album-32k-1
 
 我发自心底觉得信奉神是一件偷懒的事情。
@@ -326,7 +311,6 @@ I Should
    :date: 2021-03-03
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_0103.jpg
    :album: album-32k-1
 
 | 我一生都无法遇见我的敌人
@@ -347,7 +331,6 @@ I Should
    :date: 2021-03-03
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0080.jpg
    :album: album-32k-1
 
 全向十字路口拥挤的人群。
@@ -360,7 +343,6 @@ I Should
    :date: 2021-03-03
    :size: 32k
    :medium: 炭精粉
-   :image: /_images/IMG_0116.jpg
    :album: album-32k-1
 
 都过去了。
@@ -373,7 +355,6 @@ I Should
    :date: 2021-03-04
    :size: 32k
    :medium: 色粉笔 水彩 铅笔
-   :image: /_images/IMG_0081.jpg
    :album: album-32k-1
 
 前些日子河北封城，没办法去北京复诊，一度以为网购发达没有什么买不到，
@@ -391,7 +372,6 @@ I Should
    :date: 2021-03-06
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0082.jpg
    :album: album-32k-1
 
 在历代帝王庙的写生，忘记带颜料了所以只能用颜料盘里的余色。
@@ -406,7 +386,6 @@ I Should
    :date: 2021-03-09
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0083.jpg
    :album: album-32k-1
 
 陆先生的咨询室很冷，疫情严重，他没有让我摘下口罩。我们隔着两层无纺布说话。
@@ -429,7 +408,6 @@ I Should
    :date: 2021-03-10
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0104.jpg
    :album: album-32k-1
 
 一直很想写生卧室窗前那棵树，冬天的时候树冠是光秃秃的，往不同方向伸展的的枝干
@@ -453,7 +431,6 @@ I Should
    :date: 2021-03-11
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0105.jpg
    :album: album-32k-1
 
 近来影响心境的事情和以前比并不见少，但我的反应已经平淡很多了。可能要感谢碳酸锂，
@@ -469,7 +446,6 @@ I Should
    :date: 2021-03-14
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0084.jpg
    :album: album-32k-1
 
 我的目光没有地方可以安放，只好看着自己。
@@ -482,7 +458,6 @@ I Should
    :date: 2021-03-15
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0085.jpg
    :album: album-32k-1
 
 :artwork:`爱 <xfczk-026>` 是什么呢？
@@ -495,7 +470,6 @@ I Should
    :date: 2021-03-16
    :size: 32k
    :medium: 橄榄绿色粉 炭精粉 白色粉笔
-   :image: /_images/IMG_0106.jpg
    :album: album-32k-1
 
 很久没画色粉，是失败的尝试，灰色的卡纸限制了我能用的色域，软的纸面也让
@@ -509,7 +483,6 @@ I Should
    :date: 2021-03-16
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0086.jpg
    :album: album-32k-1
 
 :artwork:`爱 <xfczk-024>` 是什么呢？
@@ -522,7 +495,6 @@ I Should
    :date: 2021-03-16
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0087.jpg
    :album: album-32k-1
 
 如果有人能观测时间的话，在它看来我们都是拖着长长尾巴的「生物」吧。
@@ -535,7 +507,6 @@ I Should
    :date: 2021-03-17
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0088.jpg
    :album: album-32k-1
 
 从这里移动到未来还需要克服一些疼痛。
@@ -548,7 +519,6 @@ I Should
    :date: 2021-03-18
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0089.jpg
    :album: album-32k-1
 
 我搞不清楚什么时候应该开心，什么时候应该难过。
@@ -562,7 +532,6 @@ I Should
    :date: 2021-03-19
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0090.jpg
    :album: album-32k-1
 
 怀疑论者有一万双手，真理就有一万扇门。
@@ -575,7 +544,6 @@ I Should
    :date: 2021-03-19
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0091.jpg
    :album: album-32k-1
 
 | 肚子被撑得鼓起来，像青蛙一样咕咕叫
@@ -593,7 +561,6 @@ I Should
    :date: 2021-03-21
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0092.jpg
    :album: album-32k-1
 
 圣人在高台上布道
@@ -604,7 +571,6 @@ I Should
    :date: 2021-03-21
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0093.jpg
    :album: album-32k-1
 
 若前提为假，则命题恒真。
@@ -617,7 +583,6 @@ I Should
    :date: 2021-03-22
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0107.jpg
    :album: album-32k-1
 
 B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这样的：
@@ -646,7 +611,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-23
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0108.jpg
    :album: album-32k-1
 
 .. seealso:: :artwork:`xfczk-031`
@@ -659,7 +623,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-24
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0109.jpg
    :album: album-32k-1
 
 我想继续进行以前的思想训练，和你在的时候差不多。
@@ -672,7 +635,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-25
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_0110.jpg
    :album: album-32k-1
 
 `:-)`
@@ -685,7 +647,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-26
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0111.jpg
    :album: album-32k-1
 
 受昨日美术馆邀请，我将举行我的第一次个展。
@@ -701,7 +662,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-28
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0094.jpg
    :album: album-32k-1
 
 :del:`我想要抱抱`\ 。
@@ -717,7 +677,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-28
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0095.jpg
    :album: album-32k-1
 
 感谢大家的支持，我的最后一次展览也顺利举行了。
@@ -730,7 +689,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-29
    :size: 32k
    :medium: 水彩 纸胶带
-   :image: /_images/IMG_0096.jpg
    :album: album-32k-1
 
 开眼看世界（二）
@@ -741,7 +699,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-29
    :size: 32k
    :medium: 水彩 纸胶带
-   :image: /_images/IMG_0097.jpg
    :album: album-32k-1
 
    .. seealso:: :artwork:`xfczk-031` , :artwork:`xfczk-041`
@@ -754,7 +711,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-30
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_0112.jpg
    :album: album-32k-1
 
 和路易十六没有关系，他只是一个被砍头的可怜人而已。
@@ -767,7 +723,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-03-31
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_0114.jpg
    :album: album-32k-1
 
 拒绝拥抱
@@ -778,7 +733,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-01
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0115.jpg
    :album: album-32k-1
 
 她打了电话来，我作为优秀的的倾听者接线。
@@ -795,7 +749,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-02
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_0098.jpg
    :album: album-32k-1
 
 只是想简单把自己切开。
@@ -808,7 +761,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-04
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_20210408_230947__01.jpg
    :album: album-32k-1
 
 我只是想画一个鱼缸，正如我之前已经画过了很多的鱼缸：
@@ -822,7 +774,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-04
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_20210408_231027__01.jpg
    :album: album-32k-1
 
 铅灰色的田野
@@ -833,7 +784,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-05
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/IMG_20210408_231154__01.jpg
    :album: album-32k-1
 
 这正是我要离开的地方。
@@ -846,7 +796,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-06
    :size: 32k
    :medium: 水彩 铅笔 纸胶带 小米负离子吹风机器H300
-   :image: /_images/IMG_20210408_231214__01.jpg
    :album: album-32k-1
 
 在这里我可以安全地给出意见。我是说，你会比较安全。
@@ -859,7 +808,6 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    :date: 2021-04-07
    :size: 32k
    :medium: 水彩
-   :image: /_images/IMG_20210408_231237__01__01.jpg
    :album: album-32k-1
 
 画里这个建筑显然不可能是花店，只是我刚好在听 `这张专辑`_ 而已。

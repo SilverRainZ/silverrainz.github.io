@@ -478,7 +478,6 @@ N+1. 画结构
    :date: 2020-07-30
    :size: 4k
    :medium: 铅笔
-   :image: /_images/IMG_20200731_165720.jpg
    :album: album-a2-1
 
    多光源下的 :zhwiki:`荷马` 像，左 3/4 侧面。
@@ -493,7 +492,6 @@ N+1. 画结构
    :date: 2020-09-14
    :size: 4k
    :medium: 铅笔
-   :image: /_images/IMG_20200914_190607__01.jpg
    :album: album-a2-1
 
 多光源下的 :zhwiki:`荷马` 像，右 3/4 侧面。
@@ -515,7 +513,6 @@ N+1. 画结构
    :date: 2020-09-15 2020-05-06
    :size: 2k
    :medium: 铅笔
-   :image: /_images/0704_1.jpg
    :album: 装框
 
 多光源下的 :zhwiki:`皮埃尔·高乃依` 像，右 3/4 侧面。
@@ -551,7 +548,6 @@ N+1. 画结构
    :date: 2020-10-12
    :size: 8k
    :medium: 铅笔 索斯
-   :image: /_images/IMG_20201021_160430.jpg
    :album: album-a3-1
 
 在家休养期间，在蔓纯老师画室画的，单光源下的戴帽子的老人像，右 3/4 侧面。
@@ -566,7 +562,6 @@ N+1. 画结构
    :date: 2024-11
    :size: 4k
    :medium: 铅笔
-   :image: /_images/2025-01-19_170250.png
    
 
 贝利夫人
@@ -577,7 +572,6 @@ N+1. 画结构
    :date: 2024-12
    :size: 4k
    :medium: 铅笔
-   :image: /_images/2025-01-19_170402.png
 
 摩西像
 ------

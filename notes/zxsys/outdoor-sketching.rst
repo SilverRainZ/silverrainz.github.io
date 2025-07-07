@@ -42,7 +42,6 @@
    :id: anf-000
    :size: 8k
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210822_160656__01__01.jpg
    :album: album-16k-1
 
    和 :people:`宋航` 一起在忆江南门口画的第一张夜景，之后因为种种原因也没有继续画了，总之活到了现在。
@@ -52,7 +51,6 @@
    :size: 16k
    :date: 2021-09-05
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210905_222459__01.jpg
    :album: album-16k-1
 
    复健的第一张，果然色域被压缩之后更控制不好了，对于复杂的自然物象（树、草丛），没能找好亮暗面。
@@ -62,7 +60,6 @@
    :size: 16k
    :date: 2021-09-05
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210905_222732__01.jpg
    :album: album-16k-1
 
    路灯下了一点功夫，其他问题和 :artwork:`anf-001` 一样。接着画吧，估计到 7、8 张的时候会有些收获。
@@ -72,7 +69,6 @@
    :size: 16k
    :date: 2021-09-06
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210912_190245__01.jpg
    :album: album-16k-1
 
    依然打算画被路灯光圈笼罩的场景，在暗部和色序上加大了功夫，但还是不够。另一方面是纸（老人头粗面）不好。
@@ -84,7 +80,6 @@
    :size: 16k
    :date: 2021-09-08
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210912_185714__01.jpg
    :album: album-16k-1
 
    把更多的精力放在色序上，有进步。照片拍出来不太对，难道我得搞一个相机吗？
@@ -99,7 +94,6 @@
    :size: 16k
    :date: 2021-09-09
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210912_185745__01.jpg
    :album: album-16k-1
 
    感受到夜景的色距非常微妙而重要，要是盯着暗部找画里面的深浅的话，很容易就画得过亮，所以观察方法很重要。
@@ -111,7 +105,6 @@
    :size: 16k
    :date: 2021-09-14
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20210914_232302__01.jpg
    :album: album-16k-1
 
    小区的垃圾堆上吊着一个灯，光从上边倾泻到垃圾桶上，再淌到地上划出明显的阴影。在垃圾桶上边的光应该是空间上的锥形，但我画不好。
@@ -125,7 +118,6 @@
    :size: 16k
    :date: 2021-11-16
    :medium: 炭精粉 矿物色粉
-   :image: /_images/artwork-anf/IMG_20220404_161918__01.jpg
 
    距离画上一张居然已经过去了两个月 :(
 
@@ -136,7 +128,6 @@
    :size: 16k
    :date: 2022-04-03
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220404_161821__01.jpg
 
    好，又半年过去了，要不是 :people:`YY` 想试试画碳粉我根本动不起来，近来画画的意义感丧失太多了。
 
@@ -149,7 +140,6 @@
    :size: 16k
    :date: 2022-04-26
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220426_223334__01.jpg
 
    准备再和 :people:`YY` 一起画夜景的前置练习。
 
@@ -162,7 +152,6 @@
    :size: 16k
    :date: 2022-05-01
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220504_122850__01.jpg
 
    五一在 :people:`YY` 家画碳粉的的第一夜。
 
@@ -175,7 +164,6 @@
    :size: 16k
    :date: 2022-05-03
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220504_122939__01.jpg
 
    中间有一晚上没画（白天画了），晚上挤在沙发上讲画 OvO
 
@@ -190,7 +178,6 @@
    :size: 16k
    :date: 2022-05-01
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220504_122811__01.jpg
 
    :people:`YY` 画的第二张碳粉，第一张（还）没有放进来。
 
@@ -203,7 +190,6 @@
    :size: 16k
    :date: 2022-05-03
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220504_122921__01.jpg
 
    :people:`YY` 的第三张，非常棒的一张！
 
@@ -219,7 +205,6 @@
    :size: 16k
    :date: 2022-07-07
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220707_233454__01__01.jpg
 
    从 :artwork:`anf-011` 之后有了一些底气，两个月不画碳粉手生了也不会胆怯。
 
@@ -234,7 +219,6 @@
    :size: 16k
    :date: 2022-07-14
    :medium: 炭精粉
-   :image: /_images/artwork-anf/IMG_20220715_195007__01.jpg
 
    画的是小区里的核酸检测站，是一个集装箱活动房。
 
