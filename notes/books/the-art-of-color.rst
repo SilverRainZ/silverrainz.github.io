@@ -134,7 +134,6 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
       :size: 32k
       :medium: 水彩
       :date: 2022-04-25
-      :image: /_images/artwork-taoc/mmexport1650950079664__01.jpg
 
       :people:`YY` 画的四季色卡。
 
@@ -159,7 +158,6 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
       :size: 32k
       :medium: 水彩
       :date: 2022-04-25
-      :image: /_images/artwork-taoc/IMG_20220426_091620__01__01.jpg
 
       我画的四季色卡。
 
@@ -183,7 +181,6 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
          :size: 32k
          :medium: 水彩
          :date: 2022-04-27
-         :image: /_images/artwork-taoc/mmexport1651241068440__01.jpg
 
          检验员 :people:`YY`。
 
@@ -199,7 +196,6 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
          :size: 32k
          :medium: 水彩
          :date: 2022-04-28
-         :image: /_images/artwork-taoc/IMG_20220430_172812__01.jpg
 
          检测员 :friend:`LA`。
 
@@ -215,7 +211,6 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
          :size: 32k
          :medium: 水彩
          :date: 2022-04-27
-         :image: /_images/artwork-taoc/mmexport1651158545296__01.jpg
 
          检验员 :people:`YY`。
 

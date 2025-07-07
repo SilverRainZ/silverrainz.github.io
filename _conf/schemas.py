@@ -35,7 +35,6 @@ _schemas = [
                'date': F(ref=True, indexers=[by_year]),
                'medium': F(ref=True, form=F.Forms.WORDS),
                'size': F(ref=True),
-               'image': F(),
                'album': F(ref=True),
            },
            description_template=open('_templates/artwork.rst', 'r').read(),

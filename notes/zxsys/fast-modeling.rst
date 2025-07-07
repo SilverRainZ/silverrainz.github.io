@@ -167,7 +167,6 @@
    :date: 2020-04-27
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210427_170518.jpg
    :album: album-a2-1
 
    第一次画模特，是个要退休的老大爷，形各种不准，但因为当时比较自信 +
@@ -178,7 +177,6 @@
    :date: 2020-05-08
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210523_175148__01.jpg
    :album: album-a2-1
 
    模特没了，画照片，是一个少数民族老太太，有意模仿天宇的画法，
@@ -191,7 +189,6 @@
    :date: 2020-05-10
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210510_174355.jpg
    :album: album-a2-1
 
    意识到自己：
@@ -204,7 +201,6 @@
    :date: 2020-05-12
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210512_205836.jpg
    :album: album-a2-1
 
    和 :artwork:`fm-001` 是同一个老太太，失败的尝试，感觉自己只会画鼻子。
@@ -214,7 +210,6 @@
    :date: 2020-05-18
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210518_122030.jpg
    :album: album-a2-1
 
    挑战大正脸的另一张。
@@ -226,7 +221,6 @@
    :date: 2020-05-24
    :medium: 炭精粉
    :size: 8k
-   :image: /_images/artwork-fm/IMG_20210531_180824__01.jpg
    :album: album-a2-1
 
    继续挑战大正脸，开始用一些笔法（头发上的面）。
@@ -238,7 +232,6 @@
    :date: 2020-05-26
    :medium: 炭精粉
    :size: 4k
-   :image: /_images/artwork-fm/IMG_20210531_180900__01.jpg
    :album: album-a2-1
 
    画不安分的老大爷，老乱动所以重点只能放在半身的完整性和氛围上。
@@ -250,7 +243,6 @@
    :date: 2020-05-28
    :medium: 炭精粉
    :size: 4k
-   :image: /_images/artwork-fm/IMG_20210531_180918__01.jpg
    :album: album-a2-1
 
    即使老大爷不安分也要画形体……
@@ -271,7 +263,6 @@
    :date: 2020-05-28
    :medium: 炭精粉
    :size: 4k
-   :image: /_images/artwork-fm/IMG_20210531_180935__01.jpg
    :album: album-a2-1
 
    老大爷 +3
@@ -285,7 +276,6 @@
    :medium: 炭精粉
    :date: 2020-05-30 2020-06-09
    :size: 4k
-   :image: /_images/artwork-fm/IMG_20210609_172807__01__01.jpg
    :album: album-a2-1
 
    趁周末的时候，尝试一下画石膏，验证一些想法：
@@ -312,7 +302,6 @@
    :medium: 炭精粉
    :size: 4k
    :date: 2020-05-31
-   :image: /_images/artwork-fm/IMG_20210531_172106.jpg
    :album: album-a2-1
 
    新的模特是个阿姨，比较敬业。
@@ -333,7 +322,6 @@
    :medium: 炭精粉
    :size: 4k
    :date: 2020-06-01
-   :image: /_images/artwork-fm/IMG_20210601_171046.jpg
    :album: album-a2-1
 
    画躯体的一个尝试。
@@ -343,7 +331,6 @@
    :medium: 炭精粉
    :size: 4k
    :date: 2020-06-02
-   :image: /_images/artwork-fm/IMG_20210602_165645.jpg
    :album: album-a2-1
 
    研究脸侧面的形体，经晓飞老师提醒，在亮部研究的画表现起来会容易许多。
@@ -353,7 +340,6 @@
    :medium: 炭精粉 色粉笔
    :size: 4k
    :date: 2020-06-16
-   :image: /_images/artwork-fm/IMG_20210616_172121.jpg
    :album: album-a2-1
 
    没什么心思的应付之作。
