@@ -5,13 +5,12 @@
 :媒介: {% for m in medium %}:artwork.medium:`{{ m }} <{{ m }}>` {% endfor %}
 {% if album %}:画集: :artwork.album:`{{ album }} <{{ album }}>`{% endif %}
 
-{% if image %}
-.. figure:: {{ image | thumbnail }}
-   :target: https://raw.githubusercontent.com/SilverRainZ/bullet/master{{ image }}
+{% set image2 = id | query_artwork %}
+{% if image2 %}
+.. figure:: {{ image2 }}
 
    {{ title }}
 {% else %}
-
 .. todo:: 图片未上传
 {% endif %}
 

@@ -285,13 +285,14 @@ if D.is_public():
     sitemap_url_scheme = "{link}"
 
 # NOTE: required by ablog
-extensions.append('sphinx.ext.intersphinx')
-# Although fetching intersphinx info is slow, but we have fasthtml now.
-intersphinx_mapping = {
-    'python': ('https://docs.python.org/3', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'srain': ('https://srain.silverrainz.me/', None),
-}
+if not D is D.Local:
+    extensions.append('sphinx.ext.intersphinx')
+    # Although fetching intersphinx info is slow, but we have fasthtml now.
+    intersphinx_mapping = {
+        'python': ('https://docs.python.org/3', None),
+        'sphinx': ('https://www.sphinx-doc.org/en/master', None),
+        'srain': ('https://srain.silverrainz.me/', None),
+    }
 
 if D.is_public():
     extensions.append('sphinx_reredirects')
@@ -383,4 +384,7 @@ def setup(app):
     # Dump any domain data:
     # from _conf.dump_any_domain import setup
     # setup(app)
+    # Query artworks from LATree.
+    from _conf import query_artworks
+    query_artworks.setup(app)
     ...
