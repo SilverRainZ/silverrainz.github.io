@@ -4,6 +4,7 @@
 
 import json
 import shutil
+# import os
 from os import path
 from sphinx.util.osutil import ensuredir
 
@@ -39,3 +40,5 @@ for a in artworks:
     ensuredir(path.dirname(dst))
     print(f'{src} -> {dst}')
     shutil.copy(src, dst)
+    # print(f'deleting {src}')
+    # os.remove(src)
