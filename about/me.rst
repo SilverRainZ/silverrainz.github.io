@@ -36,7 +36,7 @@ __ https://github.com/SilverRainZ?tab=repositories&q=&type=source&language=&sort
 
 I am passionate about (in no particular order):
 
-- ceating interesting images (in other words: painting)
+- creating interesting images (in other words: painting)
 - programming (what a typical programmer!)
 - building `structured note taking system`__, which is the website you're visiting now (+2!)
 - building self-hosted services (+3!)
