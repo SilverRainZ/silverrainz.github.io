@@ -17,7 +17,6 @@
    :id: xfczk4-001
    :date: 2024-11-12
    :medium: 水粉
-   :image: /_images/2024-12-13_134639.png
 
 和 :artwork:`xfczk-017` 没有任何关系。只是晓飞老师的命题作业，以喜欢的古诗为题目进行创作：
 
@@ -46,7 +45,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-002
    :date: 2024-11-13
    :medium: 水粉
-   :image: /_images/2024-12-13_141105.png
    :album: album-a5-2
 
 希望达成红蓝色彩和谐的试作一。希望红蓝的纯度各从一个点开始逐渐下降。
@@ -58,7 +56,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-003
    :date: 2024-11-21
    :medium: 水粉
-   :image: /_images/2024-12-13_134122.png
    :album: album-a5-2
 
 红蓝和谐试作三
@@ -68,7 +65,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-004
    :date: 2024-11
    :medium: 水粉
-   :image: /_images/2024-12-13_134151.png
    :album: album-a5-2
 
 红蓝和谐试作四
@@ -78,7 +74,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-005
    :date: 2024-11
    :medium: 水粉
-   :image: /_images/2024-12-13_134209.png
    :album: album-a5-2
 
 这张似乎达到了一些意外的和谐。
@@ -90,7 +85,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-006
    :date: 2024-11
    :medium: 水粉
-   :image: /_images/2024-12-13_134719.png
    :album: album-a5-2
 
 我认为困倦是永恒的
@@ -100,7 +94,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-007
    :date: 2024-11-26
    :medium: 色粉笔
-   :image: /_images/2024-12-13_141137.png
    :album: album-a5-2
 
 每天晚上下课后都非常困倦，没有办法坐下来画些什么。
@@ -114,7 +107,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-008
    :date: 2024-11-27
    :medium: 水粉
-   :image: /_images/2024-12-13_141321.png
    :album: album-a5-2
 
 阅读顺序：从左到右，从上到下。
@@ -128,7 +120,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-009
    :date: 2024-11-29
    :medium: 水粉
-   :image: /_images/2024-12-13_141357.png
    :album: album-a5-2
 
 :第二周: 还是没有征服。
@@ -141,7 +132,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-010
    :date: 2024-11-30
    :medium: 水粉
-   :image: /_images/2024-12-13_141544.png
    :album: album-a5-2
 
 瘀结
@@ -151,7 +141,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-011
    :date: 2024-12-01
    :medium: 水粉
-   :image: /_images/2024-12-13_142344.png
    :album: album-a5-2
 
 有一些瘀结的情绪，但我不能表露出来。这种感觉并不是好事，但好久没体会到这种感觉了，意外地还有点怀念。
@@ -165,7 +154,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-012
    :date: 2024-12-02
    :medium: 水粉
-   :image: /_images/2024-12-13_134007.png
    :album: album-a5-2
    
 同 :artwork:`淤结`。
@@ -177,7 +165,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-013
    :date: 2024-12-05
    :medium: 水粉 水彩
-   :image: /_images/2024-12-13_133552.png
    :album: 送出
 
 对 :people:`司文` 的了解更多后，也更开始在意她说的每一句话，会去揣测文字里其实没有那么清晰的预期，也会愁于怎么积极有趣地做出回应。
@@ -191,7 +178,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-014
    :date: 2024-12-06
    :medium: 水粉
-   :image: /_images/2024-12-13_141442.png
    :album: album-a5-2
 
 一段感情会破碎，四散的水珠会再凝聚成另一段，对我来说它们有什么区别吗？
@@ -203,7 +189,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-015
    :date: 2024-12-07
    :medium: 水彩
-   :image: /_images/2024-12-13_142922.png
    :album: album-a5-2
 
 爱情这东西我不明白，永远又是什么？
@@ -217,7 +202,6 @@ __ https://www.sohu.com/a/561991177_619150
    :id: xfczk4-016
    :date: 2024-12-08
    :medium: 水彩
-   :image: /_images/2024-12-13_133919.png
    :album: album-a5-2
 
 胸口上的大石头好像可以用一张跨洋机票带走，我在一秒钟的侥幸后却还是开心不起来，`亲爱的机长先生，能载我一程吗？`__
@@ -231,7 +215,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-017
    :date: 2024-12-12
    :medium: 水粉 水彩
-   :image: /_images/2024-12-13_133355.png
    :album: album-a5-2
 
 红蓝和谐试作五
@@ -241,7 +224,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-018
    :date: 2024-12-13
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 红蓝和谐试作六
@@ -251,7 +233,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-019
    :date: 2024-12-17
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 老朋友
@@ -261,7 +242,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-020
    :date: 2024-12-18
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 指过呼吸。
@@ -273,7 +253,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-021
    :date: 2024-12-25
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 平安夜（二）
@@ -283,7 +262,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-022
    :date: 2024-12-26
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 轻微的纯度游戏
@@ -293,7 +271,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-023
    :date: 2024-12-28
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 于是妹妹尝试修正错位
@@ -303,7 +280,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-024
    :date: 2024-12-29
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 本来是一张表达错位的画，在妹妹的鼓舞下改成了合家欢。
@@ -315,7 +291,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-025
    :date: 2025-01-09
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 ..
@@ -332,7 +307,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-026
    :date: 2025-01-12
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 烂。
@@ -344,7 +318,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-028
    :date: 2025-01-12
    :medium: 水粉
-   :image:
    :album: album-a5-2
 
 | 妹妹说要画一张关于��的画。
@@ -361,7 +334,6 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
    :id: xfczk4-0??
    :date: 2025-05-15
    :medium: 水粉
-   :image:
    :size: 32k
    :album: album-a5-2
 
@@ -374,7 +346,6 @@ TODO
    :id: xfczk4-0??
    :date: 2025-05-16
    :medium: 水粉
-   :image:
    :size: 32k
    :album: album-a5-2
 
@@ -385,6 +356,5 @@ TODO
    :id: xfczk4-0??
    :date: 2025-05-17
    :medium: 水粉
-   :image:
    :size: 32k
    :album: album-a5-2

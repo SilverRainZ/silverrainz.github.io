@@ -90,7 +90,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-15
-         :image: /_images/artwork-lns/IMG_20200716_172754.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -100,7 +99,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-16
-         :image: /_images/artwork-lns/IMG_20200716_211933.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -110,7 +108,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-19
-         :image: /_images/artwork-lns/IMG_20200719_171454.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -120,7 +117,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-20
-         :image: /_images/artwork-lns/IMG_20200720_212411.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -130,7 +126,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-22
-         :image: /_images/artwork-lns/IMG_20200722_210747.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -140,7 +135,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-23
-         :image: /_images/artwork-lns/IMG_20200723_213018.jpg
          :album: sketch-book-16k-3
 
          开始对材料熟悉起来，知道了如何画出极致的黑，如何攃出会发光的白。
@@ -158,7 +152,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-24
-         :image: /_images/artwork-lns/IMG_20200724_171940.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -168,7 +161,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-27
-         :image: /_images/artwork-lns/IMG_20200727_205025.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -178,7 +170,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-07-28
-         :image: /_images/artwork-lns/IMG_20200728_210141.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -188,7 +179,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-03
-         :image: /_images/artwork-lns/IMG_20200803_084242.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -198,7 +188,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-03
-         :image: /_images/artwork-lns/IMG_20200803_084254.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -208,7 +197,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-04
-         :image: /_images/artwork-lns/IMG_20200804_085154.jpg
          :album: sketch-book-16k-3
 
          :artwork:`lns-009` 被 :people:`王磊` 改后的样子，但我其实不太喜欢他对光的理论。但不得不说刻意造光确实是一种本领，我做得不好。
@@ -220,7 +208,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-10
-         :image: /_images/artwork-lns/IMG_20200810_195532.jpg
          :album: sketch-book-16k-3
 
          这个石膏比较脏，因此总把脏的地方同暗部混淆不清，改了多次亦没有改好，现在看来也非常难受。
@@ -232,7 +219,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-12
-         :image: /_images/artwork-lns/IMG_20200812_194028.jpg
          :album: sketch-book-16k-3
 
          光感开始出现。
@@ -243,7 +229,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-18
-         :image: /_images/artwork-lns/IMG_20200818_202457.jpg
          :album: sketch-book-16k-3
 
    .. grid-item-card::
@@ -253,7 +238,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2020-08-20
-         :image: /_images/artwork-lns/IMG_20210822_160424__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -263,7 +247,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-22
-         :image: /_images/artwork-lns/IMG_20210822_160452__01__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -273,7 +256,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-25
-         :image: /_images/artwork-lns/IMG_20210822_160452__01__02.jpg
          :album: album-a3-1
 
          这一张的秩序已经没有很大的问题，并且开始将多余的精力放在了亮暗面上。
@@ -291,7 +273,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-08-27
-         :image: /_images/artwork-lns/IMG_20210822_160554__01__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -301,7 +282,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-09-09
-         :image: /_images/artwork-lns/IMG_20210822_160554__01__02__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -311,7 +291,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-09-14
-         :image: /_images/artwork-lns/IMG_20210822_160739__01__01__01.jpg
          :album: album-a3-1
 
          :people:`罗顺宝` 帮我改过头发和墙上的阴影，从这一张明显感受到「明确的暗部形状」带来的光感的体积感。
@@ -323,7 +302,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2020-09-15
-         :image: /_images/artwork-lns/IMG_20210822_160536__01__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -333,7 +311,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-09-15
-         :image: /_images/artwork-lns/IMG_20210822_160536__01__02.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -343,7 +320,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2020-09-27
-         :image: /_images/artwork-lns/IMG_20200927_161941.jpg
 
          在 :people:`蔓纯老师` 画室演示给她看的小场景，很认真，一边讲一边画是有用的，虽然现在回头看问题很多。
 
@@ -356,7 +332,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-10-06
-         :image: /_images/artwork-lns/IMG_20201006_161510.jpg
          :album: album-16k-1
 
    .. grid-item-card::
@@ -366,7 +341,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-10-08
-         :image: /_images/artwork-lns/IMG_20201008_150452.jpg
          :album: album-16k-1
 
 
@@ -377,7 +351,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020
-         :image: /_images/artwork-lns/IMG_20201006_161523.jpg
          :album: album-16k-1
 
    .. grid-item-card::
@@ -387,7 +360,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020
-         :image: /_images/artwork-lns/IMG_20201012_104131.jpg
          :album: album-16k-1
 
    .. grid-item-card::
@@ -397,7 +369,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2020-10-14
-         :image: /_images/artwork-lns/IMG_20210822_160831__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -407,7 +378,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2020-10
-         :image: /_images/artwork-lns/IMG_20210822_161051__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -417,7 +387,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020-10-27
-         :image: /_images/artwork-lns/IMG_20210822_160900__01__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -427,7 +396,6 @@
          :size: 16k
          :medium: 炭精粉
          :date: 2020
-         :image: /_images/artwork-lns/IMG_20210822_160900__01__02__01.jpg
          :album: album-a3-1
 
 阶段四 - 调整色序
@@ -443,7 +411,6 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2021-02-07
-         :image: /_images/artwork-lns/IMG_20210822_160356__01__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -453,7 +420,6 @@
          :size: 8k
          :medium: 炭精粉 橄榄绿
          :date: 2021-05-06
-         :image: /_images/artwork-lns/IMG_20210822_161142__01.jpg
          :album: album-a3-1
 
    .. grid-item-card::
@@ -463,5 +429,4 @@
          :size: 8k
          :medium: 炭精粉
          :date: 2021-5-21
-         :image: /_images/artwork-lns/IMG_20210822_161529__01.jpg
          :album: album-a3-1

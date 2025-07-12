@@ -23,7 +23,6 @@
    :date: 2021-11-07
    :size: 16k
    :medium: 铅笔 阿诗素描纸
-   :image: /_images/mmexport1636299537788.jpg
    :album: album-16k-1
 
    特地买了很贵的阿诗素描纸来体验一下。纸面很舒服，但感觉不是长期的作业体现不出纸的素质来。
@@ -35,7 +34,6 @@
    :date: 2022-01-13
    :size: 16k
    :medium: 铅笔 阿诗素描纸
-   :image: /_images/IMG_20220114_185545.jpg
    :album: album-16k-1
 
    磨磨蹭蹭的第二张，花了不连续的三个晚上。

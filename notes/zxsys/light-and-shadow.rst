@@ -222,7 +222,6 @@ Tips
    :date: 2020-07-10
    :size: 4k
    :medium: 铅笔
-   :image: /_images/IMG_20200710_140628.jpg
    :album: unknown
 
    .. note:: 也就是 :zhwiki:`朱利亚诺·德·美第奇像`
@@ -235,7 +234,6 @@ Tips
    :date: 2020-07-17
    :size: 4k
    :medium: 铅笔
-   :image: /_images/IMG_20200717_205248.jpg
    :album: unknown
 
    .. note:: 也就是 :zhwiki:`雅典娜·帕德嫩`

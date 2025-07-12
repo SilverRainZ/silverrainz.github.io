@@ -785,7 +785,6 @@ Simulacrum 幻象
    :size: 16k
    :medium: 丙烯
    :date: 2022-02-06
-   :image: /_images/artwork-xfczk3/IMG_20220208_101657__01.jpg
 
    用丙烯画小场景，按之前的习惯先从光影入手。有覆盖性的材料还是应该先画固有色再画光影，也好在因为有覆盖性，画坏了怎么也能改回去。作为第一张正儿八经的丙烯，也算合格吧。
 
@@ -798,7 +797,6 @@ Simulacrum 幻象
    :size: 16k
    :medium: 丙烯
    :date: 2022-03-12
-   :image: /_images/artwork-xfczk3/IMG_20220330_135948__01.jpg
 
    先画固有色再画光影的尝试，没有很成功。感觉主要原因是一开始的色序没选对，整体太黑了。
 
@@ -819,7 +817,6 @@ Simulacrum 幻象
    :size: 16k
    :medium: 丙烯
    :date: 2022-03-25
-   :image: /_images/artwork-xfczk3/IMG_20220330_135815__01.jpg
 
    继 :artwork:`xfczk3-ac-004` 的失败后，画了详细的底稿，谨慎上色，结果还能看。
 
@@ -833,7 +830,6 @@ Simulacrum 幻象
    :size: 64k
    :medium: 丙烯
    :date: 2022-07-25
-   :image: /_images/artwork-xfczk3/IMG_20220726_082254__01.jpg
 
    丙烯的常规用法大概是：不加水 + 厚笔触 + 多层叠加。打算用这样的方式画几张找找感觉。
 
