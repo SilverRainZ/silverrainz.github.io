@@ -1,0 +1,19 @@
+#!/bin/bash
+
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+NC='\033[0m'
+
+git_status(){
+    pushd $1 >/dev/null
+    if [ "$(git status --porcelain)" ]; then 
+        printf "${BOLD}${GREEN}%s${NC} @ ${BLUE}%s${NC}:\n" \
+            "$(basename $PWD)" "$(git branch --show-current)"
+        git status --short
+    fi
+    popd > /dev/null
+}
+
+git_status .
+git_status .blobs
+git_status 'in'

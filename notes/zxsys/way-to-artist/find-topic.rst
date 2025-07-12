@@ -457,7 +457,6 @@ Self
    :date: 2021-04-17
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_152742.jpg
    :album: album-32k-1
 
    :相麻: 假設在某個地方，有神明存在。
@@ -514,7 +513,6 @@ Self
    :date: 2021-04-19
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_152913.jpg
    :album: album-32k-1
 
 这里我描述一种 :ref:`荒诞` ，我解不开题，只能装傻了。
@@ -527,7 +525,6 @@ HOW I LIVE
    :date: 2021-04-21
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153029.jpg
    :album: album-32k-1
 
 我不善于休息，一直在不同的，互相重叠的上下文之间切换。
@@ -542,7 +539,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-04-27
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153146.jpg
    :album: album-32k-1
 
 我觉得浑身不舒服，什么都不想画，草草应付了事。
@@ -555,7 +551,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-02
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153252.jpg
    :album: album-32k-1
 
 名字来自 :zhwiki:`水星领航员` ，但没什么关系。
@@ -571,7 +566,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-02
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153414.jpg
    :album: album-32k-1
 
 把视线插入自己身体里，我能窥见自己吗？
@@ -585,7 +579,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-10
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153502.jpg
    :album: album-32k-1
 
 没画好，所以什么都没有表达出来。
@@ -598,7 +591,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-17
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210517_022947__01__01.jpg
    :album: album-32k-1
 
 我把我不喜欢的东西慢慢地从身上敲下来。
@@ -615,7 +607,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-23
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210523_180430__01__01.jpg
    :album: album-32k-1
 
 我不能游在干涸的河床上。
@@ -631,7 +622,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-28
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153608.jpg
    :album: album-32k-1
 
 我意识到自己非物质的部分是由意识构筑的，意识又分为可控的小部分和不可控的大部分。小部分是普通意义上的「我」，大部分是湍急暗涌的潜意识。
@@ -644,7 +634,6 @@ overhaed 非常大，有时会变得不是我自己。
    :date: 2021-05-29
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_153711.jpg
    :album: album-32k-1
 
 西西弗斯每天：
@@ -667,7 +656,6 @@ Antihug
    :date: 2021-05-30
    :size: 32k
    :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_153841.jpg
    :album: album-32k-1
 
 我不会拒绝任何人的拥抱，没有人的拥抱是特别的，都同样地能抚慰我。可道德上不能这样，于是我伸出手抱住了自己。
@@ -680,7 +668,6 @@ Antihug
    :date: 2021-06-01
    :size: 32k
    :medium: 色粉笔 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_153933.jpg
    :album: album-32k-1
 
 认识你自己
@@ -691,7 +678,6 @@ Antihug
    :date: 2021-06-03
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154020.jpg
    :album: album-32k-1
 
 离职名单
@@ -702,7 +688,6 @@ Antihug
    :date: 2021-06-07
    :size: 32k
    :medium: 水彩 色粉笔 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20210607_000828__01.jpg
    :album: album-32k-1
 
 | 这是一个商业项目团队在某一刻保存下的快照
@@ -718,7 +703,6 @@ Antihug
    :date: 2021-06-08
    :size: 32k
    :medium: 色粉笔 牛皮纸
-   :image: /_images/artwork-xfczk2/IMG_20211023_154121.jpg
    :album: album-32k-1
 
 我不是老好人，我只是太过孤寂怕无法自己燃过这个夜晚，所以才帮你的忙。
@@ -730,7 +714,6 @@ Antihug
    :id: xfczk2-016
    :date: 2021-06-12
    :medium: Procreate
-   :image: /_images/artwork-xfczk2/未命名作品.png
    :album: album-32k-1
 
 它们纠集起来会成为什么，会是我的敌人吗？
@@ -745,7 +728,6 @@ Antihug
    :date: 2021-06-15
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154212.jpg
    :album: album-32k-1
 
 在我以为我在重建这段感情的时候，它其实还在剥离，一刻也没有停止过。所谓「改变」带来的痛感其实和之前的不适并没有分别。
@@ -762,7 +744,6 @@ Antihug
    :date: 2021-06-21
    :size: 8k
    :medium: 炭精粉 色粉笔
-   :image: /_images/artwork-xfczk2/IMG_20210626_185729__01.jpg
    :album: album-a3-1
 
 黄剑说像 :artist:`毛焰` ，我觉得像谁不重要。
@@ -777,7 +758,6 @@ Antihug
    :date: 2021-06-22
    :size: 8k
    :medium: 彩色铅笔 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210626_185717__01.jpg
    :album: album-a3-1
 
 自觉并不好，但晓飞老师觉得好，那就放进来吧。
@@ -790,7 +770,6 @@ Antihug
    :date: 2021-06-24
    :size: 8k
    :medium: 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210626_185746__01.jpg
    :album: album-a3-1
 
 我不甘于无聊的画面，又陷在过渡的时间里动弹不得。
@@ -804,7 +783,6 @@ Antihug
    :date: 2021-06-25
    :size: 8k
    :medium: 炭精粉
-   :image: /_images/artwork-xfczk2/IMG_20210625_153512.jpg
    :album: album-a3-1
 
 离开画室的倒数第二天，从右到左，依次是若涵、黄剑和小龙。
@@ -817,7 +795,6 @@ Antihug
    :date: 2021-07-04
    :size: 32k
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154357.jpg
 
 回到广东的第五天，三十多度的高温让人不舒服，虽然此刻我把空调打开了。
 
@@ -831,7 +808,6 @@ Antihug
    :size: 32k
    :date: 2021-07-06
    :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_154454.jpg
 
 我不需要圣人，让他们都去死吧。
 
@@ -845,7 +821,6 @@ Antihug
    :size: 32k
    :date: 2021-07-24
    :medium: 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211023_154558.jpg
 
 这张画放很久了，抽空完成一下。
 
@@ -857,7 +832,6 @@ Antihug
    :size: 32k
    :date: 2021-08-03
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154654.jpg
 
 挑选真理
 --------
@@ -867,7 +841,6 @@ Antihug
    :size: 32k
    :date: 2021-08-10
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211023_154748.jpg
 
 .. seealso:: :artwork:`怀疑论者`
 
@@ -879,7 +852,6 @@ Antihug
    :size: 32k
    :date: 2021-08-15
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210815_115254__01.jpg
    :album: album-32k-1
 
 丢在垃圾桶里的半身模特，在知乎上截的图。
@@ -901,7 +873,6 @@ Antihug
    :size: 32k
    :date: 2021-08-16
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210817_112656__01.jpg
    :album: album-32k-1
 
 2013-11-17，应该是在广州某个地铁站旁边拍的照片。
@@ -915,7 +886,6 @@ Antihug
    :date: 2021-08-18
    :medium: 水彩
    :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_154915.jpg
 
 葡萄糖体内循环
 --------------
@@ -925,7 +895,6 @@ Antihug
    :size: 32k
    :date: 2021-08-29
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210829_175800__01.jpg
    :album: album-32k-1
 
 用想象力造出注射液，为我提供想象的能量。
@@ -938,7 +907,6 @@ Antihug
    :size: 32k
    :date: 2021-08-24
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210831_165301__01__01.jpg
    :album: album-32k-1
 
 Abbey Road
@@ -949,7 +917,6 @@ Abbey Road
    :size: 32k
    :date: 2021-08-31
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210831_175415__01.jpg
 
 只是又一个 :enwiki:`Abbey Road` 的 neta 而已，尽管我完全不听披头士。
 
@@ -961,7 +928,6 @@ Moonrise
    :size: 32k
    :date: 2021-09-01
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20210901_233812__01.jpg
    :album: album-32k-1
 
 时隔一年半后的上班第一天。
@@ -975,7 +941,6 @@ Moonrise
    :date: 2021-09-13
    :medium: 铅笔 矿物色粉
    :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20210925_134836__01.jpg
 
 试了新材料，深蓝（？）和大红色的矿物色粉。
 
@@ -991,7 +956,6 @@ Moonrise
    :size: 16k
    :date: 2021-09-13
    :medium: 矿物色粉
-   :image: /_images/artwork-xfczk2/IMG_20211027_090959.jpg
    :album: album-16k-1
 
 画 :artwork:`换鞋` 时候的试色纸，因为看着好看就留下了。
@@ -1005,7 +969,6 @@ Moonrise
    :date: 2021-09-24
    :medium: 水彩 铅笔
    :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20210925_134940__01.jpg
 
 Anti-Recommendation
 -------------------
@@ -1015,7 +978,6 @@ Anti-Recommendation
    :size: 32k
    :date: 2021-10-03
    :medium: 水彩
-   :image: /_images/artwork-xfczk2/IMG_20211003_231240__01.jpg
    :album: album-32k-1
 
 拥抱申请
@@ -1027,7 +989,6 @@ Anti-Recommendation
    :date: 2021-10-10
    :medium: 水彩 铅笔
    :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_155634.jpg
 
 路过的人啊，无论是谁，请抱一抱我。
 
@@ -1043,7 +1004,6 @@ Anti-Recommendation
    :date: 2021-10-12
    :medium: 水彩 铅笔
    :album: album-32k-1
-   :image: /_images/artwork-xfczk2/IMG_20211023_155357.jpg
 
 .. seealso:: :artwork:`一种玫瑰标本及其制备工艺`
 
@@ -1055,7 +1015,6 @@ Anti-Recommendation
    :size: 16k
    :date: 2021-10-12
    :medium: 水彩 铅笔
-   :image: /_images/artwork-xfczk2/IMG_20211114_005453.jpg
 
 听 Faye 君推荐的 Lush 的歌，产生了一些支离破碎的东西，都写在标题里了。
 
@@ -1067,7 +1026,6 @@ Anti-Recommendation
    :size: 16k
    :date: 2021-10-22
    :medium: 水彩
-   :image: /_images/1681336658.jpg
 
 这个房间本来就不会有人来，强盗的到来只是一个意外。
 
@@ -1081,7 +1039,6 @@ Anti-Recommendation
    :size: 32k
    :date: 2021-12-19
    :medium: 钢笔
-   :image: /_images/artwork-xfczk2/fa18a106008a4a6.jpg
 
 是我每天睡前都会做的，一个含糊又浪漫的梦。
 
