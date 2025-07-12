@@ -3,8 +3,6 @@ name: Publish Github Pages
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - .github/workflows/gitee-pages.yml
 
 # Cancel any in-progress job or run
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
@@ -29,6 +27,10 @@ jobs:
     - uses: awalsh128/cache-apt-pkgs-action@master
       with:
         packages: lilypond timidity imagemagick fonts-noto-cjk graphviz plantuml ffmpeg
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PAT_BULLET_BLOBS }}
+        submodules: true
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
@@ -36,3 +38,4 @@ jobs:
         requirements_path: ./requirements.txt
         cache: true
         python_version: 3.12
+        checkout: false
