@@ -385,6 +385,9 @@ def setup(app):
     # from _conf.dump_any_domain import setup
     # setup(app)
     # Query artworks from LATree.
-    from _conf import fetch_artwork
-    fetch_artwork.setup(app)
+
+    if D is D.Local:
+        from _conf import fetch_artwork
+        fetch_artwork.setup(app)
+
     ...
