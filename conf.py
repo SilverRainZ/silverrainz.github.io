@@ -171,7 +171,6 @@ if D.is_mirror():
 
 html_css_files.append('sphinx-book-theme-custom.css')
 
-nosidebar_page = ['nosidebar']
 blog_post_page = [ # Provided by sphinx_book_theme
                   'navbar-logo',
                   # Provided by ABlog
