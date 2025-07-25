@@ -60,7 +60,7 @@ status:
 
 .PHONY: commit
 commit:
-	cd .blobs/ && git commit
+	# cd .blobs/ && git commit
 	git commit -m "$(TS)"
 	git push
 
