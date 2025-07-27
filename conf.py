@@ -151,7 +151,7 @@ html_theme_options = {
 }
 
 # Setup announcement as your need
-html_theme_options['announcement'] = '</p>因服务器系统升级，评论功能暂时下线，预计 2025-07-01 前可用 </p>'
+html_theme_options['announcement'] = '</p>评论功能已恢复 :-)</p>'
 
 if D.is_mirror():
     if not D.is_private():
@@ -310,7 +310,7 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if D is not D.Local:
+if True: # D is not D.Local:
     extensions.append('sphinxnotes.recentupdate')
     recentupdate_date_format = datefmt
     recentupdate_exclude_path = ['_templates']
