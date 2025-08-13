@@ -3,7 +3,8 @@
 # set -x
 
 source .common.sh
-sphinxautobuild=sphinx-autobuild
+# See also ../requirements.txt.
+sphinxautobuild=/home/la/.local/bin/sphinx-autobuild
 host=localhost
 port=30500
 
