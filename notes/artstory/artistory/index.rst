@@ -22,9 +22,11 @@
 
    我难以理解特定历史下西方国家的文化，有些画看起来难有共鸣。如果只看文字又会觉得本末倒置，拾人牙慧。我内心觉得自己他们说的不一定是对的，我不想这样，我觉得不舒服。
 
-.. contents::
-   :local:
-   :depth: 1
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   *
 
 刘小东
 ======
@@ -75,38 +77,6 @@
 
 __ https://www.polypm.com.cn/assest/detail/1/art5149934548/35/3
 
-安德鲁·怀斯
-===========
-
-.. artist:: _
-            怀斯
-            安德鲁·魏斯
-            魏斯
-            Andrew Wyeth
-            Wyeth
-   :movement: 写实主义
-   :zhwiki: 安德鲁·魏斯
-   :artwork: 克里斯蒂娜的世界
-
-..
-
-   今晚老师讲怀斯，无论画面里有没有人，我总是觉得看起来没有生气—— 像死了放很久的样子
-
-   —— :weibo:`SilverRainZ <6180711501>`
-
-
-多病 父为著名插画家 受 `波提契利` 技法影响 怀乡 `霍默`
-`四川乡土艺术` 的模仿对象
-形式语言
-`何多苓`
-
-单人 荒野 残缺 危机感  图象学→故事背后的意义
-缺少生气
-
-前中后景→空间的延伸→反虚实
-
-视觉的平衡，心理的危机
-
 伯恩·琼斯
 =========
 
@@ -134,92 +104,6 @@ __ https://www.polypm.com.cn/assest/detail/1/art5149934548/35/3
 线性的草稿 有助于梳理构图
 
 荐书：央美 丁一林 马晓藤《解构与重构》
-
-爱德华·霍伯
-===========
-
-.. artist:: _
-            霍伯
-            Edward Hopper
-            Hopper
-   :movement: 写实主义
-   :zhwiki: 爱德华·霍普
-   :enwiki: Edward Hopper
-   :artwork: 夜游者
-
-.. todo:: enwiki 非常翔实，应当读完。
-
-美国重要的 :artist.movement:`写实主义` 画家，以描绘寂寥的美国当代生活风景闻名。妻子 `乔瑟芬·尼维森` 也是画家。大学时在 `罗伯特·亨利` 手下工作。
-
-创作主题的契机：灯塔相关的作品获奖
-
-形式语言
---------
-
-构图
-   空旷的空间 -> 空旷恐惧症
-
-物象
-   灯塔、孤立的别墅、繁华的，小资的环境 小比例的人 即使出现人群也是疏离的
-
-色彩心理
-   黄绿色 精神的异质
-
-波德莱尔的诗
-
-霍伯式风格：
-
-- 充满异化情绪的二十世纪上半叶的美国社会
-- 表达了中产阶级内心的孤寂。
-- 现代人生活的冷感和疏离
-- “自己同他人之间的共通性远高于差异性”
-
-杨胜 赖*
-
-艺术理念
---------
-
-   The whole answer is there on the canvas [#]_
-
-霍伯总是不愿意讨论他自己和他的艺术：「答案就在画布上」。
-
-
-   Great art is the outward expression of an inner life in the artist, and this inner life will result in his personal vision of the world. No amount of skillful invention can replace the essential element of imagination. One of the weaknesses of much abstract painting is the attempt to substitute the inventions of the human intellect for a private imaginative conception.
-
-   The inner life of a human being is a vast and varied realm and does not concern itself alone with stimulating arrangements of color, form and design.
-
-   The term life used in art is something not to be held in contempt, for it implies all of existence and the province of art is to react to it and not to shun it.
-
-   Painting will have to deal more fully and less obliquely with life and nature's phenomena before it can again become great. [#]_
-
-DeepL 的机翻已经如此完美了吗：
-
-   伟大的艺术是艺术家内在生活的外在表现，而这种内在生活将导致他对世界的个人看法。任何技巧性的发明都不能取代想象力这一基本要素。许多抽象画的弱点之一是试图用人类智力的发明来替代私人想象力的概念。
-
-   人的内心世界是一个巨大而多样的领域，并不只是关注色彩、形式和设计的刺激性安排。
-
-   艺术中使用的生活一词是不应该被蔑视的，因为它意味着所有的存在，而艺术的职责是对它作出反应而不是回避它。
-
-   绘画必须更全面地处理生活和自然界的现象，而不是含糊其辞，才能再次变得伟大。
-
-..
-
-   So much of every art is an expression of the subconscious that it seems to me most of all the important qualities are put there unconsciously, and little of importance by the conscious intellect. [#]_
-
-尽管霍普声称他没有有意识地将心理学意义嵌入他的绘画中，但他对弗洛伊德和潜意识的力量深感兴趣：「每一种艺术都有很多是潜意识的表达，在我看来，大部分重要的品质都是无意识地放在那里的，而有意识的智力却没有什么重要性」。
-
-资源
-----
-
-- `消失的窗户 | 爱德华·霍普《夜游者》解读`__
-- `爱德华 · 霍普，一个用光和线诠释孤独和空虚的画家`__
-
-.. [#] Maker 1990, p. 17
-.. [#] Edward Hopper, "Statement." Published as a part of "Statements by Four Artists" in Reality, vol. 1, no. 1 (spring 1953). Hopper's handwritten draft is reproduced in Levin, Edward Hopper: An Intimate Biography, p. 461.
-.. [#] Wagstaff 2004, p. 71
-
-__ https://www.bilibili.com/video/BV1L7411d7iq
-__ https://www.sohu.com/a/275289121_748541
 
 雷内·马格丽特
 =============
@@ -431,46 +315,6 @@ __ https://zhuanlan.zhihu.com/p/58675411
 .. artist:: _
    :movement: 当代艺术
 
-文森特·梵高
-===========
-
-.. artist:: _
-            梵高
-            凡高
-            Vincent Willem van Gogh
-            Van Gogh
-   :movement: 后印象主义 表现主义
-   :zhwiki: 文森特·梵高
-   :enwiki: Vincent van Gogh
-   :artwork: 星夜 向日葵 有乌鸦的麦田
-
-荷兰画家。深刻影响了二十世纪艺术，尤其是 :artist.movement:`野兽派` 与 :artist.movement:`德国表现主义 <德国表现主义>`。
-
-:artist.movement:`浮世绘`
-   梵高非常喜欢日本的浮世绘，收集了上百件此类画作，也模仿过一些日本画家的作品，例如:
-
-   - `《花魁（仿英泉）》`__ （`溪斋英泉`）、
-   - `《李树开花》`__ （`歌川广重` `《李树开花》`__ ）、
-
-:artist.movement:`印象派 <印象主义>` :artist.movement:`点彩派`
-   梵高在巴黎看过了关于印象派和点彩派的展览。
-
-:artist.movement:`野兽派`
-   梵高的作品影响了 `马蒂斯`、`安德烈·德朗` 和 `弗拉芒克` 等人，一定程度上导致了野兽派的诞生。
-
-   其作品中，颇具野兽派味道的如：:zhwiki:`《鸢尾花》 <鸢尾花 (梵高)>`
-
-:artist.movement:`现实主义`
-  - `《夕阳下两位农妇开掘积雪覆盖的田地》`__ （仿 `米勒` :zhwiki:`《拾穗》 <拾穗>` ）
-  - `《囚徒之圈》`__ （仿 `多雷` `《囚徒之圈》`__ ）
-
-__ https://commons.wikimedia.org/wiki/File:Van_Gogh_-_la_courtisane.jpg
-__ https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Bloeiende_pruimenboomgaard-_naar_Hiroshige_-_Google_Art_Project.jpg?uselang=zh
-__ https://artsandculture.google.com/asset/one-hundred-famous-views-of-edo-plum-garden-in-kameido-utagawa-hiroshige/DgFIyemrWrUgaQ?hl=zh
-__ https://zh.wikipedia.org/wiki/%E6%96%87%E6%A3%AE%E7%89%B9%C2%B7%E6%A2%B5%E9%AB%98#/media/File:Van_Gogh_-_Zwei_grabende_B%C3%A4uerinnen_auf_schneebedecktem_Feld.jpeg
-__ https://zh.wikipedia.org/wiki/%E6%96%87%E6%A3%AE%E7%89%B9%C2%B7%E6%A2%B5%E9%AB%98#/media/File:Vincent_Willem_van_Gogh_037.jpg
-__ https://commons.wikimedia.org/wiki/File:Newgate-prison-exercise-yard.jpg
-
 巴尔蒂斯
 ========
 
@@ -554,97 +398,6 @@ https://www.beckysuss.net/
 大量圆形构图 和 :term:`同形的重复`。
 
 :term:`黄金分割` 的直接印证
-
-毛焰
-====
-
-.. artist:: _
-   :movement: 新写实主义 当代艺术
-   :gallery: PACE
-   :artwork: 小山的肖像 托马斯系列
-
-..
-
-   一个个表情正在消失的时代肖像。
-
-   — 批评家栗宪庭《写实主义的探险》
-
-1968 年生于湖南湘潭，毕业于中央美术学院油画系，现居南京，任教于南京艺术学院美术系。
-
-毛焰以观念性的肖像绘画著称。 `無悠藝：毛焰是怎样炼成的`__ 描述了毛焰截止至 201X 年各个时期的作品变化：
-
-学生时期（1988 - 1991）
-   造型功底非常惊人，风格不定
-
-朋友肖像时期（1992 - 1999）
-   分配到南京艺术学院任教，开始画身边的朋友，知名的作品有：
-
-   - 《我的诗人》
-   - 《小山的肖像》（代表作）
-   - 《记忆或者舞蹈的黑玫瑰》
-
-   看着有 `刘小东` 的影子，不知道是否是错觉。
-
-托马斯时期（2000 - 201X）
-   毛焰最广为人知的系列肖像，画友人托马斯的这一系列，至少持续了十年。
-
-   冷灰（蓝或绿）的色调，奇异的角度，异样的气质，还有对于中国观众来说比较陌生的异邦相貌，是这系列作品的基础氛围。
-
-   .. todo:: 就学这个时期了。
-
-   .. note:: 好几个人说 :artwork:`xfczk2-018` 有点毛焰的味道，没出息地感到开心了。
-
-未完成时期（2011-）
-   2011年夏受一威士忌品牌发起的“艺术家驻村计划”之邀，去苏格兰酒厂体验创作。
-
-   直观看肖像中多了一些接近肤色的颜色，反而少了一点味道。
-
-资源
-----
-
-- `毛焰在 PACE 上的主页`__
-- `写实主义的探险——何多苓、毛焰作品展览序`__
-- `专访毛焰：我现在的原则是不多画一张画`__
-- `毛焰：绘画就是信念`__ TODO
-
-__ https://www.sohu.com/a/166658462_740896
-__ https://www.pacegallery.com/artists/mao-yan/
-__ http://art.china.cn/mjda/2009-03/17/content_2795258.htm
-__ http://www.art-ba-ba.com/main/main.art?threadId=198474&forumId=8
-__ https://posts.careerengine.us/p/5f9e00add477c721eb24d318
-
-爱德华·蒙克
-===========
-
-.. artist:: _
-            蒙克
-            Edvard Munch
-            Munch
-   :movement: 表现主义
-   :zhwiki: 爱德华·蒙克
-
-挪威画家，1863年12月12日－1944年1月23日。
-蒙克早年经历悲惨，家人均早逝，父亲在世时患有精神疾病，向其灌输了大量极端思想，影响了他的一生：
-
-   蒙克（Munch）还因与父亲汉斯·雅格（HansJæger）的关系而感到愤怒，汉斯·雅格（HansJæger）的生活遵循“消灭激情也是创造激情”的守则，他主张自杀是实现自由的最终途径。 蒙克（Munch）受制于邪恶的反建制法术。 “我的想法是在波希米亚人的影响下发展的，或者在汉斯·雅格（HansJæger）的影响下发展起来的。 许多人错误地宣称我的想法是在斯特林堡和德国人的影响下形成的……但这是错误的。 那时他们已经成立了。” [#]_
-
-蒙克与照相机
-------------
-
-在蒙克的时代，:zhwiki:`照相机` 已经进入民用领域。蒙克是摄影艺术的早期批评者，他认为摄影作为一种艺术形式太过生硬和世俗（Mechanical and Earth-bound）：
-
-   (Photography) will never compete with the brush and the palette, until such time as photographs can be taken in Heaven or Hell! [#]_
-
-但他同时又是一个摄影爱好者。他拍过非常多自己的裸体肖像，似乎也使用过摄影来帮助他为绘画进行研究。
-
-资源
-----
-
-.. [#] `Mahler Foundation 爱德华·蒙克（1863-1944）`__
-.. [#] `Google Arts and Culture: P7 Things You May Not Know About Edvard Munch`__, No.7
-
-__ https://zh-cn.mahlerfoundation.org/mahler/contemporaries/edvard-munch/
-__ https://artsandculture.google.com/story/jwVxeKrk7FekXg
 
 王郁洋
 ======
@@ -832,7 +585,6 @@ __ https://www.epochtimes.com/gb/20/5/31/n12149996.htm
 - 乔治·修拉
 - 保罗·塞尚
 - 亨利·马蒂斯
-- 爱德华·马奈
 - 凯绥·柯勒惠支
 - 让-巴蒂斯·卡米耶·柯洛（柯罗）
 - 米开朗基罗
