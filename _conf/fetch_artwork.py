@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 import subprocess
+import sys
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
@@ -17,9 +18,10 @@ def fetch_artwork_filter(env: BuildEnvironment):
     def _filter(id_: str) -> str | None:
         imgdir = '.blobs/artworks'
         imgdir = env.srcdir.joinpath(imgdir)
-        result = subprocess.run(['/home/la/latree/bin/artworks-fetch', id_, imgdir])
-        if result.returncode != 0:
-            return None
+        try:
+            subprocess.run(['/home/la/latree/bin/artworks-fetch', id_, imgdir])
+        except Exception as e:
+            print(e, file=sys.stderr)
         return f'/{imgdir}/{id_}.webp'
 
     return _filter
