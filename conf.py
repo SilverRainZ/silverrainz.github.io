@@ -310,13 +310,10 @@ extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
 
-if True: # D is not D.Local:
-    extensions.append('sphinxnotes.recentupdate')
-    recentupdate_date_format = datefmt
-    recentupdate_exclude_path = ['_templates']
-    recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
-else:
-    mock_directives.append('recentupdate')
+extensions.append('sphinxnotes.recentupdate')
+recentupdate_date_format = datefmt
+recentupdate_exclude_path = ['_templates']
+recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 
 if D.is_public():
     extensions.append('sphinxext.opengraph')
