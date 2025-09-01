@@ -20,7 +20,7 @@ Output definition,
 Direct scheme expression
    类似 `#(set-default-paper-size "a7" 'landscape)`
 
-   .. note:: 这里的 scheme 是指 :enwiki:`Scheme_(programming_language)`
+   .. note:: 这里的 scheme 是指 `Scheme`_。
 
 `\header`
    定义谱面的头部，包含标题、作曲家等信息
@@ -296,6 +296,24 @@ FluidSynth 需要和特定声音系统交互，默认是 ALSA。
 （即 `编辑 → 首选项 → MIDI 设置 →  MIDI 端口 →  播放器输出`）
 将其设置为 "Synth inpurt port"。
 
+
+Scheme
+======
+
+`Extending LilyPond <https://extending-lilypond.gitlab.io/en/extending>`_
+
+.. seealso:: :doc:`/notes/books/teach-yourself-scheme-in-fixnum-days`
+
+和弦符号转级数 
+--------------
+
+.. lilyinclude:: roman-numerals.ly
+
+.. seealso::
+
+   - `ChordsRoman option (fixes #55 on GitHub) · ssb22/jianpu-ly@9e97c68 <https://github.com/ssb22/jianpu-ly/commit/9e97c680e744f1b73973a867fccc9f68c012b6a7>`_
+   - `解释 LilyPond 代码 <https://chatgpt.com/share/68b48dd1-3500-800e-bc11-b7ece1c2b4d2>`_
+
 配套工具
 ========
 
@@ -307,7 +325,8 @@ FluidSynth 需要和特定声音系统交互，默认是 ALSA。
 - Sphinx 插件：`sphinxnotes-lilypond <https://sphinx.silverrainz.me/lilypond/>`_
 - 简谱：https://github.com/ssb22/jianpu-ly
 
-.. rubric:: 脚注
+脚注
+====
 
 .. [#] :lilydoc:`notation/file-structure`
 .. [#] :lilydoc:`music-glossary/pitch-names`
