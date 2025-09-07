@@ -19,7 +19,7 @@ def fetch_artwork_filter(env: BuildEnvironment):
         imgdir = '.blobs/artworks'
         imgdir = env.srcdir.joinpath(imgdir)
         try:
-            subprocess.run(['/home/la/latree/bin/artworks-fetch', id_, imgdir])
+            subprocess.run(['/home/la/latree/bin/artworks', 'fetch', '--verbose', id_, imgdir])
         except Exception as e:
             print(e, file=sys.stderr)
         return f'/{imgdir}/{id_}.webp'
