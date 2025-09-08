@@ -26,11 +26,10 @@
 
 \score {
   <<
-    \new ChordNames {
+    \chords {
       \set chordNameLowercaseMinor = ##t
-      \set chordChanges = ##t \chordmode {
-        c1 d:m e:m f g:7 a:m b:7
-      }
+      \set chordChanges = ##t
+      c1 d:m e:dim f:aug g:maj7 a:m7 b:7 c:dim7
     }
   >>
 }
