@@ -5,6 +5,13 @@ code.code.literal {
 	padding: 0 5px;
 }
 
+.menuselection {
+	background-color: var(--pst-color-surface);
+	border: 1px solid var(--pst-color-border);
+	border-radius: .25rem;
+	padding: .1rem .25rem;
+}
+
 .logo__image {
     border-radius: 50%;
 }
