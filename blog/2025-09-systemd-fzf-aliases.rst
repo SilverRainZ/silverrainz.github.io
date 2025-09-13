@@ -144,7 +144,7 @@ Reusable for ``--user``
       # SystemD unit selector.
       _sysls() {
           WIDE=$1
-          [ -n $2 ] && STATE="--state=$2"
+          [ -n "$2" ] && STATE="--state=$2"
           cat \
               <(echo 'UNIT/FILE LOAD/STATE ACTIVE/PRESET SUB DESCRIPTION') \
               <(systemctl $WIDE list-units --quiet $STATE) \
