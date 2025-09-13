@@ -151,7 +151,7 @@ html_theme_options = {
 }
 
 # Setup announcement as your need
-html_theme_options['announcement'] = '</p>评论功能已恢复 :-)</p>'
+html_theme_options['announcement'] = ''
 
 if D.is_mirror():
     if not D.is_private():
