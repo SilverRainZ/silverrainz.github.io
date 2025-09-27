@@ -143,10 +143,10 @@ html_theme_options = {
     'repository_branch': "master",
     'use_repository_button': True,
     'use_download_button': False,
-    'use_edit_page_button': False,
+    'use_edit_page_button': True,
     'use_source_button': True,
-    'use_issues_button': True,
-    'show_toc_level': 2,
+    'use_issues_button': False,
+    'show_toc_level': 3,
     'navigation_with_keys': False, # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/configuring.html#changing-pages-with-keyboard-presses
 }
 
