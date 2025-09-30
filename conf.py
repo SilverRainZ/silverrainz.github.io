@@ -226,7 +226,7 @@ extlinks = {
     'zhihuq': ('https://www.zhihu.com/question/%s', '🤔 %s'),
     'zhihup': ('https://www.zhihu.com/people/%s', '👤 %s'),
     'pypi': ('https://pypi.org/project/%s', '📦 %s'),
-    'lilydoc': ('https://lilypond.org/doc/v2.20/Documentation/%s', None),
+    'lilydoc': ('https://lilypond.org/doc/Documentation/%s', None),
     'so.q': ('https://stackoverflow.com/a/%s', '🤔 %s'),
     'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
     'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
@@ -309,6 +309,7 @@ if D.is_public():
 extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
+lilypond_include_paths = ['/notes/man/lily/ly']
 
 extensions.append('sphinxnotes.recentupdate')
 recentupdate_date_format = datefmt

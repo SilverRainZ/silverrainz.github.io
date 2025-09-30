@@ -1,4 +1,4 @@
-% https://lists.gnu.org/archive/html/lilypond-user/2023-03/msg00001.html
+%%%% https://lists.gnu.org/archive/html/lilypond-user/2023-03/msg00001.html
 
 \version "2.24.0"
 
@@ -20,16 +20,8 @@
 \layout {
   \context {
     \ChordNames
+    chordNameLowercaseMinor = ##t
+    chordChanges = ##t
     \consists #romanNumeralChordEngraver
   }
-}
-
-\score {
-  <<
-    \chords {
-      \set chordNameLowercaseMinor = ##t
-      \set chordChanges = ##t
-      c1 d:m e:dim f:aug g:maj7 a:m7 b:7 c:dim7
-    }
-  >>
 }
