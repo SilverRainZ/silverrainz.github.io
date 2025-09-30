@@ -307,12 +307,38 @@ Scheme
 和弦符号转级数 
 --------------
 
-.. lilyinclude:: roman-numerals.ly
+.. lily::
+
+   \version "2.24.0"
+
+   \include "roman-numerals.ly"
+
+   \score {
+     <<
+       \chords {
+         c1 d:m e:dim f:aug g:maj7 a:m7 b:7 c:dim7
+       }
+     >>
+   }
 
 .. seealso::
 
    - `ChordsRoman option (fixes #55 on GitHub) · ssb22/jianpu-ly@9e97c68 <https://github.com/ssb22/jianpu-ly/commit/9e97c680e744f1b73973a867fccc9f68c012b6a7>`_
    - `解释 LilyPond 代码 <https://chatgpt.com/share/68b48dd1-3500-800e-bc11-b7ece1c2b4d2>`_
+
+练习曲生成 
+----------
+
+.. lily::
+
+   \version "2.24.0"
+
+   \include "etude.ly"
+
+   hh = \chords { c1 }
+   mm = { c'4 e' g' c'' }
+
+   #(makeEtude "C Chord" #{\mm#} #{\hh#} #{c#})
 
 配套工具
 ========
