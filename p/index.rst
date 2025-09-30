@@ -54,5 +54,3 @@ __ http://www.winsornewton.com.cn/artisist-oil-forever-rose.htm
    :glob:
 
    *
-
-
