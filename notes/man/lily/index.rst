@@ -350,6 +350,14 @@ Scheme
 
 - Sphinx 插件：`sphinxnotes-lilypond <https://sphinx.silverrainz.me/lilypond/>`_
 - 简谱：https://github.com/ssb22/jianpu-ly
+- 乐谱集合：
+
+  - https://github.com/captbaritone/lilypond-hub
+  - https://github.com/cellist/Lilypond-Sheet-Music
+  - https://github.com/openlilylib/snippets
+  - https://github.com/nsceaux/nenuvar
+  - https://github.com/wbsoft/lilymusic
+
 
 脚注
 ====
