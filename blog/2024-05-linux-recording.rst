@@ -37,7 +37,7 @@
 
    .. literalinclude:: /_assets/2025-10-linux-recording/thr5a.txt
       :caption: `arecord --list-device` + `arecord --dump-hw-params -D hw:<CARD_NUM>`
-      :diff: onboard.txt
+      :diff: /_assets/2025-10-linux-recording/onboard.txt
 
 实际上，我的 :dev:`thr5a` 和 :dev:`mg300` 都自带了声卡，内核也能正常识别，但
 后者录音的时候总是捕捉不到，怀疑和 这里__ 遇到了同样的问题，折腾不动，

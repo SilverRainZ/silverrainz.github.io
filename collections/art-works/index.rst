@@ -18,6 +18,5 @@ Art Works
 编号     :ref:`any-artwork.id+by-path`
 媒介     :ref:`any-artwork.medium`
 尺幅     :ref:`any-artwork.size`
-年       :ref:`any-artwork.date+by-year`
-月       :ref:`any-artwork.date+by-month`
+时间     :ref:`any-artwork.date+by-year`
 ======== ================================
