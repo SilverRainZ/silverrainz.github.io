@@ -71,11 +71,11 @@
 
    .. grid-item-card::
 
-      .. image:: /_images/artwork-lns/IMG_20200805_181148.jpg
+      .. image:: /_images/IMG_20200805_181148.jpg
 
    .. grid-item-card::
 
-      .. image:: /_images/artwork-lns/IMG_20200805_181202.jpg
+      .. image:: /_images/IMG_20200805_181202.jpg
 
 阶段一 - 熟悉材料
 -----------------
