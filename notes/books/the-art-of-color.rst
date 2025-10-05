@@ -154,7 +154,7 @@ __ https://www.quora.com/What-would-the-world-look-like-if-our-sun-was-white
 .. card::
 
    .. artwork:: 四季色卡 2
-      :id: taoc-000 taoc-001 taoc-002 taoc-003
+      :id: taoc-000
       :size: 32k
       :medium: 水彩
       :date: 2022-04-25

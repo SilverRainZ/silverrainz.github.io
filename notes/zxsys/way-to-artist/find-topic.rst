@@ -859,10 +859,10 @@ Antihug
 画完线稿之后规划了一下颜色，模特用黄色，垃圾桶用蓝色。
 但最终的用色除了蓝色都降了纯度，左边的地面和计划的有所区别。
 
-.. image:: /_images/artwork-xfczk2/v2-7b123234565d9e62ea2ed3f552fc0c6a_r.jpg
+.. image:: /_images/v2-7b123234565d9e62ea2ed3f552fc0c6a_r.jpg
    :width: 40%
 
-.. image:: /_images/artwork-xfczk2/IMG_20210814_231427.jpg
+.. image:: /_images/IMG_20210814_231427.jpg
    :width: 40%
 
 模特

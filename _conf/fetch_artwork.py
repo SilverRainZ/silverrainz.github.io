@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 import subprocess
 import sys
+from os import path
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
@@ -22,7 +23,10 @@ def fetch_artwork_filter(env: BuildEnvironment):
             subprocess.run(['/home/la/latree/bin/artworks', 'fetch', id_, imgdir])
         except Exception as e:
             print(e, file=sys.stderr)
-        return f'/{imgdir}/{id_}.webp'
+        f = f'/{imgdir}/{id_}.webp'
+        if not path.exists(f):
+            return None
+        return f
 
     return _filter
 

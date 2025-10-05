@@ -23,7 +23,7 @@ Oneplus6 刷机 LineageOS 18.01
 给 :doc:`/notes/zxsys/way-to-artist/find-topic` 作业拍照
 ========================================================
 
-.. figure:: /_images/artwork-xfczk2/IMG_20211023_155433.jpg
+.. figure:: /_images/IMG_20211023_155433.jpg
    :figwidth: 30%
    :align: right
 

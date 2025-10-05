@@ -310,11 +310,11 @@
 
    通过 :artwork:`fm-009` 求证到的东西在这一张也非常奏效。中间的感觉非常好，甚至超过了最终的画面效果，故保留几张步骤图：
 
-   .. image:: /_images/artwork-fm/IMG_20210531_093829.jpg
+   .. image:: /_images/IMG_20210531_093829.jpg
       :width: 30%
-   .. image:: /_images/artwork-fm/IMG_20210531_102428.jpg
+   .. image:: /_images/IMG_20210531_102428.jpg
       :width: 30%
-   .. image:: /_images/artwork-fm/IMG_20210531_114934.jpg
+   .. image:: /_images/IMG_20210531_114934.jpg
       :width: 30%
 
 .. artwork::
