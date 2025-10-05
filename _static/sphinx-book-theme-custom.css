@@ -42,3 +42,9 @@ html[data-theme="dark"] code.code.literal {
 .bd-header-announcement a {
     color: #3fb1c5;
 }
+
+/* @frantic1048: 辣也许需要在 blog 某个地方加
+ * dl.field-list > dd { word-break: break-word; } 或者类似的调整 😇 */
+dl.field-list > dd {
+    word-break: break-word;
+} 
