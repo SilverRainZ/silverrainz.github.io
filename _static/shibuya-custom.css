@@ -1,0 +1,26 @@
+/* Round the logo */
+.sy-head-brand img {
+    border-radius: 50%;
+}
+
+/* Center lead text, same as title, see also ./custom.css */
+.lead {
+    text-align: center;
+}
+
+/* Center buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/****************
+ * ABlog compat *
+ ****************/
+
+/* Keep same font style with toctree */
+ul.postlist-style-disc > li > p > a {
+	font-size: 1rem;
+    border-bottom: none !important;
+}
