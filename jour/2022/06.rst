@@ -35,9 +35,7 @@ __ https://item.jd.com/100000666658.html
 
 .. _laofangu:
 
-附：老饭骨的番茄炒蛋视频（使用了今天刚写的 :pypi:`sphinxnotes-extweb` 嵌入）：
-
-.. bilibili:: BV15P4y1F74j
+附：`老饭骨的番茄炒蛋视频 <https://www.bilibili.com/video/BV15P4y1F74j>`_
 
 Srain 的域名迁移到 srian.silverrainz.me
 ========================================

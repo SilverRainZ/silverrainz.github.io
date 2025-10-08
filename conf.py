@@ -60,7 +60,6 @@ extensions = [
     'sphinxcontrib.asciinema',
     'sphinx_copybutton',
     'sphinxcontrib.youtube',
-    'sphinxnotes.extweb',
     'sphinx_design',
     'sphinx_simplepdf', # .. pdf-include::
 ]
