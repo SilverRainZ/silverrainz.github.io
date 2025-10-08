@@ -6,7 +6,7 @@
 =================
 
 本站内容均在 |cc-badge| 署名-相同方式共享（CC BY-SA）协议下发布，完整协议请见：
-:download:`/LICENSE` 。
+:download:`/_assets/LICENSE` 。
 
 .. |cc-badge| image:: https://licensebuttons.net/l/by-sa/4.0/88x31.png
    :target: http://creativecommons.org/licenses/by-sa/4.0/
@@ -21,7 +21,7 @@ Sphinx + Sphinx Notes
    :target: https://www.sphinx-doc.org
    :height: 4em
 
-.. |sphinx-notes-badge| image:: /_static/sphinxnotes-logo.png
+.. |sphinx-notes-badge| image:: /_assets/sphinxnotes-logo.png
    :target: https://github.com/sphinx-notes/
    :height: 4em
 

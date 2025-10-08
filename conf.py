@@ -11,22 +11,22 @@ import yaml
 import importlib
 
 # -- Path setup --------------------------------------------------------------
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Split configurations ----------------------------------------------------
 
-from _conf.schemas import _schemas
-from _conf.deploy import D
+from confs.schemas import _schemas
+from confs.deploy import D
 
 # For `.. only::` directive.
 if D.is_private():
     tags.add('private') # type: ignore
 
-with open('./_conf/redirect.yml') as data:
+with open('./confs/redirect.yml') as data:
     _redirects = yaml.safe_load(data)
 
 # -- Project information -----------------------------------------------------
@@ -37,7 +37,7 @@ copyright = '2020-%s, ' % datetime.now().year + author
 
 # -- Non-standard project information ----------------------------------------
 
-logo = '_static/logo.png'
+logo = 'static/logo.png'
 description = 'Yes silver bullet here.'
 datefmt = '%Y-%m-%d'
 author_id = 'SilverRainZ'
@@ -70,7 +70,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', '_conf', 'Thumbs.db', '.DS_Store', 'README.rst']
+exclude_patterns = ['_assets', '_images']
 
 # A string of reStructuredText that will be included at the end of every
 # source file that is read.
@@ -119,7 +119,7 @@ language_full = '简体中文'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['static']
 
 html_css_files = ['custom.css']
 
@@ -136,14 +136,14 @@ html_title = project
 
 html_logo = logo
 
-html_favicon = '_static/favicon.png'
+html_favicon = 'static/favicon.png'
 
 # HTML theme configuration
 html_theme = 'shibuya'
-theme_conf = importlib.import_module(f'_conf.themes.{html_theme}')
-html_theme_options = theme_conf.html_theme_options
-html_context = theme_conf.html_context
-html_sidebars = theme_conf.html_sidebars
+themeconf = importlib.import_module(f'confs.themes.{html_theme}')
+html_theme_options = themeconf.html_theme_options
+html_context = themeconf.html_context
+html_sidebars = themeconf.html_sidebars
 html_css_files.append(f'{html_theme}-custom.css')
 
 # Setup announcement as your need
@@ -177,7 +177,7 @@ html_last_updated_fmt = datefmt
 
 # A list of paths that contain extra files not directly related to the
 # documentation.
-html_extra_path = ['_static/robots.txt', 'LICENSE']
+html_extra_path = ['static/robots.txt', 'LICENSE']
 
 # -- Options for LaTeX output -------------------------------------------------
 
@@ -249,7 +249,7 @@ if D.is_public():
 
 if D is D.Local:
     extensions.append('sphinxnotes.snippet')
-    snippet_config = {}
+    snippetconfig = {}
     snippet_patterns = {
         'd': ['.*'],
         's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'in/.*'],
@@ -280,11 +280,11 @@ if not D is D.Local:
 if D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
-    with open('./_conf/redirect.yml') as data:
+    with open('./confs/redirect.yml') as data:
         redirects = _redirects
 
 # extensions.append('sphinxcontrib.images')
-# images_config = {
+# imagesconfig = {
 #     'override_image_directive': True,
 #     'cache_path': '_cache',
 #     'download': True,
@@ -363,11 +363,11 @@ extensions.append('sphinxnotes.poc')
 
 def setup(app):
     # Dump any domain data:
-    # from _conf.dump_any_domain import setup
+    # from conf.dump_any_domain import setup
     # setup(app)
     # Query artworks from LATree.
 
-    from _conf import fetch_artwork
+    from confs import fetch_artwork
     fetch_artwork.setup(app)
 
     ...

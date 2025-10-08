@@ -12,7 +12,7 @@ function rewriteSourcePageURLs() {
     var currentPath = window.location.pathname;
     const currentHash = window.location.hash;
 
-    // 移除 Homelab 部署的前缀，see also _conf/deploy.py
+    // 移除 Homelab 部署的前缀，see also _confs/deploy.py
     const buildIndex = currentPath.indexOf("bullet/");
     if (buildIndex !== -1) {
         currentPath = currentPath.substring(buildIndex + "bullet/".length);

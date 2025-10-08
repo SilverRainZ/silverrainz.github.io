@@ -14,9 +14,9 @@ new_docname="p/$(basename $docname)"
 
 mv $file $new_file
 if [[ "$docname" != "in"* ]]; then
-    echo "$docname: /$new_docname.html" >> ./_conf/redirect.yml
+    echo "$docname: /$new_docname.html" >> ./confs/redirect.yml
     sed -i "1i:isso-id: /$docname\n" $new_file
-    git add $file $new_file ./_conf/redirect.yml
+    git add $file $new_file ./confs/redirect.yml
 else
     git add $new_file
 fi
