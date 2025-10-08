@@ -48,3 +48,18 @@ html[data-theme="dark"] code.code.literal {
 dl.field-list > dd {
     word-break: break-word;
 } 
+
+/****************
+ * ABlog compat *
+ ****************/
+
+/* Make font size of postlist of index.rst regular */
+.postlist-style-disc p:nth-child(1) > .reference {
+  font-size: initial;
+  font-style: initial;
+  font-weight: 400;
+}
+
+ul.postlist-style-disc > li > p:first-child {
+   font-size: initial;
+}

@@ -2,6 +2,7 @@
 h1 {
     text-align: center;
 }
+
 /* Hide headerlink of doctitle */
 h1 > a.headerlink {
     display: none;
