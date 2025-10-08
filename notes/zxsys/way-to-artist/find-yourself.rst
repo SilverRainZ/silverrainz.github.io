@@ -834,10 +834,10 @@ B 站上有人上传了一段机械手弹吉他的视频，弹幕有三成是这
    花了大时间的演示文稿（链接见下）
 
 :artwork:`xfczk-000` - :artwork:`xfczk-046`
-   :download:`/_downloads/submit1.pptx`
+   :download:`/_assets/dl/submit1.pptx`
 
 :artwork:`xfczk-047` - :artwork:`xfczk-051`
-   :download:`/_downloads/submit1-patch.pptx`
+   :download:`/_assets/dl/submit1-patch.pptx`
 
 按动机分类
 ----------

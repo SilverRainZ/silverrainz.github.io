@@ -15,5 +15,5 @@ git_status(){
 }
 
 git_status .
-git_status .blobs
+git_status _assets/blobs
 git_status 'in'
