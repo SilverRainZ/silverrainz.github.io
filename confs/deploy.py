@@ -29,7 +29,7 @@ class Deployment(Enum):
         elif self == Deployment.Homelab:
             return 'https://rpi3.tailnet-ecdc.ts.net/bullet'
         elif self == Deployment.Local:
-            # See ../_utils/autobuild
+            # See ../utils/autobuild
             return 'http://127.0.0.1:30500'
         else:
             # file:///build_dir/html/index.html

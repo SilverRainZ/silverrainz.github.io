@@ -75,10 +75,10 @@ In `Sphinx.__init__`::
       self.builder.init()
       self.events.emit('builder-inited')
 
-In ``BuildEnvironment.setup`` calls ``BuildEnvironment._update_config`` to detect
+In ``BuildEnvironment.setup`` calls ``BuildEnvironment._updateconfig`` to detect
 config changes::
 
-   def _update_config(self, config: Config) -> None:
+   def _updateconfig(self, config: Config) -> None:
        # ...
        if self.config is None:
            self.config_status = CONFIG_NEW
@@ -98,7 +98,7 @@ config changes::
     def init(self) -> None:
         self.build_info = self.create_build_info()
         # ...
-        self.use_index = self.get_builder_config('use_index', 'html')
+        self.use_index = self.get_builderconfig('use_index', 'html')
 
 Build
 =====

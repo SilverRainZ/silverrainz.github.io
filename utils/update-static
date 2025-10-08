@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source common.sh
+
+cp $confdir/static/* $builddir/html/_static/

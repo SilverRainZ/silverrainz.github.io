@@ -68,7 +68,7 @@ See https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
    #. 禁用 root 登陆 :archwiki:`OpenSSH_(简体中文)#禁用或限制_root_账户登录`::
 
-         $ vim /etc/ssh/sshd_config
+         $ vim /etc/ssh/sshdconfig
          # systemctl restart sshd
 
       不要断开链接，新开一个 terminal 测试

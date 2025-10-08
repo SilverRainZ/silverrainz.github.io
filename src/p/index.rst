@@ -39,11 +39,6 @@ __ http://www.winsornewton.com.cn/artisist-oil-forever-rose.htm
 - 原有的 :rst:dir:`toctree` 保留，但通过指定 docname 的方式继续更新（而非原来的 ``:glob:``） |?|
 - |todo|
 
-目前的迁移脚本：
-
-.. literalinclude:: /_utils/migrate-to-permnotes
-   :language: shell
-
 --------------------------------------------------------------------------------
 
 .. 定义一个目录树以防止出现：WARNING: document isn't included in any toctree

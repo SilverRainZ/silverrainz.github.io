@@ -2,7 +2,7 @@
 
 # set -x
 
-source .common.sh
+source common.sh
 # See also ../requirements.txt.
 sphinxautobuild=/home/la/.local/bin/sphinx-autobuild
 host=localhost
@@ -14,7 +14,7 @@ notify() {
     progress=$2
     expire=$3
     notify-send "Bullet Auto Build" "$msg"\
-        --icon=$srcdir/_static/logo.png \
+        --icon=$confdir/static/logo.png \
         --transient \
         --expire-time=$expire \
         --hint "string:synchronous:$notifyid" \
@@ -32,7 +32,7 @@ case $action in
     *)
         # TODO: Use pipe?
         $sphinxautobuild $srcdir $builddir/html \
-            --doctree-dir $builddir/doctrees \
+            --config $confdir \
             --builder fasthtml \
             --re-ignore ".git/*" \
             --host $host \
