@@ -178,7 +178,7 @@ html_last_updated_fmt = datefmt
 
 # A list of paths that contain extra files not directly related to the
 # documentation.
-html_extra_path = ['robots.txt', 'LICENSE']
+html_extra_path = ['_static/robots.txt', 'LICENSE']
 
 # -- Options for LaTeX output -------------------------------------------------
 
