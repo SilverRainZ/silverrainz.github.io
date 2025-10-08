@@ -1,18 +1,26 @@
-:nocomments:
+:layout: landing
 
 .. Bullet documentation master file, created by
    sphinx-quickstart on Wed May 20 21:28:31 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-====
-首页
-====
+========
+银色子弹
+========
+
+.. rst-class:: lead
+
+   :friend:`i` 的结构化笔记系统
+
+.. container:: buttons
+
+    `继续浏览 <#entrance>`_
+    `源码 <https://github.com/SilverRainZ/bullet>`_
 
 .. recentupdate:: 5
 
    .. dropdown:: 最近更新
-      :open:
 
       {% for r in revisions %}
       :{{ r.date | strftime }}:
@@ -27,8 +35,6 @@
          {% endif %}
       {% endfor %}
 
-.. centered:: *Yes silver bullet here.*
-
 .. only:: private
 
    .. card::
@@ -42,8 +48,6 @@
          in/ops/index
          in/loveletters/index
 
---------------------------------------------------------------------------------
-
 .. grid::
    :gutter: 2
 
@@ -51,6 +55,7 @@
       :columns: 12 4 4 4
 
       .. toctree::
+         :name: entrance
          :caption: 笔记
          :maxdepth: 1
          :glob:
@@ -64,8 +69,9 @@
    .. grid-item-card::
       :columns: 12 8 8 8
 
+      .. class:: ablog-toctree
       .. toctree::
-         :caption: 文章
+         :caption: 博客
          :maxdepth: 1
 
          所有文章 <blog/index>
