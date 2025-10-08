@@ -1049,7 +1049,7 @@ Anti-Recommendation
 ====
 
 :artwork:`xfczk2-000` - :artwork:`xfczk2-039`
-   :download:`/_downloads/submit2.pptx`
+   :download:`/_assets/dl/submit2.pptx`
 
 尽可能的让主题清晰，但艺术总是含糊的。
 

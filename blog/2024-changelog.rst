@@ -159,12 +159,12 @@ The day after last day
 .. grid:: 1 2 2 2
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/m-004.webp
+      .. figure:: /_assets/aw/m-004.webp
 
          :artwork:`罗马王`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/m-005.webp
+      .. figure:: /_assets/aw/m-005.webp
 
          :artwork:`贝利夫人`
 
@@ -253,52 +253,52 @@ The day after last day
 .. grid:: 1 2 5 5
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-001.webp
+      .. figure:: /_assets/aw/xfczk4-001.webp
 
          :artwork:`xfczk4-001`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-008.webp
+      .. figure:: /_assets/aw/xfczk4-008.webp
 
          :artwork:`珍视`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-012.webp
+      .. figure:: /_assets/aw/xfczk4-012.webp
 
          :artwork:`销烟`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-013.webp
+      .. figure:: /_assets/aw/xfczk4-013.webp
 
          :artwork:`xfczk4-013`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-016.webp
+      .. figure:: /_assets/aw/xfczk4-016.webp
 
          :artwork:`xfczk4-016`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-021.webp
+      .. figure:: /_assets/aw/xfczk4-021.webp
 
          :artwork:`平安夜（一）`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-022.webp
+      .. figure:: /_assets/aw/xfczk4-022.webp
 
          :artwork:`平安夜（二）`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-023.webp
+      .. figure:: /_assets/aw/xfczk4-023.webp
 
          :artwork:`轻微的纯度游戏`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-025.webp
+      .. figure:: /_assets/aw/xfczk4-025.webp
 
          :artwork:`失去的前一瞬间`
 
    .. grid-item::
-      .. figure:: /.blobs/artworks/xfczk4-028.webp
+      .. figure:: /_assets/aw/xfczk4-028.webp
 
          :artwork:`生命的线索`
 
@@ -339,7 +339,7 @@ The day after last day
 
       于是 A 张开了双手 `3` …   抱住了从天而降的少女 `4` 。
 
-.. figure:: /.blobs/artworks/xfczk2-041.webp
+.. figure:: /_assets/aw/xfczk2-041.webp
    :width: 60%
 
    :artwork:`有星星和微风的夜晚`
@@ -366,7 +366,7 @@ The day after last day
 
 Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画方面也尚且留有最后一点自信。偶尔会大胆地拿自信去换取虚荣，具体方式就是在内网发自己的画并且等待一些赞扬，也因此认识了不少朋友。Swan 是其中的一位，她告诉我她特别喜欢我在西溪北苑画的《蓝色失眠》：
 
-.. figure:: /.blobs/artworks/abraxas-003.webp
+.. figure:: /_assets/aw/abraxas-003.webp
    :width: 60%
 
    :artwork:`蓝色失眠，draft`
@@ -390,7 +390,7 @@ Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画
 
 我开始变得柔软，全身的肌肉失去力气，视线开始模糊，脑袋也得昏昏沉沉。颤抖的双手不敢撕下面前的问号，双腿依然在往那边迈去。每天画素描的时候完全不在状态，我回忆起一些恐惧：
 
-.. figure:: /.blobs/artworks/xfczk-010.webp
+.. figure:: /_assets/aw/xfczk-010.webp
    :width: 60%
 
    :artwork:`下雪的 768`
@@ -401,7 +401,7 @@ Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画
 
 恐惧让我心生犹豫，但我的预感又告诉我，这一天还是会到来：
 
-.. figure:: /.blobs/artworks/xfczk4-013.webp
+.. figure:: /_assets/aw/xfczk4-013.webp
    :width: 80%
 
    :artwork:`xfczk4-013`

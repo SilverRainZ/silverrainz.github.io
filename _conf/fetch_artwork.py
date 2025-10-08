@@ -17,7 +17,7 @@ def fetch_artwork_filter(env: BuildEnvironment):
     """
 
     def _filter(id_: str) -> str | None:
-        imgdir = '.blobs/artworks'
+        imgdir = '_assets/blobs/artworks'
         imgdir = env.srcdir.joinpath(imgdir)
         try:
             subprocess.run(['/home/la/latree/bin/artworks', 'fetch', id_, imgdir])
