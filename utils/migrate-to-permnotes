@@ -1,0 +1,24 @@
+#!/bin/bash
+# set -x
+
+source .common.sh
+cd $srcdir
+
+eval "$(snippet integration --sh)"
+id=$(snippet_list --tags d)
+file=$(snippet get $id --file)
+docname=$(snippet get $id --docname)
+
+new_file="$srcdir/p/$(basename $file)"
+new_docname="p/$(basename $docname)"
+
+mv $file $new_file
+if [[ "$docname" != "in"* ]]; then
+    echo "$docname: /$new_docname.html" >> ./confs/redirect.yml
+    sed -i "1i:isso-id: /$docname\n" $new_file
+    git add $file $new_file ./confs/redirect.yml
+else
+    git add $new_file
+fi
+
+git diff HEAD

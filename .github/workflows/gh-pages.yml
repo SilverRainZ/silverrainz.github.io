@@ -34,8 +34,9 @@ jobs:
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
-        documentation_path: .
+        documentation_path: src
         requirements_path: ./requirements.txt
+        sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.12
         checkout: false

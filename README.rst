@@ -67,7 +67,7 @@ Ask sphinx to build HTML documentation::
 
    make
 
-Root page of the HTML documentation can be found at ``_build/html/index.html``.
+Root page of the HTML documentation can be found at ``build/html/index.html``.
 
 LICENSE
 =======
