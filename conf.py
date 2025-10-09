@@ -62,6 +62,7 @@ extensions = [
     'sphinxcontrib.youtube',
     'sphinx_design',
     'sphinx_simplepdf', # .. pdf-include::
+    'sphinx_iconify',   # :iconify:`simple-icons:python`
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -190,34 +191,46 @@ extensions.append('sphinxnotes.mock')
 mock_directives = []
 mock_directives.append('contents') # Theme has built-in local-toc, see html_theme
 
+extensions.append('sphinxnotes.comboroles')
+comboroles_roles = {
+    'parsed_literal': (['literal'], True),
+    'sup_abbr': ['superscript', 'abbr',],
+
+     # for src/blog/sphinxnotes-comboroles.rst
+    'strong_literal': ['strong', 'literal'],
+    'literal_enwiki': ['literal', 'enwiki'],
+    'literal_strike': ['literal', 'strike'],
+}
+
 extensions.append('sphinx.ext.todo')
 todo_include_todos = True
 
 extensions.append('sphinx.ext.extlinks')
-extlinks = {
-    'zhwiki': ('https://zh.wikipedia.org/wiki/%s', '📖 %s'),
-    'enwiki': ('https://wikipedia.org/wiki/%s', '📖 %s'),
-    'search': ('https://duckduckgo.com/?q=%s', '🔍 %s'),
-    'twitter': ('https://twitter.com/%s', '👤 %s'),
-    'ghuser': ('https://github.com/%s', '👤 %s'),
-    'ghorg': ('https://github.com/%s', '👥 %s'),
-    'ghrepo': ('https://github.com/%s', '⛺ %s'),
-    'weibo': ('https://weibo.com/%s', '👤 %s'),
-    'aur': ('https://aur.archlinux.org/packages/%s', '📦 %s'),
-    'archpkg': ('https://archlinux.org/packages/%s', '📦 %s'),
-    'archwiki': ('https://wiki.archlinux.org/index.php/%s', '📖 %s'),
-    'zhihua': ('https://www.zhihu.com/answer/%s', '🙋 %s'),
-    'zhihuq': ('https://www.zhihu.com/question/%s', '🤔 %s'),
-    'zhihup': ('https://www.zhihu.com/people/%s', '👤 %s'),
-    'pypi': ('https://pypi.org/project/%s', '📦 %s'),
-    'lilydoc': ('https://lilypond.org/doc/Documentation/%s', None),
-    'so.q': ('https://stackoverflow.com/a/%s', '🤔 %s'),
-    'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
-    'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
-    'musicca-drum': ('https://www.musicca.com/zh/drum-machine?data=%s', '🥁 %s'),
-    'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/directives.html#%s', '%s'),
-    'durole': ('https://docutils.sourceforge.io/docs/ref/rst/roles.html#%s', '%s'),
+_extlinks = {
+    # role: (url, iconify_name|None)
+    'zhwiki': ('https://zh.wikipedia.org/wiki/%s', 'mdi:wikipedia'),
+    'enwiki': ('https://wikipedia.org/wiki/%s', 'mdi:wikipedia'),
+    'search': ('https://duckduckgo.com/?q=%s', 'logos:duckduckgo'),
+    'ghuser': ('https://github.com/%s', 'mdi:github'),
+    'ghorg': ('https://github.com/%s', 'mdi:github'),
+    'ghrepo': ('https://github.com/%s', 'mdi:github'),
+    'aur': ('https://aur.archlinux.org/packages/%s', 'devicon:archlinux'),
+    'archpkg': ('https://archlinux.org/packages/%s', 'devicon:archlinux'),
+    'archwiki': ('https://wiki.archlinux.org/index.php/%s', 'devicon:archlinux'),
+    'pypi': ('https://pypi.org/project/%s', 'devicon:pypi'),
+    'lilydoc': ('https://lilypond.org/doc/Documentation/%s', 'vscode-icons:file-type-lilypond'),
+    'musicca-drum': ('https://www.musicca.com/zh/drum-machine?data=%s', None),
+    'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/directives.html#%s', None),
+    'durole': ('https://docutils.sourceforge.io/docs/ref/rst/roles.html#%s', None),
 }
+extlinks = {}
+for role, (url, icon) in _extlinks.items():
+    extlinks[role + 'a'] = (url, 'Foo %s')
+    comboroles_roles[role] = ([role + 'a'], True)
+
+from pprint import pprint
+pprint(extlinks)
+pprint(comboroles_roles)
 
 extensions.append('sphinxnotes.any')
 any_schemas = _schemas
@@ -310,17 +323,6 @@ if D is not D.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = ''
-
-extensions.append('sphinxnotes.comboroles')
-comboroles_roles = {
-    'parsed_literal': (['literal'], True),
-    'sup_abbr': ['superscript', 'abbr',],
-
-     # for ./blog/sphinxnotes-comboroles.rst
-    'strong_literal': ['strong', 'literal'],
-    'literal_enwiki': ['literal', 'enwiki'],
-    'literal_strike': ['literal', 'strike'],
-}
 
 extensions.append('sphinxcontrib.globalsubs')
 global_substitutions = {

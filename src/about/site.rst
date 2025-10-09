@@ -38,6 +38,8 @@ Sphinx + Sphinx Notes
       但不支持我现在用的 :pypi:`ABlog`，花了一些时间做了点适配工作：
       `sunpy/ablog#310 <https://github.com/sunpy/ablog/issues/310>`_
 
+      :pypia:`ablog`
+
    .. card:: 2025-07
       :width: 50%
       :margin: 0 2 auto 0
