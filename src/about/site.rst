@@ -1,6 +1,6 @@
-====
-本站
-====
+========
+关于本站
+========
 
 署名-相同方式共享
 =================
@@ -17,7 +17,7 @@ Sphinx + Sphinx Notes
 
 本站由 Sphinx |sphinx-badge| + Sphinx Notes |sphinx-notes-badge| 强力驱动。
 
-.. |sphinx-badge| image:: /_images/sphinx.png
+.. |sphinx-badge| image:: /_assets/sphinx.png
    :target: https://www.sphinx-doc.org
    :height: 4em
 
