@@ -1,5 +1,5 @@
 # Sphinx
-_build/
+build/
 _cache/
 
 # Syncthing
@@ -9,7 +9,7 @@ _cache/
 .DS_Store
 
 # Private content
-in
+src/in
 
 # sphinxnotes-any
 .any*

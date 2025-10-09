@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# set -x
+
+source common.sh
+# See also ../requirements.txt.
+sphinxautobuild=/home/la/.local/bin/sphinx-autobuild
+host=localhost
+port=30500
+
+notify() {
+    notifyid=$0
+    msg=$1
+    progress=$2
+    expire=$3
+    notify-send "Bullet Auto Build" "$msg"\
+        --icon=$confdir/static/logo.png \
+        --transient \
+        --expire-time=$expire \
+        --hint "string:synchronous:$notifyid" \
+        --hint "int:value:$progress"
+}
+
+action=$1
+case $action in
+    pre)
+        notify "Start auto rebuild..." 30 100000
+        ;;
+    post)
+        notify "Auto rebuild done :-P" 100 2000
+        ;;
+    *)
+        # TODO: Use pipe?
+        $sphinxautobuild $srcdir $builddir/html \
+            --config $confdir \
+            --builder fasthtml \
+            --re-ignore ".git/*" \
+            --host $host \
+            --port $port \
+            --pre-build "$PWD/$0 pre" \
+            --post-build "$PWD/$0 post" \
+            --no-initial
+        ;;
+esac

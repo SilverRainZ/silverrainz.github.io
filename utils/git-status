@@ -1,0 +1,26 @@
+#!/bin/bash
+
+source "$(dirname $0)/common.sh"
+
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+NC='\033[0m'
+
+git_status(){
+    pushd $1 >/dev/null
+    pwd
+    if [ "$(git status --porcelain)" ]; then 
+        printf "${BOLD}${GREEN}%s${NC} @ ${BLUE}%s${NC}:\n" \
+            "$(basename $PWD)" "$(git branch --show-current)"
+        git status --short
+    fi
+    popd > /dev/null
+}
+
+echo $confdir
+echo $confdir/blobs
+echo "$srcdir/in"
+
+git_status $confdir
+git_status $confdir/blobs
+git_status "$srcdir/in"
