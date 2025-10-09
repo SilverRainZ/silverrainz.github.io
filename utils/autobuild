@@ -2,7 +2,8 @@
 
 # set -x
 
-source common.sh
+source "$(dirname $0)/common.sh"
+
 # See also ../requirements.txt.
 sphinxautobuild=/home/la/.local/bin/sphinx-autobuild
 host=localhost
@@ -32,9 +33,9 @@ case $action in
     *)
         # TODO: Use pipe?
         $sphinxautobuild $srcdir $builddir/html \
-            --config $confdir \
+            --conf-dir $confdir \
             --builder fasthtml \
-            --re-ignore ".git/*" \
+            --re-ignore "_.*" \
             --host $host \
             --port $port \
             --pre-build "$PWD/$0 pre" \
