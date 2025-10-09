@@ -19,7 +19,6 @@ html_theme_options = {
         },
         {
             'title': '关于',
-            'url': 'about',
             'children': [{
                 'title': '关于我' ,
                 'url': 'about/me',
@@ -39,7 +38,8 @@ html_context = {
     'source_type': 'github',
     'source_user': 'SilveRrainZ',
     'source_repo': 'silverrainz.github.io',
-    'source_docs_path': '.',
+    'source_version': 'master',
+    'source_docs_path': '/src/',
 }
 
 html_sidebars = {}
