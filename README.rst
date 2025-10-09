@@ -8,17 +8,21 @@
 |logo| Silver Bullet
 ====================
 
-Sphinx_-powered note-taking system of SilverRainZ_.
+Fully structured note-taking system of SilverRainZ.
 
-There are some articles_ describes the architecture of this note-taking system.
+Powered by Sphinx |sphinx-logo| and Sphinx Notes |sphinx-notes-logo|.
 
-.. |logo| image:: ./_static/logo.png
+.. |logo| image:: ./static/favicon.png
    :target: https://silverrainz.me
-   :width: 64
+   :height: 1.5em
 
-.. _Sphinx: https://sphinx-doc.org
-.. _SilverRainZ: https://github.com/SilverRainZ
-.. _articles: https://silverrainz.me/blog/category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html
+.. |sphinx-logo| image:: ./static/sphinx.png
+   :target: https://www.sphinx-doc.org
+   :height: 1.5em
+
+.. |sphinx-notes-logo| image:: ./static/sphinxnotes-logo.png
+   :target: https://github.com/sphinx-notes/
+   :height: 1.5em
 
 Browse
 ======
@@ -65,7 +69,7 @@ clone with ``--depth=1`` if you dont want to make any changes)::
 
 Ask sphinx to build HTML documentation::
 
-   make
+   make html
 
 Root page of the HTML documentation can be found at ``build/html/index.html``.
 
