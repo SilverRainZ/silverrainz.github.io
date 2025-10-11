@@ -10,7 +10,7 @@
 
 Fully structured note-taking system of SilverRainZ.
 
-Powered by Sphinx |sphinx-logo| and Sphinx Notes |sphinx-notes-logo|.
+Powered by `Sphinx`_ |sphinx-logo| and `Sphinx Notes`_ |sphinx-notes-logo|.
 
 .. |logo| image:: ./static/favicon.png
    :target: https://silverrainz.me
@@ -23,6 +23,9 @@ Powered by Sphinx |sphinx-logo| and Sphinx Notes |sphinx-notes-logo|.
 .. |sphinx-notes-logo| image:: ./static/sphinxnotes-logo.png
    :target: https://github.com/sphinx-notes/
    :height: 1.5em
+
+.. _Sphinx: https://www.sphinx-doc.org
+.. _Sphinx Notes: https://sphinx.silverrainz.me
 
 Browse
 ======
