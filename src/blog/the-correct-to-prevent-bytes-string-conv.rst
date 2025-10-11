@@ -23,7 +23,7 @@ Golang 中避免 `[]bytes` 和 `string` 转换开销的正确方法
 
    本文涉及的所有测试脚本与代码可在 此处__ 获取。
 
-   __ https://github.com/SilverRainZ/silverrainz.github.io/tree/master/_assets/bsconv
+   __ https://github.com/SilverRainZ/bullet/tree/master/src/_assets/bsconv
 
 背景和现状
 ==========
