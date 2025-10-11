@@ -861,8 +861,8 @@
    后两张是和 :people:`cbmixx`、:people:`soyking` 聚餐前的写生。
    最后一张画很快，虽然空间还是画小了，但感觉有点进步。
 
-忆江南
-~~~~~~
+燕郊忆江南
+~~~~~~~~~~
 
 .. artwork:: 燕郊忆江南写生 1
    :id: cs-021
@@ -945,6 +945,57 @@
 .. artwork:: 北京青龙峡写生 7
    :id: cs-030
    :date: 2025-09-25
+   :size: 30*24
+   :medium: 油画
+
+广东潮阳老家
+~~~~~~~~~~~~
+
+.. artwork:: 二楼室内写生
+   :id: cs-032
+   :date: 2025-10-03
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 1
+   :id: cs-033
+   :date: 2025-10-05
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 2
+   :id: cs-034
+   :date: 2025-10-05
+   :size: 24*30
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 3
+   :id: cs-035
+   :date: 2025-10-05
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 4
+   :id: cs-036
+   :date: 2025-10-07
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 5
+   :id: cs-037
+   :date: 2025-10-07
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 6
+   :id: cs-038
+   :date: 2025-10-09
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 宋大元帅陵园写生 7
+   :id: cs-039
+   :date: 2025-10-09
    :size: 30*24
    :medium: 油画
 
