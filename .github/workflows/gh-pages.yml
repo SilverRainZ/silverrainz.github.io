@@ -2,7 +2,9 @@ name: Publish Github Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main, ci*]
+  pull_request:
+    branches: [main]
 
 # Cancel any in-progress job or run
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
@@ -43,3 +45,4 @@ jobs:
         cache: true
         python_version: 3.12
         checkout: false
+        publish: ${{ github.ref_name == 'master' }}
