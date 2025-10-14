@@ -34,7 +34,3 @@ class Deployment(Enum):
         else:
             # file:///build_dir/html/index.html
             return ''
-
-
-D = Deployment.current()
-print('Deployment:', D)
