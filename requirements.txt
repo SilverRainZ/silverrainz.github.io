@@ -23,6 +23,7 @@ sphinx-reredirects
 sphinxnotes-recentupdate
 sphinxnotes-mock
 sphinxext-opengraph
+matplotlib # for generating social cards
 sphinx-copybutton
 sphinx-notfound-page
 sphinxcontrib-youtube
