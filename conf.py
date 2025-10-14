@@ -20,10 +20,13 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Split configurations ----------------------------------------------------
 
 from confs.schemas import _schemas
-from confs.deploy import D
+from confs.deploy import Deployment
 
-# For `.. only::` directive.
+D = Deployment.current()
+print('Deployment:', D)
+
 if D.is_private():
+    # For `.. only::` directive.
     tags.add('private') # type: ignore
 
 with open('./confs/redirect.yml') as data:
