@@ -36,6 +36,7 @@ jobs:
       with:
         token: ${{ secrets.PAT_BULLET_BLOBS }}
         submodules: true
+        fetch-depth: 0
     - id: deployment
       uses: sphinx-notes/pages@incrbuild
       with:
