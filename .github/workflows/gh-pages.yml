@@ -32,11 +32,13 @@ jobs:
     - run: | # See also https://github.com/nguyenvulong/QA/issues/82
         sudo ln -s /usr/lib/x86_64-linux-gnu/blas/libblas.so.3 /usr/lib/x86_64-linux-gnu/
         sudo ln -s /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 /usr/lib/x86_64-linux-gnu
+    - id: branch-names
+      uses: tj-actions/branch-names@v9
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.PAT_BULLET_BLOBS }}
         submodules: true
-        fetch-depth: 0
+        ref: ${{ steps.branch-names.outputs.current_branch }}
     - id: deployment
       uses: sphinx-notes/pages@incrbuild
       with:
