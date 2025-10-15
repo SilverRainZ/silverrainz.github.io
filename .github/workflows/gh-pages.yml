@@ -40,7 +40,7 @@ jobs:
         submodules: true
         ref: ${{ steps.branch-names.outputs.current_branch }}
     - id: deployment
-      uses: sphinx-notes/pages@incrbuild
+      uses: sphinx-notes/pages@v3
       with:
         documentation_path: src
         requirements_path: ./requirements.txt
