@@ -999,6 +999,27 @@
    :size: 30*24
    :medium: 油画
 
+云南昆明大脚氏
+~~~~~~~~~~~~~~
+
+.. artwork:: 翠湖写生 1
+   :id: cs-040
+   :date: 2025-10-09
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 翠湖写生 2
+   :id: cs-041
+   :date: 2025-10-09
+   :size: 30*24
+   :medium: 油画
+
+.. artwork:: 大脚氏周边写生 2
+   :id: cs-042
+   :date: 2025-10-15
+   :size: 24*30
+   :medium: 油画
+
 其他
 ====
 
