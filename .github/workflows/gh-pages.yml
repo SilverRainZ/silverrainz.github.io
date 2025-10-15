@@ -39,6 +39,7 @@ jobs:
         token: ${{ secrets.PAT_BULLET_BLOBS }}
         submodules: true
         ref: ${{ steps.branch-names.outputs.current_branch }}
+        fetch-depth: 100
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
