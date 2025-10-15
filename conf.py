@@ -151,7 +151,7 @@ html_css_files.append(f'{html_theme}-custom.css')
 
 # Setup announcement as your need
 html_theme_options['announcement'] = '2025 年底翻新计划进行中，' \
-'详见 <a herf="https://github.com/SilverRainZ/silverrainz.github.io/issues/34">' \
+'详见 <a href="https://github.com/SilverRainZ/silverrainz.github.io/issues/34">' \
 '#34</a>'
 
 if D.is_mirror():
