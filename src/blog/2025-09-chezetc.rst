@@ -5,6 +5,7 @@ chezetc: Extending chezmoi to manage files under `/etc`
 .. post:: 2025-09-22
    :tags: Chezmoi, DevOps, Shell
    :author: LA
+   :category: 新项目
    :language: en
    :location: 燕郊
    :external_link: https://silverrainz.me/chezetc/

@@ -4,7 +4,7 @@ Implementing "nested inline markup" in reStructuredText and Sphinx
 
 .. post:: 2024-01-14
    :tags: Sphinx, reStructuredText
-   :category: Sphinx
+   :category: Sphinx, 新项目
    :author: LA
    :language: en
    :location: 杭州
