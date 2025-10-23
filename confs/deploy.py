@@ -8,7 +8,7 @@ class Deployment(Enum):
 
     @classmethod
     def current(cls) -> 'Deployment':
-        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/ronin':
+        if os.environ.get('GITHUB_REPOSITORY') == 'SilverRainZ/bullet.in':
             return Deployment.Homelab
         if os.environ.get('GITHUB_WORKFLOW') == 'Publish Github Pages':
             return Deployment.Github
@@ -27,7 +27,7 @@ class Deployment(Enum):
         if self == Deployment.Github:
             return 'https://silverrainz.me/'
         elif self == Deployment.Homelab:
-            return 'https://rpi3.tailnet-ecdc.ts.net/bullet'
+            return 'https://n.in.silverrainz.me/'
         elif self == Deployment.Local:
             # See ../utils/autobuild
             return 'http://127.0.0.1:30500'
