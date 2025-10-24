@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 
-source .common.sh
+source "$(dirname $0)/common.sh"
 cd $srcdir
 
 eval "$(snippet integration --sh)"
@@ -14,9 +14,9 @@ new_docname="p/$(basename $docname)"
 
 mv $file $new_file
 if [[ "$docname" != "in"* ]]; then
-    echo "$docname: /$new_docname.html" >> ./confs/redirect.yml
+    echo "$docname: /$new_docname.html" >> $confdir/confs/redirect.yml
     sed -i "1i:isso-id: /$docname\n" $new_file
-    git add $file $new_file ./confs/redirect.yml
+    git add $file $new_file $confdir/confs/redirect.yml
 else
     git add $new_file
 fi
