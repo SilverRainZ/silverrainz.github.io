@@ -22,10 +22,10 @@ sys.path.insert(0, os.path.abspath('.'))
 from confs.schemas import _schemas
 from confs.deploy import Deployment
 
-D = Deployment.current()
-print('Deployment:', D)
+_D = Deployment.current()
+print('Deployment:', _D)
 
-if D.is_private():
+if _D.is_private():
     # For `.. only::` directive.
     tags.add('private') # type: ignore
 
@@ -40,13 +40,13 @@ copyright = '2020-%s, ' % datetime.now().year + author
 
 # -- Non-standard project information ----------------------------------------
 
-logo = 'static/logo.png'
-description = 'Yes silver bullet here.'
-datefmt = '%Y-%m-%d'
-author_id = 'SilverRainZ'
-author_nick = 'LA'
-gh_owner = author_id
-gh_repo = 'silverrainz.github.io'
+_logo = 'static/logo.png'
+_description = 'Yes silver bullet here.'
+_datefmt = '%Y-%m-%d'
+_author_id = 'SilverRainZ'
+_author_nick = 'LA'
+_gh_owner = _author_id
+_gh_repo = 'silverrainz.github.io'
 
 # -- Enviroment information -----------------------------------------------------
 
@@ -90,11 +90,11 @@ default_role = 'code'
 # Regardless of this setting, warnings are always written to the standard error
 # stream when sphinx-build is run.
 # See also suppress_
-if D.is_private():
+if _D.is_private():
     keep_warnings = True
 
 # A list of warning codes to suppress arbitrary warning messages.
-if D is D.Local:
+if _D is _D.Local:
     suppress_warnings = ['ref.' + x.objtype for x in _schemas]
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
@@ -115,7 +115,7 @@ manpages_url = 'https://man7.org/linux/man-pages/man{section}/{page}.{section}.h
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = 'zh_CN'
-language_full = '简体中文'
+_language_full = '简体中文'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -133,20 +133,20 @@ html_css_files = ['custom.css']
 # The attributes is used for attributes of <script> tag. It defaults to an empty list.
 html_js_files = []
 
-html_baseurl = D.url()
+html_baseurl = _D.url()
 
 html_title = project
 
-html_logo = logo
+html_logo = _logo
 
 html_favicon = 'static/favicon.png'
 
 # HTML theme configuration
 html_theme = 'shibuya'
-themeconf = importlib.import_module(f'confs.themes.{html_theme}')
-html_theme_options = themeconf.html_theme_options
-html_context = themeconf.html_context
-html_sidebars = themeconf.html_sidebars
+_htlm_theme_conf = importlib.import_module(f'confs.themes.{html_theme}')
+html_theme_options = _htlm_theme_conf.html_theme_options
+html_context = _htlm_theme_conf.html_context
+html_sidebars = _htlm_theme_conf.html_sidebars
 html_css_files.append(f'{html_theme}-custom.css')
 
 # Setup announcement as your need
@@ -154,18 +154,18 @@ html_theme_options['announcement'] = '2025 年底翻新计划进行中，' \
 '详见 <a href="https://github.com/SilverRainZ/silverrainz.github.io/issues/34">' \
 '#34</a>'
 
-if D.is_mirror():
-    if not D.is_private():
+if _D.is_mirror():
+    if not _D.is_private():
         msg = f'''<p>
-            这是部署于 {D} 的镜像，访问源站点：
-            <a class="source-page" href="{D.Github.url()}">{D.Github}</a>
+            这是部署于 {_D} 的镜像，访问源站点：
+            <a class="source-page" href="{_D.Github.url()}">{_D.Github}</a>
         </p>'''
     else:
         msg = f'''<p>
-            当前：{D}，访问：
-            <a class="source-page" href="{D.Github.url()}">{D.Github}</a> |
-            <a class="source-page" href="{D.Homelab.url()}">{D.Homelab}</a> |
-            <a class="source-page" href="{D.Local.url()}">{D.Local}</a>
+            当前：{_D}，访问：
+            <a class="source-page" href="{_D.Github.url()}">{_D.Github}</a> |
+            <a class="source-page" href="{_D.Homelab.url()}">{_D.Homelab}</a> |
+            <a class="source-page" href="{_D.Local.url()}">{_D.Local}</a>
         </p>'''
     html_theme_options['announcement'] = html_theme_options.get('announcement', '') + msg
     html_js_files.append('mirror-redirect.js')
@@ -176,7 +176,7 @@ html_copy_source = True
 
 html_search_language = language
 
-html_last_updated_fmt = datefmt
+html_last_updated_fmt = _datefmt
 
 # A list of paths that contain extra files not directly related to the
 # documentation.
@@ -228,29 +228,29 @@ any_schemas = _schemas
 extensions.append('ablog')
 blog_path = 'blog'
 blog_title = project
-blog_baseurl = D.url()
+blog_baseurl = _D.url()
 blog_authors = {
-    author_nick: (author, blog_baseurl),
+    _author_nick: (author, blog_baseurl),
 }
-blog_default_author = author_nick
+blog_default_author = _author_nick
 blog_languages = {
-    language: (language_full, None),
+    language: (_language_full, None),
     # FIXME: https://github.com/sunpy/ablog/issues/136
     # 'en':     ('English',  None),
 }
 blog_default_language = language
-post_date_format = datefmt
+post_date_format = _datefmt
 post_auto_image = 1
 blog_feed_fulltext = True
-blog_feed_subtitle = description
+blog_feed_subtitle = _description
 fontawesome_link_cdn = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 html_css_files.append('ablog-custom.css')
 
-if D.is_public():
+if _D.is_public():
     extensions.append('sphinxcontrib.gtagjs')
     gtagjs_ids = ['G-FYHS50G6DL']
 
-if D is D.Local:
+if _D is _D.Local:
     extensions.append('sphinxnotes.snippet')
     snippetconfig = {}
     snippet_patterns = {
@@ -259,19 +259,19 @@ if D is D.Local:
         'c': ['p/.*', 'notes/man/.*'],
     }
 
-if D.is_public():
+if _D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
     isso_include_patterns = ['**',]
     isso_exclude_patterns = ['index', 'in/**']
 
-if D.is_public():
+if _D.is_public():
     extensions.append('sphinx_sitemap')
     sitemap_filename = "sitemap.xml"
     sitemap_url_scheme = "{link}"
 
 # NOTE: required by ablog
-if not D is D.Local:
+if not _D is _D.Local:
     extensions.append('sphinx.ext.intersphinx')
     # Although fetching intersphinx info is slow, but we have fasthtml now.
     intersphinx_mapping = {
@@ -280,7 +280,7 @@ if not D is D.Local:
         'srain': ('https://srain.silverrainz.me/', None),
     }
 
-if D.is_public():
+if _D.is_public():
     extensions.append('sphinx_reredirects')
     # https://documatt.gitlab.io/sphinx-reredirects/usage.html
     with open('./confs/redirect.yml') as data:
@@ -299,17 +299,17 @@ lilypond_audio_format = 'mp3'
 lilypond_include_paths = ['/notes/man/lily/ly']
 
 extensions.append('sphinxnotes.recentupdate')
-recentupdate_date_format = datefmt
+recentupdate_date_format = _datefmt
 recentupdate_exclude_path = ['_templates']
 recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 
-if D.is_public():
+if _D.is_public():
     extensions.append('sphinxext.opengraph')
-    ogp_site_url = D.url()
+    ogp_site_url = _D.url()
     ogp_site_name = project
-    ogp_image = D.url() + logo
+    ogp_image = _D.url() + _logo
 
-if D is not D.Local:
+if _D is not _D.Local:
     # Doesn't work locally
     extensions.append('notfound.extension')
     notfound_urls_prefix = ''
@@ -351,11 +351,11 @@ global_substitutions = {
     'rst': 'reStructuredText',
 }
 
-if D is not D.Local:
+if _D is not _D.Local:
     # Speed up local build (prevent read git timestamp).
     extensions.append('sphinx_last_updated_by_git')
 
-if D is D.Local:
+if _D is _D.Local:
     # Speed up local incremental HTML build (may cause document inconsistencies).
     extensions.append('sphinxnotes.fasthtml')
 
