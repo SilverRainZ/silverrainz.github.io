@@ -296,7 +296,7 @@ if _D.is_public():
 extensions.append('sphinxnotes.lilypond')
 lilypond_audio_volume = 300
 lilypond_audio_format = 'mp3'
-lilypond_include_paths = ['/notes/man/lily/ly']
+lilypond_include_paths = ['/p/ly/inc']
 
 extensions.append('sphinxnotes.recentupdate')
 recentupdate_date_format = _datefmt

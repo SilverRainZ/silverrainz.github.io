@@ -1,3 +1,6 @@
 [submodule "_blobs"]
 	path = blobs
 	url = git@github.com:SilverRainZ/bullet.blobs.git
+[submodule "src/p/ly"]
+	path = src/p/ly
+	url = git@github.com:SilverRainZ/bullet.ly.git
