@@ -10,7 +10,7 @@ Firefox 99.0.1-1 更新后字体异常
 
 :Date: 2022-04-24
 
-.. figure:: /_images/2022-04-24_15:59:34.png
+.. figure:: /_images/2022-04-24_15_59_34.png
 
    https://www.archlinuxcn.org/ 单词间出现了很多空格，数字无法显示和输
 
