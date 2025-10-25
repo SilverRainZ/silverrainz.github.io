@@ -40,7 +40,7 @@ copyright = '2020-%s, ' % datetime.now().year + author
 
 # -- Non-standard project information ----------------------------------------
 
-_logo = 'static/logo.png'
+_logo = 'static/sphinxnotes.webp'
 _description = 'Yes silver bullet here.'
 _datefmt = '%Y-%m-%d'
 _author_id = 'SilverRainZ'
@@ -139,7 +139,7 @@ html_title = project
 
 html_logo = _logo
 
-html_favicon = 'static/favicon.png'
+html_favicon = 'static/favicon.webp'
 
 # HTML theme configuration
 html_theme = 'shibuya'

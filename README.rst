@@ -12,15 +12,15 @@ Fully structured note-taking system of SilverRainZ.
 
 Powered by `Sphinx`_ |sphinx-logo| and `Sphinx Notes`_ |sphinx-notes-logo|.
 
-.. |logo| image:: ./static/favicon.png
+.. |logo| image:: ./static/favicon.webp
    :target: https://silverrainz.me
    :height: 1.5em
 
-.. |sphinx-logo| image:: ./static/sphinx.png
+.. |sphinx-logo| image:: ./static/sphinx.webp
    :target: https://www.sphinx-doc.org
    :height: 1.5em
 
-.. |sphinx-notes-logo| image:: ./static/sphinxnotes-logo.png
+.. |sphinx-notes-logo| image:: ./static/sphinxnotes.webp
    :target: https://github.com/sphinx-notes/
    :height: 1.5em
 

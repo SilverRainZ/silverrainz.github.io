@@ -124,7 +124,7 @@ reStructuredText + Sphinx
    :target: https://docutils.sourceforge.io/rst.html
    :height: 1em
 
-.. |sphinx-badge| image:: /_assets/sphinx.png
+.. |sphinx-badge| image:: /_assets/sphinx.webp
    :target: https://www.sphinx-doc.org
    :height: 4em
 

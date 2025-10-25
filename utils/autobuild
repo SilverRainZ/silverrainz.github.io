@@ -15,7 +15,7 @@ notify() {
     progress=$2
     expire=$3
     notify-send "Bullet Auto Build" "$msg"\
-        --icon=$confdir/static/logo.png \
+        --icon=$confdir/static/favicon.webp \
         --transient \
         --expire-time=$expire \
         --hint "string:synchronous:$notifyid" \

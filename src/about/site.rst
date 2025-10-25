@@ -17,11 +17,11 @@ Sphinx + Sphinx Notes
 
 本站由 Sphinx |sphinx-badge| + Sphinx Notes |sphinx-notes-badge| 强力驱动。
 
-.. |sphinx-badge| image:: /_assets/sphinx.png
+.. |sphinx-badge| image:: /_assets/sphinx.webp
    :target: https://www.sphinx-doc.org
    :height: 4em
 
-.. |sphinx-notes-badge| image:: /_assets/sphinxnotes-logo.png
+.. |sphinx-notes-badge| image:: /_assets/sphinxnotes.webp
    :target: https://github.com/sphinx-notes/
    :height: 4em
 
