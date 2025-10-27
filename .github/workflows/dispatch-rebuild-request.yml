@@ -1,0 +1,17 @@
+name: Dispatch Rebuild Request
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  dispatch-rebuild-request:
+    runs-on: ubuntu-latest
+    steps:
+      # See also https://github.com/SilverRainZ/bullet.in/blob/master/.github/workflows/receive-rebuild-request.yml
+      - name: Dispatch Rebuild Request to SilverRainZ/bullet.in
+        uses: peter-evans/repository-dispatch@v4
+        with:
+          token: ${{ secrets.PAT_BULLET_IN_TRIGGER }}
+          repository: SilverRainZ/bullet.in
+          event-type: rebuild-request
