@@ -300,7 +300,7 @@ lilypond_include_paths = ['/p/ly/inc']
 
 extensions.append('sphinxnotes.recentupdate')
 recentupdate_date_format = _datefmt
-recentupdate_exclude_path = ['_templates']
+recentupdate_exclude_path = []
 recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 
 if _D.is_public():

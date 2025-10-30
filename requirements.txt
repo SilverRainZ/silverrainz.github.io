@@ -20,7 +20,7 @@ sphinx-sitemap
 sphinxcontrib-plantuml
 sphinxcontrib.asciinema
 sphinx-reredirects
-sphinxnotes-recentupdate
+sphinxnotes-recentupdate>=1.1
 sphinxnotes-mock
 sphinxext-opengraph
 matplotlib # for generating social cards
