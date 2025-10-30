@@ -980,8 +980,8 @@ Anti-Recommendation
    :medium: 水彩
    :album: album-32k-1
 
-拥抱申请
---------
+拥抱申请 2
+----------
 
 .. artwork:: _
    :id: xfczk2-038
