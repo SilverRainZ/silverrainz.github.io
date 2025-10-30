@@ -24,7 +24,7 @@ def fetch_artwork_filter(env: BuildEnvironment):
         imgdir = env.srcdir.joinpath(imgdir)
         if Deployment.current() == Deployment.Local:
             try:
-                subprocess.run(['/home/la/latree/bin/artworks', 'fetch', id_, imgdir])
+                subprocess.run(['/home/la/sync/latree/bin/artworks', 'fetch', id_, imgdir])
             except Exception as e:
                 logger.warning('failed to fetch artwork: %s', e)
         f = f'/{imgdir}/{id_}.webp'
