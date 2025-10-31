@@ -9,6 +9,9 @@ Github 万圣节彩蛋
 .. grid:: 1 1 2 2
    :gutter: 1
 
+   .. grid-item-card:: 2025
+      :img-bottom: /_images/Firefox_Screenshot_2025-10-31T04-46-03.092Z.png
+
    .. grid-item-card:: 2024
       :img-bottom: /_images/2024-10-31_114738.png
 
