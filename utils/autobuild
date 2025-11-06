@@ -36,7 +36,7 @@ case $action in
             --conf-dir $confdir \
             --builder fasthtml \
             --re-ignore "_.*" \
-            --re-ignore "\..*" \
+            --re-ignore "\.git" \
             --host $host \
             --port $port \
             --pre-build "$PWD/$0 pre" \
