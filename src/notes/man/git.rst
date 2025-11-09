@@ -49,3 +49,33 @@ GitHub
 `我订阅的所有 Issue`__
 
 __ https://github.com/notifications/subscriptions
+
+git filter-repo
+===============
+
+View git object sizes::
+
+   $ git filter-repo --analyze
+   $ vim .git/filter-repo/analysis/path-all-sizes.txt
+
+Create a fresh cloned repository::
+
+   $ cd ~/documents
+   $ git clone --no-local bullet bullet2
+
+Run git-filter-repo::
+
+   $ git filter-repo --path _images/                         \
+                   --path _downloads/                      \
+                   --path _static/logo.png                 \
+                   --path  static/logo.png                 \
+                   --path _static/sphinx.png               \
+                   --path jstatic/sphinx.png               \
+                   --path _static/sphinxnotes-logo.png     \
+                   --path  static/sphinxnotes-logo.png     \
+                   --path _static/favicon.png              \
+                   --path  static/favicon.png              \
+                   --path  static/favicon.png              \
+                   --invert-paths
+
+.. seealso:: `Strip blob content from repository · Issue #37 · SilverRainZ/silverrainz.github.io <https://github.com/SilverRainZ/silverrainz.github.io/issues/37>`_
