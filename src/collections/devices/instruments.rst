@@ -108,7 +108,8 @@ Tha Editor
    AUR 居然有 wine 的 :aur:`thr-editor`，可以正常运行，不过没办法连上音响。
 
 Linux 声卡驱动
-   可喜可贺，在我的 Arch Linux 上开箱即用。
+   :del:`可喜可贺，在我的 Arch Linux 上开箱即用`。
+   似乎要安装 :pacman:`alsa-firmware`。
    
 USB 输出不经过效果器链
    在 Ardour 听录制的内容时，感觉输出信号大小不受 ``GAIN`` 和 ``MASTER`` 影响，
