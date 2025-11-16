@@ -65,17 +65,6 @@ Create a fresh cloned repository::
 
 Run git-filter-repo::
 
-   $ git filter-repo --path _images/                         \
-                   --path _downloads/                      \
-                   --path _static/logo.png                 \
-                   --path  static/logo.png                 \
-                   --path _static/sphinx.png               \
-                   --path jstatic/sphinx.png               \
-                   --path _static/sphinxnotes-logo.png     \
-                   --path  static/sphinxnotes-logo.png     \
-                   --path _static/favicon.png              \
-                   --path  static/favicon.png              \
-                   --path  static/favicon.png              \
-                   --invert-paths
+   $ git filter-repo --path-glob '*.jpg' --path-glob '*.png' --invert-paths
 
 .. seealso:: `Strip blob content from repository · Issue #37 · SilverRainZ/silverrainz.github.io <https://github.com/SilverRainZ/silverrainz.github.io/issues/37>`_
