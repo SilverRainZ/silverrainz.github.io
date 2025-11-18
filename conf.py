@@ -243,7 +243,10 @@ post_date_format = _datefmt
 post_auto_image = 1
 blog_feed_fulltext = True
 blog_feed_subtitle = _description
-fontawesome_link_cdn = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+if _D.is_private():
+    fontawesome_included = True
+else:
+    fontawesome_link_cdn = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'
 html_css_files.append('ablog-custom.css')
 
 if _D.is_public():
