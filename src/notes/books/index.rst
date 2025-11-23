@@ -166,3 +166,15 @@ Haskell 趣学指南
    :isbn: 9787563399932
    :status: Reading
    :startat: 2022-06-23
+
+万物自洽法则
+------------
+
+.. book:: _
+   :status: Finished
+   :startat: 2025-10
+   :endat: 2025-11
+
+妹妹送我的书。
+
+如果看了这本书会想要做笔记，说明我白看了！
