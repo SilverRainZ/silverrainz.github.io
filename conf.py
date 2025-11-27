@@ -67,8 +67,8 @@ extensions = [
     'sphinx_simplepdf', # .. pdf-include::
 ]
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# Add any paths that contain templates here, relative to conf directory.
+templates_path = ['templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
