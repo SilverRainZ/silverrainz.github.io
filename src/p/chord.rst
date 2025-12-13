@@ -109,3 +109,4 @@
 - 封闭和弦
 - 强力和弦/五和弦
 - `贝壳和弦 <https://zheguitar.com/%E4%BB%80%E9%BA%BC%E6%98%AF-shell-chord-%E8%B2%9D%E6%AE%BC%E5%92%8C%E5%BC%A6%EF%BC%9F/>`_
+- :term:`小型三和弦`

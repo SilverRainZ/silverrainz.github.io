@@ -9,8 +9,10 @@ LilyPond
 .. contents::
    :local:
 
-文件结构 [#]_
-=============
+文件结构
+========
+
+:lilydoc:`notation/file-structure`
 
 可能出现在顶层的表达式如下：
 
@@ -26,7 +28,7 @@ Direct scheme expression
    定义谱面的头部，包含标题、作曲家等信息
 
 `\score`
-   包含单个 Music Expression [music-expr]_ ，所有顶层的 `\score`，会被隐式地包含在 `\book` 里
+   包含单个 :term:`Music Expression`，所有顶层的 `\score`，会被隐式地包含在 `\book` 里
 
 `\book`
    用来实现同一份 :file:`*.ly` 文件输出多份谱子
@@ -34,7 +36,10 @@ Direct scheme expression
 `\bookpart`
    似乎是用来占位以保证谱子不跨页的
 
-Music Expression
+.. term:: Music Expression
+          music-expr
+
+   :lilydoc:`learning/music-expressions-explained`
    会被隐式地包含在 `\score` 里
 
 Markup text
@@ -61,8 +66,10 @@ Variable
 
    \tempo "Allegro" 4 = 150
 
-单个音符升降半音 [#]_
----------------------
+单个音符升降半音
+----------------
+
+:lilydoc:`music-glossary/pitch-names`
 
 :升: 音名 + `is`，如 `:lily:`{ cis' }`` ➡️  :lily:`{ cis' }`
 :降: 音名 + `es`
@@ -79,7 +86,8 @@ TODO: `ChoreNames` staff
 和弦模式
 --------
 
-使用 `\\chordmode` 可以进入 和弦模式__ ，可以只书写和弦符号，如：
+使用 `\\chordmode` 可以进入 :lilydoc:`和弦模式 <notation/displaying-chords>`，
+可以只书写和弦符号，如：
 
 `:lily:\`\\chordmode { c1 }`` ➡️  :lily:`\chordmode{ c1 }`
 
@@ -122,13 +130,10 @@ TODO: `ChoreNames` staff
    ``\chordmode`` 始终使用绝对音高，即 ``\relative`` 不起作用。
    另，和弦模式里的音高比普通的音符模式高一个八度。
 
-__ https://lilypond.org/doc/v2.23/Documentation/notation/displaying-chords
-__ https://wiki.nicechord.com/index.php/%E5%8D%81%E5%88%86%E9%90%98%E4%BB%A5%E5%85%A7%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E6%89%80%E6%9C%89%E7%9A%84%E7%8F%BE%E4%BB%A3%E5%92%8C%E5%BC%A6%E4%BB%A3%E8%99%9F%EF%BC%81
-
 反复记号
 --------
 
-http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
+:lilydoc:`notation/long-repeats`
 
 六线谱
 ------
@@ -136,7 +141,7 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 五线谱六线谱混排
 ~~~~~~~~~~~~~~~~
 
-`\symbols` 是个 music expression [music-expr]_ ::
+`\symbols` 是个 :term:`Music Expression`::
 
    \score {
      <<
@@ -155,7 +160,8 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 --------------
 
 对于常见的和弦，通过引入 :file:`predefined-guitar-fretboards.ly` 和使用 ChoreMode
-可以直接在显示 一些常见和弦的指板图__ ，和弦记法参见 `和弦模式`_。
+可以直接在显示一些 :lilydoc:`常见和弦的指板图 <notation/predefined-fretboard-diagrams>`，
+和弦记法参见 `和弦模式`_。
 
 .. lily::
 
@@ -175,7 +181,7 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
 
 当然，同一个和弦在吉他指板上有不同的按法，如果你需要的按法和预定义的不同，有两种解决方式：
 
-`Automatic fret diagrams`__
+:lilydoc:`Automatic fret diagrams <notation/common-notation-for-fretted-strings#automatic-fret-diagrams>`
    指定和弦的组成音，LilyPond 会根据上下文帮你推测当前 :term:`调弦` 下的指板图。
 
    例如 D7 和弦的常见按法是： :lily:`\include "predefined-guitar-fretboards.ly" \new FretBoards{ \chordmode { d1:7 }}`，
@@ -185,9 +191,8 @@ http://lilypond.org/doc/v2.19/Documentation/notation/long-repeats
    也可以用 `storePredefinedDiagram` 命令自定义每一根弦的指法和音高，
    目前用不上。有兴趣可以点链接自行阅读。
 
-__ https://lilypond.org/doc/Documentation/notation/predefined-fretboard-diagrams
-__ https://lilypond.org/doc/Documentation/notation/common-notation-for-fretted-strings#automatic-fret-diagrams
-__ https://music.stackexchange.com/a/123077
+   __ https://music.stackexchange.com/a/123077
+
 
 鼓谱
 ----
@@ -211,7 +216,9 @@ https://pyonpyon.today/p/2021-07-write-drum-score-with-lilypond-on-arch/#%E9%AC%
 指定输出文件名称
 ----------------
 
-在 `\score` block 显式地指定 `\book`， 再指定 `\bookOutputSuffix` 即可 [#]_ ::
+:lilydoc:`notation/output-file-names`
+
+在 `\score` block 显式地指定 `\book`， 再指定 `\bookOutputSuffix` 即可::
 
    \book {
      \bookOutputSuffix "alice"
@@ -233,11 +240,11 @@ MIDI
 指定乐器
 ~~~~~~~~
 
-设置 Staff 的 `midiInstrument` [#]_ 属性为乐器的名称 [#]_ ::
+设置 Staff 的 :lilydoc:`midiInstrument <notation/using-midi-instruments>` 属性为 :lilydoc:`乐器的名称 <notation/midi-instruments>`::
 
-    \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
-      % ...
-    }
+   \new Staff \with {midiInstrument = "acoustic guitar (nylon)"} {
+   % ...
+   }
 
 
 Frescobaldi MIDI Playback
@@ -357,14 +364,3 @@ Scheme
   - https://github.com/openlilylib/snippets
   - https://github.com/nsceaux/nenuvar
   - https://github.com/wbsoft/lilymusic
-
-
-脚注
-====
-
-.. [#] :lilydoc:`notation/file-structure`
-.. [#] :lilydoc:`music-glossary/pitch-names`
-.. [music-expr] :lilydoc:`learning/music-expressions-explained`
-.. [#] https://lilypond.org/doc/v2.22/Documentation/notation/output-file-names
-.. [#] :lilydoc:`notation/using-midi-instruments`
-.. [#] :lilydoc:`notation/midi-instruments`
