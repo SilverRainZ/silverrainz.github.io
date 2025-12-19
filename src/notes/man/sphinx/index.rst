@@ -68,8 +68,8 @@ __ https://www.sphinx-doc.org/en/master/extdev/appapi.html
 __ https://www.sphinx-doc.org/en/master/extdev/event_callbacks.html#events
 __ https://www.sphinx-doc.org/en/master/_modules/sphinx/config.html#Config
 __ https://www.sphinx-doc.org/en/master/extdev/envapi.html
-__ http://code.nabla.net/doc/docutils/api/docutils/docutils.nodes.html#module-docutils.nodes
-__ http://code.nabla.net/doc/docutils/api/docutils/nodes/docutils.nodes.Element.html#docutils.nodes.Element
+__ https://epydoc.sourceforge.net/docutils/private/docutils.nodes-module.html
+__ https://epydoc.sourceforge.net/docutils/private/docutils.nodes.Element-class.html
 __ https://docutils.sourceforge.io/docs/howto/rst-directives.html#toc-entry-2
 __ https://github.com/docutils-mirror/docutils/blob/master/docutils/parsers/rst/directives/__init__.py#L141-L400
 __ https://www.sphinx-doc.org/en/master/extdev/utils.html?highlight=SphinxDirective#sphinx.util.docutils.
