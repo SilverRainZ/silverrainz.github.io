@@ -4,7 +4,7 @@ A set of smooth, fzf-powered shell aliases&functions for ``systemctl``
 
 .. post:: 2025-09-12
    :tags: Zsh, Systemd, DevOps, Fzf, Shell
-   :author: LA
+   :author: LA, AI
    :language: en
    :location: 深圳
 
