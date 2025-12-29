@@ -107,3 +107,13 @@ CZ5850 49A 49B
    :id: letter-010
    :date: 2025-12-24
    :medium: Procrate
+
+蓝蓝蓝大人的一些构想
+====================
+
+.. artwork:: _
+   :id: letter-011
+   :date: 2025-12-30
+   :medium: 水性笔
+   :size: 32k
+   :album: sketch-book-32k-6
