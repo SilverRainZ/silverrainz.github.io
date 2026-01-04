@@ -1,20 +1,22 @@
-========
-找自己 2
-========
+:isso-id: /notes/zxsys/way-to-artist/find-yourself2
+
+==========================
+当我喜欢上某人时的心理活动
+==========================
 
 .. seealso:: :doc:`find-yourself`
 
 作业
 ====
 
-重返燕郊，跟着新一期创作班，以 ``xfczk4`` 为 ID，继续开始小创作。材料以水粉为主，随心画画，攒满 50 张。
+重返燕郊，跟着新一期创作班，以 ``bflv`` 为 ID，继续开始小创作。材料以水粉为主，随心画画，攒满 50 张。
 大部分会以记录心境为主，这件事情我已经轻车熟路了，痛苦可以滋生出让人沉醉的画面，但是痛苦也会吸食我的脑浆，我不知道怎么摆脱它们，也许 :book:`艺术的故事` 能够帮到我吗？
 
 闲敲棋子落灯花
 --------------
 
 .. artwork:: _
-   :id: xfczk4-001
+   :id: bflv-001
    :date: 2024-11-12
    :medium: 水粉
 
@@ -42,7 +44,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----------------------------
 
 .. artwork:: _
-   :id: xfczk4-002
+   :id: bflv-002
    :date: 2024-11-13
    :medium: 水粉
    :album: album-a5-2
@@ -53,7 +55,7 @@ __ https://www.sohu.com/a/561991177_619150
 --------------
 
 .. artwork:: _
-   :id: xfczk4-003
+   :id: bflv-003
    :date: 2024-11-21
    :medium: 水粉
    :album: album-a5-2
@@ -62,7 +64,7 @@ __ https://www.sohu.com/a/561991177_619150
 --------------
 
 .. artwork:: _
-   :id: xfczk4-004
+   :id: bflv-004
    :date: 2024-11
    :medium: 水粉
    :album: album-a5-2
@@ -71,7 +73,7 @@ __ https://www.sohu.com/a/561991177_619150
 --------------
 
 .. artwork:: _
-   :id: xfczk4-005
+   :id: bflv-005
    :date: 2024-11
    :medium: 水粉
    :album: album-a5-2
@@ -82,7 +84,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----------------
 
 .. artwork:: _
-   :id: xfczk4-006
+   :id: bflv-006
    :date: 2024-11
    :medium: 水粉
    :album: album-a5-2
@@ -91,7 +93,7 @@ __ https://www.sohu.com/a/561991177_619150
 ------------------
 
 .. artwork:: _
-   :id: xfczk4-007
+   :id: bflv-007
    :date: 2024-11-26
    :medium: 色粉笔
    :album: album-a5-2
@@ -104,7 +106,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----
 
 .. artwork:: _
-   :id: xfczk4-008
+   :id: bflv-008
    :date: 2024-11-27
    :medium: 水粉
    :album: album-a5-2
@@ -117,7 +119,7 @@ __ https://www.sohu.com/a/561991177_619150
 ------------------------------------------------
 
 .. artwork:: _
-   :id: xfczk4-009
+   :id: bflv-009
    :date: 2024-11-29
    :medium: 水粉
    :album: album-a5-2
@@ -129,7 +131,7 @@ __ https://www.sohu.com/a/561991177_619150
 --------------------
 
 .. artwork:: _
-   :id: xfczk4-010
+   :id: bflv-010
    :date: 2024-11-30
    :medium: 水粉
    :album: album-a5-2
@@ -138,7 +140,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----
 
 .. artwork:: _
-   :id: xfczk4-011
+   :id: bflv-011
    :date: 2024-12-01
    :medium: 水粉
    :album: album-a5-2
@@ -151,7 +153,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----
 
 .. artwork:: _
-   :id: xfczk4-012
+   :id: bflv-012
    :date: 2024-12-02
    :medium: 水粉
    :album: album-a5-2
@@ -162,7 +164,7 @@ __ https://www.sohu.com/a/561991177_619150
 ------
 
 .. artwork:: _
-   :id: xfczk4-013
+   :id: bflv-013
    :date: 2024-12-05
    :medium: 水粉 水彩
    :album: 送出
@@ -175,7 +177,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----------
 
 .. artwork:: _
-   :id: xfczk4-014
+   :id: bflv-014
    :date: 2024-12-06
    :medium: 水粉
    :album: album-a5-2
@@ -186,7 +188,7 @@ __ https://www.sohu.com/a/561991177_619150
 ----
 
 .. artwork:: _
-   :id: xfczk4-015
+   :id: bflv-015
    :date: 2024-12-07
    :medium: 水彩
    :album: album-a5-2
@@ -199,7 +201,7 @@ __ https://www.sohu.com/a/561991177_619150
 ------------------------------
 
 .. artwork:: _
-   :id: xfczk4-016
+   :id: bflv-016
    :date: 2024-12-08
    :medium: 水彩
    :album: album-a5-2
@@ -212,7 +214,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ------------------
 
 .. artwork:: _
-   :id: xfczk4-017
+   :id: bflv-017
    :date: 2024-12-12
    :medium: 水粉 水彩
    :album: album-a5-2
@@ -221,7 +223,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 --------------
 
 .. artwork:: _
-   :id: xfczk4-018
+   :id: bflv-018
    :date: 2024-12-13
    :medium: 水粉
    :album: album-a5-2
@@ -230,7 +232,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 --------------
 
 .. artwork:: _
-   :id: xfczk4-019
+   :id: bflv-019
    :date: 2024-12-17
    :medium: 水粉
    :album: album-a5-2
@@ -239,7 +241,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ------
 
 .. artwork:: _
-   :id: xfczk4-020
+   :id: bflv-020
    :date: 2024-12-18
    :medium: 水粉
    :album: album-a5-2
@@ -250,7 +252,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ------------
 
 .. artwork:: _
-   :id: xfczk4-021
+   :id: bflv-021
    :date: 2024-12-25
    :medium: 水粉
    :album: album-a5-2
@@ -259,7 +261,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ------------
 
 .. artwork:: _
-   :id: xfczk4-022
+   :id: bflv-022
    :date: 2024-12-26
    :medium: 水粉
    :album: album-a5-2
@@ -268,7 +270,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 --------------
 
 .. artwork:: _
-   :id: xfczk4-023
+   :id: bflv-023
    :date: 2024-12-28
    :medium: 水粉
    :album: album-a5-2
@@ -277,7 +279,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 --------------------
 
 .. artwork:: _
-   :id: xfczk4-024
+   :id: bflv-024
    :date: 2024-12-29
    :medium: 水粉
    :album: album-a5-2
@@ -288,7 +290,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 --------------
 
 .. artwork:: _
-   :id: xfczk4-025
+   :id: bflv-025
    :date: 2025-01-09
    :medium: 水粉
    :album: album-a5-2
@@ -304,7 +306,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ====
 
 .. artwork:: _
-   :id: xfczk4-026
+   :id: bflv-026
    :date: 2025-01-12
    :medium: 水粉
    :album: album-a5-2
@@ -315,7 +317,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ====================
 
 .. artwork:: _
-   :id: xfczk4-028
+   :id: bflv-028
    :date: 2025-01-12
    :medium: 水粉
    :album: album-a5-2
@@ -331,7 +333,7 @@ __ https://www.youtube.com/watch?v=PQXMU1A8CjI
 ========
 
 .. .. artwork:: _
-   :id: xfczk4-0??
+   :id: bflv-0??
    :date: 2025-05-15
    :medium: 水粉
    :size: 32k
@@ -343,7 +345,7 @@ TODO
 ====
 
 .. .. artwork:: _
-   :id: xfczk4-0??
+   :id: bflv-0??
    :date: 2025-05-16
    :medium: 水粉
    :size: 32k
@@ -353,7 +355,7 @@ TODO
 ====
 
 .. .. artwork:: _
-   :id: xfczk4-0??
+   :id: bflv-0??
    :date: 2025-05-17
    :medium: 水粉
    :size: 32k

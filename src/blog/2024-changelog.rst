@@ -253,52 +253,52 @@ The day after last day
 .. grid:: 1 2 5 5
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-001.webp
+      .. figure:: /_assets/aw/bflv-001.webp
 
-         :artwork:`xfczk4-001`
+         :artwork:`bflv-001`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-008.webp
+      .. figure:: /_assets/aw/bflv-008.webp
 
          :artwork:`珍视`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-012.webp
+      .. figure:: /_assets/aw/bflv-012.webp
 
          :artwork:`销烟`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-013.webp
+      .. figure:: /_assets/aw/bflv-013.webp
 
-         :artwork:`xfczk4-013`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-016.webp
-
-         :artwork:`xfczk4-016`
+         :artwork:`bflv-013`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-021.webp
+      .. figure:: /_assets/aw/bflv-016.webp
+
+         :artwork:`bflv-016`
+
+   .. grid-item::
+      .. figure:: /_assets/aw/bflv-021.webp
 
          :artwork:`平安夜（一）`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-022.webp
+      .. figure:: /_assets/aw/bflv-022.webp
 
          :artwork:`平安夜（二）`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-023.webp
+      .. figure:: /_assets/aw/bflv-023.webp
 
          :artwork:`轻微的纯度游戏`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-025.webp
+      .. figure:: /_assets/aw/bflv-025.webp
 
          :artwork:`失去的前一瞬间`
 
    .. grid-item::
-      .. figure:: /_assets/aw/xfczk4-028.webp
+      .. figure:: /_assets/aw/bflv-028.webp
 
          :artwork:`生命的线索`
 
@@ -401,10 +401,10 @@ Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画
 
 恐惧让我心生犹豫，但我的预感又告诉我，这一天还是会到来：
 
-.. figure:: /_assets/aw/xfczk4-013.webp
+.. figure:: /_assets/aw/bflv-013.webp
    :width: 80%
 
-   :artwork:`xfczk4-013`
+   :artwork:`bflv-013`
 
    我想她不是海鸥也不是我，她是一头孤零零的小熊吧。
 

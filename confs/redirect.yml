@@ -1,6 +1,5 @@
 # sphinx_reredirects configuration for HTML builder.
 # See also: https://documatt.com/sphinx-reredirects/usage.html
-
 # source (docname): target (html page)
 notes/6-lectures-on-sketch: /notes/zxsys/6-lectures-on-sketch.html
 notes/leetcode/index: /notes/writeups/leetcode/index.html
@@ -13,3 +12,5 @@ notes/color/primary-color: /p/primary-color.html
 notes/wizard/pi: /p/pi.html
 notes/music-making/linux-recording: /p/linux-recording.html
 about/resume: /resume/index.html # external links to https://github.com/SilverRainZ/resume
+about/swan: /about/people.html#Swan
+notes/zxsys/way-to-artist/find-yourself2: /in/inbox/be-fall-in-love.html
