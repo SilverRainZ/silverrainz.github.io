@@ -283,7 +283,7 @@ The Docutils Document Tree
 
 .. deprecated:: 2020-11-21
 
-   Moved to :doc:`/notes/docutils/doctree`
+   Moved to :doc:`/notes/man/sphinx/doctree`
 
 佛历二五三三年
 ==============

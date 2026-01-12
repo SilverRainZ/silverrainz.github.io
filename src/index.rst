@@ -79,38 +79,3 @@
       .. postlist:: 8
          :format: {title}
          :list-style: disc
-
-   .. grid-item-card::
-      :columns: 12 4 4 4
-
-      .. toctree::
-         :caption: 随记
-         :maxdepth: 2
-         :glob:
-
-         jour/2024/index
-         jour/2023/index
-         jour/more
-
-
-   .. grid-item-card::
-      :columns: 12 4 4 4
-
-      .. toctree::
-         :caption: 关于
-         :maxdepth: 1
-
-         about/site
-         我 <about/me>
-         about/friends
-
-   .. grid-item-card::
-      :columns: 12 4 4 4
-
-      .. toctree::
-         :caption: 收集室
-         :maxdepth: 1
-         :glob:
-
-         collections/*
-         collections/*/index

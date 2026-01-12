@@ -26,6 +26,9 @@ html_theme_options = {
                 'title': '关于本站',
                 'url': 'about/site',
             }, {
+                'title': '友人帐',
+                'url': 'about/friends',
+            }, {
                 'title': '简历',
                 'url': 'resume',
                 "resource": True,
