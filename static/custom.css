@@ -35,3 +35,10 @@ figcaption, div.figure p.caption, div.figure div.legend {
     color: #666;
     font-size: smaller;
 }
+
+/* From alabaster */
+.system-message {
+    background-color: #fda;
+    padding: 5px;
+    border: 3px solid red;
+}
