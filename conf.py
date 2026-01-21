@@ -265,6 +265,9 @@ if _D is _D.Local:
 if _D.is_public():
     extensions.append('sphinxnotes.isso')
     isso_url = 'https://comments.silverrainz.me:30500'
+    isso_client_config = {
+        'data-isso-vote': 'false', # disable voting as the css is broken
+    }
     isso_include_patterns = ['**',]
     isso_exclude_patterns = ['index', 'in/**']
 
