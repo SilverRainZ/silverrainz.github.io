@@ -48,5 +48,6 @@ jobs:
         sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.12
+        sphinx_version: 8.2.3
         checkout: false
         publish: ${{ github.ref_name == 'master' }}
