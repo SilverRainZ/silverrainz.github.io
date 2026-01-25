@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Split configurations ----------------------------------------------------
 
-from confs.schemas import _schemas
+from confs.schemas import _obj_type_defines
 from confs.deploy import Deployment
 
 _D = Deployment.current()
@@ -95,7 +95,7 @@ if _D.is_private():
 
 # A list of warning codes to suppress arbitrary warning messages.
 if _D is _D.Local:
-    suppress_warnings = ['ref.' + x.objtype for x in _schemas]
+    suppress_warnings = ['ref.' + x for x in _obj_type_defines]
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
@@ -223,7 +223,8 @@ extlinks = {
 }
 
 extensions.append('sphinxnotes.any')
-any_schemas = _schemas
+obj_domain_name = 'any'
+obj_type_defines = _obj_type_defines
 
 extensions.append('ablog')
 blog_path = 'blog'

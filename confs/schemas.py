@@ -1,179 +1,226 @@
 # Definition of any domain's object schemas.
 # See also https://sphinx.silverrainz.me/any/.
 
-from sphinxnotes.any.api import Schema, Field as F, by_year, by_month, PathIndexer
+from sphinxnotes.any.domain import INDEXER_REGSITRY
+from sphinxnotes.any.indexers import PathIndexer
 
-by_hyphen = PathIndexer('-', 1)
-by_hyphen2 = PathIndexer('-', 2)
-by_slash = PathIndexer('/', 1)
+INDEXER_REGSITRY['hyphen'] = PathIndexer('-', 1)
+INDEXER_REGSITRY['hyphen2'] = PathIndexer('-', 2)
 
-_schemas = [
-    Schema('friend',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'avatar': F(), 'blog': F()},
-           content=F(form=F.Forms.LINES),
-           description_template=open('confs/templates/friend.rst', 'r').read(),
-           reference_template='👤{{ title }}',
-           missing_reference_template='👤{{ title }}',
-           ambiguous_reference_template='👥{{ title }}'),
-    Schema('book',
-           name=F(required=True, ref=True, form=F.Forms.LINES),
-           attrs={
-               'isbn': F(uniq=True, ref=True),
-               'status': F(ref=True),
-               'startat': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
-               'endat': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
-           },
-           description_template=open('confs/templates/book.rst', 'r').read(),
-           reference_template='《{{ title }}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='《{{ title }}》'),
-    Schema('artwork',
-           name=F(ref=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
-               'date': F(ref=True, indexers=[by_year]),
-               'medium': F(ref=True, form=F.Forms.WORDS),
-               'size': F(ref=True),
-               'album': F(ref=True),
-           },
-           description_template=open('confs/templates/artwork.rst', 'r').read(),
-           reference_template='《{% if title %}{{ title }}{% else %}{{ id }}{% endif %}》',
-           missing_reference_template='《{{ title }}》',
-           ambiguous_reference_template='{{ title }}'),
-    Schema('artist',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'movement': F(ref=True, form=F.Forms.WORDS),
-               'gallery': F(ref=True, form=F.Forms.WORDS),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'artwork': F(form=F.Forms.WORDS),
-           },
-           description_template=open('confs/templates/artist.rst', 'r').read(),
-           reference_template='🧑‍🎨{{ title }}',
-           missing_reference_template='🧑‍🎨{{ title }}',
-           ambiguous_reference_template='🧑‍🎨{{ title }}'),
-    Schema('gallery',
-           name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-           attrs={'website': F()},
-           description_template=open('confs/templates/gallery.rst', 'r').read(),
-           reference_template='🖼️{{ title }}',
-           missing_reference_template='🖼️{{ title }}'),
-    Schema('event',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year]),
-               'location': F(ref=True),
-           },
-           description_template=open('confs/templates/event.rst', 'r').read(),
-           reference_template='📅{{ title }}',
-           missing_reference_template='📅{{ title }}',
-           ambiguous_reference_template='📅{{ title }}'),
-    Schema('leetcode',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True),
-               'diffculty': F(ref=True),
-               'language': F(ref=True, form=F.Forms.WORDS),
-               'key': F(ref=True, form=F.Forms.WORDS),
-               'date': F(ref=True, form=F.Forms.WORDS, indexers=[by_year, by_month]),
-               'reference': F(ref=True),
-           },
-           description_template=open('confs/templates/leetcode.rst', 'r').read(),
-           reference_template='🧮{{ title }}',
-           missing_reference_template='🧮{{ title }}',
-           ambiguous_reference_template='🧮{{ title }}'),
-    Schema('term',
-           name=F(ref=True, required=True, form=F.Forms.LINES),
-           attrs={
-               'field': F(ref=True, indexers=[by_slash]),
-               'enwiki': F(),
-               'zhwiki': F(),
-               'hide': F(),
-           },
-           description_template=open('confs/templates/term.rst', 'r').read(),
-           reference_template='#️⃣{{ title }}',
-           missing_reference_template='#️⃣{{ title }}',
-           ambiguous_reference_template='#️⃣{{ title }}'),
-    Schema('jour',
-           name=F(ref=True, required=True),
-           attrs={
-               'date': F(ref=True, indexers=[by_year, by_month]),
-               'category': F(),
-           },
-           description_template=open('confs/templates/jour.rst', 'r').read(),
-           reference_template='📰{{ title }}',
-           missing_reference_template='📰{{ title }}',
-           ambiguous_reference_template='📰{{ title }}'),
-    Schema('okr',
-           name=F(ref=True, required=True),
-           attrs={
-               'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen2]),
-
-               'kr1': F(form=F.Forms.LINES),
-               'kr2': F(form=F.Forms.LINES),
-               'kr3': F(form=F.Forms.LINES),
-               'kr4': F(form=F.Forms.LINES),
-               'kr5': F(form=F.Forms.LINES),
-               'kr6': F(form=F.Forms.LINES),
-
-               'p0': F(ref=True),
-               'p1': F(ref=True),
-               'p2': F(ref=True),
-
-               'krs': F(form=F.Forms.LINES), # deprecated
-           },
-           description_template=open('confs/templates/okr.rst', 'r').read(),
-           reference_template='🎯{{ title }}',
-           missing_reference_template='🎯{{ title }}',
-           ambiguous_reference_template='🎯{{ title }}'),
-Schema('people',
-       name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-       attrs={
-           'github': F(),
-           'blog': F(),
-           'enwiki': F(),
-           'zhwiki': F(),
-           'weibo': F(),
-       },
-       description_template=open('confs/templates/people.rst', 'r').read(),
-       reference_template='👤{{ title }}'),
-Schema('rhythm',
-       name=F(ref=True),
-       attrs={
-           'time': F(ref=True, required=True),
-           'tempo': F(),
-           'musicca': F(),
-       },
-       content=F(form=F.Forms.LINES),
-       description_template=open('confs/templates/rhythm.rst', 'r').read(),
-       reference_template='🥁{{ title }}'),
-Schema('dev',
-       name=F(ref=True, required=True),
-       attrs={
-           'id': F(uniq=True, ref=True, required=True, indexers=[by_hyphen]),
-           'type': F(ref=True),
-           'web': F(),
-           'man': F(),
-           'price': F(),
-           'startat': F(ref=True, indexers=[by_year]),
-           'endat': F(ref=True, indexers=[by_year]),
-       },
-       description_template=open('confs/templates/dev.rst', 'r').read(),
-       reference_template='🎛️{{ title }}'),
-Schema('loveletter',
-       name=F(ref=True, required=True),
-       attrs={
-           'date': F(ref=True, required=True, indexers=[by_year]),
-           'nick': F(),
-           'author': F(ref=True),
-           'createdat': F(ref=True, indexers=[by_year]),
-           'updatedat': F(ref=True, indexers=[by_year]),
-       },
-       description_template=open('confs/templates/loveletter.rst', 'r').read(),
-       reference_template='💌{{ title }}',
-       missing_reference_template='💌{{ title }}',
-       ambiguous_reference_template='💌{{ title }}'),
-]
-
+_obj_type_defines = {
+    'friend': {
+        'auto': True,
+        'schema': {
+            'name': 'lines of str, required, uniq, ref',
+            'attrs': {
+                'avatar': 'str',
+                'blog': 'str',
+            },
+            'content': 'lines of str',
+        },
+        'templates': {
+            'obj': open('confs/templates/friend.rst', 'r').read(),
+            'header': '{{ name[0] }}',
+            'ref': '👤{{ name[0] }}',
+        },
+    },
+    'book': {
+        'schema': {
+            'attrs': {
+                'isbn': 'str, uniq, ref',
+                'status': 'str, ref',
+                'startat': 'words of str, ref',
+                'endat': 'words of str, ref',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/book.rst', 'r').read(),
+            'ref': '《{{ name }}》',
+        },
+    },
+    'artwork': {
+        'schema': {
+            'name': 'str, ref',
+            'attrs': {
+                'id': 'str, required, uniq, ref, index by hyphen',
+                'date': 'date, ref, index by year',
+                'medium': 'words of str, ref',
+                'size': 'str, ref',
+                'album': 'str, ref',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/artwork.rst', 'r').read(),
+            'ref': '《{{ name }}》',
+        },
+    },
+    'artist': {
+        'schema': {
+            'name': 'lines of str, required, ref',
+            'attrs': {
+                'movement': 'words of str, ref',
+                'gallery': 'words of str, ref',
+                'enwiki': 'str',
+                'zhwiki': 'str',
+                'artwork': 'words of str',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/artist.rst', 'r').read(),
+            'ref': '🧑‍🎨{{ name[0] }}',
+        },
+    },
+    'gallery': {
+        'schema': {
+            'name': 'lines of str, required, uniq, ref',
+            'attrs': {
+                'website': 'str',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/gallery.rst', 'r').read(),
+            'ref': '🖼️{{ name }}',
+        },
+    },
+    'event': {
+        'schema': {
+            'name': 'str, required, ref',
+            'attrs': {
+                'date': 'words of date, ref, index by year',
+                'location': 'str, ref',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/event.rst', 'r').read(),
+            'ref': '📅{{ name }}',
+        },
+    },
+    'leetcode': {
+        'schema': {
+            'name': 'str, required, ref',
+            'attrs': {
+                'id': 'str, uniq, ref',
+                'diffculty': 'str, ref',
+                'language': 'words of str, ref',
+                'key': 'words of str, ref',
+                'date': 'words of date, ref, index by year',
+                'reference': 'str',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/leetcode.rst', 'r').read(),
+            'ref': '🧮{{ name }}',
+        },
+    },
+    'term': {
+        'schema': {
+            'name': 'lines of str, required, ref',
+            'attrs': {
+                'field': 'str, ref, index by slash',  # TODO: index by slash
+                'enwiki': 'str',
+                'zhwiki': 'str',
+                'hide': 'bool',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/term.rst', 'r').read(),
+            'ref': '#️⃣{{ name[0] }}',
+        },
+    },
+    'jour': {
+        'schema': {
+            'name': 'date, required, ref, index by year',
+            'attrs': {
+                'category': 'str', # TODO
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/jour.rst', 'r').read(),
+            'ref': '📰{{ name }}',
+        },
+    },
+    'okr': {
+        'schema': {
+            'attrs': {
+                'id': 'str, required, uniq, ref, index by hyphen2',
+                'kr1': 'lines of str',
+                'kr2': 'lines of str',
+                'kr3': 'lines of str',
+                'kr4': 'lines of str',
+                'kr5': 'lines of str',
+                'kr6': 'lines of str',
+                'p0': 'str, ref',
+                'p1': 'str, ref',
+                'p2': 'str, ref',
+                'krs': 'lines of str',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/okr.rst', 'r').read(),
+            'ref': '🎯{{ name }}',
+        },
+    },
+    'people': {
+        'schema': {
+            'name': 'lines of str, required, uniq, ref',
+            'attrs': {
+                'github': 'str',
+                'blog': 'str',
+                'enwiki': 'str',
+                'zhwiki': 'str',
+                'weibo': 'str',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/people.rst', 'r').read(),
+            'ref': '👤{{ name[0] }}',
+        },
+    },
+    'rhythm': {
+        'schema': {
+            'name': 'str, ref',
+            'attrs': {
+                'time': 'str, required, ref',
+                'tempo': 'str',
+                'musicca': 'str',
+            },
+            'content': 'lines of str',
+        },
+        'templates': {
+            'obj': open('confs/templates/rhythm.rst', 'r').read(),
+            'ref': '🥁{{ name }}',
+        },
+    },
+    'dev': {
+        'schema': {
+            'attrs': {
+                'id': 'str, required, uniq, ref, index by hyphen',
+                'type': 'str, ref',
+                'web': 'str',
+                'man': 'str',
+                'price': 'str',
+                'startat': 'str, ref',
+                'endat': 'str, ref',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/dev.rst', 'r').read(),
+            'ref': '🎛️{{ name }}',
+        },
+    },
+    'loveletter': {
+        'schema': {
+            'attrs': {
+                'date': 'date, required, ref, index by year',
+                'nick': 'str',
+                'author': 'str, ref',
+                'createdat': 'date, ref, index by year',
+                'updatedat': 'date, ref, index by year',
+            },
+        },
+        'templates': {
+            'obj': open('confs/templates/loveletter.rst', 'r').read(),
+            'ref': '💌{{ name }}',
+        },
+    },
+}
