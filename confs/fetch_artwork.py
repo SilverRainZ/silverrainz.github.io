@@ -5,7 +5,7 @@ from os import path
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.util import logging
-from sphinxnotes.any.template import Environment as TemplateEnvironment
+from sphinxnotes.data.render.template import _JinjaEnv
 
 from .deploy import Deployment
 
@@ -34,4 +34,4 @@ def fetch_artwork_filter(env: BuildEnvironment):
 
 
 def setup(app: Sphinx):
-    TemplateEnvironment.add_filter('fetch_artwork', fetch_artwork_filter)
+    _JinjaEnv.add_filter('fetch_artwork', fetch_artwork_filter)
