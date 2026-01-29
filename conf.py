@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Split configurations ----------------------------------------------------
 
-from confs.schemas import _obj_type_defines
+from confs.schemas import OBJECT_TYPES as _OBJECT_TYPES
 from confs.deploy import Deployment
 
 _D = Deployment.current()
@@ -95,7 +95,7 @@ if _D.is_private():
 
 # A list of warning codes to suppress arbitrary warning messages.
 if _D is _D.Local:
-    suppress_warnings = ['ref.' + x for x in _obj_type_defines]
+    suppress_warnings = ['ref.' + x for x in _OBJECT_TYPES]
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
@@ -223,8 +223,8 @@ extlinks = {
 }
 
 extensions.append('sphinxnotes.any')
-obj_domain_name = 'any'
-obj_type_defines = _obj_type_defines
+any_domain_name = 'any'
+any_object_types = _OBJECT_TYPES
 
 extensions.append('ablog')
 blog_path = 'blog'
@@ -372,12 +372,9 @@ graphviz_output_format = 'svg'
 extensions.append('sphinxnotes.poc')
 
 def setup(app):
-    # Dump any domain data:
-    # from conf.dump_any_domain import setup
-    # setup(app)
-    # Query artworks from LATree.
 
     from confs import fetch_artwork
-    fetch_artwork.setup(app)
+
+    fetch_artwork.setup(app) # query artworks from LATree
 
     ...

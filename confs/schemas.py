@@ -7,7 +7,7 @@ from sphinxnotes.any.indexers import PathIndexer
 INDEXER_REGSITRY['hyphen'] = PathIndexer('-', 1)
 INDEXER_REGSITRY['hyphen2'] = PathIndexer('-', 2)
 
-_obj_type_defines = {
+OBJECT_TYPES = {
     'friend': {
         'auto': True,
         'schema': {
@@ -130,14 +130,13 @@ _obj_type_defines = {
     'jour': {
         'schema': {
             'name': 'date, required, ref, index by year',
-            'attrs': {
-                'category': 'str', # TODO
-            },
         },
         'templates': {
             'obj': open('confs/templates/jour.rst', 'r').read(),
+            'header': '📰 :jour.name+by-year:`{{ name }}`',
             'ref': '📰{{ name }}',
         },
+        'auto': True,
     },
     'okr': {
         'schema': {
