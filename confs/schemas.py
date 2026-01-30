@@ -9,7 +9,6 @@ INDEXER_REGSITRY['hyphen2'] = PathIndexer('-', 2)
 
 OBJECT_TYPES = {
     'friend': {
-        'auto': True,
         'schema': {
             'name': 'lines of str, required, uniq, ref',
             'attrs': {
@@ -172,6 +171,7 @@ OBJECT_TYPES = {
         },
         'templates': {
             'obj': open('confs/templates/people.rst', 'r').read(),
+            'header': '{{ name[0] }}',
             'ref': '👤{{ name[0] }}',
         },
     },
