@@ -94,8 +94,12 @@ if _D.is_private():
     keep_warnings = True
 
 # A list of warning codes to suppress arbitrary warning messages.
+suppress_warnings = [
+    'misc.highlighting_failure' # pygment highlight error
+]
+
 if _D is _D.Local:
-    suppress_warnings = ['ref.' + x for x in _OBJECT_TYPES]
+    suppress_warnings.extend(['ref.' + x for x in _OBJECT_TYPES])
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
