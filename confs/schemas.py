@@ -39,7 +39,7 @@ OBJECT_TYPES = {
     },
     'artwork': {
         'schema': {
-            'name': 'str, ref',
+            'name': 'str, ref, required',
             'attrs': {
                 'id': 'str, required, uniq, ref, index by hyphen',
                 'date': 'date, ref, index by year',
@@ -51,6 +51,7 @@ OBJECT_TYPES = {
         'templates': {
             'obj': open('confs/templates/artwork.rst', 'r').read(),
             'ref': '《{{ name }}》',
+            'embed': open('confs/templates/artwork.embed.rst', 'r').read(),
         },
     },
     'artist': {
@@ -135,7 +136,6 @@ OBJECT_TYPES = {
             'header': '📰 :jour.name+by-year:`{{ name }}`',
             'ref': '📰{{ name }}',
         },
-        'auto': True,
     },
     'okr': {
         'schema': {
