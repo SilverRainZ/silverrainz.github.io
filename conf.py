@@ -375,6 +375,8 @@ graphviz_output_format = 'svg'
 
 extensions.append('sphinxnotes.poc')
 
+extensions.append('sphinxnotes.data')
+
 def setup(app):
 
     from confs import fetch_artwork
