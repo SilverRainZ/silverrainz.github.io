@@ -2,7 +2,7 @@
 :难度: :leetcode.diffculty:`{{ diffculty }} <{{ diffculty }}>`
 :语言: {% for l in language %}:leetcode.language:`{{ l }} <{{ l }}>` {% endfor %}
 {% if key %}:思路: {% for k in key %}:leetcode.key:`{{ k }} <{{ k }}>` {% endfor %}{% endif %}
-{% if date %}:日期: {% for d in date %}:leetcode.date+by-month:`{{ d }} <{{ d }}>` {% endfor %}{% endif %}
+{% if date %}:日期: {% for d in date %}:leetcode.date+by-year:`{{ d }} <{{ d }}>` {% endfor %}{% endif %}
 {% if reference %}:参考: {{ reference }}{% endif %}
 
 .. dropdown:: 题解

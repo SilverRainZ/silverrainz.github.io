@@ -2,7 +2,7 @@
 Linux 运维 Cheat Sheet
 ======================
 
-.. seealso:: 特定机器上的运维手册参见 :doc:`/in/ops/`
+.. seealso:: 特定机器上的运维手册参见 :doc:`/in/homelab`
 
 磁盘管理
 ========

@@ -28,8 +28,8 @@ OBJECT_TYPES = {
             'attrs': {
                 'isbn': 'str, uniq, ref',
                 'status': 'str, ref',
-                'startat': 'words of str, ref',
-                'endat': 'words of str, ref',
+                'startat': 'words of date, ref, index by year',
+                'endat': 'words of date, ref, index by year',
             },
         },
         'templates': {
@@ -68,6 +68,7 @@ OBJECT_TYPES = {
         'templates': {
             'obj': open('confs/templates/artist.rst', 'r').read(),
             'ref': '🧑‍🎨{{ name[0] }}',
+            'header': '{{ name[0] }}',
         },
     },
     'gallery': {
@@ -79,7 +80,8 @@ OBJECT_TYPES = {
         },
         'templates': {
             'obj': open('confs/templates/gallery.rst', 'r').read(),
-            'ref': '🖼️{{ name }}',
+            'ref': '🖼️{{ name[0] }}',
+            'header': '{{ name[0] }}',
         },
     },
     'event': {
@@ -124,6 +126,7 @@ OBJECT_TYPES = {
         },
         'templates': {
             'obj': open('confs/templates/term.rst', 'r').read(),
+            'ref': '#️⃣{{ name[0] }}',
             'ref': '#️⃣{{ name[0] }}',
         },
     },
@@ -198,8 +201,8 @@ OBJECT_TYPES = {
                 'web': 'str',
                 'man': 'str',
                 'price': 'str',
-                'startat': 'str, ref',
-                'endat': 'str, ref',
+                'startat': 'date, ref, index by year',
+                'endat': 'date, ref, index by year',
             },
         },
         'templates': {

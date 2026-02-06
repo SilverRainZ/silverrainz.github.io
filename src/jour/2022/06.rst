@@ -8,7 +8,7 @@
 好吃的番茄炒蛋
 ==============
 
-.. jour:: _
+.. jour: _
    :date: 2022-06-07
 
 上周（5.29）和 YY 做了一顿饭，两个菜，一个是番茄炒蛋，一个是生菜牛丸汤，后者因为牛丸牛杂都是现成的，所以煮一起就好了。
@@ -40,7 +40,7 @@ __ https://item.jd.com/100000666658.html
 Srain 的域名迁移到 srian.silverrainz.me
 ========================================
 
-.. jour:: _
+.. jour: _
    :date: 2022-06-18
 
 17 年的时候我在 phoenixlzx__ 的 Cat Networks 买下 srain.im 这个域名，用于 :ghrepo:`SrainApp/srain` 的各个站点。

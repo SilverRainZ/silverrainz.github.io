@@ -514,7 +514,7 @@ Sphinx Notes 过家家
    今年加强了索引功能，在支持了日期索引和路径索引，现在可以：
 
    - 按时间顺序来浏览我的画：:ref:`any-artwork.date+by-year`
-   - 按系列来浏览我的画：:ref:`any-artwork.id+by-path`
+   - 按系列来浏览我的画：:ref:`any-artwork.id+by-hyphen`
 
 :pypi:`sphinxnotes-snippet`：从命令行快速访问 Sphinx 文档
    因为 1. 文档写的很糟糕 + 2. 只对中文文档有优势 + 3. 配置麻烦，所以完全没有其他用户在用。

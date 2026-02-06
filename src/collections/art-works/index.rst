@@ -15,7 +15,7 @@ Art Works
 ======== ================================
 索引类型 索引页面
 -------- --------------------------------
-编号     :ref:`any-artwork.id+by-path`
+编号     :ref:`any-artwork.id+by-hyphen`
 媒介     :ref:`any-artwork.medium`
 尺幅     :ref:`any-artwork.size`
 时间     :ref:`any-artwork.date+by-year`

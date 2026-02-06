@@ -19,7 +19,7 @@ SilverRainZ
 I am...
 
 :a programmer: I am SilverRainZ__ on GitHub, checkout my resume__ if you are interested
-:an artist on the road: my :ref:`works <any-artwork.id+by-path>` are listed here, todo: portfolio
+:an artist on the road: my :ref:`works <any-artwork.id+by-hyphen>` are listed here, todo: portfolio
 :a |linux| user: also a member of `Arch Linux CN Community`__
 :an |oss| author: I created `Srain IRC Client`__, `Sphinx Notes`__ and `more...`__
 
