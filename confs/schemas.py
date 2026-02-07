@@ -25,6 +25,7 @@ OBJECT_TYPES = {
     },
     'book': {
         'schema': {
+            'name': 'lines of str, required, uniq, ref',
             'attrs': {
                 'isbn': 'str, uniq, ref',
                 'status': 'str, ref',
@@ -34,7 +35,8 @@ OBJECT_TYPES = {
         },
         'templates': {
             'obj': open('confs/templates/book.rst', 'r').read(),
-            'ref': '《{{ name }}》',
+            'ref': '《{{ name[0] }}》',
+            'header': '{{ name[0] }}',
         },
     },
     'artwork': {
