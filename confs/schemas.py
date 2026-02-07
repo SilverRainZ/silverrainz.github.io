@@ -6,6 +6,7 @@ from sphinxnotes.any.indexers import PathIndexer
 
 INDEXER_REGSITRY['hyphen'] = PathIndexer('-', 1)
 INDEXER_REGSITRY['hyphen2'] = PathIndexer('-', 2)
+INDEXER_REGSITRY['slash'] = PathIndexer('/', 1)
 
 OBJECT_TYPES = {
     'friend': {
@@ -120,7 +121,7 @@ OBJECT_TYPES = {
         'schema': {
             'name': 'lines of str, required, ref',
             'attrs': {
-                'field': 'str, ref, index by slash',  # TODO: index by slash
+                'field': 'str, ref, index by slash',
                 'enwiki': 'str',
                 'zhwiki': 'str',
                 'hide': 'bool',
