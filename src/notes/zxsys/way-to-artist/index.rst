@@ -16,7 +16,6 @@
    find-language
    stealing
    exhibition
-   find-yourself2
 
 1. 找自己
 
