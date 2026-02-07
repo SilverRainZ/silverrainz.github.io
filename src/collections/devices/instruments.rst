@@ -109,7 +109,7 @@ Tha Editor
 
 Linux 声卡驱动
    :del:`可喜可贺，在我的 Arch Linux 上开箱即用`。
-   似乎要安装 :pacman:`alsa-firmware`。
+   似乎要安装 :archpkg:`alsa-firmware`。
    
 USB 输出不经过效果器链
    在 Ardour 听录制的内容时，感觉输出信号大小不受 ``GAIN`` 和 ``MASTER`` 影响，

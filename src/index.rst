@@ -45,8 +45,7 @@
 
          in/inbox/index
          in/gtd/okr/index
-         in/ops/index
-         in/loveletters/index
+         in/homelab/index
 
 .. grid::
    :gutter: 2

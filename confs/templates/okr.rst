@@ -1,4 +1,4 @@
-:编号: :okr.id+by-path:`{{ id.split('-') | first }} <{{ id }}>`\ ``-{{ id.split('-', maxsplit=1) | first }}``
+:编号: :okr.id+by-hyphen2:`{{ id.split('-') | first }} <{{ id }}>`\ ``-{{ id.split('-', maxsplit=1) | first }}``
 :优先级: {% if p0 is defined %}|p0|{% elif p1 is defined %}|p1|{% else %}|p2|{% endif %} 
 {% if id.count('-') == 2 %}:对齐: :okr:`{{ id.rsplit('-', maxsplit=1)[0] }}`{% endif %}
 

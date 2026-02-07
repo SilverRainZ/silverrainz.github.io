@@ -159,14 +159,10 @@ The day after last day
 .. grid:: 1 2 2 2
 
    .. grid-item::
-      .. figure:: /_assets/aw/m-004.webp
-
-         :artwork:`罗马王`
+      .. artwork+embed:: m-004
 
    .. grid-item::
-      .. figure:: /_assets/aw/m-005.webp
-
-         :artwork:`贝利夫人`
+      .. artwork+embed:: m-005
 
 万幸，我没有把所有东西都忘掉，但我的感受是含糊的。我到底是掌握了熟练度，还是掌握了造型的知识？我时常会质疑自己在画 :artwork:`高乃依像` 的时候，是真正理解了造型还是只是在老师的步步搀扶下「突破」了自我？之前的笔记并不能帮我画出一样的画，除了文字化的知识，我还欠缺了关键的、未知的什么东西。
 
@@ -250,57 +246,26 @@ The day after last day
 
 这是来燕郊后的部分：
 
+.. data:template::
+
+   {% for line in content %}
+   .. grid-item::
+      .. artwork+embed:: {{ line }} 
+
+         .. figure:: /_assets/aw/{{ '{{ id }}' }}.webp
+
+            {{ '{{ name }}' }}
+   {% endfor %}
+
+.. data:schema::
+
+   words of str
+
 .. grid:: 1 2 5 5
 
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-001.webp
+   .. data:def::
 
-         :artwork:`bflv-001`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-008.webp
-
-         :artwork:`珍视`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-012.webp
-
-         :artwork:`销烟`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-013.webp
-
-         :artwork:`bflv-013`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-016.webp
-
-         :artwork:`bflv-016`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-021.webp
-
-         :artwork:`平安夜（一）`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-022.webp
-
-         :artwork:`平安夜（二）`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-023.webp
-
-         :artwork:`轻微的纯度游戏`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-025.webp
-
-         :artwork:`失去的前一瞬间`
-
-   .. grid-item::
-      .. figure:: /_assets/aw/bflv-028.webp
-
-         :artwork:`生命的线索`
+      bflv-001 bflv-008 bflv-012 bflv-013 bflv-016 bflv-021 bflv-022 bflv-023 bflv-025 bflv-028
 
 可以明显看到来燕郊后的画更稳定地有意思一点儿，一方面上班挤占了我大部分的精力，另一方面在燕郊的生活有了些插曲，为我带来了多样的情绪。嗯，我\ :del:`又`\ 谈恋爱了。
 
@@ -339,12 +304,7 @@ The day after last day
 
       于是 A 张开了双手 `3` …   抱住了从天而降的少女 `4` 。
 
-.. figure:: /_assets/aw/xfczk2-041.webp
-   :width: 60%
-
-   :artwork:`有星星和微风的夜晚`
-
-   阅读顺序：从左到右，从上到下分别是 1、2、3、4。
+.. artwork+embed:: xfczk2-041
 
 两年后，这个故事真实发生了，这个少女是 :people:`Swan`。
 
@@ -366,10 +326,7 @@ The day after last day
 
 Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画方面也尚且留有最后一点自信。偶尔会大胆地拿自信去换取虚荣，具体方式就是在内网发自己的画并且等待一些赞扬，也因此认识了不少朋友。Swan 是其中的一位，她告诉我她特别喜欢我在西溪北苑画的《蓝色失眠》：
 
-.. figure:: /_assets/aw/abraxas-003.webp
-   :width: 60%
-
-   :artwork:`蓝色失眠，draft`
+.. artwork+embed:: abraxas-003
 
 从飞书里有限的沟通我知道她 base 北京，是一个干练的产品经理，很手巧会钩针编织，热爱旅游会在世界各地潜水，符合我对光鲜亮丽的大厂人的美好生活的想象。八月的时候我在内网发离职文档，彼此交换了微信，并约好在北京有空吃个饭，算是建立了联系。
 
@@ -390,23 +347,24 @@ Swan 是我的前同事。22 年我还保留着画小创作的惯性，在画画
 
 我开始变得柔软，全身的肌肉失去力气，视线开始模糊，脑袋也得昏昏沉沉。颤抖的双手不敢撕下面前的问号，双腿依然在往那边迈去。每天画素描的时候完全不在状态，我回忆起一些恐惧：
 
-.. figure:: /_assets/aw/xfczk-010.webp
-   :width: 60%
+.. artwork+embed:: xfczk-010
 
-   :artwork:`下雪的 768`
+   .. figure:: /_assets/aw/{{ id }}.webp
+      :width: 60%
+      :align: center
 
-   那时我的脑子里还没有辞职的念头，工作日的脑子装着代码和工单，只有周末才能假扮艺术家。每天夜里都有孤独的时候，醒来又是健全的一个人。
+      {{ name }}, {{ id }}, {{ date }}
 
-   现在的燕郊也下雪，脑子里是光和影子，看不懂的形体的和模糊的人影。我好像可以自诩艺术家，但无法称之为人了。每天要吃一大把的药，醒来和不醒来没有区别。
+      {% for line in (content or '').split('\n') -%}
+      {{ line }}
+      {% endfor %}
+
 
 恐惧让我心生犹豫，但我的预感又告诉我，这一天还是会到来：
 
-.. figure:: /_assets/aw/bflv-013.webp
-   :width: 80%
+.. artwork+embed:: bflv-013
 
-   :artwork:`bflv-013`
-
-   我想她不是海鸥也不是我，她是一头孤零零的小熊吧。
+我想她不是海鸥也不是我，她是一头孤零零的小熊吧。
 
 Swan 说，*这张画作为小创作过于直白，作为表白又过于含蓄*，我深以为然。
 
@@ -556,7 +514,7 @@ Sphinx Notes 过家家
    今年加强了索引功能，在支持了日期索引和路径索引，现在可以：
 
    - 按时间顺序来浏览我的画：:ref:`any-artwork.date+by-year`
-   - 按系列来浏览我的画：:ref:`any-artwork.id+by-path`
+   - 按系列来浏览我的画：:ref:`any-artwork.id+by-hyphen`
 
 :pypi:`sphinxnotes-snippet`：从命令行快速访问 Sphinx 文档
    因为 1. 文档写的很糟糕 + 2. 只对中文文档有优势 + 3. 配置麻烦，所以完全没有其他用户在用。

@@ -34,7 +34,7 @@ __ https://zhuanlan.zhihu.com/p/436454953
 Linux 5.18+ 因声卡驱动问题无法休眠
 ==================================
 
-.. jour:: _
+.. jour: _
    :date: 2022-07-08
 
 `dmesg` 输出：
@@ -69,7 +69,7 @@ __ https://bbs.archlinux.org/viewtopic.php?pid=2042801#p2042801
 中年人的第一台 NAS
 ==================
 
-.. jour:: _
+.. jour: _
    :date: 2022-07-08
 
 .. figure:: /_images/火狐截图_2022-07-12T16-26-32.235Z.png

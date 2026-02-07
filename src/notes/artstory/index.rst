@@ -4,6 +4,6 @@
 
 .. toctree::
 
-   artistory
+   artistory/index
    gallery
    gossip

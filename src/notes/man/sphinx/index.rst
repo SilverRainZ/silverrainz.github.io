@@ -7,6 +7,7 @@ Sphinx
 
    docutils
    how-sphinx-builder-works
+   how-sphinx-index-works
 
 .. highlight:: console
 
