@@ -27,5 +27,5 @@ https://wiki.archlinux.org/title/S.M.A.R.T
 透明计算
 ========
 
-.. seealso:: :doc:`/in/ops/`
+.. seealso:: :doc:`/in/homelab/`
  
