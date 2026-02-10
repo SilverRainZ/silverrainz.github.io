@@ -259,9 +259,8 @@ if _D.is_public():
     gtagjs_ids = ['G-FYHS50G6DL']
 
 if _D is _D.Local:
-    extensions.append('sphinxnotes.snippet')
-    snippetconfig = {}
-    snippet_patterns = {
+    extensions.append('sphinxnotes.picker')
+    picker_patterns = {
         'd': ['.*'],
         's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'in/.*'],
         'c': ['p/.*', 'notes/man/.*'],

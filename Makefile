@@ -40,9 +40,9 @@ clean:
 fast: Makefile
 	@$(SPHINXBUILD) -b $@html -c "$(CONFIGDIR)" "$(SOURCEDIR)" "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 
-# Snippet builder: https://sphinx.silverrainz.me/snippet/, for shell completion.
+# Picker builder: https://sphinx.silverrainz.me/picker/, for shell completion.
 .PHONY: snip
-snip: snippet
+pick: picker
 
 ################################################################################
 # View Helpers
