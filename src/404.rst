@@ -1,5 +1,6 @@
 :orphan:
 :nosearch:
+:layout: 404
 
 ==========
 本来无一物

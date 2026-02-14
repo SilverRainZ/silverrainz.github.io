@@ -19,7 +19,7 @@ SilverRainZ
 I am...
 
 :a programmer: I am SilverRainZ__ on GitHub, checkout my resume__ if you are interested
-:an artist on the road: my :ref:`works <any-artwork.id+by-hyphen>` are listed here, todo: portfolio
+:an artist on the road: my :doc:`works </gallery>` are listed here, todo: portfolio
 :a |linux| user: also a member of `Arch Linux CN Community`__
 :an |oss| author: I created `Srain IRC Client`__, `Sphinx Notes`__ and `more...`__
 
@@ -32,18 +32,8 @@ __ https://github.com/SilverRainZ?tab=repositories&q=&type=source&language=&sort
 
 .. |linux| replace:: :abbr:`Linux (I use Arch, btw)` 
 .. |oss| replace:: :abbr:`OSS (Open Source Software)` 
-.. |love| replace:: :abbr:`love (❤️)` 
 
-I am passionate about (in no particular order):
-
-- creating interesting images (in other words: painting)
-- programming (what a typical programmer!)
-- building `structured note taking system`__, which is the website you're visiting now (+2!)
-- building self-hosted services (+3!)
-- saving money (what a typical Chinese!)
-- :people:`Swan`, a lovely girl
-
-__ https://github.com/SilverRainZ/bullet
+.. _contact-me:
 
 Contact
 -------

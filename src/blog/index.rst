@@ -4,7 +4,10 @@
 SilverRainZ 的博客
 ==================
 
-.. centered:: :ref:`标签 <blog-tags>` | :ref:`归档 <blog-archives>` | :ref:`草稿 <blog-drafts>` | :ref:`订阅 <blog-feed>`
+.. container:: buttons
+
+   :ref:`订阅 <blog-feed>`
+   :ref:`归档 <blog-archives>`
 
 最近更新
 ========
@@ -12,3 +15,11 @@ SilverRainZ 的博客
 .. postlist::
    :format: {title} | {date}
    :excerpts:
+
+.. toctree::
+   :class: hidden
+   :caption: 博客
+   :maxdepth: 1
+   :glob:
+
+   *

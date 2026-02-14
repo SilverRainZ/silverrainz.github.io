@@ -4,11 +4,15 @@
 画廊
 ====
 
+.. rst-class:: lead
+
+   这里陈列一些我觉得还不错的技术练习、小创作以及正式的作品。
+
 .. data:template::
 
    {% for line in content %}
    .. grid-item::
-      .. artwork+embed:: {{ line }} 
+      .. artwork+embed:: {{ line }}
 
          .. figure:: /_assets/aw/{{ '{{ id }}' }}.webp
 
@@ -30,9 +34,10 @@
 最近画了……
 ==========
 
-- 2026, :doc:`/notes/zxsys/way-to-artist/prod` 
-- 2025, :doc:`/p/belated-drawing` 
-- 2024, :doc:`/p/be-fall-in-love` 
+- 2026, :doc:`/notes/zxsys/way-to-artist/prod`
+- 2025, :doc:`/p/belated-drawing`
+- 2025, :doc:`/notes/zxsys/color`
+- 2024, :doc:`/p/be-fall-in-love`
 
 所有作品
 ========
