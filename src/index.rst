@@ -17,7 +17,7 @@
 .. container:: buttons
 
    :ref:`联系我 <contact-me>`
-   `网站怎么做的？ <https://github.com/SilverRainZ/bullet>`_
+   `源码 <https://github.com/SilverRainZ/bullet>`_
 
 .. grid:: 1 1 2 3
    :gutter: 1
