@@ -1,3 +1,5 @@
+:isso-id: /collections/github-halloween
+
 =================
 Github 万圣节彩蛋
 =================

@@ -1,3 +1,5 @@
+:isso-id: /collections/scores/index
+
 ======
 乐谱夹
 ======
