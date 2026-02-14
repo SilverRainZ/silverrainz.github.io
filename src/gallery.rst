@@ -1,4 +1,5 @@
 :layout: landing
+:nocomments:
 
 ====
 画廊

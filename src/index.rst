@@ -1,4 +1,5 @@
 :layout: landing
+:nocomments:
 
 .. Bullet documentation master file, created by
    sphinx-quickstart on Wed May 20 21:28:31 2020.

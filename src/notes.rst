@@ -1,4 +1,5 @@
 :layout: landing
+:nocomments:
 
 ==================
 SilverRainZ 的笔记
