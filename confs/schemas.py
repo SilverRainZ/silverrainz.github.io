@@ -130,7 +130,7 @@ OBJECT_TYPES = {
         'templates': {
             'obj': open('confs/templates/term.rst', 'r').read(),
             'ref': '#️⃣{{ name[0] }}',
-            'ref': '#️⃣{{ name[0] }}',
+            'header': '{{ name[0] }}',
         },
     },
     'jour': {
