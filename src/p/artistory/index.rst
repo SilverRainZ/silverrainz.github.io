@@ -1,3 +1,5 @@
+:isso-id: /notes/artstory/artistory/index
+
 .. default-role:: artist
 
 ========

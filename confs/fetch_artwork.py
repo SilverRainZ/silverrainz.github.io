@@ -5,7 +5,7 @@ from os import path
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.util import logging
-from sphinxnotes.data.render.template import _JinjaEnv
+from sphinxnotes.render.template import _JinjaEnv
 
 from .deploy import Deployment
 

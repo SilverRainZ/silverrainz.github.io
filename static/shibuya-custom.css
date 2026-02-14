@@ -15,13 +15,3 @@ dl.field-list {
     display: grid;
     grid-template-columns: fit-content(30%) auto;
 }
-
-/****************
- * ABlog compat *
- ****************/
-
-/* Keep same font style with toctree */
-ul.postlist-style-disc > li > p > a {
-    font-size: 1rem;
-    border-bottom: none !important;
-}

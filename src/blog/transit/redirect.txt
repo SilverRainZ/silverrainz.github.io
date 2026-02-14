@@ -1,0 +1,9 @@
+.. data:render::
+    
+    {% set url = '/' + _sphinx.env.docname | replace('/transit', '') + '.html'%}
+
+    This is a transit page to ``{{ url }}``.
+
+    .. raw:: html
+
+       <script>window.location.href = "{{ url }}";</script>

@@ -11,70 +11,63 @@
 
 .. rst-class:: lead
 
-   :friend:`i` 的结构化笔记系统
+   :friend:`i` 的结构化笔记系统。
 
 .. container:: buttons
 
-    `继续浏览 <#entrance>`_
-    `源码 <https://github.com/SilverRainZ/bullet>`_
+   :ref:`联系我 <contact-me>`
+   `网站怎么做的？ <https://github.com/SilverRainZ/bullet>`_
 
-.. recentupdate:: 5
+.. grid:: 1 1 2 3
+   :gutter: 1
+   :padding: 0
+   :class-row: surface
 
-   .. dropdown:: 最近更新
+   .. grid-item-card:: :octicon:`image` 画廊
+      :link: /gallery.html
 
-      {% for r in revisions %}
-      :{{ r.date | strftime }}:
-         {% if r.modification %}
-         - 修改了 {{ r.modification | roles("doc") | join("、") }}
-         {% endif %}
-         {% if r.addition %}
-         - 新增了 {{ r.addition | roles("doc") | join("、") }}
-         {% endif %}
-         {% if r.deletion %}
-         - 删除了 {{ r.deletion | join("、") }}
-         {% endif %}
-      {% endfor %}
+      这里陈列一些我觉得还不错的技术练习、小创作以及正式的作品。
+
+   .. grid-item-card:: :octicon:`book` 博客
+      :link: /blog/index.html
+
+      我的博客，主要写一些编程相关的文章、介绍最近做的项目，也记录生活琐事。
+
+   .. grid-item-card:: :octicon:`note` 笔记
+      :link: /notes.html
+
+      我的个人笔记，没有什么好阅读的，目录和内容都会不定期变动。
 
 .. only:: private
 
-   .. card::
+   .. toctree::
+      :class: hidden
+      :caption: 私有笔记
+      :maxdepth: 1
 
-      .. toctree::
-         :caption: 浪人泊处
-         :maxdepth: 1
+      in/index
+      in/gtd/okr/index
+      in/homelab/index
 
-         in/inbox/index
-         in/gtd/okr/index
-         in/homelab/index
+.. toctree::
+   :class: hidden
+   :caption: 笔记
+   :maxdepth: 1
+   :glob:
 
-.. grid::
-   :gutter: 2
+   notes/zxsys/index
+   notes/artstory/index
+   notes/books/index
+   notes/man/index
+   notes/*/index
 
-   .. grid-item-card::
-      :columns: 12 4 4 4
+.. toctree::
+   :class: hidden
+   :caption: 博客
+   :maxdepth: 1
 
-      .. toctree::
-         :name: entrance
-         :caption: 笔记
-         :maxdepth: 1
-         :glob:
-
-         notes/zxsys/index
-         notes/artstory/index
-         notes/books/index
-         notes/man/index
-         notes/*/index
-
-   .. grid-item-card::
-      :columns: 12 8 8 8
-
-      .. class:: ablog-toctree
-      .. toctree::
-         :caption: 博客
-         :maxdepth: 1
-
-         所有文章 <blog/index>
-
-      .. postlist:: 8
-         :format: {title}
-         :list-style: disc
+   所有文章 <blog/index>
+   blog/transit/archive
+   blog/transit/category
+   blog/transit/tag
+   blog/transit/feed

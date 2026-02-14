@@ -12,7 +12,7 @@
 作品管理
 ========
 
-.. seealso:: :doc:`/collections/art-works/index`
+.. seealso:: :doc:`/gallery`
 
 - 数字化
 

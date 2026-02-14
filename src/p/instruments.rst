@@ -1,3 +1,5 @@
+:isso-id: /collections/devices/instruments
+
 ====
 乐器
 ====

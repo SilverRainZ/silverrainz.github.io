@@ -154,9 +154,7 @@ html_sidebars = _htlm_theme_conf.html_sidebars
 html_css_files.append(f'{html_theme}-custom.css')
 
 # Setup announcement as your need
-html_theme_options['announcement'] = '2025 年底翻新计划进行中，' \
-'详见 <a href="https://github.com/SilverRainZ/silverrainz.github.io/issues/34">' \
-'#34</a>'
+html_theme_options['announcement'] = ''
 
 if _D.is_mirror():
     if not _D.is_private():
@@ -259,9 +257,8 @@ if _D.is_public():
     gtagjs_ids = ['G-FYHS50G6DL']
 
 if _D is _D.Local:
-    extensions.append('sphinxnotes.snippet')
-    snippetconfig = {}
-    snippet_patterns = {
+    extensions.append('sphinxnotes.picker')
+    picker_patterns = {
         'd': ['.*'],
         's': ['notes/.*', 'jour/.*', 'collections/.*', 'about/.*', 'p/.*', 'in/.*'],
         'c': ['p/.*', 'notes/man/.*'],

@@ -62,7 +62,7 @@ OBJECT_TYPES = {
             'name': 'lines of str, required, ref',
             'attrs': {
                 'movement': 'words of str, ref',
-                'gallery': 'words of str, ref',
+                'gallery': 'words of str', # deprecated
                 'enwiki': 'str',
                 'zhwiki': 'str',
                 'artwork': 'words of str',
@@ -71,19 +71,6 @@ OBJECT_TYPES = {
         'templates': {
             'obj': open('confs/templates/artist.rst', 'r').read(),
             'ref': '🧑‍🎨{{ name[0] }}',
-            'header': '{{ name[0] }}',
-        },
-    },
-    'gallery': {
-        'schema': {
-            'name': 'lines of str, required, uniq, ref',
-            'attrs': {
-                'website': 'str',
-            },
-        },
-        'templates': {
-            'obj': open('confs/templates/gallery.rst', 'r').read(),
-            'ref': '🖼️{{ name[0] }}',
             'header': '{{ name[0] }}',
         },
     },
@@ -130,7 +117,7 @@ OBJECT_TYPES = {
         'templates': {
             'obj': open('confs/templates/term.rst', 'r').read(),
             'ref': '#️⃣{{ name[0] }}',
-            'ref': '#️⃣{{ name[0] }}',
+            'header': '{{ name[0] }}',
         },
     },
     'jour': {
