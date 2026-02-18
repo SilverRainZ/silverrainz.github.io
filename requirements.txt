@@ -29,10 +29,10 @@ sphinx-notfound-page
 sphinxcontrib-youtube
 sphinx-last-updated-by-git
 sphinxnotes-comboroles
-sphinxcontrib-globalsubs==0.1.2
+sphinxcontrib-globalsubs>=1.0.0
 sphinx_simplepdf
 sphinxnotes-fasthtml
 pyyaml
 sphinxnotes-poc@git+https://github.com/sphinx-notes/poc.git@master
-shibuya==2025.9.25
+shibuya==2026.1.9
 sphinxnotes-data@git+https://github.com/sphinx-notes/data.git@master

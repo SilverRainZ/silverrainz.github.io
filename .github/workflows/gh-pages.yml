@@ -47,7 +47,7 @@ jobs:
         requirements_path: ./requirements.txt
         sphinx_build_options: --conf-dir .
         cache: true
-        python_version: 3.12
-        sphinx_version: 8.2.3
+        python_version: 3.14
+        sphinx_version: 9.1.0
         checkout: false
         publish: ${{ github.ref_name == 'master' }}
