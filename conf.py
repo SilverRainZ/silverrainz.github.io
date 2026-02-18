@@ -269,6 +269,7 @@ if _D.is_public():
     isso_url = 'https://comments.silverrainz.me:30500'
     isso_client_config = {
         'data-isso-vote': 'false', # disable voting as the css is broken
+        'data-isso-sorting': 'newest',
     }
     isso_include_patterns = ['**',]
     isso_exclude_patterns = ['index', 'in/**']
