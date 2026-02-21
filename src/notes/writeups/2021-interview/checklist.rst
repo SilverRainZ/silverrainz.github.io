@@ -4,15 +4,25 @@
 知识点 Check List
 =================
 
+:revise: 2021-08
+:revise: 2026-02
+
 .. contents::
    :local:
-
-.. |x| replace:: ✔️ 
 
 计算机网络
 ==========
 
-TCP 三次握手 |x|
+网络连接五元组 |o|
+------------------
+
+- 源 IP 地址 (Source IP)：发送方的 IP。
+- 源端口号 (Source Port)：发送方的进程端口。
+- 目的 IP 地址 (Destination IP)：接收方的 IP。
+- 目的端口号 (Destination Port)：接收方的服务端口（如 HTTP 的 80 端口）。
+- 传输层协议 (Protocol)：通常是 TCP 或 UDP。
+
+TCP 三次握手 |_|
 ----------------
 
 由 client 执行 :manpage:`connect(3)` 触发。
@@ -20,15 +30,49 @@ TCP 三次握手 |x|
 .. image:: /_images/tcp-connection-made-three-way-handshake.png
    :target: https://hit-alibaba.github.io/interview/basic/network/TCP.html
 
-作用：
-
-- 确认双方的接收和发送能力是否正常
-- 协商初始序列号，交换窗口大小等
+作用
+   - 确认双方的接收和发送能力是否正常
+   - 协商初始序列号，交换窗口大小等
 
 半连接队列
    服务端第一次受到 SYN 包（`SYN_RCVD`）的队列
 
-TCP 四次挥手 |x|
+流程：
+   1. SYN: 客户端发起 SYN
+   2. SYN-ACK: 服务端回应 ACK，并且向客户端发起 SYN（piggyback）
+   3. ACK-DATA: 客户端回应 ACK，并且携带通信数据（piggyback）
+
+异常
+   1. SYN 丢了
+
+      - 客户端定时重传
+      - 重传一定次数后返回错误给用户
+
+   2. Server 处理重复的 SYN
+
+      :连接未关闭: 直接忽略
+      :连接已关闭: 正常回复 SYN-ACK，由客户端 RST
+
+                   .. note:: 如果只有两次握手就无法处理这个情况
+
+   3. SYN-ACK 丢了
+
+      :Client:
+         在他看来就是 SYN 要重传
+      :Server:
+         等 Client 的 ACK，等来了重传的 SYN
+      
+
+   SYN-ACK Missing
+      
+   SYN FLOOD 打满半连接队列
+      SYN Cookie，相当于把队列要存的信息作为 SeqNum 让 client 帮忙存
+
+      :Pros: 不需要分配内存空间
+      :Cons: 更多的计算，SYN cookie 容量有限导致不支持某些 TCP 高级特性
+   
+
+TCP 四次挥手 |_|
 ----------------
 
 由任意一方执行 :manpage:`close(3)` 触发。
@@ -50,7 +94,7 @@ Server 大量 `TIME_WAIT`
 Server 大量 `CLOSE_WAIT`
    Client 端主动关连接，Server 没有发第二个 FIN
 
-TCP UDP 区别 |x|
+TCP UDP 区别 |_|
 ----------------
 
 TCP
@@ -59,7 +103,7 @@ TCP
 UDP
    无连接，不可靠，可多播、广播
 
-select，epoll |x|
+select，epoll |_|
 -----------------
 
 :zhwiki:`Select_(Unix)`
@@ -76,7 +120,7 @@ select，epoll |x|
 Web
 ---
 
-HTTPS 原理 |x|
+HTTPS 原理 |_|
 ~~~~~~~~~~~~~~
 
 对称加密
@@ -100,7 +144,7 @@ HTTPS 原理 |x|
 
       HTTPS 加密、解密、验证及数据传输过程
 
-Session 和 Cookie |x|
+Session 和 Cookie |_|
 ~~~~~~~~~~~~~~~~~~~~~
 
 :URL: https://zhuanlan.zhihu.com/p/27669892
@@ -116,12 +160,12 @@ Session 一般用 Cookie 存。
 分布式
 ======
 
-Map-Reduce 概述 |x|
+Map-Reduce 概述 |_|
 -------------------
 
 映射（可并行） -> 归纳
 
-分布式 ID 生成 |x|
+分布式 ID 生成 |_|
 ------------------
 
 :URL: https://zhuanlan.zhihu.com/p/107939861
@@ -176,7 +220,7 @@ Snowflake 算法
 脑裂
 ----
 
-CAP |x|
+CAP |_|
 -------
 
    对于一个分布式计算系统来说，不可能同时满足以下三点：
@@ -189,7 +233,7 @@ CAP |x|
 
 P（分区容错性）是说这个系统要允许分区？
 
-分布式锁 |x|
+分布式锁 |_|
 ------------
 
 场景
@@ -209,14 +253,14 @@ P（分区容错性）是说这个系统要允许分区？
    - etcd/zookeeper 集群协同：CAS
    - chubby 专用的锁服务
 
-分布式定时器 |x|
+分布式定时器 |_|
 ----------------
 
 实现
    - 公平的分布式锁实现：etcd
    - 环形队列/时间轮
 
-一致性级别 |x|
+一致性级别 |_|
 --------------
 
 :URL: https://zhuanlan.zhihu.com/p/86999794
@@ -252,7 +296,7 @@ Paxos
 
 好复杂…… 看看就行吧，不强求懂了。
 
-Raft |x|
+Raft |_|
 --------
 
    Raft能为在计算机集群之间部署有限状态机提供一种通用方法，并确保集群内的任意节点在某种状态转换上保持一致。
@@ -276,7 +320,7 @@ Raft |x|
 关系型数据库
 ============
 
-数据库范式 |x|
+数据库范式 |_|
 --------------
 
 1NF
@@ -291,7 +335,7 @@ Raft |x|
 BCNF
    任何属性（包括非主属性和主属性）都不能被非主属性所决定。 
 
-ACID |x|
+ACID |_|
 --------
 
 :A: Atomicity 原子性 锁
@@ -315,7 +359,7 @@ ACID |x|
 
 幻读？
   
-索引 |x|
+索引 |_|
 --------
 
 作用
@@ -340,7 +384,7 @@ ACID |x|
 分表与分片
 ----------
 
-并发控制 |x|
+并发控制 |_|
 ------------
 
 数据库中的并发控制的任务是确保在多个事务同时访问数据库中同一数据时不破坏事务的隔离性和统一性以及数据库的统一性。
@@ -405,7 +449,7 @@ MVCC
 
 幂等性
 
-限流器 |x|
+限流器 |_|
 ----------
 
 :URL: https://www.infoq.cn/article/qg2tx8fyw5vt-f3hh673
@@ -417,7 +461,7 @@ MVCC
 
 .. seealso:: 流量整形
 
-负载均衡 |x|
+负载均衡 |_|
 ------------
 
 方向
@@ -440,7 +484,7 @@ MVCC
    - HAproxy
    - LVS（Linux Virtual Server）4 层
 
-一致性哈希 |x|
+一致性哈希 |_|
 --------------
 
 解决了简单哈希算法在分布式哈希表（Distributed Hash Table，DHT）中存在的动态伸缩等问题 。在移除或者添加一个服务器时，能够尽可能小地改变已存在的服务请求与处理请求服务器之间的映射关系
@@ -488,19 +532,19 @@ etcd zk 等集群协同
 操作系统
 ========
 
-进程、线程和协程 |x|
+进程、线程和协程 |_|
 ---------------------
 
 进程有独立地址空间，线程无
 
 协程：纯粹的用户态实现
 
-fork & exec |x|
+fork & exec |_|
 ---------------
 
 没啥好说。
 
-进程间通信方式概述 |x|
+进程间通信方式概述 |_|
 ----------------------
 
 - 文件
@@ -513,7 +557,7 @@ fork & exec |x|
 - Shared Memory
 - Mapped File
 
-DMA |x|
+DMA |_|
 -------
 
 Direct Memory Access，允许某些电脑内部的硬件子系统（电脑外设），可以独立地直接读写系统内存，而不需 CPU 介入处理 。
@@ -521,7 +565,7 @@ Direct Memory Access，允许某些电脑内部的硬件子系统（电脑外设
 每一个DMA通道有一个16位地址寄存器和一个16位计数寄存器。要初始化资料传输时，设备驱动程序一起设置DMA通道的地址和计数寄存器，以及资料传输的方向，读取或写入。然后指示DMA硬件开始这个传输动作。当传输结束的时候，设备就会以中断的方式通知中央处理器。 
 
 
-Huge Page |x|
+Huge Page |_|
 -------------
 
 4K -> ??
@@ -531,7 +575,7 @@ Huge Page |x|
 
 透明巨型页。
 
-死锁 |x|
+死锁 |_|
 --------
 
 讲一下操作系统死锁是如何发生的，以及如何解决死锁
@@ -539,7 +583,7 @@ Huge Page |x|
 Golang
 ======
 
-调度问题 |x|
+调度问题 |_|
 ------------
 
 :URL: https://www.douban.com/note/300631999/
@@ -571,7 +615,7 @@ M 为什么不是 P
 
 :URL: http://legendtkl.com/2017/04/28/golang-gc/
 
-经典 GC 算法 |x|
+经典 GC 算法 |_|
 ~~~~~~~~~~~~~~~~
 
 经典的 GC 算法
@@ -637,7 +681,7 @@ M 为什么不是 P
    Cons
       实现复杂
 
-Go 的垃圾回收 |x|
+Go 的垃圾回收 |_|
 ~~~~~~~~~~~~~~~~~
 
 何时触发 GC 检测
@@ -679,12 +723,12 @@ Dive in to code
    :mcentral: 全局 cache，mcache 不够用的时候向 mcentral 申请。
    :mheap: 当 mcentral 也不够用的时候，通过 mheap 向操作系统申请。
 
-Channel |x|
+Channel |_|
 -----------
 
 :URL: https://golang.design/under-the-hood/zh-cn/part2runtime/ch09lang/chan/
 
-`sync.Mutex` |x|
+`sync.Mutex` |_|
 ----------------
 
 :URL: - https://www.jianshu.com/p/ce1553cc5b4f
@@ -707,7 +751,7 @@ Channel |x|
 
 还是蛮复杂的，记个差不多就行。
 
-`sync.RWMutex` |x|
+`sync.RWMutex` |_|
 ------------------
 
 :URL: - https://golang.org/src/sync/rwmutex.go
@@ -773,7 +817,7 @@ Golang 的实现是写的互斥锁 + 读计数器，感觉有点别扭。
    }
 
 
-`sync.Map` |x|
+`sync.Map` |_|
 --------------
 
 :URL: - https://golang.org/src/sync/map.go
@@ -796,7 +840,7 @@ Defer
 :>=1.13: 栈上分配
 :<1.14: Open coded
 
-`&^` 操作符 |x|
+`&^` 操作符 |_|
 ---------------
 
 日常是很少用上，标准库代码里见得多。
@@ -809,7 +853,7 @@ Bit clear，`a &^ b == a & ^b`。
 内存泄漏
 --------
 
-死锁检测 |x|
+死锁检测 |_|
 ------------
 
    当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁
@@ -838,8 +882,8 @@ Bit clear，`a &^ b == a & ^b`。
 数据竞争
 --------
 
-`sync.Cond` 的虚假唤醒 |x|
-==========================
+`sync.Cond` 的虚假唤醒 |_|
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 因为 condition 的判断是用户代码，在 `Wait()` 返回之后，因此只能要求用户用忙等的方式等到 condition 满足的时刻：
 
@@ -854,13 +898,19 @@ Bit clear，`a &^ b == a & ^b`。
       // ... make use of condition ...
       c.L.Unlock()
 
+泛型
+----
+
+版本变更
+--------
+
 云原生
 ======
 
 k8s
 ---
 
-Docker |x|
+Docker |_|
 ----------
 
 共享内核
@@ -907,7 +957,7 @@ OverlayFS
 虚拟化
 ======
 
-KVM |x|
+KVM |_|
 -------
 
 Kernel-based Virtual Machine
@@ -989,16 +1039,40 @@ PLER vs Flink
 ====
 
 树
-   - 树的遍历 |x|
+   - 树的遍历 |_|
    - 平衡树
    - 二叉堆
 
 动态规划
-   - 最长上升子序列 |x|
-   - 最长公共子序列 |x|
-   - 最长回文串 |x|
-   - 01 背包 |x|
+   - 最长上升子序列 |_|
+   - 最长公共子序列 |_|
+   - 最长回文串 |_|
+   - 01 背包 |_|
 
 .. rubric:: 脚注
 
 .. [#] https://developer.aliyun.com/article/724399
+
+For New Period
+==============
+
+- vibe 编程方法论
+- claude code
+
+For Kong
+=========
+
+Lua/LuaJIT
+   - 语法、特性
+   - C API
+   - Co-routine
+
+GraphQL
+   ...
+
+Nginx 
+OpenRestry
+   https://github.com/chaitin/lua-resty-t1k
+Envoy
+
+https://www.v2ex.com/go/jobs?p=5
