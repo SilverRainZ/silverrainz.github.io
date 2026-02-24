@@ -9,6 +9,11 @@ SilverRainZ 的笔记
 
    这里是我的个人笔记，没有什么好阅读的，目录和内容都会不定期变动。
 
+.. container:: buttons
+
+   最近更新_
+   所有笔记_
+
 .. raw:: html
 
    <style>
