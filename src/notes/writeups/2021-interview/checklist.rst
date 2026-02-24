@@ -1,4 +1,4 @@
-:nosearch:
+.. :nosearch:
 
 =================
 知识点 Check List
@@ -22,7 +22,7 @@
 - 目的端口号 (Destination Port)：接收方的服务端口（如 HTTP 的 80 端口）。
 - 传输层协议 (Protocol)：通常是 TCP 或 UDP。
 
-TCP 三次握手 |_|
+TCP 三次握手 |o|
 ----------------
 
 由 client 执行 :manpage:`connect(3)` 触发。
@@ -34,13 +34,14 @@ TCP 三次握手 |_|
    - 确认双方的接收和发送能力是否正常
    - 协商初始序列号，交换窗口大小等
 
-半连接队列
-   服务端第一次受到 SYN 包（`SYN_RCVD`）的队列
+为什么是三次：
+   全双工的连接需要确认两边的连通性都没有问题，需要双向都 SYN-ACK 一次。所以共四次通信。
+   但服务端收到 SYN 时可以将 ACK 由另一个方向的 SYN 捎带（piggyback），简化为三次握手。
 
 流程：
    1. SYN: 客户端发起 SYN
-   2. SYN-ACK: 服务端回应 ACK，并且向客户端发起 SYN（piggyback）
-   3. ACK-DATA: 客户端回应 ACK，并且携带通信数据（piggyback）
+   2. SYN-ACK: 服务端回应 ACK，并且向客户端发起 SYN
+   3. ACK(-DATA): 客户端回应 ACK，并且携带通信数据
 
 异常
    1. SYN 丢了
@@ -60,19 +61,29 @@ TCP 三次握手 |_|
       :Client:
          在他看来就是 SYN 要重传
       :Server:
-         等 Client 的 ACK，等来了重传的 SYN
+         等 Client 的 ACK，等来了重传的 SYN，转化成情况 2
       
+   4. ACK 丢了
 
-   SYN-ACK Missing
+      Client 此时会认为连接已经建立，开始发数据。Server 还在 SYN-RECEIVED 状态，
+      等 ACK。
+
+      :Server: 超时后重传 SYN-ACK，重传一定次数后放弃（指数退避）
+      :Cilent: 直接开始发数据，Server 在 SYN-RCVD 状态收到数据时认为 Client
+               已经确认连接
       
-   SYN FLOOD 打满半连接队列
+   5. SYN FLOOD
+
       SYN Cookie，相当于把队列要存的信息作为 SeqNum 让 client 帮忙存
 
       :Pros: 不需要分配内存空间
       :Cons: 更多的计算，SYN cookie 容量有限导致不支持某些 TCP 高级特性
    
+   6. 双方同时 SYN
 
-TCP 四次挥手 |_|
+      P2P 场景可能出现，双方同时发 SYN-ACK，连接建立。
+
+TCP 四次挥手 |o|
 ----------------
 
 由任意一方执行 :manpage:`close(3)` 触发。
@@ -81,27 +92,63 @@ TCP 四次挥手 |_|
    :target: https://hit-alibaba.github.io/interview/basic/network/TCP.html
 
 为什么是 4 次
-   被动端（被 close 那一端）要额外的准备才能关闭连接，主动端发的 FIN 相当于一次 notification。
-   当被动端准备好了会发 FIN，这个 FIN 也需要 ACK
+   TCP 是全双工的，有两条独立的数据流，两条都需要单独发 FIN 和 等 ACK，所以要四次。
 
-Server 大量 `TIME_WAIT`
-   Server 端主动关连接导致的，可能会耗尽可用的端口
+   也有三次的情况：如果被动方收到第一次 FIN 后，自己也没数据要发了，可以把
+   ACK 和 FIN 合并，变成三次挥手。
 
-   解决
-      连接复用
-      要求客户端关连接
+流程（假设客户端 close）
+   1. 客户端发 FIN，关闭 client → server 的方向（不能发数据了，但还能收），
+      进入 FIN_WAIT_1 状态
 
-Server 大量 `CLOSE_WAIT`
-   Client 端主动关连接，Server 没有发第二个 FIN
+   2. 服务器收到 FIN 回 ACK，客户端进入 FIN_WAIT_2，服务器进入 CLOSE_WAIT
 
-TCP UDP 区别 |_|
-----------------
+      .. hint:: 收到 FIN 时服务端可能还有数据要发，因此不总能把 FIN 和 ACK 合并
 
-TCP
-   全双工，面向连接，可靠，一对一通信
+   3. 服务器发 FIN，关闭 server → client 的方向。服务器进入 LAST_ACK
 
-UDP
-   无连接，不可靠，可多播、广播
+   4. 客户端回 ACK，状态：客户端进入 TIME_WAIT，2MSL（Maximum Segment Lifetime，大约 4 分钟）
+      后 CLOSE，服务器收到 ACK 后进入 CLOSE
+
+为什么要 TIME_WAIT
+   1. 最后的 ACK（流程 4.）并没有送达保证（不能给 ACK 再加个 ACK 吧），如果有了 TIME_WAIT：
+
+      - 假设 ACK 成功送达，那么 Server 在未来就不会再发 FIN，Client 用有限的等待来验证事实：
+
+         The timeout value in TIME_WAIT is NOT used for retransmission purposes. When there is a timeout in TIME_WAIT, it is assumed that the final ACK was successfully delivered because the passive closer didn't retransmit FIN packets. So, the timeout in TIME_WAIT is just an amount of time after which we can safely assume that if the other end didn't send anything, then it's because he received the final ACK and closed the connection.
+
+         —— https://networkengineering.stackexchange.com/a/19718
+
+      - 假设 ACK 丢失，有足够的时间让 Server 重传 FIN，继而 Client 重传 ACK，并 **刷新 TIME_WAIT**，并期待 1 成立
+
+   2. 保留端口，等待旧连接的数据包在网路上完全消失（所以要持续 2MSL），
+      防止后面新建的连接导致数据错乱
+   
+异常
+   TIME_WAIT 堆积
+      本端主动关连接导致的，可能会耗尽可用的端口。
+
+      - 连接复用，例如对于 HTTP 不要 ``Connection: close``
+      - 设计上让客户端主动关连接，客户端承担 TIME_WAIT 的成本
+
+   CLOSE_WAIT 堆积
+      对端主动关连接，本端没有发第二个 FIN：基本是应用层没 ``close``
+
+   Half Shudown
+      :manpage:`shudown(3)` 而非 :manpage:`close(3)`，之发 FIN 不回收资源。
+
+TCP Keepalive
+   默认 7200s，用于回收 TCP 连接，并非给应用层使用。
+
+UDP |_|
+-------
+
+和 TCP 区别
+   :TCP: 全双工，面向连接，可靠，一对一通信
+   :UDP: 无连接，不可靠，可多播、广播
+
+用于实时性要求高的场景（RTC/Real-Time Communication 场景）
+自
 
 select，epoll |_|
 -----------------
@@ -1057,6 +1104,11 @@ For New Period
 ==============
 
 - vibe 编程方法论
+
+  cs146S https://www.zhihu.com/question/1991174455536395775/answer/2008337875469613040
+
+  https://www.zhihu.com/question/1951716962645288920/answer/2007657176265663018
+
 - claude code
 
 For Kong
