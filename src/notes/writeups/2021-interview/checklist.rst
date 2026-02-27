@@ -140,18 +140,25 @@ TCP 四次挥手 |o|
 TCP Keepalive
    默认 7200s，用于回收 TCP 连接，并非给应用层使用。
 
-UDP |_|
+UDP |o|
 -------
 
 和 TCP 区别
    :TCP: 全双工，面向连接，可靠，一对一通信
    :UDP: 无连接，不可靠，可多播、广播
 
-用于实时性要求高的场景（RTC/Real-Time Communication 场景）
-自
+UDP 的核心贡献：给 IP 层加了端口，让数据能区分不同的应用。其他一切交给上层。
 
-select，epoll |_|
------------------
+常用于实时性要求高的场景：
+
+- 实时通信（RTC/Real-Time Communication）：视频通话、直播
+- HTTP3/QUIC
+- DNS
+- IoT
+- ...
+
+select、epoll、io_uring |_|
+---------------------------
 
 :zhwiki:`Select_(Unix)`
    - 是个单独的系统调用
@@ -163,6 +170,110 @@ select，epoll |_|
    - 底层为红黑树，复杂度 :math:`O(log_n)`
    - 连接数：API 上无限制
    - 边沿触发（异步推荐）、状态触发
+
+:enwiki:`Io_uring`
+
+io_uring |_|
+------------
+
+.. seealso::
+
+   学习工作流程 :ghrepo:`shuveb/io_uring-by-example`，实践上推荐使用 :ghrepo:`axboe/liburing`。
+
+在看 ``02_cat_uring`` 有些疑惑：
+
+``IORING_FEAT_SINGLE_MMAP``
+   在支持 ``IORING_FEAT_SINGLE_MMAP`` 的系统（Linux 5.14+）上，可以只用一次 mmap
+   取到 sq cq 的虚拟地址，用同一个 base 配合 ``p.{sq,cq}_off`` 即可，如下：
+
+   .. code-block:: c
+      :caption: https://github.com/shuveb/io_uring-by-example/blob/master/02_cat_uring/main.c#L106-L198
+
+      struct io_uring_params p = {0};
+      void *sq_ptr, *cq_ptr;
+
+      // ...
+      ring_fd = io_uring_setup(QUEUE_DEPTH, &p);
+      // ...
+
+      sq_ptr = mmap(...)
+
+      if (p.features & IORING_FEAT_SINGLE_MMAP) {
+          cq_ptr = sq_ptr;
+      } else {
+          cq_ptr = mmap(...)
+      }
+
+      sring->head = sq_ptr + p.sq_off.head;
+      // ...
+      cring->head = cq_ptr + p.cq_off.head;
+      // ...
+
+   那要是用户不知道这个 feature 依然 mmap 两次呢？试了一下不会出错。
+   那之前初始化的 ``p.{sq,cq}_off`` 怎么就能适应这两种情况？
+
+   AI（DeepSeek、MiniMax M2.5）一番胡说八道，将信将疑调查一番结论是：
+
+   1. 至少在支持 IORING_FEAT_SINGLE_MMAP 的系统上，sq 和 cq 的物理内存是连续的
+
+      .. code-block:: c
+         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L140
+
+         struct io_rings {
+            struct io_uring		sq, cq;
+            // ...
+         }
+
+   2. ``p.cq_off.head`` 并不是 ``head`` 相对于 ``struct io_uring`` 的偏移，
+      而是相对于 ``struct io_rings`` 的偏移，那么 ``p.{sq,cq}_off`` 应该都
+      *对应同一个base ptr*
+
+      .. code-block:: c
+         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9712-L9722
+ 
+         p->sq_off.head = offsetof(struct io_rings, sq.head);
+ 	 p->sq_off.tail = offsetof(struct io_rings, sq.tail);
+         // ...
+         p->cq_off.head = offsetof(struct io_rings, cq.head);
+ 	 p->cq_off.tail = offsetof(struct io_rings, cq.tail);
+
+   3. 在 ``IORING_FEAT_SINGLE_MMAP`` 情况下会有 ``cq_ptr = sq_ptr;``，没有问题，
+      在两次 mmap 的情况呢？``{sq,cq}_ptr`` 两个不同的虚拟地址其实会指向同一个物理地址，
+      从 ``io_uring_mmap → io_uring_validate_mmap_request`` 可见：
+
+      .. code-block:: c
+         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9216-L9241
+
+      	 switch (offset) {
+	 case IORING_OFF_SQ_RING:
+	 case IORING_OFF_CQ_RING:
+	 	ptr = ctx->rings;
+	 	break;
+         // ...
+	 }
+         // ...
+	 return ptr;
+
+      让 AI 写点代码验证一下：
+
+      .. dropdown:: ``io_uring_single_mmap.c``
+
+         .. literalinclude:: ./io_uring_single_mmap.c
+            :language: c
+
+      .. code-block:: console
+      
+         $ gcc io_uring_single_mmap.c
+         # ./a.out
+         sq_ptr = 0x7f492a741000 -> phys = 0x000000028173e000
+         cq_ptr = 0x7f492a740000 -> phys = 0x000000028173e000
+         have same phys addr? true
+         *sq_ptr = 0
+         *cq_ptr = 0
+         write 0x1234 to sq_ptr, but not cq_ptr
+         *sq_ptr = 1234
+         *cq_ptr = 1234
+
 
 Web
 ---
@@ -626,6 +737,10 @@ Huge Page |_|
 --------
 
 讲一下操作系统死锁是如何发生的，以及如何解决死锁
+
+mmap |_|
+--------
+
 
 Golang
 ======
