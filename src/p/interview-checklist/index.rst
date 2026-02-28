@@ -1,3 +1,5 @@
+:isso-id: /notes/writeups/2021-interview/checklist
+
 .. :nosearch:
 
 =================
