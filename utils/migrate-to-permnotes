@@ -4,10 +4,10 @@
 source "$(dirname $0)/common.sh"
 cd $srcdir
 
-eval "$(snippet integration --sh)"
-id=$(snippet_list --tags d)
-file=$(snippet get $id --file)
-docname=$(snippet get $id --docname)
+eval "$(sphinxnotes-picker integration --sh)"
+id=$(picker_list --tags d)
+file=$(sphinxnotes-picker get $id --file)
+docname=$(sphinxnotes-picker get $id --docname)
 
 new_file="$srcdir/p/$(basename $file)"
 new_docname="p/$(basename $docname)"
