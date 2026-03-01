@@ -2,12 +2,12 @@
 
 .. :nosearch:
 
-=================
-知识点 Check List
-=================
+========
+面试八股
+========
 
-:revise: 2021-08
-:revise: 2026-02
+:Revised At: 2021-08
+:Revised At: 2026-02
 
 .. contents::
    :local:
@@ -159,21 +159,45 @@ UDP 的核心贡献：给 IP 层加了端口，让数据能区分不同的应用
 - IoT
 - ...
 
-select、epoll、io_uring |_|
+select、epoll、io_uring |o|
 ---------------------------
+
+都是流行的 IO 多路复用接口。
 
 :zhwiki:`Select_(Unix)`
    - 是个单独的系统调用
-   - 复杂度 :math:`O(n)`
-   - 连接数：`FD_SETSIZE = 8`
+
+   Pros
+      - POSIX 兼容，跨平台
+
+   Cons
+      - 获取活跃 fd 的方式是全量扫描，复杂度 :math:`O(n)`
+      - 有最大 FD 限制（``FD_SETSIZE``），且 fs_set 每次都要全量拷贝到内核
 
 :zhwiki:`Epoll`
-   - 是个模块，由三个系统调用组成
-   - 底层为红黑树，复杂度 :math:`O(log_n)`
-   - 连接数：API 上无限制
-   - 边沿触发（异步推荐）、状态触发
+   由三个系统调用 ``epoll_create``、``epoll_ctl``、``epoll_wait`` 组成
+
+   Pros
+      - 底层为红黑树，复杂度 :math:`O(log_n)`，仅返回活跃的 fd
+      - 连接数：API 上无限制
+      - 通过 mmap 共享内存
+      - 边沿触发（异步推荐）、水平触发
+   Cons
+      - 不支持文件 IO
+      - 做不到 syscall free，每个 fd 至少需要一次系统调用（``epoll_ctl``）
 
 :enwiki:`Io_uring`
+   由两个用户和内存共享的环形队列组成：提交队列（SQ）和完成队列（CQ），应用程序吧 IO 请求通过 SQ 提交，内核将处理好的结果放入 CQ。
+
+   三种模式：中断、内核轮询（SQ POLL）、IO 轮询
+   
+   Pros
+      - 几乎完全零拷贝
+      - 支持批量提交
+      - 只需要至多三次系统调用 |?| （mmap for ）
+
+   Cons
+      - 复杂
 
 io_uring |_|
 ------------
@@ -280,7 +304,7 @@ io_uring |_|
 Web
 ---
 
-HTTPS 原理 |_|
+HTTPS 原理 |o|
 ~~~~~~~~~~~~~~
 
 对称加密
@@ -309,13 +333,21 @@ Session 和 Cookie |_|
 
 :URL: https://zhuanlan.zhihu.com/p/27669892
 
-对无状态的 HTTP 协议的补充。
+对无状态的 HTTP 协议的补充。允许服务端将数据存储在客户端。
 
 `Set-Cookie`_ 用来向客户端设置 Cookie，假如域名不能涵盖原始服务器的域名，那么应该被用户代理拒绝
 
 .. _Set-Cookie: https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie
 
-Session 一般用 Cookie 存。
+Seesion 本地存在服务端，而将凭证（Seesion ID）等存在客户端的 Cookie 中。
+
+浏览器禁用 Cookie
+   可通过URL重写传递 Session ID。
+
+分布式Session
+   Session复制、Session Sticky、集中式Session存储（Redis）。
+
+   .. todo:: TODO
 
 分布式
 ======
@@ -324,6 +356,8 @@ Map-Reduce 概述 |_|
 -------------------
 
 映射（可并行） -> 归纳
+
+Split -> Map -> Shuffle -> Reduce。
 
 分布式 ID 生成 |_|
 ------------------
@@ -336,7 +370,7 @@ UUID / 自己随机生成
    :pros: - 不依赖外部服务
    :cons: - 业务价值不大
           - 不利于储存和索引
-          - 不能趋势递增
+          - 不能趋势递增 |?|
 
 单数据库自增 ID
    :pros: - 支持递增
@@ -392,6 +426,7 @@ CAP |_|
    —— :zhwiki:`CAP定理`
 
 P（分区容错性）是说这个系统要允许分区？
+   网络分区（P）是必然发生的，所以通常是在CP（如ZooKeeper，牺牲可用性）和AP（如Eureka，牺牲强一致性，保证最终一致）之间权衡。
 
 分布式锁 |_|
 ------------
@@ -420,7 +455,7 @@ P（分区容错性）是说这个系统要允许分区？
    - 公平的分布式锁实现：etcd
    - 环形队列/时间轮
 
-一致性级别 |_|
+一致性级别 |o|
 --------------
 
 :URL: https://zhuanlan.zhihu.com/p/86999794
@@ -607,7 +642,11 @@ MVCC
 服务重试
 --------
 
-幂等性
+重试的前提是幂等。
+
+幂等性：多次调用结果一致
+
+重试策略：指数退避
 
 限流器 |_|
 ----------
@@ -873,6 +912,8 @@ GC 触发条件
 Dive in to code
    :gcBgMarkStartWorkers: 为每个 P（线程上的本地调度器）启动一个 gcMarkWoker
    :gcDrain: Mark 阶段的标记代码主要实现
+
+.. todo:: GreenTea
 
 内存管理
 --------
@@ -1163,11 +1204,6 @@ IO 虚拟化
    2. QEMU用户态工具，它是一个普通的Linux进程，为客户机提供设备模拟的功能，包括模拟BIOS、PCI/PCIE总线、磁盘、网卡、显卡、声卡、键盘、鼠标等。同时它通过ioctl系统调用与内核态的KVM模块进行交互。
       在KVM虚拟化架构下，每个客户机就是一个QEMU进程，在一个宿主机上有多少个虚拟机就会有多少个QEMU进程；客户机中的每一个虚拟CPU对应QEMU进程中的一个执行线程
 
-libvirt
--------
-
-是一套用于管理硬件虚拟化的开源API、守护进程与管理工具
-
 流处理
 ======
 
@@ -1198,24 +1234,6 @@ PLER vs Flink
 :Watermark: 根据流的情况制定开启和关闭策略
 :allowLateNess: 延迟窗口关闭时间
 :sideOutPut: 指定窗口已经彻底关闭后，就会把所有过期延迟数据放到侧输出流，让用户决定如何处理
-
-算法
-====
-
-树
-   - 树的遍历 |_|
-   - 平衡树
-   - 二叉堆
-
-动态规划
-   - 最长上升子序列 |_|
-   - 最长公共子序列 |_|
-   - 最长回文串 |_|
-   - 01 背包 |_|
-
-.. rubric:: 脚注
-
-.. [#] https://developer.aliyun.com/article/724399
 
 For New Period
 ==============
