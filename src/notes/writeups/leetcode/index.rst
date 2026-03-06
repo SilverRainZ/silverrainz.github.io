@@ -868,3 +868,15 @@ Ones and Zeroes
 
 .. [#] https://twitter.com/mxcl/status/608682016205344768
 .. [#] https://oi-wiki.org/ds/monotonous-stack/
+
+Merge Sorted Array
+------------------
+
+.. leetcode:: _
+   :id: merge-sorted-array
+   :diffculty: Easy
+   :language: go
+   :key: 排序
+   :date: 2026-03-05
+
+很简单的一道题，要不先把 nums1 挪开然后直接合并，要不逆序。之前想复杂了。
