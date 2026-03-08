@@ -46,14 +46,6 @@ func canPartition(nums []int) bool {
 	return dp[len(nums)][sum] > 0
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
-	}
-}
-
 func main() {
 	// fmt.Println(canPartition([]int{2, 2}))
 	// fmt.Println(canPartition([]int{1, 2, 9}))

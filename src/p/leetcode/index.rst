@@ -1,8 +1,8 @@
+:isso-id: /notes/writeups/leetcode/index
+
 =================
 Leetcode 刷题记录
 =================
-
-:date: 2021-03-10
 
 .. tip::
 
@@ -63,8 +63,8 @@ LFU Cache
    :id: lfu-cache
    :diffculty: Medium
    :language: go
-   :date: 2021-05-08 2021-7-22
-   :reference: https://github.com/halfrost/Halfrost-Field/blob/master/contents/Go/LRU:LFU_interview.md
+   :date: 2021-05-08 2021-7-22 2026-03-16
+   :reference: https://github.com/halfrost/Halfrost-Field/blob/master/contents/Go/LRU_LFU_interview.md
 
 解法 1
    在 touch 一个元素的的时候从链表尾部往上找，是一个 :math:`O(n)` 的操作，然而
@@ -77,8 +77,7 @@ LFU Cache
    frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
    桶内部是一个小的 LRU，这样 touch 就是 :math:`O(1)` 了。
 
-想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 :math:`O(n)`
-的查找变成 :math:`O(\log n)` 而已，大量重复的 freq 值是很浪费时间和空间的。
+想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 :math:`O(n)` 的查找变成 :math:`O(\log n)` 而已，大量重复的 freq 值是很浪费时间和空间的。
 
 .. _SCAU OJ: http://acm.scau.edu.cn:8000
 
@@ -101,7 +100,7 @@ Partition Equal Subset Sum
    :diffculty: Medium
    :language: rust
    :key: 动态规划
-   :date: 2021-06-21 2024-04-01
+   :date: 2021-06-21 2024-04-01 2026-03-22
 
 把一个集合分成两个，使其 sum 分别相等。假设原集合 sum 为 |Sa| ，从集合中选出一个子集，使其 sum 刚好为 |Sa|/2 ，剩下的元素组成的子集的 sum 自然也为 |Sa|/2。因此问题可以转化为一个 :ref:`01-pack` 问题，背包容量为 |Sa|/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。
 
@@ -127,6 +126,12 @@ Partition Equal Subset Sum
    但注意：*需要手动处理* `j-Ci<0` *的情况*：此时放不下第 i 件物品，只能不放了 `dp[i-1][j]`
 
    TODO: 显示多种语言的解法
+
+2026-03-22
+   GPT 给了一种 Bool DP 的做法，状态定义是：
+
+      dp[i][j]：前 i + 1 个数里，是否能选出若干个数，使和恰好等于 j
+
 
 .. |Sa| replace:: S\ :sub:`a`
 
@@ -555,7 +560,7 @@ Linked List Cycle
    :diffculty: Easy
    :language: go
    :key: 链表 快慢指针
-   :date: 2021-07-13
+   :date: 2021-07-13 2026-03-22
 
 无论如何时间复杂度都是 :math:`O(n)`，用哈希标表存 visited 的做法不用说了。
 
@@ -573,12 +578,24 @@ Linked List Cycle II
    :diffculty: Medium
    :language: go
    :key: 链表 快慢指针
-   :date: 2021-07-15
+   :date: 2021-07-15 2026-03-22
    :reference: https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
 
 看的题解。
 
 我根本没在动脑子…… :(
+
+2026-03-22
+   题解假设 fast 走过的距离为 a+n*(b+c)+b，而 slow 走过的距离为 a+b，隐含了一个条件：
+   slow 和 fast 相遇时 slow 还没走完一圈。
+
+   条件是成立的，假设环长是 L。 当 slow 刚进入环时 fast 已在环内任意位置。
+   fast 每轮比 slow 多走 1 步，也就是以 slow 为静止的参照系，无论 fast 在哪里，
+   只要走 L-1 次（L-1*2 步）fast 就能踏遍环里的每个地方，自然能和 slow 重合过（不会跳过，可以自行模拟一下），
+   此时 slow 也至多走了 L-1 步，不足一环。
+
+   另外假设快慢指针的比例不是 1:2，导致 fast 可能越过 slow，让条件不成立，依然不影响结论。
+   假设 slow 走过 m 圈，走过的距离为 a+b+m*(b+c)，带入算算的结果应该是一样的，详情问 GPT。
 
 Product of Array Except Self
 ----------------------------
@@ -738,14 +755,19 @@ Sort an Array
    :diffculty: Medium
    :language: rust
    :key: 排序
-   :date: 2021-07-19
+   :date: 2021-07-19 2026-03-16
    :reference: https://rust-algo.club/sorting/quicksort
 
-:2021-07-17: 情绪又不好了，看了近两个小时的快排教程没看进去。
+2021-07-17
+   情绪又不好了，看了近两个小时的快排教程没看进去。
 
-使用固定 pivot 的普通的快排会 TLE，因为有一个近乎有序的大数组 case。
+   pivot 固定为 ``nums[len-1]`` 会 TLE，因为有一个近乎有序的大数组 case，
+   导致 Partition 不均衡（数据倾斜）：分为 ``nums[0..len-2]`` 和 ``nums[nums-1..]``
 
-Rust 标准库没有生成随机数的函数……糊了一个。
+   Rust 标准库没有生成随机数的函数……糊了一个。
+
+2026-03-16
+   重新写了一遍，我比以前聪明诶。
 
 Combination Sum II
 ------------------
