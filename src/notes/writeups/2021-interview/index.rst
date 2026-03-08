@@ -9,7 +9,7 @@
    :titlesonly:
 
    checklist
-   leetcode
+   /p/leetcode/index
    dp
 
 以及 `简历 <https://silverrainz.me/resume>`_。
@@ -51,7 +51,7 @@ Bilibili   上海 BOSS   一面   凉
 内推而非海投
    以后找工作更应当这样。
 
-   内推，尤其是部门直推在很大程度上能为你的个人能力背书（:friend:`jinzhao.liu`），面试中会专注于你的核心能力，而不会过多考核 :doc:`八股文 <./checklist>` 或者 :doc:`算法 <./leetcode>`。
+   内推，尤其是部门直推在很大程度上能为你的个人能力背书（:friend:`jinzhao.liu`），面试中会专注于你的核心能力，而不会过多考核 :doc:`八股文 <./checklist>` 或者 :doc:`算法 <p/leetcode/index>`。
 
    SmartX Shopee Bilibili 美团 属于此列，Shopee 甚至简历都没给我过。
 

@@ -37,6 +37,7 @@ case $action in
             --builder fasthtml \
             --re-ignore "_.*" \
             --re-ignore "\.git" \
+            --re-ignore "/p/leecode/.*/.*" \
             --host $host \
             --port $port \
             --pre-build "$PWD/$0 pre" \
