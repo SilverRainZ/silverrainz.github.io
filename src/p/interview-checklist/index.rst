@@ -64,7 +64,7 @@ TCP 三次握手 |o|
          在他看来就是 SYN 要重传
       :Server:
          等 Client 的 ACK，等来了重传的 SYN，转化成情况 2
-      
+
    4. ACK 丢了
 
       Client 此时会认为连接已经建立，开始发数据。Server 还在 SYN-RECEIVED 状态，
@@ -73,14 +73,14 @@ TCP 三次握手 |o|
       :Server: 超时后重传 SYN-ACK，重传一定次数后放弃（指数退避）
       :Cilent: 直接开始发数据，Server 在 SYN-RCVD 状态收到数据时认为 Client
                已经确认连接
-      
+
    5. SYN FLOOD
 
       SYN Cookie，相当于把队列要存的信息作为 SeqNum 让 client 帮忙存
 
       :Pros: 不需要分配内存空间
       :Cons: 更多的计算，SYN cookie 容量有限导致不支持某些 TCP 高级特性
-   
+
    6. 双方同时 SYN
 
       P2P 场景可能出现，双方同时发 SYN-ACK，连接建立。
@@ -125,7 +125,7 @@ TCP 四次挥手 |o|
 
    2. 保留端口，等待旧连接的数据包在网路上完全消失（所以要持续 2MSL），
       防止后面新建的连接导致数据错乱
-   
+
 异常
    TIME_WAIT 堆积
       本端主动关连接导致的，可能会耗尽可用的端口。
@@ -145,11 +145,22 @@ TCP Keepalive
 UDP |o|
 -------
 
+UDP Header::
+
+   struct udphdr {
+       __be16 source;      // 源端口号 (16位)
+       __be16 dest;        // 目的端口号 (16位)
+       __be16 len;         // UDP长度 (首部+数据)
+       __sum16 check;      // 校验和 (覆盖首部+数据+伪首部)
+   };
+
+UDP 的核心贡献：给 IP 层加了端口，让数据能区分不同的应用（对应到进程）。
+当然还有其他东西：自定义数据报长度（而非 IP 数据包）、可选的数据校验和。
+其他一切交给上层。
+
 和 TCP 区别
    :TCP: 全双工，面向连接，可靠，一对一通信
    :UDP: 无连接，不可靠，可多播、广播
-
-UDP 的核心贡献：给 IP 层加了端口，让数据能区分不同的应用。其他一切交给上层。
 
 常用于实时性要求高的场景：
 
@@ -190,7 +201,7 @@ select、epoll、io_uring |o|
    由两个用户和内存共享的环形队列组成：提交队列（SQ）和完成队列（CQ），应用程序吧 IO 请求通过 SQ 提交，内核将处理好的结果放入 CQ。
 
    三种模式：中断、内核轮询（SQ POLL）、IO 轮询
-   
+
    Pros
       - 几乎完全零拷贝
       - 支持批量提交
@@ -199,107 +210,171 @@ select、epoll、io_uring |o|
    Cons
       - 复杂
 
-io_uring |_|
+io_uring |o|
 ------------
 
 .. seealso::
 
    学习工作流程 :ghrepo:`shuveb/io_uring-by-example`，实践上推荐使用 :ghrepo:`axboe/liburing`。
 
-在看 ``02_cat_uring`` 有些疑惑：
+``02_cat_uring``
+~~~~~~~~~~~~~~~~
 
 ``IORING_FEAT_SINGLE_MMAP``
-   在支持 ``IORING_FEAT_SINGLE_MMAP`` 的系统（Linux 5.14+）上，可以只用一次 mmap
-   取到 sq cq 的虚拟地址，用同一个 base 配合 ``p.{sq,cq}_off`` 即可，如下：
+...........................
+
+在看 ``02_cat_uring`` 有些疑惑：
+
+在支持 ``IORING_FEAT_SINGLE_MMAP`` 的系统（:del:`Linux 5.14+` Linux 5.4+）上，可以只用一次 mmap 取到 sq cq 的虚拟地址，用同一个 base 配合 ``p.{sq,cq}_off`` 即可，如下：
+
+.. code-block:: c
+   :caption: https://github.com/shuveb/io_uring-by-example/blob/master/02_cat_uring/main.c#L106-L198
+
+   struct io_uring_params p = {0};
+   void *sq_ptr, *cq_ptr;
+
+   // ...
+   ring_fd = io_uring_setup(QUEUE_DEPTH, &p);
+   // ...
+
+   sq_ptr = mmap(...)
+
+   if (p.features & IORING_FEAT_SINGLE_MMAP) {
+       cq_ptr = sq_ptr;
+   } else {
+       cq_ptr = mmap(...)
+   }
+
+   sring->head = sq_ptr + p.sq_off.head;
+   // ...
+   cring->head = cq_ptr + p.cq_off.head;
+   // ...
+
+那要是用户不知道这个 feature 依然 mmap 两次呢？试了一下不会出错。
+那之前初始化的 ``p.{sq,cq}_off`` 怎么就能适应这两种情况？
+
+AI（DeepSeek、MiniMax M2.5）一番胡说八道，将信将疑调查一番结论是：
+
+1. 至少在支持 IORING_FEAT_SINGLE_MMAP 的系统上，sq 和 cq 的物理内存是连续的
 
    .. code-block:: c
-      :caption: https://github.com/shuveb/io_uring-by-example/blob/master/02_cat_uring/main.c#L106-L198
+      :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L140
 
-      struct io_uring_params p = {0};
-      void *sq_ptr, *cq_ptr;
-
-      // ...
-      ring_fd = io_uring_setup(QUEUE_DEPTH, &p);
-      // ...
-
-      sq_ptr = mmap(...)
-
-      if (p.features & IORING_FEAT_SINGLE_MMAP) {
-          cq_ptr = sq_ptr;
-      } else {
-          cq_ptr = mmap(...)
+      struct io_rings {
+         struct io_uring		sq, cq;
+         // ...
       }
 
-      sring->head = sq_ptr + p.sq_off.head;
+2. ``p.cq_off.head`` 并不是 ``head`` 相对于 ``struct io_uring`` 的偏移，
+   而是相对于 ``struct io_rings`` 的偏移，那么 ``p.{sq,cq}_off`` 应该都
+   *对应同一个base ptr*
+
+   .. code-block:: c
+      :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9712-L9722
+
+      p->sq_off.head = offsetof(struct io_rings, sq.head);
+      p->sq_off.tail = offsetof(struct io_rings, sq.tail);
       // ...
-      cring->head = cq_ptr + p.cq_off.head;
+      p->cq_off.head = offsetof(struct io_rings, cq.head);
+      p->cq_off.tail = offsetof(struct io_rings, cq.tail);
+
+3. 在 ``IORING_FEAT_SINGLE_MMAP`` 情况下会有 ``cq_ptr = sq_ptr;``，没有问题，
+   在两次 mmap 的情况呢？``{sq,cq}_ptr`` 两个不同的虚拟地址其实会指向同一个物理地址，
+   从 ``io_uring_mmap → io_uring_validate_mmap_request`` 可见：
+
+   .. code-block:: c
+      :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9216-L9241
+
+      switch (offset) {
+      case IORING_OFF_SQ_RING:
+      case IORING_OFF_CQ_RING:
+             ptr = ctx->rings;
+             break;
       // ...
+      }
+      // ...
+      return ptr;
 
-   那要是用户不知道这个 feature 依然 mmap 两次呢？试了一下不会出错。
-   那之前初始化的 ``p.{sq,cq}_off`` 怎么就能适应这两种情况？
+   让 AI 写点代码验证一下：
 
-   AI（DeepSeek、MiniMax M2.5）一番胡说八道，将信将疑调查一番结论是：
+   .. dropdown:: ``io_uring_single_mmap.c``
 
-   1. 至少在支持 IORING_FEAT_SINGLE_MMAP 的系统上，sq 和 cq 的物理内存是连续的
+      .. literalinclude:: ./io_uring_single_mmap.c
+         :language: c
 
-      .. code-block:: c
-         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L140
+   .. code-block:: console
 
-         struct io_rings {
-            struct io_uring		sq, cq;
-            // ...
-         }
+      $ gcc io_uring_single_mmap.c
+      # ./a.out
+      sq_ptr = 0x7f492a741000 -> phys = 0x000000028173e000
+      cq_ptr = 0x7f492a740000 -> phys = 0x000000028173e000
+      have same phys addr? true
+      *sq_ptr = 0
+      *cq_ptr = 0
+      write 0x1234 to sq_ptr, but not cq_ptr
+      *sq_ptr = 1234
+      *cq_ptr = 1234
 
-   2. ``p.cq_off.head`` 并不是 ``head`` 相对于 ``struct io_uring`` 的偏移，
-      而是相对于 ``struct io_rings`` 的偏移，那么 ``p.{sq,cq}_off`` 应该都
-      *对应同一个base ptr*
+``s->sq_ring->array[]`` 和 ``s->sqes[]`` 的关系
+...............................................
 
-      .. code-block:: c
-         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9712-L9722
- 
-         p->sq_off.head = offsetof(struct io_rings, sq.head);
- 	 p->sq_off.tail = offsetof(struct io_rings, sq.tail);
-         // ...
-         p->cq_off.head = offsetof(struct io_rings, cq.head);
- 	 p->cq_off.tail = offsetof(struct io_rings, cq.tail);
+``submit_to_sq`` 有云：
 
-   3. 在 ``IORING_FEAT_SINGLE_MMAP`` 情况下会有 ``cq_ptr = sq_ptr;``，没有问题，
-      在两次 mmap 的情况呢？``{sq,cq}_ptr`` 两个不同的虚拟地址其实会指向同一个物理地址，
-      从 ``io_uring_mmap → io_uring_validate_mmap_request`` 可见：
+.. code:: c
 
-      .. code-block:: c
-         :caption: https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L9216-L9241
+    next_tail = tail = *sring->tail;
+    next_tail++;
+    read_barrier();
+    index = tail & *s->sq_ring.ring_mask;
+    struct io_uring_sqe *sqe = &s->sqes[index];
+    // ...
+    sring->array[index] = index;
+    tail = next_tail;
+    // ...
 
-      	 switch (offset) {
-	 case IORING_OFF_SQ_RING:
-	 case IORING_OFF_CQ_RING:
-	 	ptr = ctx->rings;
-	 	break;
-         // ...
-	 }
-         // ...
-	 return ptr;
+此处 ``sring->array[index] = index`` 仅仅是巧合。
 
-      让 AI 写点代码验证一下：
+SQEs（Submission Queue Entries）描述一个 IO 请求，是单独分配的，
+SQ 里只存 SQEs 的索引。而使用哪个 SQE 完全是用户决定的，只要正确填入 ``sq->array`` 即可。
 
-      .. dropdown:: ``io_uring_single_mmap.c``
+而上面代码的 index、sring->{head,tail} 是指用来描述 ``sq->array`` 的。
+``sqes`` 只是图方便借用了它们。
 
-         .. literalinclude:: ./io_uring_single_mmap.c
-            :language: c
+这也是网上把 ``sq->array`` 称为间接数组的原因，要做二次索引才能拿到 SQE。
 
-      .. code-block:: console
-      
-         $ gcc io_uring_single_mmap.c
-         # ./a.out
-         sq_ptr = 0x7f492a741000 -> phys = 0x000000028173e000
-         cq_ptr = 0x7f492a740000 -> phys = 0x000000028173e000
-         have same phys addr? true
-         *sq_ptr = 0
-         *cq_ptr = 0
-         write 0x1234 to sq_ptr, but not cq_ptr
-         *sq_ptr = 1234
-         *cq_ptr = 1234
+``if (*sring->tail != tail) {...}``
+...................................
 
+.. todo:: 说是防御性编程 + 并发友好，我看着没什么卵用。
+
+无锁？
+......
+
+队列指针所有权明确
+   ..
+
+      The kernel controls head of the sq ring and the tail of the cq ring,
+      and the application controls tail of the sq ring and the head of the
+      cq ring.
+
+      -- https://github.com/torvalds/linux/blob/v5.14/fs/io_uring.c#L136-L138
+
+内存屏障
+   参看 ``02_cat_uring`` 里的 ``read,write_barrier`` 的使用。
+
+   如通过 ``read_barrier()`` 保证读取 tail 时能看到内核的最新更新，从而安全地消费 CQE：
+
+   .. code:: c
+
+      void read_from_cq(struct submitter *s) {
+
+          // ...
+
+          head = *cring->head; // 用户控制所以不用 barrier
+
+          do {
+              read_barrier(); // 确保内核对 tail 的写入可见
+              if (head == *cring->tail) ...
 
 Web
 ---
@@ -309,7 +384,7 @@ HTTPS 原理 |o|
 
 对称加密
    :Pros: 计算量小、加密速度快、加密效率高
-   :Cons: - 需要协商密钥，也就无法避免密钥的传输 
+   :Cons: - 需要协商密钥，也就无法避免密钥的传输
           - 一对多通信时需要使用多对密钥
 
 非对称加密
@@ -328,7 +403,7 @@ HTTPS 原理 |o|
 
       HTTPS 加密、解密、验证及数据传输过程
 
-Session 和 Cookie |_|
+Session 和 Cookie |o|
 ~~~~~~~~~~~~~~~~~~~~~
 
 :URL: https://zhuanlan.zhihu.com/p/27669892
@@ -342,12 +417,22 @@ Session 和 Cookie |_|
 Seesion 本地存在服务端，而将凭证（Seesion ID）等存在客户端的 Cookie 中。
 
 浏览器禁用 Cookie
-   可通过URL重写传递 Session ID。
+   可通过 URL 重写传递 Session ID。
 
-分布式Session
-   Session复制、Session Sticky、集中式Session存储（Redis）。
+分布式 Session
+   Sticky Session
+      在负载均衡上配置，使得同个用户请求始终落在一台机器上（基于 IP/Cookie）
 
-   .. todo:: TODO
+   Session 复制
+      所有节点都互相复制 Session（随着规模扩大可能导致广播风暴）
+
+   集中式 Session 存储
+      Redis
+
+   JWT（JSON Web Token）
+      Session 数据签名后存回
+
+      无法主动吊销，只能加黑。
 
 分布式
 ======
@@ -470,7 +555,7 @@ P（分区容错性）是说这个系统要允许分区？
 顺序一致性
    所有的进程都以相同的顺序看到所有的修改。
 
-   读操作未必能够及时得到此前其他进程对同一数据的写更新，但是每个进程读到的该数据不同值的顺序却是一致的。 
+   读操作未必能够及时得到此前其他进程对同一数据的写更新，但是每个进程读到的该数据不同值的顺序却是一致的。
 
 两阶段提交
 ----------
@@ -515,8 +600,10 @@ Raft |_|
 关系型数据库
 ============
 
-数据库范式 |_|
+数据库范式 |o|
 --------------
+
+.. hint:: 太晦涩了，实用价值缺，很多凭直觉就行。
 
 1NF
    原子性，属性都不可再分
@@ -528,33 +615,30 @@ Raft |_|
    非主键属性之间独立无关
 
 BCNF
-   任何属性（包括非主属性和主属性）都不能被非主属性所决定。 
+   任何属性（包括非主属性和主属性）都不能被非主属性所决定。
 
-ACID |_|
+ACID |o|
 --------
 
-:A: Atomicity 原子性 锁
+:A: Atomicity 原子性
 :C: Consistency 一致性
 :I: Isolation 隔离性
-:D: Durability 持久性 数据库的 redo log
+:D: Durability 持久性
 
-事务隔离级别
-------------
+事务隔离级别 |o|
+----------------
 
-:URL: https://tech.meituan.com/2014/08/20/innodb-lock.html
-
-..
+.. seealso:: https://tech.meituan.com/2014/08/20/innodb-lock.html
 
 :Read Uncommitted: 允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
-:Read Committed: 只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)
-:Repeated Read: 可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读
+:Read Committed: 只能读取到已经提交的数据。Oracle 等多数数据库默认都是该级别。
+                 不可重复读：在同一事务中多次读取同个字段可能不一致（被其他事务 commit 了）
+:Repeated Read: 可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。
+                在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读。
+                幻像读：字段数据没变，但统计结果可能变化（``COUNT(*)``）
 :Serializable: 完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞
 
-表级别锁和行级别锁
-
-幻读？
-  
-索引 |_|
+索引 |o|
 --------
 
 作用
@@ -567,17 +651,72 @@ ACID |_|
 
 类型
    - 哈希索引：等值查询效率高，不支持区间查询
-   - 顺序索引 查询效率高（二分），只适用于静态存储引擎
-   - 多路搜索树索引：
+   - 顺序索引：查询效率高（二分），只适用于静态存储引擎
+   - 多路搜索树索引
 
 按结构分类
-   - 聚簇索引
-   - 非聚簇索引
+   - 聚簇索引：索引指向一整列
+   - 非聚簇索引：索引仅指向字段，要查整列需根据该字段查表（回表）
 
-局部性原理
+B 树和 B+ 树
+   多路平衡搜索树。
 
-分表与分片
-----------
+   树分叉多，深度低，减少磁盘 IO
+
+   区别
+      B+ 树非叶子节点不存数据，叶子节点用链表串联，对范围查询友好
+
+   局部性原理
+      B/B+树的节点大小 = 磁盘页大小（通常4KB或16KB）
+
+分表与分片|_|
+-------------
+
+行存储列存储 |o|
+----------------
+
+.. list-table:: 行存储 vs 列存储 核心差异对比
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - 维度
+     - 行存储 (Row-oriented)
+     - 列存储 (Column-oriented)
+   * - **数据组织**
+     - 按行连续存储，同一行的所有列在一起
+     - 按列连续存储，同一列的所有值在一起
+   * - **磁盘I/O**
+     - 即使只查询几列，也要读取整行
+     - 只读取查询涉及的列，I/O极小
+   * - **压缩率**
+     - 较低（一行内数据类型多样）
+     - 极高（同一列数据类型相同，重复值多）
+   * - **写入性能**
+     - 快（一次写入一行）
+     - 慢（一行数据要分散到多个列文件）
+   * - **更新/删除**
+     - 快（原地更新）
+     - 极慢（需要重写整列）
+   * - **点查询** (SELECT * FROM table WHERE id=1)
+     - 快（直接定位行）
+     - 慢（需要读取多列再组装）
+   * - **聚合查询** (SELECT AVG(age) FROM table)
+     - 慢（扫描大量无用数据）
+     - 极快（只扫描目标列）
+   * - 适用场景
+     - OLTP（在线交易）
+     - OLAP（数据分析、数仓）
+
+:行存: 传统 RDS
+:列存: ClickHouse、Hive（Parquet）
+:混合: OceanBase、TiDB
+
+HTAP |o|
+--------
+
+HTAP: Hybrid Transactional(T)/Analytical(A) Processing
+
+让一份数据同时支持 TP 和 AP，实时写入、实时分析。
 
 并发控制 |_|
 ------------
@@ -589,7 +728,7 @@ ACID |_|
 
       乐观锁假设多用户并发的事务在处理时不会彼此互相影响，各事务能够在不产生锁的情况下处理各自影响的那部分数据。在提交数据更新之前，每个事务会先检查在该事务读取数据后，有没有其他事务又修改了该数据。如果其他事务有更新的话，正在提交的事务会进行回滚。
 
-      乐观并发控制多数用于数据争用不大、冲突较少的环境中，这种环境中，偶尔回滚事务的成本会低于读取数据时锁定数据的成本，因此可以获得比其他并发控制方法更高的吞吐量。 
+      乐观并发控制多数用于数据争用不大、冲突较少的环境中，这种环境中，偶尔回滚事务的成本会低于读取数据时锁定数据的成本，因此可以获得比其他并发控制方法更高的吞吐量。
 
       —— :zhwiki:`乐观并发控制`
 
@@ -599,7 +738,7 @@ ACID |_|
 
       悲观锁可以阻止一个事务以影响其他用户的方式来修改数据。如果一个事务执行的操作读某行数据应用了锁，那只有当这个事务把锁释放，其他事务才能够执行与该锁冲突的操作。
 
-      悲观并发控制主要用于数据争用激烈的环境，以及发生并发冲突时使用锁保护数据的成本要低于回滚事务的成本的环境中。 
+      悲观并发控制主要用于数据争用激烈的环境，以及发生并发冲突时使用锁保护数据的成本要低于回滚事务的成本的环境中。
 
       —— :zhwiki:`悲观并发控制`
 
@@ -626,7 +765,7 @@ MVCC
 
       事务Ti写入对象P时，如果还有事务Tk要写入同一对象，则(Ti)必须早于(Tk)，即 (Ti) < (Tk)，才能成功。[2]
 
-      MVCC可以无锁实现。 
+      MVCC可以无锁实现。
 
       ——  :zhwiki:`多版本并发控制`
 
@@ -761,7 +900,7 @@ DMA |_|
 
 Direct Memory Access，允许某些电脑内部的硬件子系统（电脑外设），可以独立地直接读写系统内存，而不需 CPU 介入处理 。
 
-每一个DMA通道有一个16位地址寄存器和一个16位计数寄存器。要初始化资料传输时，设备驱动程序一起设置DMA通道的地址和计数寄存器，以及资料传输的方向，读取或写入。然后指示DMA硬件开始这个传输动作。当传输结束的时候，设备就会以中断的方式通知中央处理器。 
+每一个DMA通道有一个16位地址寄存器和一个16位计数寄存器。要初始化资料传输时，设备驱动程序一起设置DMA通道的地址和计数寄存器，以及资料传输的方向，读取或写入。然后指示DMA硬件开始这个传输动作。当传输结束的时候，设备就会以中断的方式通知中央处理器。
 
 
 Huge Page |_|
@@ -945,7 +1084,7 @@ Channel |_|
    不 park，直接 CAS 抢 `mutexWoken` 位，而非被唤醒后再抢
 
    限制条件
-      - P > 0 
+      - P > 0
       - 自旋次数有限
       - P 的 runq 为空：没有待调度的 G
 
@@ -1064,7 +1203,7 @@ Bit clear，`a &^ b == a & ^b`。
    当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁
 
    ——  :zhwiki:`死锁`
-   
+
 死锁的条件：
    :禁止抢占:     系统资源不能被强制从一个进程中退出。
    :持有和等待:   一个进程可以在等待时持有系统资源。
@@ -1131,7 +1270,7 @@ Namespace
    :Network: 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等
    :User:    每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户
 
-Cgroup 
+Cgroup
    通过 sysfs `/sys/fs/cgroup` 控制，创建目录，并指定 PID，如：`/sys/fs/cgroup/cpu/docker/03dd196f415276375f754d51ce29b418b170bd92d88c5e420d6901c32f93dc14`
 
    or `systemd-cgls`
@@ -1257,7 +1396,7 @@ Lua/LuaJIT
 GraphQL
    ...
 
-Nginx 
+Nginx
 OpenRestry
    https://github.com/chaitin/lua-resty-t1k
 Envoy
