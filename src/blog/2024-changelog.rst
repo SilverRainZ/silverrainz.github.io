@@ -246,7 +246,7 @@ The day after last day
 
 这是来燕郊后的部分：
 
-.. data:template::
+.. data.template::
 
    {% for line in content %}
    .. grid-item::
@@ -257,13 +257,13 @@ The day after last day
             {{ '{{ name }}' }}
    {% endfor %}
 
-.. data:schema::
+.. data.schema::
 
    words of str
 
 .. grid:: 1 2 5 5
 
-   .. data:def::
+   .. data.define::
 
       bflv-001 bflv-008 bflv-012 bflv-013 bflv-016 bflv-021 bflv-022 bflv-023 bflv-025 bflv-028
 

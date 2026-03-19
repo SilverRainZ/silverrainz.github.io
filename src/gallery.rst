@@ -9,7 +9,7 @@
 
    这里陈列一些我觉得还不错的技术练习、小创作以及正式的作品。
 
-.. data:template::
+.. data.template::
 
    {% for line in content %}
    .. grid-item::
@@ -21,13 +21,13 @@
 
    {% endfor %}
 
-.. data:schema::
+.. data.schema::
 
    words of str
 
 .. grid:: 1 2 5 5
 
-   .. data:def::
+   .. data.define::
 
       xfczk-039 xfczk-018 xfczk-030 cs-003 bflv-008 bflv-022
       letter-002 cs-008 m-006
