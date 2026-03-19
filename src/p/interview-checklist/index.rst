@@ -590,7 +590,7 @@ P（分区容错性）是说这个系统要允许分区？
 
    网络分区（P）是必然发生的，所以通常是在CP（如ZooKeeper，牺牲可用性）和AP（如Eureka，牺牲强一致性，保证最终一致）之间权衡。
 
-分布式锁 |_|
+分布式锁 |o|
 ------------
 
 场景
@@ -607,15 +607,20 @@ P（分区容错性）是说这个系统要允许分区？
 实现
    - mysql psql 关系型数据库：事务
    - redis redlock codis 非关系型数据库：SETNX (set if not exist)
-   - etcd/zookeeper 集群协同：CAS
+   - etcd：CAS + Lease
    - chubby 专用的锁服务
 
-分布式定时器 |_|
+分布式定时器 |o|
 ----------------
 
 实现
    - 公平的分布式锁实现：etcd
    - 环形队列/时间轮
+
+时间轮
+   高效的定时器实现，适用于海量定时任务。
+
+   结构是多个不同时间级别（分钟级、秒级、毫秒级）的环状队列。
 
 一致性级别 |o|
 --------------
@@ -633,43 +638,6 @@ P（分区容错性）是说这个系统要允许分区？
    所有的进程都以相同的顺序看到所有的修改。
 
    读操作未必能够及时得到此前其他进程对同一数据的写更新，但是每个进程读到的该数据不同值的顺序却是一致的。
-
-两阶段提交
-----------
-
-Paxos
------
-
-   一种基于消息传递且具有高度容错特性的共识（consensus）算法。
-
-   ——  :zhwiki:`Paxos算法`
-
-分布式系统通信模型
-   - 共享内存（Shared memory）
-   - 消息传递（Messages passing）
-
-好复杂…… 看看就行吧，不强求懂了。
-
-Raft |_|
---------
-
-   Raft能为在计算机集群之间部署有限状态机提供一种通用方法，并确保集群内的任意节点在某种状态转换上保持一致。
-
-   …
-
-   集群内的节点都对选举出的领袖采取信任，因此Raft不是一种拜占庭容错算法。
-
-   ——  :zhwiki:`Raft`
-
-子问题
-   - 领袖选举（Leader Election）
-   - 记录复写（Log Replication）
-   - 安全性（Safety）
-
-看 Wiki 即可，好懂多了。
-
-外部排序
---------
 
 关系型数据库
 ============
@@ -846,9 +814,6 @@ MVCC
 架构
 ====
 
-服务降级
---------
-
 服务重试
 --------
 
@@ -858,19 +823,20 @@ MVCC
 
 重试策略：指数退避
 
-限流器 |_|
+限流器 |o|
 ----------
 
 :URL: https://www.infoq.cn/article/qg2tx8fyw5vt-f3hh673
 
 - 固定时间窗口计数
 - 滑动时间窗口计数
-- Token Bucket：水 = 令牌
-- Leaky Bucket：水 = 请求
+- 滑动日志 / Sliding log: 记录具体的时间戳，精度比滑动时间窗口好，可用 Redis zset 实现
+- Token Bucket：令牌规律放入桶中，请求消耗令牌，令牌可以攒着应对突发流量
+- Leaky Bucket：请求放入桶中，以固定速率漏出
 
 .. seealso:: 流量整形
 
-负载均衡 |_|
+负载均衡 |o|
 ------------
 
 方向
@@ -903,28 +869,13 @@ MVCC
 
 查找距离这个对象的 hash 值最近的节点的 hash（在排好序的哈希数组里二分），即是这个对象所属的节点
 
-灰度测试
---------
-
-A/B Test
-
-实现
-
-并发和吞吐
-----------
-
-协程 异步 读写分离
-
-故障转移
---------
-
 Golang
 ======
 
-调度问题 |_|
-------------
+`Changkun Ou | Go 语言原本 <https://golang.design/under-the-hood/>`_
 
-:URL: https://www.douban.com/note/300631999/
+MGP 模型 |o|
+------------
 
 线程模型
    :N:1: 可以很快的进行上下文切换，但是不能利用多核系统（multi-core systems）的优势
@@ -932,22 +883,25 @@ Golang
    :M:N: 可以快速进行上下文切换，并且还能利用你系统上所有的核心的优势。主要的缺点是它增加了调度器的复杂性
 
 M.P.G
-   :M: OS 线程
-   :P: Processor，可以把它看作在一个单线程上运行代码的调度器的一个本地化版本，携带一个 Goroutine 的 runqueue
+   :M: Machine，OS 线程
+   :P: Processor，逻辑处理器，可以把它看作在一个单线程上运行代码的调度器的一个本地化版本，携带一个 Goroutine 的 runqueue
    :G: Goroutine
 
    P 就是 `runtime.GOMAXPROCS` 里的 *P*\ ROCS.
 
-M 为什么不是 P
-   如果正在运行的 M 为某种原因需要阻塞的时候，我们可以把 P 移交给其它 M
+为什么 M 和 P 要分开？
+   **解耦了"执行能力"和"调度上下文"**
+
+   如果正在运行的 M1 为某种原因需要阻塞的时候，可以把 P 和当前的 M2 解绑，让 P 去找新的 M2 来继续执行其他 G。
 
      Go 程序要在多线程上运行的原因就是因为要处理系统调用，哪怕 `GOMAXPROCS` 等于 1
 
-偷取 runqueue
-   ..
+G 队列
+   每个 G 拥有自己的无锁本地队列，仅在 Stealing 时需要加锁。Runtime 另有一个带锁的全局队列。
 
-     为了保持运行Go代码，一个上下文能够从全局runqueue中获取goroutines，但是如果全局runqueue中也没有goroutines了，那么上下文就不得不从其它地方获取goroutines了。
-
+Runqueue stealing
+   当 P 本地队列空时，从其他 P 偷取或者从全局队列偷取。
+   
 垃圾回收
 --------
 
@@ -1048,7 +1002,17 @@ Dive in to code
    :gcBgMarkStartWorkers: 为每个 P（线程上的本地调度器）启动一个 gcMarkWoker
    :gcDrain: Mark 阶段的标记代码主要实现
 
-.. todo:: GreenTea
+GAB
+   `Go 生态下的字节跳动大规模微服务性能优化实践 - 文章 - 开发者社区 - 火山引擎 <https://developer.volcengine.com/articles/7317093617242210342>`_ 
+
+   GAB: 为 noscan 对象新增一个 Per-G 的 Bump pointer 风格的分配路径，GAB bucket 本身可以给 GC 跟踪和回收。为处理少量活跃对象需要额外实现 Copy GC
+   难点可能在处理栈扩展和 map 扩容等 reallocte 的场景。
+
+1.26 GreenTea
+   `The Green Tea Garbage Collector - The Go Programming Language <https://go.dev/blog/greenteagc>`_
+
+   Track by page, not by object.
+   优化了空间局部性，对缓存友好，更容易被现代 CPU 优化。
 
 内存管理
 --------
@@ -1062,11 +1026,6 @@ Dive in to code
    :mcache: per-P cache，可以认为是 local cache，不需要加锁
    :mcentral: 全局 cache，mcache 不够用的时候向 mcentral 申请。
    :mheap: 当 mcentral 也不够用的时候，通过 mheap 向操作系统申请。
-
-Channel |_|
------------
-
-:URL: https://golang.design/under-the-hood/zh-cn/part2runtime/ch09lang/chan/
 
 `sync.Mutex` |_|
 ----------------
@@ -1157,18 +1116,6 @@ Golang 的实现是写的互斥锁 + 读计数器，感觉有点别扭。
    }
 
 
-`sync.Map` |_|
---------------
-
-:URL: - https://golang.org/src/sync/map.go
-      - https://colobu.com/2017/07/11/dive-into-sync-Map/
-
-检测 "concurrent map read and map write"
-   用 `hashWriting`_ bit 表示当前是否在进行写操作
-
-.. _hashWriting: https://github.com/golang/go/blob/master/src/runtime/map.go#L102
-
-
 Defer
 -----
 
@@ -1180,26 +1127,17 @@ Defer
 :>=1.13: 栈上分配
 :<1.14: Open coded
 
-`&^` 操作符 |_|
+`&^` 操作符 |o|
 ---------------
 
 日常是很少用上，标准库代码里见得多。
 
 Bit clear，`a &^ b == a & ^b`。
 
-`interface{}`
--------------
-
-内存泄漏
---------
-
-死锁检测 |_|
-------------
-
 数据竞争
 --------
 
-`sync.Cond` 的虚假唤醒 |_|
+`sync.Cond` 的虚假唤醒 |o|
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 因为 condition 的判断是用户代码，在 `Wait()` 返回之后，因此只能要求用户用忙等的方式等到 condition 满足的时刻：
@@ -1215,16 +1153,41 @@ Bit clear，`a &^ b == a & ^b`。
       // ... make use of condition ...
       c.L.Unlock()
 
-泛型
-----
+.. seealso:: `为什么条件锁会产生虚假唤醒现象（spurious wakeup）？ - 知乎 <https://www.zhihu.com/question/271521213>`_
 
-版本变更
---------
+版本变更 |o|
+------------
 
-云原生
-======
+1.18
+   PDQSort
 
-Docker |_|
+1.19
+   SetMemoryLimit
+
+1.24
+   "Remove" Core Types
+      https://go.dev/blog/coretypes
+
+      让 ``[]byte`` 和 ``string`` 共享操作成为可能。
+
+   Swiss Table
+      https://go.dev/blog/
+
+      SIMD 友好
+
+1.25
+   GreenTea GC
+      ...
+
+   JSONv2
+      https://go.dev/blog/jsonv2-exp
+
+      Steam-friendly，支持 Options
+
+云原生/虚拟化
+=============
+
+Docker |o|
 ----------
 
 共享内核
@@ -1262,11 +1225,6 @@ OverlayFS
    :dockerd: 和 docker-cli 通信，管理镜像
    :containerd: 管理容器
    :container-shim: 通过 runC 运行容器
-
-隔离
-~~~~
-
-:网络: namespace
 
 流处理
 ======
