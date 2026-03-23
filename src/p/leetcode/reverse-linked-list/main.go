@@ -44,6 +44,23 @@ func reverseList2(head *ListNode) *ListNode {
 	return head
 }
 
+// 迭代法，存两个指针。
+func reverseList3(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	cur := head
+	next := head.Next
+	for next != nil {
+		nextnext := next.Next
+		next.Next = cur
+		cur = next
+		next = nextnext
+	}
+	head.Next = nil
+	return cur
+}
+
 func main() {
 	a := reverseList(&ListNode{Val: 1, Next: &ListNode{Val: 2}})
 	for a != nil {
@@ -51,6 +68,11 @@ func main() {
 		a = a.Next
 	}
 	a = reverseList2(&ListNode{Val: 1, Next: &ListNode{Val: 2}})
+	for a != nil {
+		fmt.Println(a)
+		a = a.Next
+	}
+	a = reverseList3(&ListNode{Val: 1, Next: &ListNode{Val: 2}})
 	for a != nil {
 		fmt.Println(a)
 		a = a.Next

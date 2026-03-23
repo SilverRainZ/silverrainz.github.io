@@ -275,7 +275,7 @@ Invert Binary Tree
    :diffculty: Easy
    :language: go
    :key: 二叉树
-   :date: 2021-07-07
+   :date: 2021-07-07 2026-03-23
 
 我能去 Google 了吗？[#]_
 
@@ -691,9 +691,12 @@ Reverse Linked List
 递归
    万万没想到……递归我没写出来。看题解，题解说很明白了。
 
+   2026-03-23: 写出来了
+
 迭代
    拿个栈。
 
+   2026-03-23: 存 cur 和 next 两个指针。
 
 Reverse Linked List II
 ----------------------
