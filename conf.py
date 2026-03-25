@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Split configurations ----------------------------------------------------
 
-from confs.schemas import OBJECT_TYPES as _OBJECT_TYPES
+from confs.any import OBJECT_TYPES as _ANY_OBJECT_TYPES
 from confs.deploy import Deployment
 
 _D = Deployment.current()
@@ -99,7 +99,7 @@ suppress_warnings = [
 ]
 
 if _D is _D.Local:
-    suppress_warnings.extend(['ref.' + x for x in _OBJECT_TYPES])
+    suppress_warnings.extend(['ref.' + x for x in _ANY_OBJECT_TYPES])
 
 # Auto numbered figures, tables and code-blocks if they have a caption.
 # numfig = True
@@ -226,7 +226,7 @@ extlinks = {
 
 extensions.append('sphinxnotes.any')
 any_domain_name = 'any'
-any_object_types = _OBJECT_TYPES
+any_object_types = _ANY_OBJECT_TYPES
 
 extensions.append('ablog')
 blog_path = 'blog'
