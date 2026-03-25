@@ -246,26 +246,10 @@ The day after last day
 
 这是来燕郊后的部分：
 
-.. data.template::
+.. gallery::
 
-   {% for line in content %}
-   .. grid-item::
-      .. artwork+embed:: {{ line }} 
-
-         .. figure:: /_assets/aw/{{ '{{ id }}' }}.webp
-
-            {{ '{{ name }}' }}
-   {% endfor %}
-
-.. data.schema::
-
-   words of str
-
-.. grid:: 1 2 5 5
-
-   .. data.define::
-
-      bflv-001 bflv-008 bflv-012 bflv-013 bflv-016 bflv-021 bflv-022 bflv-023 bflv-025 bflv-028
+   bflv-001 bflv-008 bflv-012 bflv-013 bflv-016
+   bflv-021 bflv-022 bflv-023 bflv-025 bflv-028
 
 可以明显看到来燕郊后的画更稳定地有意思一点儿，一方面上班挤占了我大部分的精力，另一方面在燕郊的生活有了些插曲，为我带来了多样的情绪。嗯，我\ :del:`又`\ 谈恋爱了。
 

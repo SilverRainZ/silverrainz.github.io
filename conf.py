@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Split configurations ----------------------------------------------------
 
 from confs.any import OBJECT_TYPES as _ANY_OBJECT_TYPES
+from confs.data import DATA_DEFINE_DIRECTIVES as _DATA_DEFINE_DIRECTIVES
 from confs.deploy import Deployment
 
 _D = Deployment.current()
@@ -374,6 +375,7 @@ graphviz_output_format = 'svg'
 extensions.append('sphinxnotes.poc')
 
 extensions.append('sphinxnotes.data')
+data_define_directives = _DATA_DEFINE_DIRECTIVES
 
 def setup(app):
 

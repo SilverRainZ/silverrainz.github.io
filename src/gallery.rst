@@ -9,28 +9,10 @@
 
    这里陈列一些我觉得还不错的技术练习、小创作以及正式的作品。
 
-.. data.template::
+.. gallery::
 
-   {% for line in content %}
-   .. grid-item::
-      .. artwork+embed:: {{ line }}
-
-         .. figure:: /_assets/aw/{{ '{{ id }}' }}.webp
-
-            {{ '``{{ name }}``, {{ date.year}}' }}
-
-   {% endfor %}
-
-.. data.schema::
-
-   words of str
-
-.. grid:: 1 2 5 5
-
-   .. data.define::
-
-      xfczk-039 xfczk-018 xfczk-030 cs-003 bflv-008 bflv-022
-      letter-002 cs-008 m-006
+   xfczk-039 xfczk-018 xfczk-030 cs-003 bflv-008 bflv-022
+   letter-002 cs-008 m-006
 
 最近画了……
 ==========
