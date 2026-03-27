@@ -277,7 +277,9 @@ Invert Binary Tree
    :key: 二叉树
    :date: 2021-07-07 2026-03-23
 
-我能去 Google 了吗？[#]_
+我能 `去 Google`__ 了吗？
+
+__ https://twitter.com/mxcl/status/608682016205344768
 
 Best Time to Buy and Sell Stock II
 ----------------------------------
@@ -636,7 +638,7 @@ Trapping Rain Water
 
    `L[i]`, `R[i]` 为以第 `i` 格为中心，左右的最高点的高度，每一格可能容纳的水量为 `W[i] = min(L[i], R[i]) - Height[i]`。
 
-单调栈 [#]_
+`单调栈 <https://oi-wiki.org/ds/monotonous-stack/>`_
    利用单调栈的性质，维护一个由高到低的水洼左边，每次 pop 的时候，算该水洼里的一层水
 
 .. todo:: 还有 :math:`O(1)` 解法…… 歇会儿。
@@ -683,7 +685,7 @@ Reverse Linked List
    :diffculty: Easy
    :language: go
    :key: 链表
-   :date: 2021-07-16
+   :date: 2021-07-16 2026-03-23
    :reference: https://zhuanlan.zhihu.com/p/86745433
 
 :del:`没啥好说`。
@@ -891,8 +893,6 @@ Ones and Zeroes
 
 .. rubric:: 脚注
 
-.. [#] https://twitter.com/mxcl/status/608682016205344768
-.. [#] https://oi-wiki.org/ds/monotonous-stack/
 
 Merge Sorted Array
 ------------------
@@ -905,3 +905,63 @@ Merge Sorted Array
    :date: 2026-03-05
 
 很简单的一道题，要不先把 nums1 挪开然后直接合并，要不逆序。之前想复杂了。
+
+Remove Element
+--------------
+
+.. leetcode:: _
+   :id: remove-element
+   :diffculty: Easy
+   :language: go
+   :key: 数组
+   :date: 2026-03-27
+
+Remove Duplicates From Sorted Array
+-----------------------------------
+
+.. leetcode:: _
+   :id: remove-duplicates-from-sorted-array
+   :diffculty: Easy
+   :language: go
+   :key: 数组
+   :date: 2026-03-27
+
+Remove Duplicates From Sorted Array II
+--------------------------------------
+
+.. leetcode:: _
+   :id: remove-duplicates-from-sorted-array-ii
+   :diffculty: Medium
+   :language: go
+   :key: 数组
+   :date: 2026-03-27
+
+Majority Element
+----------------
+
+.. leetcode:: _
+   :id: majority-element
+   :diffculty: Easy
+   :language: go
+   :key: 数组
+   :date: 2026-03-27
+
+Boyer-Moore 算法。
+
+原理是：每次遇到两个不同的元素，就把它们“配对删除”。
+最坏的情况是每个 Majority Element 都和其他的元素配对了被删除，但也会剩下一个。
+
+Rotate Array
+------------
+
+.. leetcode:: _
+   :id: rotate-array
+   :diffculty: Medium
+   :language: go
+   :key: 数组
+   :date: 2026-03-27
+
+i 位置的元素往右挪动 k 个位置，被修改的下标序列会组成一个环：
+`[i, (i+k)%n (i+2k)%n, ... i]`。存在 `(i+x*k)%n == i`，即 `(x*k)%n == 0`。
+
+.. todo:: 环的数目为 `gcd(n, k)`

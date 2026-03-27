@@ -17,3 +17,5 @@ $title_delim
 EOF
 
 mkdir $1
+cd $1
+go mod init $1
