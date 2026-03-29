@@ -95,7 +95,7 @@ OBJECT_TYPES = {
                 'diffculty': 'str, ref',
                 'language': 'words of str, ref',
                 'key': 'words of str, ref',
-                'date': 'words of date, ref, index by year',
+                'date': 'words of date, ref, index by month',
                 'reference': 'str',
             },
         },
