@@ -14,12 +14,11 @@ impl Solution {
         return max
     }
 
-    // DP1
     pub fn max_profit2(prices: Vec<i32>) -> i32 {
         let mut max = 0;
         let mut profit = vec![0; prices.len()];
         for i in 1..prices.len() {
-            for j in (0..i).rev() {
+            for j in (0..i).rev() { // 很关键，保证新的低价格被考虑到
                 if prices[i] >= prices[j] {
                     profit[i] = profit[j] + (prices[i] - prices[j]);
                     if profit[i] > max {
@@ -59,5 +58,7 @@ mod tests {
 
         assert_eq!(Solution::max_profit2(vec![1, 2, 3]), 2);
         assert_eq!(Solution::max_profit2(vec! [7,1,5,3,6,4]), 5);
+        assert_eq!(Solution::max_profit2(vec! [9, 100, 1, 101]), 100);
+        assert_eq!(Solution::max_profit3(vec! [9, 100, 1, 101]), 100);
     }
 }

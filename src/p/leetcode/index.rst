@@ -247,8 +247,8 @@ Best Time to Buy and Sell Stock
    :id: best-time-to-buy-and-sell-stock
    :diffculty: Easy
    :language: rust
-   :key: 动态规划
-   :date: 2021-07-07
+   :key: 数组
+   :date: 2021-07-07 2026-03-29
    :reference: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/
 
 写了三个版本：
@@ -256,16 +256,22 @@ Best Time to Buy and Sell Stock
 暴力
    TLE，每次 `i+1..prices.len()` 的回溯有大量荣誉计算，复杂度为 :math:`O(n!)`
 
-DP1
-   其实不太算 DP，参考里给出了非常 DP 的解法。 
-   `profit[i]` 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 `profit[i] = profit[j] + (prices[i] - prices[j])`, where `j < i && prices[j] <= prices[i]` 。复杂度依然为 :math:`O(n!)` ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。
+暴力 + 稍微剪枝
+   内层循环的 `(0..i).rev()` 很重要，确保新出现的低价被计算到。
+   复杂度依然为 :math:`O(n!)` ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。
 
    .. note:: 实际上 `profit[i]` 可以只从 `profit[i-1]` 推断，见下
 
-DP2
+DP
    更好的状态转移方程是 `profit[i] = max(profit[i-1] + (prices[i] - prices[i-1]), 0)` 。复杂度为 :math:`O(n)` ，超过了 85%+ 的选手，够了。
 
    从题意上看，方程的意思是：在第 i-1 天我们已经取得了能取得的最大收益，那第 i 天也应该参考第 i-1 天的购入时机，如果亏本了，则不购入。
+
+   2026-03-29: 看起来不太对。
+
+记录低价
+   只买卖一次，所以记录下 maxProfit 和 lowPrice，每次只看
+   max(maxProfit, price[i] - lowPrice) 即可，遇到 `price[i] < lowPrice` 要及时更新。
 
 Invert Binary Tree
 ------------------
@@ -286,12 +292,12 @@ Best Time to Buy and Sell Stock II
 
 .. leetcode:: _
    :id: best-time-to-buy-and-sell-stock-ii
-   :diffculty: Easy
+   :diffculty: Medium
    :language: rust
-   :key: 动态规划
-   :date: 2021-07-07
+   :key: 贪心
+   :date: 2021-07-07 2026-03-29
 
-:leetcode:`Best Time to Buy and Sell Stock` 的一个简单变体，允许多次买卖，没啥好说。
+:leetcode:`Best Time to Buy and Sell Stock` 的一个简单变体，允许多次买卖，贪心即可，每次有价差则卖出。
 
 Best Time to Buy and Sell Stock III
 -----------------------------------
@@ -965,3 +971,29 @@ i 位置的元素往右挪动 k 个位置，被修改的下标序列会组成一
 `[i, (i+k)%n (i+2k)%n, ... i]`。存在 `(i+x*k)%n == i`，即 `(x*k)%n == 0`。
 
 .. todo:: 环的数目为 `gcd(n, k)`
+
+Jump Game
+---------
+
+.. leetcode:: _
+   :id: jump-game
+   :diffculty: Easy
+   :language: go
+   :key: 贪心
+   :date: 2026-03-29
+
+Jump Game II
+------------
+
+.. leetcode:: _
+   :id: jump-game-ii
+   :diffculty: Medium
+   :language: go
+   :key: 贪心
+   :date: 2026-03-29
+
+`解法 1 <https://medium.com/@william31525/leetcode-45-jump-game-2-294a21f5baba>`_
+   非常好懂，`for i in (0..n)` 找出能越过终点（`i+nums[i]>=n-1`）的地方，那里就是最小步数再 + 1 就能达到终点的地方。时间复杂度稍高
+
+解法 2
+   其实和 1 一样，但利用 `farest` 和 `end` 两个变量配合消除了内部循环，保证 `O(n)`
