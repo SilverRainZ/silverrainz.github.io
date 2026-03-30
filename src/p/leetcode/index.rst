@@ -907,7 +907,6 @@ Merge Sorted Array
    :id: merge-sorted-array
    :diffculty: Easy
    :language: go
-   :key: 排序
    :date: 2026-03-05
 
 很简单的一道题，要不先把 nums1 挪开然后直接合并，要不逆序。之前想复杂了。
@@ -997,3 +996,55 @@ Jump Game II
 
 解法 2
    其实和 1 一样，但利用 `farest` 和 `end` 两个变量配合消除了内部循环，保证 `O(n)`
+
+Minimum Absolute Difference In Bst
+----------------------------------
+
+.. leetcode:: _
+   :id: minimum-absolute-difference-in-bst
+   :diffculty: Easy
+   :language: Go
+   :key: 二叉搜索树
+   :date: 2026-03-30
+
+转化为：有序序列里相邻的哪两个数间隔最小。然后中序遍历。
+
+Kth Smallest Element In A Bst
+-----------------------------
+
+.. leetcode:: _
+   :id: kth-smallest-element-in-a-bst
+   :diffculty: Medium
+   :language:
+   :key: 二叉搜索树
+   :date: 2026-03-30
+
+Validate Binary Search Tree
+---------------------------
+
+.. leetcode:: _
+   :id: validate-binary-search-tree
+   :diffculty: Medium
+   :language: go
+   :key: 二叉搜索树
+   :date: 2026-03-30
+
+Search Insert Position
+----------------------
+
+.. leetcode:: _
+   :id: search-insert-position
+   :diffculty: Easy
+   :language: go
+   :key: 二分查找
+   :date: 2026-03-30
+
+Search A 2D Matrix
+------------------
+
+.. leetcode:: _
+   :id: search-a-2d-matrix
+   :diffculty: Medium
+   :language: go
+   :key: 二分查找
+   :date: 2026-03-30
