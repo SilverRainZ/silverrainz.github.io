@@ -1003,7 +1003,7 @@ Minimum Absolute Difference In Bst
 .. leetcode:: _
    :id: minimum-absolute-difference-in-bst
    :diffculty: Easy
-   :language: Go
+   :language: go
    :key: 二叉搜索树
    :date: 2026-03-30
 
@@ -1015,7 +1015,7 @@ Kth Smallest Element In A Bst
 .. leetcode:: _
    :id: kth-smallest-element-in-a-bst
    :diffculty: Medium
-   :language:
+   :language: go
    :key: 二叉搜索树
    :date: 2026-03-30
 
