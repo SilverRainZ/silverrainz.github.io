@@ -5,7 +5,7 @@ from os import path
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.util import logging
-from sphinxnotes.render.template import _JinjaEnv
+from sphinxnotes.render import filter
 
 from .deploy import Deployment
 
@@ -13,6 +13,7 @@ from .deploy import Deployment
 logger = logging.getLogger(__name__)
 
 
+@filter('fetch_artwork')
 def fetch_artwork_filter(env: BuildEnvironment):
     """
     Fetch artwork picture by ID and install theme to Sphinx's source directory,
@@ -28,10 +29,7 @@ def fetch_artwork_filter(env: BuildEnvironment):
             except Exception as e:
                 errmsg = str(e)
             else:
-                if result.returncode == 0:
-                    errmsg = None
-                else:
-                    errmsg = f'error code: {result.returncode}'
+                errmsg = f'error code: {result.returncode}' if result.returncode else None
             if errmsg:
                 logger.warning(f'failed to fetch arwork by ID {id_}: {errmsg}')
 
@@ -41,5 +39,4 @@ def fetch_artwork_filter(env: BuildEnvironment):
     return _filter
 
 
-def setup(app: Sphinx):
-    _JinjaEnv.add_filter('fetch_artwork', fetch_artwork_filter)
+def setup(app: Sphinx): ...
