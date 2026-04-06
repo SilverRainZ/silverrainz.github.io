@@ -12,6 +12,9 @@ concurrency:
   group: gh-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   pages:
     runs-on: ubuntu-latest
@@ -41,7 +44,7 @@ jobs:
         ref: ${{ steps.branch-names.outputs.current_branch }}
         fetch-depth: 0
     - id: deployment
-      uses: sphinx-notes/pages@v3
+      uses: sphinx-notes/pages@update-deps
       with:
         documentation_path: src
         requirements_path: ./requirements.txt
