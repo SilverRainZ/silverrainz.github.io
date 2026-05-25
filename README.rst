@@ -39,8 +39,8 @@ You MUST have following programs installed:
 
 - Git
 - GNU make
-- Python>=312
-- Sphinx>=8
+- Python>=3.14
+- Sphinx>=9.1
 
 Install python package dependencies by the following commmands::
 
@@ -61,6 +61,7 @@ embedded in the documentation:
 - ImageMagick
 - Graphviz
 - PlantUML
+- A CJK font (such as fonts-noto-cjk)
 
 Build
 =====
