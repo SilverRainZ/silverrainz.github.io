@@ -1270,9 +1270,22 @@ KV cache
 Vibe Coding 方法论 |_|
 ----------------------
 
+- AI 的上下文有限
+
+  - 上下文压缩
+  - 渐进式披露
+  - 持久记忆
+
+- AI 的幻觉不可避免：
+
+  - 输出必须以某种方式精确验收
+  - 不精确的指令可能导致其方向错误
+
 cs146S https://www.zhihu.com/question/1991174455536395775/answer/2008337875469613040
 
 https://www.zhihu.com/question/1951716962645288920/answer/2007657176265663018
+
+`Harness engineering: leveraging Codex in an agent-first world | OpenAI <https://openai.com/index/harness-engineering/>`_
 
 AI Infra
 --------

@@ -212,17 +212,10 @@ extlinks = {
     'aur': ('https://aur.archlinux.org/packages/%s', '📦 %s'),
     'archpkg': ('https://archlinux.org/packages/%s', '📦 %s'),
     'archwiki': ('https://wiki.archlinux.org/index.php/%s', '📖 %s'),
-    'zhihua': ('https://www.zhihu.com/answer/%s', '🙋 %s'),
-    'zhihuq': ('https://www.zhihu.com/question/%s', '🤔 %s'),
-    'zhihup': ('https://www.zhihu.com/people/%s', '👤 %s'),
     'pypi': ('https://pypi.org/project/%s', '📦 %s'),
     'lilydoc': ('https://lilypond.org/doc/Documentation/%s', None),
-    'so.q': ('https://stackoverflow.com/a/%s', '🤔 %s'),
-    'so.a': ('https://stackoverflow.com/a/%s', '🙋 %s'),
-    'bili': ('https://www.bilibili.com/video/%s', '🎥 %s'),
     'musicca-drum': ('https://www.musicca.com/zh/drum-machine?data=%s', '🥁 %s'),
     'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/directives.html#%s', '%s'),
-    'durole': ('https://docutils.sourceforge.io/docs/ref/rst/roles.html#%s', '%s'),
 }
 
 extensions.append('sphinxnotes.any')

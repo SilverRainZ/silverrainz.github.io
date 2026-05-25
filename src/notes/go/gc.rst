@@ -25,7 +25,7 @@ GC
 - `can inline XXX`
 - `inlining call to XXX`
 
-.. seealso:: :so.a:`51520445`
+.. seealso:: `51520445 <https://stackoverflow.com/a/51520445>`_
 
 .. [#] https://github.com/golang/go/issues/27772
 

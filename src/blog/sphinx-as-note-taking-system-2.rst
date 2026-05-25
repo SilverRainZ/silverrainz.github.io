@@ -173,16 +173,18 @@ Snippet 命令行工具
 
 会在文档中产生如下内容：
 
-.. todo:: 待修复，see https://github.com/SilverRainZ/silverrainz.github.io/pull/30
+.. todo:: 2026.05：待修复，
 
-.. any:artwork:: Bell Rock Lighthouse
-   :id: test-1
-   :medium: 水彩 铅笔
-   :date: 1819
-   :size: 8k
-   :image: /_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg
+::
 
-   随便找的一张 :zhwiki:`透纳` 的画。
+   .. any:artwork:: Bell Rock Lighthouse
+      :id: test-1
+      :medium: 水彩 铅笔
+      :date: 1819
+      :size: 8k
+      :image: /_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg
+
+      随便找的一张 :zhwiki:`透纳` 的画。
 
 .. note:: 可以看到生成的内容比 directive 里写的携带了更多的信息，这其实是 `Jinja Template`_ 带来的。
 

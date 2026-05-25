@@ -1,4 +1,4 @@
-.. data:render::
+.. data.render::
     
     {% set url = '/' + _sphinx.env.docname | replace('/transit', '') + '.html'%}
 

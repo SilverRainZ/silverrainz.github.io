@@ -345,7 +345,7 @@ Scheme
    hh = \chords { c1 }
    mm = { c'4 e' g' c'' }
 
-   #(makeEtude "C Chord" #{\mm#} #{\hh#} #{c#})
+   #(make-etude "C Chord" #{\mm#} #{\hh#} #{c#})
 
 配套工具
 ========
