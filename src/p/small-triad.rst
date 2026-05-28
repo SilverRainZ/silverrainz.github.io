@@ -8,7 +8,7 @@
 
    配合进行： ``1-5-6-3-4-1-2-5``。
 
-   https://www.bilibili.com/video/BV1xGfoBmEG 
+   https://www.bilibili.com/video/BV1xGfoBmEG8/
 
 低把位
    .. lily::
@@ -58,5 +58,9 @@
         >>
       }
 
+   .. figure:: /_images/2026-05-28_211303.png
+
+      和弦加旋律
+   
 高把位
    .. todo:: 高把位
