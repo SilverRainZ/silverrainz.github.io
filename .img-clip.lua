@@ -9,7 +9,7 @@ local function get_git_root()
 end
 
 local function get_images_dir()
-  return get_git_root() .. "/_images"
+  return get_git_root() .. "src/_images"
 end
 
 local function trim_prefix(s, p)
