@@ -8,6 +8,8 @@
 
    配合进行： ``1-5-6-3-4-1-2-5``。
 
+   https://www.bilibili.com/video/BV1xGfoBmEG 
+
 低把位
    .. lily::
 
