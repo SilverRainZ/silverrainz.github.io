@@ -20,9 +20,9 @@ description: 在 SilverRainZ/silverrainz.github.io 和 SilverRainZ/bullet.in 项
 以下文件属于配置/工程文件，**不计入内容改动**，不触发本 skill：
 
 - `conf.py`、`confs/*`、`Makefile`、`requirements.txt`
-- `templates/`、`.github/`、`utils/`、`blobs/`
+- `templates/`、`.github/`、`utils/`、`blobs/`、`.agents`
 
-若 staging area 仅含配置/工程文件，降级使用 `git-commit` skill。
+若 staging area 仅含配置/工程文件，降级使用 `general-git-commit` skill。
 
 ## 核心流程
 
