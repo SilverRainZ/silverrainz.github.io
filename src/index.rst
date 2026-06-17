@@ -16,8 +16,8 @@
 
 .. container:: buttons
 
-   :ref:`联系我 <contact-me>`
-   `源码 <https://github.com/SilverRainZ/bullet>`_
+   最近更新_
+   :ref:`联系我吧 <contact-me>`
 
 .. grid:: 1 1 2 3
    :gutter: 1
@@ -72,3 +72,29 @@
    blog/transit/category
    blog/transit/tag
    blog/transit/feed
+
+最近更新
+========
+
+.. data.render::
+
+   {% set revs = load_extra('recentupdate', count=8) %}
+
+   .. container:: timeline
+
+      {% for r in revs %}
+      .. card:: :octicon:`calendar` {{ r.date.strftime('%Y-%m-%d') }}
+         :width: 50%
+         :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}
+         :class-card: surface
+
+         {% if r.changed_docs %}
+         :修改了: {{ r.changed_docs | roles("doc") | join("、") }}
+         {% endif %}
+         {% if r.added_docs %}
+         :新增了: {{ r.added_docs | roles("doc") | join("、") }}
+         {% endif %}
+         {% if r.removed_docs %}
+         :删除了: {{ r.removed_docs | join("、") }}
+         {% endif %}
+      {% endfor %}
