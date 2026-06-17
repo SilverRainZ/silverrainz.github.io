@@ -79,10 +79,7 @@ git commit -m "<中文描述>" -- <文件列表>
 
 `git commit -- <files>` 只提交指定文件，staging area 中其他文件不变。
 
-在 commit body 中附加 co-author 信息（根据实际模型选择邮箱）：
-- DeepSeek: `Co-authored-by: DeepSeek <service@deepseek.com>`
-- MiniMax: `Co-authored-by: MiniMax <model@minimax.io>`
-- GPT/Codex: `Co-authored-by: GPT <noreply@openai.com>`
+在 commit body 中附加 co-author 信息，参见 `model-co-authors` skill：
 
 ```bash
 git commit -m "<中文描述>" -m "" -m "Co-authored-by: DeepSeek <service@deepseek.com>" -- <files>
