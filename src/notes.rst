@@ -66,24 +66,26 @@ SilverRainZ 的笔记
 最近更新
 ========
 
-.. recentupdate:: 5
+.. data.render::
 
-   .. grid:: 1 1 2 2
-      :gutter: 2
-      :padding: 0
-      :class-row: surface
+   {% set revs = load_extra('recentupdate', count=8) %}
 
-      {% for r in revisions %}
-      .. grid-item-card:: :octicon:`calendar` {{ r.date | strftime }}
+   .. container:: timeline
 
-         {% if r.modification %}
-         :修改了: {{ r.modification | roles("doc") | join("、") }}
+      {% for r in revs %}
+      .. card:: :octicon:`calendar` {{ r.date.strftime('%Y-%m-%d') }}
+         :width: 50%
+         :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}
+         :class-card: surface
+
+         {% if r.changed_docs %}
+         :修改了: {{ r.changed_docs | roles("doc") | join("、") }}
          {% endif %}
-         {% if r.addition %}
-         :新增了: {{ r.addition | roles("doc") | join("、") }}
+         {% if r.added_docs %}
+         :新增了: {{ r.added_docs | roles("doc") | join("、") }}
          {% endif %}
-         {% if r.deletion %}
-         :删除了: {{ r.deletion | join("、") }}
+         {% if r.removed_docs %}
+         :删除了: {{ r.removed_docs | join("、") }}
          {% endif %}
       {% endfor %}
 

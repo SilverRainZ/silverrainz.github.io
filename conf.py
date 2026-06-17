@@ -297,13 +297,12 @@ if _D.is_public():
 # }
 
 extensions.append('sphinxnotes.lilypond')
-lilypond_audio_volume = 300
+lilypond_audio_volume = 300.0
 lilypond_audio_format = 'mp3'
 lilypond_include_paths = ['/p/ly/inc']
 
 extensions.append('sphinxnotes.recentupdate')
-recentupdate_date_format = _datefmt
-recentupdate_exclude_path = []
+recentupdate_count = 5
 recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 
 if _D.is_public():
