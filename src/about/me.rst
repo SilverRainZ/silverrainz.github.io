@@ -43,8 +43,9 @@ You can contact me in the following ways:
 :Email:                    :email:`i@silverrainz.me`
 :Email (for job issue):    :email:`job@silverrainz.me`
 :Email (for arch issue):   :email:`la@archlinuxcn.org`
-:IRC:                      :literal_strike:`SilverRainZ@LiberaChat`, 2025: no longer active
-:Matrix:                   ``@la:mozilla.org``
+:IRC:                      :literal_strike:`SilverRainZ@LiberaChat`, inactive since 2025
+:Matrix:                   :literal_strike:`@la:mozilla.org`, inactive since 2026
+:WeChat:                   ``@SilverRainZ``
 
 Timeline
 --------
