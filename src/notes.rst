@@ -68,12 +68,15 @@ SilverRainZ 的笔记
 
 .. data.render::
 
-   {% set revs = load_extra('recentupdate', count=8) %}
+   {% set revs = load_extra('recentupdate',
+                            count=6,
+                            paths=['src/notes/', 'src/p'],
+                            group_by='month') %}
 
    .. container:: timeline
 
       {% for r in revs %}
-      .. card:: :octicon:`calendar` {{ r.date.strftime('%Y-%m-%d') }}
+      .. card:: :octicon:`calendar` {{ r.date.strftime('%Y 年 %m 月') }}
          :width: 50%
          :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}
          :class-card: surface
