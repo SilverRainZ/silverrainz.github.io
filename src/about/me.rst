@@ -2,6 +2,17 @@
 SilverRainZ
 ===========
 
+.. data.render::
+
+   {% set revs = load_extra('recentupdate', count=6, current_doc=True) %}
+
+   .. dropdown:: 修改记录
+      :icon: history
+
+      {% for r in revs %}
+      :{{ r.date.strftime('%Y 年 %m 月') }}: {{ r.message[0] }}
+      {% endfor %}
+
 .. friend:: _
             Shengyu Zhang
             LA
