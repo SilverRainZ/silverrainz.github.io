@@ -60,16 +60,17 @@ git diff --cached -- "*.rst" "*.md"
 计划创建以下 commit：
 
 Commit 1: [中文描述]
-  - src/blog/post-a.rst
-  - src/blog/post-b.rst
+  - blog/post-a
+  - blog/post-b
 
 Commit 2: [中文描述]
-  - src/index.rst
-  - src/about/contact.rst
+  - index
+  - about/contact
 ```
 
-**必须等我确认后再执行。** 若我明确说「直接提交」或者你当前不被允许和用户交互，
-跳过确认。
+**允许交互：** 必须等我确认后再执行。若我明确说「直接提交」，跳过确认。
+
+**不允许交互：** 展示方案后直接执行，跳过等待确认。
 
 ### 第五步：逐个提交
 
@@ -79,11 +80,15 @@ git commit -m "<中文描述>" -- <文件列表>
 
 `git commit -- <files>` 只提交指定文件，staging area 中其他文件不变。
 
-在 commit body 中附加 co-author 信息，参见 `model-co-authors` skill：
+在 commit body 中逐文件写明改动明细，仅列出 `*.rst` 文件（使用 Sphinx docname 格式，省略 `src/` 前缀和 `.rst` 后缀），最后附加 co-author 信息，参见 `model-co-authors` skill：
 
 ```bash
-git commit -m "<中文描述>" -m "" -m "Co-authored-by: DeepSeek <service@deepseek.com>" -- <files>
+git commit -m "<中文描述>" -m ""
+-m "- index: 改动说明
+- about/me: 改动说明" -m "Co-authored-by: DeepSeek <service@deepseek.com>" -- <files>
 ```
+
+每条明细的说明要独立自洽，避免使用代词（如「该文章」「此处」），也不要依赖其他条目或 commit message 标题才能理解。同时避免提到文档自身的名字。例如 `contact` 的改动写「修正邮箱地址」而非「修正联系页面邮箱地址」。
 
 完成后展示：
 
@@ -96,8 +101,8 @@ git commit -m "<中文描述>" -m "" -m "Co-authored-by: DeepSeek <service@deeps
 ## commit message 规范
 
 - 使用中文
-- 描述改动目的，避免出现文件名
-- 控制在 50 字符内
+- 标题描述改动目的，避免出现文件名，控制在 50 字符内
+- body 逐文件写明改动明细（仅列 `*.rst`，使用 Sphinx docname 格式），格式 `- path: 说明`；说明需独立自洽，避免代词，不依赖其他条目或标题
 
 ## 常见错误
 
@@ -107,7 +112,8 @@ git commit -m "<中文描述>" -m "" -m "Co-authored-by: DeepSeek <service@deeps
 | 把不同主题的文章混在一个 commit | 按主题拆分 |
 | 文章和配图分两个 commit | 同一篇文章的图文合并提交 |
 | 不展示方案直接提交 | 必须展示等我确认 |
-| commit message 写「修改了 a.rst b.rst」 | 描述目的，如「修正导航栏失效链接」 |
+| commit 标题写「修改了 a.rst b.rst」 | 描述目的，如「修正导航栏失效链接」 |
+| body 缺文件明细或说明含文档名 | 用 docname 格式，如 `- contact: 修正邮箱地址` |
 
 ## 示例
 
@@ -124,10 +130,11 @@ git commit -m "<中文描述>" -m "" -m "Co-authored-by: DeepSeek <service@deeps
 **展示：**
 ```
 Commit 1: 新增「2026 年度回顾」文章及配图
-  - src/blog/2026-review.rst
-  - static/images/2026-chart.png
-  - src/index.rst
 
-Commit 2: 修正联系页面邮箱地址
-  - src/about/contact.rst
+- blog/2026-review: 年度回顾正文
+- index: toctree 新增年度回顾条目
+
+Commit 2: 修正邮箱地址
+
+- about/contact: 修正邮箱地址
 ```
