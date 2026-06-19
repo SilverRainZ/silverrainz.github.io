@@ -66,16 +66,14 @@ SilverRainZ 的笔记
 最近更新
 ========
 
-.. data.render::
-
-   {% set revs = load_extra('recentupdate',
-                            count=6,
-                            paths=['src/notes/', 'src/p'],
-                            group_by='month') %}
+.. recentupdate::
+   :group-by: month
+   :paths: src/notes
+           src/p
 
    .. container:: timeline
 
-      {% for r in revs %}
+      {% for r in revisions %}
       .. card:: :octicon:`calendar` {{ r.date.strftime('%Y 年 %m 月') }}
          :width: 50%
          :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}

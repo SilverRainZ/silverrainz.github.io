@@ -97,6 +97,8 @@ if _D.is_private():
 # A list of warning codes to suppress arbitrary warning messages.
 suppress_warnings = [
     'misc.highlighting_failure' # pygment highlight error
+    'misc.template_evaluation', # Writing evaluated template...
+
 ]
 
 if _D is _D.Local:
@@ -302,7 +304,7 @@ lilypond_audio_format = 'mp3'
 lilypond_include_paths = ['/p/ly/inc']
 
 extensions.append('sphinxnotes.recentupdate')
-recentupdate_count = 5
+recentupdate_count = 6
 recentupdate_exclude_commit = ['skip-recentupdate', 'conf']
 
 if _D.is_public():

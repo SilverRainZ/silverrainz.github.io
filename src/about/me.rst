@@ -2,14 +2,14 @@
 SilverRainZ
 ===========
 
-.. data.render::
-
-   {% set revs = load_extra('recentupdate', count=6, current_doc=True) %}
+.. recentupdate::
+   :self:
+   :group-by: month
 
    .. dropdown:: 修改记录
       :icon: history
 
-      {% for r in revs %}
+      {% for r in revisions %}
       :{{ r.date.strftime('%Y 年 %m 月') }}: {{ r.message[0] }}
       {% endfor %}
 
