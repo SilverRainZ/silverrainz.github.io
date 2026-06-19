@@ -22,4 +22,16 @@ DATA_DEFINE_DIRECTIVES = {
     {% endfor %}""",
         },
     },
+
+    'redirect': {
+        'schema': {
+            'name': 'str',
+        },
+        'template': {
+            'text': """
+.. raw:: html
+
+   <script>window.location.href = "{{ name }}";</script>"""
+        },
+    },
 }

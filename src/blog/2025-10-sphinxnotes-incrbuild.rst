@@ -11,3 +11,5 @@ sphinxnotes-incrbuild: Enabling Sphinx incremental builds in CI/CD environment
    :external_link: https://sphinx.silverrainz.me/incrbuild/
 
 As we know, Sphinx supports incremental HTML build, and it works well locally. But for CI/CD, the environment is usually brand new, which causes Sphinx always to rebuild everything. The project wraps ``sphinx-build`` and ensures the environment is "incremental build"-able before running the real ``sphinx-build``.
+
+.. redirect:: https://sphinx.silverrainz.me/incrbuild/

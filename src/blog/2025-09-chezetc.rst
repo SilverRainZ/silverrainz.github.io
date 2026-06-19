@@ -17,3 +17,5 @@ Chezetc enhances chezmoi, transforming it from a ``$HOME`` manager into a tool t
 
 - Manage files in /etc and other directories owned by root.
 - Manage multiple chezmoi repositories without manually specifying ``--config <PATH>``.
+
+.. redirect:: https://silverrainz.me/chezetc/
