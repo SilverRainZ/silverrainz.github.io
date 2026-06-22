@@ -19,7 +19,7 @@
       \lowPositionTriads 
 
       the-triads = \chordmode {
-         c d:m e:m f g a:m
+         c d:m e:m/b f/c g/b a:m/c
       }
 
       \score {
@@ -43,7 +43,7 @@
       \mediumPositionTriads
 
       the-triads = \chordmode {
-         c d:m e:m f g a:m
+         c/e d:m/f e:m f g/d a:m/e 
       }
 
       \score {
@@ -64,3 +64,5 @@
    
 高把位
    .. todo:: 高把位
+
+.. todo:: 3-note 7th chords
