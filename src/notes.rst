@@ -68,8 +68,8 @@ SilverRainZ 的笔记
 
 .. recentupdate::
    :group-by: month
-   :paths: src/notes
-           src/p
+   :paths: notes
+           p
 
    .. container:: timeline
 
