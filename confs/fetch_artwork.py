@@ -13,30 +13,26 @@ from .deploy import Deployment
 logger = logging.getLogger(__name__)
 
 
-@filter('fetch_artwork')
-def fetch_artwork_filter(env: BuildEnvironment):
+@filter('fetch_artwork', pass_build_env=True)
+def fetch_artwork_filter(env: BuildEnvironment, id_: str) -> str | None:
     """
     Fetch artwork picture by ID and install theme to Sphinx's source directory,
     return the relative URI of current doc root.
     """
+    imgdir = '_assets/aw'
+    imgdir = env.srcdir.joinpath(imgdir)
+    if Deployment.current() == Deployment.Local:
+        try:
+            result = subprocess.run(['/home/la/sync/latree/bin/artworks', 'fetch', id_, imgdir])
+        except Exception as e:
+            errmsg = str(e)
+        else:
+            errmsg = f'error code: {result.returncode}' if result.returncode else None
+        if errmsg:
+            logger.warning(f'failed to fetch arwork by ID {id_}: {errmsg}')
 
-    def _filter(id_: str) -> str | None:
-        imgdir = '_assets/aw'
-        imgdir = env.srcdir.joinpath(imgdir)
-        if Deployment.current() == Deployment.Local:
-            try:
-                result = subprocess.run(['/home/la/sync/latree/bin/artworks', 'fetch', id_, imgdir])
-            except Exception as e:
-                errmsg = str(e)
-            else:
-                errmsg = f'error code: {result.returncode}' if result.returncode else None
-            if errmsg:
-                logger.warning(f'failed to fetch arwork by ID {id_}: {errmsg}')
-
-        f = f'/{imgdir}/{id_}.webp'
-        return f if path.exists(f) else None
-
-    return _filter
+    f = f'/{imgdir}/{id_}.webp'
+    return f if path.exists(f) else None
 
 
 def setup(app: Sphinx): ...
