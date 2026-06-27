@@ -3,7 +3,7 @@
 =============
 
 .. post::
-   :tags: 生活, 绘画
+   :tags: 生活, 绘画, HomeLab, Sphinx
    :author: LA
    :category: 年度总结
    :location: 北京
@@ -163,8 +163,8 @@ Homelab 建设
 
       .. image:: /_images/2025-04-28-23-33-54.png
 
-chezetc: 协助 chezmoi 管理系统级配置
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+chezetc: 管理所有主机配置
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 有了更强劲的主机后我开始部署更多服务：immich、gitea……（好像也没多少），开始纠结于各个服务的配置如何管理起来，
 如果是用 k8s/k3s 大约可以用 ConfigMap 管理并且把整台机器打包？但家庭网络用这个还是杀鸡用牛刀了。
@@ -177,58 +177,188 @@ chezetc: 协助 chezmoi 管理系统级配置
 一番搜索后我看到了 chezmoi 这个软件，是一个 dotfiles 管理器，它不通过软链接而是通过 复制文件/模板生成 来管理配置，作者的口味非常的符合我的喜好，
 提供了非常多的能力和配置项，当然在处理 ``/etc`` 的权限下还是有问题，这不是一个 dotfiles 管理器该做的。
 
-`twpayne/chezmoi · Discussion #1510 <https://github.com/twpayne/chezmoi/discussions/1510>`_ 提供了一个思路，利用 chezmoi 的 hook script 来处理权限问题，于是我在这个基础上写了 chezetc，其实只是一层薄薄的脚本，至此解决了我在多台集器上的配置管理问题：
-
-简单来说 chezetc：
+`twpayne/chezmoi · Discussion #1510 <https://github.com/twpayne/chezmoi/discussions/1510>`_ 提供了一个思路，利用 chezmoi 的 hook script 来处理权限问题，于是我在这个基础上写了 chezetc，其实只是一层薄薄的脚本，至此解决了我在多台集器上的配置管理问题。简单来说 chezetc：
 
 - 会几乎原样转发命令行参数给 chzemoi，也提供了 bash/zsh 的补全转发，chezmoi 的用户可以直接上手
 - 配置文件可以集中维护在 $HOME 的某个文件夹下，chezmoi 维护他们和 /etc 下文件的对应关系，更新配置时权限问题通过 chezetc 自动插入 sudo （$HOME → /etc 方向）和自动 chwown（/etc → $HOME 方向）来解决
-- 可以通过 ``--config`` 隔离 chezmoi 配置让 chezmoi 支持多个 profile，例如 chezetc-host 处理本机配置，chezetc-shared 处理共享配置。
+- 可以通过 ``--config`` 隔离配置让 chezmoi 支持多个 profile
 
-后面的多 profile 功能是为我自己打造的：我所有的机器都是 Linux，且常用机器上都是 Arch Linux，大部分系统配置可以共享，但每个机器部署的服务又不同，chezmoi 的模板功能 + chezetc 的带来的多 profile 支持能让我灵活的处理这一情况。
+也许是 chezetc 有点用处，也可能是符合 chezmoi 用户的口味，开源后它自发地有了 `一些用户 <https://github.com/search?q=chezetc&type=repositories>`_。
 
-在此基础上我在内网创建了 etcfiles 这个仓库，用来管理我所有机器上的系统配置和服务部署配置::
+在此基础上我在内网 git 上创建了 etcfiles 这个仓库，用来容纳我所有机器上的统配置，结构大概如下::
 
     etcfiles/
-    ├── chezetc.toml       # chezetc 工具配置（edit/diff 设置，verbose 模式）
-    ├── data.yaml          # 全局 chezmoi 数据（LAN IP、Tailscale IP、服务映射、主机名）
     ├── README.rst         # 项目说明
+    ├── chezetc.toml       # chezetc 工具配置
+    ├── data.yaml          # chezmoi 模板数据（LAN IP、Tailscale IP、服务映射、主机名）
     │
     ├── prefix/
-    │   ├── etc/           # 对应 /etc 下的配置文件
-    │   │   ├── shared/    # 所有主机共享的配置（pacman, nginx, letsencrypt, systemd 等）
-    │   │   ├── x1c/       # ThinkPad X1C 专属（iwd, llama-swap 等）
-    │   │   ├── n100/      # N100 迷你主机专属（dnsmasq, forgejo, bitwarden 等）
-    │   │   ├── rpi3/      # Raspberry Pi 3B+ 专属（iwd, miniflux 等）
-    │   │   ├── tcc/       # 腾讯云主机专属（nginx）
-    │   │   └── claw/      # claw 主机专属（sing-box）
-    │   │
-    │   ├── srv/           # ~/srv 下的非系统服务（docker or systemd user service）
-    │   │   ├── n100/      # N100 上的服务（sphinx, bitwarden, immich, hermes）
-    │   │   ├── rpi3/      # RPi3 上的服务（停用）
-    │   │   ├── tcc/       # 腾讯云上的服务（isso）
-    │   │   ├── x1c/       # X1C 上的服务（sphinx, opencode）
-    │   │   └── claw/      # claw 上的服务（terraria, singbox）
-    │   │
-    │   └── ssh/           # SSH 相关配置
-    │       └── shared/    # 共享的 SSH 配置
+    │   └── etc/           # 对应 /etc 下的配置文件
+    │       ├── shared/    # 共享配置（pacman, nginx, letsencrypt, systemd 等）
+    │       ├── x1c/       # ThinkPad X1C 专属配置（iwd, llama-swap 等）
+    │       ├── n100/      # N100 专属配置（dnsmasq, forgejo, bitwarden 等）
+    │       ├── rpi3/      # Raspberry Pi 专属配置（iwd, miniflux 等）
+    │       ├── tcc/       # 腾讯云主机专属配置（nginx）
+    │       └── claw/      # claw 主机专属配置（sing-box）
     │
     └── bin/
         ├── etc-host       # 操作单台主机的配置
-        ├── etc-init       # 在新主机上初始化 chezmoi
-        ├── etc-list       # 列出主机或配置文件
-        ├── etc-shared     # 操作共享配置
-        ├── etc-shift      # 在主机间移动配置
-        └── etc-shared     # 共享配置管理脚本
+        └── etc-shared     # 操作所有主机的共享配置
 
-也许是 chezetc 有点用处，也可能是符合 chezmoi 用户的口味，发布后除了我之外居然也有 `一些用户 <https://github.com/search?q=chezetc&type=repositories>`_，不过它已经够用了，我暂时没有继续增加功能的打算。
+etc-host 和 etc-shared 是利用 chezetc 多 profiles 功能封装出来的脚本：
+etc-host 会 etcfiles/prefix/$HOST/etc/ 下的配置文件和 /etc 关联起来，而 etc-shared 则无论当前主机为何，都将 etcfiles/prefix/shared/etc/ 和 /etc 关联起来。这两个脚本组合起来，我就能灵活地处理多台机器上的所有配置了。
 
-SphixNotes
-----------
+.. grid:: 1 1 2 2
 
-- sphinxnotes render
-- sphinxnotes any 3.0
-- cookiecutter
+   .. grid-item::
+
+      .. code-block:: bash
+         :caption: etc-host
+
+         #!/bin/bash
+
+         REPO=$(realpath $(dirname $0)/..)
+         HOST=$(hostnamectl hostname)
+
+         export ETC_APP=$0
+         export ETC_SRC="$REPO/prefix/etc/$HOST"
+         export ETC_CFG="$REPO/chezetc.toml"
+         exec chezetc "$@"
+
+
+   .. grid-item::
+
+      .. code-block:: bash
+         :caption: etc-shared
+
+         #!/bin/bash
+
+         REPO=$(realpath $(dirname $0)/..)
+
+         export ETC_APP=$0
+         export ETC_SRC="$REPO/prefix/etc/shared"
+         export ETC_CFG="$REPO/chezetc.toml"
+         exec chezetc "$@"
+
+The Sphinx Notes Project
+------------------------
+
+随着这两年 AI 的飞速发展，关于通用知识的笔记是几乎没有记录的必要了，但我依然
+依赖我的笔记系统记录一些个人化的东西：画册、练习谱、一些复杂的备忘。
+
+此外，探索如何「将笔记更好地结构化、去冗余」带给我很大的愉悦感，所以 SphinxNotes 系列项目的开发没有停滞。
+
+``sphinxnotes-render``: 统一的渲染能力
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+在 Sphinx 里，减少冗余一个办法就是创建专用的 |rst| 指令（Directive，可以理解为标记语言里的可调用函数）+ 模板生成。
+
+举个例子，假设我有大量的作品要记录，我可以创建专用的指令 叫「作品」，有日期、媒介、尺幅几个属性，这个指令会在文档构建时将结构化的作品信息作为 context 传递给形如右方的模板：
+
+.. grid::
+   
+   .. grid-item::
+      :columns: 12 4 4 4
+
+      .. code-block:: rst
+         :caption: Original |rst|
+
+         .. 作品:: 出行准备
+            :编号: s-010
+            :日期: 2026
+            :材料: 油画
+            :尺幅: 60cm*50cm
+
+            作品简介……
+      
+   .. grid-item::
+      :columns: 12 8 8 8
+
+      .. code-block:: rst
+         :caption: Template
+
+         {{ 名称 }}（``{{ 编号 }}``）
+            📅 ``{{ 时间 }}`` | 🎨 ``{{ 材料 }}`` | 📐 ``{{ 尺幅 }}``
+               
+            .. image:: /_assets/aw/{{ 编号 }}.webp
+
+            {{ 内容 }}
+
+模板渲染的结果是新的 |rst|，会继续交给 Sphinx 渲染得到最终的文档，如此我们便可以只提供必要的信息便得到足够丰富的文档。
+
+.. grid::
+
+   .. grid-item::
+
+      .. code-block:: rst
+         :caption: Rendered |rst|
+
+         出行准备（``s-010``）
+            📅 ``2026`` | 🎨 ``油画`` | 📐 ``60cm*50cm``
+               
+            .. image:: /_assets/aw/s-010.webp
+
+            作品简介……
+
+   .. grid-item-card:: Rendered Document
+
+      出行准备（``s-010``）
+         📅 ``2026`` | 🎨 ``油画`` | 📐 ``60cm*50cm``
+            
+         .. image:: /_assets/aw/s-010.webp
+
+         作品简介……
+
+这样的模式在我的文档里普遍存在，但他们因为形式不同，需要由不同的插件实现：
+
+- 除了画作之外，友情链接、读书笔记也都有对应的专用指令（由 sphinxnotes-any 提供）
+- 首页的「最新更新」功能使用了 :rst:dir:`recentupdate` 指令来读取 Git 仓库，并配合模板生成更新条目（由 sphinxnotes-recentupdate 提供）
+- 所有 SphinxNotes 项目的配置项描述，都是通过 :rst:dir:`autoconfval` 指令实现，仅需知道配置名称，就能从 Sphinx 内部 class 里取得类型和默认值（由 sphinxnotes-project 提供）
+
+这些相似的逻辑代码之前一直分散在不同的项目中，今年的主要工作就是 sphinxnotes-render：一个用于在 Sphinx 里渲染数据的框架，为有自定义指令 + Jinja 模板渲染需求的插件提供底层能力。
+
+将这些能力抽象出来不太容易，配合 AI 来回重写了几个版本，最终这个框架包含这些核心能力，满足当前所有需求，应该也给未来留下了扩展余量：
+
+- 一套用来用来描述 Directive 参数的 Schema Definition Language
+- 一个携带模板和结构化数据的 docutils 文档节点 ``pending_node``
+- 一个搭配 pending_node，能在Sphinx 构建文档不同阶段（parsing、parsed、resolving）都提供近似的渲染能力的 render pipeline
+- 一系列提供不同程度渲染能力的 SphinxDirective 和 SphinxRole 基类
+
+有了底层能力之后，原来的扩展在迁移过去后，自动拥有了很多新特性的同时也减少了很多重复代码：
+
+:+1311+，-1822: `Integrate with sphinxnotes-render · sphinx-notes/any#51 <https://github.com/sphinx-notes/any/pull/51>`_
+:+149，-256: `refactor: Migrate to sphinxnotes-render · sphinx-notes/recentupdate#5 <https://github.com/sphinx-notes/recentupdate/pull/5>`_
+
+``sphinxnotes-any``: 支持 object embedding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:del:`这里的 embedding 就是字面意思，和 LLM 的 embedding 没有半点关系。`
+
+2 月的时候我终于 `完成了网站主页的改版 <https://github.com/SilverRainZ/silverrainz.github.io/issues/34>`_，得益于 sphinxnotes-render，
+
+我的 sphinxnotes-any 它允许用户定义各种各种的专用指令，并且每个指令会生成一个 object 对象和对应的锚点，还是刚才的例子，创建了一个作品对象 ``s-010`` ，用户可以文档的任意一处通过 |rst| Role ``:作品:\`s-010\``` 创建一个指向它的超链接。但如果我我想在文档中嵌入作品的图片，或者作品的描述呢？在 any 的 2.x 版本里，这个功能难以实现。
+
+在迁移到 render 后的 any 3.x 后，这个功能可以被很顺畅地实现：`feat: Impl ObjEmbedDirective · sphinx-notes/any#54 <https://github.com/sphinx-notes/any/pull/54>`_。用户可以用自动生成的 ``xxx+embed`` 指令，在它的 body 里编写的 |rst| 可以直接访问到对应作品的信息。这里就不用虚构的例子了，我们用 :rst:dir:`artwork+embed` 指令即可将 ``s-010`` 嵌入到文档里：
+
+.. example::
+   
+   .. artwork+embed:: s-010
+
+      .. figure::
+         /_assets/aw/{{ id }}.webp
+
+         {{ name }}, {{ size }}
+
+
+本文刚才的画作图片也都是通过类似的这个方式插入，不过用了更多的封装，只需要提供 ID 就能批量地插入图片，
+:doc:`/gallery` 页面也是这么实现的。
+
+.. example::
+   
+   .. gallery::
+      :grid: 3 3 3 3
+
+      s-010 s-011 s-013
 
 不擅长许愿的古典程序员
 ----------------------

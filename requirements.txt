@@ -13,7 +13,7 @@ ablog @ git+https://github.com/SilverRainZ/ablog-with-shibuya@master
 # https://github.com/sphinx-doc/sphinx-autobuild/pull/143
 sphinx-autobuild @ git+https://github.com/SilverRainZ/sphinx-autobuild.git
 sphinxcontrib.gtagjs
-sphinxnotes-snippet
+sphinxnotes-picker
 sphinxnotes-strike
 sphinxnotes-isso>=2.0a2
 sphinx-sitemap
