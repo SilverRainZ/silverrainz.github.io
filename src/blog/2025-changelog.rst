@@ -42,12 +42,18 @@
 
 23 年国庆的时候我抽空回画室画了半个月，色彩课程开了个头。画完摩西后，26 年 5到 8 月，我在画室又完成了色彩训练的室内部分。让我感到意外的是，学色彩的过程没有像学素描那样步步受挫，反而非常顺利，也一直得到老师的夸奖，虽然最后还是用了别人两倍的时间，但这样的结果已经让我非常满意了。
 
-
-.. gallery:: cs-006 cs-007 cs-008
+.. gallery:: cs-006 cs-007 cs-008 cs-009 cs-010 cs-011 cs-013 cs-022
+   :grid: 1 2 4 4
 
 中间 Swan 回北京，一起度过了一段短暂的甜蜜时光，为了不耽误上课，辛苦她住在离公司很远的酒店。后面我和老师说要尝试写生，在人大地铁站附近画了一些写生。
 
+.. gallery:: cs-014 cs-015 cs-016 cs-017
+   :grid: 1 2 4 4
+
 9 月，老师让我外出写生，分别在燕郊的小区、北京青龙湖、老家、云南画了一些画。那时候刚好分手，没什么行动力，所以画得并不多。
+
+.. gallery:: cs-023 cs-024 cs-035 cs-037
+   :grid: 1 2 4 4
 
 作品制作
 --------
@@ -57,6 +63,13 @@
 这里说的作品是：稍大尺幅的（相比几十厘米的小画）、在做工较好的画框上绘制的、完成度高的、个人创作。我接触油画时间太短，完全没有油画创作经验，老师给我推荐的策略是：从以前的水彩小稿里选比较好的，直接放大画成油画，不使用太多技法，平涂覆盖多次直到效果足够好。
 
 从 25 年的 11 月到 26 年的 5 月，断断续续地画了 17 张成品，每一张都远算不上完善，但大部分都已经呈现出了我无法否认的灵韵。
+
+.. gallery::
+   :grid: 1 2 4 4
+
+   s-001 s-004 s-007 s-009
+   s-011 s-013 s-014 s-017
+   s-010 s-012 s-015 s-016 
 
 这段时间我没有留下什么记忆，总之我获得了这些画，我完成了这次学习纸面上的目标。
 
@@ -268,7 +281,7 @@ The Sphinx Notes Project
          :caption: Original |rst|
 
          .. 作品:: 出行准备
-            :编号: s-010
+            :编号: s-009
             :日期: 2026
             :材料: 油画
             :尺幅: 60cm*50cm
@@ -297,19 +310,19 @@ The Sphinx Notes Project
       .. code-block:: rst
          :caption: Rendered |rst|
 
-         出行准备（``s-010``）
+         出行准备（``s-009``）
             📅 ``2026`` | 🎨 ``油画`` | 📐 ``60cm*50cm``
                
-            .. image:: /_assets/aw/s-010.webp
+            .. image:: /_assets/aw/s-009.webp
 
             作品简介……
 
    .. grid-item-card:: Rendered Document
 
-      出行准备（``s-010``）
+      出行准备（``s-009``）
          📅 ``2026`` | 🎨 ``油画`` | 📐 ``60cm*50cm``
             
-         .. image:: /_assets/aw/s-010.webp
+         .. image:: /_assets/aw/s-009.webp
 
          作品简介……
 
@@ -340,13 +353,13 @@ The Sphinx Notes Project
 
 2 月的时候我终于 `完成了网站主页的改版 <https://github.com/SilverRainZ/silverrainz.github.io/issues/34>`_，得益于 sphinxnotes-render，
 
-我的 sphinxnotes-any 它允许用户定义各种各种的专用指令，并且每个指令会生成一个 object 对象和对应的锚点，还是刚才的例子，创建了一个作品对象 ``s-010`` ，用户可以文档的任意一处通过 |rst| Role ``:作品:\`s-010\``` 创建一个指向它的超链接。但如果我我想在文档中嵌入作品的图片，或者作品的描述呢？在 any 的 2.x 版本里，这个功能难以实现。
+我的 sphinxnotes-any 它允许用户定义各种各种的专用指令，并且每个指令会生成一个 object 对象和对应的锚点，还是刚才的例子，创建了一个作品对象 ``s-009`` ，用户可以文档的任意一处通过 |rst| Role ``:作品:\`s-009\``` 创建一个指向它的超链接。但如果我我想在文档中嵌入作品的图片，或者作品的描述呢？在 any 的 2.x 版本里，这个功能难以实现。
 
-在迁移到 render 后的 any 3.x 后，这个功能可以被很顺畅地实现：`feat: Impl ObjEmbedDirective · sphinx-notes/any#54 <https://github.com/sphinx-notes/any/pull/54>`_。用户可以用自动生成的 ``xxx+embed`` 指令，在它的 body 里编写的 |rst| 可以直接访问到对应作品的信息。这里就不用虚构的例子了，我们用 :rst:dir:`artwork+embed` 指令即可将 ``s-010`` 嵌入到文档里：
+在迁移到 render 后的 any 3.x 后，这个功能可以被很顺畅地实现：`feat: Impl ObjEmbedDirective · sphinx-notes/any#54 <https://github.com/sphinx-notes/any/pull/54>`_。用户可以用自动生成的 ``xxx+embed`` 指令，在它的 body 里编写的 |rst| 可以直接访问到对应作品的信息。这里就不用虚构的例子了，我们用 :rst:dir:`artwork+embed` 指令即可将 ``s-009`` 嵌入到文档里：
 
 .. example::
    
-   .. artwork+embed:: s-010
+   .. artwork+embed:: s-009
 
       .. figure::
          /_assets/aw/{{ id }}.webp
@@ -361,7 +374,7 @@ The Sphinx Notes Project
    .. gallery::
       :grid: 3 3 3 3
 
-      s-010 s-011 s-013
+      s-009 s-001 s-004
 
 不擅长许愿的古典程序员
 ----------------------
