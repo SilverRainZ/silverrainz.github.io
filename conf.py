@@ -371,6 +371,8 @@ extensions.append('sphinxnotes.poc')
 extensions.append('sphinxnotes.render.ext')
 render_ext_data_define_directives = _DATA_DEFINE_DIRECTIVES
 
+extensions.append('sphinxnotes.project')
+
 def setup(app):
 
     from confs import fetch_artwork
