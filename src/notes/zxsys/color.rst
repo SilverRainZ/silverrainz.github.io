@@ -810,6 +810,8 @@
    - 重视构图：在这个练习中，主要是指颜色的面积，包括补色的面积。
    - 根据 :term:`二八原则`、:term:`对抗于转化` 表现出 :term:`色彩的辉煌感` （refer :people:`梁兰` 作品）
 
+.. todo:: 图片错乱……
+
 .. artwork:: 北京人大地铁站附近写生 1
    :id: cs-014
    :date: 2025-06
@@ -959,43 +961,43 @@
 
 .. artwork:: 宋大元帅陵园写生 1
    :id: cs-033
-   :date: 2025-10-05
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 2
    :id: cs-034
-   :date: 2025-10-05
+   :date: 2025-10
    :size: 24*30
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 3
    :id: cs-035
-   :date: 2025-10-05
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 4
    :id: cs-036
-   :date: 2025-10-07
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 5
    :id: cs-037
-   :date: 2025-10-07
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 6
    :id: cs-038
-   :date: 2025-10-09
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
 .. artwork:: 宋大元帅陵园写生 7
    :id: cs-039
-   :date: 2025-10-09
+   :date: 2025-10
    :size: 30*24
    :medium: 油画
 
