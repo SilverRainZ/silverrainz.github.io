@@ -80,7 +80,7 @@
 ========
 
 .. artwork::
-   :id: s-010
+   :id: s-009
    :date: 2026
    :size: 60*50
    :medium: 油画
@@ -89,16 +89,16 @@
 ========
 
 .. artwork::
-   :id: s-011
+   :id: s-010
    :date: 2026
-   :size: 60*80
+   :size: 80*60
    :medium: 油画
 
 度洛西汀戒断反应
 ================
 
 .. artwork::
-   :id: s-012
+   :id: s-011
    :date: 2026
    :size: 100*70
    :medium: 油画
@@ -109,9 +109,9 @@
 ========
 
 .. artwork::
-   :id: s-013
+   :id: s-012
    :date: 2026
-   :size: 70*100
+   :size: 100*70
    :medium: 油画
 
 - |_| 地面透视感增强
@@ -120,7 +120,7 @@
 ====
 
 .. artwork::
-   :id: s-014
+   :id: s-013
    :date: 2026
    :size: 100*70
    :medium: 油画
@@ -129,34 +129,34 @@
 ==========
 
 .. artwork::
-   :id: s-015
+   :id: s-014
    :date: 2026
-   :size: 100*67
+   :size: 100*70
    :medium: 油画
 
 傲慢
 ====
 
 .. artwork::
-   :id: s-016
+   :id: s-015
    :date: 2026
-   :size: 67*100
+   :size: 100*70
    :medium: 油画
 
 剥离
 ====
 
 .. artwork::
-   :id: s-017
+   :id: s-016
    :date: 2026
-   :size: 67*100
+   :size: 100*70
    :medium: 油画
 
 爱
 ==
 
 .. artwork::
-   :id: s-018
+   :id: s-017
    :date: 2026
-   :size: 100*67
+   :size: 100*70
    :medium: 油画
