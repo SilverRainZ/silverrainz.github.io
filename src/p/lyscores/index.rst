@@ -58,3 +58,8 @@ Canon in D Major 节选 简谱
 ==========================
 
 .. jianpuinclude:: canon.jianpu
+
+歌 - 罗大佑 - 两声部五线谱 - Claude 生成
+========================================
+
+.. lilyinclude:: ge.ly
