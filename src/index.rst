@@ -81,19 +81,27 @@
 
    .. container:: timeline
 
+      .. - 不展示删除的文章（意义不大）
+         - 博客仅展示新增（不会有值得注意的改动）
+
       {% for r in revisions %}
       .. card:: :octicon:`calendar` {{ r.date.strftime('%Y 年 %m 月') }}
          :width: 50%
          :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}
          :class-card: surface
 
-         {% if r.changed_docs %}
-         :修改了: {{ r.changed_docs | roles("doc") | join("、") }}
-         {% endif %}
          {% if r.added_docs %}
          :新增了: {{ r.added_docs | roles("doc") | join("、") }}
          {% endif %}
-         {% if r.removed_docs %}
-         :删除了: {{ r.removed_docs | join("、") }}
+
+         {% set ns = namespace(nonblog_docs=[]) %}
+         {% for doc in r.changed_docs %}
+           {% if not doc.startswith('/blog') %}
+             {% set ns.nonblog_docs = ns.nonblog_docs + [doc] %}
+           {% endif %}
+         {% endfor %}
+
+         {% if ns.nonblog_docs %}
+         :修改了: {{ ns.nonblog_docs | roles("doc") | join("、") }}
          {% endif %}
       {% endfor %}

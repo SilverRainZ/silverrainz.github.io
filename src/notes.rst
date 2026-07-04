@@ -13,7 +13,6 @@ SilverRainZ 的笔记
 
    最近更新_
    所有笔记_
-
 .. raw:: html
 
    <style>
@@ -33,7 +32,7 @@ SilverRainZ 的笔记
    .. grid-item-card:: :octicon:`image` 艺术
 
       :doc:`/notes/zxsys/index`:
-         我脱产两年学习绘画和创作的笔记，如果对我我画画的经历感兴趣，可以看看 :ref:`category-辞职为学画`。
+         我脱产两年学习绘画和创作的笔记，如果对我画画的经历感兴趣，可以看看 :ref:`category-辞职为学画`。
       :doc:`/p/artistory/index`
          一些外行人学习艺术史的记录，可能有错漏，见谅。
       :doc:`/notes/books/index`
@@ -79,14 +78,11 @@ SilverRainZ 的笔记
          :margin: 0 2 {{ loop.cycle('0 auto', 'auto 0') }}
          :class-card: surface
 
-         {% if r.changed_docs %}
-         :修改了: {{ r.changed_docs | roles("doc") | join("、") }}
-         {% endif %}
          {% if r.added_docs %}
          :新增了: {{ r.added_docs | roles("doc") | join("、") }}
          {% endif %}
-         {% if r.removed_docs %}
-         :删除了: {{ r.removed_docs | join("、") }}
+         {% if r.changed_docs %}
+         :修改了: {{ r.changed_docs | roles("doc") | join("、") }}
          {% endif %}
       {% endfor %}
 
