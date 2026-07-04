@@ -5,8 +5,7 @@
 .. post::
    :tags: 生活, 绘画, HomeLab, Sphinx
    :author: LA
-   :category: 年度总结
-   :location: 北京
+   :category: 年度总结 :location: 北京
 
 现在已经是 2026 年的夏天，但对于我来说，2025 好像迟迟没有离开，所以直到现在才写下这篇文章。
 
@@ -121,16 +120,16 @@ Homelab 建设
 年初了时候因为 rpi3 性能不足，跑不动更多的服务，咸鱼买了个台工控机准系统，又去收了二手内存，买便宜硬盘，期间小有波折，最后也总算是把机器攒起来了。
 作为以前靠电脑吃饭的人，我其实对电脑硬件的代际、接口和性价比都没什么了解（也缺乏热情），这次调研的时候通过大量和 AI 聊天恶补了一堆（大概是正确的）知识，最后攒出来的结果自己还挺满意，在此记录：
 
-- 买工控机的优点相比 NAS/NUS 价格便宜，没有品牌溢价，缺点就是工控机厂家好像都很小，感觉做工都不是太好
-  缺点当然是没有 NAS 那么多的盘位、没有集成的系统、卖的是准系统（Barebone）不带存储和内存，需要自己攒
+- 买工控机的优点是：相比 NAS/NUS 价格便宜，没有品牌溢价，缺点是：工控机厂家规模好像都很小，做工不是太好、
+  没有 NAS 那么多的盘位、没有集成的系统、一般不带存储和内存，需要自己攒：
 
   - 这种东西吃灰非常多，收二手划算，最终闲鱼上 ￥570 拿下一台新创云的工控机。
 
 - CPU 是 Intel n100：
 
-  - 23 年的 CPU，还算不上到洋垃圾，在未来五六年内都够用，缺点是比洋垃圾贵了好几倍
-  - 低功耗（TDP 6W）的同时还是 x86 架构，可无缝用 ArchLinux，archlinuxcn 的包也可以直接用
-    用树莓派的时候偶尔会需要 arm 的包但机器太孱弱编译不了，只能偷摸用社区的 buildarm 机器
+  - 23 年的 CPU，还算不上到洋垃圾，在未来五六年内都够用；缺点是比洋垃圾贵了好几倍
+  - 低功耗（TDP 6W）的同时还是 x86 架构，可无缝用 ArchLinux，archlinuxcn 的包也可以直接用。
+    之前用树莓派的时候偶尔会需要自己编译一些包，但树莓派太弱了，只能偷摸用社区的 buildarm 机器
 
 - 主板上接口还算丰富：
 
@@ -142,7 +141,7 @@ Homelab 建设
 
   - 内存很难坏，买二手的就行
   - DDR5 是个缺点，相比 DDR4 贵太多
-  - 挑了在消费级市场不知名的 RAMAXEL（基本上都是拆机才有）
+  - 挑了在消费级市场不知名的 RAMAXEL（基本上都是拆机件）
   - 12G 对 Homelab 来说足够了，而且这个冷门的规格（相比 8/16/32）算下来 perG 的价格最便宜！
 
 - 硬盘最开始想法是：系统盘可以买个小的（64G）、二手的无所谓，可以随时恢复，数据盘靠谱即可，结果 PDD 上买了两次便宜硬盘都翻车了，于是最后还是买了新的：
@@ -178,7 +177,7 @@ Homelab 建设
 
    .. grid-item::
 
-      .. image:: /_images/2025-04-28-23-33-54.png
+      .. image:: /_images/2025-changelog/2025-04-28-23-33-54.png
 
 chezetc: 管理所有主机配置
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,9 +193,9 @@ chezetc: 管理所有主机配置
 一番搜索后我看到了 chezmoi 这个软件，是一个 dotfiles 管理器，它不通过软链接而是通过 复制文件/模板生成 来管理配置，作者的口味非常的符合我的喜好，
 提供了非常多的能力和配置项，当然在处理 ``/etc`` 的权限下还是有问题，这不是一个 dotfiles 管理器该做的。
 
-`twpayne/chezmoi · Discussion #1510 <https://github.com/twpayne/chezmoi/discussions/1510>`_ 提供了一个思路，利用 chezmoi 的 hook script 来处理权限问题，于是我在这个基础上写了 chezetc，其实只是一层薄薄的脚本，至此解决了我在多台集器上的配置管理问题。简单来说 chezetc：
+`twpayne/chezmoi · Discussion #1510 <https://github.com/twpayne/chezmoi/discussions/1510>`_ 提供了一个思路，利用 chezmoi 的 hook script 来处理权限问题，于是我在这个基础上写了 chezetc，其实只是一层薄薄的脚本，但解决了我在多台集器上的配置管理问题。简单来说 chezetc：
 
-- 会几乎原样转发命令行参数给 chzemoi，也提供了 bash/zsh 的补全转发，chezmoi 的用户可以直接上手
+- 会几乎原样转发命令行参数给 chzemoi，和直接使用 chezmoi 几乎没有区别
 - 配置文件可以集中维护在 $HOME 的某个文件夹下，chezmoi 维护他们和 /etc 下文件的对应关系，更新配置时权限问题通过 chezetc 自动插入 sudo （$HOME → /etc 方向）和自动 chwown（/etc → $HOME 方向）来解决
 - 可以通过 ``--config`` 隔离配置让 chezmoi 支持多个 profile
 
@@ -347,15 +346,13 @@ The Sphinx Notes Project
 :+149，-256: `refactor: Migrate to sphinxnotes-render · sphinx-notes/recentupdate#5 <https://github.com/sphinx-notes/recentupdate/pull/5>`_
 
 ``sphinxnotes-any``: 支持 object embedding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :del:`这里的 embedding 就是字面意思，和 LLM 的 embedding 没有半点关系。`
 
-2 月的时候我终于 `完成了网站主页的改版 <https://github.com/SilverRainZ/silverrainz.github.io/issues/34>`_，得益于 sphinxnotes-render，
+sphinxnotes-any 允许用户定义各种各种的专用指令，每个指令使用时会生成一个 object 和对应的锚点，还是刚才的例子，创建了一个作品对象 ``s-009`` ，用户可以文档的任意一处通过 |rst| Role ``:作品:\`s-009\``` 创建一个指向它的超链接。但如果我我想在文档中嵌入作品的图片，或者作品的描述呢？
 
-我的 sphinxnotes-any 它允许用户定义各种各种的专用指令，并且每个指令会生成一个 object 对象和对应的锚点，还是刚才的例子，创建了一个作品对象 ``s-009`` ，用户可以文档的任意一处通过 |rst| Role ``:作品:\`s-009\``` 创建一个指向它的超链接。但如果我我想在文档中嵌入作品的图片，或者作品的描述呢？在 any 的 2.x 版本里，这个功能难以实现。
-
-在迁移到 render 后的 any 3.x 后，这个功能可以被很顺畅地实现：`feat: Impl ObjEmbedDirective · sphinx-notes/any#54 <https://github.com/sphinx-notes/any/pull/54>`_。用户可以用自动生成的 ``xxx+embed`` 指令，在它的 body 里编写的 |rst| 可以直接访问到对应作品的信息。这里就不用虚构的例子了，我们用 :rst:dir:`artwork+embed` 指令即可将 ``s-009`` 嵌入到文档里：
+在迁移到 render 后的 any 3.x 后，这个功能可以被顺畅地实现了：`feat: Impl ObjEmbedDirective · sphinx-notes/any#54 <https://github.com/sphinx-notes/any/pull/54>`_。用户可以用自动生成的 ``xxx+embed`` 指令，在它的 body 里编写的 |rst| 可以直接访问到对应作品的信息。这里就不用虚构的例子了，我们用 :rst:dir:`artwork+embed` 指令即可将 ``s-009`` 嵌入到文档里：
 
 .. example::
    
@@ -363,11 +360,11 @@ The Sphinx Notes Project
 
       .. figure::
          /_assets/aw/{{ id }}.webp
+         :width: 50%
 
          {{ name }}, {{ size }}
 
-
-本文刚才的画作图片也都是通过类似的这个方式插入，不过用了更多的封装，只需要提供 ID 就能批量地插入图片，:doc:`/gallery` 页面也是这么实现的。
+本文包含的所有画作图片也都是通过类似的这个方式插入，不过用了更多的封装，只需要提供作品 ID 就能批量地插入并显示为网格布局，:doc:`/gallery` 页面也是这么实现的：
 
 .. example::
    
@@ -379,13 +376,152 @@ The Sphinx Notes Project
 不擅长许愿的古典程序员
 ----------------------
 
-在去年的年度总结里，我曾表示想要学习
-MiniMax → GPT → Mimo/DeepSeek
+尽管早在 23 年 GPT 就显现出了强大的逻辑能力，但我没料到基于概率的 LLM 居然也能精确地编程。从 25 年底 Coding Agent 开始加速发展，这让我感到相当焦虑，
+如果有先知告诉我「未来不需要程序员了」倒也还好，对未知的恐惧是更折磨人的：我不知道现在的模型能力边界在哪里，也不知道未来它们的上限几何。
 
-Hermes / Opencode
+前者显然是可以解决的问题，26 年 2 月我从 OpenCode/MiniMax M2.4 开始，写了 sphinxnotes-render 的 Schema DSL，用了一段时间 M2.4 智商有限，甚至让我沾沾自喜了一番。但我等我薅到 Codex/GPT5 的羊毛后，我发现自己还是有些自大了。
+
+5 月我搬离燕郊。因为不画画了，写代码更多了，也开始用 AI 优化自己的开发流程。
+
+截至目前，我确实几乎不手写代码了，开发的速度比之前大概快了 3～4 倍，但离网上两天说的 Vibe 一个系统的效率还是相去甚远，我想了一下原因可能是：
+
+0. 我还没有写全新的系统的需求
+1. 我目前还在用二三梯队的模型（DeepSeek、MiMO，而非 Claude/GPT）
+2. 我无法心安理得地许愿获取一个自己不了解的系统，我需要 review 代码，而超出能力太爱多（当然可能 1 有关系）
+
+模型
+   目前我主力依然是使用 OpenCode，配合 DeepSeek 的计费 API，另外订阅了 OpenCode Zen 让我偶尔能用上 Claude/GPT。最近 MiMoCode 上用的 MiMo 也有免费额度。
+
+编码
+   我倾向于用 OpenCode 的 TUI，稍复杂的任务会先 Plan + :parsed_literal:`grill-me__` ，如果需要更细致的修改会打开 Neovim + :ghrepo:`nickjvandyke/opencode.nvim`
+
+   __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/agents/skills/grill-me/SKILL.md
+
+单轮临时对话
+   在终端里我自己写了个 :parsed_literal:`agent-run__` 脚本，配合 `Shell Aliases`__ 能方便发起单次的一问一答任务，不必每次都启动 TUI。模型用的 OpenCode Zen 提供的免费 DeepSeek，所以不需要省着用，很多终端操作都交给它：
+
+   __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/bin/agent-run
+   __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/home/.sh/agent.sh#L9
+
+   .. code:: console
+
+      $ run 把 cs-009.jpg 命名为 cs-010.jpg，后面的 010..038 以此类推，注意不要覆盖文件
+
+   .. code:: markdown
+
+      > action-easy · deepseek-v4-flash-free
+
+      ✱ Glob "cs-*.jpg" 32 matches
+      → Read .
+
+      ... 省略部分输出 ...
+
+        没有冲突文件。从高到低逆序重命名：
+        已完成。验证一下结果：
+        完成。cs-009→010, cs-010→011, ..., cs-038→039, cs-
+        039→040，全部后移一位，没有覆盖任何文件。
+
+   遇到复杂任务则可以 ``run --hard`` 切换高一档的模型：
+
+   .. code:: console
+
+      $ run --hard 总结 https://github.com/neovim/neovim/issues/39032
+
+   .. code:: markdown
+
+      > action-hard · deepseek-v4-pro
+
+      $ gh issue view 39032 --repo neovim/neovim --comments 2>&1 | head -200
+
+      ## Issue #39032 总结
+
+      标题: treesitter: attempt to call method 'range' (a nil value) in
+      languagetree.lua:215 with markdown fenced code blocks
+
+      状态: 已关闭（标记为 "not planned"），非 Neovim 自身问题
+
+      ... 省略部分内容 ...
+
+      一句话: 这是第三方插件 nvim-treesitter 的兼容性问题，Neovim 本身无
+      bug，切换到插件的 main 分支即可。
+  
+语音输入
+   现在本地 ASR（Automatic Speech Recognition，自动语音识别）的小模型已经相当成熟，中英文混和不是特别多的情况下我会倾向使用语音输入。我在 Linux 下用 :ghrepo:`xifan2333/fcitx5-vinput`，配合 SenseVoice FunASR 模型，效果可以接受。
+
+   archlinuxcn 用户可以直接 ``pacman -S fcitx5-vinput`` 来安装。
+
+开发杂务
+   批量更新项目模板
+      SphinxNotes 开发至今已经有 10 多个需要维护的项目了，大部分是由 :ghrepo:`sphinx-notes/cookiecutter` 模板生成的 Sphinx Extension，共享文档、Lint、CI 等基础设施。但每次更新模板时或多或少需要人工解决一些冲突，有了 AI 后，配合 :parsed_literal:`sphinxnotes-template-update__` skill，批量更新变得非常轻松，现在要是把所有项目一口气迁移到 ``uv`` 应该也花不了半个小时。
+
+      .. figure:: /_images/2026-06-28_151018.png
+
+         `16 results in sphinx-notes`__
+
+      __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/agents/skills/sphinxnotes-template-update/SKILL.md
+      __ https://github.com/search?q=org%3Asphinx-notes+chore%3A+update+project+template&type=pullrequests
+
+   Git Commit
+      我对 Git commit message 的编写一直有些强迫症，除非后面要 squash，否则是断不会写 "update" 这样的 commit message 的。现在有 AI 帮忙写 commit message 了，于是我有这么些 commit skill 互相配合，在不同的项目启用不同的 skill：
+
+      :文档修改用: :parsed_literal:`docs-git-commit__`
+      :配置修改用: :parsed_literal:`dotfiles-git-commit__`
+      :通用:       :parsed_literal:`general-git-commit__`、
+
+      在 TUI 则配置了 ``/commit``、``/push``、``/pr`` 几个 commands__，终端则 ``agent-run`` + 预定义的 alias
+
+      __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/agents/skills/general-git-commit/SKILL.md
+      __ https://github.com/SilverRainZ/dotfiles/blob/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/.agents/skills/dotfiles-git-commit/SKILL.md
+      __ https://github.com/SilverRainZ/silverrainz.github.io/blob/641ff729d59a206295ce77e3f11a59388d5040e4/.agents/skills/docs-git-commit/SKILL.md
+      __ https://github.com/SilverRainZ/dotfiles/tree/3b4a4ee8625a64b8b968a0cf544a0554697d64b7/config/opencode/commands
+
+未来还需要程序员吗？我不知道，但一个有 AI 可以用的世界也还不错。
 
 线下生活
 ========
+
+2026 
+
+
+小妹降临我身边
+--------------
+
+.. grid:: 1 1 5 5
+
+   .. grid-item::
+
+      .. figure:: /_images/2025-changelog/微信图片_20260628154851.jpg
+
+         一开始像一个被唆过的猕猴桃
+
+   .. grid-item::
+
+      .. figure:: /_images/2025-changelog/微信图片_20260628154857.jpg
+
+         这不是缅因什么是缅因！
+
+   .. grid-item::
+
+      .. figure:: /_images/2025-changelog/微信图片_20260628154841.jpg
+
+         脸小小所以大声嚷嚷眼睛会皱起来
+
+   .. grid-item::
+
+      .. figure:: /_images/2025-changelog/微信图片_20260628154847.jpg
+
+         标准脸小猫
+
+   .. grid-item::
+
+      .. figure:: /_images/2025-changelog/微信图片_20260628154043.jpg
+
+         现在已经是一只标致中猫了
+
+刘辉羽毛球周训
+--------------
+
+离开大柳之后
 
 失乐园
 ------
