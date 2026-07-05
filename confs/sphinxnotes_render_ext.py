@@ -34,4 +34,16 @@ DATA_DEFINE_DIRECTIVES = {
    <script>window.location.href = "{{ name }}";</script>"""
         },
     },
+
+    'ghcard': {
+        'schema': {
+            'name': 'str',
+        },
+        'template': {
+            'text': """
+.. image:: https://gh-card.dev/repos/{{ name }}.svg?fullname=
+   :target: https://github.com/{{ name }}
+   :align: center"""
+        },
+    }
 }
