@@ -36,3 +36,4 @@ pyyaml
 sphinxnotes-poc@git+https://github.com/sphinx-notes/poc.git@master
 shibuya==2026.1.9
 sphinxnotes-render@git+https://github.com/sphinx-notes/render.git@master
+sphinxnotes-project
