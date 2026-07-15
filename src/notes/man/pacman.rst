@@ -4,9 +4,10 @@ Pacman
 
 .. highlight:: console
 
-清除包缓存（保留最近一次）::
+清除包缓存（未安装包清除，已安装保留最近一次，两个命令不可合并）::
 
-    # paccache -rk1 -ruk0
+    # paccache -rk1
+    # paccache -ruk0
 
 列出未使用的包::
 
