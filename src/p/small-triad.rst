@@ -63,6 +63,27 @@
       和弦加旋律
    
 高把位
-   .. todo:: 高把位
+   .. lily::
+
+      \version "2.24.0"
+
+      \include "small-triads.ly"
+      \highPositionTriads
+
+      the-triads = \chordmode {
+         c/g d:m/a e:m/g f/a g a:m
+      }
+
+      \score {
+        <<
+         \new FretBoards \the-triads
+         \new Voice = "chords" \the-triads
+         \new ChordNames \the-triads
+         \new Lyrics \lyricsto "chords" {
+            \override LyricText.font-size = #-1
+            "5 1 3" "6 2 4" "5 7 3" "6 1 4" "5 7 2" "6 1 3"
+         }
+        >>
+      }
 
 .. todo:: 3-note 7th chords
