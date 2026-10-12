@@ -16,6 +16,7 @@ src/in
 
 # Python
 __pycache__
+.venv/
 
 # Sphinx-intl
 locale/

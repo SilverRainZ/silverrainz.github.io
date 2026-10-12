@@ -1,0 +1,60 @@
+# Not a Python package, just a PEP 735 dependency group for building docs.
+#
+# - Locally: install deps by `uv sync` (see also uv.lock), run Sphinx by `uv run`
+# - CI: installed by `pip install --group` (see .github/workflows/gh-pages.yml)
+#
+# TIP: Use patched requirement::
+#
+#   name @ git+https://example.com/foo/bar.git
+#
+# See: https://pip.pypa.io/en/stable/topics/vcs-support/
+
+[project]
+name = "bullet"
+version = "0.0.0"
+description = "Fully structured note-taking system of SilverRainZ."
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+docs = [
+    "sphinx>=9.1",
+    "sphinxcontrib-email",
+    "sphinxcontrib-images>=0.9.3",
+    "sphinxnotes-lilypond>=2.0.0",
+    "sphinxnotes-any @ git+https://github.com/sphinx-notes/any.git@master",
+    "sphinx-design",
+    # https://github.com/sunpy/ablog/issues/310
+    "ablog @ git+https://github.com/SilverRainZ/ablog-with-shibuya@master",
+    # https://github.com/sphinx-doc/sphinx-autobuild/pull/143
+    "sphinx-autobuild @ git+https://github.com/SilverRainZ/sphinx-autobuild.git",
+    "sphinxcontrib-gtagjs",
+    "sphinxnotes-picker",
+    "sphinxnotes-strike",
+    "sphinxnotes-isso>=2.0a2",
+    "sphinx-sitemap",
+    "sphinxcontrib-plantuml",
+    "sphinxcontrib-asciinema",
+    "sphinx-reredirects",
+    "sphinxnotes-recentupdate>=2.0a0",
+    "sphinxnotes-mock",
+    "sphinxext-opengraph",
+    "matplotlib", # for generating social cards
+    "sphinx-copybutton",
+    "sphinx-notfound-page",
+    "sphinxcontrib-youtube",
+    "sphinx-last-updated-by-git",
+    "sphinxnotes-comboroles",
+    "sphinxcontrib-globalsubs>=1.0.0",
+    "sphinx-simplepdf",
+    "sphinxnotes-fasthtml",
+    "pyyaml",
+    "sphinxnotes-poc @ git+https://github.com/sphinx-notes/poc.git@master",
+    "shibuya==2026.1.9",
+    "sphinxnotes-render @ git+https://github.com/sphinx-notes/render.git@master",
+    "sphinxnotes-project",
+]
+
+[tool.uv]
+package = false
+default-groups = ["docs"]

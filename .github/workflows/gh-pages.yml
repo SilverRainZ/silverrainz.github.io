@@ -47,7 +47,9 @@ jobs:
       uses: sphinx-notes/pages@v3
       with:
         documentation_path: src
-        requirements_path: ./requirements.txt
+        requirements_path: ''
+        pyproject_extras: ''
+        pyproject_group: docs
         sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.14

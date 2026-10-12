@@ -4,8 +4,8 @@
 
 source "$(dirname $0)/common.sh"
 
-# See also ../requirements.txt.
-sphinxautobuild=/home/la/.local/bin/sphinx-autobuild
+# See also ../pyproject.toml.
+sphinxautobuild="uv run sphinx-autobuild"
 host=localhost
 port=30500
 
