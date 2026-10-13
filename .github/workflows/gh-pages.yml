@@ -50,6 +50,9 @@ jobs:
         requirements_path: ''
         pyproject_extras: ''
         pyproject_group: docs
+        # Requires https://github.com/sphinx-notes/pages/pull/61,
+        # harmless (ignored with a warning) before it is merged.
+        installer: uv
         sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.14
