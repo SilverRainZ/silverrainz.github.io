@@ -44,10 +44,17 @@ jobs:
         ref: ${{ steps.branch-names.outputs.current_branch }}
         fetch-depth: 0
     - id: deployment
-      uses: sphinx-notes/pages@v3
+      # TEMP: test https://github.com/sphinx-notes/pages/pull/61,
+      # switch back to sphinx-notes/pages@v3 once it is merged.
+      uses: arunoruto/sphinx-pages@0ecfeff33f8c4f11fe1dca4179f584bb169e01dd
       with:
         documentation_path: src
-        requirements_path: ./requirements.txt
+        requirements_path: ''
+        pyproject_extras: ''
+        pyproject_group: docs
+        # Requires https://github.com/sphinx-notes/pages/pull/61,
+        # harmless (ignored with a warning) before it is merged.
+        installer: uv
         sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.14

@@ -39,18 +39,19 @@ You MUST have following programs installed:
 
 - Git
 - GNU make
-- Python>=3.14
-- Sphinx>=9.1
+- uv_
 
-Install python package dependencies by the following commmands::
+Python (>=3.14) and python package dependencies (including Sphinx>=9.1) are
+managed by uv, install them by the following commmands::
 
-   pip3 install --user -r requirements.txt
+   uv sync
 
 I developed `series of sphinx extensions`_ for my note-taking system.
-You can found them in the requirements.txt_:
+You can found them in the pyproject.toml_:
 
+.. _uv: https://docs.astral.sh/uv/
 .. _series of sphinx extensions: https://github.com/sphinx-notes
-.. _requirements.txt: requirements.txt
+.. _pyproject.toml: pyproject.toml
 
 The following programs are OPTIONAL if you don’t need to build various contents
 embedded in the documentation:
