@@ -49,6 +49,7 @@ jobs:
         documentation_path: src
         pyproject_extras: ''
         pyproject_group: docs
+        pypi_installer: uv
         sphinx_build_options: --conf-dir .
         cache: true
         python_version: 3.14
