@@ -16,6 +16,8 @@ src/in
 
 # Python
 __pycache__
+.venv/
+uv.lock
 
 # Sphinx-intl
 locale/

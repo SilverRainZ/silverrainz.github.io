@@ -4,8 +4,8 @@
 # You can set these variables from the command line, and also
 # from the environment for the first two.
 SPHINXOPTS    ?= -j auto
-SPHINXBUILD   ?= python3 -msphinx
-SPHINXSERV    ?= sphinx-autobuild
+SPHINXBUILD   ?= uv run -m sphinx
+SPHINXSERV    ?= uv run sphinx-autobuild
 CONFIGDIR     = .
 SOURCEDIR     = src
 BUILDDIR      = build
