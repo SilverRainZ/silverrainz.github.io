@@ -11,6 +11,9 @@ Github 万圣节彩蛋
 .. grid:: 1 1 2 2
    :gutter: 1
 
+   .. grid-item-card:: 2026
+      :img-bottom: /_images/Firefox_Screenshot_2026-10-31T15-44-21.484Z.png
+
    .. grid-item-card:: 2025
       :img-bottom: /_images/Firefox_Screenshot_2025-10-31T04-46-03.092Z.png
 
