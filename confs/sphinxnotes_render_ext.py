@@ -35,6 +35,30 @@ DATA_DEFINE_DIRECTIVES = {
         },
     },
 
+    'audio': {
+        'schema': {
+            'name': 'str',
+            'attrs': {
+                'align': 'str',
+            },
+            'content': 'str',
+        },
+        'template': {
+            'text': """
+{% set alignment = align if align in ('left', 'center', 'right') else 'left' %}
+{% set margin = {'left': '0 auto 0 0', 'center': '0 auto', 'right': '0 0 0 auto'}[alignment] %}
+.. raw:: html
+
+   <figure style="text-align: {{ alignment }};">
+     <audio controls preload="metadata" src="{{ name | e }}"
+            style="display: block; margin: {{ margin }}; max-width: 100%;"></audio>
+     {% if content %}
+     <figcaption>{{ content | e | indent(5) }}</figcaption>
+     {% endif %}
+   </figure>""",
+        },
+    },
+
     'ghcard': {
         'schema': {
             'name': 'str',
